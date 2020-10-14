@@ -1,4 +1,4 @@
-# [Git Hub Issue Number](GitHub Issues URL)
+# [Issue #](https://github.com/rachellegelden/Home-Together-Canada/issues/<issue number>)
 
 ## Summary
 Please include a summary of the change and which issue is fixed
@@ -20,7 +20,7 @@ Please provide any instructions required to test this change
 - [ ] Unit tests pass
 - [ ] Automation tests pass 
 
-## Reviewer: (Name)
+## Reviewer
 - [ ] Checkout and launch this branch locally
 - [ ] Review code structure
 - [ ] Review test coverage
