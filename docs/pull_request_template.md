@@ -1,4 +1,4 @@
-# [Ticket #](https://github.com/rachellegelden/Home-Together-Canada/issues/<issue number>)
+# [Issue #](https://github.com/rachellegelden/Home-Together-Canada/issues/<issue number>)
 
 ## Summary
 Please include a summary of the change and which issue is fixed
