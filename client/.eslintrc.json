@@ -17,6 +17,8 @@
     "plugins": [
         "react"
     ],
+    "extends": ["eslint:recommended", "plugin:react/recommended"
+    ],
     "rules": {
         "react/jsx-uses-react": "warn",
         "react/jsx-uses-vars": "warn"
