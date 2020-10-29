@@ -1,9 +1,14 @@
 language: node_js
 node_js:
-  - 'stable'
+- stable
 install:
-  - npm install
-  - cd client
-  - npm install
-  - cd ..
+- npm install
+- cd client
+- npm install
+- cd ..
 script: npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: XvVLJKb8nYo5zCbvt15MIKtXLAUTrIOgKRlHhUUlDV2IhnNy7ZiL0As2niQx6iydFt+CQvEhfbG0y+X0JAkTAjR0ISxwvEou26YnETgRqbg9sqjGkOfSQAqpaGJoDHwGUhIWfmNDPdEcEegsdXx5yaS3cKI9+Ui3DdJ5W3a2WqMlBnkwfNFoTr0GllKckGaRt9YvFD87+VJlZmjpYxPFiXZALhroDNB451Qz1vSpoTqQI93JV6s1FgvHhmUGkzfEZwqKvaqAtRePiAxqGCBGVA7NNPlTc27rlDUfNGsoYCjDOED0s9xbYeC4WFUxqi9vyP6lkuqHv3pKaYt8wq1fTsxrHasrYQ2UcbTqKKF2k4eDPTy/JrFqj03WqJdnSbPYtRb2b5xN5Rr/NI+gSaIm37uQyIQprO4kJ2bEcKjw5XPceMAgoNWWrm71mZVT+pQzRabKyMIVT/LP9XleDlrmBCicHiV0+uK9Vm6Ykl/fUWjEZzcSZplu8rcZMW/Ts3+OiBwnfpl9VUEBZSL1Oi90MgCdPAxWUjC8mMBZMKD19lpPMvsOdoYxCQtMtGG2avJbgZgkJL8T3TgKTFX+fd0uFBKcCl2IZ8jnqOIQAFwtnf+q5MogbK6kWlKTB3taoWX1uk2gSEpHhrAGzBb9y6y77JhDlzmdf+vWocjJG376Qrg=
+  on: dev
