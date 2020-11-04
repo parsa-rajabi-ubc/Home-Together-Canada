@@ -20,6 +20,11 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
 
+      primary: '#384259',
+      secondary: '#f73859',
+      alt: '#7ac7c4',
+      altLight: '#c4edde',
+
       black: '#000',
       white: '#fff',
 
