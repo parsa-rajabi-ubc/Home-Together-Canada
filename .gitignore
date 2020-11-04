@@ -5,6 +5,10 @@ node_modules/
 /client/.pnp
 .pnp.js
 
+#CSS
+src/tailwind.output.css
+**.output.css
+
 # testing
 /client/coverage
 
