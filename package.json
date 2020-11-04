@@ -24,9 +24,7 @@
       "!**/serviceWorker.js",
       "!**/index.js"
     ],
-    "setupFiles": [
-      "<rootDir>/client/src/setupTests.js"
-    ],
+    "setupFiles": ["<rootDir>/client/src/setupTests.js"],
     "projects": [
       {
         "displayName": "server",
