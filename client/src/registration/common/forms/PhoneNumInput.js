@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 function PhoneNumInput(props){
     return(
@@ -17,6 +18,9 @@ function PhoneNumInput(props){
             </label>
         </div>
     );
+}
+PhoneNumInput.PropTypes = {
+    label: PropTypes.string.isRequired
 }
 
 export default PhoneNumInput

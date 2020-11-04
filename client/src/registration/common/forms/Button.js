@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from "prop-types";
+
 
 function Button(props){
     return(
@@ -7,6 +9,10 @@ function Button(props){
             <input type="button" value={props.value} />
         </label>
     );
+}
+Button.PropTypes = {
+    label: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired
 }
 
 export default Button
