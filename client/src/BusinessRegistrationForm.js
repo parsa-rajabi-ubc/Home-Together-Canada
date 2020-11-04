@@ -8,44 +8,20 @@ import {SubmitButton} from './SubmitButton';
 export function BusinessRegistrationForm(){
 
         return (
-            <div className="wrapper">
+            <div>
                 <h1>Business Registration Form</h1>
                 <hr/>
                 <form>
                     <h2>Business Details</h2>
-                    <div>
                         <TextArea label="Business Name: " placeholder="" />
-                    </div>
-                    <div>
                         <TextArea label="Business Email: " placeholder="" />
-                    </div>
-                    <div>
-                        <TextArea label="Business Telephone Number: " placeholder="555" />
-                        <TextArea label=" " placeholder="555" />
-                        <TextArea label=" " placeholder="5555" />
-                    </div>
-                    <div>
-                        <TextArea label="Business Cell Phone Number: " placeholder="555" />
-                        <TextArea label=" " placeholder="555" />
-                        <TextArea label=" " placeholder="5555" />
-                    </div>
-                    <div>
-                        <TextArea label="Business Address: " placeholder="Street Address" />
-                        <TextArea label=" " placeholder="(Opt) Apt, suite, floor # etc" />
-                        <TextArea label=" " placeholder="City" />
-                        <ProvinceDropdown label="Select Province or Territory: "/>
-                        <TextArea label=" " placeholder="Postal Code" />
-                    </div>
+                        <PhoneNumInput label="Business Telephone Number: "/>
+                        <PhoneNumInput label="Business Cell Phone Number: "/>
+                        <Address label="Business Address: "/>
                     <div>
                         <Checkbox label="Different Mailing Address?: " />
                     </div>
-                    <div>
-                        <TextArea label="Address Shown on Map: " placeholder="Street Address" />
-                        <TextArea label=" " placeholder="(Opt) Apt, suite, floor # etc" />
-                        <TextArea label=" " placeholder="City" />
-                        <ProvinceDropdown label="Select Province or Territory: "/>
-                        <TextArea label=" " placeholder="Postal Code" />
-                    </div>
+                        <Address label="Address Shown on Map: "/>
                     <div>
                         <Checkbox label="Nation wide? " />
                         <span>Select nationwide if your service spans across Canada</span>
@@ -53,34 +29,15 @@ export function BusinessRegistrationForm(){
                     <div>
                         <Button label="Business Logo: " value="Upload File" />
                     </div>
-                    <div>
                         <TextArea label="Business Website: " placeholder="" />
-                    </div>
-
                     <hr/>
                     <h2>Contact Person Details</h2>
-                    <div>
                         <TextArea label="First Name: " placeholder="" />
-                    </div>
-                    <div>
                         <TextArea label="Last Name: " placeholder="" />
-                    </div>
-                    <div>
-                        <TextArea label="Contact Phone Number: " placeholder="555" />
-                        <TextArea label=" " placeholder="555" />
-                        <TextArea label=" " placeholder="5555" />
-                    </div>
+                        <PhoneNumInput label="Contact Phone Number: "/>
                     <hr/>
                     <h2>Account Details</h2>
-                    <div>
-                        <TextArea label="Username: " placeholder="" />
-                    </div>
-                    <div>
-                        <TextArea label="Password: " placeholder="8-20 Characters" />
-                    </div>
-                    <div>
-                        <TextArea label="Confirm Password: " placeholder="Must match above" />
-                    </div>
+                        <SignInInfo/>
                     <div>
                         <SubmitButton label="Next: " />
                     </div>
@@ -90,10 +47,12 @@ export function BusinessRegistrationForm(){
         );
     function TextArea(props){
         return(
+            <div>
                 <label>
                     {props.label}
                     <input type="text" placeholder={props.placeholder} />
                 </label>
+            </div>
         );
     }
     function Checkbox(props){
@@ -140,6 +99,65 @@ export function BusinessRegistrationForm(){
                     <option value="yukon">Yukon</option>
                 </select>
             </label>
+        );
+    }
+    function Address(props){
+        return(
+            <div>
+                <label>
+                    {props.label}
+                    <input type="text" placeholder="Street Address" />
+                </label>
+                <label>
+                    Optional:
+                    <input type="text" placeholder="Apt, suite, floor # etc" />
+                </label>
+                <label>
+
+                    <input type="text" placeholder="City" />
+                </label>
+                <ProvinceDropdown label="Select Province or Territory: "/>
+                <label>
+
+                    <input type="text" placeholder="Postal Code" />
+                </label>
+            </div>
+        );
+    }
+    function PhoneNumInput(props){
+        return(
+            <div>
+                <label>
+                    {props.label}
+                    <input type="text" placeholder="555" />
+                </label>
+                <label>
+                    -
+                    <input type="text" placeholder="555" />
+                </label>
+                <label>
+                    -
+                    <input type="text" placeholder="5555" />
+                </label>
+            </div>
+        );
+    }
+    function SignInInfo(){
+        return(
+            <div>
+                <label>
+                    Username:
+                    <input type="text" placeholder="" />
+                </label>
+                <label>
+                    Password:
+                    <input type="text" placeholder="" />
+                </label>
+                <label>
+                    Confirm Password:
+                    <input type="text" placeholder="" />
+                </label>
+            </div>
         );
     }
 }
