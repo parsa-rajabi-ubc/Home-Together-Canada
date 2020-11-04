@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function SubmitButton(props){
+function SubmitButton(props){
     return(
         <label>
             {props.label}
@@ -8,3 +8,5 @@ export function SubmitButton(props){
         </label>
     );
 }
+
+export default SubmitButton

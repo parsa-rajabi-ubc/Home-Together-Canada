@@ -1,10 +1,12 @@
 import React from 'react';
 
-export function TextArea(props){
+function Checkbox(props){
     return(
         <label>
             {props.label}
-            <input type="text" placeholder={props.placeholder} />
+            <input type="checkbox" value="1" />
         </label>
     );
 }
+
+export default Checkbox

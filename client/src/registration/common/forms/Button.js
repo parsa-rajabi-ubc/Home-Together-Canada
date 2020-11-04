@@ -1,10 +1,12 @@
 import React from 'react';
 
-export function Checkbox(props){
+function Button(props){
     return(
         <label>
             {props.label}
-            <input type="checkbox" value="1" />
+            <input type="button" value={props.value} />
         </label>
     );
 }
+
+export default Button
