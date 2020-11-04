@@ -21,7 +21,7 @@ const Header = () => {
                     <a href="#">FAQ </a>
                 </nav>
                 <div>
-                    <span> <button href="#"> Sign in </button> </span>
+                    <span> <button href="#"> Login </button> </span>
                     <span> <button href="#"> Sign Up </button> </span>
                 </div>
             </div>
