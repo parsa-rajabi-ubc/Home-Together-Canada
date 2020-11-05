@@ -9,7 +9,7 @@ function Checkbox(props){
         </label>
     );
 }
-Checkbox.PropTypes = {
+Checkbox.propTypes = {
     label: PropTypes.string.isRequired
 }
 

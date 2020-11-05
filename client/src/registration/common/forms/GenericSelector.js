@@ -1,5 +1,6 @@
 import React from 'react';
 import Select from 'react-select';
+import PropTypes from "prop-types";
 
 // takes Nx2 Array as props
 function GenericSelector(props) {
@@ -16,6 +17,9 @@ function GenericSelector(props) {
             }}
         />
     );
+}
+GenericSelector.propTypes = {
+    options: PropTypes.array.isRequired
 }
 
 export default GenericSelector

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import Button from "./Button";
 
 function TextArea(props){
     return(
@@ -10,7 +9,7 @@ function TextArea(props){
         </label>
     );
 }
-Button.PropTypes = {
+TextArea.propTypes = {
     label: PropTypes.string.isRequired,
     placeholder: PropTypes.string.isRequired
 }

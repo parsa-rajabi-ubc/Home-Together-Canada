@@ -10,7 +10,7 @@ function Button(props){
         </label>
     );
 }
-Button.PropTypes = {
+Button.propTypes = {
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired
 }

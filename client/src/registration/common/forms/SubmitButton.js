@@ -10,7 +10,7 @@ function SubmitButton(props){
     );
 }
 
-SubmitButton.PropTypes = {
+SubmitButton.propTypes = {
     label: propTypes.string.isRequired
 }
 

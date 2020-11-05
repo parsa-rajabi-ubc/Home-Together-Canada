@@ -19,7 +19,7 @@ function PhoneNumInput(props){
         </div>
     );
 }
-PhoneNumInput.PropTypes = {
+PhoneNumInput.propTypes = {
     label: PropTypes.string.isRequired
 }
 

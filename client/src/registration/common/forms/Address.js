@@ -1,6 +1,7 @@
 import provinces from "./formUtils";
 import React from "react";
 import GenericSelector from "./GenericSelector";
+import PropTypes from "prop-types";
 
 function Address(props){
     const provs = provinces
@@ -25,6 +26,9 @@ function Address(props){
             </label>
         </div>
     );
+}
+Address.propTypes = {
+    label: PropTypes.string.isRequired
 }
 
 export default Address
