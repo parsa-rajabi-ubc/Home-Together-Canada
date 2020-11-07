@@ -1,5 +1,3 @@
-import '@testing-library/jest-dom/extend-expect';
-import "jest-dom/extend-expect";
-import '@testing-library/jest-dom/extend-expect';
-import '@testing-library/jest-dom'
-import {toBeInTheDocument, toHaveClass} from '@testing-library/jest-dom'
+// Hack for mysql2 and jest to play nice. See https://github.com/sidorares/node-mysql2/issues/489
+require('mysql2/node_modules/iconv-lite').encodingExists('foo');
+
