@@ -1,12 +1,13 @@
 import React from 'react';
-import TextArea from './registration/common/forms/TextArea';
-import Checkbox from './registration/common/forms/Checkbox';
-import Button from './registration/common/forms/Button';
-import SubmitButton from './registration/common/forms/SubmitButton';
-import Address from "./registration/common/forms/Address";
-import SignInInfo from "./registration/common/forms/SignInInfo";
-import PhoneNumInput from "./registration/common/forms/PhoneNumInput";
+import TextArea from '../common/forms/TextArea';
+import Checkbox from '../common/forms/Checkbox';
+import Button from '../common/forms/Button';
+import SubmitButton from '../common/forms/SubmitButton';
+import Address from "../common/forms/Address";
+import SignInInfo from "../common/forms/SignInInfo";
+import PhoneNumInput from "../common/forms/PhoneNumInput";
 
+//Returns a Form with fields
 export function BusinessRegistrationForm(){
         return (
             <div>
@@ -19,17 +20,13 @@ export function BusinessRegistrationForm(){
                         <PhoneNumInput label="Business Telephone Number: "/>
                         <PhoneNumInput label="Business Cell Phone Number: "/>
                         <Address label="Business Address: "/>
-                    <div>
                         <Checkbox label="Different Mailing Address?: " />
-                    </div>
                         <Address label="Address Shown on Map: "/>
                     <div>
                         <Checkbox label="Nation wide? " />
                         <span>Select nationwide if your service spans across Canada</span>
                     </div>
-                    <div>
                         <Button label="Business Logo: " value="Upload File" />
-                    </div>
                         <TextArea label="Business Website: " placeholder="" />
                     <hr/>
                     <h2>Contact Person Details</h2>
@@ -39,9 +36,7 @@ export function BusinessRegistrationForm(){
                     <hr/>
                     <h2>Account Details</h2>
                         <SignInInfo/>
-                    <div>
                         <SubmitButton label="Next: " />
-                    </div>
                     <hr/>
                 </form>
             </div>

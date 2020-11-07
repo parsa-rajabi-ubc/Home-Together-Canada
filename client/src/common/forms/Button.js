@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
-
+//returns generic Button field for a form with a label
 function Button(props){
     return(
         <label>

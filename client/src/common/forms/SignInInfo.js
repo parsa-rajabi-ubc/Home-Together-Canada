@@ -1,5 +1,6 @@
 import React from "react";
 
+//returns generic Sign in form fields
 function SignInInfo(){
     return(
         <div>

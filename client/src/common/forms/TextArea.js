@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
+//returns generic textbox field for a form with a label
 function TextArea(props){
     return(
         <label>
