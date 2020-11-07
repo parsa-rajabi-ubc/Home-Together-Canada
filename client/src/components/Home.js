@@ -19,7 +19,7 @@ const Home = () => {
                 <div>
                     <div>
                         <button href="#">
-                            Sign Up
+                            Join Us
                         </button>
                     </div>
                     <div>
