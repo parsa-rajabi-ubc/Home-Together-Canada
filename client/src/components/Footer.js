@@ -1,3 +1,6 @@
+// Component Description:
+// This component is the footer for the website which contains a link to About, FAQ, Contact Us and Comment and Concerns Form"
+
 import React from 'react';
 import '../tailwind.output.css';
 
