@@ -3,15 +3,17 @@ import PropTypes from "prop-types";
 
 //returns generic Checkbox field for a form with a label
 function Checkbox(props){
+    const { label, onChange } = props;
     return(
         <label>
-            {props.label}
-            <input type="checkbox" value="1" />
+            {label}
+            <input type="checkbox" onChange={onChange} />
         </label>
     );
 }
 Checkbox.propTypes = {
-    label: PropTypes.string.isRequired
+    label: PropTypes.string.isRequired,
+    onChange: PropTypes.func
 }
 
 export default Checkbox
