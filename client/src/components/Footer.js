@@ -4,7 +4,7 @@ import '../tailwind.output.css';
 
 const Footer = () => {
     return (
-        <>
+        <div>
             <footer>
                 <a href="#">About Us </a>
                 <a href="#">FAQ </a>
@@ -14,7 +14,7 @@ const Footer = () => {
             <div>
                 <p> Home Together Canada 2020 - All Rights Received</p>
             </div>
-        </>
+        </div>
     )
 }
 
