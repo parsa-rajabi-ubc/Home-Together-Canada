@@ -1,31 +1,51 @@
 import React from 'react';
 import '../tailwind.output.css';
-import logo from '../images/logo.png';
 
 const Header = () => {
     return (
-        <>
-            <div className="relative">
-                <div>
-                    <a href="#" className="flex">
-                        <img src={logo} alt="Home Together Canada">
-                        </img>
-                        <a href="#">Home Together Canada</a>
-                    </a>
-                </div>
-                <nav>
-                    <a href="#">Connect with Members </a>
-                    <a href="#">Services </a>
-                    <a href="#">Classifieds </a>
-                    <a href="#">About Us </a>
-                    <a href="#">FAQ </a>
-                </nav>
-                <div>
-                    <span> <button href="#"> Login </button> </span>
-                    <span> <button href="#"> Sign Up </button> </span>
+        <div>
+            <div className="realtive">
+                <div className="">
+                    <div className="flex justify-between items-center">
+                        <div>
+                            <a href="#" className="flex">
+                                Home Together Canada
+                            </a>
+                        </div>
+                        <nav className="md:flex space-x-10">
+                            <a href="#">
+                                Connect with Members
+                            </a>
+                            <a href="#">
+                                Services
+                            </a>
+                            <a href="#">
+                                Classifieds
+                            </a>
+                            <a href="#">
+                                About Us
+                            </a>
+                            <a href="#">
+                                FAQ
+                            </a>
+                        </nav>
+
+                        <div>
+                            {/*TODO: Add href to login page*/}
+                            <button href="#"
+                                    className="border">
+                                Login
+                            </button>
+                            {/*TODO: Add href to registration page*/}
+                            <button href="#"
+                                    className="border">
+                                Sign Up
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
