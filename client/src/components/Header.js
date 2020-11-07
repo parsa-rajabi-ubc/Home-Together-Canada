@@ -1,3 +1,6 @@
+// Component Description:
+// This component is the header for the website which contains links to Connect with Members, Services, Classifieds, About Us and Account Page
+
 import React from 'react';
 import '../tailwind.output.css';
 
