@@ -28,17 +28,14 @@
       "!**/serviceWorker.js",
       "!**/index.js"
     ],
-    "setupFiles": [
-      "<rootDir>/client/src/setupTests.js"
-    ],
+    "setupFiles": ["<rootDir>/client/src/setupTests.js"],
     "projects": [
       {
         "displayName": "server",
         "testEnvironment": "node",
         "testMatch": [
           "<rootDir>/server/**/*.test.js"
-        ],
-        "setupFilesAfterEnv": ["./jest.setup.js"]
+        ]
       },
       {
         "displayName": "client",
@@ -50,9 +47,6 @@
           "js",
           "json",
           "jsx"
-        ],
-        "setupFiles": [
-          "<rootDir>/client/src/setupTests.js"
         ],
         "moduleNameMapper": {
           "\\.(jpg|jpeg|png|gif|svg|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
