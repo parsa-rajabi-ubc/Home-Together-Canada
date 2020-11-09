@@ -1,5 +1,10 @@
-// Component Description:
-// This component is the landing page for the website which contains a picture and some info about Home Together Canada
+/**
+ * @Author:     Parsa Rajabi
+ * @Created:    2020.11.09
+ *
+ * @Description: landing page for the website which contains a picture and some info about Home Together Canada
+ *
+ */
 
 import React from 'react';
 import '../tailwind.output.css';
