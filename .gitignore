@@ -11,6 +11,9 @@ node_modules/
 # production
 /client/build
 
+# development
+/server/personalConfig
+
 # misc
 .DS_Store
 .env.local
