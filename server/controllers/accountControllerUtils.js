@@ -1,3 +1,10 @@
+/**
+ * @Author:     Rachelle Gelden
+ * @Created:    2020.11.09
+ *
+ * @Description: utility functions to abstract manipulation of data in accountControllers
+ *
+ */
 const getMailingAddress = (body) => {
     return body.hasDifferentMailingAddress ?
         {

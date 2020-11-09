@@ -1,3 +1,10 @@
+/**
+ * @Author:     Rachelle Gelden
+ * @Created:    2020.11.09
+ *
+ * @Description: controllers to interact with the different account models
+ *
+ */
 
 const db = require("../models");
 const accountControllerUtils = require("./accountControllerUtils");
@@ -53,13 +60,12 @@ const findAbstractUser = (req, res) => {
         })
         .catch(err => {
             res.status(500).send({
-                message: "Error retrieving user with id=" + uid
+                message: err.message || "Error retrieving user with id=" + uid
             });
-        })
+        });
 }
 
 const findAllAbstractUsers = (req, res) => {
-
     AbstractUser.findAll()
         .then(data => {
             res.send(data);
@@ -70,7 +76,7 @@ const findAllAbstractUsers = (req, res) => {
                     err.message || "Some error occurred while retrieving tutorials."
             });
         });
-};
+}
 
 module.exports = {
     createAbstractUser,

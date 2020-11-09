@@ -1,3 +1,11 @@
+/**
+ * @Author:     Rachelle Gelden
+ * @Created:    2020.11.09
+ *
+ * @Description: initial setup required for express app to interact with the database
+ *
+ */
+
 const { DataTypes, Sequelize } = require('sequelize');
 const env = process.env.NODE_ENV || 'development';
 const dbConfig = require(__dirname + '/../db.config.js')[env];
@@ -7,14 +15,9 @@ const sequelize = new Sequelize({
     username: dbConfig.USER,
     password: dbConfig.PASSWORD,
     host: dbConfig.HOST,
-    port: dbConfig.port,
-    pool: {
-        max: dbConfig.pool.max,
-        min: dbConfig.pool.min,
-        acquire: dbConfig.pool.acquire,
-        idle: dbConfig.pool.idle
-    },
-    dialect: dbConfig.dialect
+    port: dbConfig.PORT,
+    pool: dbConfig.POOL,
+    dialect: dbConfig.DIALECT
 })
 
 const db = {};

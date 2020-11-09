@@ -1,3 +1,12 @@
+/**
+ * @Author:     Rachelle Gelden
+ * @Created:    2020.11.09
+ *
+ * @Description: mock http request used to create an abstract user
+ * Note: this will probably be change because abstract user will be created with the business/member account
+ *
+ */
+
 const req = {
     body: {
         addressLine1: "2 Luigi's mansion",

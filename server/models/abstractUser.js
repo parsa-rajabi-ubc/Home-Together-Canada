@@ -1,3 +1,11 @@
+/**
+ * @Author:     Rachelle Gelden
+ * @Created:    2020.11.09
+ *
+ * @Description: model for Abstract User
+ *
+ */
+
 // the fields createdAt and updatedAt are added to every model by sequelize and are automatically managed
 module.exports = (DataTypes, sequelize) => {
     const AbstractUser = sequelize.define("AbstractUser", {
