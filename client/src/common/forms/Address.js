@@ -20,7 +20,8 @@ function Address(props){
 
                 <input type="text" placeholder="City" />
             </label>
-            <GenericSelector options={provs}/>
+            {/*TODO: Reaplce this dropdown*/}
+            {/*<GenericSelector options={provs}/>*/}
             <label>
 
                 <input type="text" placeholder="Postal Code" />
