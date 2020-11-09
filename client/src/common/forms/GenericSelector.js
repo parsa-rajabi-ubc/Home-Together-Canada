@@ -8,13 +8,14 @@ function GenericSelector(props) {
     const [option, setOption] = React.useState(options[0]);
 
     return (
-        <Select
-            options={options}
-            value={option}
-            onChange={(value) => {
-                setOption(value);
-            }}
-        />
+        <div/>
+        // <Select
+        //     options={options}
+        //     value={option}
+        //     onChange={(value) => {
+        //         setOption(value);
+        //     }}
+        // />
     );
 }
 GenericSelector.propTypes = {
