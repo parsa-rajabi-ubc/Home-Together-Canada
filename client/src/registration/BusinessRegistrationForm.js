@@ -8,8 +8,9 @@ import SignInInfo from "../common/forms/SignInInfo";
 import PhoneNumInput from "../common/forms/PhoneNumInput";
 
 //Returns a Form with fields
-export function BusinessRegistrationForm() {
+function BusinessRegistrationForm() {
     const [isSameAddress, setIfSameAddress] = useState(false);
+    const [isNationWide, setIfNationWide] = useState(false);
     return (
         <div>
             <h1>Business Registration Form</h1>
@@ -24,9 +25,11 @@ export function BusinessRegistrationForm() {
                 <Checkbox label="Different Mailing Address? " onChange= {() => {setIfSameAddress(isSameAddress => !isSameAddress)}}/>
                 {isSameAddress && <Address label="Mailing Address: "/>}
                 <div>
-                    <Checkbox label="Nation wide? " onChange={onchange}/>
-                    <Address label="Address Shown on Map: "/>
                     <span>Select nationwide if your service spans across Canada</span>
+                    <div>
+                    <Checkbox label="Nation wide? " onChange= {() => {setIfNationWide(isNationWide => !isNationWide)}}/>
+                    {!isNationWide && <Address label="Address Shown on Map: "/>}
+                    </div>
                 </div>
                 <Button label="Business Logo: " value="Upload File"/>
                 <TextArea label="Business Website: " placeholder=""/>
@@ -44,3 +47,4 @@ export function BusinessRegistrationForm() {
         </div>
     );
 }
+export default BusinessRegistrationForm;
