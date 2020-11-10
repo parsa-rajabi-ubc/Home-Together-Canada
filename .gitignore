@@ -5,6 +5,10 @@ node_modules/
 /client/.pnp
 .pnp.js
 
+#CSS
+src/tailwind.output.css
+**.output.css
+
 # testing
 /client/coverage
 
@@ -16,6 +20,7 @@ node_modules/
 
 # misc
 .DS_Store
+**/.DS_Store
 .env.local
 .env.development.local
 .env.test.local
