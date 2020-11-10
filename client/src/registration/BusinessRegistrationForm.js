@@ -10,8 +10,7 @@ import PhoneNumInput from "../common/forms/PhoneNumInput";
 //Returns a Form with fields
 function BusinessRegistrationForm() {
     const [isSameAddress, setIfSameAddress] = useState(false);
-    const [isNationWide, isNotNationWide] = useState(true);
-
+    const [isNationWide, setIfNationWide] = useState(false);
     return (
         <div>
             <h1>Business Registration Form</h1>
@@ -28,8 +27,8 @@ function BusinessRegistrationForm() {
                 <div>
                     <span>Select nationwide if your service spans across Canada</span>
                     <div>
-                    <Checkbox label="Nation wide? " onChange= {() => {isNotNationWide(isNationWide => !isNationWide)}}/>
-                    {isNationWide && <Address label="Address Shown on Map: "/>}
+                    <Checkbox label="Nation wide? " onChange= {() => {setIfNationWide(isNationWide => !isNationWide)}}/>
+                    {!isNationWide && <Address label="Address Shown on Map: "/>}
                     </div>
                 </div>
                 <Button label="Business Logo: " value="Upload File"/>
