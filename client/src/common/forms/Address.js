@@ -1,11 +1,10 @@
 import provinces from "./formUtils";
 import React from "react";
-import GenericSelector from "./GenericSelector";
+import Dropdown from "./Dropdown";
 import PropTypes from "prop-types";
 
 //returns generic address set of fields for a form with a label
 function Address(props){
-    const provs = provinces
     return(
         <div>
             <label>
@@ -14,14 +13,13 @@ function Address(props){
             </label>
             <label>
                 Optional:
-                <input type="text" placeholder="Apt, suite, floor # etc" />
+                <input type="text" placeholder="Apt, suite, floor # etc." />
             </label>
             <label>
 
                 <input type="text" placeholder="City" />
             </label>
-            {/*TODO: Reaplce this dropdown*/}
-            {/*<GenericSelector options={provs}/>*/}
+            <Dropdown title={"Province"} items={provinces}/>
             <label>
 
                 <input type="text" placeholder="Postal Code" />
