@@ -9,8 +9,7 @@
 
 import React, {useState} from 'react';
 import PropTypes from "prop-types";
-// TODO: uncomment line below and install react-onclickoutsite to enable feature of onClickOutside function
-// import onClickOutside from 'react-onclickoutside';
+
 
 
 function Dropdown({title, items, multiSelect = false}) {
@@ -87,10 +86,6 @@ function Dropdown({title, items, multiSelect = false}) {
     );
 }
 
-//TODO: this function requires react-onclickoutside to be installed, for this to happen we need to downgrade to react 16.X
-const clickOutsideConfig = {
-    handleClickOutside: () => Dropdown.handleClickOutside,
-};
 
 
 Dropdown.propTypes = {
@@ -99,5 +94,4 @@ Dropdown.propTypes = {
     multiSelect: PropTypes.bool
 }
 
-// export default onClickOutside(Dropdown, clickOutsideConfig);
 export default Dropdown;
