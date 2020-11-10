@@ -15,9 +15,6 @@ src/tailwind.output.css
 # production
 /client/build
 
-# development
-/server/personalConfig
-
 # misc
 .DS_Store
 **/.DS_Store
