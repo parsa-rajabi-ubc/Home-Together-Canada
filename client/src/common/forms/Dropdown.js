@@ -89,8 +89,8 @@ function Dropdown({title, items, multiSelect = false}) {
 
 
 Dropdown.propTypes = {
-    title: PropTypes.string,
-    items: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    items: PropTypes.string.isRequired,
     multiSelect: PropTypes.bool
 }
 
