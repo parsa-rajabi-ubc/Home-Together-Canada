@@ -74,7 +74,7 @@ function Dropdown({title, items, multiSelect = false}) {
                 <div className="">
                     <div className="">
                         {items.map(item => (
-                            <div className="" key={item.id} type="button" onClick={() => handleOnClick(item)}>
+                            <div className="" key={item.id} onClick={() => handleOnClick(item)}>
                                 {item.value}
                                 {isItemInSelection(item) && "✓"}
                             </div>
