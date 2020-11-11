@@ -1,5 +1,6 @@
 import React from "react";
 import Checkbox from './common/forms/Checkbox';
+import TextArea from './common/forms/TextArea';
 
 export function LoginForm(){
 
@@ -9,12 +10,10 @@ export function LoginForm(){
             Home-Together-Canada Login: <br/>
 
             {/*input user name*/}
-            Username:
-            <input type="text"/> <br/>
+            <TextArea label="Username: " placeholder=""/> <br/>
 
             {/*input user password*/}
-            Password:
-            <input type="password"/> <br/>
+            <TextArea label="Password: " placeholder=""/> <br/>
 
             {/*remember me feature, using the checkbox function*/}
             <Checkbox label="Remember me."/> <br/>
