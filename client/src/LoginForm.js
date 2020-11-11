@@ -1,19 +1,19 @@
-import React from 'react'
-import PropTypes from "prop-types";
+import React from "react";
+import Checkbox from './common/forms/Checkbox';
+import TextArea from './common/forms/TextArea';
 
 export function LoginForm(){
+
     return (
         <div>
             {/*title of the business*/}
             Home-Together-Canada Login: <br/>
 
             {/*input user name*/}
-            Username:
-            <input type="text"/> <br/>
+            <TextArea label="Username: " placeholder=""/> <br/>
 
             {/*input user password*/}
-            Password:
-            <input type="password"/> <br/>
+            <TextArea label="Password: " placeholder=""/> <br/>
 
             {/*remember me feature, using the checkbox function*/}
             <Checkbox label="Remember me."/> <br/>
@@ -28,16 +28,4 @@ export function LoginForm(){
             <a href="">Do not have an account? Create one now.</a>
         </div>
     );
-}
-
-function Checkbox(props){
-    return(
-        <label>
-            {props.label}
-            <input type="checkbox" value="1" />
-        </label>
-    );
-}
-Checkbox.propTypes = {
-    label: PropTypes.string.isRequired
 }
