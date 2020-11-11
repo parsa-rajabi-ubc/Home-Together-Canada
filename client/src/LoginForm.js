@@ -1,7 +1,8 @@
-import React from 'react'
-import PropTypes from "prop-types";
+import React from "react";
+import Checkbox from './common/forms/Checkbox';
 
 export function LoginForm(){
+
     return (
         <div>
             {/*title of the business*/}
@@ -28,16 +29,4 @@ export function LoginForm(){
             <a href="">Do not have an account? Create one now.</a>
         </div>
     );
-}
-
-function Checkbox(props){
-    return(
-        <label>
-            {props.label}
-            <input type="checkbox" value="1" />
-        </label>
-    );
-}
-Checkbox.propTypes = {
-    label: PropTypes.string.isRequired
 }
