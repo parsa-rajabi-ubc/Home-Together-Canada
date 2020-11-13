@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextArea Snapshot test should render correctly regardless of properties 1`] = `
+<label>
+  testLabelString1
+  <input
+    placeholder="testPlaceholderString1"
+    type="text"
+  />
+</label>
+`;
+
+exports[`TextArea Snapshot test should render correctly regardless of properties 2`] = `
+<label>
+  testLabelString2
+  <input
+    placeholder="testPlaceholderString2"
+    type="text"
+  />
+</label>
+`;
