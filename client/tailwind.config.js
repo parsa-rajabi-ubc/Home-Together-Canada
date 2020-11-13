@@ -20,6 +20,28 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
 
+      iblue: {
+        normal: '#4285F4',
+        light: '#8bb4f8',
+        dark: '#0e61ea',
+      },
+      igreen: {
+        normal: '#0F9D58',
+        light: '#13c46e',
+        dark: '#0c7e46',
+      },
+      iRed: {
+        normal: '#DB4437',
+        light: '#e57a71',
+        dark: '#ba2e21',
+      },
+      iYellow: {
+        normal: '#F4B400',
+        light: '#ffc932',
+        dark: '#c39000',
+      },
+
+
       black: '#000',
       white: '#fff',
 

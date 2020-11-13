@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
+.btn {
+    @apply bg-indigo-500;
+}
+.btn:hover{
+    @apply bg-indigo-400;
+}
+
+.btn:active{
+    @apply bg-indigo-600;
+}
+
+.btn:focus {
+    @apply outline-none shadow-outline;
+}
+
 @tailwind utilities;
+
