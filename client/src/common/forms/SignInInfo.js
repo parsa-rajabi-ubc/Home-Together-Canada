@@ -1,7 +1,7 @@
 import React from "react";
 
 //returns generic Sign in form fields
-function SignInInfo(){
+export function SignInInfo(){
     return(
         <div>
             <label>
@@ -19,5 +19,3 @@ function SignInInfo(){
         </div>
     );
 }
-
-export default SignInInfo

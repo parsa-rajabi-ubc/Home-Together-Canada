@@ -4,7 +4,7 @@ import Dropdown from "./Dropdown";
 import PropTypes from "prop-types";
 
 //returns generic address set of fields for a form with a label
-function Address(props){
+export function Address(props){
     return(
         <div>
             <label>
@@ -30,5 +30,3 @@ function Address(props){
 Address.propTypes = {
     label: PropTypes.string.isRequired
 }
-
-export default Address

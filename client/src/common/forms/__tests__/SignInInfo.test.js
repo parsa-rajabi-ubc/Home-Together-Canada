@@ -1,5 +1,5 @@
 import React from "react";
-import SignInInfo from "../SignInInfo";
+import {SignInInfo} from "../SignInInfo";
 import renderer from 'react-test-renderer';
 describe('SignInInfo', () => {
         describe('Snapshot test', () => {
