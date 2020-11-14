@@ -14,3 +14,5 @@ TextArea.propTypes = {
     label: PropTypes.string.isRequired,
     placeholder: PropTypes.string.isRequired
 }
+
+export default TextArea;

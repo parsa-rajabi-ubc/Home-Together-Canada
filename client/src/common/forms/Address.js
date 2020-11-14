@@ -30,3 +30,5 @@ export function Address(props){
 Address.propTypes = {
     label: PropTypes.string.isRequired
 }
+
+export default Address;

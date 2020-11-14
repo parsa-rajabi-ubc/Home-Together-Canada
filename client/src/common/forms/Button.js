@@ -14,3 +14,5 @@ Button.propTypes = {
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired
 }
+
+export default Button;

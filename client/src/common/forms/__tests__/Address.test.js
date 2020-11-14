@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from  'react-test-renderer'
 import {Address} from "../Address";
 
-describe('TextArea', () => {
+describe('Address', () => {
     describe('Snapshot test', () => {
         it("should render correctly regardless of properties", () => {
             //when

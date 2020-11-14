@@ -10,7 +10,6 @@ function App() {
     <div>
       <Header/>
       <Home/>
-      <BusinessRegistrationForm/>
       <Footer/>
     </div>
   );

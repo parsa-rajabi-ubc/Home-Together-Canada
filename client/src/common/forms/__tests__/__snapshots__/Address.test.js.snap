@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TextArea Snapshot test should render correctly regardless of properties 1`] = `
+exports[`Address Snapshot test should render correctly regardless of properties 1`] = `
 <div>
   <label>
     testLabelString1

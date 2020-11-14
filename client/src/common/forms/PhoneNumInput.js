@@ -23,3 +23,5 @@ export function PhoneNumInput(props){
 PhoneNumInput.propTypes = {
     label: PropTypes.string.isRequired
 }
+
+export default PhoneNumInput;
