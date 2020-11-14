@@ -1,8 +1,13 @@
 import React from "react";
 import PropTypes from 'prop-types';
-
-//returns generic textbox field for a form with a label
-export function PhoneNumInput(props){
+/**
+ * @Author:     Jeff Hatton
+ * @Created:    2020.11.05
+ *
+ * @Description: Phone Number input Form Component
+ *
+ */
+function PhoneNumInput(props){
     return(
         <div>
             <label>

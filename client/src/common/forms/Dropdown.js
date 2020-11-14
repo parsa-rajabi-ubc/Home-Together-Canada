@@ -12,7 +12,7 @@ import PropTypes from "prop-types";
 
 
 
-export function Dropdown({title, items, multiSelect = false}) {
+function Dropdown({title, items, multiSelect = false}) {
     // initialize variables
     const [open, setOpen] = useState(false);
     const [selection, setSelection] = useState([]);

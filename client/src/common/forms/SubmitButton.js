@@ -1,8 +1,13 @@
 import React from 'react';
 import propTypes from "prop-types";
-
-//returns generic Submit button field for a form with a label
-export function SubmitButton(props){
+/**
+ * @Author:     Jeff Hatton
+ * @Created:    2020.11.05
+ *
+ * @Description: Submit button input Form Component
+ *
+ */
+function SubmitButton(props){
     return(
         <label>
             {props.label}
