@@ -2,7 +2,7 @@ import React from "react";
 import Checkbox from './common/forms/Checkbox';
 import TextArea from './common/forms/TextArea';
 
-export function LoginForm(){
+function LoginForm(){
 
     return (
         <div>
@@ -29,3 +29,5 @@ export function LoginForm(){
         </div>
     );
 }
+
+export default LoginForm;
