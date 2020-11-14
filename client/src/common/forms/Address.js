@@ -3,8 +3,14 @@ import React from "react";
 import Dropdown from "./Dropdown";
 import PropTypes from "prop-types";
 
-//returns generic address set of fields for a form with a label
-export function Address(props){
+/**
+ * @Author:     Jeff Hatton
+ * @Created:    2020.11.05
+ *
+ * @Description: Address input Form Component
+ *
+ */
+function Address(props){
     return(
         <div>
             <label>

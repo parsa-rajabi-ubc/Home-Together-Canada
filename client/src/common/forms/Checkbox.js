@@ -1,8 +1,13 @@
 import React from 'react';
 import PropTypes from "prop-types";
-
-//returns generic Checkbox field for a form with a label
-export function Checkbox(props){
+/**
+ * @Author:     Jeff Hatton
+ * @Created:    2020.11.05
+ *
+ * @Description: Checkbox input Form Component
+ *
+ */
+function Checkbox(props){
     const { label, onChange } = props;
     return(
         <label>
