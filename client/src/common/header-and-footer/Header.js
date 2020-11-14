@@ -17,47 +17,35 @@ const Header = () => {
                 <div className="">
                     <div className="flex justify-between items-center">
                         <div>
-                            <Link to={'/'}>
-                                <a className="flex">
-                                    Home Together Canada
-                                </a>
+                            <Link to={'/'} className="flex">
+                                Home Together Canada
                             </Link>
                         </div>
                         <nav className="md:flex space-x-10">
 
                             {/*TODO: updated this Link to appropriate page*/}
                             <Link to={'/members'}>
-                                <a href="#">
-                                    Connect with Members
-                                </a>
+                                Connect with Members
                             </Link>
 
                             {/*TODO: updated this Link to appropriate page*/}
                             <Link to={'/services'}>
-                                <a href="#">
-                                    Services
-                                </a>
+                                Services
                             </Link>
 
                             {/*TODO: updated this Link to appropriate page*/}
                             <Link to={'/classifieds'}>
-                                <a href="#">
-                                    Classifieds
-                                </a>
+                                Classifieds
                             </Link>
 
                             {/*TODO: updated this Link to appropriate page*/}
                             <Link to={'/about'}>
-                                <a href="#">
-                                    About Us
-                                </a>
+                                About Us
                             </Link>
 
                             {/*TODO: updated this Link to appropriate page*/}
                             <Link to={'/faq'}>
-                                <a href="#">
-                                    FAQ
-                                </a>
+                                FAQ
                             </Link>
                         </nav>
 
