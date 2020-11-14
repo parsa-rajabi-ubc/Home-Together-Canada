@@ -1,12 +1,12 @@
 import React from 'react';
 import renderer from  'react-test-renderer'
-import {Button} from "../Button";
+import BusinessRegistrationForm from "../BusinessRegistrationForm";
 
-describe('Button', () => {
+describe('BusinessRegistrationForm', () => {
     describe('Snapshot test', () => {
         it("should render correctly regardless of properties", () => {
             //when
-            const component = renderer.create(<Button label="testLabelString1" value="testValueString2"/>).toJSON();
+            const component = renderer.create(<BusinessRegistrationForm/>).toJSON();
             //then
             expect(component).toMatchSnapshot();
         });

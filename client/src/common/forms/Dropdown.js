@@ -93,3 +93,5 @@ Dropdown.propTypes = {
     items: PropTypes.array.isRequired,
     multiSelect: PropTypes.bool
 }
+
+export default Dropdown;

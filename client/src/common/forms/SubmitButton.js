@@ -14,3 +14,5 @@ export function SubmitButton(props){
 SubmitButton.propTypes = {
     label: propTypes.string.isRequired
 }
+
+export default SubmitButton;

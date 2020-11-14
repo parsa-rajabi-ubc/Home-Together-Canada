@@ -19,3 +19,5 @@ export function SignInInfo(){
         </div>
     );
 }
+
+export default SignInInfo;
