@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubmitButton Snapshot test should render correctly regardless of properties 1`] = `
+<label>
+  testLabelString1
+  <input
+    type="submit"
+    value="Submit"
+  />
+</label>
+`;

@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown Snapshot test should render correctly regardless of properties 1`] = `
+<div
+  className="relative inline-block text-left"
+>
+  <div
+    className=""
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    role="button"
+    tabIndex={0}
+  >
+    <span
+      className=""
+    >
+      <p
+        aria-expanded="true"
+        aria-haspopup="true"
+        className=""
+        id="options-menu"
+      >
+        testTitleString1
+         ↓ 
+      </p>
+    </span>
+  </div>
+</div>
+`;
