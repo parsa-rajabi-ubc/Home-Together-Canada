@@ -11,8 +11,6 @@ const app = express();
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, '../client/build')));
 
-console.log('__dirname: ', __dirname);
-
 app.use(cors())
 
 // parse requests of content-type - application/json
