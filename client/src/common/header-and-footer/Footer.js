@@ -18,33 +18,32 @@ const Footer = () => {
 
                 {/*TODO: updated this Link to appropriate page*/}
                 <Link to={'/about'}>
-                    <a> About Us </a>
+                    About Us
                 </Link>
 
                 {/*TODO: updated this Link to appropriate page*/}
                 <Link to={'/faq'}>
-                    <a> FAQ </a>
+                    FAQ
                 </Link>
 
                 {/*TODO: updated this Link to appropriate page*/}
                 <Link to={'/contact'}>
-                    <a> Contact Us </a>
+                    Contact Us
                 </Link>
 
                 {/*TODO: updated this Link to appropriate page*/}
                 <Link to={'/report'}>
-                    <a> Comment & Concerns Form </a>
+                    Comment & Concerns Form
                 </Link>
 
             </footer>
             <div>
                 <p>
                     <Link to={'/'}>
-                        <a>
-                            Home Together Canada
-                        </a>
+                        Home Together Canada
                     </Link>
-                    - All Rights Received</p>
+                    - All Rights Received
+                </p>
             </div>
         </div>
     )
