@@ -1,18 +1,12 @@
 import React from 'react';
 import renderer from  'react-test-renderer'
-import Address from "../Address";
-/**
- * @Author:     Jeff Hatton
- * @Created:    2020.11.13
- *
- * @Description: Address Component Snapshot test
- *
- */
-describe('Address', () => {
+import BusinessRegistrationForm from "../BusinessRegistrationForm";
+
+describe('BusinessRegistrationForm', () => {
     describe('Snapshot test', () => {
         it("should render correctly regardless of properties", () => {
             //when
-            const component = renderer.create(<Address label="testLabelString1" />).toJSON();
+            const component = renderer.create(<BusinessRegistrationForm/>).toJSON();
             //then
             expect(component).toMatchSnapshot();
         });

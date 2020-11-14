@@ -1,7 +1,12 @@
 import React from "react";
 import PropTypes from 'prop-types';
-
-//returns generic textbox field for a form with a label
+/**
+ * @Author:     Jeff Hatton
+ * @Created:    2020.11.05
+ *
+ * @Description: Phone Number input Form Component
+ *
+ */
 function PhoneNumInput(props){
     return(
         <div>
@@ -24,4 +29,4 @@ PhoneNumInput.propTypes = {
     label: PropTypes.string.isRequired
 }
 
-export default PhoneNumInput
+export default PhoneNumInput;

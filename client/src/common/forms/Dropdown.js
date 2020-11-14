@@ -13,7 +13,7 @@ import PropTypes from "prop-types";
 
 
 function Dropdown({title, items, multiSelect = false}) {
-    // initilize variables
+    // initialize variables
     const [open, setOpen] = useState(false);
     const [selection, setSelection] = useState([]);
     const toggle = () => setOpen(!open);
@@ -90,7 +90,7 @@ function Dropdown({title, items, multiSelect = false}) {
 
 Dropdown.propTypes = {
     title: PropTypes.string.isRequired,
-    items: PropTypes.string.isRequired,
+    items: PropTypes.array.isRequired,
     multiSelect: PropTypes.bool
 }
 
