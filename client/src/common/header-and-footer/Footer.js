@@ -8,19 +8,43 @@
 
 import React from 'react';
 import '../../tailwind.output.css';
+import {Link} from "react-router-dom";
 
 
 const Footer = () => {
     return (
         <div>
             <footer>
-                <a href="#">About Us </a>
-                <a href="#">FAQ </a>
-                <a href="#">Contact Us </a>
-                <a href="#">Comment & Concerns Form </a>
+
+                {/*TODO: updated this Link to appropriate page*/}
+                <Link to={'/about'}>
+                    <a> About Us </a>
+                </Link>
+
+                {/*TODO: updated this Link to appropriate page*/}
+                <Link to={'/faq'}>
+                    <a> FAQ </a>
+                </Link>
+
+                {/*TODO: updated this Link to appropriate page*/}
+                <Link to={'/contact'}>
+                    <a> Contact Us </a>
+                </Link>
+
+                {/*TODO: updated this Link to appropriate page*/}
+                <Link to={'/report'}>
+                    <a> Comment & Concerns Form </a>
+                </Link>
+
             </footer>
             <div>
-                <p> Home Together Canada 2020 - All Rights Received</p>
+                <p>
+                    <Link to={'/'}>
+                        <a>
+                            Home Together Canada
+                        </a>
+                    </Link>
+                    - All Rights Received</p>
             </div>
         </div>
     )
