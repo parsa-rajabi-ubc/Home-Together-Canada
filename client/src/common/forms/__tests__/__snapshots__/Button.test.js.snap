@@ -4,8 +4,8 @@ exports[`TextArea Snapshot test should render correctly regardless of properties
 <label>
   testLabelString1
   <input
-    placeholder="testPlaceholderString2"
-    type="text"
+    type="button"
+    value="testValueString2"
   />
 </label>
 `;
