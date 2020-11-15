@@ -21,7 +21,6 @@ function MemberRegistrationForm() {
                 <TextArea label="First Name: " placeholder=""/>
                 <TextArea label="Last Name: " placeholder=""/>
 
-                {/*change this later*/}
                 <Dropdown title={"Year of Birth"} items={YEARS}/>
 
                 <PhoneNumInput label="TelephoneNumber: "/>
