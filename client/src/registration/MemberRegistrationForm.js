@@ -33,7 +33,7 @@ function MemberRegistrationForm() {
                 <hr/>
                 <h2>Account Details</h2>
                 <SignInInfo/>
-                <SubmitButton label="Next: "/>
+                <SubmitButton value = 'Submit' label="Next: "/>
                 <hr/>
             </form>
         </div>
