@@ -6,7 +6,7 @@ import Address from "../common/forms/Address";
 import SignInInfo from "../common/forms/SignInInfo";
 import PhoneNumInput from "../common/forms/PhoneNumInput";
 import Dropdown from "../common/forms/Dropdown";
-import YEARS from "./registrationUtils/Years";
+import YEARS from "./registrationUtils/YEARS";
 
 //Returns a Form with fields
 function MemberRegistrationForm() {
