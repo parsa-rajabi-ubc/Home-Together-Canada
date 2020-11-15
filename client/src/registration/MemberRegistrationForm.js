@@ -6,11 +6,11 @@ import Address from "../common/forms/Address";
 import SignInInfo from "../common/forms/SignInInfo";
 import PhoneNumInput from "../common/forms/PhoneNumInput";
 import Dropdown from "../common/forms/Dropdown";
-import Years from "../common/forms/Years";
+import YEARS from "./registrationUtils/Years";
 
 //Returns a Form with fields
-function BusinessRegistrationForm() {
-    const [isSameAddress, setIfSameAddress] = useState(false);
+function MemberRegistrationForm() {
+    const [isSameAddress, setIsSameAddress] = useState(false);
 
     return (
         <div>
@@ -22,13 +22,13 @@ function BusinessRegistrationForm() {
                 <TextArea label="Last Name: " placeholder=""/>
 
                 {/*change this later*/}
-                <Dropdown title={"Year of Birth"} items={Years}/>
+                <Dropdown title={"Year of Birth"} items={YEARS}/>
 
                 <PhoneNumInput label="TelephoneNumber: "/>
                 <TextArea label="Email Address: " placeholder=""/>
                 <Address label="Home Address: "/>
 
-                <Checkbox label="Different Mailing Address? " onChange= {() => {setIfSameAddress(isSameAddress => !isSameAddress)}}/>
+                <Checkbox label="Different Mailing Address? " onChange= {() => {setIsSameAddress(!isSameAddress)}}/>
                 {isSameAddress && <Address label="Mailing Address: "/>}
 
                 <hr/>
@@ -40,4 +40,4 @@ function BusinessRegistrationForm() {
         </div>
     );
 }
-export default BusinessRegistrationForm;
+export default MemberRegistrationForm;
