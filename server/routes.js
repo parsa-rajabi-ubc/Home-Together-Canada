@@ -9,6 +9,7 @@
 const express = require('express');
 const router = express.Router();
 const accounts = require('./controllers/accountController');
+const path = require('path');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -28,6 +29,18 @@ router.get('/abstractUser/all/', function (req, res, next) {
 // Get user
 router.get('/abstractUser/:id', function (req, res, next) {
     accounts.findAbstractUser(req, res);
+});
+
+// Create Business Account object (note this is only for testing purposes and will be removed
+// when the workflow to register a business is complete)
+router.post('/businessAccount/new/', function (req, res, next) {
+   accounts.createBusinessAccount(req, res);
+});
+
+/* GET React App */
+// NOTE: This route MUST be at the last route in this file
+router.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname+'/../client/build/index.html'));
 });
 
 module.exports = router;
