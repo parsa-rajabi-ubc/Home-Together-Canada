@@ -1,3 +1,11 @@
+/**
+ * @Author:     Alex Qin
+ * @Created:    2020.11.10
+ *
+ * @Description: MemberRegistration Static Form
+ *
+ */
+
 import React, { useState } from 'react';
 import TextArea from '../common/forms/TextArea';
 import Checkbox from '../common/forms/Checkbox';
@@ -6,7 +14,7 @@ import Address from "../common/forms/Address";
 import SignInInfo from "../common/forms/SignInInfo";
 import PhoneNumInput from "../common/forms/PhoneNumInput";
 import Dropdown from "../common/forms/Dropdown";
-import YEARS from "./registrationUtils/YEARS";
+import RegistrationUtils from "./registrationUtils";
 
 //Returns a Form with fields
 function MemberRegistrationForm() {
@@ -21,7 +29,8 @@ function MemberRegistrationForm() {
                 <TextArea label="First Name: " placeholder=""/>
                 <TextArea label="Last Name: " placeholder=""/>
 
-                <Dropdown title={"Year of Birth"} items={YEARS}/>
+                {/*change this later*/}
+                <Dropdown title={"Year of Birth"} items={RegistrationUtils}/>
 
                 <PhoneNumInput label="TelephoneNumber: "/>
                 <TextArea label="Email Address: " placeholder=""/>
