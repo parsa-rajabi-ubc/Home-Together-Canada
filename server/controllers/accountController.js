@@ -8,6 +8,7 @@
 
 const db = require("../models");
 const accountControllerUtils = require("./accountControllerUtils");
+const PasswordService = require('../services/PasswordService');
 
 const AbstractUser = db.abstractUser;
 const BusinessAccount = db.businessAccount;
@@ -22,12 +23,12 @@ const createAbstractUser = (req, res) => {
             message: "Body cannot be empty"
         });
     }
-    const salt = 'xxxx';    // TODO generate salt
+    const salt = PasswordService.getSalt();
 
     // create abstract user object
     const abstractUser = {
         username: req.body.username,
-        password: req.body.password, // TODO hash password
+        password: PasswordService.getHashedPassword(req.body.password, salt),
         salt: salt,
         email: req.body.email,
         firstName: req.body.firstName,
