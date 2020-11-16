@@ -1,17 +1,15 @@
 /**
  * @Author:     Rachelle Gelden
- * @Created:    2020.11.09
+ * @Created:    2020.11.15
  *
- * @Description: controllers to interact with the different account models
+ * @Description: controller functions for the AbstractUser model
  *
  */
-
 const db = require("../models");
-const accountControllerUtils = require("./accountControllerUtils");
+const accountControllerUtils = require("./utils/accountControllerUtils");
 const PasswordService = require('../services/PasswordService');
 
 const AbstractUser = db.abstractUser;
-const BusinessAccount = db.businessAccount;
 
 const getMailingAddress = accountControllerUtils.getMailingAddress;
 
@@ -43,15 +41,7 @@ const createAbstractUser = (req, res) => {
         ...getMailingAddress(req.body)
     }
 
-    AbstractUser.create(abstractUser)
-        .then(data => {
-            res.status(201).send(data);
-        })
-        .catch(err => {
-            res.status(500).send({
-                message: err.message || "An error occurred when creating the abstract user"
-            });
-        });
+    return AbstractUser.create(abstractUser);
 }
 
 const findAbstractUser = (req, res) => {
@@ -81,48 +71,8 @@ const findAllAbstractUsers = (req, res) => {
         });
 }
 
-const createBusinessAccount = (req, res) => {
-    // TODO add validation here
-    if (!req.body) {
-        res.status(400).send({
-            message: "Body cannot be empty"
-        });
-    }
-
-    const businessAccount = {
-        uid: req.body.uid,  // TODO: update uid to be passed in as an argument when
-        businessName: req.body.businessName,
-        logo: req.body.logo,
-        isIncorporated: req.body.isIncorporated,
-        incorporatedOwnersNames: req.body.incorporatedOwnersNames,
-        businessPhoneNumber: req.body.businessPhoneNumber,
-        businessCellPhoneNumber: req.body.businessCellPhoneNumber,
-        isNationWide: req.body.isNationWide,
-        mapAddressLine1: req.body.mapAddressLine1,
-        mapAddressLine2: req.body.mapAddressLine2,
-        mapCity: req.body.mapCity,
-        mapProvince: req.body.mapProvince,
-        mapPostalCode: req.body.mapPostalCode,
-        mapLatitude: req.body.mapLatitude,
-        mapLongitude: req.body.mapLongitude,
-        website: req.body.website
-    }
-
-    BusinessAccount.create(businessAccount)
-        .then(data => {
-            res.status(201).send(data);
-        })
-        .catch(err => {
-            console.log('error: ', err);
-            res.status(500).send({
-                message: err.message || "An error occurred when creating the business account"
-            })
-        })
-}
-
 module.exports = {
     createAbstractUser,
-    findAbstractUser,
     findAllAbstractUsers,
-    createBusinessAccount
+    findAbstractUser
 }

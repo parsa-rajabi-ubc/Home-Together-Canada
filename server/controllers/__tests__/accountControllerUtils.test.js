@@ -1,5 +1,5 @@
 const reqMock = require('../../__mocks__/requestMocks');
-const accountControllerUtils = require('../accountControllerUtils');
+const accountControllerUtils = require('../utils/accountControllerUtils');
 
 describe('accountControllerUtils', () => {
 

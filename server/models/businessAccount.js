@@ -9,13 +9,9 @@
 module.exports = (DataTypes, sequelize) => {
     return sequelize.define("BusinessAccount", {
         uid: {
-          type: DataTypes.INTEGER,
-          primaryKey: true,
-          references: {
-              model: 'AbstractUsers',
-              key: 'uid'
-          },
-          onDelete: 'RESTRICT'
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            allowNull: false
         },
         businessName: {
             type: DataTypes.STRING,

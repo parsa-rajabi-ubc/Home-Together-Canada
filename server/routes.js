@@ -8,33 +8,46 @@
 
 const express = require('express');
 const router = express.Router();
-const accounts = require('./controllers/accountController');
 const path = require('path');
+
+const abstractUsers = require('./controllers/abstractUserController');
+const businessAccounts = require('./controllers/businessAccountController');
+const users = require('./controllers/userController')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.render('index', { title: 'Express' });
 });
 
-// Create user
+// Create abstract user
 router.post('/register/abstractUser/', function (req, res, next) {
-    accounts.createAbstractUser(req, res);
+    abstractUsers.createAbstractUser(req, res);
 });
 
-// get all users
+// get all abstract users
 router.get('/abstractUser/all/', function (req, res, next) {
-    accounts.findAllAbstractUsers(req, res);
+    abstractUsers.findAllAbstractUsers(req, res);
 });
 
-// Get user
+// Get a specific abstract user
 router.get('/abstractUser/:id', function (req, res, next) {
-    accounts.findAbstractUser(req, res);
+    abstractUsers.findAbstractUser(req, res);
 });
 
 // Create Business Account object (note this is only for testing purposes and will be removed
 // when the workflow to register a business is complete)
 router.post('/businessAccount/new/', function (req, res, next) {
-   accounts.createBusinessAccount(req, res);
+   businessAccounts.createBusinessAccount(req, res);
+});
+
+// Get all business accounts
+router.get('/businessAccount/all/', function(req, res, next) {
+    businessAccounts.findAllBusinessAccounts(req, res);
+});
+
+// Create a business user
+router.post('/businessUser/create/', function(req, res, next) {
+    users.createBusinessUser(req, res);
 });
 
 /* GET React App */
