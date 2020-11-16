@@ -21,6 +21,7 @@ module.exports = {
             acquire: 30000,
             idle: 10000
         },
-        DIALECT: "mysql"
+        DIALECT: "mysql",
+        PORT: 3306
     }
 };
