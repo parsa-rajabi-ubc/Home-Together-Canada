@@ -5,6 +5,7 @@ exports[`Address Snapshot test should render correctly regardless of properties 
   <label>
     testLabelString1
     <input
+      name="street"
       placeholder="Street Address"
       type="text"
     />
@@ -12,12 +13,14 @@ exports[`Address Snapshot test should render correctly regardless of properties 
   <label>
     Optional:
     <input
+      name="aptNum"
       placeholder="Apt, suite, floor # etc."
       type="text"
     />
   </label>
   <label>
     <input
+      name="city"
       placeholder="City"
       type="text"
     />
@@ -49,6 +52,7 @@ exports[`Address Snapshot test should render correctly regardless of properties 
   </div>
   <label>
     <input
+      name="postalCode"
       placeholder="Postal Code"
       type="text"
     />
