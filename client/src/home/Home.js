@@ -54,7 +54,7 @@ const Home = () => {
                                         </div>
                                         <div className="mt-3 sm:mt-0 sm:ml-3">
                                             <a href="#"
-                                               className="flex leading-6 text-green-700 bg-green-200 btn">
+                                               className="flex leading-6 text-green-700 bg-green-200 btn hover:bg-green-300 hover:text-green-800">
                                                 Learn More
                                             </a>
                                         </div>
