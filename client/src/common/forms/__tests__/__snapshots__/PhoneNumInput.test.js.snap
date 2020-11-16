@@ -5,6 +5,7 @@ exports[`PhoneNumInput Snapshot test should render correctly regardless of prope
   <label>
     testLabelString1
     <input
+      name="first"
       placeholder="555"
       type="text"
     />
@@ -12,6 +13,7 @@ exports[`PhoneNumInput Snapshot test should render correctly regardless of prope
   <label>
     -
     <input
+      name="middle"
       placeholder="555"
       type="text"
     />
@@ -19,6 +21,7 @@ exports[`PhoneNumInput Snapshot test should render correctly regardless of prope
   <label>
     -
     <input
+      name="last"
       placeholder="5555"
       type="text"
     />
