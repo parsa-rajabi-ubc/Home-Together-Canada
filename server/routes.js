@@ -31,6 +31,12 @@ router.get('/abstractUser/:id', function (req, res, next) {
     accounts.findAbstractUser(req, res);
 });
 
+// Create Business Account object (note this is only for testing purposes and will be removed
+// when the workflow to register a business is complete)
+router.post('/businessAccount/new/', function (req, res, next) {
+   accounts.createBusinessAccount(req, res);
+});
+
 /* GET React App */
 // NOTE: This route MUST be at the last route in this file
 router.get('*', (req, res) => {
