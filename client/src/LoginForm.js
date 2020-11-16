@@ -1,7 +1,15 @@
+/**
+ * @Author:     Alex Qin
+ * @Created:    2020.11.15
+ *
+ * @Description: User Login Form with Validation:
+ *
+ */
 import React, {useState} from 'react'
 import Checkbox from './common/forms/Checkbox';
 import TextArea from './common/forms/TextArea';
-import LoginButton from './common/forms/LoginButton';
+import SubmitButton from './common/forms/SubmitButton';
+import isStringEmpty from './common/utils/isStringEmpty';
 
 export function LoginForm(){
 
@@ -15,22 +23,19 @@ export function LoginForm(){
             Home-Together-Canada Login: <br/>
 
             {/*input user name*/}
-            <TextArea label="Username: "
-                      placeholder=""
-                      onChange= {(e) => {setUsername(e.target.value)}}
-            /> <br/>
+            <TextArea label="Username: " onChange= {(e) => {setUsername(e.target.value)}}/> <br/>
 
             {/*input user password*/}
             Password:
-            <input type="password" onChange = {(e) =>setPassword(e.target.value)} /> <br/>
+            <TextArea label="Password: " onChange = {(e) =>setPassword(e.target.value)} /> <br/>
 
             {/*remember me feature, using the checkbox function*/}
             <Checkbox label="Remember me."/> <br/>
 
             {/*login button*/}
-            <LoginButton onClick={() => {
-                if(username.toString().trim() === "") alert ('Username required.');
-                if(password.toString().trim() === "") alert ('Password required.');
+            <SubmitButton label={''} value='Login' onClick={() => {
+                if(isStringEmpty(username) === true) alert("Username Required.");
+                if(isStringEmpty(password) === true) alert("password Required.");
             }}/> <br/>
 
             {/*link to PasswordRecovery page*/}
