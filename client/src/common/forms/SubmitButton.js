@@ -8,16 +8,18 @@ import propTypes from "prop-types";
  *
  */
 function SubmitButton(props){
+    const { label, onClick } = props;
     return(
         <label>
             {props.label}
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Submit" onClick={onClick}/>
         </label>
     );
 }
 
 SubmitButton.propTypes = {
-    label: propTypes.string.isRequired
+    label: propTypes.string.isRequired,
+    onClick: propTypes.func.isRequired
 }
 
 export default SubmitButton;
