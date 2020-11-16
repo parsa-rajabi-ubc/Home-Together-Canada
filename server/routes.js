@@ -9,6 +9,7 @@
 const express = require('express');
 const router = express.Router();
 const accounts = require('./controllers/accountController');
+const path = require('path');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -28,6 +29,12 @@ router.get('/abstractUser/all/', function (req, res, next) {
 // Get user
 router.get('/abstractUser/:id', function (req, res, next) {
     accounts.findAbstractUser(req, res);
+});
+
+/* GET React App */
+// NOTE: This route MUST be at the last route in this file
+router.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname+'/../client/build/index.html'));
 });
 
 module.exports = router;
