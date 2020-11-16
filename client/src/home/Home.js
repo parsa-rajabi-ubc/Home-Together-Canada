@@ -18,7 +18,7 @@ const Home = () => {
     return (
         <div>
             <div className="relative overflow-hidden bg-off_white">
-                <div className="max-w-screen-xl mx-auto">
+                <div className="max-w-screen-xl mx-auto pl-3">
                     <div
                         className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
                         <svg
@@ -30,7 +30,7 @@ const Home = () => {
                         {/* Start - Top Portion of Home */}
                         <section className="pt-6">
                             <main
-                                className="relative max-w-screen-xl pr-4 mt-10 mr-auto sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+                                className="relative max-w-screen-xl pr-4 mt-10 mr-10 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
                                 <div className="sm:text-center lg:text-left">
                                     <h2 className="font-extrabold tracking-tight header-home">
                                         Home Together Canada
@@ -46,18 +46,18 @@ const Home = () => {
                                         businesses
                                         wishing to serve this burgeoning and diverse group.
                                     </p>
-                                    <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                                    <div className="mt-5 ml-24 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                                         <div className="rounded-md shadow">
-                                            <a href="#"
+                                            <Link to={'/registration'}
                                                className="flex btn btn-green">
                                                 Join Us
-                                            </a>
+                                            </Link>
                                         </div>
                                         <div className="mt-3 sm:mt-0 sm:ml-3">
-                                            <a href="#"
-                                               className="flex leading-6 text-green-700 bg-green-200 btn hover:bg-green-300 hover:text-green-800">
+                                            <Link to={'/about'}
+                                                  className="flex leading-6 text-green-700 bg-green-200 btn hover:bg-green-300 hover:text-green-800">
                                                 Learn More
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
@@ -70,7 +70,7 @@ const Home = () => {
                 <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
                     <img className="object-cover w-full h-56 sm:h-72 md:h-96 lg:w-full lg:h-full"
                          src={picture}
-                         alt="">
+                         alt="4 people moving into a house together, each holding a box.">
                     </img>
                 </div>
             </div>
@@ -108,7 +108,7 @@ const Home = () => {
                         </div>
                         <div className="w-full p-6 sm:w-1/2">
                             <img src={houseSearch}
-                                 alt="">
+                                 alt="a house with a magnifying glass on top">
                             </img>
                         </div>
                     </div>
@@ -118,7 +118,7 @@ const Home = () => {
                     <div className="flex flex-col-reverse flex-wrap sm:flex-row">
                         <div className="w-full p-6 mt-6 sm:w-1/2">
                             <img src={texting}
-                                 alt="">
+                                 alt="a character standing beside 3 message bubbles">
                             </img>
                         </div>
                         <div className="w-full p-6 mt-6 sm:w-1/2">
@@ -170,7 +170,7 @@ const Home = () => {
                         </div>
                         <div className="w-full p-6 sm:w-1/2">
                             <img src={business}
-                                 alt="">
+                                 alt="a character standing to the right of a store">
                             </img>
                         </div>
                     </div>
