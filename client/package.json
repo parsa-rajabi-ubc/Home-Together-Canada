@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.1.10",
     "autoprefixer": "^9.8.6",
     "postcss": "^8.1.7",
+    "postcss-cli": "^8.2.0",
     "postcss-import": "^13.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
@@ -19,11 +20,11 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "build:tailwind": "tailwindcss build src/tailwind.css -o src/tailwind.output.css",
-    "prestart": "npm run build:tailwind",
-    "prebuild": "npm run build:tailwind",
-    "start": "react-scripts start",
+    "build:postcss": "postcss src/tailwind.css -o src/tailwind.output.css",
+    "prebuild": "npm run build:postcss",
     "build": "react-scripts build",
+    "prestart": "npm run build:postcss",
+    "start": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
