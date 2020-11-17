@@ -22,5 +22,4 @@ TextArea.propTypes = {
     label: PropTypes.string.isRequired,
     onChange: PropTypes.func
 }
-
 export default TextArea;
