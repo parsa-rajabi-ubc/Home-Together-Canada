@@ -29,12 +29,14 @@ export function isStringNumeralsOnly(str) {
 export function isStringSame(str1, str2) {
     //is string 1 equal to string 2
     //considers whitespace relevant - for passwords
-    if(str1 === str2)
-    {
-        return true;
-    }else{
-        return false;
+    //doesn't accept empty/null/undefined/whitespace strings
+    if(!isStringEmpty(str1) && !isStringEmpty(str2)){
+        if(str1 === str2)
+        {
+            return true;
+        }
     }
+    return false;
 }
 
 

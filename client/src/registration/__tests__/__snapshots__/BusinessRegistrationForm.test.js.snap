@@ -308,7 +308,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         <input
           onChange={[Function]}
           placeholder=""
-          type="text"
+          type="password"
         />
       </label>
       <label>
@@ -316,7 +316,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         <input
           onChange={[Function]}
           placeholder=""
-          type="text"
+          type="password"
         />
       </label>
     </div>

@@ -1,3 +1,11 @@
+/**
+ * @Author:     Jeff Hatton
+ * @Created:    2020.11.02
+ *
+ * @Description: Form functional component file returning a business registration form with input validation.
+ *
+ */
+
 import React, { useState } from 'react';
 import TextArea from '../common/forms/TextArea';
 import Checkbox from '../common/forms/Checkbox';
