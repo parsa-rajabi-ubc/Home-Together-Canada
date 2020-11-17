@@ -11,7 +11,7 @@ import TextArea from './common/forms/TextArea';
 import SubmitButton from './common/forms/SubmitButton';
 import isStringEmpty from './common/utils/isStringEmpty';
 
-export function LoginForm(){
+function LoginForm(){
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -47,3 +47,5 @@ export function LoginForm(){
 
     );
 }
+
+export default LoginForm;

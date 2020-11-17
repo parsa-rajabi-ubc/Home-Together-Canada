@@ -26,5 +26,13 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.abstractUser = require('./abstractUser.js')(DataTypes, sequelize);
+db.businessAccount = require('./businessAccount.js')(DataTypes, sequelize);
+
+db.businessAccount.belongsTo(db.abstractUser, {
+    foreignKey: {
+        name: "uid"
+    },
+    onDelete: 'RESTRICT'
+});
 
 module.exports = db;

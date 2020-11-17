@@ -9,6 +9,7 @@
 import React from 'react';
 import '../tailwind.output.css';
 import picture from '../images/move_in.jpg';
+import {Link} from "react-router-dom";
 
 const Home = () => {
     return (
@@ -26,14 +27,20 @@ const Home = () => {
                 </p>
                 <div>
                     <div>
-                        <button href="#">
-                            Join Us
-                        </button>
+                        {/*TODO: Update this Link to registration landing page*/}
+                        <Link to={'/registration/business'}>
+                            <button>
+                                Join Us
+                            </button>
+                        </Link>
                     </div>
                     <div>
-                        <button href="#">
-                            Learn More
-                        </button>
+                        {/*TODO: Update this Link to registration landing page*/}
+                        <Link to={'/about'}>
+                            <button>
+                                Learn More
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </main>
@@ -42,7 +49,7 @@ const Home = () => {
                 </img>
             </div>
         </div>
-    )
+)
 }
 
 export default Home;

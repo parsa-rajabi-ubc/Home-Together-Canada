@@ -1,7 +1,12 @@
 import React from 'react';
 import PropTypes from "prop-types";
-
-//returns generic Button field for a form with a label
+/**
+ * @Author:     Jeff Hatton
+ * @Created:    2020.11.05
+ *
+ * @Description: Button input Form Component
+ *
+ */
 function Button(props){
     return(
         <label>
@@ -15,4 +20,4 @@ Button.propTypes = {
     value: PropTypes.string.isRequired
 }
 
-export default Button
+export default Button;

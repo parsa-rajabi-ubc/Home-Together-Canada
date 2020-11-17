@@ -1,6 +1,11 @@
 import React from "react";
-
-//returns generic Sign in form fields
+/**
+ * @Author:     Jeff Hatton
+ * @Created:    2020.11.05
+ *
+ * @Description: Sign in input Form Component
+ *
+ */
 function SignInInfo(){
     return(
         <div>
@@ -20,4 +25,4 @@ function SignInInfo(){
     );
 }
 
-export default SignInInfo
+export default SignInInfo;

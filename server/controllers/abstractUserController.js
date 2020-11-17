@@ -1,15 +1,16 @@
 /**
  * @Author:     Rachelle Gelden
- * @Created:    2020.11.09
+ * @Created:    2020.11.15
  *
- * @Description: controllers to interact with the different account models
+ * @Description: controller functions for the AbstractUser model
  *
  */
-
 const db = require("../models");
-const accountControllerUtils = require("./accountControllerUtils");
+const accountControllerUtils = require("./utils/accountControllerUtils");
+const PasswordService = require('../services/PasswordService');
 
 const AbstractUser = db.abstractUser;
+
 const getMailingAddress = accountControllerUtils.getMailingAddress;
 
 // Create and save abstract user
@@ -20,12 +21,12 @@ const createAbstractUser = (req, res) => {
             message: "Body cannot be empty"
         });
     }
-    const salt = 'xxxx';    // TODO generate salt
+    const salt = PasswordService.getSalt();
 
     // create abstract user object
     const abstractUser = {
         username: req.body.username,
-        password: req.body.password, // TODO hash password
+        password: PasswordService.getHashedPassword(req.body.password, salt),
         salt: salt,
         email: req.body.email,
         firstName: req.body.firstName,
@@ -40,15 +41,7 @@ const createAbstractUser = (req, res) => {
         ...getMailingAddress(req.body)
     }
 
-    AbstractUser.create(abstractUser)
-        .then(data => {
-            res.status(201).send(data);
-        })
-        .catch(err => {
-            res.status(500).send({
-                message: err.message || "An error occurred when creating the abstract user"
-            });
-        });
+    return AbstractUser.create(abstractUser);
 }
 
 const findAbstractUser = (req, res) => {
@@ -80,6 +73,6 @@ const findAllAbstractUsers = (req, res) => {
 
 module.exports = {
     createAbstractUser,
-    findAbstractUser,
-    findAllAbstractUsers
+    findAllAbstractUsers,
+    findAbstractUser
 }

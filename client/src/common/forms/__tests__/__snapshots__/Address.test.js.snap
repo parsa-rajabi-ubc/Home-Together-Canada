@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Address Snapshot test should render correctly regardless of properties 1`] = `
+<div>
+  <label>
+    testLabelString1
+    <input
+      placeholder="Street Address"
+      type="text"
+    />
+  </label>
+  <label>
+    Optional:
+    <input
+      placeholder="Apt, suite, floor # etc."
+      type="text"
+    />
+  </label>
+  <label>
+    <input
+      placeholder="City"
+      type="text"
+    />
+  </label>
+  <div
+    className="relative inline-block text-left"
+  >
+    <div
+      className=""
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      role="button"
+      tabIndex={0}
+    >
+      <span
+        className=""
+      >
+        <p
+          aria-expanded="true"
+          aria-haspopup="true"
+          className=""
+          id="options-menu"
+        >
+          Province
+           ↓ 
+        </p>
+      </span>
+    </div>
+  </div>
+  <label>
+    <input
+      placeholder="Postal Code"
+      type="text"
+    />
+  </label>
+</div>
+`;

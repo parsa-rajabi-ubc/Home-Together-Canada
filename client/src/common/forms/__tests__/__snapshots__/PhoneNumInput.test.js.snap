@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PhoneNumInput Snapshot test should render correctly regardless of properties 1`] = `
+<div>
+  <label>
+    testLabelString1
+    <input
+      placeholder="555"
+      type="text"
+    />
+  </label>
+  <label>
+    -
+    <input
+      placeholder="555"
+      type="text"
+    />
+  </label>
+  <label>
+    -
+    <input
+      placeholder="5555"
+      type="text"
+    />
+  </label>
+</div>
+`;
