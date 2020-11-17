@@ -13,14 +13,14 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
     Password:
     <input
       placeholder=""
-      type="text"
+      type="password"
     />
   </label>
   <label>
     Confirm Password:
     <input
       placeholder=""
-      type="text"
+      type="password"
     />
   </label>
 </div>
