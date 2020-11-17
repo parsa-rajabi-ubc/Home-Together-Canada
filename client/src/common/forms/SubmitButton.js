@@ -1,7 +1,12 @@
 import React from 'react';
-import PropTypes from "prop-types";
-
-//returns generic Submit button field for a form with a label
+import propTypes from "prop-types";
+/**
+ * @Author:     Jeff Hatton
+ * @Created:    2020.11.05
+ *
+ * @Description: Submit button input Form Component
+ *
+ */
 function SubmitButton(props){
     const { onClick } = props;
 
@@ -14,9 +19,9 @@ function SubmitButton(props){
 }
 
 SubmitButton.propTypes = {
-    label: PropTypes.string.isRequired,
-    onClick: PropTypes.func,
-    value: PropTypes.string.isRequired
+    label: propTypes.string.isRequired,
+    onClick: propTypes.func,
+    value: propTypes.string.isRequired
 }
 
-export default SubmitButton
+export default SubmitButton;
