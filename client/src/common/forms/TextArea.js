@@ -9,7 +9,6 @@ import PropTypes from "prop-types";
  */
 function TextArea(props){
     const { onChange } = props;
-
     return(
         <label>
             {props.label}
@@ -17,7 +16,6 @@ function TextArea(props){
         </label>
     );
 }
-
 TextArea.propTypes = {
     label: PropTypes.string.isRequired,
     onChange: PropTypes.func
