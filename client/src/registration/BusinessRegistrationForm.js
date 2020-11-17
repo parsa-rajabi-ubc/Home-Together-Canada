@@ -6,10 +6,7 @@ import SubmitButton from '../common/forms/SubmitButton';
 import Address from "../common/forms/Address";
 import SignInInfo from "../common/forms/SignInInfo";
 import PhoneNumInput from "../common/forms/PhoneNumInput";
-import isStringEmpty from "../common/utils/isStringEmpty";
-import isStringNumeralsOnly from "../common/utils/isStringNumeralsOnly";
-import isStringEmail from "../common/utils/isStringEmail";
-import isStringSame from "../common/utils/isStringSame";
+import {isStringEmail, isStringEmpty, isStringSame, isStringNumeralsOnly} from "../common/utils/stringUtils";
 
 //Returns a Form with fields
 function BusinessRegistrationForm() {
