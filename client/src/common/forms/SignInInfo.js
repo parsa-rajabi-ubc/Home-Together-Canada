@@ -17,11 +17,11 @@ function SignInInfo(props){
             </label>
             <label>
                 Password:
-                <input type="text" placeholder="" onChange= {onChangePassword}/>
+                <input type="password" placeholder="" onChange= {onChangePassword}/>
             </label>
             <label>
                 Confirm Password:
-                <input type="text" placeholder="" onChange= {onChangePasswordCheck}/>
+                <input type="password" placeholder="" onChange= {onChangePasswordCheck}/>
             </label>
         </div>
     );
