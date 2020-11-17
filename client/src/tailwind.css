@@ -68,7 +68,7 @@
 
 @screen md {
     .btn {
-        @apply flex px-10 py-4 text-m;
+        @apply flex px-10 py-4 text-sm;
     }
 
     .text-home {
