@@ -165,6 +165,22 @@ describe('isStringNumeralsOnly function', () => {
             //then
             expect(result).toBe(false);
         });
+        it("should return false when given a null value", () => {
+            //given
+            const str = null;
+            //when
+            const result = isStringNumeralsOnly(str);
+            //then
+            expect(result).toBe(false);
+        });
+        it("should return false when given an undefined string", () => {
+            //given
+            let str;
+            //when
+            const result = isStringNumeralsOnly(str);
+            //then
+            expect(result).toBe(false);
+        });
     })
 })
 
@@ -197,15 +213,6 @@ describe('isStringSame function', () => {
             //then
             expect(result).toBe(false);
         });
-        it("should return false when string is identical besides capitalization", () => {
-            //given
-            const str1 = "password123";
-            const str2 = "Password123";
-            //when
-            const result = isStringSame(str1,str2);
-            //then
-            expect(result).toBe(false);
-        });
         it("should return false when one string is empty", () => {
             //given
             const str1 = "password123";
@@ -219,6 +226,33 @@ describe('isStringSame function', () => {
             //given
             const str1 = "password123";
             const str2 = null;
+            //when
+            const result = isStringSame(str1,str2);
+            //then
+            expect(result).toBe(false);
+        });
+        it("should return false when both are null", () => {
+            //given
+            const str1 = null;
+            const str2 = null;
+            //when
+            const result = isStringSame(str1,str2);
+            //then
+            expect(result).toBe(false);
+        });
+        it("should return false when one string is undefined", () => {
+            //given
+            const str1 = "password123";
+            let str2;
+            //when
+            const result = isStringSame(str1,str2);
+            //then
+            expect(result).toBe(false);
+        });
+        it("should return false when both are undefined", () => {
+            //given
+            let str1;
+            let str2;
             //when
             const result = isStringSame(str1,str2);
             //then
