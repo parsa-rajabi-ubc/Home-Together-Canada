@@ -7,8 +7,6 @@ import PropTypes from "prop-types";
  * @Description: Test box input Form Component
  *
  */
-
-//returns generic textbox field for a form with a label
 function TextArea(props){
     const { onChange } = props;
 
