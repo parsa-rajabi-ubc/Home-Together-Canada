@@ -14,7 +14,7 @@ import Address from "../common/forms/Address";
 import SignInInfo from "../common/forms/SignInInfo";
 import PhoneNumInput from "../common/forms/PhoneNumInput";
 import Dropdown from "../common/forms/Dropdown";
-import RegistrationUtils from "./registrationUtils";
+import YEARS from "./registrationUtils";
 
 //Returns a Form with fields
 function MemberRegistrationForm() {
@@ -30,7 +30,7 @@ function MemberRegistrationForm() {
                 <TextArea label="Last Name: " placeholder=""/>
 
                 {/*change this later*/}
-                <Dropdown title={"Year of Birth"} items={RegistrationUtils}/>
+                <Dropdown title={"Year of Birth"} items={YEARS}/>
 
                 <PhoneNumInput label="TelephoneNumber: "/>
                 <TextArea label="Email Address: " placeholder=""/>
