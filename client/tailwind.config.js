@@ -11,14 +11,42 @@ module.exports = {
   presets: [],
   theme: {
     screens: {
+      // small = phones
       sm: '640px',
+      // medium = tablet
       md: '768px',
+      // large = laptop
       lg: '1024px',
+      // extra large = desktop
       xl: '1280px',
     },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
+
+      off_white: 'f8fafc',
+
+      iblue: {
+        normal: '#4285F4',
+        light: '#8bb4f8',
+        dark: '#0e61ea',
+      },
+      igreen: {
+        normal: '#0F9D58',
+        light: '#13c46e',
+        dark: '#0c7e46',
+      },
+      ired: {
+        normal: '#DB4437',
+        light: '#e57a71',
+        dark: '#ba2e21',
+      },
+      iyellow: {
+        normal: '#F4B400',
+        light: '#ffc932',
+        dark: '#c39000',
+      },
+
 
       black: '#000',
       white: '#fff',
