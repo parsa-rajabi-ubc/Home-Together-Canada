@@ -15,12 +15,6 @@ const getMailingAddress = accountControllerUtils.getMailingAddress;
 
 // Create and save abstract user
 const createAbstractUser = (req, res) => {
-    // TODO add validation here
-    if (!req.body) {
-        res.status(400).send({
-            message: "Body cannot be empty"
-        });
-    }
     const salt = PasswordService.getSalt();
 
     // create abstract user object
@@ -31,7 +25,7 @@ const createAbstractUser = (req, res) => {
         email: req.body.email,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        phoneNumber: req.body.phoneNumber,
+        phoneNumber: accountControllerUtils.formatPhoneNumber(req.body.phoneNumber),
         addressLine1: req.body.addressLine1,
         addressLine2: req.body.addressLine2 ? req.body.addressLine2 : null,
         city: req.body.city,
@@ -58,6 +52,13 @@ const findAbstractUser = (req, res) => {
         });
 }
 
+const findUserByUsername = (username) =>
+    AbstractUser.findAll({
+        where: {
+            username: username
+        }
+    });
+
 const findAllAbstractUsers = (req, res) => {
     AbstractUser.findAll()
         .then(data => {
@@ -74,5 +75,6 @@ const findAllAbstractUsers = (req, res) => {
 module.exports = {
     createAbstractUser,
     findAllAbstractUsers,
-    findAbstractUser
+    findAbstractUser,
+    findUserByUsername
 }

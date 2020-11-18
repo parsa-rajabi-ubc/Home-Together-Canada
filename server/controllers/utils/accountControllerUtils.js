@@ -23,6 +23,15 @@ const getMailingAddress = (body) => {
         }
 }
 
+const formatPhoneNumber = (phoneNum) => {
+    if (!phoneNum || phoneNum.toString().length !== 10 || typeof phoneNum !== 'number') {
+        return '';
+    }
+    const phoneNumStr = phoneNum.toString();
+    return phoneNumStr.substring(0,3) + '-' + phoneNumStr.substring(3, 6) + '-' + phoneNumStr.substring(6, 10);
+}
+
 module.exports = {
-    getMailingAddress
+    getMailingAddress,
+    formatPhoneNumber
 }

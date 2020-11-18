@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const routes = require('./routes');
 const db = require("./models");
 const cors = require('cors');
+const expressValidator = require('express-validator');
 
 const app = express();
 
@@ -12,6 +13,7 @@ const app = express();
 app.use(express.static(path.join(__dirname, '../client/build')));
 
 app.use(cors());
+app.use(expressValidator());
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());

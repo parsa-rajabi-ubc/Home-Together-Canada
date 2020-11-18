@@ -6,10 +6,19 @@
  *
  */
 
+const { validationResult } = require('express-validator/check');
+
 const abstractUserController = require('./abstractUserController');
 const businessAccountController = require('./businessAccountController');
 
 const createBusinessUser = (req, res) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        res.status(202).json({ errors: errors.array() });
+        return;
+    }
+
     let abstractUserObj;
     abstractUserController.createAbstractUser(req, res)
         .then((abstractUser) => {

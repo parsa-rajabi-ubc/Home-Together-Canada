@@ -7,24 +7,18 @@
  */
 
 const db = require("../models");
+const { formatPhoneNumber } = require('./utils/accountControllerUtils');
 const BusinessAccount = db.businessAccount;
 
 const createBusinessAccount = (req, res, uid) => {
-    // TODO add validation here
-    if (!req.body) {
-        res.status(400).send({
-            message: "Body cannot be empty"
-        });
-    }
-
     const businessAccount = {
         uid: uid,
         businessName: req.body.businessName,
         logo: req.body.logo,
         isIncorporated: req.body.isIncorporated,
         incorporatedOwnersNames: req.body.incorporatedOwnersNames,
-        businessPhoneNumber: req.body.businessPhoneNumber,
-        businessCellPhoneNumber: req.body.businessCellPhoneNumber,
+        businessPhoneNumber: formatPhoneNumber(req.body.businessPhoneNumber),
+        businessCellPhoneNumber: formatPhoneNumber(req.body.businessCellPhoneNumber),
         isNationWide: req.body.isNationWide,
         mapAddressLine1: req.body.mapAddressLine1,
         mapAddressLine2: req.body.mapAddressLine2,
