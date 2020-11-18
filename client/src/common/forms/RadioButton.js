@@ -1,8 +1,14 @@
 /**
  * @Author:     Jeff Hatton
+<<<<<<< HEAD
  * @Created:    2020.11.16
  *
  * @Description: Radio button form functional Component.
+=======
+ * @Created:    2020.11.18
+ *
+ * @Description: Radio button input Form Component
+>>>>>>> be870cc... HTC-87: creating function components and form component - incomplete
  *
  */
 
@@ -10,16 +16,17 @@ import React from 'react'
 import PropTypes from 'prop-types';
 
 function RadioButton(props){
-    const { label, name, value, checked, onChange } = props;
+    const {label, name, value, checked, onChange} = props;
     return(
         <label>
-            {props.label}
+            {label}
             <input type="radio"
                    name={name}
                    value={value}
                    checked={checked}
                    onChange={onChange}
             />
+            Option 2
         </label>
     );
 }
@@ -33,3 +40,4 @@ RadioButton.propTypes = {
 }
 
 export default RadioButton;
+

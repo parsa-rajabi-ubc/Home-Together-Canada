@@ -66,7 +66,6 @@ function MemberProfileForm() {
                 <YNButton label="Religion is important to me?:" checked={religious} onChange={onchange}/>
                 <YNButton label="The diet of others in my home is important to me?:" checked={hasDiet} onChange={onchange}/>
                 <YNButton label="I have a home to share?:" checked={hasHome} onChange={onchange}/>
-
             </form>
         </div>
     );
