@@ -12,8 +12,13 @@ import PhoneNumInput from "../PhoneNumInput";
 describe('PhoneNumInput', () => {
     describe('Snapshot test', () => {
         it("should render correctly regardless of properties", () => {
+            // given
+            const label = 'testLabelString1';
+            const onChangeMock = jest.fn();
+
             //when
-            const component = renderer.create(<PhoneNumInput label="testLabelString1" />).toJSON();
+            const component = renderer.create(<PhoneNumInput label={label} onChange={onChangeMock} />).toJSON();
+
             //then
             expect(component).toMatchSnapshot();
         });

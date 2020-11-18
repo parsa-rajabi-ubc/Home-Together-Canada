@@ -237,6 +237,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
     <label>
       Business Website: 
       <input
+        placeholder=""
         type="text"
       />
     </label>

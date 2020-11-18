@@ -12,9 +12,14 @@ import SubmitButton from "../SubmitButton";
 describe('SubmitButton', () => {
     describe('Snapshot test', () => {
         it("should render correctly regardless of properties", () => {
-            //when
-            const component = renderer.create(<SubmitButton label="testLabelString1" />).toJSON();
-            //then
+            // then
+            const label = 'testLabelString1';
+            const onClickMock = jest.fn();
+
+            // when
+            const component = renderer.create(<SubmitButton label={label} onClick={onClickMock} />).toJSON();
+
+            // then
             expect(component).toMatchSnapshot();
         });
     })

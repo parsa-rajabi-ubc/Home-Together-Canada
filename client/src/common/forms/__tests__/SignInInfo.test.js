@@ -12,10 +12,15 @@ import renderer from 'react-test-renderer';
 describe('SignInInfo', () => {
         describe('Snapshot test', () => {
                 it("should match stored snapshot", () => {
-                        //when
-                        const component = renderer.create(<SignInInfo/>);
+                        // given
+                        const onChangeUsername = jest.fn();
+                        const onChangePassword = jest.fn();
+                        const onChangePasswordCheck = jest.fn();
 
-                        //then
+                        //when
+                        const component = renderer.create(<SignInInfo onChangeUsername={onChangeUsername} onChangePassword={onChangePassword} onChangePasswordCheck={onChangePasswordCheck}/>);
+
+                        // then
                         expect(component).toMatchSnapshot();
                 });
         })
