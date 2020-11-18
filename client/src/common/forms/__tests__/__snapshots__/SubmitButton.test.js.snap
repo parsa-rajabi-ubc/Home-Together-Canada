@@ -6,7 +6,6 @@ exports[`SubmitButton Snapshot test should render correctly regardless of proper
   <input
     onClick={[MockFunction]}
     type="submit"
-    value="Submit"
   />
 </label>
 `;
