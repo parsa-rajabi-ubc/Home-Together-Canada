@@ -70,20 +70,21 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
     </div>
     <div>
       <label>
-        Business Address: 
+        Address Line 1:
         <input
           placeholder="Street Address"
           type="text"
         />
       </label>
       <label>
-        Optional:
+        Address Line 2:
         <input
           placeholder="Apt, suite, floor # etc."
           type="text"
         />
       </label>
       <label>
+        City:
         <input
           placeholder="City"
           type="text"
@@ -115,6 +116,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         </div>
       </div>
       <label>
+        Postal Code:
         <input
           placeholder="Postal Code"
           type="text"
@@ -142,20 +144,21 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         </label>
         <div>
           <label>
-            Address Shown on Map: 
+            Address Line 1:
             <input
               placeholder="Street Address"
               type="text"
             />
           </label>
           <label>
-            Optional:
+            Address Line 2:
             <input
               placeholder="Apt, suite, floor # etc."
               type="text"
             />
           </label>
           <label>
+            City:
             <input
               placeholder="City"
               type="text"
@@ -187,6 +190,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
             </div>
           </div>
           <label>
+            Postal Code:
             <input
               placeholder="Postal Code"
               type="text"
