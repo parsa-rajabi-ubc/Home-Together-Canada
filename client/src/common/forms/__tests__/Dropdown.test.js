@@ -1,7 +1,3 @@
-import React from 'react';
-import renderer from  'react-test-renderer'
-import Dropdown from "../Dropdown";
-import provinces from "../Provinces";
 /**
  * @Author:     Jeff Hatton
  * @Created:    2020.11.13
@@ -9,6 +5,11 @@ import provinces from "../Provinces";
  * @Description: Dropdown Component Snapshot test
  *
  */
+import React from 'react';
+import renderer from  'react-test-renderer'
+import Dropdown from "../Dropdown";
+import provinces from "../Provinces";
+
 describe('Dropdown', () => {
     describe('Snapshot test', () => {
         it("should render correctly regardless of properties", () => {

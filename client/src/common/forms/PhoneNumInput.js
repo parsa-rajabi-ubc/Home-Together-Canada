@@ -1,5 +1,3 @@
-import React from "react";
-import PropTypes from 'prop-types';
 /**
  * @Author:     Jeff Hatton
  * @Created:    2020.11.05
@@ -7,6 +5,10 @@ import PropTypes from 'prop-types';
  * @Description: Phone Number input Form Component
  *
  */
+
+import React from "react";
+import PropTypes from 'prop-types';
+
 function PhoneNumInput(props){
     const { label, onChange } = props;
     return(
