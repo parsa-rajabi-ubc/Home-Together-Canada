@@ -7,17 +7,29 @@
  * @Example2 multiselect: <Dropdown title={"Province"} items={provinces} multiSelect/>
  */
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from "prop-types";
 
 
 
-function Dropdown({title, items, multiSelect = false}) {
+function Dropdown({title, items, name, onChange, multiSelect = false}) {
     // initialize variables
     const [open, setOpen] = useState(false);
     const [selection, setSelection] = useState([]);
     const toggle = () => setOpen(!open);
     Dropdown.handleClickOutside = () => setOpen(false);
+
+    useEffect(() => {
+        if (selection.length) {
+            const event = {
+                target: {
+                    name,
+                    value: selection.map(item => item.value)
+                }
+            }
+            onChange(event);
+        }
+    }, [selection]);
 
     // handles onClick for each item
     function handleOnClick(item) {
@@ -91,6 +103,8 @@ function Dropdown({title, items, multiSelect = false}) {
 Dropdown.propTypes = {
     title: PropTypes.string.isRequired,
     items: PropTypes.array.isRequired,
+    name: PropTypes.string,
+    onChange: PropTypes.func,
     multiSelect: PropTypes.bool
 }
 

@@ -1,6 +1,3 @@
-import React from 'react';
-import renderer from  'react-test-renderer'
-import Checkbox from "../Checkbox";
 /**
  * @Author:     Jeff Hatton
  * @Created:    2020.11.13
@@ -8,6 +5,10 @@ import Checkbox from "../Checkbox";
  * @Description: Checkbox Component Snapshot test
  *
  */
+import React from 'react';
+import renderer from  'react-test-renderer'
+import Checkbox from "../Checkbox";
+
 describe('Checkbox', () => {
     describe('Snapshot test', () => {
         it("should render correctly regardless of properties", () => {

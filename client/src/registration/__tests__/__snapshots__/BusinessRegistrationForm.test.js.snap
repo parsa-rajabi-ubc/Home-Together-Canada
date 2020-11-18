@@ -13,12 +13,16 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
     <label>
       Business Name: 
       <input
+        onChange={[Function]}
+        placeholder=""
         type="text"
       />
     </label>
     <label>
       Business Email: 
       <input
+        onChange={[Function]}
+        placeholder=""
         type="text"
       />
     </label>
@@ -26,6 +30,8 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
       <label>
         Business Telephone Number: 
         <input
+          name="first"
+          onChange={[Function]}
           placeholder="555"
           type="text"
         />
@@ -33,6 +39,8 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
       <label>
         -
         <input
+          name="middle"
+          onChange={[Function]}
           placeholder="555"
           type="text"
         />
@@ -40,6 +48,8 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
       <label>
         -
         <input
+          name="last"
+          onChange={[Function]}
           placeholder="5555"
           type="text"
         />
@@ -49,6 +59,8 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
       <label>
         Business Cell Phone Number: 
         <input
+          name="first"
+          onChange={[Function]}
           placeholder="555"
           type="text"
         />
@@ -56,6 +68,8 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
       <label>
         -
         <input
+          name="middle"
+          onChange={[Function]}
           placeholder="555"
           type="text"
         />
@@ -63,6 +77,8 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
       <label>
         -
         <input
+          name="last"
+          onChange={[Function]}
           placeholder="5555"
           type="text"
         />
@@ -72,6 +88,8 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
       <label>
         Business Address: 
         <input
+          name="street"
+          onChange={[Function]}
           placeholder="Street Address"
           type="text"
         />
@@ -79,12 +97,16 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
       <label>
         Optional:
         <input
+          name="aptNum"
+          onChange={[Function]}
           placeholder="Apt, suite, floor # etc."
           type="text"
         />
       </label>
       <label>
         <input
+          name="city"
+          onChange={[Function]}
           placeholder="City"
           type="text"
         />
@@ -116,6 +138,8 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
       </div>
       <label>
         <input
+          name="postalCode"
+          onChange={[Function]}
           placeholder="Postal Code"
           type="text"
         />
@@ -144,6 +168,8 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
           <label>
             Address Shown on Map: 
             <input
+              name="street"
+              onChange={[Function]}
               placeholder="Street Address"
               type="text"
             />
@@ -151,12 +177,16 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
           <label>
             Optional:
             <input
+              name="aptNum"
+              onChange={[Function]}
               placeholder="Apt, suite, floor # etc."
               type="text"
             />
           </label>
           <label>
             <input
+              name="city"
+              onChange={[Function]}
               placeholder="City"
               type="text"
             />
@@ -188,6 +218,8 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
           </div>
           <label>
             <input
+              name="postalCode"
+              onChange={[Function]}
               placeholder="Postal Code"
               type="text"
             />
@@ -205,6 +237,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
     <label>
       Business Website: 
       <input
+        placeholder=""
         type="text"
       />
     </label>
@@ -215,12 +248,16 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
     <label>
       First Name: 
       <input
+        onChange={[Function]}
+        placeholder=""
         type="text"
       />
     </label>
     <label>
       Last Name: 
       <input
+        onChange={[Function]}
+        placeholder=""
         type="text"
       />
     </label>
@@ -228,6 +265,8 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
       <label>
         Contact Phone Number: 
         <input
+          name="first"
+          onChange={[Function]}
           placeholder="555"
           type="text"
         />
@@ -235,6 +274,8 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
       <label>
         -
         <input
+          name="middle"
+          onChange={[Function]}
           placeholder="555"
           type="text"
         />
@@ -242,6 +283,8 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
       <label>
         -
         <input
+          name="last"
+          onChange={[Function]}
           placeholder="5555"
           type="text"
         />
@@ -255,6 +298,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
       <label>
         Username:
         <input
+          onChange={[Function]}
           placeholder=""
           type="text"
         />
@@ -262,22 +306,26 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
       <label>
         Password:
         <input
+          onChange={[Function]}
           placeholder=""
-          type="text"
+          type="password"
         />
       </label>
       <label>
         Confirm Password:
         <input
+          onChange={[Function]}
           placeholder=""
-          type="text"
+          type="password"
         />
       </label>
     </div>
     <label>
       Next: 
       <input
+        onClick={[Function]}
         type="submit"
+        value="Submit"
       />
     </label>
     <hr />
