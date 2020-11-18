@@ -34,7 +34,7 @@ function MemberRegistrationForm() {
 
                 <PhoneNumInput label="TelephoneNumber: "/>
                 <TextArea label="Email Address: " placeholder=""/>
-                <Address label="Home Address: "/>
+                <Address/>
 
                 <Checkbox label="Different Mailing Address? " onChange= {() => {setIsSameAddress(!isSameAddress)}}/>
                 {isSameAddress && <Address label="Mailing Address: "/>}
