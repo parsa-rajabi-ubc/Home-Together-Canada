@@ -66,69 +66,146 @@ function BusinessRegistrationForm() {
     const [password, setPassword] = useState("");
     const [passwordCheck, setPasswordCheck] = useState("");
 
-    //function for input checks on submit
-    function onSubmit(){
-        if (isStringEmpty(bName)) alert("Business Name Required")
+    // TODO: convert this into an array of errors
+    const isFormValid = () => {
+        if (isStringEmpty(bName)) {
+            alert("Business Name Required");
+            return false;
+        }
         if (isStringEmpty(bEmail)) {
-            alert("Business Email Required")
+            alert("Business Email Required");
+            return false;
         } else {
             if (!isStringEmail(bEmail)){
-                alert("Business email is invalid")
+                alert("Business email is invalid");
+                return false;
             }
         }
         if (isStringEmpty(bPhoneNumber.first) || isStringEmpty(bPhoneNumber.middle) || isStringEmpty(bPhoneNumber.last)) {
-            alert("Business Phone Number missing parts")
+            alert("Business Phone Number missing parts");
+            return false;
         } else {
             if(!isStringNumeralsOnly(bPhoneNumber.first) || !isStringNumeralsOnly(bPhoneNumber.middle) || !isStringNumeralsOnly(bPhoneNumber.last)){
-                alert("Business Phone Number has invalid characters")
+                alert("Business Phone Number has invalid characters");
+                return false;
             }
             if(!(bPhoneNumber.first.length===3) || !(bPhoneNumber.middle.length===3) || !(bPhoneNumber.last.length===4)){
-                alert("Business Phone Number has invalid number of characters")
+                alert("Business Phone Number has invalid number of characters");
+                return false;
             }
         }
         if (isStringEmpty(bCellNumber.first) || isStringEmpty(bCellNumber.middle) || isStringEmpty(bCellNumber.last)) {
-            alert("Business Cell Phone Number missing parts")
+            alert("Business Cell Phone Number missing parts");
+            return false;
         } else {
             if(!isStringNumeralsOnly(bCellNumber.first) || !isStringNumeralsOnly(bCellNumber.middle) || !isStringNumeralsOnly(bCellNumber.last)){
-                alert("Business Cell Phone Number has invalid characters")
+                alert("Business Cell Phone Number has invalid characters");
+                return false;
             }
             if(!(bCellNumber.first.length===3) || !(bCellNumber.middle.length===3) || !(bCellNumber.last.length===4)){
-                alert("Business Cell Phone Number has invalid number of characters")
+                alert("Business Cell Phone Number has invalid number of characters");
+                return false;
             }
         }
-        if (isStringEmpty(bAddress.street)) alert("Business Street Address missing")
-        if (isStringEmpty(bAddress.city)) alert("Business Address City missing")
-        if (isStringEmpty(bAddress.province)) alert("Business Address Province not selected")
-        if (isStringEmpty(bAddress.postalCode)) alert("Business Address Postal Code missing")
-        if (isSameAddress){
-            if (isStringEmpty(bMailingAddress.street)) alert("Business Mailing Address Street missing")
-            if (isStringEmpty(bMailingAddress.city)) alert("Business Mailing Address City missing")
-            if (isStringEmpty(bMailingAddress.province)) alert("Business Mailing Address Province not selected")
-            if (isStringEmpty(bMailingAddress.postalCode)) alert("Business Mailing Address Postal Code missing")
+        if (isStringEmpty(bAddress.street)) {
+            alert("Business Street Address missing");
+            return false;
         }
-        if (isStringEmpty(bMapAddress.street)) alert("Business Map Address Street missing")
-        if (isStringEmpty(bMapAddress.city)) alert("Business Map Address City missing")
-        if (isStringEmpty(bMapAddress.province)) alert("Business Map Address Province not selected")
-        if (isStringEmpty(bMapAddress.postalCode)) alert("Business Map Address Postal Code missing")
-        if (isStringEmpty(contactFName)) alert("Contact First Name Required")
-        if (isStringEmpty(contactLName)) alert("Contact Last Name Required")
+        if (isStringEmpty(bAddress.city)) {
+            alert("Business Address City missing");
+            return false;
+        }
+        if (isStringEmpty(bAddress.province)) {
+            alert("Business Address Province not selected");
+            return false
+        }
+        if (isStringEmpty(bAddress.postalCode)) {
+            alert("Business Address Postal Code missing");
+            return false;
+        }
+        if (isSameAddress){
+            if (isStringEmpty(bMailingAddress.street)) {
+                alert("Business Mailing Address Street missing");
+                return false;
+            }
+            if (isStringEmpty(bMailingAddress.city)) {
+                alert("Business Mailing Address City missing");
+                return false;
+            }
+            if (isStringEmpty(bMailingAddress.province)) {
+                alert("Business Mailing Address Province not selected");
+                return false;
+            }
+            if (isStringEmpty(bMailingAddress.postalCode)) {
+                alert("Business Mailing Address Postal Code missing");
+                return false;
+            }
+        }
+        if (!isNationWide) {
+            if (isStringEmpty(bMapAddress.street)) {
+                alert("Business Map Address Street missing");
+                return false;
+            }
+            if (isStringEmpty(bMapAddress.city)) {
+                alert("Business Map Address City missing");
+                return false;
+            }
+            if (isStringEmpty(bMapAddress.province)) {
+                alert("Business Map Address Province not selected");
+                return false;
+            }
+            if (isStringEmpty(bMapAddress.postalCode)) {
+                alert("Business Map Address Postal Code missing");
+                return false;
+            }
+        }
+        if (isStringEmpty(contactFName)) {
+            alert("Contact First Name Required");
+            return false;
+        }
+        if (isStringEmpty(contactLName)) {
+            alert("Contact Last Name Required");
+            return false;
+        }
         if (isStringEmpty(contactPhoneNumber.first) || isStringEmpty(contactPhoneNumber.middle) || isStringEmpty(contactPhoneNumber.last)) {
-            alert("Contact Phone Number missing parts")
+            alert("Contact Phone Number missing parts");
+            return false;
         } else {
             if(!isStringNumeralsOnly(contactPhoneNumber.first) || !isStringNumeralsOnly(contactPhoneNumber.middle) || !isStringNumeralsOnly(contactPhoneNumber.last)){
-                alert("Contact Phone Number has invalid characters")
+                alert("Contact Phone Number has invalid characters");
+                return false;
             }
             if(!(contactPhoneNumber.first.length===3) || !(contactPhoneNumber.middle.length===3) || !(contactPhoneNumber.last.length===4)){
-                alert("Contact Phone Number has invalid number of characters")
+                alert("Contact Phone Number has invalid number of characters");
+                return false;
             }
         }
-        if (isStringEmpty(username)) alert("username Required")
-        if (isStringEmpty(password)) alert("Password Required")
-        if (isStringEmpty(passwordCheck)) alert("Password confirmation Required")
+        if (isStringEmpty(username)) {
+            alert("username Required");
+            return false;
+        }
+        if (isStringEmpty(password)) {
+            alert("Password Required");
+            return false;
+        }
+        if (isStringEmpty(passwordCheck)) {
+            alert("Password confirmation Required");
+            return false;
+        }
         if (!isStringEmpty(password) && !isStringEmpty(passwordCheck)){
             if (!isStringSame(password,passwordCheck)){
-                alert("Passwords do NOT match")
+                alert("Passwords do NOT match");
+                return false;
             }
+        }
+        return true;
+    }
+
+    //function for input checks on submit
+    function onSubmit(event){
+        if (!isFormValid()) {
+            event.preventDefault();
+            return;
         }
     }
     function handleBPhoneChange(e){

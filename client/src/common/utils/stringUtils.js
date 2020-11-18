@@ -8,8 +8,11 @@
 
 export function isStringEmpty(str){
     //is string blank, empty, null, undefined, whitespace
-    if (typeof str == 'undefined' || !str || str.length === 0 || str === "" || !/[^\s]/.test(str) || /^\s*$/.test(str) || str.replace(/\s/g,"") === "")
+    if (typeof str === 'undefined' || !str || str.length === 0 || str === "" || !/[^\s]/.test(str) || /^\s*$/.test(str))
         return true;
+    else if (typeof str === 'string' && str.replace(/\s/g,"") === "") {
+        return true;
+    }
     else
         return false;
 }

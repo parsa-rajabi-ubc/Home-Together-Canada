@@ -17,7 +17,7 @@ function Address(props){
     return(
         <div>
             <label>
-                {props.label}
+                { label }
                 <input type="text" name="street" placeholder="Street Address" onChange= {onChange}/>
             </label>
             <label>
@@ -26,7 +26,7 @@ function Address(props){
             </label>
             <label>
 
-                <input type="text" name="city" placeholder="City" onChange= {onChange}/>
+                <input type="text" name="city" placeholder="City" onChange={onChange}/>
             </label>
             <Dropdown name="province" title={"Province"} items={provinces} onChange={onChange}/>
             <label>
