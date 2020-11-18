@@ -86,7 +86,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
     </div>
     <div>
       <label>
-        Business Address: 
+        Address Line 1:
         <input
           name="street"
           onChange={[Function]}
@@ -95,7 +95,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         />
       </label>
       <label>
-        Optional:
+        Address Line 2:
         <input
           name="aptNum"
           onChange={[Function]}
@@ -104,6 +104,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         />
       </label>
       <label>
+        City:
         <input
           name="city"
           onChange={[Function]}
@@ -137,6 +138,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         </div>
       </div>
       <label>
+        Postal Code:
         <input
           name="postalCode"
           onChange={[Function]}
@@ -166,7 +168,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         </label>
         <div>
           <label>
-            Address Shown on Map: 
+            Address Line 1:
             <input
               name="street"
               onChange={[Function]}
@@ -175,7 +177,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
             />
           </label>
           <label>
-            Optional:
+            Address Line 2:
             <input
               name="aptNum"
               onChange={[Function]}
@@ -184,6 +186,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
             />
           </label>
           <label>
+            City:
             <input
               name="city"
               onChange={[Function]}
@@ -217,6 +220,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
             </div>
           </div>
           <label>
+            Postal Code:
             <input
               name="postalCode"
               onChange={[Function]}
