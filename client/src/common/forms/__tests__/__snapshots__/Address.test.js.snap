@@ -5,8 +5,6 @@ exports[`Address Snapshot test should render correctly regardless of properties 
   <label>
     Address Line 1:
     <input
-      name="street"
-      onChange={[MockFunction]}
       placeholder="Street Address"
       type="text"
     />
@@ -14,8 +12,6 @@ exports[`Address Snapshot test should render correctly regardless of properties 
   <label>
     Address Line 2:
     <input
-      name="aptNum"
-      onChange={[MockFunction]}
       placeholder="Apt, suite, floor # etc."
       type="text"
     />
@@ -23,8 +19,6 @@ exports[`Address Snapshot test should render correctly regardless of properties 
   <label>
     City:
     <input
-      name="city"
-      onChange={[MockFunction]}
       placeholder="City"
       type="text"
     />
@@ -57,8 +51,6 @@ exports[`Address Snapshot test should render correctly regardless of properties 
   <label>
     Postal Code:
     <input
-      name="postalCode"
-      onChange={[MockFunction]}
       placeholder="Postal Code"
       type="text"
     />
