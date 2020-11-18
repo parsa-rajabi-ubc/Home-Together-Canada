@@ -1,0 +1,89 @@
+.btn {
+    @apply items-center justify-center w-full px-8 py-3 text-lg text-white transition duration-150 ease-in-out border border-transparent rounded-md;
+}
+
+.btn:hover {
+
+}
+
+.btn:active {
+    @apply bg-green-600;
+}
+
+.btn:focus {
+    @apply shadow-outline outline-none;
+}
+
+.btn-green {
+    @apply bg-igreen-normal;
+}
+
+.btn-green:hover {
+    @apply bg-igreen-dark;
+}
+
+.btn-green:active {
+    @apply bg-green-600;
+}
+
+.btn-red {
+    @apply bg-ired-normal;
+}
+
+.btn-red:hover {
+    @apply bg-ired-dark;
+}
+
+.btn-red:active {
+    @apply bg-red-600;
+}
+
+.header-home {
+    @apply w-full my-2 text-5xl font-bold leading-tight text-center text-gray-900;
+}
+
+.text-home {
+    @apply my-3 text-base text-2xl text-gray-700;
+}
+
+.gradient {
+    @apply bg-gradient-to-r from-igreen-normal to-iyellow-normal;
+}
+
+.underline-red {
+    text-decoration-color: #F4B400;
+    text-decoration: underline;
+}
+
+@screen xl {
+
+}
+@screen lg {
+    .text-home {
+        @apply mx-0;
+    }
+}
+
+@screen md {
+    .btn {
+        @apply flex px-10 py-4 text-sm;
+    }
+
+    .text-home {
+        @apply mt-5 text-xl;
+    }
+
+    .header-home {
+        @apply text-6xl;
+    }
+}
+
+@screen sm {
+    .text-home {
+        @apply max-w-xl mt-5 mr-auto text-lg;
+    }
+
+    .header-home {
+        @apply text-5xl leading-none;
+    }
+}
