@@ -12,7 +12,8 @@ const path = require('path');
 
 const abstractUsers = require('./controllers/abstractUserController');
 const businessAccounts = require('./controllers/businessAccountController');
-const users = require('./controllers/userController')
+const users = require('./controllers/userController');
+const usersValidator = require('./controllers/validators/userControllerValidator');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -45,8 +46,8 @@ router.get('/businessAccount/all/', function(req, res, next) {
     businessAccounts.findAllBusinessAccounts(req, res);
 });
 
-// Create a business user
-router.post('/businessUser/create/', function(req, res, next) {
+// // Create a business user
+router.post('/businessUser/create/', usersValidator.validate('createBusinessUser'), function(req, res, next) {
     users.createBusinessUser(req, res);
 });
 
