@@ -1,8 +1,3 @@
-import provinces from "./Provinces";
-import React from "react";
-import Dropdown from "./Dropdown";
-import PropTypes from "prop-types";
-
 /**
  * @Author:     Jeff Hatton
  * @Created:    2020.11.05
@@ -10,6 +5,13 @@ import PropTypes from "prop-types";
  * @Description: Address input Form Component
  *
  */
+
+import provinces from "./Provinces";
+import React from "react";
+import Dropdown from "./Dropdown";
+import PropTypes from "prop-types";
+
+
 function Address(props){
     const { label, onChange } = props;
     return(

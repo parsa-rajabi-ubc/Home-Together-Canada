@@ -1,6 +1,3 @@
-import React from 'react';
-import PropTypes from "prop-types";
-
 /**
  * @Author:     Jeff Hatton
  * @Created:    2020.11.05
@@ -8,6 +5,10 @@ import PropTypes from "prop-types";
  * @Description: Button input Form Component
  *
  */
+
+import React from 'react';
+import PropTypes from "prop-types";
+
 function Button(props){
     const { label, onClick } = props;
     return(

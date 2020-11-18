@@ -1,6 +1,3 @@
-import React from "react";
-import SignInInfo from "../SignInInfo";
-import renderer from 'react-test-renderer';
 /**
  * @Author:     Jeff Hatton
  * @Created:    2020.11.13
@@ -8,6 +5,10 @@ import renderer from 'react-test-renderer';
  * @Description: Sign in info Component Snapshot test
  *
  */
+import React from "react";
+import SignInInfo from "../SignInInfo";
+import renderer from 'react-test-renderer';
+
 describe('SignInInfo', () => {
         describe('Snapshot test', () => {
                 it("should match stored snapshot", () => {
