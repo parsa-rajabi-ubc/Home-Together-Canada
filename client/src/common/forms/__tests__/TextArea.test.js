@@ -1,6 +1,3 @@
-import React from 'react';
-import TextArea from "../TextArea";
-import renderer from  'react-test-renderer'
 /**
  * @Author:     Jeff Hatton
  * @Created:    2020.11.13
@@ -8,6 +5,11 @@ import renderer from  'react-test-renderer'
  * @Description: Text box input Component Snapshot test
  *
  */
+
+import React from 'react';
+import TextArea from "../TextArea";
+import renderer from  'react-test-renderer'
+
 describe('TextArea', () => {
     describe('Snapshot test', () => {
         it("should render correctly regardless of properties", () => {

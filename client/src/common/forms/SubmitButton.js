@@ -1,5 +1,3 @@
-import React from 'react';
-import propTypes from "prop-types";
 /**
  * @Author:     Jeff Hatton
  * @Created:    2020.11.05
@@ -7,6 +5,10 @@ import propTypes from "prop-types";
  * @Description: Submit button input Form Component
  *
  */
+
+import React from 'react';
+import propTypes from "prop-types";
+
 function SubmitButton(props){
     const { label, onClick } = props;
     return(
