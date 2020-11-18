@@ -9,7 +9,7 @@ import React, {useState} from 'react'
 import Checkbox from './common/forms/Checkbox';
 import TextArea from './common/forms/TextArea';
 import SubmitButton from './common/forms/SubmitButton';
-import isStringEmpty from './common/utils/isStringEmpty';
+import { isStringEmpty } from "./common/utils/stringUtils";
 
 function LoginForm(){
 

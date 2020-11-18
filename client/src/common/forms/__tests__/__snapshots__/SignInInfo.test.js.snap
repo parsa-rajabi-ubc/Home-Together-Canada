@@ -5,6 +5,7 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
   <label>
     Username:
     <input
+      onChange={[MockFunction]}
       placeholder=""
       type="text"
     />
@@ -12,15 +13,17 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
   <label>
     Password:
     <input
+      onChange={[MockFunction]}
       placeholder=""
-      type="text"
+      type="password"
     />
   </label>
   <label>
     Confirm Password:
     <input
+      onChange={[MockFunction]}
       placeholder=""
-      type="text"
+      type="password"
     />
   </label>
 </div>

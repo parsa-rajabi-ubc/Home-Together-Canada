@@ -1,6 +1,3 @@
-import React from 'react';
-import renderer from  'react-test-renderer'
-import Button from "../Button";
 /**
  * @Author:     Jeff Hatton
  * @Created:    2020.11.13
@@ -8,6 +5,10 @@ import Button from "../Button";
  * @Description: Button Component Snapshot test
  *
  */
+import React from 'react';
+import renderer from  'react-test-renderer'
+import Button from "../Button";
+
 describe('Button', () => {
     describe('Snapshot test', () => {
         it("should render correctly regardless of properties", () => {
