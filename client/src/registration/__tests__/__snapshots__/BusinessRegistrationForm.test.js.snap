@@ -13,14 +13,12 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
     <label>
       Business Name: 
       <input
-        placeholder=""
         type="text"
       />
     </label>
     <label>
       Business Email: 
       <input
-        placeholder=""
         type="text"
       />
     </label>
@@ -207,7 +205,6 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
     <label>
       Business Website: 
       <input
-        placeholder=""
         type="text"
       />
     </label>
@@ -218,14 +215,12 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
     <label>
       First Name: 
       <input
-        placeholder=""
         type="text"
       />
     </label>
     <label>
       Last Name: 
       <input
-        placeholder=""
         type="text"
       />
     </label>
@@ -283,7 +278,6 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
       Next: 
       <input
         type="submit"
-        value="Submit"
       />
     </label>
     <hr />
