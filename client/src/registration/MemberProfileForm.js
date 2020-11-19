@@ -15,6 +15,7 @@ import workStatuses from "../common/forms/WorkStatus";
 import shareLimits from "../common/forms/ShareLimits";
 import PreferredArea from "../common/forms/preferredArea";
 import YNButton from "../common/forms/YNButtons";
+import LargeTextArea from "../common/forms/LargeTextArea";
 
 //Returns a Form with fields
 function MemberProfileForm() {
@@ -50,6 +51,7 @@ function MemberProfileForm() {
                 <div>
                     <p>I am open to sharing with up to: </p>
                     <Dropdown name="shareLimit" items={shareLimits} title={"Share Limit"} onChange={onchange}/>
+                    <p> other people.</p>
                 </div>
                 <div>
                     <p>Work Status</p>
@@ -66,6 +68,7 @@ function MemberProfileForm() {
                 <YNButton label="Religion is important to me?:" checked={religious} onChange={onchange}/>
                 <YNButton label="The diet of others in my home is important to me?:" checked={hasDiet} onChange={onchange}/>
                 <YNButton label="I have a home to share?:" checked={hasHome} onChange={onchange}/>
+                <LargeTextArea label="Tell others about yourself: " name="aboutSelf" placeholder="What is important to you, and why do you want to share a home?" onChange={onchange}/>
             </form>
         </div>
     );
