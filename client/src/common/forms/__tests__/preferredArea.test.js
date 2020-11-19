@@ -2,18 +2,20 @@
  * @Author:     Jeff Hatton
  * @Created:    2020.11.19
  *
- * @Description: Member interested area form Component snapshot test. Returns a snapshot.
+ * @Description: Phone number input fields Component Snapshot test
  *
  */
 import React from 'react';
 import renderer from  'react-test-renderer'
-import MemberProfileForm from "../MemberProfileForm";
+import PreferredArea from "../preferredArea";
 
-describe('MemberProfileForm', () => {
+describe('PreferredArea.test.js', () => {
     describe('Snapshot test', () => {
         it("should render correctly regardless of properties", () => {
+
             //when
-            const component = renderer.create(<MemberProfileForm/>).toJSON();
+            const component = renderer.create(<PreferredArea/>).toJSON();
+
             //then
             expect(component).toMatchSnapshot();
         });
