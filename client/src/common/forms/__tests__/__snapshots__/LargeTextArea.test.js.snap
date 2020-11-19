@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LargeTextArea Snapshot test should render correctly regardless of properties 1`] = `
+<label>
+  testLabelString1
+  <textarea
+    cols="50"
+    name="testLabelString2"
+    onChange={[MockFunction]}
+    placeholder="testLabelString3"
+    rows="8"
+  />
+</label>
+`;

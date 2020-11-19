@@ -2,14 +2,14 @@
  * @Author:     Jeff Hatton
  * @Created:    2020.11.19
  *
- * @Description: radio button input fields Component Snapshot test
+ * @Description: Phone number input fields Component Snapshot test
  *
  */
 import React from 'react';
 import renderer from  'react-test-renderer'
-import RadioButton from "../RadioButton";
+import LargeTextArea from "../LargeTextArea";
 
-describe('RadioButton', () => {
+describe('LargeTextArea', () => {
     describe('Snapshot test', () => {
         it("should render correctly regardless of properties", () => {
             // given
@@ -19,7 +19,7 @@ describe('RadioButton', () => {
             const onChangeMock = jest.fn();
 
             //when
-            const component = renderer.create(<RadioButton label={label} name={name} placeholder={placeholder} onChange={onChangeMock} />).toJSON();
+            const component = renderer.create(<LargeTextArea label={label} name={name} placeholder={placeholder} onChange={onChangeMock} />).toJSON();
 
             //then
             expect(component).toMatchSnapshot();
