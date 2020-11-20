@@ -38,12 +38,12 @@ function LoginForm() {
                                 <h1 className="h1">
                                     Login
                                 </h1>
-                                <TextArea className="input"
+                                <TextArea className="input" label={''}
                                           inputType="text" placeholder="Username" onChange={(input) => {
                                     setUsername(input.target.value)
                                 }}/>
 
-                                <GenericInput className="input"
+                                <GenericInput className="input" label={''}
                                               inputType="password" placeholder="Password" onChange={(input) => {
                                     setUsername(input.target.value)
                                 }}/>
