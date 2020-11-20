@@ -14,7 +14,7 @@ function GenericInput(props) {
     return (
 
         <label>
-            {props.label}
+            {label}
             <input className={props.className} type={props.inputType} placeholder={props.placeholder} onChange={onChange}/>
         </label>
     );

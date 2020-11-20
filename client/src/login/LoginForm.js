@@ -45,7 +45,7 @@ function LoginForm() {
 
                                 <GenericInput className="input"
                                               inputType="password" placeholder="Password" onChange={(input) => {
-                                    setUsername(input.target.value)
+                                    setPassword(input.target.value)
                                 }}/>
 
                                 {/* TODO: replace alerts with css warning i.e make the input box red and add a text:
