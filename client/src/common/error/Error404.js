@@ -9,17 +9,14 @@
 import React from 'react';
 import '../../tailwind.output.css';
 import {Link} from "react-router-dom";
-
+import errorPicture from '../../images/404-background.png'
 
 const Error404 = () => {
     return (
-        <div>
-            <h1>Oops. The page you are looking for does not exist. Go back to</h1>
-            <button>
-                <Link to={'/'}>
-                    Home Page
-                </Link>
-            </button>
+        <div className={"bkg"}>
+            <Link to={'/'}>
+            <img className="object-left" src={errorPicture} alt={"error 404"}/>
+            </Link>
 
         </div>
     )

@@ -23,7 +23,7 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-
+      error_background: '#4faed0',
       off_white: 'f8fafc',
 
       iblue: {
