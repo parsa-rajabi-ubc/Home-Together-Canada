@@ -6,13 +6,14 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
     Business Registration Form
   </h1>
   <hr />
-  <form>
+  <div>
     <h2>
       Business Details
     </h2>
     <label>
       Business Name: 
       <input
+        name="businessName"
         onChange={[Function]}
         placeholder=""
         type="text"
@@ -24,6 +25,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         onChange={[Function]}
         placeholder=""
         type="text"
+      />
+    </label>
+    <label>
+      Incorporated :
+      <input
+        onChange={[Function]}
+        type="checkbox"
       />
     </label>
     <div>
@@ -237,6 +245,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
     <label>
       Business Website: 
       <input
+        onChange={[Function]}
         placeholder=""
         type="text"
       />
@@ -321,14 +330,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
       </label>
     </div>
     <label>
-      Next: 
       <input
         onClick={[Function]}
-        type="submit"
-        value="Submit"
+        type="button"
+        value="Signup"
       />
     </label>
     <hr />
-  </form>
+  </div>
 </div>
 `;
