@@ -281,7 +281,7 @@ function BusinessRegistrationForm() {
                 <hr/>
                 <h2>Account Details</h2>
                 <SignInInfo onChangeUsername={(e)=>{setUsername(e.target.value)}} onChangePassword={(e)=>{setPassword(e.target.value)}} onChangePasswordCheck={(e)=>{setPasswordCheck(e.target.value)}}/>
-                <SubmitButton label="Next: " onClick={onSubmit}/>
+                <SubmitButton label="Next: " inputValue="Submit" onClick={onSubmit}/>
                 <hr/>
             </form>
         </div>
