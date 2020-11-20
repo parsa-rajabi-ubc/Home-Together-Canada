@@ -6,8 +6,6 @@
  * @Description: utility with helper functions for registration process
  *
  */
-export const YEARS = getYears();
-
 const getYears = () => {
     const currentYear = new Date().getFullYear();
     const YEARS = [];
@@ -20,6 +18,7 @@ const getYears = () => {
     }
     return YEARS;
 }
+export const YEARS = getYears();
 
 import {isStringEmpty} from "../common/utils/stringUtils";
 
