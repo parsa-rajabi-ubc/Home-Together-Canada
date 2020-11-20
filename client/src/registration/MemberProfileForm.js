@@ -113,13 +113,13 @@ function MemberProfileForm() {
                 {/*<Button label="Add another area: " value="+" onClick={(e)=>{setExtraAreasNum(extraAreasNum => extraAreasNum+1)}}/>*/}
                 {/*<Button label="Remove extra area: " value="-" onClick={(e)=>{setExtraAreasNum(extraAreasNum => extraAreasNum-1)}}/>*/}
                 <span>{extraAreasNum}</span>
-                <YNButton label="Pet Friendly?:" checked={petFriendly==="no"} onChange={(e)=>{setPetFriendly(e.target.value)}}/>
-                <YNButton label="Smoking Friendly?:" checked={smoking==="no"} onChange={(e)=>{setSmoking(e.target.value)}}/>
-                <YNButton label="Health or Mobility Issues?:" checked={mobilityIssues==="no"} onChange={(e)=>{setMobilityIssues(e.target.value)}}/>
-                <YNButton label="Allergies?:" checked={hasAllergies==="no"} onChange={(e)=>{setHasAllergies(e.target.value)}}/>
-                <YNButton label="Religion is important to me?:" checked={religious==="no"} onChange={(e)=>{setReligious(e.target.value)}}/>
-                <YNButton label="The diet of others in my home is important to me?:" checked={hasDiet==="no"} onChange={(e)=>{setHasDiet(e.target.value)}}/>
-                <YNButton label="I have a home to share?:" checked={hasHome==="no"} onChange={(e)=>{setHasHome(e.target.value)}}/>
+                <YNButton label="Pet Friendly?:" name="petFriendly" checked={petFriendly==="no"} onChange={(e)=>{setPetFriendly(e.target.value)}}/>
+                <YNButton label="Smoking Friendly?:" name="smoking" checked={smoking==="no"} onChange={(e)=>{setSmoking(e.target.value)}}/>
+                <YNButton label="Health or Mobility Issues?:" name="mobile" checked={mobilityIssues==="no"} onChange={(e)=>{setMobilityIssues(e.target.value)}}/>
+                <YNButton label="Allergies?:" name="allergies" checked={hasAllergies==="no"} onChange={(e)=>{setHasAllergies(e.target.value)}}/>
+                <YNButton label="Religion is important to me?:" name="religion" checked={religious==="no"} onChange={(e)=>{setReligious(e.target.value)}}/>
+                <YNButton label="The diet of others in my home is important to me?:" name="diet" checked={hasDiet==="no"} onChange={(e)=>{setHasDiet(e.target.value)}}/>
+                <YNButton label="I have a home to share?:" name="hasHome" checked={hasHome==="no"} onChange={(e)=>{setHasHome(e.target.value)}}/>
                 <LargeTextArea label="Tell others about yourself: " name="aboutSelf" placeholder="What is important to you, and why do you want to share a home?" onChange={(e)=>{setAboutSelf(e.target.value)}}/>
             </form>
         </div>

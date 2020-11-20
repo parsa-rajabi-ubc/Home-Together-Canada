@@ -15,11 +15,12 @@ describe('RadioButton', () => {
             // given
             const label = 'testLabelString1';
             const name = 'testLabelString2';
+            const value = 'testValue';
             const placeholder = 'testLabelString3';
             const onChangeMock = jest.fn();
 
             //when
-            const component = renderer.create(<RadioButton label={label} name={name} placeholder={placeholder} onChange={onChangeMock} />).toJSON();
+            const component = renderer.create(<RadioButton label={label} name={name} value={value} placeholder={placeholder} onChange={onChangeMock} />).toJSON();
 
             //then
             expect(component).toMatchSnapshot();
