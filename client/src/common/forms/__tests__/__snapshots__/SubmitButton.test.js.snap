@@ -4,6 +4,7 @@ exports[`SubmitButton Snapshot test should render correctly regardless of proper
 <label>
   testLabelString1
   <input
+    className="testClassNameString"
     onClick={[MockFunction]}
     type="submit"
     value="Submit"

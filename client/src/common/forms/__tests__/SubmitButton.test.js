@@ -15,9 +15,11 @@ describe('SubmitButton', () => {
             // then
             const label = 'testLabelString1';
             const onClickMock = jest.fn();
+            const className = 'testClassNameString';
+            const inputValue = 'Submit';
 
             // when
-            const component = renderer.create(<SubmitButton label={label} onClick={onClickMock} />).toJSON();
+            const component = renderer.create(<SubmitButton className={className} label={label} inputValue={inputValue} onClick={onClickMock} />).toJSON();
 
             // then
             expect(component).toMatchSnapshot();
