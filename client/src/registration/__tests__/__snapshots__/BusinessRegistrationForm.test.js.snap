@@ -90,6 +90,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
       </label>
     </div>
     <div>
+      Business Address: 
       <label>
         Address Line 1:
         <input
@@ -170,6 +171,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
           />
         </label>
         <div>
+          Address Shown on Map: 
           <label>
             Address Line 1:
             <input

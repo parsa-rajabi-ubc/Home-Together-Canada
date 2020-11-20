@@ -19,6 +19,7 @@ import YEARS from "./registrationUtils";
 //Returns a Form with fields
 function MemberRegistrationForm() {
     const [isSameAddress, setIsSameAddress] = useState(false);
+    const [yearOfBirth,setYearOfBirth] = useState("");
     const [phoneNumber, setPhoneNumber] = useState({
         first: "",
         middle: "",
@@ -63,6 +64,14 @@ function MemberRegistrationForm() {
         });
     }
 
+    function handleYearOfBirth(e){
+        const value = e.target.value;
+        setYearOfBirth({
+            ...yearOfBirth,
+            [e.target.name]: value
+        });
+    }
+
     return (
         <div>
             <h1>Member Registration Form</h1>
@@ -72,12 +81,11 @@ function MemberRegistrationForm() {
                 <TextArea label="First Name: " placeholder=""/>
                 <TextArea label="Last Name: " placeholder=""/>
 
-                {/*change this later*/}
-                <Dropdown title={"Year of Birth"} items={YEARS}/>
+                <Dropdown title={"Year of Birth"} items={YEARS} onChange={handleYearOfBirth}/>
 
                 <PhoneNumInput label="TelephoneNumber: " onChange={handlePhoneChange}/>
                 <TextArea label="Email Address: " placeholder=""/>
-                <Address onChange={handleAddressChange}/>
+                <Address label="Address: " onChange={handleAddressChange}/>
 
                 <Checkbox label="Different Mailing Address? " onChange= {() => {setIsSameAddress(!isSameAddress)}}/>
                 {isSameAddress && <Address label="Mailing Address: " onChange={handleMailingAddress}/>}
@@ -85,7 +93,7 @@ function MemberRegistrationForm() {
                 <hr/>
                 <h2>Account Details</h2>
                 <SignInInfo/>
-                <SubmitButton value = 'Submit' label="Next: "/>
+                <SubmitButton value = 'Signup' label="Next: "/>
                 <hr/>
             </form>
         </div>

@@ -16,6 +16,7 @@ function Address(props){
     const { label, onChange } = props;
     return(
         <div>
+            {label}
             <label>
                 Address Line 1:
                 <input type="text" name="street" placeholder="Street Address" onChange= {onChange}/>
