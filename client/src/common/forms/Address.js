@@ -22,16 +22,16 @@ function Address(props){
                 <input type="text" name="street" placeholder="Street Address" onChange= {onChange}/>
             </label>
             <label>
-                Optional:
+                Address Line 2:
                 <input type="text" name="aptNum" placeholder="Apt, suite, floor # etc." onChange= {onChange}/>
             </label>
             <label>
-
+                City:
                 <input type="text" name="city" placeholder="City" onChange={onChange}/>
             </label>
             <Dropdown name="province" title={"Province"} items={provinces} onChange={onChange}/>
             <label>
-
+                Postal Code:
                 <input type="text" name="postalCode" placeholder="Postal Code" onChange= {onChange}/>
             </label>
         </div>
