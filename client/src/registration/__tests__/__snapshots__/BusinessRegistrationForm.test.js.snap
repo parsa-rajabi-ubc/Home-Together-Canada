@@ -13,9 +13,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
     <label>
       Business Name: 
       <input
-        name="businessName"
         onChange={[Function]}
-        placeholder=""
         type="text"
       />
     </label>
@@ -23,7 +21,6 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
       Business Email: 
       <input
         onChange={[Function]}
-        placeholder=""
         type="text"
       />
     </label>
@@ -246,7 +243,6 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
       Business Website: 
       <input
         onChange={[Function]}
-        placeholder=""
         type="text"
       />
     </label>
@@ -258,7 +254,6 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
       First Name: 
       <input
         onChange={[Function]}
-        placeholder=""
         type="text"
       />
     </label>
@@ -266,7 +261,6 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
       Last Name: 
       <input
         onChange={[Function]}
-        placeholder=""
         type="text"
       />
     </label>
