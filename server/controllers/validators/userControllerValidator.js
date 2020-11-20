@@ -15,7 +15,8 @@ const {
     shouldMailingAddressBeDefined,
     shouldMapAddressBeDefined,
     shouldIncorporatedOwnersNamesBeDefined,
-    usernameShouldNotAlreadyExist
+    usernameShouldNotAlreadyExist,
+    emailShouldNotAlreadyBeInUse
 } = require('./userControllerValidatorUtils');
 const { removeAllWhiteSpace } = require('../utils/stringUtils');
 
@@ -37,7 +38,8 @@ exports.validate = (method) => {
                     .exists()
                     .isEmail()
                     .trim()
-                    .stripLow(),
+                    .stripLow()
+                    .custom((email) => emailShouldNotAlreadyBeInUse(email)),
                 body('firstName', 'A valid first name must be provided')
                     .exists()
                     .trim()
@@ -76,6 +78,8 @@ exports.validate = (method) => {
                     .isBoolean(),
                 body('mailingAddressLine1')
                     .optional()
+                    .trim()
+                    .stripLow()
                     .custom((mailingAddressLine1, { req }) => shouldMailingAddressBeDefined(mailingAddressLine1, req)),
                 body('mailingAddressLine2', 'Mailing address line 2 must be defined if hasDifferentMailingAddress is true')
                     .optional()
@@ -83,9 +87,13 @@ exports.validate = (method) => {
                     .stripLow(),
                 body('mailingCity')
                     .optional()
+                    .trim()
+                    .stripLow()
                     .custom((mailingCity, { req }) => shouldMailingAddressBeDefined(mailingCity, req)),
                 body('mailingProvince')
                     .optional()
+                    .trim()
+                    .stripLow()
                     .isIn(PROVINCES)
                     .custom((mailingProvince, {req}) => shouldMailingAddressBeDefined(mailingProvince, req)),    // TODO add custom validator to ensure that this is defined if hasDifferentMailingAddress is true
                 body('mailingPostalCode', 'Mailing postal code must be defined if hasDifferentMailingAddress is true')
@@ -124,18 +132,18 @@ exports.validate = (method) => {
                     .isBoolean(),
                 body('mapAddressLine1')
                     .optional()
-                    .custom((mapAddressLine1, { req }) => shouldMapAddressBeDefined(mapAddressLine1, req))
                     .trim()
-                    .stripLow(),
+                    .stripLow()
+                    .custom((mapAddressLine1, { req }) => shouldMapAddressBeDefined(mapAddressLine1, req)),
                 body('mapAddressLine2')
                     .optional()
                     .trim()
                     .stripLow(),
                 body('mapCity')
                     .optional()
-                    .custom((mapCity, { req }) => shouldMapAddressBeDefined(mapCity, req))
                     .trim()
-                    .stripLow(),
+                    .stripLow()
+                    .custom((mapCity, { req }) => shouldMapAddressBeDefined(mapCity, req)),
                 body('mapProvince')
                     .optional()
                     .isIn(PROVINCES)
