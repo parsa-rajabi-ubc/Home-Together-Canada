@@ -10,11 +10,11 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 function TextArea(props){
-    const { label, className, onChange } = props;
+    const { label, className, placeholder, onChange } = props;
     return(
         <label>
-            {props.label}
-            <input className={props.className} type="text" placeholder={props.placeholder} onChange= {onChange}/>
+            {label}
+            <input className={className} type="text" placeholder={placeholder} onChange= {onChange}/>
         </label>
     );
 }
@@ -23,6 +23,6 @@ TextArea.propTypes = {
     className: PropTypes.string,
     placeholder: PropTypes.string,
     onChange: PropTypes.func
-}
+};
 
 export default TextArea;

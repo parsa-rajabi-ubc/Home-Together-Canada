@@ -10,20 +10,20 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 function GenericInput(props) {
-    const {className, inputType, onChange} = props;
+    const {className, inputType, placeholder, onChange} = props;
     return (
 
         <label>
             {label}
-            <input className={props.className} type={props.inputType} placeholder={props.placeholder} onChange={onChange}/>
+            <input className={className} type={inputType} placeholder={placeholder} onChange={onChange}/>
         </label>
     );
 }
 
 GenericInput.propTypes = {
-    className: PropTypes.string,
     label: PropTypes.string.isRequired,
     inputType: PropTypes.string.isRequired,
+    className: PropTypes.string,
     placeholder: PropTypes.string,
     onChange: PropTypes.func
 };

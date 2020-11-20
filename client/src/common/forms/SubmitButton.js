@@ -13,17 +13,17 @@ function SubmitButton(props){
     const { className, label, inputValue, onClick } = props;
     return(
         <label>
-            {props.label}
-            <input className={props.className} type="submit" value={props.inputValue} onClick={onClick}/>
+            {label}
+            <input className={className} type="submit" value={inputValue} onClick={onClick}/>
         </label>
     );
 }
 
 SubmitButton.propTypes = {
-    className: propTypes.string,
     label: propTypes.string.isRequired,
-    inputValue: propTypes.string,
-    onClick: propTypes.func.isRequired
-}
+    onClick: propTypes.func.isRequired,
+    className: propTypes.string,
+    inputValue: propTypes.string
+};
 
 export default SubmitButton;
