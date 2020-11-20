@@ -1,0 +1,18 @@
+.input {
+    @apply block w-full px-3 py-2 my-4 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;
+}
+
+.input:focus {
+    @apply outline-none shadow-outline;
+}
+
+.link {
+    @apply block my-2 text-iblue-normal text-base;
+}
+
+.link:hover{
+    @apply underline;
+}
+.h1 {
+    @apply mb-4 text-2xl font-semibold text-gray-900;
+}
