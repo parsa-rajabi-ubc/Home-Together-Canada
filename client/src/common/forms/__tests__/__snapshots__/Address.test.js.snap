@@ -2,6 +2,7 @@
 
 exports[`Address Snapshot test should render correctly regardless of properties 1`] = `
 <div>
+  testLabelString1
   <label>
     Address Line 1:
     <input
