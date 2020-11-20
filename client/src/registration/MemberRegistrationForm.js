@@ -14,12 +14,15 @@ import Address from "../common/forms/Address";
 import SignInInfo from "../common/forms/SignInInfo";
 import PhoneNumInput from "../common/forms/PhoneNumInput";
 import Dropdown from "../common/forms/Dropdown";
-import YEARS from "./registrationUtils";
+import {YEARS} from "./registrationUtils";
 
 //Returns a Form with fields
 function MemberRegistrationForm() {
     const [isSameAddress, setIsSameAddress] = useState(false);
     const [yearOfBirth,setYearOfBirth] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [passwordCheck, setPasswordCheck] = useState("");
     const [phoneNumber, setPhoneNumber] = useState({
         first: "",
         middle: "",
@@ -75,13 +78,13 @@ function MemberRegistrationForm() {
             <hr/>
             <form>
                 <h2>About You</h2>
-                <TextArea label="First Name: " placeholder=""/>
-                <TextArea label="Last Name: " placeholder=""/>
+                <TextArea label="First Name: " />
+                <TextArea label="Last Name: " />
 
-                <Dropdown title={"Year of Birth"} items={YEARS} onChange={handleYearOfBirth}/>
+                <Dropdown title={"Year of Birth:"} items={YEARS} onChange={handleYearOfBirth}/>
 
                 <PhoneNumInput label="TelephoneNumber: " onChange={handlePhoneChange}/>
-                <TextArea label="Email Address: " placeholder=""/>
+                <TextArea label="Email Address: " />
                 <Address label="Address: " onChange={handleAddressChange}/>
 
                 <Checkbox label="Different Mailing Address? " onChange= {() => {setIsSameAddress(!isSameAddress)}}/>
@@ -89,8 +92,10 @@ function MemberRegistrationForm() {
 
                 <hr/>
                 <h2>Account Details</h2>
-                <SignInInfo/>
-                <SubmitButton value = 'Next' />
+                <SignInInfo onChangeUsername={(e)=>{setUsername(e.target.value)}} onChangePassword={(e)=>{setPassword(e.target.value)}} onChangePasswordCheck={(e)=>{setPasswordCheck(e.target.value)}}/>
+
+                <SubmitButton value = 'Next' onClick={() => null}/>
+
                 <hr/>
             </form>
         </div>

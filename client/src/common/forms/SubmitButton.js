@@ -10,17 +10,15 @@ import React from 'react';
 import propTypes from "prop-types";
 
 function SubmitButton(props){
-    const { className, label, inputValue, onClick } = props;
+    const { className, inputValue, onClick } = props;
     return(
         <label>
-            {label}
             <input className={className} type="submit" value={inputValue} onClick={onClick}/>
         </label>
     );
 }
 
 SubmitButton.propTypes = {
-    label: propTypes.string.isRequired,
     onClick: propTypes.func.isRequired,
     className: propTypes.string,
     inputValue: propTypes.string
