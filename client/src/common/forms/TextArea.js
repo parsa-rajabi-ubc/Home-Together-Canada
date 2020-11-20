@@ -10,18 +10,22 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 function TextArea(props){
-    const { label, onChange } = props;
+    const { label, onChange, placeholder } = props;
     return(
         <label>
-            {props.label}
-            <input type="text" placeholder={props.placeholder} onChange= {onChange}/>
+            { label }
+            <input
+                type="text"
+                placeholder={placeholder}
+                onChange={onChange}
+            />
         </label>
     );
 }
 TextArea.propTypes = {
     label: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
 }
 
 export default TextArea;
