@@ -88,20 +88,25 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
       <label>
         Address Line 1:
         <input
+          name="street"
+          onChange={[Function]}
           placeholder="Street Address"
           type="text"
         />
       </label>
       <label>
-        Address Line 2:
+        Optional:
         <input
+          name="aptNum"
+          onChange={[Function]}
           placeholder="Apt, suite, floor # etc."
           type="text"
         />
       </label>
       <label>
-        City:
         <input
+          name="city"
+          onChange={[Function]}
           placeholder="City"
           type="text"
         />
@@ -132,8 +137,9 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         </div>
       </div>
       <label>
-        Postal Code:
         <input
+          name="postalCode"
+          onChange={[Function]}
           placeholder="Postal Code"
           type="text"
         />
@@ -162,20 +168,25 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
           <label>
             Address Line 1:
             <input
+              name="street"
+              onChange={[Function]}
               placeholder="Street Address"
               type="text"
             />
           </label>
           <label>
-            Address Line 2:
+            Optional:
             <input
+              name="aptNum"
+              onChange={[Function]}
               placeholder="Apt, suite, floor # etc."
               type="text"
             />
           </label>
           <label>
-            City:
             <input
+              name="city"
+              onChange={[Function]}
               placeholder="City"
               type="text"
             />
@@ -206,8 +217,9 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
             </div>
           </div>
           <label>
-            Postal Code:
             <input
+              name="postalCode"
+              onChange={[Function]}
               placeholder="Postal Code"
               type="text"
             />
