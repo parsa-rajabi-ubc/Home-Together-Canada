@@ -7,23 +7,29 @@
  */
 
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import TextArea from '../common/forms/TextArea';
 import Checkbox from '../common/forms/Checkbox';
 import Button from '../common/forms/Button';
-import SubmitButton from '../common/forms/SubmitButton';
 import Address from "../common/forms/Address";
 import SignInInfo from "../common/forms/SignInInfo";
 import PhoneNumInput from "../common/forms/PhoneNumInput";
 import {isStringEmail, isStringEmpty, isStringSame, isStringNumeralsOnly} from "../common/utils/stringUtils";
+import RegistrationService from '../services/RegistrationService';
+import {getConcatenatedErrorMessage, getPhoneNumberFromStrings} from "./registrationUtils";
 
-//Returns a Form with fields
-function BusinessRegistrationForm() {
-    const [isSameAddress, setIfSameAddress] = useState(false);
+// TODO: separate this into container and presentational components (see https://css-tricks.com/learning-react-container-components/)
+const BusinessRegistrationForm = (props) => {
+    const { history } = props;
+
+    const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(false);
     const [isNationWide, setIfNationWide] = useState(false);
+    const [isIncorporated, setIsIncorporated] = useState(false);
 
     //Validation state variables
     const [bName, setBName] = useState("");
     const [bEmail, setBEmail] = useState("");
+    const [incorporatedOwnersNames, setIncorporatedOwnersNames] = useState("");
     const [bPhoneNumber, setBPhoneNumber] = useState({
         first: "",
         middle: "",
@@ -55,6 +61,7 @@ function BusinessRegistrationForm() {
         province: "",
         postalCode: ""
     });
+    const [website, setWebsite] = useState("");
     const [contactFName, setContactFName] = useState("");
     const [contactLName, setContactLName] = useState("");
     const [contactPhoneNumber, setContactPhoneNumber] = useState({
@@ -123,7 +130,7 @@ function BusinessRegistrationForm() {
             alert("Business Address Postal Code missing");
             return false;
         }
-        if (isSameAddress){
+        if (useDifferentMailingAddress){
             if (isStringEmpty(bMailingAddress.street)) {
                 alert("Business Mailing Address Street missing");
                 return false;
@@ -207,6 +214,61 @@ function BusinessRegistrationForm() {
             event.preventDefault();
             return;
         }
+        const registrationData = {
+            username: username,
+            password: password,
+            email:bEmail,
+            firstName: contactFName,
+            lastName: contactLName,
+            phoneNumber: getPhoneNumberFromStrings(contactPhoneNumber.first, contactPhoneNumber.middle, contactPhoneNumber.last),
+            addressLine1: bAddress.street,
+            addressLine2: bAddress.aptNum,
+            city: bAddress.city,
+            province: bAddress.province[0],
+            postalCode: bAddress.postalCode,
+            hasDifferentMailingAddress: useDifferentMailingAddress,
+            ...(useDifferentMailingAddress) && {mailingAddressLine1: bMailingAddress.street},
+            ...(useDifferentMailingAddress) && {mailingAddressLine2: bMailingAddress.aptNum},
+            ...(useDifferentMailingAddress) && {mailingCity: bMailingAddress.city},
+            ...(useDifferentMailingAddress) && {mailingProvince: bMailingAddress.province[0]},
+            ...(useDifferentMailingAddress) && {mailingPostalCode: bMailingAddress.postalCode},
+            businessName: bName,
+            logo: undefined,
+            isIncorporated: isIncorporated,
+            ...(isIncorporated) && {incorporatedOwnersNames: incorporatedOwnersNames},
+            businessPhoneNumber: getPhoneNumberFromStrings(bPhoneNumber.first, bPhoneNumber.middle, bPhoneNumber.last),
+            businessCellPhoneNumber: getPhoneNumberFromStrings(bCellNumber.first, bCellNumber.middle, bCellNumber.last),
+            isNationWide: isNationWide,
+            ...(!isNationWide) && {mapAddressLine1: bMapAddress.street},
+            ...(!isNationWide) && {mapAddressLine2: bMapAddress.aptNum},
+            ...(!isNationWide) && {mapCity: bMapAddress.city},
+            ...(!isNationWide) && {mapProvince: bMapAddress.province[0]},
+            ...(!isNationWide) && {mapPostalCode: bMapAddress.postalCode},
+            website: website
+        }
+
+        RegistrationService.registerBusinessUser(registrationData)
+            .then(res => {
+                if (res.status === 201) {
+                    // redirect to home page
+                    return history.push('/');
+                } else {
+                    // an error occurred --> get JSON object with errors from server
+                    return res.json();
+                }
+            })
+            .then(data => {
+                if (!!data && data.errors && data.errors.length) {
+                    const errorMessage = getConcatenatedErrorMessage(data.errors);
+
+                    // show list of all errors
+                    alert(errorMessage);
+                }
+            })
+            .catch((error) => {
+                alert('Something went wrong creating your user. Please try again. Error: ' + error);
+            });
+
     }
     function handleBPhoneChange(e){
         const value = e.target.value;
@@ -255,15 +317,17 @@ function BusinessRegistrationForm() {
         <div>
             <h1>Business Registration Form</h1>
             <hr/>
-            <form>
+            <div>
                 <h2>Business Details</h2>
-                <TextArea label="Business Name: " placeholder="" onChange={(e)=>{setBName(e.target.value)}}/>
-                <TextArea label="Business Email: " placeholder="" onChange={(e)=>{setBEmail(e.target.value)}}/>
+                <TextArea label="Business Name: " onChange={(e)=>{setBName(e.target.value)}}/>
+                <TextArea label="Business Email: " onChange={(e)=>{setBEmail(e.target.value)}}/>
+                <Checkbox label={"Incorporated :"} onChange={() => setIsIncorporated(!isIncorporated)}/>
+                {isIncorporated && <TextArea label={"Incorporated Owners"} onChange={(e) => setIncorporatedOwnersNames(e.target.value)}/> }
                 <PhoneNumInput label="Business Telephone Number: " onChange={handleBPhoneChange} />
                 <PhoneNumInput label="Business Cell Phone Number: " onChange={handleCellPhoneChange} />
                 <Address label="Business Address: " onChange={handleBAddressChange} />
-                <Checkbox label="Different Mailing Address? " onChange= {() => {setIfSameAddress(isSameAddress => !isSameAddress)}}/>
-                {isSameAddress && <Address label="Mailing Address: " onChange={handleBMailingAddress}/>}
+                <Checkbox label="Different Mailing Address? " onChange= {() => {setUseDifferentMailingAddress(useDifferentMailingAddress => !useDifferentMailingAddress)}}/>
+                {useDifferentMailingAddress && <Address label="Mailing Address: " onChange={handleBMailingAddress}/>}
                 <div>
                     <span>Select nationwide if your service spans across Canada</span>
                     <div>
@@ -272,19 +336,26 @@ function BusinessRegistrationForm() {
                     </div>
                 </div>
                 <Button label="Business Logo: " value="Upload File"/>
-                <TextArea label="Business Website: " placeholder=""/>
+                <TextArea label="Business Website: " onChange={e => setWebsite(e.target.value)}/>
                 <hr/>
                 <h2>Contact Person Details</h2>
-                <TextArea label="First Name: " placeholder="" onChange={(e)=>{setContactFName(e.target.value)}}/>
-                <TextArea label="Last Name: " placeholder="" onChange={(e)=>{setContactLName(e.target.value)}}/>
+                <TextArea label="First Name: " onChange={(e)=>{setContactFName(e.target.value)}}/>
+                <TextArea label="Last Name: " onChange={(e)=>{setContactLName(e.target.value)}}/>
                 <PhoneNumInput label="Contact Phone Number: " onChange={handleContactPhoneChange} />
                 <hr/>
                 <h2>Account Details</h2>
                 <SignInInfo onChangeUsername={(e)=>{setUsername(e.target.value)}} onChangePassword={(e)=>{setPassword(e.target.value)}} onChangePasswordCheck={(e)=>{setPasswordCheck(e.target.value)}}/>
-                <SubmitButton label="Next: " onClick={onSubmit}/>
+                <Button value={"Signup"} onClick={onSubmit}/>
                 <hr/>
-            </form>
+            </div>
         </div>
     );
 }
+
+BusinessRegistrationForm.propTypes = {
+    history: PropTypes.shape({
+        push: PropTypes.func
+    })
+}
+
 export default BusinessRegistrationForm;
