@@ -3,7 +3,7 @@ import React from 'react'
 import Header from './common/header-and-footer/Header';
 import Home from './home/Home';
 import Footer from './common/header-and-footer/Footer';
-import Login from './LoginForm';
+import Login from './login/LoginForm';
 import BusinessRegistration from './registration/BusinessRegistrationForm';
 import Error404 from './common/error/Error404'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';

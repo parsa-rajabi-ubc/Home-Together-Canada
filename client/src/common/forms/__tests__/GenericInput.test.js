@@ -1,25 +1,26 @@
 /**
- * @Author:     Jeff Hatton
- * @Created:    2020.11.13
+ * @Author:     Parsa Rajabi
+ * @Created:    2020.11.19
  *
- * @Description: Text box input Component Snapshot test
+ * @Description: Generic input Component Snapshot test
  *
  */
 
 import React from 'react';
-import TextArea from "../TextArea";
+import GenericInput from "../GenericInput";
 import renderer from  'react-test-renderer'
 
-describe('TextArea', () => {
+describe('GenericInput', () => {
     describe('Snapshot test', () => {
         it("should render correctly regardless of properties", () => {
             // then
             const label = 'testLabelString1';
+            const type = 'testTypeString1';
             const className = 'testClassNameString';
             const placeholder = 'testPlaceholderString2';
 
             // when
-            const component = renderer.create(<TextArea className={className} label={label} placeholder={placeholder}/>).toJSON();
+            const component = renderer.create(<GenericInput className={className} inputType={type} label={label} placeholder={placeholder}/>).toJSON();
 
             // then
             expect(component).toMatchSnapshot();
