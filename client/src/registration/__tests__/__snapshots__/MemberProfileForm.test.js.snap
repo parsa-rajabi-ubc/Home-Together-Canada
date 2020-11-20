@@ -189,6 +189,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           yes: 
           <input
             checked={false}
+            name="petFriendly"
             onChange={[Function]}
             type="radio"
             value="yes"
@@ -198,6 +199,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           no: 
           <input
             checked={true}
+            name="petFriendly"
             onChange={[Function]}
             type="radio"
             value="no"
@@ -222,6 +224,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           yes: 
           <input
             checked={false}
+            name="smoking"
             onChange={[Function]}
             type="radio"
             value="yes"
@@ -231,6 +234,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           no: 
           <input
             checked={true}
+            name="smoking"
             onChange={[Function]}
             type="radio"
             value="no"
@@ -255,6 +259,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           yes: 
           <input
             checked={false}
+            name="mobile"
             onChange={[Function]}
             type="radio"
             value="yes"
@@ -264,6 +269,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           no: 
           <input
             checked={true}
+            name="mobile"
             onChange={[Function]}
             type="radio"
             value="no"
@@ -288,6 +294,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           yes: 
           <input
             checked={false}
+            name="allergies"
             onChange={[Function]}
             type="radio"
             value="yes"
@@ -297,6 +304,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           no: 
           <input
             checked={true}
+            name="allergies"
             onChange={[Function]}
             type="radio"
             value="no"
@@ -321,6 +329,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           yes: 
           <input
             checked={false}
+            name="religion"
             onChange={[Function]}
             type="radio"
             value="yes"
@@ -330,6 +339,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           no: 
           <input
             checked={true}
+            name="religion"
             onChange={[Function]}
             type="radio"
             value="no"
@@ -354,6 +364,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           yes: 
           <input
             checked={false}
+            name="diet"
             onChange={[Function]}
             type="radio"
             value="yes"
@@ -363,6 +374,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           no: 
           <input
             checked={true}
+            name="diet"
             onChange={[Function]}
             type="radio"
             value="no"
@@ -387,6 +399,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           yes: 
           <input
             checked={false}
+            name="hasHome"
             onChange={[Function]}
             type="radio"
             value="yes"
@@ -396,6 +409,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           no: 
           <input
             checked={true}
+            name="hasHome"
             onChange={[Function]}
             type="radio"
             value="no"
