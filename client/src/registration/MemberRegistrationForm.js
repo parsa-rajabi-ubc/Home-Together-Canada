@@ -66,10 +66,7 @@ function MemberRegistrationForm() {
 
     function handleYearOfBirth(e){
         const value = e.target.value;
-        setYearOfBirth({
-            ...yearOfBirth,
-            [e.target.name]: value
-        });
+        setYearOfBirth(value);
     }
 
     return (
@@ -93,7 +90,7 @@ function MemberRegistrationForm() {
                 <hr/>
                 <h2>Account Details</h2>
                 <SignInInfo/>
-                <SubmitButton value = 'Signup' label="Next: "/>
+                <SubmitButton value = 'Next' />
                 <hr/>
             </form>
         </div>
