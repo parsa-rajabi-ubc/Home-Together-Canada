@@ -10,7 +10,7 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 function GenericInput(props) {
-    const {className, inputType, placeholder, onChange} = props;
+    const {className, inputType, placeholder, onChange, label} = props;
     return (
 
         <label>
