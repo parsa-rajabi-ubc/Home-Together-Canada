@@ -15,8 +15,8 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
         Male: 
         <input
           checked={true}
-          name="male"
-          onChange={null}
+          name="gender"
+          onChange={[Function]}
           type="radio"
           value="male"
         />
@@ -25,8 +25,8 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
         Female: 
         <input
           checked={false}
-          name="female"
-          onChange={null}
+          name="gender"
+          onChange={[Function]}
           type="radio"
           value="female"
         />
@@ -35,8 +35,8 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
         Other: 
         <input
           checked={false}
-          name="other"
-          onChange={null}
+          name="gender"
+          onChange={[Function]}
           type="radio"
           value="other"
         />
@@ -44,6 +44,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
       <label>
         Preferred Pronoun: 
         <input
+          disabled={true}
           placeholder="Pronoun"
           type="text"
         />
@@ -52,15 +53,12 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
     <label>
       Year of Birth: 
       <input
-        onChange={null}
+        onChange={[Function]}
         placeholder=""
         type="text"
       />
     </label>
     <div>
-      <p>
-        Status
-      </p>
       <div
         className="relative inline-block text-left"
       >
@@ -89,16 +87,17 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
       <label>
         Partner's username(s): 
         <input
-          onChange={null}
+          disabled={true}
+          onChange={[Function]}
           placeholder="username(s)"
           type="text"
         />
       </label>
     </div>
     <div>
-      <p>
+      <span>
         I am open to sharing with up to: 
-      </p>
+      </span>
       <div
         className="relative inline-block text-left"
       >
@@ -124,14 +123,11 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           </span>
         </div>
       </div>
-      <p>
+      <span>
          other people.
-      </p>
+      </span>
     </div>
     <div>
-      <p>
-        Work Status
-      </p>
       <div
         className="relative inline-block text-left"
       >
@@ -165,99 +161,116 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
       </span>
       <input
         min="0.00"
+        onChange={[Function]}
         placeholder="1500.00"
         step="0.01"
         type="number"
       />
+      <span>
+        1500.00
+      </span>
     </div>
     <div>
-      <p>
-        Areas I am interested in living
-      </p>
-      <div
-        className="relative inline-block text-left"
-      >
+      <div>
+        <p>
+          Areas I am interested in living
+        </p>
         <div
-          className=""
-          onClick={[Function]}
-          onKeyPress={[Function]}
-          role="button"
-          tabIndex={0}
+          className="relative inline-block text-left"
         >
-          <span
+          <div
             className=""
+            onClick={[Function]}
+            onKeyPress={[Function]}
+            role="button"
+            tabIndex={0}
           >
-            <p
-              aria-expanded="true"
-              aria-haspopup="true"
+            <span
               className=""
-              id="options-menu"
             >
-              Province
-               ↓ 
-            </p>
-          </span>
+              <p
+                aria-expanded="true"
+                aria-haspopup="true"
+                className=""
+                id="options-menu"
+              >
+                Province
+                 ↓ 
+              </p>
+            </span>
+          </div>
         </div>
-      </div>
-      <div
-        className="relative inline-block text-left"
-      >
         <div
-          className=""
-          onClick={[Function]}
-          onKeyPress={[Function]}
-          role="button"
-          tabIndex={0}
+          className="relative inline-block text-left"
         >
-          <span
+          <div
             className=""
+            onClick={[Function]}
+            onKeyPress={[Function]}
+            role="button"
+            tabIndex={0}
           >
-            <p
-              aria-expanded="true"
-              aria-haspopup="true"
+            <span
               className=""
-              id="options-menu"
             >
-              city
-               ↓ 
-            </p>
-          </span>
+              <p
+                aria-expanded="true"
+                aria-haspopup="true"
+                className=""
+                id="options-menu"
+              >
+                city
+                 ↓ 
+              </p>
+            </span>
+          </div>
         </div>
-      </div>
-      <div
-        className="relative inline-block text-left"
-      >
         <div
-          className=""
-          onClick={[Function]}
-          onKeyPress={[Function]}
-          role="button"
-          tabIndex={0}
+          className="relative inline-block text-left"
         >
-          <span
+          <div
             className=""
+            onClick={[Function]}
+            onKeyPress={[Function]}
+            role="button"
+            tabIndex={0}
           >
-            <p
-              aria-expanded="true"
-              aria-haspopup="true"
+            <span
               className=""
-              id="options-menu"
             >
-              radius
-               ↓ 
-            </p>
-          </span>
+              <p
+                aria-expanded="true"
+                aria-haspopup="true"
+                className=""
+                id="options-menu"
+              >
+                radius
+                 ↓ 
+              </p>
+            </span>
+          </div>
         </div>
       </div>
     </div>
     <label>
       Add another area: 
       <input
-        onClick={null}
+        onClick={[Function]}
         type="button"
         value="+"
       />
     </label>
+    <label>
+      Remove extra area: 
+      <input
+        onClick={[Function]}
+        type="button"
+        value="-"
+      />
+    </label>
+    <span>
+      1
+    </span>
     <label>
       <div>
         <p>
@@ -267,8 +280,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           yes: 
           <input
             checked={false}
-            name="yes"
-            onChange={null}
+            onChange={[Function]}
             type="radio"
             value="yes"
           />
@@ -277,8 +289,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           no: 
           <input
             checked={true}
-            name="no"
-            onChange={null}
+            onChange={[Function]}
             type="radio"
             value="no"
           />
@@ -286,6 +297,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
         <label>
           If Yes, Elaborate: 
           <input
+            disabled={true}
             placeholder=""
             type="text"
           />
@@ -301,8 +313,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           yes: 
           <input
             checked={false}
-            name="yes"
-            onChange={null}
+            onChange={[Function]}
             type="radio"
             value="yes"
           />
@@ -311,8 +322,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           no: 
           <input
             checked={true}
-            name="no"
-            onChange={null}
+            onChange={[Function]}
             type="radio"
             value="no"
           />
@@ -320,6 +330,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
         <label>
           If Yes, Elaborate: 
           <input
+            disabled={true}
             placeholder=""
             type="text"
           />
@@ -335,8 +346,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           yes: 
           <input
             checked={false}
-            name="yes"
-            onChange={null}
+            onChange={[Function]}
             type="radio"
             value="yes"
           />
@@ -345,8 +355,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           no: 
           <input
             checked={true}
-            name="no"
-            onChange={null}
+            onChange={[Function]}
             type="radio"
             value="no"
           />
@@ -354,6 +363,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
         <label>
           If Yes, Elaborate: 
           <input
+            disabled={true}
             placeholder=""
             type="text"
           />
@@ -369,8 +379,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           yes: 
           <input
             checked={false}
-            name="yes"
-            onChange={null}
+            onChange={[Function]}
             type="radio"
             value="yes"
           />
@@ -379,8 +388,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           no: 
           <input
             checked={true}
-            name="no"
-            onChange={null}
+            onChange={[Function]}
             type="radio"
             value="no"
           />
@@ -388,6 +396,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
         <label>
           If Yes, Elaborate: 
           <input
+            disabled={true}
             placeholder=""
             type="text"
           />
@@ -403,8 +412,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           yes: 
           <input
             checked={false}
-            name="yes"
-            onChange={null}
+            onChange={[Function]}
             type="radio"
             value="yes"
           />
@@ -413,8 +421,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           no: 
           <input
             checked={true}
-            name="no"
-            onChange={null}
+            onChange={[Function]}
             type="radio"
             value="no"
           />
@@ -422,6 +429,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
         <label>
           If Yes, Elaborate: 
           <input
+            disabled={true}
             placeholder=""
             type="text"
           />
@@ -437,8 +445,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           yes: 
           <input
             checked={false}
-            name="yes"
-            onChange={null}
+            onChange={[Function]}
             type="radio"
             value="yes"
           />
@@ -447,8 +454,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           no: 
           <input
             checked={true}
-            name="no"
-            onChange={null}
+            onChange={[Function]}
             type="radio"
             value="no"
           />
@@ -456,6 +462,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
         <label>
           If Yes, Elaborate: 
           <input
+            disabled={true}
             placeholder=""
             type="text"
           />
@@ -471,8 +478,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           yes: 
           <input
             checked={false}
-            name="yes"
-            onChange={null}
+            onChange={[Function]}
             type="radio"
             value="yes"
           />
@@ -481,8 +487,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           no: 
           <input
             checked={true}
-            name="no"
-            onChange={null}
+            onChange={[Function]}
             type="radio"
             value="no"
           />
@@ -490,6 +495,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
         <label>
           If Yes, Elaborate: 
           <input
+            disabled={true}
             placeholder=""
             type="text"
           />
@@ -501,7 +507,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
       <textarea
         cols="50"
         name="aboutSelf"
-        onChange={null}
+        onChange={[Function]}
         placeholder="What is important to you, and why do you want to share a home?"
         rows="8"
       />

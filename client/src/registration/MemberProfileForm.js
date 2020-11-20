@@ -21,12 +21,8 @@ import LargeTextArea from "../common/forms/LargeTextArea";
 function MemberProfileForm() {
     const [gender, setGender] = useState("male");
     const [birthYear, setBirthYear] = useState("");
-    const [status, setStatus] = useState({
-        status: ""
-    });
-    const [workStatus, setWorkStatus] = useState({
-        workstatus: ""
-    });
+    const [status, setStatus] = useState("");
+    const [workStatus, setWorkStatus] = useState("");
     const [partners, setPartners] = useState("");
     const [shareLimit, setShareLimit] = useState("");
     const [petFriendly, setPetFriendly] = useState("no");
@@ -76,16 +72,16 @@ function MemberProfileForm() {
                 </div>
                 <TextArea label="Year of Birth: " placeholder="" onChange={(e)=>{setBirthYear(e.target.value)}} />
                 <div>
-                    <Dropdown name="status" title={"Status"} items={statuses} onChange={onStatusChange}/>
-                    <TextArea label="Partner's username(s): " placeholder="username(s)" disabled={!(status.status==="Couple" || status.status==="Existing Group")} onChange={(e)=>{setPartners(e.target.value)}}/>
+                    <Dropdown name="status" title={"Status"} items={statuses} onChange={(e)=>{setStatus(e.target.value)}}/>
+                    <TextArea label="Partner's username(s): " placeholder="username(s)" disabled={!(status==="Couple" || status==="Existing Group")} onChange={(e)=>{setPartners(e.target.value)}}/><p>{status}</p>
                 </div>
                 <div>
                     <span>I am open to sharing with up to: </span>
-                    <Dropdown name="shareLimit" items={shareLimits} title={"Share Limit"} onChange={onShareLimitChange}/>
+                    <Dropdown name="shareLimit" items={shareLimits} title={"Share Limit"} onChange={(e)=>{setShareLimit(e.target.value)}}/><span>{shareLimit}</span>
                     <span> other people.</span>
                 </div>
                 <div>
-                    <Dropdown name="workstatus" title={"Work Status"} items={workStatuses} onChange={onWorkStatusChange}/>
+                    <Dropdown name="workstatus" title={"Work Status"} items={workStatuses} onChange={(e)=>{setWorkStatus(e.target.value)}}/>
                     <p>Max monthly rent</p>
                     <span>$</span><input type="number" min="0.00" step="0.01" placeholder="1500.00" onChange={(e)=>{setMaxRent(e.target.value)}}/><span>{maxRent}</span>
                 </div>
