@@ -59,6 +59,13 @@ const findUserByUsername = (username) =>
         }
     });
 
+const findUserByEmail = (email) =>
+    AbstractUser.findAll({
+        where: {
+            email: email
+        }
+    });
+
 const findAllAbstractUsers = (req, res) => {
     AbstractUser.findAll()
         .then(data => {
@@ -76,5 +83,6 @@ module.exports = {
     createAbstractUser,
     findAllAbstractUsers,
     findAbstractUser,
-    findUserByUsername
+    findUserByUsername,
+    findUserByEmail
 }

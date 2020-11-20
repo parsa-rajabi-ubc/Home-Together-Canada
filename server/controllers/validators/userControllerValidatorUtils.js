@@ -71,7 +71,15 @@ const usernameShouldNotAlreadyExist = (username) =>
     abstractUserController.findUserByUsername(username)
         .then(user => {
             if (user.length) {
-                return Promise.reject('user already exists');
+                return Promise.reject('User already exists');
+            }
+        });
+
+const emailShouldNotAlreadyBeInUse = (email) =>
+    abstractUserController.findUserByEmail(email)
+        .then(user => {
+            if (user.length) {
+                return Promise.reject('Email already in use');
             }
         });
 
@@ -82,5 +90,6 @@ module.exports = {
     shouldMailingAddressBeDefined,
     shouldMapAddressBeDefined,
     shouldIncorporatedOwnersNamesBeDefined,
-    usernameShouldNotAlreadyExist
+    usernameShouldNotAlreadyExist,
+    emailShouldNotAlreadyBeInUse
 }
