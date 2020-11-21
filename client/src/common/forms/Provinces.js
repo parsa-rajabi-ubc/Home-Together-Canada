@@ -6,59 +6,15 @@
  *
  */
 
-const provinces = [
-    {
-        id: 1,
-        value: "Alberta"
-    },
-    {
-        id: 2,
-        value: "British Columbia"
-    },
-    {
-        id: 3,
-        value: "Manitoba"
-    },
-    {
-        id: 4,
-        value: "New Brunswick"
-    },
-    {
-        id: 5,
-        value: "Newfoundland and Labrador"
-    },
-    {
-        id: 6,
-        value: "Northwest Territories"
-    },
-    {
-        id: 7,
-        value: "Nova Scotia"
-    },
-    {
-        id: 8,
-        value: "Nunavut"
-    },
-    {
-        id: 9,
-        value: "Ontario"
-    },
-    {
-        id: 10,
-        value: "Prince Edward Island"
-    },
-    {
-        id: 11,
-        value: "Quebec"
-    },
-    {
-        id: 12,
-        value: "Saskatchewan"
-    },
-    {
-        id: 13,
-        value: "Yukon"
-    }
-
-];
+const canada = require('canada');
+let pid=0;
+const r = canada.regions;
+const provinces = [];
+for (let key in r ){
+    pid = pid +1;
+    provinces.push({
+        id: pid,
+        value: r[key]
+    })
+}
 export default provinces
