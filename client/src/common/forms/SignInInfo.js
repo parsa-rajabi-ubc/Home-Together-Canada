@@ -13,17 +13,17 @@ function SignInInfo(props){
     const { onChangeUsername, onChangePassword, onChangePasswordCheck } = props;
     return(
         <div>
-            <label>
+            <label className={"label"}>
                 Username:
-                <input type="text" placeholder="" onChange= {onChangeUsername}/>
+                <input className={"input"} type="text" placeholder="" onChange= {onChangeUsername}/>
             </label>
-            <label>
+            <label className={"label"}>
                 Password:
-                <input type="password" placeholder="" onChange= {onChangePassword}/>
+                <input className={"input"} type="password" placeholder="" onChange= {onChangePassword}/>
             </label>
-            <label>
+            <label className={"label"}>
                 Confirm Password:
-                <input type="password" placeholder="" onChange= {onChangePasswordCheck}/>
+                <input className={"input"} type="password" placeholder="" onChange= {onChangePasswordCheck}/>
             </label>
         </div>
     );
@@ -33,6 +33,6 @@ SignInInfo.propTypes = {
     onChangeUsername: PropTypes.func.isRequired,
     onChangePassword: PropTypes.func.isRequired,
     onChangePasswordCheck: PropTypes.func.isRequired
-}
+};
 
 export default SignInInfo;

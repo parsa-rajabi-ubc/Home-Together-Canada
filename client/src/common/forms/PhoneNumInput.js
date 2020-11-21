@@ -10,26 +10,27 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 function PhoneNumInput(props){
-    const { label, onChange } = props;
+    const { label, labelClassName, className, onChange } = props;
     return(
         <div>
-            <label>
-                {props.label}
-                <input type="text" name="first" placeholder="555" onChange= {onChange}/>
+            <label className={labelClassName}>
+                {label}
+                <br/>
+                <input className={className} type="text" name="first" placeholder="222" onChange= {onChange} maxLength="3"/>
             </label>
             <label>
-                -
-                <input type="text" name="middle" placeholder="555" onChange= {onChange}/>
+                <input className={className} type="text" name="middle" placeholder="333" onChange= {onChange} maxLength="3"/>
             </label>
             <label>
-                -
-                <input type="text" name="last" placeholder="5555" onChange= {onChange}/>
+                <input className={className} type="text" name="last" placeholder="4444" onChange= {onChange} maxLength="4"/>
             </label>
         </div>
     );
 }
 PhoneNumInput.propTypes = {
     label: PropTypes.string.isRequired,
+    labelClassName: PropTypes.string,
+    className: PropTypes.string,
     onChange: PropTypes.func.isRequired
 }
 

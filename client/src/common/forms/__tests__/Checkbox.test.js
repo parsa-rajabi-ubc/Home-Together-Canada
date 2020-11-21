@@ -13,7 +13,7 @@ describe('Checkbox', () => {
     describe('Snapshot test', () => {
         it("should render correctly regardless of properties", () => {
             //when
-            const component = renderer.create(<Checkbox label="testLabelString1" onchange={onchange} />).toJSON();
+            const component = renderer.create(<Checkbox label="testLabelString1" onchange={onchange} checked={true} />).toJSON();
             //then
             expect(component).toMatchSnapshot();
         });

@@ -17,7 +17,7 @@ describe('PhoneNumInput', () => {
             const onChangeMock = jest.fn();
 
             //when
-            const component = renderer.create(<PhoneNumInput label={label} onChange={onChangeMock} />).toJSON();
+            const component = renderer.create(<PhoneNumInput label={label} onChange={onChangeMock} maxLength={"3"}/>).toJSON();
 
             //then
             expect(component).toMatchSnapshot();
