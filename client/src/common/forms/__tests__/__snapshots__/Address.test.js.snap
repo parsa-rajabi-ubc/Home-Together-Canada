@@ -10,7 +10,7 @@ exports[`Address Snapshot test should render correctly regardless of properties 
       className="input"
       name="street"
       onChange={[MockFunction]}
-      placeholder="Street Address"
+      placeholder="Address Line 1"
       type="text"
     />
   </label>
@@ -19,7 +19,7 @@ exports[`Address Snapshot test should render correctly regardless of properties 
       className="input"
       name="aptNum"
       onChange={[MockFunction]}
-      placeholder="Optional: Apt, suite, floor # etc."
+      placeholder="Address Line 2: Apt, suite, etc. (optional)"
       type="text"
     />
   </label>

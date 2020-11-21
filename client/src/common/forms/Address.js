@@ -18,11 +18,11 @@ function Address(props) {
         <div>
             <label className="label">
                 {label}
-                <input className="input" type="text" name="street" placeholder="Street Address"
+                <input className="input" type="text" name="street" placeholder="Address Line 1"
                        onChange={onChange}/>
             </label>
             <label>
-                <input className="input" type="text" name="aptNum" placeholder="Optional: Apt, suite, floor # etc."
+                <input className="input" type="text" name="aptNum" placeholder="Address Line 2: Apt, suite, etc. (optional)"
                        onChange={onChange}/>
             </label>
             <label>

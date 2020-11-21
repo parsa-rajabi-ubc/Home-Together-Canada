@@ -172,7 +172,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                         className="input"
                         name="street"
                         onChange={[Function]}
-                        placeholder="Street Address"
+                        placeholder="Address Line 1"
                         type="text"
                       />
                     </label>
@@ -181,7 +181,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                         className="input"
                         name="aptNum"
                         onChange={[Function]}
-                        placeholder="Optional: Apt, suite, floor # etc."
+                        placeholder="Address Line 2: Apt, suite, etc. (optional)"
                         type="text"
                       />
                     </label>
@@ -269,7 +269,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                         className="input"
                         name="street"
                         onChange={[Function]}
-                        placeholder="Street Address"
+                        placeholder="Address Line 1"
                         type="text"
                       />
                     </label>
@@ -278,7 +278,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                         className="input"
                         name="aptNum"
                         onChange={[Function]}
-                        placeholder="Optional: Apt, suite, floor # etc."
+                        placeholder="Address Line 2: Apt, suite, etc. (optional)"
                         type="text"
                       />
                     </label>
