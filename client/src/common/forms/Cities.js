@@ -1,4 +1,3 @@
-import provinces from "./Provinces";
 /**
  * @Author:     Jeff Hatton
  * @Created:    2020.11.18
@@ -6,6 +5,8 @@ import provinces from "./Provinces";
  * @Description: Const list of cities per province.
  *
  */
+import provinces from "./Provinces";
+import 'canada';
 const canada = require('canada');
 const cities = [];
 provinces.forEach(cityFunc);

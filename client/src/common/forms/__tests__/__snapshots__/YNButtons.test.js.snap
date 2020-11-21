@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YNButtons Snapshot test should render correctly regardless of properties 1`] = `
+<label>
+  <div>
+    <p>
+      testLabelString1
+    </p>
+    <label>
+      yes: 
+      <input
+        checked={true}
+        name="testName"
+        type="radio"
+        value="yes"
+      />
+    </label>
+    <label>
+      no: 
+      <input
+        name="testName"
+        type="radio"
+        value="no"
+      />
+    </label>
+    <label>
+      If Yes, Elaborate: 
+      <input
+        placeholder=""
+        type="text"
+      />
+    </label>
+  </div>
+</label>
+`;
