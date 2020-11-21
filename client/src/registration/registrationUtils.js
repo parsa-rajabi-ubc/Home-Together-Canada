@@ -1,4 +1,3 @@
-
 /**
  * @Author:     Rachelle Gelden
  * @Created:    2020.11.19
@@ -6,6 +5,8 @@
  * @Description: utility with helper functions for registration process
  *
  */
+import {isStringEmpty} from "../common/utils/stringUtils";
+
 const getYears = () => {
     const currentYear = new Date().getFullYear();
     const YEARS = [];
@@ -19,8 +20,6 @@ const getYears = () => {
     return YEARS;
 }
 export const YEARS = getYears();
-
-import {isStringEmpty} from "../common/utils/stringUtils";
 
 export const getPhoneNumberFromStrings = (areaCode, exchangeCode, stationCode) => {
     if (!areaCode || isStringEmpty(areaCode) ||

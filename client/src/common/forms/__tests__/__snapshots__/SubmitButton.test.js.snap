@@ -2,6 +2,7 @@
 
 exports[`SubmitButton Snapshot test should render correctly regardless of properties 1`] = `
 <label>
+  testLabelString1
   <input
     className="testClassNameString"
     onClick={[MockFunction]}
