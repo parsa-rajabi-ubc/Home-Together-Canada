@@ -3,7 +3,7 @@
 }
 
 .label {
-    @apply mt-2 text-gray-700 uppercase text-base font-normal;
+    @apply mt-2 text-gray-700 uppercase text-base font-medium;
 }
 
 .info-header{
