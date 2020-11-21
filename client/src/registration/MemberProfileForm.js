@@ -13,7 +13,6 @@ import Button from "../common/forms/Button";
 import statuses from "../common/forms/Status";
 import workStatuses from "../common/forms/WorkStatus";
 import shareLimits from "../common/forms/ShareLimits";
-import PreferredArea from "../common/forms/preferredArea";
 import YNButton from "../common/forms/YNButtons";
 import LargeTextArea from "../common/forms/LargeTextArea";
 import provinces from "../common/forms/Provinces";
@@ -36,32 +35,16 @@ function MemberProfileForm() {
     const [hasDiet, setHasDiet] = useState("no");
     const [hasHome, setHasHome] = useState("no");
     const [maxRent, setMaxRent] = useState("1500.00");
-    const [extraAreasNum, setExtraAreasNum] = useState(1)
     const [aboutSelf, setAboutSelf] = useState("");
-    const [extraAreas, setExtraAreas] = useState([{ province: "", city: "", radius: ""}]);
-
+    const [extraAreas, setExtraAreas] = useState([{ province: "ALBERTA", city: "", radius: ""}]);
     const handleRemoveClick = index => {
         const list = [...extraAreas];
         list.splice(index, 1);
         setExtraAreas(list);
     };
     const handleAddClick = () => {
-        setExtraAreas([...extraAreas, { province: "", city: "", radius: ""}]);
+        setExtraAreas([...extraAreas, { province: "ALBERTA", city: "", radius: ""}]);
     };
-    function onStatusChange(e){
-        const value = e.target.value;
-        setStatus({
-            ...status,
-            [e.target.name]: value
-        });
-    }
-    function onShareLimitChange(e){
-        const value = e.target.value;
-        setShareLimit({
-            ...shareLimit,
-            [e.target.name]: value
-        });
-    }
     const handleAreaChange = (e, index) => {
         const { name, value } = e.target;
         const list = [...extraAreas];
@@ -96,23 +79,19 @@ function MemberProfileForm() {
                     <p>Max monthly rent</p>
                     <span>$</span><input type="number" min="0.00" step="0.01" placeholder="1500.00" onChange={(e)=>{setMaxRent(e.target.value)}}/>
                 </div>
-                TODO: area preference dropdown with add and remove buttons
-                {/*{extraAreas.map((x,i) =>{*/}
-                {/*    return(*/}
-                {/*        <div key={i}>*/}
-                {/*            <Dropdown name="province" value={x.province} title={"Province"} items={provinces} onChange={e => handleAreaChange(e, i)}/>*/}
-                {/*            <Dropdown name="city" value={x.city} title={"city"} items={cities} onChange={e => handleAreaChange(e, i)}/>*/}
-                {/*            <Dropdown name="radius" value={x.radius} title={"radius"} items={radii} onChange={e => handleAreaChange(e, i)}/>*/}
-                {/*            <div>*/}
-                {/*                {extraAreas.length !== 1 && <Button label={""} value="Remove" onClick={()=>handleRemoveClick(i)}/> }*/}
-                {/*                {extraAreas.length - 1 === i && <Button label={""} value="Add" onClick={()=>handleAddClick}/> }*/}
-                {/*            </div>*/}
-                {/*        </div>*/}
-                {/*    );*/}
-                {/*})}*/}
-                {/*<Button label="Add another area: " value="+" onClick={(e)=>{setExtraAreasNum(extraAreasNum => extraAreasNum+1)}}/>*/}
-                {/*<Button label="Remove extra area: " value="-" onClick={(e)=>{setExtraAreasNum(extraAreasNum => extraAreasNum-1)}}/>*/}
-                <span>{extraAreasNum}</span>
+                {extraAreas.map((x,i) =>{
+                    return(
+                        <div key={i}>
+                            <Dropdown name="province" value={x.province.value} title={"Province"} items={provinces} onChange={e => handleAreaChange(e, i)}/><span>{x.province}</span>
+                            <Dropdown name="city" value={x.city.value} title={"city"} items={cities[cities.map(function(e) { return e.name; }).indexOf(x.province)].citylist} onChange={e => handleAreaChange(e, i)}/>
+                            <Dropdown name="radius" value={x.radius.value} title={"radius"} items={radii} onChange={e => handleAreaChange(e, i)}/><span>{x.radius}</span>
+                            <div>
+                                {extraAreas.length !== 1 && <Button label={""} value="Remove" onClick={()=>handleRemoveClick(i)}/> }
+                                {extraAreas.length - 1 === i && <Button label={""} value="Add" onClick={handleAddClick}/> }
+                            </div>
+                        </div>
+                    );
+                })}
                 <YNButton label="Pet Friendly?:" name="petFriendly" checked={petFriendly==="no"} onChange={(e)=>{setPetFriendly(e.target.value)}}/>
                 <YNButton label="Smoking Friendly?:" name="smoking" checked={smoking==="no"} onChange={(e)=>{setSmoking(e.target.value)}}/>
                 <YNButton label="Health or Mobility Issues?:" name="mobile" checked={mobilityIssues==="no"} onChange={(e)=>{setMobilityIssues(e.target.value)}}/>
