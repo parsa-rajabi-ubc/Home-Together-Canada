@@ -44,10 +44,9 @@
 }
 
 .input {
-    @apply block w-full px-3 py-2 my-4 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;
+    @apply block w-full px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;
 }
 
 .input:focus {
-    @apply shadow-outline outline-none;
+    @apply outline-none shadow-outline;
 }
-
