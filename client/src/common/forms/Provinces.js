@@ -5,7 +5,7 @@
  * @Description: list of provinces in Canada in alphabetical order
  *
  */
-
+import 'canada';
 const canada = require('canada');
 let pid=0;
 const r = canada.regions;
