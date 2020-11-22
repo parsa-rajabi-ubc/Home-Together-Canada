@@ -18,6 +18,7 @@ function Dropdown({title, items, name, onChange, multiSelect = false}) {
     const [selection, setSelection] = useState([]);
     const toggle = () => setOpen(!open);
     Dropdown.handleClickOutside = () => setOpen(false);
+    const [dropdownTitle, setDropdownTitle] = useState(title);
 
     useEffect(() => {
         if (selection.length) {
@@ -28,8 +29,12 @@ function Dropdown({title, items, name, onChange, multiSelect = false}) {
                 }
             }
             onChange(event);
+            setDropdownTitle(event.target.value[0]);
+        } else{
+            setDropdownTitle(title);
         }
-    }, [selection]);
+
+    }, [selection, dropdownTitle]);
 
     // handles onClick for each item
     function handleOnClick(item) {
@@ -39,7 +44,6 @@ function Dropdown({title, items, name, onChange, multiSelect = false}) {
             if (!multiSelect) {
                 // select item
                 setSelection([item]);
-                console.log(item.value)
                 // if it's multiselect
             } else if (multiSelect) {
                 // select all items
@@ -75,7 +79,7 @@ function Dropdown({title, items, name, onChange, multiSelect = false}) {
                     <p className=""
                        id="options-menu" aria-haspopup="true" aria-expanded="true">
                         {/*Insert dropdown "label"*/}
-                        {title}
+                        {dropdownTitle}
                         {/* If dropdown is "open", 'x' will appear, if not, a down arrow */}
                         {open ? ' ↑ ' : ' ↓ '}
                         </p>

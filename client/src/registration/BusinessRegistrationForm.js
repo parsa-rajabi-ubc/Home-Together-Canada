@@ -335,86 +335,82 @@ const BusinessRegistrationForm = (props) => {
                         </div>
                     </div>
 
-                    <div className="mt-5 md:mt-0 md:col-span-2">
-                        <form action="#" method="POST">
-                            <div className="shadow sm:rounded-md sm:overflow-hidden">
-                                <div className="px-4 py-5 space-y-1 bg-white sm:p-6">
-                                    <div className="grid grid-cols-3 gap-6">
-                                        <div className="col-span-3 sm:col-span-2">
+                    <div className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
+                        <div className="grid grid-cols-3 gap-6">
+                            <div className="col-span-3 sm:col-span-2">
 
-                                            <TextArea className="mb-0 input" placeholder="" label="Business Name"
-                                                      labelClassName={"label"} onChange={(e) => {
-                                                setBName(e.target.value)
-                                            }}/>
-                                            <span className="info-detail">Select incorporated business if your business is Inc.</span>
-                                            <Checkbox label={"Incorporated Business"}
-                                                      onChange={() => setIsIncorporated(!isIncorporated)}/>
-                                            {isIncorporated && <TextArea className="input" label={""}
-                                                                         placeholder={"Insert Name of Incorporated Owners (separated by comma)"}
-                                                                         labelClassName={"label"}
-                                                                         onChange={(e) => setIncorporatedOwnersNames(e.target.value)}/>}
-                                            <TextArea className="input" placeholder="business@email.ca"
-                                                      label="Business Email" labelClassName={"label"} onChange={(e) => {
-                                                setBEmail(e.target.value)
-                                            }}/>
-                                            <TextArea className="input" placeholder="http://www.your-website.com"
-                                                      label="Business Website" labelClassName={"label"}
-                                                      onChange={e => setWebsite(e.target.value)}/>
-                                            <PhoneNumInput
-                                                className="input-phone"
-                                                labelClassName={"label "}
-                                                label="Business Phone Number" onChange={handleBPhoneChange}/>
-                                            <PhoneNumInput
-                                                className="input-phone"
-                                                label="Business Cell Number" labelClassName={"label"}
-                                                onChange={handleCellPhoneChange}/>
-                                            <Address label="Business Address"
-                                                     cityClassName="city-postal" onChange={handleBAddressChange}/>
-                                            <span className="info-detail">Select different mailing address if it differs from the address above:</span>
-                                            <Checkbox label="Different Mailing Address" onChange={() => {
-                                                setUseDifferentMailingAddress(useDifferentMailingAddress => !useDifferentMailingAddress)
-                                            }}/>
-                                            {useDifferentMailingAddress &&
-                                            <Address label="Business Mailing Address"
-                                                     onChange={handleBMailingAddress}/>}
+                                <TextArea className="mb-0 input" placeholder="" label="Business Name"
+                                          labelClassName={"label"} onChange={(e) => {
+                                    setBName(e.target.value)
+                                }}/>
+                                <span
+                                    className="info-detail">Select incorporated business if your business is Inc.</span>
+                                <Checkbox label={"Incorporated Business"}
+                                          onChange={() => setIsIncorporated(!isIncorporated)}/>
+                                {isIncorporated && <TextArea className="input" label={""}
+                                                             placeholder={"Names of Inc. Owners (separated by comma)"}
+                                                             labelClassName={"label"}
+                                                             onChange={(e) => setIncorporatedOwnersNames(e.target.value)}/>}
+                                <TextArea className="input" placeholder="business@email.ca"
+                                          label="Business Email" labelClassName={"label"} onChange={(e) => {
+                                    setBEmail(e.target.value)
+                                }}/>
+                                <TextArea className="input" placeholder="http://www.your-website.com"
+                                          label="Business Website" labelClassName={"label"}
+                                          onChange={e => setWebsite(e.target.value)}/>
+                                <PhoneNumInput
+                                    className="phone"
+                                    labelClassName={"label "}
+                                    label="Business Phone Number" onChange={handleBPhoneChange}/>
+                                <PhoneNumInput
+                                    className="phone"
+                                    label="Business Cell Number" labelClassName={"label"}
+                                    onChange={handleCellPhoneChange}/>
+                                <Address label="Business Address"
+                                         cityClassName="city-postal" onChange={handleBAddressChange}/>
+                                <span className="info-detail">Select different mailing address if it differs from the address above:</span>
+                                <Checkbox label="Different Mailing Address" onChange={() => {
+                                    setUseDifferentMailingAddress(useDifferentMailingAddress => !useDifferentMailingAddress)
+                                }}/>
+                                {useDifferentMailingAddress &&
+                                <Address label="Business Mailing Address"
+                                         onChange={handleBMailingAddress}/>}
 
 
-                                            <span className="info-detail">Select nation-wide if your service spans across Canada:</span>
+                                <span
+                                    className="info-detail">Select nation-wide if your service spans across Canada:</span>
 
-                                            <Checkbox label="Nation-wide " onChange={() => {
-                                                setIfNationWide(isNationWide => !isNationWide)
-                                            }}/>
-                                            {!isNationWide && <Address label="Searchable Address"
-                                                                       onChange={handleBMapAddress}/>}
-                                        </div>
-                                    </div>
-
-                                    <label className="label">
-                                        Business Logo
-                                    </label>
-                                    <div
-                                        className="flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-                                        <div className="space-y-1 text-center">
-                                            <svg className="w-12 h-12 mx-auto text-gray-400" stroke="currentColor"
-                                                 fill="none" viewBox="0 0 48 48" aria-hidden="true">
-                                                <path
-                                                    d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                                                    strokeWidth="2" strokeLinecap="round"
-                                                    strokeLinejoin="round"/>
-                                            </svg>
-                                            <p className="info-text">
-                                                <Button
-                                                    className="font-medium text-indigo-600 bg-white rounded-md hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                                                    label="" value="Upload a file"/>
-                                            </p>
-                                            <p className="text-xs text-gray-500">
-                                                PNG or JPG up to 10MB
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <Checkbox label="Nation-wide " onChange={() => {
+                                    setIfNationWide(isNationWide => !isNationWide)
+                                }}/>
+                                {!isNationWide && <Address label="Searchable Address"
+                                                           onChange={handleBMapAddress}/>}
                             </div>
-                        </form>
+                        </div>
+
+                        <label className="label">
+                            Business Logo
+                        </label>
+                        <div className="flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                            <div className="space-y-1 text-center">
+                                <svg className="w-12 h-12 mx-auto text-gray-400" stroke="currentColor"
+                                     fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                                    <path
+                                        d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                                        strokeWidth="2" strokeLinecap="round"
+                                        strokeLinejoin="round"/>
+                                </svg>
+                                <p className="info-text">
+                                    <Button
+                                        className="font-medium text-indigo-600 bg-white rounded-md hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                        label="" value="Upload a file"/>
+                                </p>
+                                {/*TODO: update file type and size after we have implemented this feature*/}
+                                <p className="text-xs text-gray-500">
+                                    PNG or JPG up to 10MB
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -423,50 +419,43 @@ const BusinessRegistrationForm = (props) => {
             <div className="border-divider"/>
 
             {/*Contact Person*/}
-            <div className="mt-10 sm:mt-0">
-                <div className="m-10 md:grid md:grid-cols-4 md:gap-6">
-                    <div className="md:col-span-1">
-                        <div className="px-4 sm:px-0">
-                            <h3 className="info-header">Contact Person</h3>
-                            <p className="info-text">
-                                This information is about the contact person for the business.
-                            </p>
-                        </div>
+            <div className="mt-10 sm:mt-0 m-10 md:grid md:grid-cols-4 md:gap-6">
+                <div className="md:col-span-1">
+                    <div className="px-4 sm:px-0">
+                        <h3 className="info-header">Contact Person</h3>
+                        <p className="info-text">
+                            This information is about the contact person for the business.
+                        </p>
                     </div>
-                    <div className="mt-5 md:mt-0 md:col-span-2">
+                </div>
+                <div className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
+                    <div className="grid grid-cols-6 gap-x-6">
+                        <div className="column-span-6-layout">
+                            <TextArea className={"input"} labelClassName={"label"} label="First Name"
+                                      onChange={(e) => {
+                                          setContactFName(e.target.value)
+                                      }}/>
+                        </div>
 
-                        <div className="overflow-hidden shadow sm:rounded-md">
-                            <div className="px-4 py-5 bg-white sm:p-6">
-                                <div className="grid grid-cols-6 gap-x-6">
-                                    <div className="column-span-6-layout">
-                                        <TextArea className={"input"} labelClassName={"label"} label="First Name"
-                                                  onChange={(e) => {
-                                                      setContactFName(e.target.value)
-                                                  }}/>
-                                    </div>
+                        <div className="column-span-6-layout">
+                            <TextArea className={"input"} labelClassName={"label"} label="Last Name"
+                                      onChange={(e) => {
+                                          setContactLName(e.target.value)
+                                      }}/>
+                        </div>
 
-                                    <div className="column-span-6-layout">
-                                        <TextArea className={"input"} labelClassName={"label"} label="Last Name"
-                                                  onChange={(e) => {
-                                                      setContactLName(e.target.value)
-                                                  }}/>
-                                    </div>
+                        <div className="column-span-6-layout">
+                            <TextArea className="input" placeholder="personal@email.ca"
+                                      label="Personal Email" labelClassName={"label"} onChange={(e) => {
+                                setBEmail(e.target.value)
+                            }}/>
+                        </div>
 
-                                    <div className="column-span-6-layout">
-                                        <TextArea className="input" placeholder="personal@email.ca"
-                                                  label="Personal Email" labelClassName={"label"} onChange={(e) => {
-                                            setBEmail(e.target.value)
-                                        }}/>
-                                    </div>
-
-                                    <div className="column-span-6-layout">
-                                        <PhoneNumInput
-                                            className="w-1/4 input-phone"
-                                            labelClassName={"label"}
-                                            label="Personal Phone Number" onChange={handleContactPhoneChange}/>
-                                    </div>
-                                </div>
-                            </div>
+                        <div className="column-span-6-layout">
+                            <PhoneNumInput
+                                className="w-1/4 phone"
+                                labelClassName={"label"}
+                                label="Personal Phone Number" onChange={handleContactPhoneChange}/>
                         </div>
                     </div>
                 </div>

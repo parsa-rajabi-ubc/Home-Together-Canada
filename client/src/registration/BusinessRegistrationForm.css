@@ -1,4 +1,4 @@
-.input-phone {
+.phone {
     @apply w-1/6 px-2 py-2 mt-1 mb-4 mr-2 text-center text-base leading-normal bg-white border border-gray-300 rounded-lg appearance-none;
 }
 
