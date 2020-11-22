@@ -4,28 +4,30 @@ exports[`PhoneNumInput Snapshot test should render correctly regardless of prope
 <div>
   <label>
     testLabelString1
+    <br />
     <input
+      maxLength="3"
       name="first"
       onChange={[MockFunction]}
-      placeholder="555"
+      placeholder="222"
       type="text"
     />
   </label>
   <label>
-    -
     <input
+      maxLength="3"
       name="middle"
       onChange={[MockFunction]}
-      placeholder="555"
+      placeholder="333"
       type="text"
     />
   </label>
   <label>
-    -
     <input
+      maxLength="4"
       name="last"
       onChange={[MockFunction]}
-      placeholder="5555"
+      placeholder="4444"
       type="text"
     />
   </label>
