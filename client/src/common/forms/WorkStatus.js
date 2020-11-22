@@ -8,31 +8,31 @@
 
 const workStatuses = [
     {
-        id: 1,
+        label: "Unemployed",
         value: "Unemployed"
     },
     {
-        id: 2,
+        label: "Student",
         value: "Student"
     },
     {
-        id: 3,
+        label: "Part-time",
         value: "Part-time"
     },
     {
-        id: 4,
+        label: "Full-time",
         value: "Full-time"
     },
     {
-        id: 5,
+        label: "Self-employed",
         value: "Self-employed"
     },
     {
-        id: 6,
+        label: "Retired",
         value: "Retired"
     },
     {
-        id: 7,
+        label: "Other",
         value: "Other"
     }
 ]

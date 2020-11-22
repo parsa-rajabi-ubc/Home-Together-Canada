@@ -12,7 +12,7 @@ import TextArea from "./TextArea";
 import RadioButton from "./RadioButton";
 
 function YNButton(props){
-    const { label, name, checked, onChange } = props;
+    const { label, name, checked=false, onChange } = props;
     return(
         <label>
             <div>

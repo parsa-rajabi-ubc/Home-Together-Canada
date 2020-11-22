@@ -15,8 +15,6 @@ import workStatuses from "../common/forms/WorkStatus";
 import shareLimits from "../common/forms/ShareLimits";
 import YNButton from "../common/forms/YNButtons";
 import LargeTextArea from "../common/forms/LargeTextArea";
-import provinces from "../common/forms/Provinces";
-import cities from "../common/forms/Cities";
 import radii from "../common/forms/Radii";
 
 //Returns a Form with fields
@@ -34,6 +32,7 @@ function MemberProfileForm() {
     const [religious, setReligious] = useState("");
     const [hasDiet, setHasDiet] = useState("");
     const [hasHome, setHasHome] = useState("");
+    const [minRent, setMinRent] = useState("500.00");
     const [maxRent, setMaxRent] = useState("1500.00");
     const [aboutSelf, setAboutSelf] = useState("");
     const [extraAreas, setExtraAreas] = useState([{ province: "ALBERTA", city: "", radius: ""}]);
@@ -63,7 +62,6 @@ function MemberProfileForm() {
                     <RadioButton label="Other: " name="gender" value="other" checked={gender==="other"} onChange={(e)=>{setGender(e.target.value)}}/>
                     <TextArea label="Elaborate: " placeholder="Optional" disabled={!(gender==="other")}/>
                 </div>
-                <TextArea label="Year of Birth: " onChange={(e)=>{setBirthYear(e.target.value)}} />
                 <div>
                     {/*<Dropdown name="status" title={"Status"} items={statuses} onChange={(e)=>{setStatus(e.target.value)}}/><span>{status}</span>*/}
                     <TextArea label="Partner's username(s): " placeholder="Partner's username" disabled={!(status=="Couple")} onChange={(e)=>{setPartners(e.target.value)}}/>
@@ -77,6 +75,7 @@ function MemberProfileForm() {
                 <div>
                     {/*<Dropdown name="workstatus" title={"Work Status"} items={workStatuses} onChange={(e)=>{setWorkStatus(e.target.value)}}/><span>{workStatus}</span>*/}
                     <p>Max monthly rent</p>
+                    <span>$</span><input type="number" min="0.00" step="0.01" placeholder="500.00" onChange={(e)=>{setMinRent(e.target.value)}}/>
                     <span>$</span><input type="number" min="0.00" step="0.01" placeholder="1500.00" onChange={(e)=>{setMaxRent(e.target.value)}}/>
                 </div>
                 {/*{extraAreas.map((x,i) =>{*/}

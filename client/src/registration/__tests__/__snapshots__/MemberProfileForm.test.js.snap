@@ -50,14 +50,6 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
         />
       </label>
     </div>
-    <label>
-      Year of Birth: 
-      <input
-        disabled={false}
-        onChange={[Function]}
-        type="text"
-      />
-    </label>
     <div>
       <label>
         Partner's username(s): 
@@ -90,6 +82,16 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
       <p>
         Max monthly rent
       </p>
+      <span>
+        $
+      </span>
+      <input
+        min="0.00"
+        onChange={[Function]}
+        placeholder="500.00"
+        step="0.01"
+        type="number"
+      />
       <span>
         $
       </span>

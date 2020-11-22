@@ -8,23 +8,23 @@
 
 const statuses = [
     {
-        id: 1,
+        label: "Single",
         value: "Single"
     },
     {
-        id: 2,
+        label: "Couple",
         value: "Couple"
     },
     {
-        id: 3,
+        label: "Couple With Children",
         value: "Couple With Children"
     },
     {
-        id: 4,
+        label: "Single Parent",
         value: "Single Parent"
     },
     {
-        id: 5,
+        label: "Existing Group",
         value: "Existing Group"
     }
 ]

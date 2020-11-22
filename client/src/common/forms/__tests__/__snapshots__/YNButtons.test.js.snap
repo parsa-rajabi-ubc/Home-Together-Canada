@@ -18,6 +18,7 @@ exports[`YNButtons Snapshot test should render correctly regardless of propertie
     <label>
       no: 
       <input
+        checked={false}
         name="testName"
         type="radio"
         value="no"

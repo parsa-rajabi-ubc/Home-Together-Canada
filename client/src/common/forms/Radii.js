@@ -8,43 +8,43 @@
 
 const radii = [
     {
-        id: 1,
+        label: "1km",
         value: "1km"
     },
     {
-        id: 2,
+        label: "3km",
         value: "3km"
     },
     {
-        id: 3,
+        label: "5km",
         value: "5km"
     },
     {
-        id: 4,
+        label: "10km",
         value: "10km"
     },
     {
-        id: 5,
+        label: "25km",
         value: "25km"
     },
     {
-        id: 6,
+        label: "50km",
         value: "50km"
     },
     {
-        id: 7,
+        label: "75km",
         value: "75km"
     },
     {
-        id: 8,
+        label: "100km",
         value: "100km"
     },
     {
-        id: 9,
+        label: "150km",
         value: "150km"
     },
     {
-        id: 10,
+        label: "200km",
         value: "200km"
     }
 ]
