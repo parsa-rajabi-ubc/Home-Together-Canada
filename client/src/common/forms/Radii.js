@@ -26,6 +26,26 @@ const radii = [
     {
         id: 5,
         value: "25km"
+    },
+    {
+        id: 6,
+        value: "50km"
+    },
+    {
+        id: 7,
+        value: "75km"
+    },
+    {
+        id: 8,
+        value: "100km"
+    },
+    {
+        id: 9,
+        value: "150km"
+    },
+    {
+        id: 10,
+        value: "200km"
     }
 ]
 export default radii;

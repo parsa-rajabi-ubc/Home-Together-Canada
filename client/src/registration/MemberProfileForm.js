@@ -21,19 +21,19 @@ import radii from "../common/forms/Radii";
 
 //Returns a Form with fields
 function MemberProfileForm() {
-    const [gender, setGender] = useState("male");
+    const [gender, setGender] = useState("");
     const [birthYear, setBirthYear] = useState("");
     const [status, setStatus] = useState("");
     const [workStatus, setWorkStatus] = useState("");
     const [partners, setPartners] = useState("");
     const [shareLimit, setShareLimit] = useState("");
-    const [petFriendly, setPetFriendly] = useState("no");
-    const [smoking, setSmoking] = useState("no");
-    const [mobilityIssues, setMobilityIssues] = useState("no");
-    const [hasAllergies, setHasAllergies] = useState("no");
-    const [religious, setReligious] = useState("no");
-    const [hasDiet, setHasDiet] = useState("no");
-    const [hasHome, setHasHome] = useState("no");
+    const [petFriendly, setPetFriendly] = useState("");
+    const [smoking, setSmoking] = useState("");
+    const [mobilityIssues, setMobilityIssues] = useState("");
+    const [hasAllergies, setHasAllergies] = useState("");
+    const [religious, setReligious] = useState("");
+    const [hasDiet, setHasDiet] = useState("");
+    const [hasHome, setHasHome] = useState("");
     const [maxRent, setMaxRent] = useState("1500.00");
     const [aboutSelf, setAboutSelf] = useState("");
     const [extraAreas, setExtraAreas] = useState([{ province: "ALBERTA", city: "", radius: ""}]);
@@ -61,38 +61,38 @@ function MemberProfileForm() {
                     <RadioButton label="Male: " name="gender" value="male" checked={gender==="male"} onChange={(e)=>{setGender(e.target.value)}}/>
                     <RadioButton label="Female: " name="gender" value="female" checked={gender==="female"} onChange={(e)=>{setGender(e.target.value)}}/>
                     <RadioButton label="Other: " name="gender" value="other" checked={gender==="other"} onChange={(e)=>{setGender(e.target.value)}}/>
-                    <TextArea label="Preferred Pronoun: " placeholder="Pronoun" disabled={!(gender==="other")}/>
+                    <TextArea label="Elaborate: " placeholder="Optional" disabled={!(gender==="other")}/>
                 </div>
-                <TextArea label="Year of Birth: " placeholder="" onChange={(e)=>{setBirthYear(e.target.value)}} />
+                <TextArea label="Year of Birth: " onChange={(e)=>{setBirthYear(e.target.value)}} />
                 <div>
-                    <Dropdown name="status" title={"Status"} items={statuses} onChange={(e)=>{setStatus(e.target.value)}}/>
+                    {/*<Dropdown name="status" title={"Status"} items={statuses} onChange={(e)=>{setStatus(e.target.value)}}/><span>{status}</span>*/}
                     <TextArea label="Partner's username(s): " placeholder="Partner's username" disabled={!(status=="Couple")} onChange={(e)=>{setPartners(e.target.value)}}/>
                     <TextArea label="Group members: " placeholder="usernames (separated by comma)" disabled={!(status=="Existing Group")} onChange={(e)=>{setPartners(e.target.value)}}/>
                 </div>
                 <div>
                     <span>I am open to sharing with up to: </span>
-                    <Dropdown name="shareLimit" items={shareLimits} title={"Share Limit"} onChange={(e)=>{setShareLimit(e.target.value)}}/>
+                    {/*<Dropdown name="shareLimit" items={shareLimits} title={"Share Limit"} onChange={(e)=>{setShareLimit(e.target.value)}}/><span>{shareLimit}</span>*/}
                     <span> other people.</span>
                 </div>
                 <div>
-                    <Dropdown name="workstatus" title={"Work Status"} items={workStatuses} onChange={(e)=>{setWorkStatus(e.target.value)}}/>
+                    {/*<Dropdown name="workstatus" title={"Work Status"} items={workStatuses} onChange={(e)=>{setWorkStatus(e.target.value)}}/><span>{workStatus}</span>*/}
                     <p>Max monthly rent</p>
                     <span>$</span><input type="number" min="0.00" step="0.01" placeholder="1500.00" onChange={(e)=>{setMaxRent(e.target.value)}}/>
                 </div>
-                {extraAreas.map((x,i) =>{
-                    return(
-                        <div key={i}>
-                            <Dropdown name="province" value={x.province.value} title={"Province"} items={provinces} onChange={e => handleAreaChange(e, i)}/><span>{x.province}</span>
-                            <Dropdown name="city" value={x.city.value} title={"city"} items={cities[cities.map(function(e) { return e.name; }).indexOf(x.province)].citylist} onChange={e => handleAreaChange(e, i)}/>
-                            <Dropdown name="radius" value={x.radius.value} title={"radius"} items={radii} onChange={e => handleAreaChange(e, i)}/><span>{x.radius}</span>
-                            <div>
-                                {extraAreas.length !== 1 && <Button label={""} value="Remove" onClick={()=>handleRemoveClick(i)}/> }
-                                {extraAreas.length - 1 === i && <Button label={""} value="Add" onClick={handleAddClick}/> }
-                            </div>
-                        </div>
-                    );
-                })}
-                <YNButton label="Pet Friendly?:" name="petFriendly" checked={petFriendly==="no"} onChange={(e)=>{setPetFriendly(e.target.value)}}/>
+                {/*{extraAreas.map((x,i) =>{*/}
+                {/*    return(*/}
+                {/*        <div key={i}>*/}
+                {/*            <Dropdown name="province" value={x.province.value} title={"Province"} items={provinces} onChange={e => handleAreaChange(e, i)}/><span>{x.province}</span>*/}
+                {/*            <Dropdown name="city" value={x.city.value} title={"city"} items={cities[cities.map(function(e) { return e.name; }).indexOf(x.province)].citylist} onChange={e => handleAreaChange(e, i)}/><span>{x.city}</span>*/}
+                {/*            <Dropdown name="radius" value={x.radius.value} title={"radius"} items={radii} onChange={e => handleAreaChange(e, i)}/><span>{x.radius}</span>*/}
+                {/*            <div>*/}
+                {/*                {extraAreas.length !== 1 && <Button label={""} value="Remove" onClick={()=>handleRemoveClick(i)}/> }*/}
+                {/*                {extraAreas.length - 1 === i && <Button label={""} value="Add" onClick={handleAddClick}/> }*/}
+                {/*            </div>*/}
+                {/*        </div>*/}
+                {/*    );*/}
+                {/*})}*/}
+                <YNButton label="Pet Friendly?:" name="petFriendly" checked={petFriendly==="no"} onChange={(e)=>{setPetFriendly(e.target.value)}}/><span>{petFriendly}</span>
                 <YNButton label="Smoking Friendly?:" name="smoking" checked={smoking==="no"} onChange={(e)=>{setSmoking(e.target.value)}}/>
                 <YNButton label="Health or Mobility Issues?:" name="mobile" checked={mobilityIssues==="no"} onChange={(e)=>{setMobilityIssues(e.target.value)}}/>
                 <YNButton label="Allergies?:" name="allergies" checked={hasAllergies==="no"} onChange={(e)=>{setHasAllergies(e.target.value)}}/>

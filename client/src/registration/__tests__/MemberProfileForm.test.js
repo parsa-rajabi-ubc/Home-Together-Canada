@@ -2,7 +2,7 @@
  * @Author:     Jeff Hatton
  * @Created:    2020.11.19
  *
- * @Description: Member interested area form Component snapshot test. Returns a snapshot.
+ * @Description: Member profile form Component snapshot test. Returns a snapshot.
  *
  */
 import React from 'react';

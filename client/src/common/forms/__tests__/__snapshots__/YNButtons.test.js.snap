@@ -26,6 +26,7 @@ exports[`YNButtons Snapshot test should render correctly regardless of propertie
     <label>
       If Yes, Elaborate: 
       <input
+        disabled={false}
         placeholder=""
         type="text"
       />

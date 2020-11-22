@@ -2,7 +2,7 @@
  * @Author:     Jeff Hatton
  * @Created:    2020.11.18
  *
- * @Description: Large text area form Component. Returns a set of 3 dropdowns.
+ * @Description: Large text area form Component. Returns a text area box for larger string input.
  *
  */
 import React from 'react';
@@ -13,7 +13,7 @@ function LargeTextArea(props){
     return(
         <label>
             {label}
-            <textarea name={name} rows="8" cols="50" placeholder={placeholder} onChange={onChange}></textarea>
+            <textarea name={name} rows="8" cols="50" placeholder={placeholder} onChange={onChange}/>
         </label>
     );
 }

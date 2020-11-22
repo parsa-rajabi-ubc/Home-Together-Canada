@@ -2,7 +2,7 @@
  * @Author:     Jeff Hatton
  * @Created:    2020.11.18
  *
- * @Description: Member profile static form Component. Returns a form.
+ * @Description: Const array for Dropdown Component.
  *
  */
 

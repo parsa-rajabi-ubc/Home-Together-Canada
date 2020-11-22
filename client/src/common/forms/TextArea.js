@@ -10,7 +10,7 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 function TextArea(props){
-    const { label, className, placeholder, onChange , disabled} = props;
+    const { label, className, placeholder, onChange , disabled=false} = props;
     return(
         <label>
             {label}

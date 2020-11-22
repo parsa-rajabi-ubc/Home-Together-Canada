@@ -5,16 +5,20 @@
  * @Description: list of provinces in Canada in alphabetical order
  *
  */
-import 'canada';
-const canada = require('canada');
-let pid=0;
-const r = canada.regions;
-const provinces = [];
-for (let key in r ){
-    pid = pid +1;
-    provinces.push({
-        id: pid,
-        value: r[key]
-    })
-}
-export default provinces
+//import 'canada';
+const provinces = [
+    { id: 1, value: 'ALBERTA' },
+    { id: 2, value: 'BRITISH COLUMBIA' },
+    { id: 3, value: 'MANITOBA' },
+    { id: 4, value: 'NEW BRUNSWICK' },
+    { id: 5, value: 'NEWFOUNDLAND AND LABRADOR' },
+    { id: 6, value: 'NOVA SCOTIA' },
+    { id: 7, value: 'ONTARIO' },
+    { id: 8, value: 'PRINCE EDWARD ISLAND' },
+    { id: 9, value: 'QUEBEC' },
+    { id: 10, value: 'SASKATCHEWAN' },
+    { id: 11, value: 'Northwest Territories' },
+    { id: 12, value: 'Nunavut' },
+    { id: 13, value: 'Yukon' }
+];
+export default provinces;

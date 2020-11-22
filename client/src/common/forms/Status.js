@@ -2,7 +2,7 @@
  * @Author:     Jeff Hatton
  * @Created:    2020.11.18
  *
- * @Description: Radio button input Form Component
+ * @Description: Const array for Dropdown Component
  *
  */
 

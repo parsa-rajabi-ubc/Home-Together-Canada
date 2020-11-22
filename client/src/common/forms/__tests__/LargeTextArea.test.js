@@ -2,7 +2,7 @@
  * @Author:     Jeff Hatton
  * @Created:    2020.11.19
  *
- * @Description: Phone number input fields Component Snapshot test
+ * @Description: Large area text input field component Snapshot test
  *
  */
 import React from 'react';

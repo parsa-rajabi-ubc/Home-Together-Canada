@@ -5,15 +5,32 @@
  * @Description: Const list of cities per province.
  *
  */
-import provinces from "./Provinces";
 import 'canada';
 const canada = require('canada');
-const cities = [];
+
+const provinces = [
+    { id: 1, value: 'ALBERTA' },
+    { id: 2, value: 'BRITISH COLUMBIA' },
+    { id: 3, value: 'MANITOBA' },
+    { id: 4, value: 'NEW BRUNSWICK' },
+    { id: 5, value: 'NEWFOUNDLAND AND LABRADOR' },
+    { id: 6, value: 'NOVA SCOTIA' },
+    { id: 7, value: 'ONTARIO' },
+    { id: 8, value: 'PRINCE EDWARD ISLAND' },
+    { id: 9, value: 'QUEBEC' },
+    { id: 10, value: 'SASKATCHEWAN' },
+    { id: 11, value: 'Northwest Territories' },
+    { id: 12, value: 'Nunavut' },
+    { id: 13, value: 'Yukon' }
+];
+let cities = [];
+let name;
+let citylist = [];
 provinces.forEach(cityFunc);
 
 function cityFunc(province, index){
-    let name = province.value;
-    let citylist = [];
+    name = province.value;
+    citylist = [];
     switch(index){
         case 0: {
             let idx = 0;
@@ -189,4 +206,5 @@ function cityFunc(province, index){
         citylist: citylist
     })
 }
+
 export default cities;
