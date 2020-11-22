@@ -6,11 +6,12 @@
  *
  */
 
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import TextArea from '../common/forms/TextArea';
 import Checkbox from '../common/forms/Checkbox';
 import Button from '../common/forms/Button';
+import SubmitButton from "../common/forms/SubmitButton";
 import Address from "../common/forms/Address";
 import SignInInfo from "../common/forms/SignInInfo";
 import PhoneNumInput from "../common/forms/PhoneNumInput";
@@ -20,7 +21,7 @@ import {getConcatenatedErrorMessage, getPhoneNumberFromStrings} from "./registra
 
 // TODO: separate this into container and presentational components (see https://css-tricks.com/learning-react-container-components/)
 const BusinessRegistrationForm = (props) => {
-    const { history } = props;
+    const {history} = props;
 
     const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(false);
     const [isNationWide, setIfNationWide] = useState(false);
@@ -83,7 +84,7 @@ const BusinessRegistrationForm = (props) => {
             alert("Business Email Required");
             return false;
         } else {
-            if (!isStringEmail(bEmail)){
+            if (!isStringEmail(bEmail)) {
                 alert("Business email is invalid");
                 return false;
             }
@@ -92,11 +93,11 @@ const BusinessRegistrationForm = (props) => {
             alert("Business Phone Number missing parts");
             return false;
         } else {
-            if(!isStringNumeralsOnly(bPhoneNumber.first) || !isStringNumeralsOnly(bPhoneNumber.middle) || !isStringNumeralsOnly(bPhoneNumber.last)){
+            if (!isStringNumeralsOnly(bPhoneNumber.first) || !isStringNumeralsOnly(bPhoneNumber.middle) || !isStringNumeralsOnly(bPhoneNumber.last)) {
                 alert("Business Phone Number has invalid characters");
                 return false;
             }
-            if(!(bPhoneNumber.first.length===3) || !(bPhoneNumber.middle.length===3) || !(bPhoneNumber.last.length===4)){
+            if (!(bPhoneNumber.first.length === 3) || !(bPhoneNumber.middle.length === 3) || !(bPhoneNumber.last.length === 4)) {
                 alert("Business Phone Number has invalid number of characters");
                 return false;
             }
@@ -105,11 +106,11 @@ const BusinessRegistrationForm = (props) => {
             alert("Business Cell Phone Number missing parts");
             return false;
         } else {
-            if(!isStringNumeralsOnly(bCellNumber.first) || !isStringNumeralsOnly(bCellNumber.middle) || !isStringNumeralsOnly(bCellNumber.last)){
+            if (!isStringNumeralsOnly(bCellNumber.first) || !isStringNumeralsOnly(bCellNumber.middle) || !isStringNumeralsOnly(bCellNumber.last)) {
                 alert("Business Cell Phone Number has invalid characters");
                 return false;
             }
-            if(!(bCellNumber.first.length===3) || !(bCellNumber.middle.length===3) || !(bCellNumber.last.length===4)){
+            if (!(bCellNumber.first.length === 3) || !(bCellNumber.middle.length === 3) || !(bCellNumber.last.length === 4)) {
                 alert("Business Cell Phone Number has invalid number of characters");
                 return false;
             }
@@ -130,7 +131,7 @@ const BusinessRegistrationForm = (props) => {
             alert("Business Address Postal Code missing");
             return false;
         }
-        if (useDifferentMailingAddress){
+        if (useDifferentMailingAddress) {
             if (isStringEmpty(bMailingAddress.street)) {
                 alert("Business Mailing Address Street missing");
                 return false;
@@ -178,11 +179,11 @@ const BusinessRegistrationForm = (props) => {
             alert("Contact Phone Number missing parts");
             return false;
         } else {
-            if(!isStringNumeralsOnly(contactPhoneNumber.first) || !isStringNumeralsOnly(contactPhoneNumber.middle) || !isStringNumeralsOnly(contactPhoneNumber.last)){
+            if (!isStringNumeralsOnly(contactPhoneNumber.first) || !isStringNumeralsOnly(contactPhoneNumber.middle) || !isStringNumeralsOnly(contactPhoneNumber.last)) {
                 alert("Contact Phone Number has invalid characters");
                 return false;
             }
-            if(!(contactPhoneNumber.first.length===3) || !(contactPhoneNumber.middle.length===3) || !(contactPhoneNumber.last.length===4)){
+            if (!(contactPhoneNumber.first.length === 3) || !(contactPhoneNumber.middle.length === 3) || !(contactPhoneNumber.last.length === 4)) {
                 alert("Contact Phone Number has invalid number of characters");
                 return false;
             }
@@ -199,8 +200,8 @@ const BusinessRegistrationForm = (props) => {
             alert("Password confirmation Required");
             return false;
         }
-        if (!isStringEmpty(password) && !isStringEmpty(passwordCheck)){
-            if (!isStringSame(password,passwordCheck)){
+        if (!isStringEmpty(password) && !isStringEmpty(passwordCheck)) {
+            if (!isStringSame(password, passwordCheck)) {
                 alert("Passwords do NOT match");
                 return false;
             }
@@ -209,7 +210,7 @@ const BusinessRegistrationForm = (props) => {
     }
 
     //function for input checks on submit
-    function onSubmit(event){
+    function onSubmit(event) {
         if (!isFormValid()) {
             event.preventDefault();
             return;
@@ -217,7 +218,7 @@ const BusinessRegistrationForm = (props) => {
         const registrationData = {
             username: username,
             password: password,
-            email:bEmail,
+            email: bEmail,
             firstName: contactFName,
             lastName: contactLName,
             phoneNumber: getPhoneNumberFromStrings(contactPhoneNumber.first, contactPhoneNumber.middle, contactPhoneNumber.last),
@@ -270,42 +271,48 @@ const BusinessRegistrationForm = (props) => {
             });
 
     }
-    function handleBPhoneChange(e){
+
+    function handleBPhoneChange(e) {
         const value = e.target.value;
         setBPhoneNumber({
             ...bPhoneNumber,
             [e.target.name]: value
         });
     }
-    function handleCellPhoneChange(e){
+
+    function handleCellPhoneChange(e) {
         const value = e.target.value;
         setBCellNumber({
             ...bCellNumber,
             [e.target.name]: value
         });
     }
-    function handleContactPhoneChange(e){
+
+    function handleContactPhoneChange(e) {
         const value = e.target.value;
         setContactPhoneNumber({
             ...contactPhoneNumber,
             [e.target.name]: value
         });
     }
-    function handleBAddressChange(e){
+
+    function handleBAddressChange(e) {
         const value = e.target.value;
         setBAddress({
             ...bAddress,
             [e.target.name]: value
         });
     }
-    function handleBMapAddress(e){
+
+    function handleBMapAddress(e) {
         const value = e.target.value;
         setBMapAddress({
             ...bMapAddress,
             [e.target.name]: value
         });
     }
-    function handleBMailingAddress(e){
+
+    function handleBMailingAddress(e) {
         const value = e.target.value;
         setBMailingAddress({
             ...bMailingAddress,
@@ -315,39 +322,187 @@ const BusinessRegistrationForm = (props) => {
 
     return (
         <div>
-            <h1>Business Registration Form</h1>
-            <hr/>
             <div>
-                <h2>Business Details</h2>
-                <TextArea label="Business Name: " onChange={(e)=>{setBName(e.target.value)}}/>
-                <TextArea label="Business Email: " onChange={(e)=>{setBEmail(e.target.value)}}/>
-                <Checkbox label={"Incorporated :"} onChange={() => setIsIncorporated(!isIncorporated)}/>
-                {isIncorporated && <TextArea label={"Incorporated Owners"} onChange={(e) => setIncorporatedOwnersNames(e.target.value)}/> }
-                <PhoneNumInput label="Business Telephone Number: " onChange={handleBPhoneChange} />
-                <PhoneNumInput label="Business Cell Phone Number: " onChange={handleCellPhoneChange} />
-                <Address label="Business Address: " onChange={handleBAddressChange} />
-                <Checkbox label="Different Mailing Address? " onChange= {() => {setUseDifferentMailingAddress(useDifferentMailingAddress => !useDifferentMailingAddress)}}/>
-                {useDifferentMailingAddress && <Address label="Mailing Address: " onChange={handleBMailingAddress}/>}
-                <div>
-                    <span>Select nationwide if your service spans across Canada</span>
-                    <div>
-                    <Checkbox label="Nation wide? " onChange= {() => {setIfNationWide(isNationWide => !isNationWide)}}/>
-                    {!isNationWide && <Address label="Address Shown on Map: " onChange={handleBMapAddress} />}
+
+                {/*Business Details*/}
+                <div className="m-10 md:grid md:grid-cols-4 md:gap-0">
+                    <div className="md:col-span-1">
+                        <div className="px-3 sm:px-0">
+                            <h3 className="info-header">Business Details</h3>
+                            <p className="info-text">
+                                This information is about your business.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
+                        <div className="grid grid-cols-3 gap-6">
+                            <div className="col-span-3 sm:col-span-2">
+
+                                <TextArea className="mb-0 input" placeholder="" label="Business Name"
+                                          labelClassName={"label"} onChange={(e) => {
+                                    setBName(e.target.value)
+                                }}/>
+                                <span
+                                    className="info-detail">Select incorporated business if your business is Inc.</span>
+                                <Checkbox label={"Incorporated Business"}
+                                          onChange={() => setIsIncorporated(!isIncorporated)}/>
+                                {isIncorporated && <TextArea className="input" label={""}
+                                                             placeholder={"Names of Inc. Owners (separated by comma)"}
+                                                             labelClassName={"label"}
+                                                             onChange={(e) => setIncorporatedOwnersNames(e.target.value)}/>}
+                                <TextArea className="input" placeholder="business@email.ca"
+                                          label="Business Email" labelClassName={"label"} onChange={(e) => {
+                                    setBEmail(e.target.value)
+                                }}/>
+                                <TextArea className="input" placeholder="http://www.your-website.com"
+                                          label="Business Website" labelClassName={"label"}
+                                          onChange={e => setWebsite(e.target.value)}/>
+                                <PhoneNumInput
+                                    className="phone"
+                                    labelClassName={"label "}
+                                    label="Business Phone Number" onChange={handleBPhoneChange}/>
+                                <PhoneNumInput
+                                    className="phone"
+                                    label="Business Cell Number" labelClassName={"label"}
+                                    onChange={handleCellPhoneChange}/>
+                                <Address label="Business Address"
+                                         cityClassName="city-postal" onChange={handleBAddressChange}/>
+                                <span className="info-detail">Select different mailing address if it differs from the address above:</span>
+                                <Checkbox label="Different Mailing Address" onChange={() => {
+                                    setUseDifferentMailingAddress(useDifferentMailingAddress => !useDifferentMailingAddress)
+                                }}/>
+                                {useDifferentMailingAddress &&
+                                <Address label="Business Mailing Address"
+                                         onChange={handleBMailingAddress}/>}
+
+
+                                <span
+                                    className="info-detail">Select nation-wide if your service spans across Canada:</span>
+
+                                <Checkbox label="Nation-wide " onChange={() => {
+                                    setIfNationWide(isNationWide => !isNationWide)
+                                }}/>
+                                {!isNationWide && <Address label="Searchable Address"
+                                                           onChange={handleBMapAddress}/>}
+                            </div>
+                        </div>
+
+                        <label className="label">
+                            Business Logo
+                        </label>
+                        <div className="flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                            <div className="space-y-1 text-center">
+                                <svg className="w-12 h-12 mx-auto text-gray-400" stroke="currentColor"
+                                     fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                                    <path
+                                        d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                                        strokeWidth="2" strokeLinecap="round"
+                                        strokeLinejoin="round"/>
+                                </svg>
+                                <p className="info-text">
+                                    <Button
+                                        className="font-medium text-indigo-600 bg-white rounded-md hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                        label="" value="Upload a file"/>
+                                </p>
+                                {/*TODO: update file type and size after we have implemented this feature*/}
+                                <p className="text-xs text-gray-500">
+                                    PNG or JPG up to 10MB
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <Button label="Business Logo: " value="Upload File"/>
-                <TextArea label="Business Website: " onChange={e => setWebsite(e.target.value)}/>
-                <hr/>
-                <h2>Contact Person Details</h2>
-                <TextArea label="First Name: " onChange={(e)=>{setContactFName(e.target.value)}}/>
-                <TextArea label="Last Name: " onChange={(e)=>{setContactLName(e.target.value)}}/>
-                <PhoneNumInput label="Contact Phone Number: " onChange={handleContactPhoneChange} />
-                <hr/>
-                <h2>Account Details</h2>
-                <SignInInfo onChangeUsername={(e)=>{setUsername(e.target.value)}} onChangePassword={(e)=>{setPassword(e.target.value)}} onChangePasswordCheck={(e)=>{setPasswordCheck(e.target.value)}}/>
-                <Button value={"Signup"} onClick={onSubmit}/>
-                <hr/>
             </div>
+
+            {/*Dividers*/}
+            <div className="border-divider"/>
+
+            {/*Contact Person*/}
+            <div className="mt-10 sm:mt-0 m-10 md:grid md:grid-cols-4 md:gap-6">
+                <div className="md:col-span-1">
+                    <div className="px-4 sm:px-0">
+                        <h3 className="info-header">Contact Person</h3>
+                        <p className="info-text">
+                            This information is about the contact person for the business.
+                        </p>
+                    </div>
+                </div>
+                <div className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
+                    <div className="grid grid-cols-6 gap-x-6">
+                        <div className="column-span-6-layout">
+                            <TextArea className={"input"} labelClassName={"label"} label="First Name"
+                                      onChange={(e) => {
+                                          setContactFName(e.target.value)
+                                      }}/>
+                        </div>
+
+                        <div className="column-span-6-layout">
+                            <TextArea className={"input"} labelClassName={"label"} label="Last Name"
+                                      onChange={(e) => {
+                                          setContactLName(e.target.value)
+                                      }}/>
+                        </div>
+
+                        <div className="column-span-6-layout">
+                            <TextArea className="input" placeholder="personal@email.ca"
+                                      label="Personal Email" labelClassName={"label"} onChange={(e) => {
+                                setBEmail(e.target.value)
+                            }}/>
+                        </div>
+
+                        <div className="column-span-6-layout">
+                            <PhoneNumInput
+                                className="w-1/4 phone"
+                                labelClassName={"label"}
+                                label="Personal Phone Number" onChange={handleContactPhoneChange}/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/*Divided*/}
+            <div className="border-divider"/>
+
+            {/*Account Details*/}
+            <div className="mt-10 sm:mt-0">
+                <div className="m-10 md:grid md:grid-cols-4 md:gap-6">
+                    <div className="md:col-span-1">
+                        <div className="px-4 sm:px-0">
+                            <h3 className="text-lg font-medium leading-6 text-gray-900">Account Details</h3>
+                            <p className="mt-1 text-sm text-gray-600">
+                                This information is to set up and access your account.
+                            </p>
+                        </div>
+                    </div>
+                    <div className="mt-5 md:mt-0 md:col-span-2">
+                        <div className="overflow-hidden shadow sm:rounded-md">
+                            <div className="px-4 py-6 bg-white sm:p-5">
+                                <div className="grid grid-cols-3 gap-6">
+                                    <div className="col-span-3 sm:col-span-2">
+
+                                        <SignInInfo onChangeUsername={(e) => {
+                                            setUsername(e.target.value)
+                                        }} onChangePassword={(e) => {
+                                            setPassword(e.target.value)
+                                        }} onChangePasswordCheck={(e) => {
+                                            setPasswordCheck(e.target.value)
+                                        }}/>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6">
+                            <SubmitButton label={""} inputValue={"Create Account"}
+                                          className="text-base btn btn-green"
+                                          onClick={onSubmit}/>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     );
 }
