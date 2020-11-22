@@ -25,9 +25,9 @@ function MainLandingPage() {
                         <p className="mb-2 text-3xl font-bold leading-none text-gray-800">Member Account</p>
                         <div className="mb-10 text-center">
                             <ul className="inline-block my-3 text-lg text-left list-disc list-inside">
-                                <li>Free account with access to all features</li>
+                                <li>Free account registration</li>
+                                <li>Create free Home Sharing listening</li>
                                 <li>Search and message other members</li>
-                                <li>Create free service listening</li>
                                 <li>Report any suspicious activity on the site</li>
                                 <Link to={'/registration/member'}
                                       className="flex inline-block mt-8 rounded-md shadow btn btn-blue">
@@ -48,7 +48,7 @@ function MainLandingPage() {
                         <p className="mb-2 text-3xl font-bold leading-none text-gray-800">Business Account</p>
                         <div className="text-center">
                             <ul className="inline-block my-3 text-lg text-left list-disc list-inside">
-                                <li>Free account with access to limited</li>
+                                <li>Free account registration</li>
                                 <li>Create free service listening</li>
                                 <li>Create paid classified listening</li>
                                 <li>Report any suspicious activity on the site</li>
