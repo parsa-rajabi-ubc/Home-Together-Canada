@@ -124,7 +124,7 @@ function MemberRegistrationForm() {
 
                                     <div className="column-span-6-layout">
                                         <PhoneNumInput
-                                            className="w-1/4 input-phone"
+                                            className="w-1/4 phone"
                                             labelClassName={"label"}
                                             label="Phone Number" onChange={handlePhoneChange}/>
                                     </div>
