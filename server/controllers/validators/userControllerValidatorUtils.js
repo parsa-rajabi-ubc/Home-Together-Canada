@@ -83,6 +83,14 @@ const emailShouldNotAlreadyBeInUse = (email) =>
             }
         });
 
+const usernameShouldExist = (username) =>
+    abstractUserController.findUserByUsername(username)
+        .then(user => {
+            if (!user.length) {
+                return Promise.reject('Username does not exist');
+            }
+        });
+
 module.exports = {
     PROVINCES,
     isValidPhoneNumber,
@@ -91,5 +99,6 @@ module.exports = {
     shouldMapAddressBeDefined,
     shouldIncorporatedOwnersNamesBeDefined,
     usernameShouldNotAlreadyExist,
-    emailShouldNotAlreadyBeInUse
+    emailShouldNotAlreadyBeInUse,
+    usernameShouldExist
 }

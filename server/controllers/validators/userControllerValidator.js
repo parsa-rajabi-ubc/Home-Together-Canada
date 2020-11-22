@@ -16,7 +16,8 @@ const {
     shouldMapAddressBeDefined,
     shouldIncorporatedOwnersNamesBeDefined,
     usernameShouldNotAlreadyExist,
-    emailShouldNotAlreadyBeInUse
+    emailShouldNotAlreadyBeInUse,
+    usernameShouldExist
 } = require('./userControllerValidatorUtils');
 const { removeAllWhiteSpace } = require('../utils/stringUtils');
 
@@ -121,8 +122,8 @@ exports.validate = (method) => {
                     .custom((incorporatedOwnersNames, { req }) => shouldIncorporatedOwnersNamesBeDefined(incorporatedOwnersNames, req)),     // TODO: add a custom validator here
                 body('businessPhoneNumber')
                     .exists()
-                    .isNumeric()
-                    .custom(phoneNum => isValidPhoneNumber(phoneNum)),
+                    .custom(phoneNum => isValidPhoneNumber(phoneNum))
+                    .isNumeric(),
                 body('businessCellPhoneNumber')
                     .exists()
                     .isNumeric()
@@ -158,6 +159,19 @@ exports.validate = (method) => {
                 body('website', 'Invalid website')
                     .optional()
                     .isURL()
+                    .trim()
+                    .stripLow()
+            ]
+        }
+        case 'loginUser': {
+            return [
+                body('username')
+                    .exists()
+                    .trim()
+                    .stripLow()
+                    .custom(username => usernameShouldExist(username)),
+                body('password', 'A password must be provided')
+                    .exists()
                     .trim()
                     .stripLow()
             ]

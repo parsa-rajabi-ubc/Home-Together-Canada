@@ -9,11 +9,12 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
+const passport = require('passport');
 
 const abstractUsers = require('./controllers/abstractUserController');
 const businessAccounts = require('./controllers/businessAccountController');
-const users = require('./controllers/userController');
 const usersValidator = require('./controllers/validators/userControllerValidator');
+const { validationResult } = require('express-validator/check');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -46,10 +47,73 @@ router.get('/businessAccount/all/', function(req, res, next) {
     businessAccounts.findAllBusinessAccounts(req, res);
 });
 
-// // Create a business user
-router.post('/businessUser/create/', usersValidator.validate('createBusinessUser'), function(req, res, next) {
-    users.createBusinessUser(req, res);
+// Create a business user
+router.post('/businessUser/create/', usersValidator.validate('createBusinessUser'),
+    function (req, res, next) {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            res.status(202).json({ errors: errors.array()});
+        } else {
+            passport.authenticate('local-signup', {
+                // change these routes to ones that send actual response data
+                successRedirect: '/checkAuth',
+                failureRedirect: '/checkAuth',
+                failureFlash: false })(req, res, next);
+        }
 });
+
+router.get('/checkAuth/',isLoggedIn, function(req, res, next) {
+    res.send({ authenticated: true });
+});
+
+router.get('/logout/', function (req, res) {
+    req.session.destroy(function (err) {
+        if (err) console.log(err)
+        res.redirect('/checkAuth/');
+    });
+});
+
+router.post("/login/user/", usersValidator.validate('loginUser'),
+    function (req, res, next) {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            res.status(202).json({ errors: errors.array()});
+        } else {
+            passport.authenticate('local-signin',
+                {
+                    successRedirect: '/checkAuth',
+                    failureRedirect: '/checkAuth',
+                    failureFlash: false
+                })(req, res, next);
+        }
+    }
+);
+
+
+
+
+
+// router.get('/test/next/', function (req, res, next) {
+//     console.log('Request URL:')
+//     next()
+// }, function (req, res, next) {
+//     console.log('Request Type:')
+//     next()
+// })
+function isLoggedIn(req, res, next) {
+    console.log('isLoggedIn: ', req.isAuthenticated());
+    // console.log('isLoggedIn req: ', req.user);
+    // console.log('isLoggedIn req keys: ', Object.keys(req));
+    console.log('session id: ', req.session.id);
+
+
+    if (req.isAuthenticated())
+        return next();
+
+    res.send({ authenticated: false });
+}
 
 /* GET React App */
 // NOTE: This route MUST be at the last route in this file
