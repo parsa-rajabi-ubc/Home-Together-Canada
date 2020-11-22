@@ -1,5 +1,3 @@
-
-
 import './App.css';
 import React from 'react'
 import Header from './common/header-and-footer/Header';
@@ -14,7 +12,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
     return (
-        // <Router>
+        <Router>
         <div>
             <Header/>
             {/* Matches the URL to the path and does not go through the rest of the routes*/}
@@ -29,7 +27,7 @@ function App() {
             </Switch>
             <Footer/>
         </div>
-        // </Router>
+        </Router>
     );
 }
 
