@@ -63,10 +63,12 @@ router.post('/businessUser/create/', usersValidator.validate('createBusinessUser
         }
 });
 
+// check if user is authenticated
 router.get('/checkAuth/',isLoggedIn, function(req, res, next) {
     res.send({ authenticated: true });
 });
 
+// logout
 router.get('/logout/', function (req, res) {
     req.session.destroy(function (err) {
         if (err) console.log(err)
@@ -74,6 +76,8 @@ router.get('/logout/', function (req, res) {
     });
 });
 
+
+// login user
 router.post("/login/user/", usersValidator.validate('loginUser'),
     function (req, res, next) {
         const errors = validationResult(req);
@@ -91,24 +95,7 @@ router.post("/login/user/", usersValidator.validate('loginUser'),
     }
 );
 
-
-
-
-
-// router.get('/test/next/', function (req, res, next) {
-//     console.log('Request URL:')
-//     next()
-// }, function (req, res, next) {
-//     console.log('Request Type:')
-//     next()
-// })
 function isLoggedIn(req, res, next) {
-    console.log('isLoggedIn: ', req.isAuthenticated());
-    // console.log('isLoggedIn req: ', req.user);
-    // console.log('isLoggedIn req keys: ', Object.keys(req));
-    console.log('session id: ', req.session.id);
-
-
     if (req.isAuthenticated())
         return next();
 

@@ -51,8 +51,6 @@ function LoginForm(props) {
         LoginService.loginUser(loginData)
             .then(res => res.json())
             .then(data => {
-                // TODO: this console log is for testing, and must be taken out before merging the PR
-                console.log('login data: ', data);
                 if (!!data && data.authenticated) {
                     // user is authenticated, redirect to home screen
                     return history.push('/');
@@ -100,13 +98,9 @@ function LoginForm(props) {
                                 {/* TODO: replace alerts with css warning i.e make the input box red and add a text:
                                  "Please enter a password / Password is invalid*/}
 
-                                {/*TODO: do not redirect user to home page if there is a warning*/}
-                                {/*<Link to={'/'}>*/}
                                     <SubmitButton
                                         className="block px-4 py-2 mt-4 text-sm font-medium text-center btn btn-green"
                                         inputValue='Login' onClick={onSubmit}/>
-                                {/*</Link>*/}
-
 
                                 {/* TODO: remember me feature, using the checkbox function*/}
                                 {/*<Checkbox label="Remember me "/>*/}
