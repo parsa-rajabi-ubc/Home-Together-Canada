@@ -10,16 +10,17 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 function Button(props){
-    const { label, onClick, value } = props;
+    const { label, className, onClick, value } = props;
     return(
         <label>
             {label}
-            <input type="button" value={value} onClick={onClick}/>
+            <input className={className} type="button" value={value} onClick={onClick}/>
         </label>
     );
 }
 Button.propTypes = {
     value: PropTypes.string.isRequired,
+    className:  PropTypes.string,
     label: PropTypes.string,
     onClick: PropTypes.func
 }
