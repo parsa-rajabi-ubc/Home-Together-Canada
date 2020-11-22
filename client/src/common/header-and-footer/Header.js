@@ -9,8 +9,42 @@
 import React from 'react';
 import '../../tailwind.output.css';
 import {Link} from "react-router-dom";
+import LoginService from '../../services/LoginService';
+import Button from "../forms/Button";
 
 const Header = () => {
+
+    // TODO: Dynamically generate buttons in header based on authentication and user privileges
+
+    // TODO: this is a helper function is only for testing this PR and must be taken out before
+    //  it gets merged
+    const checkIfLoggedIn = () => {
+        LoginService.isLoggedIn()
+            .then(res => res.json())
+            .then(data => {
+                // TODO: take out before merging PR
+                console.log('data: ', data);
+            })
+            .catch(error => {
+                console.log('error while checking users authentication status: ', error);
+            });
+    }
+
+    // TODO: this button should be shown conditionally (which is a part of a separate PR),
+    //  but it is required to test this PR. I will take it out before this PR gets merged
+    const logout = () => {
+        LoginService.logoutUser()
+            .then(res => res.json())
+            .then(data => {
+                // TODO: take out before merging
+                console.log('data: ', data);
+            })
+            .catch((error) => {
+                // TODO: find a better way to handle this
+                console.log('error while logging out user: ', error);
+            });
+    }
+
     return (
         <div>
             {/*TODO: change bg color to igreen*/}
@@ -58,7 +92,17 @@ const Header = () => {
                               className="items-center justify-center w-full px-4 py-2 mr-4 transition duration-200 ease-in-out bg-white border-transparent rounded-md opacity-75 hover:bg-orange-400">Sign
                             Up
                         </Link>
-
+                        {/*Take these out after testing PR*/}
+                        <Button
+                            value={'Check Auth Status'}
+                            className="items-center justify-center w-full px-4 py-2 mr-4 transition duration-200 ease-in-out bg-white border-transparent rounded-md opacity-75 hover:bg-orange-400"
+                            onClick={checkIfLoggedIn}
+                        />
+                        <Button
+                            value={'Logout'}
+                            className="items-center justify-center w-full px-4 py-2 mr-4 transition duration-200 ease-in-out bg-white border-transparent rounded-md opacity-75 hover:bg-orange-400"
+                            onClick={logout}
+                        />
                     </div>
                 </div>
                 {/*Bottom Border*/}

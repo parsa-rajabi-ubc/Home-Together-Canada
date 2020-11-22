@@ -248,21 +248,20 @@ const BusinessRegistrationForm = (props) => {
         }
 
         RegistrationService.registerBusinessUser(registrationData)
-            .then(res => {
-                if (res.status === 201) {
-                    // redirect to home page
-                    return history.push('/');
-                } else {
-                    // an error occurred --> get JSON object with errors from server
-                    return res.json();
-                }
-            })
+            .then(res => res.json())
             .then(data => {
-                if (!!data && data.errors && data.errors.length) {
-                    const errorMessage = getConcatenatedErrorMessage(data.errors);
-
-                    // show list of all errors
-                    alert(errorMessage);
+                // TODO: this console log is for testing, and must be taken out before merging the PR
+                console.log('data: ', data);
+                if (!!data && data.authenticated) {
+                        // user is authenticated, redirect to home screen
+                        return history.push('/');
+                } else if (!!data && !data.authenticated) {
+                        // something went wrong with the AUTHENTICATION (not the user creation)
+                        alert('Registration failed');
+                } else if (!!data && data.errors && data.errors.length) {
+                        const errorMessage = getConcatenatedErrorMessage(data.errors);
+                        // show list of all errors
+                        alert(errorMessage);
                 }
             })
             .catch((error) => {
