@@ -39,6 +39,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
               Business Name
               <input
                 className="mb-0 input"
+                disabled={false}
                 onChange={[Function]}
                 placeholder=""
                 type="text"
@@ -65,6 +66,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
               Business Email
               <input
                 className="input"
+                disabled={false}
                 onChange={[Function]}
                 placeholder="business@email.ca"
                 type="text"
@@ -76,6 +78,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
               Business Website
               <input
                 className="input"
+                disabled={false}
                 onChange={[Function]}
                 placeholder="http://www.your-website.com"
                 type="text"
@@ -405,6 +408,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
             First Name
             <input
               className="input"
+              disabled={false}
               onChange={[Function]}
               type="text"
             />
@@ -419,6 +423,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
             Last Name
             <input
               className="input"
+              disabled={false}
               onChange={[Function]}
               type="text"
             />
@@ -433,6 +438,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
             Personal Email
             <input
               className="input"
+              disabled={false}
               onChange={[Function]}
               placeholder="personal@email.ca"
               type="text"
