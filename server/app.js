@@ -6,21 +6,38 @@ const routes = require('./routes');
 const db = require("./models");
 const cors = require('cors');
 const expressValidator = require('express-validator');
+const passport = require('passport');
+const session = require('express-session');
 
 const app = express();
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, '../client/build')));
 
-app.use(cors());
+if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
+    const corsOptions = {
+        origin: 'http://localhost:3002',
+        credentials: true
+    }
+    app.use(cors(corsOptions));
+}
+
 app.use(expressValidator());
 
+// Sets up the Express app to handle data parsing
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
-
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Passport
+app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
 app.use('/', routes);
+
+//load passport strategies
+require("./config/passport.js")(passport);
 
 
 // force false will prevent the database from being cleared everytime the server starts up
