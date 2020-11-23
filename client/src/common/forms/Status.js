@@ -33,24 +33,35 @@ const statuses = [
     }
 ]
 
+
 function Status() {
     const [selectedStatus, setsSelectedStatus] = useState(null);
+    const [partners, setPartners] = useState(null);
+    const [groupMembers, setGroupMembers] = useState(null);
 
     const handleStatusChange = e => {
         setsSelectedStatus(e.value);
     }
 
+    function checkStatus(selectedStatus){
+        if (selectedStatus === "Couple"){
+            return <TextArea label={"Partner's username(s)"} onChange={(e)=>{setPartners(e.target.value)}}/>
+        } else if (selectedStatus === "Couple With Children"){
+            return <TextArea label={"Partner's username(s)"} onChange={(e)=>{setPartners(e.target.value)}}/>
+        } else if (selectedStatus === "Existing Group"){
+            return <TextArea label={"Group Member's username(s)"} onChange={(e)=>{setGroupMembers(e.target.value)}}/>
+        }
+
+    }
     return (
         <div>
             <Select isSearchable={true}
                     options={statuses} value={statuses.find(obj => obj.value === setsSelectedStatus)}
                     onChange={handleStatusChange}/>
-            {/*{(selectedStatus === ("Couple") &&*/}
-            {/*    <TextArea label="Partner's username(s): " placeholder="Partner's username" disabled={!(status=="Couple")} onChange={(e)=>{setPartners(e.target.value)}}/>}*/}
-            {/*    /!*<TextArea label="Group members: " placeholder="usernames (separated by comma)" disabled={!(status=="Existing Group")} onChange={(e)=>{setPartners(e.target.value)}}/>}*!/*/}
-
-            {/*        <div><b>Selected Status: </b> {selectedStatus}</div>*/}
-
+            {selectedStatus &&    <div><b>Selected Status: </b> {selectedStatus}</div>}
+            {checkStatus(selectedStatus)}
+            {setPartners &&    <div><b>Selected Partners: </b> {partners}</div>}
+            {setGroupMembers &&    <div><b>Selected Group: </b> {groupMembers}</div>}
         </div>
     )
 

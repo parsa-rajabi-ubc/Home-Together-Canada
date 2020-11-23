@@ -25,10 +25,6 @@ import ShareLimit from "../common/forms/ShareLimits";
 //Returns a Form with fields
 function MemberProfileForm() {
     const [gender, setGender] = useState("");
-    const [status, setStatus] = useState("");
-    const [workStatus, setWorkStatus] = useState("");
-    const [partners, setPartners] = useState("");
-    const [shareLimit, setShareLimit] = useState("");
     const [petFriendly, setPetFriendly] = useState("");
     const [smoking, setSmoking] = useState("");
     const [mobilityIssues, setMobilityIssues] = useState("");
@@ -55,8 +51,6 @@ function MemberProfileForm() {
                 <div>
                     <span>Status</span>
                     <Status/>
-                    <TextArea label="Partner's username(s): " placeholder="Partner's username" disabled={!(status=="Couple")} onChange={(e)=>{setPartners(e.target.value)}}/>
-                    <TextArea label="Group members: " placeholder="usernames (separated by comma)" disabled={!(status=="Existing Group")} onChange={(e)=>{setPartners(e.target.value)}}/>
                 </div>
                 <div>
                     <span>I am open to sharing with up to: </span>
