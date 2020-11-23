@@ -1,3 +1,6 @@
+import React, { useState } from 'react';
+import Select from "react-select";
+
 /**
  * @Author:     Jeff Hatton
  * @Created:    2020.11.18
@@ -36,4 +39,23 @@ const workStatuses = [
         value: "Other"
     }
 ]
-export default workStatuses;
+
+function WorkStatus() {
+    const [selectedWorkStatus, setsSelectedWorkStatus] = useState(null);
+
+    const handleStatusChange = e => {
+        setsSelectedWorkStatus(e.value);
+    }
+
+    return (
+        <div>
+            <Select isSearchable={true}
+                    options={workStatuses} value={workStatuses.find(obj => obj.value === setsSelectedWorkStatus)}
+                    onChange={handleStatusChange}/>
+            <div><b>Selected Work Status: </b> {selectedWorkStatus}</div>
+
+        </div>
+    )
+
+}
+export default WorkStatus;
