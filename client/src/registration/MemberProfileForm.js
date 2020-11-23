@@ -45,7 +45,7 @@ function MemberProfileForm() {
                     <RadioButton label="Male: " name="gender" value="male" checked={gender==="male"} onChange={(e)=>{setGender(e.target.value)}}/>
                     <RadioButton label="Female: " name="gender" value="female" checked={gender==="female"} onChange={(e)=>{setGender(e.target.value)}}/>
                     <RadioButton label="Other: " name="gender" value="other" checked={gender==="other"} onChange={(e)=>{setGender(e.target.value)}}/>
-                    <TextArea label="Elaborate: " placeholder="Optional" disabled={!(gender==="other")}/>
+                    {(gender === "other") &&<TextArea label="Elaborate: " placeholder="Optional" disabled={!(gender==="other")}/>}
                 </div>
                 <div>
                     <span>Status</span>
@@ -56,13 +56,12 @@ function MemberProfileForm() {
                     <ShareLimit/>
                 </div>
                 <div>
-                    <span>Work status: </span>
-                    <WorkStatus/>
                     <p>Min and max monthly rent</p>
                     <span>$</span><input type="number" min="0.00" step="0.01" placeholder="500.00" onChange={(e)=>{setMinRent(e.target.value)}}/>
                     <span>$</span><input type="number" min="0.00" step="0.01" placeholder="1500.00" onChange={(e)=>{setMaxRent(e.target.value)}}/>
                 </div>
-               <InterestedArea/>
+                <span>Interested Area</span>
+                <InterestedArea/>
                 <YNButton label="Pet Friendly?:" name="petFriendly" checked={petFriendly==="no"} onChange={(e)=>{setPetFriendly(e.target.value)}}/><span>{petFriendly}</span>
                 <YNButton label="Smoking Friendly?:" name="smoking" checked={smoking==="no"} onChange={(e)=>{setSmoking(e.target.value)}}/>
                 <YNButton label="Health or Mobility Issues?:" name="mobile" checked={mobilityIssues==="no"} onChange={(e)=>{setMobilityIssues(e.target.value)}}/>
