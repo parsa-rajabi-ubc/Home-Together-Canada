@@ -13,7 +13,7 @@ import SubmitButton from '../common/forms/SubmitButton';
 import Address from "../common/forms/Address";
 import SignInInfo from "../common/forms/SignInInfo";
 import PhoneNumInput from "../common/forms/PhoneNumInput";
-import YEARS from "./registrationUtils";
+import BirthYear from "../common/forms/BirthYear";
 
 //Returns a Form with fields
 function MemberRegistrationForm() {
@@ -74,9 +74,7 @@ function MemberRegistrationForm() {
                 <h2>About You</h2>
                 <TextArea label="First Name: " />
                 <TextArea label="Last Name: " />
-
-                <YEARS/>
-
+                <BirthYear/>
                 <PhoneNumInput label="TelephoneNumber: " onChange={handlePhoneChange}/>
                 <TextArea label="Email Address: " />
                 <Address label="Address: " onChange={handleAddressChange}/>
