@@ -7,13 +7,37 @@
  */
 
 import provinces from "./Provinces";
-import React from "react";
-import Dropdown from "./Dropdown";
+import React, {useState} from 'react';
+import "canada"
 import PropTypes from "prop-types";
+import Select from "react-select";
 
+
+function getProvinces(){
+    const canada = require('canada');
+    // get object mapping abbreviations to full names
+    const provinces = canada.provinces
+    // get abbreviations
+    const abbreviations = Object.keys(provinces)
+    // create array of provinces (key, value)
+    const provinces_list = [];
+    for (let key in abbreviations ){
+        provinces_list.push({
+            //Example: "AB" : "AB"
+            label: abbreviations[key],
+            value: abbreviations[key]
+        })
+    }
+    return provinces_list;
+}
 
 function Address(props) {
     const {label, onChange} = props;
+    const [selectedProvince, setSelectedProvince] = useState(null);
+
+    const handleProvinceChange = e => {
+        setSelectedProvince(e.value);
+    }
     return (
         <div>
             <label className="label">
@@ -30,8 +54,10 @@ function Address(props) {
                     className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
                     type="text" name="city" placeholder="City" onChange={onChange}/>
             </label>
-            <Dropdown name="province" title={"Province"} items={provinces}
-                      onChange={onChange} value={provinces.value}/>
+            <Select isSearchable={true} placeholder={"Province"}
+                    options={getProvinces()} value={getProvinces().find(obj => obj.value === selectedProvince)}
+                    onChange={handleProvinceChange}/>
+            <div><b>Selected : </b> {selectedProvince}</div>
             <br/>
             <label>
                 <input
