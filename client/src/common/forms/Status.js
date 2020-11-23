@@ -55,7 +55,7 @@ function Status() {
     }
     return (
         <div>
-            <Select isSearchable={true}
+            <Select isSearchable={true} placeholder={"Family Status"}
                     options={statuses} value={statuses.find(obj => obj.value === setsSelectedStatus)}
                     onChange={handleStatusChange}/>
             {selectedStatus &&    <div><b>Selected Status: </b> {selectedStatus}</div>}

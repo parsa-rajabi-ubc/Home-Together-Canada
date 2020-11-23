@@ -41,7 +41,7 @@ function ShareLimit() {
 
     return (
         <div>
-            <Select isSearchable={true}
+            <Select isSearchable={true} placeholder={"Share Limit"}
                     options={shareLimits} value={shareLimits.find(obj => obj.value === setsSelectedLimit)}
                     onChange={handleStatusChange}/>
             <div><b>Selected Limit: </b> {selectedLimit}</div>

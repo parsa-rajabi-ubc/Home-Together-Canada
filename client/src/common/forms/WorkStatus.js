@@ -49,7 +49,7 @@ function WorkStatus() {
 
     return (
         <div>
-            <Select isSearchable={true}
+            <Select isSearchable={true} placeholder={"Work Status"}
                     options={workStatuses} value={workStatuses.find(obj => obj.value === setsSelectedWorkStatus)}
                     onChange={handleStatusChange}/>
             <div><b>Selected Work Status: </b> {selectedWorkStatus}</div>

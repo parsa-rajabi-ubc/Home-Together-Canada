@@ -58,17 +58,19 @@ function InterestedArea() {
 
     return (
         <div>
-            <Select isSearchable={true}
+            <Select isSearchable={true} placeholder={"Province"}
                     options={getProvinces()} value={getProvinces().find(obj => obj.value === selectedProvince)}
                     onChange={handleProvinceChange}/>
             <div><b>Selected : </b> {selectedProvince}</div>
 
             {selectedProvince &&
-            <Select isSearchable={true} options={getCities(selectedProvince)} value={getCities().find(obj => obj.value === selectedCity)}
+            <Select isSearchable={true} placeholder={"City"}
+                    options={getCities(selectedProvince)} value={getCities().find(obj => obj.value === selectedCity)}
                     onChange={handleCityChange}/>}
             {selectedCity && <div><b>Selected city: </b> {selectedCity}</div>}
 
-            {selectedCity && <Select isSearchable={true} options={radii} value={radii.find(obj => obj.value === selectedRadius)}
+            {selectedCity && <Select isSearchable={true} placeholder={"Radius"}
+                                     options={radii} value={radii.find(obj => obj.value === selectedRadius)}
                                      onChange={handleRadiusChange}/>}
             {selectedRadius && <div><b>Selected radius: </b> {selectedRadius}</div>}
 

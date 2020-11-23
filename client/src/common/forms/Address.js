@@ -6,7 +6,6 @@
  *
  */
 
-import provinces from "./Provinces";
 import React, {useState} from 'react';
 import "canada"
 import PropTypes from "prop-types";
