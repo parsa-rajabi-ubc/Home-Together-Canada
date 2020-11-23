@@ -9,8 +9,13 @@
 import React from 'react';
 import '../../tailwind.output.css';
 import {Link} from "react-router-dom";
+import LoginService from '../../services/LoginService';
+import Button from "../forms/Button";
 
 const Header = () => {
+
+    // TODO: Dynamically generate buttons in header based on authentication and user privileges
+
     return (
         <div>
             {/*TODO: change bg color to igreen*/}
@@ -58,7 +63,6 @@ const Header = () => {
                               className="items-center justify-center w-full px-4 py-2 mr-4 transition duration-200 ease-in-out bg-white border-transparent rounded-md opacity-75 hover:bg-orange-400">Sign
                             Up
                         </Link>
-
                     </div>
                 </div>
                 {/*Bottom Border*/}

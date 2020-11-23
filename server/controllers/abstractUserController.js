@@ -38,19 +38,7 @@ const createAbstractUser = (req, res) => {
     return AbstractUser.create(abstractUser);
 }
 
-const findAbstractUser = (req, res) => {
-    const uid = req.params.id;
-
-    AbstractUser.findByPk(uid)
-        .then(data => {
-            res.status(200).send(data);
-        })
-        .catch(err => {
-            res.status(500).send({
-                message: err.message || "Error retrieving user with id=" + uid
-            });
-        });
-}
+const findAbstractUser = (id) => AbstractUser.findByPk(id);
 
 const findUserByUsername = (username) =>
     AbstractUser.findAll({

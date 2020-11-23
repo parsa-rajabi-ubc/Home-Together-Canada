@@ -20,8 +20,8 @@ function SubmitButton(props){
 }
 
 SubmitButton.propTypes = {
-    label: propTypes.string,
     onClick: propTypes.func.isRequired,
+    label: propTypes.string,
     className: propTypes.string,
     inputValue: propTypes.string
 };

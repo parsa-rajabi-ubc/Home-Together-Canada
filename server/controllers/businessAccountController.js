@@ -10,7 +10,7 @@ const db = require("../models");
 const { formatPhoneNumber } = require('./utils/accountControllerUtils');
 const BusinessAccount = db.businessAccount;
 
-const createBusinessAccount = (req, res, uid) => {
+const createBusinessAccount = (req, uid) => {
     const businessAccount = {
         uid: uid,
         businessName: req.body.businessName,

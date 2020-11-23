@@ -18,6 +18,8 @@ const registerBusinessUser = (businessUserData) => {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
+        credentials: 'include',
+        withCredentials: true,
         body: JSON.stringify(businessUserData)
     }
 
