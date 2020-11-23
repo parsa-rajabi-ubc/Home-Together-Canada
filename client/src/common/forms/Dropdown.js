@@ -10,8 +10,8 @@ import React, {useEffect, useState} from 'react';
 import Select from 'react-select';
 import propTypes from "prop-types";
 
-function Dropdown(props){
-    const {isSearchable, placeholder, options, onChange} = props;
+function Dropdown(props) {
+    const {className, isSearchable, placeholder, options, onChange} = props;
 
     const [selected, setSelected] = useState("");
 
@@ -19,12 +19,11 @@ function Dropdown(props){
     useEffect(() => {
         onChange(selected);	// this onChange function is the callback from the parent component
         // that can be used to get the value that is inside the dropdown
-        console.log("selected: ", selected)
     }, [selected]);
 
     return (
         <div>
-            <Select isSearchable={isSearchable} placeholder={placeholder}
+            <Select className={className} isSearchable={isSearchable} placeholder={placeholder}
                     options={options} value={options.find(obj => obj.label === selected)}
                     onChange={(e) => setSelected(e)}
             />
@@ -33,10 +32,11 @@ function Dropdown(props){
 }
 
 Dropdown.propTypes = {
+    options: propTypes.array.isRequired,
+    className: propTypes.string,
     isSearchable: propTypes.bool,
     placeholder: propTypes.string,
-    options: propTypes.any,
-    onChange : propTypes.func
+    onChange: propTypes.func
 };
 
 export default Dropdown;
