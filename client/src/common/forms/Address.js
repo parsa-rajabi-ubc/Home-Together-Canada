@@ -9,26 +9,9 @@
 import React, {useState} from 'react';
 import "canada"
 import PropTypes from "prop-types";
-import Select from "react-select";
+import Dropdown from "./Dropdown";
+import {getProvinces} from "../utils/locationUtils"
 
-
-function getProvinces(){
-    const canada = require('canada');
-    // get object mapping abbreviations to full names
-    const provinces = canada.provinces
-    // get abbreviations
-    const abbreviations = Object.keys(provinces)
-    // create array of provinces (key, value)
-    const provinces_list = [];
-    for (let key in abbreviations ){
-        provinces_list.push({
-            //Example: "AB" : "AB"
-            label: abbreviations[key],
-            value: abbreviations[key]
-        })
-    }
-    return provinces_list;
-}
 
 function Address(props) {
     const {label, onChange} = props;
@@ -53,11 +36,9 @@ function Address(props) {
                     className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
                     type="text" name="city" placeholder="City" onChange={onChange}/>
             </label>
-            <Select isSearchable={true} placeholder={"Province"}
-                    options={getProvinces()} value={getProvinces().find(obj => obj.value === selectedProvince)}
+            <Dropdown isSearchable={true} placeholder={"Province"}
+                    options={getProvinces()}
                     onChange={handleProvinceChange}/>
-            <div><b>Selected : </b> {selectedProvince}</div>
-            <br/>
             <label>
                 <input
                     className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
