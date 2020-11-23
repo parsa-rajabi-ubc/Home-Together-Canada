@@ -44,7 +44,7 @@ const radii = [
         value: "150"
     },
     {
-        label: "200km",
+        label: "200 km",
         value: "200"
     }
 ]
