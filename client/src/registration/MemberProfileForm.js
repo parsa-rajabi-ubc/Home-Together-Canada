@@ -16,6 +16,7 @@ import shareLimits from "../common/forms/ShareLimits";
 import YNButton from "../common/forms/YNButtons";
 import LargeTextArea from "../common/forms/LargeTextArea";
 import radii from "../common/forms/Radii";
+import InterestedArea from "../common/forms/InterestedArea";
 
 //Returns a Form with fields
 function MemberProfileForm() {
@@ -78,19 +79,7 @@ function MemberProfileForm() {
                     <span>$</span><input type="number" min="0.00" step="0.01" placeholder="500.00" onChange={(e)=>{setMinRent(e.target.value)}}/>
                     <span>$</span><input type="number" min="0.00" step="0.01" placeholder="1500.00" onChange={(e)=>{setMaxRent(e.target.value)}}/>
                 </div>
-                {/*{extraAreas.map((x,i) =>{*/}
-                {/*    return(*/}
-                {/*        <div key={i}>*/}
-                {/*            <Dropdown name="province" value={x.province.value} title={"Province"} items={provinces} onChange={e => handleAreaChange(e, i)}/><span>{x.province}</span>*/}
-                {/*            <Dropdown name="city" value={x.city.value} title={"city"} items={cities[cities.map(function(e) { return e.name; }).indexOf(x.province)].citylist} onChange={e => handleAreaChange(e, i)}/><span>{x.city}</span>*/}
-                {/*            <Dropdown name="radius" value={x.radius.value} title={"radius"} items={radii} onChange={e => handleAreaChange(e, i)}/><span>{x.radius}</span>*/}
-                {/*            <div>*/}
-                {/*                {extraAreas.length !== 1 && <Button label={""} value="Remove" onClick={()=>handleRemoveClick(i)}/> }*/}
-                {/*                {extraAreas.length - 1 === i && <Button label={""} value="Add" onClick={handleAddClick}/> }*/}
-                {/*            </div>*/}
-                {/*        </div>*/}
-                {/*    );*/}
-                {/*})}*/}
+               <InterestedArea/>
                 <YNButton label="Pet Friendly?:" name="petFriendly" checked={petFriendly==="no"} onChange={(e)=>{setPetFriendly(e.target.value)}}/><span>{petFriendly}</span>
                 <YNButton label="Smoking Friendly?:" name="smoking" checked={smoking==="no"} onChange={(e)=>{setSmoking(e.target.value)}}/>
                 <YNButton label="Health or Mobility Issues?:" name="mobile" checked={mobilityIssues==="no"} onChange={(e)=>{setMobilityIssues(e.target.value)}}/>
