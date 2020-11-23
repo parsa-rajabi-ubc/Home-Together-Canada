@@ -13,13 +13,11 @@ import SubmitButton from '../common/forms/SubmitButton';
 import Address from "../common/forms/Address";
 import SignInInfo from "../common/forms/SignInInfo";
 import PhoneNumInput from "../common/forms/PhoneNumInput";
-import Dropdown from "../common/forms/Dropdown";
-import {YEARS} from "./registrationUtils";
+import YEARS from "./registrationUtils";
 
 //Returns a Form with fields
 function MemberRegistrationForm() {
     const [isSameAddress, setIsSameAddress] = useState(false);
-    const [yearOfBirth,setYearOfBirth] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [passwordCheck, setPasswordCheck] = useState("");
@@ -67,10 +65,6 @@ function MemberRegistrationForm() {
         });
     }
 
-    function handleYearOfBirth(e){
-        const value = e.target.value;
-        setYearOfBirth(value);
-    }
 
     return (
         <div>
@@ -81,7 +75,7 @@ function MemberRegistrationForm() {
                 <TextArea label="First Name: " />
                 <TextArea label="Last Name: " />
 
-                <Dropdown title={"Year of Birth:"} items={YEARS} onChange={handleYearOfBirth}/>
+                <YEARS/>
 
                 <PhoneNumInput label="TelephoneNumber: " onChange={handlePhoneChange}/>
                 <TextArea label="Email Address: " />
