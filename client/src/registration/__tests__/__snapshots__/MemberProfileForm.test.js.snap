@@ -49,8 +49,16 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           type="text"
         />
       </label>
+      <span>
+        Gender currently saved as: 
+        
+      </span>
     </div>
     <div>
+      <span>
+        Status currently saved as: 
+        
+      </span>
       <label>
         Partner's username(s): 
         <input
@@ -69,16 +77,28 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           type="text"
         />
       </label>
+      <span>
+        Partners currently saved as: 
+        
+      </span>
     </div>
     <div>
       <span>
         I am open to sharing with up to: 
       </span>
       <span>
+        Share limit currently saved as: 
+        
+      </span>
+      <span>
          other people.
       </span>
     </div>
     <div>
+      <span>
+        Work status currently saved as: 
+        
+      </span>
       <p>
         Max monthly rent
       </p>
@@ -91,7 +111,12 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
         placeholder="500.00"
         step="0.01"
         type="number"
+        value="500.00"
       />
+      <span>
+        Minimum rent currently saved as: 
+        500.00
+      </span>
       <span>
         $
       </span>
@@ -101,7 +126,12 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
         placeholder="1500.00"
         step="0.01"
         type="number"
+        value="1500.00"
       />
+      <span>
+        Maximum rent currently saved as: 
+        1500.00
+      </span>
     </div>
     <label>
       <div>
@@ -139,6 +169,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
       </div>
     </label>
     <span>
+      Pet friendly currently saved as: 
       
     </span>
     <label>
@@ -176,6 +207,10 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
         </label>
       </div>
     </label>
+    <span>
+      Smoking friendly status currently saved as: 
+      
+    </span>
     <label>
       <div>
         <p>
@@ -211,6 +246,10 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
         </label>
       </div>
     </label>
+    <span>
+      Mobility issues currently saved as: 
+      
+    </span>
     <label>
       <div>
         <p>
@@ -246,6 +285,10 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
         </label>
       </div>
     </label>
+    <span>
+      Allergy status currently saved as: 
+      
+    </span>
     <label>
       <div>
         <p>
@@ -281,6 +324,10 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
         </label>
       </div>
     </label>
+    <span>
+      Religious status currently saved as: 
+      
+    </span>
     <label>
       <div>
         <p>
@@ -316,6 +363,10 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
         </label>
       </div>
     </label>
+    <span>
+      Diet status currently saved as: 
+      
+    </span>
     <label>
       <div>
         <p>
@@ -351,6 +402,10 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
         </label>
       </div>
     </label>
+    <span>
+      Home status currently saved as: 
+      
+    </span>
     <label>
       Tell others about yourself: 
       <textarea
@@ -359,6 +414,16 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
         onChange={[Function]}
         placeholder="What is important to you, and why do you want to share a home?"
         rows="8"
+      />
+    </label>
+    <span>
+      Self description currently saved as: 
+      
+    </span>
+    <label>
+      <input
+        onClick={[Function]}
+        type="submit"
       />
     </label>
   </form>

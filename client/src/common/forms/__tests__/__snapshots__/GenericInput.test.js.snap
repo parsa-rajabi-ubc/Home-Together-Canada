@@ -5,6 +5,7 @@ exports[`GenericInput Snapshot test should render correctly regardless of proper
   testLabelString1
   <input
     className="testClassNameString"
+    disabled={false}
     placeholder="testPlaceholderString2"
     type="testTypeString1"
   />

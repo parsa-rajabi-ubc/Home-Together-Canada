@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmptyPage Snapshot test should render correctly regardless of properties 1`] = `
+<div>
+  The feature will be implemented in the future.
+</div>
+`;
