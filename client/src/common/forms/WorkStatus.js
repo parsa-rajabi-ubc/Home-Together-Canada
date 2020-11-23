@@ -1,6 +1,3 @@
-import React, { useState } from 'react';
-import Select from "react-select";
-
 /**
  * @Author:     Jeff Hatton
  * @Created:    2020.11.18
@@ -8,6 +5,9 @@ import Select from "react-select";
  * @Description: Const array for dropdown Component
  *
  */
+
+import React, { useState } from 'react';
+import Select from "react-select";
 
 const workStatuses = [
     {
@@ -52,8 +52,6 @@ function WorkStatus() {
             <Select isSearchable={true} placeholder={"Work Status"}
                     options={workStatuses} value={workStatuses.find(obj => obj.value === setsSelectedWorkStatus)}
                     onChange={handleStatusChange}/>
-            <div><b>Selected Work Status: </b> {selectedWorkStatus}</div>
-
         </div>
     )
 
