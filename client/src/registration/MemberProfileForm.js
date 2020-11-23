@@ -17,11 +17,14 @@ import YNButton from "../common/forms/YNButtons";
 import LargeTextArea from "../common/forms/LargeTextArea";
 import radii from "../common/forms/Radii";
 import InterestedArea from "../common/forms/InterestedArea";
+import Select from "react-select";
+import Status from "../common/forms/Status";
+import WorkStatus from "../common/forms/WorkStatus";
+import ShareLimit from "../common/forms/ShareLimits";
 
 //Returns a Form with fields
 function MemberProfileForm() {
     const [gender, setGender] = useState("");
-    const [birthYear, setBirthYear] = useState("");
     const [status, setStatus] = useState("");
     const [workStatus, setWorkStatus] = useState("");
     const [partners, setPartners] = useState("");
@@ -36,21 +39,7 @@ function MemberProfileForm() {
     const [minRent, setMinRent] = useState("500.00");
     const [maxRent, setMaxRent] = useState("1500.00");
     const [aboutSelf, setAboutSelf] = useState("");
-    const [extraAreas, setExtraAreas] = useState([{ province: "ALBERTA", city: "", radius: ""}]);
-    const handleRemoveClick = index => {
-        const list = [...extraAreas];
-        list.splice(index, 1);
-        setExtraAreas(list);
-    };
-    const handleAddClick = () => {
-        setExtraAreas([...extraAreas, { province: "ALBERTA", city: "", radius: ""}]);
-    };
-    const handleAreaChange = (e, index) => {
-        const { name, value } = e.target;
-        const list = [...extraAreas];
-        list[index][name] = value;
-        setExtraAreas(list);
-    };
+
     return (
         <div>
             <h1>Member Sign Up:</h1>
@@ -64,18 +53,19 @@ function MemberProfileForm() {
                     <TextArea label="Elaborate: " placeholder="Optional" disabled={!(gender==="other")}/>
                 </div>
                 <div>
-                    {/*<Dropdown name="status" title={"Status"} items={statuses} onChange={(e)=>{setStatus(e.target.value)}}/><span>{status}</span>*/}
+                    <span>Status</span>
+                    <Status/>
                     <TextArea label="Partner's username(s): " placeholder="Partner's username" disabled={!(status=="Couple")} onChange={(e)=>{setPartners(e.target.value)}}/>
                     <TextArea label="Group members: " placeholder="usernames (separated by comma)" disabled={!(status=="Existing Group")} onChange={(e)=>{setPartners(e.target.value)}}/>
                 </div>
                 <div>
                     <span>I am open to sharing with up to: </span>
-                    {/*<Dropdown name="shareLimit" items={shareLimits} title={"Share Limit"} onChange={(e)=>{setShareLimit(e.target.value)}}/><span>{shareLimit}</span>*/}
-                    <span> other people.</span>
+                    <ShareLimit/>
                 </div>
                 <div>
-                    {/*<Dropdown name="workstatus" title={"Work Status"} items={workStatuses} onChange={(e)=>{setWorkStatus(e.target.value)}}/><span>{workStatus}</span>*/}
-                    <p>Max monthly rent</p>
+                    <span>Work status: </span>
+                    <WorkStatus/>
+                    <p>Min and max monthly rent</p>
                     <span>$</span><input type="number" min="0.00" step="0.01" placeholder="500.00" onChange={(e)=>{setMinRent(e.target.value)}}/>
                     <span>$</span><input type="number" min="0.00" step="0.01" placeholder="1500.00" onChange={(e)=>{setMaxRent(e.target.value)}}/>
                 </div>
