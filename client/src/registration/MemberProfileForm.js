@@ -8,17 +8,10 @@
 import React, { useState } from 'react';
 import TextArea from '../common/forms/TextArea';
 import RadioButton from "../common/forms/RadioButton";
-import Button from "../common/forms/Button";
-import statuses from "../common/forms/Status";
-import workStatuses from "../common/forms/WorkStatus";
-import shareLimits from "../common/forms/ShareLimits";
 import YNButton from "../common/forms/YNButtons";
 import LargeTextArea from "../common/forms/LargeTextArea";
-import radii from "../common/forms/Radii";
 import InterestedArea from "../common/forms/InterestedArea";
-import Select from "react-select";
 import Status from "../common/forms/Status";
-import WorkStatus from "../common/forms/WorkStatus";
 import ShareLimit from "../common/forms/ShareLimits";
 
 //Returns a Form with fields
