@@ -8,7 +8,6 @@
 import React, { useState } from 'react';
 import TextArea from '../common/forms/TextArea';
 import RadioButton from "../common/forms/RadioButton";
-import Dropdown from "../common/forms/Dropdown";
 import Button from "../common/forms/Button";
 import statuses from "../common/forms/Status";
 import workStatuses from "../common/forms/WorkStatus";
