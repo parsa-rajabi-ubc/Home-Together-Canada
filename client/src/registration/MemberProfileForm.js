@@ -10,13 +10,20 @@ import TextArea from '../common/forms/TextArea';
 import RadioButton from "../common/forms/RadioButton";
 import YNButton from "../common/forms/YNButtons";
 import LargeTextArea from "../common/forms/LargeTextArea";
+import PropTypes from 'prop-types';
 import InterestedArea from "../common/forms/InterestedArea";
 import Status from "../common/forms/Status";
 import ShareLimit from "../common/forms/ShareLimits";
 
 //Returns a Form with fields
-function MemberProfileForm() {
+function MemberProfileForm(props) {
+
+    const {values} = props;
     const [gender, setGender] = useState("");
+    const [status, setStatus] = useState("");
+    const [workStatus, setWorkStatus] = useState("");
+    const [partners, setPartners] = useState("");
+    const [shareLimit, setShareLimit] = useState("");
     const [petFriendly, setPetFriendly] = useState("");
     const [smoking, setSmoking] = useState("");
     const [mobilityIssues, setMobilityIssues] = useState("");
@@ -50,8 +57,8 @@ function MemberProfileForm() {
                 </div>
                 <div>
                     <p>Min and max monthly rent</p>
-                    <span>$</span><input type="number" min="0.00" step="0.01" placeholder="500.00" onChange={(e)=>{setMinRent(e.target.value)}}/>
-                    <span>$</span><input type="number" min="0.00" step="0.01" placeholder="1500.00" onChange={(e)=>{setMaxRent(e.target.value)}}/>
+                    <span>$</span><input type="number" min="0.00" step="0.01" placeholder="500.00" value={minRent} onChange={(e)=>{setMinRent(e.target.value)}}/>
+                    <span>$</span><input type="number" min="0.00" step="0.01" placeholder="1500.00" value={maxRent} onChange={(e)=>{setMaxRent(e.target.value)}}/>
                 </div>
                 <span>Interested Area</span>
                 <InterestedArea/>
@@ -66,5 +73,8 @@ function MemberProfileForm() {
             </form>
         </div>
     );
+}
+MemberProfileForm.propTypes = {
+    values: PropTypes.object
 }
 export default MemberProfileForm;

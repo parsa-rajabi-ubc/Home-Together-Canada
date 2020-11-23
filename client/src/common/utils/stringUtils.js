@@ -42,5 +42,9 @@ export function isStringSame(str1, str2) {
     return false;
 }
 
+export function splitPhoneNumber(phoneNumber){
+    return phoneNumber.split("-");
+}
+
 
 

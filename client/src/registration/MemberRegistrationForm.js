@@ -14,10 +14,17 @@ import Address from "../common/forms/Address";
 import SignInInfo from "../common/forms/SignInInfo";
 import PhoneNumInput from "../common/forms/PhoneNumInput";
 import BirthYear from "../common/forms/BirthYear";
+import PropTypes from "prop-types";
+import {splitPhoneNumber} from "../common/utils/stringUtils";
 
 //Returns a Form with fields
-function MemberRegistrationForm() {
+function MemberRegistrationForm(props) {
+    const {values} = props;
     const [isSameAddress, setIsSameAddress] = useState(false);
+    const [firstname,setFirstname] = useState("");
+    const [lastname, setLastname] = useState("");
+    const [email, setEmail] = useState("");
+    const [yearOfBirth,setYearOfBirth] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [passwordCheck, setPasswordCheck] = useState("");
@@ -72,11 +79,11 @@ function MemberRegistrationForm() {
             <hr/>
             <form>
                 <h2>About You</h2>
-                <TextArea label="First Name: " />
-                <TextArea label="Last Name: " />
+                <TextArea label="First Name: " value={firstname} onChange={(e)=>{setFirstname(e.target.value)}}/>
+                <TextArea label="Last Name: " value={lastname} onChange={(e)=>{setLastname(e.target.value)}}/>
                 <BirthYear/>
-                <PhoneNumInput label="TelephoneNumber: " onChange={handlePhoneChange}/>
-                <TextArea label="Email Address: " />
+                <PhoneNumInput label="TelephoneNumber: " value={phoneNumber} onChange={handlePhoneChange}/>
+                <TextArea label="Email Address: " value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
                 <Address label="Address: " onChange={handleAddressChange}/>
 
                 <Checkbox label="Different Mailing Address? " onChange= {() => {setIsSameAddress(!isSameAddress)}}/>
@@ -84,7 +91,9 @@ function MemberRegistrationForm() {
 
                 <hr/>
                 <h2>Account Details</h2>
-                <SignInInfo onChangeUsername={(e)=>{setUsername(e.target.value)}} onChangePassword={(e)=>{setPassword(e.target.value)}} onChangePasswordCheck={(e)=>{setPasswordCheck(e.target.value)}}/>
+                {/*Assuming password isn't supposed to be shown here, and that we don't want username editable?*/}
+                {typeof values != "undefined" && <TextArea label="Username: " value={username} disabled onChange={(e)=>{setUsername(e.target.value)}}/>}
+                {typeof values == "undefined" && <SignInInfo onChangeUsername={(e)=>{setUsername(e.target.value)}} onChangePassword={(e)=>{setPassword(e.target.value)}} onChangePasswordCheck={(e)=>{setPasswordCheck(e.target.value)}}/>}
 
                 <SubmitButton value = 'Next' onClick={() => null}/>
 
@@ -92,5 +101,8 @@ function MemberRegistrationForm() {
             </form>
         </div>
     );
+}
+MemberRegistrationForm.propTypes = {
+    values: PropTypes.object
 }
 export default MemberRegistrationForm;

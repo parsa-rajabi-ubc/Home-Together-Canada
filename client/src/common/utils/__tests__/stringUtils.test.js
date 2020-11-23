@@ -6,7 +6,7 @@
  *
  */
 
-import {isStringEmail, isStringEmpty, isStringSame, isStringNumeralsOnly} from "../stringUtils";
+import {isStringEmail, isStringEmpty, isStringSame, isStringNumeralsOnly, splitPhoneNumber} from "../stringUtils";
 
 describe('isStringEmpty function', () => {
     describe('unit test', () => {
@@ -257,6 +257,19 @@ describe('isStringSame function', () => {
             const result = isStringSame(str1,str2);
             //then
             expect(result).toBe(false);
+        });
+    })
+})
+describe('splitPhoneNumber function', () => {
+    describe('unit test', () => {
+        it("should return true when string is in proper form", () => {
+            //given
+            const str1 = "123-456-7890";
+            //when
+            const result = splitPhoneNumber(str1);
+            const expected = ['123','456','7890'];
+            //then
+            expect(result).toStrictEqual(expected);
         });
     })
 })
