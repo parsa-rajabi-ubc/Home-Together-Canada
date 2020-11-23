@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import Select from "react-select";
+import React, {useState} from 'react';
 import TextArea from "./TextArea";
+import Dropdown from "./Dropdown";
+
 /**
- * @Author:     Jeff Hatton
- * @Created:    2020.11.18
+ * @Author:     Parsa Rajabi
+ * @Created:    2020.11.23
  *
- * @Description: Const array for Dropdown Component
+ * @Description: Status Component for Member Profile
  *
  */
 
@@ -43,27 +44,32 @@ function Status() {
         setsSelectedStatus(e.value);
     }
 
-    function checkStatus(selectedStatus){
-        if (selectedStatus === "Couple"){
-            return <TextArea label={"Partner's username(s)"} onChange={(e)=>{setPartners(e.target.value)}}/>
-        } else if (selectedStatus === "Couple With Children"){
-            return <TextArea label={"Partner's username(s)"} onChange={(e)=>{setPartners(e.target.value)}}/>
-        } else if (selectedStatus === "Existing Group"){
-            return <TextArea label={"Group Member's username(s)"} onChange={(e)=>{setGroupMembers(e.target.value)}}/>
+    function checkStatus(selectedStatus) {
+        if (selectedStatus === "Couple") {
+            return <TextArea label={"Partner's username(s)"} onChange={(e) => {
+                setPartners(e.target.value)
+            }}/>
+        } else if (selectedStatus === "Couple With Children") {
+            return <TextArea label={"Partner's username(s)"} onChange={(e) => {
+                setPartners(e.target.value)
+            }}/>
+        } else if (selectedStatus === "Existing Group") {
+            return <TextArea label={"Group Member's username(s)"} onChange={(e) => {
+                setGroupMembers(e.target.value)
+            }}/>
         }
 
     }
+
     return (
         <div>
-            <Select isSearchable={true} placeholder={"Family Status"}
-                    options={statuses} value={statuses.find(obj => obj.value === setsSelectedStatus)}
-                    onChange={handleStatusChange}/>
-            {selectedStatus &&    <div><b>Selected Status: </b> {selectedStatus}</div>}
+            <Dropdown isSearchable={true} placeholder={"Family Status"}
+                      options={statuses}
+                      onChange={handleStatusChange}/>
             {checkStatus(selectedStatus)}
-            {setPartners &&    <div><b>Selected Partners: </b> {partners}</div>}
-            {setGroupMembers &&    <div><b>Selected Group: </b> {groupMembers}</div>}
         </div>
     )
 
 }
+
 export default Status;
