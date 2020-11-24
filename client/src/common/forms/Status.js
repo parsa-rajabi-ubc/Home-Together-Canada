@@ -46,11 +46,11 @@ function Status() {
 
     function checkStatus(selectedStatus) {
         if (selectedStatus === "Couple") {
-            return <TextArea label={"Partner's username(s)"} onChange={(e) => {
+            return <TextArea label={"Partner's username"} onChange={(e) => {
                 setPartners(e.target.value)
             }}/>
         } else if (selectedStatus === "Couple With Children") {
-            return <TextArea label={"Partner's username(s)"} onChange={(e) => {
+            return <TextArea label={"Partner's username"} onChange={(e) => {
                 setPartners(e.target.value)
             }}/>
         } else if (selectedStatus === "Existing Group") {
