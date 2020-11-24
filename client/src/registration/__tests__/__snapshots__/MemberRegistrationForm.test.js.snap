@@ -1,0 +1,1239 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MemberProfileForm Snapshot test should render correctly regardless of properties 1`] = `
+<div>
+  <div
+    className="m-10 md:grid md:grid-cols-4 md:gap-0"
+  >
+    <div
+      className="md:col-span-1"
+    >
+      <div
+        className="px-4 sm:px-0"
+      >
+        <h3
+          className="info-header"
+        >
+          Personal Information
+        </h3>
+        <p
+          className="info-text"
+        >
+          This information is about you!
+        </p>
+      </div>
+    </div>
+    <div
+      className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6"
+    >
+      <div
+        className="grid grid-cols-2 gap-6"
+      >
+        <div
+          className="col-span-3 sm:col-span-2"
+        >
+          <label
+            className="label"
+          >
+            First Name
+            <input
+              className="input"
+              disabled={false}
+              onChange={[Function]}
+              type="text"
+            />
+          </label>
+          <label
+            className="label"
+          >
+            Last Name
+            <input
+              className="input"
+              disabled={false}
+              onChange={[Function]}
+              type="text"
+            />
+          </label>
+          <label
+            className="label"
+          >
+            Email
+            <input
+              className="input"
+              disabled={false}
+              onChange={[Function]}
+              placeholder="personal@email.ca"
+              type="text"
+            />
+          </label>
+          <label
+            className="label"
+          >
+            Year of Birth
+          </label>
+          <div>
+            <div>
+              <div
+                className=" css-2b097c-container"
+                onKeyDown={[Function]}
+              >
+                <div
+                  className=" css-d7dxyn-control"
+                  onMouseDown={[Function]}
+                  onTouchEnd={[Function]}
+                >
+                  <div
+                    className=" css-g1d714-ValueContainer"
+                  >
+                    <div
+                      className=" css-1d6d5xl-placeholder"
+                    >
+                      Select the Year You Were Born
+                    </div>
+                    <div
+                      className="css-b8ldur-Input"
+                    >
+                      <div
+                        className=""
+                        style={
+                          Object {
+                            "display": "inline-block",
+                          }
+                        }
+                      >
+                        <input
+                          aria-autocomplete="list"
+                          autoCapitalize="none"
+                          autoComplete="off"
+                          autoCorrect="off"
+                          disabled={false}
+                          id="react-select-2-input"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          spellCheck="false"
+                          style={
+                            Object {
+                              "background": 0,
+                              "border": 0,
+                              "boxSizing": "content-box",
+                              "color": "inherit",
+                              "fontSize": "inherit",
+                              "label": "input",
+                              "opacity": 1,
+                              "outline": 0,
+                              "padding": 0,
+                              "width": "1px",
+                            }
+                          }
+                          tabIndex="0"
+                          type="text"
+                          value=""
+                        />
+                        <div
+                          style={
+                            Object {
+                              "height": 0,
+                              "left": 0,
+                              "overflow": "scroll",
+                              "position": "absolute",
+                              "top": 0,
+                              "visibility": "hidden",
+                              "whiteSpace": "pre",
+                            }
+                          }
+                        >
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className=" css-1hb7zxy-IndicatorsContainer"
+                  >
+                    <span
+                      className=" css-1okebmr-indicatorSeparator"
+                    />
+                    <div
+                      aria-hidden="true"
+                      className=" css-tlfecz-indicatorContainer"
+                      onMouseDown={[Function]}
+                      onTouchEnd={[Function]}
+                    >
+                      <svg
+                        aria-hidden="true"
+                        className="css-6q0nyr-Svg"
+                        focusable="false"
+                        height={20}
+                        viewBox="0 0 20 20"
+                        width={20}
+                      >
+                        <path
+                          d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <label
+              className="label"
+            >
+              Phone Number
+              <br />
+              <input
+                className="w-1/4 phone"
+                maxLength="3"
+                name="first"
+                onChange={[Function]}
+                placeholder="222"
+                type="text"
+              />
+            </label>
+            <label>
+              <input
+                className="w-1/4 phone"
+                maxLength="3"
+                name="middle"
+                onChange={[Function]}
+                placeholder="333"
+                type="text"
+              />
+            </label>
+            <label>
+              <input
+                className="w-1/4 phone"
+                maxLength="4"
+                name="last"
+                onChange={[Function]}
+                placeholder="4444"
+                type="text"
+              />
+            </label>
+          </div>
+          <div>
+            <label
+              className="label"
+            >
+              Address
+              <input
+                className="input"
+                name="street"
+                onChange={[Function]}
+                placeholder="Address Line 1"
+                type="text"
+              />
+            </label>
+            <label>
+              <input
+                className="input"
+                name="aptNum"
+                onChange={[Function]}
+                placeholder="Address Line 2: Apt, suite, etc. (optional)"
+                type="text"
+              />
+            </label>
+            <label>
+              <input
+                className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
+                name="city"
+                onChange={[Function]}
+                placeholder="City"
+                type="text"
+              />
+            </label>
+            <div>
+              <div
+                className=" css-2b097c-container"
+                onKeyDown={[Function]}
+              >
+                <div
+                  className=" css-d7dxyn-control"
+                  onMouseDown={[Function]}
+                  onTouchEnd={[Function]}
+                >
+                  <div
+                    className=" css-g1d714-ValueContainer"
+                  >
+                    <div
+                      className=" css-1d6d5xl-placeholder"
+                    >
+                      Province
+                    </div>
+                    <div
+                      className="css-b8ldur-Input"
+                    >
+                      <div
+                        className=""
+                        style={
+                          Object {
+                            "display": "inline-block",
+                          }
+                        }
+                      >
+                        <input
+                          aria-autocomplete="list"
+                          autoCapitalize="none"
+                          autoComplete="off"
+                          autoCorrect="off"
+                          disabled={false}
+                          id="react-select-3-input"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          spellCheck="false"
+                          style={
+                            Object {
+                              "background": 0,
+                              "border": 0,
+                              "boxSizing": "content-box",
+                              "color": "inherit",
+                              "fontSize": "inherit",
+                              "label": "input",
+                              "opacity": 1,
+                              "outline": 0,
+                              "padding": 0,
+                              "width": "1px",
+                            }
+                          }
+                          tabIndex="0"
+                          type="text"
+                          value=""
+                        />
+                        <div
+                          style={
+                            Object {
+                              "height": 0,
+                              "left": 0,
+                              "overflow": "scroll",
+                              "position": "absolute",
+                              "top": 0,
+                              "visibility": "hidden",
+                              "whiteSpace": "pre",
+                            }
+                          }
+                        >
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className=" css-1hb7zxy-IndicatorsContainer"
+                  >
+                    <span
+                      className=" css-1okebmr-indicatorSeparator"
+                    />
+                    <div
+                      aria-hidden="true"
+                      className=" css-tlfecz-indicatorContainer"
+                      onMouseDown={[Function]}
+                      onTouchEnd={[Function]}
+                    >
+                      <svg
+                        aria-hidden="true"
+                        className="css-6q0nyr-Svg"
+                        focusable="false"
+                        height={20}
+                        viewBox="0 0 20 20"
+                        width={20}
+                      >
+                        <path
+                          d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <label>
+              <input
+                className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
+                name="postalCode"
+                onChange={[Function]}
+                placeholder="Postal Code"
+                type="text"
+              />
+            </label>
+          </div>
+          <span
+            className="info-detail"
+          >
+            Select checkbox below if your mailing address differs from the address above
+          </span>
+          <label
+            className="block label mt-0 "
+          >
+            <input
+              className=" align-middle mr-2 my-4 font-medium text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            Different Mailing Address
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="border-divider"
+  />
+  <div
+    className="mt-10 sm:mt-0"
+  >
+    <div
+      className="m-10 md:grid md:grid-cols-4 md:gap-6"
+    >
+      <div
+        className="md:col-span-1"
+      >
+        <div
+          className="px-4 sm:px-0"
+        >
+          <h3
+            className="info-header"
+          >
+            Profile Details
+          </h3>
+          <p
+            className="info-text"
+          >
+            This information is about your home-sharing preferences
+          </p>
+        </div>
+      </div>
+      <div
+        className="mt-5 md:mt-0 md:col-span-2"
+      >
+        <div
+          className="overflow-hidden shadow sm:rounded-md"
+        >
+          <div
+            className="px-4 py-6 bg-white sm:p-5"
+          >
+            <div
+              className="grid grid-cols-2 gap-6 "
+            >
+              <div
+                className="col-span-3 sm:col-span-2"
+              >
+                <label
+                  className="label"
+                >
+                   Gender 
+                </label>
+                <div
+                  className="my-2"
+                >
+                  <label
+                    className="text-base text-gray-700 pr-8"
+                  >
+                    <input
+                      checked={false}
+                      className="form-radio mt-2 ml-2 mr-1 mb-4"
+                      name="gender"
+                      onChange={[Function]}
+                      type="radio"
+                      value="male"
+                    />
+                    Male
+                  </label>
+                  <label
+                    className="text-base text-gray-700 pr-8"
+                  >
+                    <input
+                      checked={false}
+                      className="form-radio mt-2 ml-2 mr-1 mb-4"
+                      name="gender"
+                      onChange={[Function]}
+                      type="radio"
+                      value="female"
+                    />
+                    Female
+                  </label>
+                  <label
+                    className="text-base text-gray-700 pr-8"
+                  >
+                    <input
+                      checked={false}
+                      className="form-radio mt-2 ml-2 mr-1 mb-4"
+                      name="gender"
+                      onChange={[Function]}
+                      type="radio"
+                      value="other"
+                    />
+                    Other 
+                  </label>
+                </div>
+                <label
+                  className="label"
+                >
+                   Status 
+                </label>
+                <div>
+                  <div>
+                    <div
+                      className=" css-2b097c-container"
+                      onKeyDown={[Function]}
+                    >
+                      <div
+                        className=" css-d7dxyn-control"
+                        onMouseDown={[Function]}
+                        onTouchEnd={[Function]}
+                      >
+                        <div
+                          className=" css-g1d714-ValueContainer"
+                        >
+                          <div
+                            className=" css-1d6d5xl-placeholder"
+                          >
+                            Family Status
+                          </div>
+                          <div
+                            className="css-b8ldur-Input"
+                          >
+                            <div
+                              className=""
+                              style={
+                                Object {
+                                  "display": "inline-block",
+                                }
+                              }
+                            >
+                              <input
+                                aria-autocomplete="list"
+                                autoCapitalize="none"
+                                autoComplete="off"
+                                autoCorrect="off"
+                                disabled={false}
+                                id="react-select-4-input"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onFocus={[Function]}
+                                spellCheck="false"
+                                style={
+                                  Object {
+                                    "background": 0,
+                                    "border": 0,
+                                    "boxSizing": "content-box",
+                                    "color": "inherit",
+                                    "fontSize": "inherit",
+                                    "label": "input",
+                                    "opacity": 1,
+                                    "outline": 0,
+                                    "padding": 0,
+                                    "width": "1px",
+                                  }
+                                }
+                                tabIndex="0"
+                                type="text"
+                                value=""
+                              />
+                              <div
+                                style={
+                                  Object {
+                                    "height": 0,
+                                    "left": 0,
+                                    "overflow": "scroll",
+                                    "position": "absolute",
+                                    "top": 0,
+                                    "visibility": "hidden",
+                                    "whiteSpace": "pre",
+                                  }
+                                }
+                              >
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          className=" css-1hb7zxy-IndicatorsContainer"
+                        >
+                          <span
+                            className=" css-1okebmr-indicatorSeparator"
+                          />
+                          <div
+                            aria-hidden="true"
+                            className=" css-tlfecz-indicatorContainer"
+                            onMouseDown={[Function]}
+                            onTouchEnd={[Function]}
+                          >
+                            <svg
+                              aria-hidden="true"
+                              className="css-6q0nyr-Svg"
+                              focusable="false"
+                              height={20}
+                              viewBox="0 0 20 20"
+                              width={20}
+                            >
+                              <path
+                                d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <label
+                  className="label text-base "
+                >
+                   open to sharing with 
+                </label>
+                <div>
+                  <div>
+                    <div
+                      className=" css-2b097c-container"
+                      onKeyDown={[Function]}
+                    >
+                      <div
+                        className=" css-d7dxyn-control"
+                        onMouseDown={[Function]}
+                        onTouchEnd={[Function]}
+                      >
+                        <div
+                          className=" css-g1d714-ValueContainer"
+                        >
+                          <div
+                            className=" css-1d6d5xl-placeholder"
+                          >
+                            Number of People to Share With
+                          </div>
+                          <div
+                            className="css-b8ldur-Input"
+                          >
+                            <div
+                              className=""
+                              style={
+                                Object {
+                                  "display": "inline-block",
+                                }
+                              }
+                            >
+                              <input
+                                aria-autocomplete="list"
+                                autoCapitalize="none"
+                                autoComplete="off"
+                                autoCorrect="off"
+                                disabled={false}
+                                id="react-select-5-input"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onFocus={[Function]}
+                                spellCheck="false"
+                                style={
+                                  Object {
+                                    "background": 0,
+                                    "border": 0,
+                                    "boxSizing": "content-box",
+                                    "color": "inherit",
+                                    "fontSize": "inherit",
+                                    "label": "input",
+                                    "opacity": 1,
+                                    "outline": 0,
+                                    "padding": 0,
+                                    "width": "1px",
+                                  }
+                                }
+                                tabIndex="0"
+                                type="text"
+                                value=""
+                              />
+                              <div
+                                style={
+                                  Object {
+                                    "height": 0,
+                                    "left": 0,
+                                    "overflow": "scroll",
+                                    "position": "absolute",
+                                    "top": 0,
+                                    "visibility": "hidden",
+                                    "whiteSpace": "pre",
+                                  }
+                                }
+                              >
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          className=" css-1hb7zxy-IndicatorsContainer"
+                        >
+                          <span
+                            className=" css-1okebmr-indicatorSeparator"
+                          />
+                          <div
+                            aria-hidden="true"
+                            className=" css-tlfecz-indicatorContainer"
+                            onMouseDown={[Function]}
+                            onTouchEnd={[Function]}
+                          >
+                            <svg
+                              aria-hidden="true"
+                              className="css-6q0nyr-Svg"
+                              focusable="false"
+                              height={20}
+                              viewBox="0 0 20 20"
+                              width={20}
+                            >
+                              <path
+                                d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="label"
+                >
+                  Monthly Rent
+                </div>
+                <div
+                  className="grid grid-cols-6 gap-x-6"
+                >
+                  <div
+                    className="column-span-6-layout"
+                  >
+                    <input
+                      className="input label font-normal "
+                      min="0"
+                      onChange={[Function]}
+                      placeholder="MIN $ CAD"
+                      step="25"
+                      type="number"
+                    />
+                  </div>
+                  <div
+                    className="column-span-6-layout"
+                  >
+                    <input
+                      className="input label font-normal "
+                      min="500.00"
+                      onChange={[Function]}
+                      placeholder=" MAX $ CAD"
+                      step="25"
+                      type="number"
+                    />
+                  </div>
+                </div>
+                <label
+                  className="label"
+                >
+                  Interested Area
+                </label>
+                <div>
+                  <div>
+                    <div
+                      className=" css-2b097c-container"
+                      onKeyDown={[Function]}
+                    >
+                      <div
+                        className=" css-d7dxyn-control"
+                        onMouseDown={[Function]}
+                        onTouchEnd={[Function]}
+                      >
+                        <div
+                          className=" css-g1d714-ValueContainer"
+                        >
+                          <div
+                            className=" css-1d6d5xl-placeholder"
+                          >
+                            Province
+                          </div>
+                          <div
+                            className="css-b8ldur-Input"
+                          >
+                            <div
+                              className=""
+                              style={
+                                Object {
+                                  "display": "inline-block",
+                                }
+                              }
+                            >
+                              <input
+                                aria-autocomplete="list"
+                                autoCapitalize="none"
+                                autoComplete="off"
+                                autoCorrect="off"
+                                disabled={false}
+                                id="react-select-6-input"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onFocus={[Function]}
+                                spellCheck="false"
+                                style={
+                                  Object {
+                                    "background": 0,
+                                    "border": 0,
+                                    "boxSizing": "content-box",
+                                    "color": "inherit",
+                                    "fontSize": "inherit",
+                                    "label": "input",
+                                    "opacity": 1,
+                                    "outline": 0,
+                                    "padding": 0,
+                                    "width": "1px",
+                                  }
+                                }
+                                tabIndex="0"
+                                type="text"
+                                value=""
+                              />
+                              <div
+                                style={
+                                  Object {
+                                    "height": 0,
+                                    "left": 0,
+                                    "overflow": "scroll",
+                                    "position": "absolute",
+                                    "top": 0,
+                                    "visibility": "hidden",
+                                    "whiteSpace": "pre",
+                                  }
+                                }
+                              >
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          className=" css-1hb7zxy-IndicatorsContainer"
+                        >
+                          <span
+                            className=" css-1okebmr-indicatorSeparator"
+                          />
+                          <div
+                            aria-hidden="true"
+                            className=" css-tlfecz-indicatorContainer"
+                            onMouseDown={[Function]}
+                            onTouchEnd={[Function]}
+                          >
+                            <svg
+                              aria-hidden="true"
+                              className="css-6q0nyr-Svg"
+                              focusable="false"
+                              height={20}
+                              viewBox="0 0 20 20"
+                              width={20}
+                            >
+                              <path
+                                d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="grid grid-cols-6 gap-x-6"
+                >
+                  <div
+                    className="column-span-6-layout"
+                  >
+                    <label>
+                      <div
+                        className=""
+                      >
+                        <div
+                          className="label text-base "
+                        >
+                          Pet Friendly?
+                        </div>
+                        <label
+                          className="text-base text-gray-700 pr-8"
+                        >
+                          <input
+                            className="form-radio mt-2 ml-2 mr-1 mb-4"
+                            name="petFriendly"
+                            onChange={[Function]}
+                            type="radio"
+                            value="no"
+                          />
+                          No
+                        </label>
+                        <label
+                          className="text-base text-gray-700 pr-8"
+                        >
+                          <input
+                            className="form-radio mt-2 ml-2 mr-1 mb-4"
+                            name="petFriendly"
+                            onChange={[Function]}
+                            type="radio"
+                            value="yes"
+                          />
+                          Yes
+                        </label>
+                      </div>
+                    </label>
+                  </div>
+                  <div
+                    className="column-span-6-layout"
+                  >
+                    <label>
+                      <div
+                        className=""
+                      >
+                        <div
+                          className="label text-base "
+                        >
+                          Smoking Friendly?
+                        </div>
+                        <label
+                          className="text-base text-gray-700 pr-8"
+                        >
+                          <input
+                            className="form-radio mt-2 ml-2 mr-1 mb-4"
+                            name="smoking"
+                            onChange={[Function]}
+                            type="radio"
+                            value="no"
+                          />
+                          No
+                        </label>
+                        <label
+                          className="text-base text-gray-700 pr-8"
+                        >
+                          <input
+                            className="form-radio mt-2 ml-2 mr-1 mb-4"
+                            name="smoking"
+                            onChange={[Function]}
+                            type="radio"
+                            value="yes"
+                          />
+                          Yes
+                        </label>
+                      </div>
+                    </label>
+                  </div>
+                  <div
+                    className="column-span-6-layout"
+                  >
+                    <label>
+                      <div
+                        className=""
+                      >
+                        <div
+                          className="label text-base "
+                        >
+                          Health / Mobility Issues?
+                        </div>
+                        <label
+                          className="text-base text-gray-700 pr-8"
+                        >
+                          <input
+                            className="form-radio mt-2 ml-2 mr-1 mb-4"
+                            name="mobile"
+                            onChange={[Function]}
+                            type="radio"
+                            value="no"
+                          />
+                          No
+                        </label>
+                        <label
+                          className="text-base text-gray-700 pr-8"
+                        >
+                          <input
+                            className="form-radio mt-2 ml-2 mr-1 mb-4"
+                            name="mobile"
+                            onChange={[Function]}
+                            type="radio"
+                            value="yes"
+                          />
+                          Yes
+                        </label>
+                      </div>
+                    </label>
+                  </div>
+                  <div
+                    className="column-span-6-layout"
+                  >
+                    <label>
+                      <div
+                        className=""
+                      >
+                        <div
+                          className="label text-base "
+                        >
+                          Allergies?
+                        </div>
+                        <label
+                          className="text-base text-gray-700 pr-8"
+                        >
+                          <input
+                            className="form-radio mt-2 ml-2 mr-1 mb-4"
+                            name="allergies"
+                            onChange={[Function]}
+                            type="radio"
+                            value="no"
+                          />
+                          No
+                        </label>
+                        <label
+                          className="text-base text-gray-700 pr-8"
+                        >
+                          <input
+                            className="form-radio mt-2 ml-2 mr-1 mb-4"
+                            name="allergies"
+                            onChange={[Function]}
+                            type="radio"
+                            value="yes"
+                          />
+                          Yes
+                        </label>
+                      </div>
+                    </label>
+                  </div>
+                  <div
+                    className="column-span-6-layout"
+                  >
+                    <label>
+                      <div
+                        className=""
+                      >
+                        <div
+                          className="label text-base "
+                        >
+                          Is religion important?
+                        </div>
+                        <label
+                          className="text-base text-gray-700 pr-8"
+                        >
+                          <input
+                            className="form-radio mt-2 ml-2 mr-1 mb-4"
+                            name="religion"
+                            onChange={[Function]}
+                            type="radio"
+                            value="no"
+                          />
+                          No
+                        </label>
+                        <label
+                          className="text-base text-gray-700 pr-8"
+                        >
+                          <input
+                            className="form-radio mt-2 ml-2 mr-1 mb-4"
+                            name="religion"
+                            onChange={[Function]}
+                            type="radio"
+                            value="yes"
+                          />
+                          Yes
+                        </label>
+                      </div>
+                    </label>
+                  </div>
+                  <div
+                    className="column-span-6-layout"
+                  >
+                    <label>
+                      <div
+                        className=""
+                      >
+                        <div
+                          className="label text-base "
+                        >
+                          Is diet of others important?
+                        </div>
+                        <label
+                          className="text-base text-gray-700 pr-8"
+                        >
+                          <input
+                            className="form-radio mt-2 ml-2 mr-1 mb-4"
+                            name="diet"
+                            onChange={[Function]}
+                            type="radio"
+                            value="no"
+                          />
+                          No
+                        </label>
+                        <label
+                          className="text-base text-gray-700 pr-8"
+                        >
+                          <input
+                            className="form-radio mt-2 ml-2 mr-1 mb-4"
+                            name="diet"
+                            onChange={[Function]}
+                            type="radio"
+                            value="yes"
+                          />
+                          Yes
+                        </label>
+                      </div>
+                    </label>
+                  </div>
+                  <div
+                    className="column-span-6-layout"
+                  >
+                    <label>
+                      <div
+                        className=""
+                      >
+                        <div
+                          className="label text-base "
+                        >
+                          Have a home to share?
+                        </div>
+                        <label
+                          className="text-base text-gray-700 pr-8"
+                        >
+                          <input
+                            className="form-radio mt-2 ml-2 mr-1 mb-4"
+                            name="hasHome"
+                            onChange={[Function]}
+                            type="radio"
+                            value="no"
+                          />
+                          No
+                        </label>
+                        <label
+                          className="text-base text-gray-700 pr-8"
+                        >
+                          <input
+                            className="form-radio mt-2 ml-2 mr-1 mb-4"
+                            name="hasHome"
+                            onChange={[Function]}
+                            type="radio"
+                            value="yes"
+                          />
+                          Yes
+                        </label>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+                <div
+                  className="mt-4"
+                >
+                  <label
+                    className="label"
+                  >
+                    Tell others about yourself: 
+                    <textarea
+                      className="input "
+                      cols="50"
+                      name="aboutSelf"
+                      onChange={[Function]}
+                      placeholder="What is important to you, and why do you want to share a home?"
+                      rows="5"
+                    />
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="border-divider"
+  />
+  <div
+    className="mt-10 sm:mt-0"
+  >
+    <div
+      className="m-10 md:grid md:grid-cols-4 md:gap-6"
+    >
+      <div
+        className="md:col-span-1"
+      >
+        <div
+          className="px-4 sm:px-0"
+        >
+          <h3
+            className="info-header"
+          >
+            Account Details
+          </h3>
+          <p
+            className="info-text"
+          >
+            This information is to set up and access your account.
+          </p>
+        </div>
+      </div>
+      <div
+        className="mt-5 md:mt-0 md:col-span-2"
+      >
+        <div
+          className="overflow-hidden shadow sm:rounded-md"
+        >
+          <div
+            className="px-4 py-6 bg-white sm:p-5"
+          >
+            <div
+              className="grid grid-cols-2 gap-6"
+            >
+              <div
+                className="col-span-3 sm:col-span-2"
+              >
+                <div>
+                  <label
+                    className="label"
+                  >
+                    Username:
+                    <input
+                      className="input"
+                      onChange={[Function]}
+                      placeholder=""
+                      type="text"
+                    />
+                  </label>
+                  <label
+                    className="label"
+                  >
+                    Password:
+                    <input
+                      className="input"
+                      onChange={[Function]}
+                      placeholder=""
+                      type="password"
+                    />
+                  </label>
+                  <label
+                    className="label"
+                  >
+                    Confirm Password:
+                    <input
+                      className="input"
+                      onChange={[Function]}
+                      placeholder=""
+                      type="password"
+                    />
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6"
+        >
+          <label>
+            <input
+              className="text-base btn btn-green"
+              onClick={[Function]}
+              type="submit"
+              value="Create Account"
+            />
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

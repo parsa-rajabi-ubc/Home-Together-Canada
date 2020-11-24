@@ -38,7 +38,7 @@ exports[`Address Snapshot test should render correctly regardless of properties 
       onKeyDown={[Function]}
     >
       <div
-        className=" css-bp7moi-control"
+        className=" css-d7dxyn-control"
         onMouseDown={[Function]}
         onTouchEnd={[Function]}
       >

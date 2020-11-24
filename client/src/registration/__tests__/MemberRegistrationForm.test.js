@@ -7,13 +7,14 @@
  */
 import React from 'react';
 import renderer from  'react-test-renderer'
-import MemberProfileForm from "../MemberProfileForm";
+import { BrowserRouter as Router } from 'react-router-dom';
+import MemberRegistrationForm from "../MemberRegistrationForm";
 
 describe('MemberProfileForm', () => {
     describe('Snapshot test', () => {
         it("should render correctly regardless of properties", () => {
             //when
-            const component = renderer.create(<MemberProfileForm/>).toJSON();
+            const component = renderer.create(<MemberRegistrationForm />).toJSON();
             //then
             expect(component).toMatchSnapshot();
         });

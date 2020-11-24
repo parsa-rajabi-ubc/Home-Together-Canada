@@ -7,7 +7,8 @@
  */
 
 import React, { useState } from 'react';
-import Select from "react-select";
+import Dropdown from "./Dropdown";
+import propTypes from "prop-types";
 
 const shareLimits = [
     {
@@ -27,25 +28,25 @@ const shareLimits = [
         value: "4"
     },
     {
-        label: "Any number",
+        label: "Any number of people",
         value: "-1"
     }
 ]
 
-function ShareLimit() {
-    const [selectedLimit, setsSelectedLimit] = useState(null);
-
-    const handleStatusChange = e => {
-        setsSelectedLimit(e.value);
-    }
+function ShareLimit(props) {
+    const {onChange} = props;
 
     return (
         <div>
-            <Select isSearchable={true} placeholder={"Share Limit"}
-                    options={shareLimits} value={shareLimits.find(obj => obj.value === setsSelectedLimit)}
-                    onChange={handleStatusChange}/>
+            <Dropdown isSearchable={true} placeholder={"Number of People to Share With"}
+                    options={shareLimits}
+                    onChange={onChange}/>
         </div>
     )
-
 }
+
+ShareLimit.propTypes = {
+    onChange: propTypes.func
+};
+
 export default ShareLimit;

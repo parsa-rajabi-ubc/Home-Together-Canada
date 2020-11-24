@@ -2,35 +2,35 @@
 
 exports[`YNButtons Snapshot test should render correctly regardless of properties 1`] = `
 <label>
-  <div>
-    <p>
+  <div
+    className=""
+  >
+    <div
+      className="label text-base "
+    >
       testLabelString1
-    </p>
-    <label>
-      yes: 
+    </div>
+    <label
+      className="text-base text-gray-700 pr-8"
+    >
       <input
-        checked={true}
-        name="testName"
-        type="radio"
-        value="yes"
-      />
-    </label>
-    <label>
-      no: 
-      <input
-        checked={false}
+        className="form-radio mt-2 ml-2 mr-1 mb-4"
         name="testName"
         type="radio"
         value="no"
       />
+      No
     </label>
-    <label>
-      If Yes, Elaborate: 
+    <label
+      className="text-base text-gray-700 pr-8"
+    >
       <input
-        disabled={false}
-        placeholder=""
-        type="text"
+        className="form-radio mt-2 ml-2 mr-1 mb-4"
+        name="testName"
+        type="radio"
+        value="yes"
       />
+      Yes
     </label>
   </div>
 </label>

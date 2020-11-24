@@ -15,11 +15,10 @@ function YNButton(props){
     const { label, name, checked=false, onChange } = props;
     return(
         <label>
-            <div>
-                <p>{label}</p>
-                <RadioButton label="yes: " name={name} value="yes" checked={!checked} onChange={onChange}/>
-                <RadioButton label="no: " name={name} value="no" checked={checked} onChange={onChange}/>
-                <TextArea label="If Yes, Elaborate: " placeholder="" disabled={checked}/>
+            <div className={""}>
+                <div className={"label text-base "}>{label}</div>
+                <RadioButton label="No" name={name} value="no" onChange={onChange}/>
+                <RadioButton label="Yes" name={name} value="yes"  onChange={onChange}/>
             </div>
         </label>
     );
