@@ -234,7 +234,7 @@ function MemberRegistrationForm() {
                                 className="w-1/4 phone"
                                 labelClassName={"label"}
                                 label="Phone Number" onChange={handlePhoneChange}/>
-                            <Address label="Business Address"
+                            <Address label="Address"
                                      cityClassName="city-postal" onChange={handleAddressChange}/>
 
                             <span className="info-detail">Select checkbox below if your mailing address differs from the address above</span>
@@ -243,7 +243,7 @@ function MemberRegistrationForm() {
                             }}/>
 
                             {useDifferentMailingAddress &&
-                            <Address label="Business Mailing Address"
+                            <Address label="Mailing Address"
                                      onChange={handleMailingAddress}/>}
                         </div>
                     </div>
@@ -258,8 +258,8 @@ function MemberRegistrationForm() {
                 <div className="m-10 md:grid md:grid-cols-4 md:gap-6">
                     <div className="md:col-span-1">
                         <div className="px-4 sm:px-0">
-                            <h3 className="text-lg font-medium leading-6 text-gray-900">Account Details</h3>
-                            <p className="mt-1 text-sm text-gray-600">
+                            <h3 className="info-header">Account Details</h3>
+                            <p className="info-text">
                                 This information is to set up and access your account.
                             </p>
                         </div>
@@ -286,11 +286,9 @@ function MemberRegistrationForm() {
 
                         <Link to={'/registration/member/profile'}
                               className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6">
-                            <Link to={'/registration/member/profile'}>
-                                <SubmitButton label={""} inputValue={"Next: Set Up Profile"}
+                                <SubmitButton label={""} inputValue={"Next"}
                                               className="text-base btn btn-green"
                                               onClick={onSubmit}/>
-                            </Link>
                         </Link>
                     </div>
                 </div>
