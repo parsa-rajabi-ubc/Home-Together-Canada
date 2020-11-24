@@ -293,28 +293,16 @@ const BusinessRegistrationForm = (props) => {
         });
     }
 
-    function handleBAddressChange(e) {
-        const value = e.target.value;
-        setBAddress({
-            ...bAddress,
-            [e.target.name]: value
-        });
+    function handleBAddressChange(address) {
+        setBAddress(address);
     }
 
-    function handleBMapAddress(e) {
-        const value = e.target.value;
-        setBMapAddress({
-            ...bMapAddress,
-            [e.target.name]: value
-        });
+    function handleBMapAddress(address) {
+        setBMapAddress(address);
     }
 
-    function handleBMailingAddress(e) {
-        const value = e.target.value;
-        setBMailingAddress({
-            ...bMailingAddress,
-            [e.target.name]: value
-        });
+    function handleBMailingAddress(address) {
+        setBMailingAddress(address)
     }
 
     return (
