@@ -19,22 +19,21 @@ import ShareLimit from "../common/forms/ShareLimits";
 function MemberProfileForm(props) {
 
     const {values} = props;
-    const [gender, setGender] = useState("");
-    const [status, setStatus] = useState("");
-    const [workStatus, setWorkStatus] = useState("");
-    const [partners, setPartners] = useState("");
-    const [shareLimit, setShareLimit] = useState("");
-    const [petFriendly, setPetFriendly] = useState("");
-    const [smoking, setSmoking] = useState("");
-    const [mobilityIssues, setMobilityIssues] = useState("");
-    const [hasAllergies, setHasAllergies] = useState("");
-    const [religious, setReligious] = useState("");
-    const [hasDiet, setHasDiet] = useState("");
-    const [hasHome, setHasHome] = useState("");
-    const [minRent, setMinRent] = useState("500.00");
-    const [maxRent, setMaxRent] = useState("1500.00");
-    const [aboutSelf, setAboutSelf] = useState("");
-
+    const [gender, setGender] = useState(values && values.gender || "");
+    const [status, setStatus] = useState( values && values.status ||"");
+    const [workStatus, setWorkStatus] = useState(values && values.workStatus ||"");
+    const [partners, setPartners] = useState(values && values.partners ||"");
+    const [shareLimit, setShareLimit] = useState(values && values.shareLimit ||"");
+    const [petFriendly, setPetFriendly] = useState(values && values.petFriendly ||"");
+    const [smoking, setSmoking] = useState(values && values.smoking ||"");
+    const [mobilityIssues, setMobilityIssues] = useState(values && values.mobilityIssues ||"");
+    const [hasAllergies, setHasAllergies] = useState(values && values.hasAllergies ||"");
+    const [religious, setReligious] = useState(values && values.religious ||"");
+    const [hasDiet, setHasDiet] = useState(values && values.hasDiet ||"");
+    const [hasHome, setHasHome] = useState(values && values.hasHome ||"");
+    const [minRent, setMinRent] = useState(values && values.minRent ||"500.00");
+    const [maxRent, setMaxRent] = useState(values && values.maxRent ||"1500.00");
+    const [aboutSelf, setAboutSelf] = useState(values && values.aboutSelf ||"");
     return (
         <div>
             <h1>Member Sign Up:</h1>

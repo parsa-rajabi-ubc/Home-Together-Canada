@@ -20,27 +20,27 @@ import {splitPhoneNumber} from "../common/utils/stringUtils";
 //Returns a Form with fields
 function MemberRegistrationForm(props) {
     const {values} = props;
-    const [isSameAddress, setIsSameAddress] = useState(false);
-    const [firstname,setFirstname] = useState("");
-    const [lastname, setLastname] = useState("");
-    const [email, setEmail] = useState("");
-    const [yearOfBirth,setYearOfBirth] = useState("");
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    const [isSameAddress, setIsSameAddress] = useState(values && values.lastname || false);
+    const [firstname,setFirstname] = useState(values && values.firstname || "");
+    const [lastname, setLastname] = useState(values && values.lastname || "");
+    const [email, setEmail] = useState(values && values.email || "");
+    const [yearOfBirth,setYearOfBirth] = useState(values && values.yearOfBirth || "");
+    const [username, setUsername] = useState(values && values.username || "");
+    const [password, setPassword] = useState(values && values.password || "");
     const [passwordCheck, setPasswordCheck] = useState("");
     const [phoneNumber, setPhoneNumber] = useState({
-        first: "",
-        middle: "",
-        last: ""
+        first: splitPhoneNumber(values.phoneNumber)[0] || "",
+        middle: splitPhoneNumber(values.phoneNumber)[1] || "",
+        last: splitPhoneNumber(values.phoneNumber)[2] || ""
     });
-    const [address, setAddress] = useState({
+    const [address, setAddress] = useState(values && values.address || {
         street: "",
         aptNum: "",
         city: "",
         province: "",
         postalCode: ""
     });
-    const [mailingAddress, setMailingAddress] = useState({
+    const [mailingAddress, setMailingAddress] = useState(values && values.mailingAddress || {
         street: "",
         aptNum: "",
         city: "",
@@ -91,6 +91,7 @@ function MemberRegistrationForm(props) {
 
                 <hr/>
                 <h2>Account Details</h2>
+                {/*TODO: clean this up*/}
                 {/*Assuming password isn't supposed to be shown here, and that we don't want username editable?*/}
                 {typeof values != "undefined" && <TextArea label="Username: " value={username} disabled onChange={(e)=>{setUsername(e.target.value)}}/>}
                 {typeof values == "undefined" && <SignInInfo onChangeUsername={(e)=>{setUsername(e.target.value)}} onChangePassword={(e)=>{setPassword(e.target.value)}} onChangePasswordCheck={(e)=>{setPasswordCheck(e.target.value)}}/>}
