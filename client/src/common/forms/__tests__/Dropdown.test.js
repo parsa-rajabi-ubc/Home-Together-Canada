@@ -13,7 +13,7 @@ describe('Dropdown', () => {
     describe('Snapshot test', () => {
         it("should render correctly regardless of properties", () => {
             // given
-            const className = 'CSS';
+            const name = 'Dropdown_name';
             const isSearchable = true;
             const onChange = jest.fn();
             const placeholder = 'placeholders';
@@ -23,7 +23,7 @@ describe('Dropdown', () => {
                 { value: 'vanilla', label: 'Vanilla' },
             ];
             // when
-            const component = renderer.create(<Dropdown className={className} isSearchable={isSearchable} options={options} placeholder={placeholder}  onChange={onChange}/>).toJSON();
+            const component = renderer.create(<Dropdown name={name} isSearchable={isSearchable} options={options} placeholder={placeholder}  onChange={onChange}/>).toJSON();
 
             // then
             expect(component).toMatchSnapshot();
