@@ -277,6 +277,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
         placeholder="500.00"
         step="0.01"
         type="number"
+        value="500.00"
       />
       <span>
         $
@@ -287,6 +288,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
         placeholder="1500.00"
         step="0.01"
         type="number"
+        value="1500.00"
       />
     </div>
     <span>
