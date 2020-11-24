@@ -9,7 +9,7 @@ exports[`Address Snapshot test should render correctly regardless of properties 
     <input
       className="input"
       name="street"
-      onChange={[MockFunction]}
+      onChange={[Function]}
       placeholder="Address Line 1"
       type="text"
     />
@@ -18,7 +18,7 @@ exports[`Address Snapshot test should render correctly regardless of properties 
     <input
       className="input"
       name="aptNum"
-      onChange={[MockFunction]}
+      onChange={[Function]}
       placeholder="Address Line 2: Apt, suite, etc. (optional)"
       type="text"
     />
@@ -27,7 +27,7 @@ exports[`Address Snapshot test should render correctly regardless of properties 
     <input
       className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
       name="city"
-      onChange={[MockFunction]}
+      onChange={[Function]}
       placeholder="City"
       type="text"
     />
@@ -38,7 +38,7 @@ exports[`Address Snapshot test should render correctly regardless of properties 
       onKeyDown={[Function]}
     >
       <div
-        className=" css-yk16xz-control"
+        className=" css-bp7moi-control"
         onMouseDown={[Function]}
         onTouchEnd={[Function]}
       >
@@ -46,7 +46,7 @@ exports[`Address Snapshot test should render correctly regardless of properties 
           className=" css-g1d714-ValueContainer"
         >
           <div
-            className=" css-1wa3eu0-placeholder"
+            className=" css-1d6d5xl-placeholder"
           >
             Province
           </div>
@@ -141,7 +141,7 @@ exports[`Address Snapshot test should render correctly regardless of properties 
     <input
       className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
       name="postalCode"
-      onChange={[MockFunction]}
+      onChange={[Function]}
       placeholder="Postal Code"
       type="text"
     />

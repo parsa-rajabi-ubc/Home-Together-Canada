@@ -26,9 +26,9 @@ function Dropdown(props) {
     const newStyling = {
         control: base => ({
                 ...base,
-                "margin-top": 8,
+                marginTop: 8,
                 borderColor: "#e2e8f0",
-                "margin-bottom": 16,
+                marginBottom: 16,
             }
         ),
         menuPortal: base => ({...base, zIndex: 9999}),

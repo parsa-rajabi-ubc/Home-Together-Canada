@@ -193,7 +193,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                   onKeyDown={[Function]}
                 >
                   <div
-                    className=" css-yk16xz-control"
+                    className=" css-bp7moi-control"
                     onMouseDown={[Function]}
                     onTouchEnd={[Function]}
                   >
@@ -201,7 +201,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                       className=" css-g1d714-ValueContainer"
                     >
                       <div
-                        className=" css-1wa3eu0-placeholder"
+                        className=" css-1d6d5xl-placeholder"
                       >
                         Province
                       </div>
@@ -369,7 +369,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                   onKeyDown={[Function]}
                 >
                   <div
-                    className=" css-yk16xz-control"
+                    className=" css-bp7moi-control"
                     onMouseDown={[Function]}
                     onTouchEnd={[Function]}
                   >
@@ -377,7 +377,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                       className=" css-g1d714-ValueContainer"
                     >
                       <div
-                        className=" css-1wa3eu0-placeholder"
+                        className=" css-1d6d5xl-placeholder"
                       >
                         Province
                       </div>
