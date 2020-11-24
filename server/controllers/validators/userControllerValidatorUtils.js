@@ -19,7 +19,7 @@ const PROVINCES = [
     'NS',
     'NU',
     'ON',
-    'PEI',
+    'PE',
     'QC',
     'SK',
     'YT'
