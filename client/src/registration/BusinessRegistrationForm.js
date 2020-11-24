@@ -321,7 +321,7 @@ const BusinessRegistrationForm = (props) => {
                     </div>
 
                     <div className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
-                        <div className="grid grid-cols-3 gap-6">
+                        <div className="grid grid-cols-2 gap-6">
                             <div className="col-span-3 sm:col-span-2">
 
                                 <TextArea className="mb-0 input" placeholder="" label="Business Name"
@@ -463,7 +463,7 @@ const BusinessRegistrationForm = (props) => {
                     <div className="mt-5 md:mt-0 md:col-span-2">
                         <div className="overflow-hidden shadow sm:rounded-md">
                             <div className="px-4 py-6 bg-white sm:p-5">
-                                <div className="grid grid-cols-3 gap-6">
+                                <div className="grid grid-cols-2 gap-6">
                                     <div className="col-span-3 sm:col-span-2">
 
                                         <SignInInfo onChangeUsername={(e) => {

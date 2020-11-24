@@ -6,7 +6,6 @@ import Footer from './common/header-and-footer/Footer';
 import Login from './login/LoginForm';
 import MainLandingPage from "./registration/MainLandingPage";
 import MemberRegistrationForm from "./registration/MemberRegistrationForm";
-import MemberProfileForm from "./registration/MemberProfileForm";
 import BusinessRegistration from './registration/BusinessRegistrationForm';
 import Error404 from './common/error/Error404'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
@@ -22,7 +21,6 @@ function App() {
                 <Route path={"/"} exact component={Home}/>
                 <Route path={"/login"} component={Login}/>
                 <Route path={"/registration/business"} component={BusinessRegistration}/>
-                <Route path={"/registration/member/profile"} component={MemberProfileForm}/>
                 <Route path={"/registration/member"} component={MemberRegistrationForm}/>
                 <Route path={"/registration"} component={MainLandingPage}/>
                 <Route component={Error404} />
