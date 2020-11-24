@@ -193,7 +193,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                   onKeyDown={[Function]}
                 >
                   <div
-                    className=" css-bp7moi-control"
+                    className=" css-d7dxyn-control"
                     onMouseDown={[Function]}
                     onTouchEnd={[Function]}
                   >
@@ -369,7 +369,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                   onKeyDown={[Function]}
                 >
                   <div
-                    className=" css-bp7moi-control"
+                    className=" css-d7dxyn-control"
                     onMouseDown={[Function]}
                     onTouchEnd={[Function]}
                   >
