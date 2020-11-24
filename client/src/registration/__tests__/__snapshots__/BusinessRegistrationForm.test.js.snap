@@ -662,12 +662,12 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
           className="px-4 sm:px-0"
         >
           <h3
-            className="text-lg font-medium leading-6 text-gray-900"
+            className="info-header"
           >
             Account Details
           </h3>
           <p
-            className="mt-1 text-sm text-gray-600"
+            className="info-text"
           >
             This information is to set up and access your account.
           </p>
