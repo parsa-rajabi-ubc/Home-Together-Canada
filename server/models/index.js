@@ -27,10 +27,28 @@ db.sequelize = sequelize;
 
 db.abstractUser = require('./abstractUser.js')(DataTypes, sequelize);
 db.businessAccount = require('./businessAccount.js')(DataTypes, sequelize);
+db.memberAccount = require('./memberAccount.js')(DataTypes, sequelize);
+db.livesWith = require('./livesWith.js')(DataTypes, sequelize);
+db.areaOfInterest = require('./areaOfInterest')(DataTypes, sequelize);
 
 db.businessAccount.belongsTo(db.abstractUser, {
     foreignKey: {
-        name: "uid"
+        name: 'uid'
+    },
+    onDelete: 'RESTRICT'
+});
+db.memberAccount.belongsTo(db.abstractUser, {
+    foreignKey: {
+        name: 'uid'
+    },
+    onDelete: 'RESTRICT'
+});
+
+db.memberAccount.belongsToMany(db.memberAccount, { as: "Roommates", through: db.livesWith });
+
+db.memberAccount.hasMany(db.areaOfInterest, {
+    foreignKey: {
+        name: 'uid'
     },
     onDelete: 'RESTRICT'
 });
