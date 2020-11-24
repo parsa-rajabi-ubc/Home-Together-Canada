@@ -43,6 +43,18 @@
     @apply bg-red-600;
 }
 
+.btn-blue {
+    @apply bg-iblue-normal;
+}
+
+.btn-blue:hover {
+    @apply bg-iblue-dark;
+}
+
+.btn-blue:active {
+    @apply bg-blue-600;
+}
+
 .input {
     @apply block w-full px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;
 }
