@@ -54,7 +54,7 @@ function Status() {
                 setPartners(e.target.value)
             }}/>
         } else if (selectedStatus === "Existing Group") {
-            return <TextArea label={"Group Member's username(s)"} onChange={(e) => {
+            return <TextArea label={"Group Member's username(s) - separated by comma"} onChange={(e) => {
                 setGroupMembers(e.target.value)
             }}/>
         }
