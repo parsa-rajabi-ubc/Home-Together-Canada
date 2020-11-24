@@ -7,6 +7,7 @@
  */
 
 const abstractUserController = require('../abstractUserController');
+const memberAccountController = require('../memberAccountController');
 
 const PROVINCES = [
     'Alberta',
@@ -23,6 +24,22 @@ const PROVINCES = [
     'Saskatchewan',
     'Yukon'
 ];
+
+const GENDERS = [
+    'Female',
+    'Male',
+    'Other'
+];
+
+const STATUSES = [
+    'Single',
+    'Couple',
+    'Couple With Children',
+    'Single Parent',
+    'Existing Group'
+];
+
+const SHARE_LIMITS = [1, 2, 3, 4, -1];  // -1 means any number of people
 
 const isValidPhoneNumber = (phoneNum) => {
     if (phoneNum.toString().length !== 10) {
@@ -67,6 +84,38 @@ const shouldIncorporatedOwnersNamesBeDefined = (incorporatedOwnersNames, req) =>
     }
 };
 
+const isPositiveInteger = (num) => {
+    if (num < 0) {
+        console.log('montly rent is negative');
+        throw new Error('Must provide a positive value');
+    } else {
+        console.log('montly rent is postiive');
+        return true;
+    }
+}
+
+// TODO: write tests for this function
+const isValidShareLimit = (limit) => SHARE_LIMITS.includes(limit);
+
+// TODO: write tests for this function
+const isValidAreasOfInterest = (areasOfInterest) => {
+    if (!!areasOfInterest && areasOfInterest.length > 0) {
+        areasOfInterest.forEach(areaOfInterest => {
+            if (!areaOfInterest || !areaOfInterest.province || !areaOfInterest.city || !areaOfInterest.radius) {
+                throw new Error('Area of interest must include province, city and radius properties');
+            } else if (!PROVINCES.includes(areaOfInterest.province)) {
+                throw new Error('Must provide a valid Canadian Province');
+            } else if (parseInt(areaOfInterest.radius) < 0) {
+                // TODO: look into if there should be a max radius
+                throw new Error('Radius must be positive');
+            }
+        });
+    } else if (!!areasOfInterest && !areasOfInterest.length) {
+        throw new Error('At least one area of interest must be provided');
+    }
+    return true;
+}
+
 const usernameShouldNotAlreadyExist = (username) =>
     abstractUserController.findUserByUsername(username)
         .then(user => {
@@ -91,14 +140,39 @@ const usernameShouldExist = (username) =>
             }
         });
 
+const usernameShouldExistAndBeAMember = (username) => {
+    return memberAccountController.findMemberAccountByUsername(username)
+        .then(member => {
+            if (!!member && !member.length) {
+                return Promise.reject(`That member's username does not exist`);
+            }
+        });
+}
+
+const linkedMemberShouldHaveSameStatus = (username, req) => {
+    return memberAccountController.findMemberAccountByUsername(username)
+        .then(member => {
+            if (!!member && member.length && member[0].dataValues.status !== req.body.status) {
+                return Promise.reject(`Member and linked username must share the same status`);
+            }
+        });
+}
+
 module.exports = {
     PROVINCES,
+    GENDERS,
+    STATUSES,
     isValidPhoneNumber,
     isValidCanadianPostalCode,
     shouldMailingAddressBeDefined,
     shouldMapAddressBeDefined,
     shouldIncorporatedOwnersNamesBeDefined,
+    isPositiveInteger,
+    isValidShareLimit,
+    isValidAreasOfInterest,
     usernameShouldNotAlreadyExist,
     emailShouldNotAlreadyBeInUse,
-    usernameShouldExist
+    usernameShouldExist,
+    usernameShouldExistAndBeAMember,
+    linkedMemberShouldHaveSameStatus
 }
