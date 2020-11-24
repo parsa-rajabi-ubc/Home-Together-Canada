@@ -26,7 +26,7 @@ function Dropdown(props) {
     const newStyling = {
         control: base => ({
                 ...base,
-                marginTop: 8,
+                marginTop: 4,
                 borderColor: "#e2e8f0",
                 marginBottom: 16,
             }

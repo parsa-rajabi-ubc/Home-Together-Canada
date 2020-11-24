@@ -46,15 +46,15 @@ function Status() {
 
     function checkStatus(selectedStatus) {
         if (selectedStatus === "Couple") {
-            return <TextArea label={"Partner's username"} onChange={(e) => {
+            return <TextArea className={"input"} labelClassName={"label"} placeholder={"Partner's username"} label={null} onChange={(e) => {
                 setPartners(e.target.value)
             }}/>
         } else if (selectedStatus === "Couple With Children") {
-            return <TextArea label={"Partner's username"} onChange={(e) => {
+            return <TextArea className={"input"} labelClassName={"label"} placeholder={"Partner's username"} label={null} onChange={(e) => {
                 setPartners(e.target.value)
             }}/>
         } else if (selectedStatus === "Existing Group") {
-            return <TextArea label={"Group Member's username(s) - separated by comma"} onChange={(e) => {
+            return <TextArea className={"input"} labelClassName={"label"} placeholder={"Member's username(s) - divided by comma"} label={null} onChange={(e) => {
                 setGroupMembers(e.target.value)
             }}/>
         }
