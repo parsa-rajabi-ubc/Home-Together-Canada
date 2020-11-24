@@ -6,6 +6,9 @@
  *
  */
 
+import React, { useState } from 'react';
+import Select from "react-select";
+
 const workStatuses = [
     {
         label: "Unemployed",
@@ -36,4 +39,21 @@ const workStatuses = [
         value: "Other"
     }
 ]
-export default workStatuses;
+
+function WorkStatus() {
+    const [selectedWorkStatus, setsSelectedWorkStatus] = useState(null);
+
+    const handleStatusChange = e => {
+        setsSelectedWorkStatus(e.value);
+    }
+
+    return (
+        <div>
+            <Select isSearchable={true} placeholder={"Work Status"}
+                    options={workStatuses} value={workStatuses.find(obj => obj.value === setsSelectedWorkStatus)}
+                    onChange={handleStatusChange}/>
+        </div>
+    )
+
+}
+export default WorkStatus;

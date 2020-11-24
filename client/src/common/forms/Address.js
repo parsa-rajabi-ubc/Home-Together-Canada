@@ -6,14 +6,20 @@
  *
  */
 
-import provinces from "./Provinces";
-import React from "react";
-import Dropdown from "./Dropdown";
+import React, {useState} from 'react';
+import "canada"
 import PropTypes from "prop-types";
+import Dropdown from "./Dropdown";
+import {getProvinces} from "../utils/locationUtils"
 
 
 function Address(props) {
     const {label, onChange} = props;
+    const [selectedProvince, setSelectedProvince] = useState(null);
+
+    const handleProvinceChange = e => {
+        setSelectedProvince(e.value);
+    }
     return (
         <div>
             <label className="label">
@@ -30,9 +36,9 @@ function Address(props) {
                     className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
                     type="text" name="city" placeholder="City" onChange={onChange}/>
             </label>
-            <Dropdown name="province" title={"Province"} items={provinces}
-                      onChange={onChange} value={provinces.value}/>
-            <br/>
+            <Dropdown isSearchable={true} placeholder={"Province"}
+                    options={getProvinces()}
+                    onChange={handleProvinceChange}/>
             <label>
                 <input
                     className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"

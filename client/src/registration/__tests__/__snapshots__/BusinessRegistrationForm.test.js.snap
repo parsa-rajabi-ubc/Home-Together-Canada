@@ -187,32 +187,111 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                   type="text"
                 />
               </label>
-              <div
-                className="relative inline-block text-left"
-              >
+              <div>
                 <div
-                  className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 mx-3 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
-                  onClick={[Function]}
-                  onKeyPress={[Function]}
-                  role="button"
-                  tabIndex={0}
+                  className=" css-2b097c-container"
+                  onKeyDown={[Function]}
                 >
-                  <span
-                    className="  rounded-md  bg-white ring-1 ring-black ring-opacity-25"
+                  <div
+                    className=" css-yk16xz-control"
+                    onMouseDown={[Function]}
+                    onTouchEnd={[Function]}
                   >
-                    <p
-                      aria-expanded="true"
-                      aria-haspopup="true"
-                      className=""
-                      id="options-menu"
+                    <div
+                      className=" css-g1d714-ValueContainer"
                     >
-                      Province
-                       ↓ 
-                    </p>
-                  </span>
+                      <div
+                        className=" css-1wa3eu0-placeholder"
+                      >
+                        Province
+                      </div>
+                      <div
+                        className="css-b8ldur-Input"
+                      >
+                        <div
+                          className=""
+                          style={
+                            Object {
+                              "display": "inline-block",
+                            }
+                          }
+                        >
+                          <input
+                            aria-autocomplete="list"
+                            autoCapitalize="none"
+                            autoComplete="off"
+                            autoCorrect="off"
+                            disabled={false}
+                            id="react-select-2-input"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            spellCheck="false"
+                            style={
+                              Object {
+                                "background": 0,
+                                "border": 0,
+                                "boxSizing": "content-box",
+                                "color": "inherit",
+                                "fontSize": "inherit",
+                                "label": "input",
+                                "opacity": 1,
+                                "outline": 0,
+                                "padding": 0,
+                                "width": "1px",
+                              }
+                            }
+                            tabIndex="0"
+                            type="text"
+                            value=""
+                          />
+                          <div
+                            style={
+                              Object {
+                                "height": 0,
+                                "left": 0,
+                                "overflow": "scroll",
+                                "position": "absolute",
+                                "top": 0,
+                                "visibility": "hidden",
+                                "whiteSpace": "pre",
+                              }
+                            }
+                          >
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className=" css-1hb7zxy-IndicatorsContainer"
+                    >
+                      <span
+                        className=" css-1okebmr-indicatorSeparator"
+                      />
+                      <div
+                        aria-hidden="true"
+                        className=" css-tlfecz-indicatorContainer"
+                        onMouseDown={[Function]}
+                        onTouchEnd={[Function]}
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="css-6q0nyr-Svg"
+                          focusable="false"
+                          height={20}
+                          viewBox="0 0 20 20"
+                          width={20}
+                        >
+                          <path
+                            d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <br />
               <label>
                 <input
                   className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
@@ -284,32 +363,111 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                   type="text"
                 />
               </label>
-              <div
-                className="relative inline-block text-left"
-              >
+              <div>
                 <div
-                  className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 mx-3 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
-                  onClick={[Function]}
-                  onKeyPress={[Function]}
-                  role="button"
-                  tabIndex={0}
+                  className=" css-2b097c-container"
+                  onKeyDown={[Function]}
                 >
-                  <span
-                    className="  rounded-md  bg-white ring-1 ring-black ring-opacity-25"
+                  <div
+                    className=" css-yk16xz-control"
+                    onMouseDown={[Function]}
+                    onTouchEnd={[Function]}
                   >
-                    <p
-                      aria-expanded="true"
-                      aria-haspopup="true"
-                      className=""
-                      id="options-menu"
+                    <div
+                      className=" css-g1d714-ValueContainer"
                     >
-                      Province
-                       ↓ 
-                    </p>
-                  </span>
+                      <div
+                        className=" css-1wa3eu0-placeholder"
+                      >
+                        Province
+                      </div>
+                      <div
+                        className="css-b8ldur-Input"
+                      >
+                        <div
+                          className=""
+                          style={
+                            Object {
+                              "display": "inline-block",
+                            }
+                          }
+                        >
+                          <input
+                            aria-autocomplete="list"
+                            autoCapitalize="none"
+                            autoComplete="off"
+                            autoCorrect="off"
+                            disabled={false}
+                            id="react-select-3-input"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            spellCheck="false"
+                            style={
+                              Object {
+                                "background": 0,
+                                "border": 0,
+                                "boxSizing": "content-box",
+                                "color": "inherit",
+                                "fontSize": "inherit",
+                                "label": "input",
+                                "opacity": 1,
+                                "outline": 0,
+                                "padding": 0,
+                                "width": "1px",
+                              }
+                            }
+                            tabIndex="0"
+                            type="text"
+                            value=""
+                          />
+                          <div
+                            style={
+                              Object {
+                                "height": 0,
+                                "left": 0,
+                                "overflow": "scroll",
+                                "position": "absolute",
+                                "top": 0,
+                                "visibility": "hidden",
+                                "whiteSpace": "pre",
+                              }
+                            }
+                          >
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className=" css-1hb7zxy-IndicatorsContainer"
+                    >
+                      <span
+                        className=" css-1okebmr-indicatorSeparator"
+                      />
+                      <div
+                        aria-hidden="true"
+                        className=" css-tlfecz-indicatorContainer"
+                        onMouseDown={[Function]}
+                        onTouchEnd={[Function]}
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="css-6q0nyr-Svg"
+                          focusable="false"
+                          height={20}
+                          viewBox="0 0 20 20"
+                          width={20}
+                        >
+                          <path
+                            d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <br />
               <label>
                 <input
                   className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"

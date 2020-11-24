@@ -7,20 +7,6 @@
  */
 import {isStringEmpty} from "../common/utils/stringUtils";
 
-const getYears = () => {
-    const currentYear = new Date().getFullYear();
-    const YEARS = [];
-
-    for (let j = 0, i = currentYear-16; i >= currentYear - 96; i--,j++) {
-        YEARS.push({
-            id : j,
-            value : i}
-        )
-    }
-    return YEARS;
-}
-export const YEARS = getYears();
-
 export const getPhoneNumberFromStrings = (areaCode, exchangeCode, stationCode) => {
     if (!areaCode || isStringEmpty(areaCode) ||
         !exchangeCode || isStringEmpty(exchangeCode) ||
