@@ -16,7 +16,7 @@ function ChangePassword(props) {
     return (
         <label>
             {label}
-            <GenericInput className={className} label="Old Password: " inputType="password" placeholder={oldPassword} disabled={true}/>
+            <GenericInput className={className} label="Old Password: " inputType="password" />
             <GenericInput className={className} label="New Password: " inputType="password" onChange={(e)=>{setNewPassword(e.target.value)}}/>
             <GenericInput className={className} label="Confirm New Password: " inputType="password" onChange={(e)=>{setConfirmNewPassword(e.target.value)}}/>
             <GenericInput className={className} label="Save: " inputType="submit" onClick={onChange}/>

@@ -27,7 +27,7 @@ function MemberAccountSummary(){
                     {/* Renders the correct component based on the URL*/}
                     <Route path={"/accountsummary"} exact render={()=> <MemberRegistrationForm values={MemberAccountDummyValues}/>}/>
                     <Route path={"/accountsummary/profilesummary"} render={()=> <MemberProfileForm values={MemberAccountDummyValues}/>}/>
-                    <Route path={"/accountsummary/passwordchange"} render={()=> <ChangePassword oldPassword={MemberAccountDummyValues.password} label={"Password Change: "}  onChange={onchange}/>}/>
+                    <Route path={"/accountsummary/passwordchange"} render={()=> <ChangePassword oldPassword={MemberAccountDummyValues.password} label={"Password Change: "}  onChange={()=>null}/>}/>
                     <Route path={"/accountsummary/messages"} component={EmptyPage}/>
                     <Route path={"/accountsummary/manageposts"} component={EmptyPage}/>
                     <Route component={Error404} />

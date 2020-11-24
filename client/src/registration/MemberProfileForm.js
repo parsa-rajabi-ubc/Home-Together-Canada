@@ -23,71 +23,23 @@ function MemberProfileForm(props) {
 
     const {values} = props;
     const [hasCheckedForExistingValues, setHasCheckedForExistingValues] = useState(false);
-    const [gender, setGender] = useState("");
-    const [status, setStatus] = useState("");
-    const [workStatus, setWorkStatus] = useState("");
-    const [partners, setPartners] = useState("");
-    const [shareLimit, setShareLimit] = useState("");
-    const [petFriendly, setPetFriendly] = useState("");
-    const [smoking, setSmoking] = useState("");
-    const [mobilityIssues, setMobilityIssues] = useState("");
-    const [hasAllergies, setHasAllergies] = useState("");
-    const [religious, setReligious] = useState("");
-    const [hasDiet, setHasDiet] = useState("");
-    const [hasHome, setHasHome] = useState("");
-    const [minRent, setMinRent] = useState("500.00");
-    const [maxRent, setMaxRent] = useState("1500.00");
-    const [aboutSelf, setAboutSelf] = useState("");
+    const [gender, setGender] = useState(values && values.gender || "");
+    const [status, setStatus] = useState( values && values.status ||"");
+    const [workStatus, setWorkStatus] = useState(values && values.workStatus ||"");
+    const [partners, setPartners] = useState(values && values.partners ||"");
+    const [shareLimit, setShareLimit] = useState(values && values.shareLimit ||"");
+    const [petFriendly, setPetFriendly] = useState(values && values.petFriendly ||"");
+    const [smoking, setSmoking] = useState(values && values.smoking ||"");
+    const [mobilityIssues, setMobilityIssues] = useState(values && values.mobilityIssues ||"");
+    const [hasAllergies, setHasAllergies] = useState(values && values.hasAllergies ||"");
+    const [religious, setReligious] = useState(values && values.religious ||"");
+    const [hasDiet, setHasDiet] = useState(values && values.hasDiet ||"");
+    const [hasHome, setHasHome] = useState(values && values.hasHome ||"");
+    const [minRent, setMinRent] = useState(values && values.minRent ||"500.00");
+    const [maxRent, setMaxRent] = useState(values && values.maxRent ||"1500.00");
+    const [aboutSelf, setAboutSelf] = useState(values && values.aboutSelf ||"");
     const [extraAreas, setExtraAreas] = useState([{ province: "ALBERTA", city: "", radius: ""}]);
-    // Adjusted this way for member account summary to prevent re-renders and avoid "usestate in conditionals" problems
-    if (!hasCheckedForExistingValues) {
-        if (typeof values != "undefined" && gender !== values.gender) {
-            setGender(values.gender);
-        }
-        if (typeof values != "undefined" && status !== values.status) {
-            setStatus(values.status);
-        }
-        if (typeof values != "undefined" && partners !== values.partners) {
-            setPartners(values.partners);
-        }
-        if (typeof values != "undefined" && shareLimit !== values.shareLimit) {
-            setShareLimit(values.shareLimit);
-        }
-        if (typeof values != "undefined" && workStatus !== values.workStatus) {
-            setWorkStatus(values.workStatus);
-        }
-        if (typeof values != "undefined" && petFriendly !== values.petFriendly) {
-            setPetFriendly(values.petFriendly);
-        }
-        if (typeof values != "undefined" && smoking !== values.smoking) {
-            setSmoking(values.smoking);
-        }
-        if (typeof values != "undefined" && mobilityIssues !== values.mobilityIssues) {
-            setMobilityIssues(values.mobilityIssues);
-        }
-        if (typeof values != "undefined" && hasAllergies !== values.hasAllergies) {
-            setHasAllergies(values.hasAllergies);
-        }
-        if (typeof values != "undefined" && religious !== values.religious) {
-            setReligious(values.religious);
-        }
-        if (typeof values != "undefined" && hasDiet !== values.hasDiet) {
-            setHasDiet(values.hasDiet);
-        }
-        if (typeof values != "undefined" && hasHome !== values.hasHome) {
-            setHasHome(values.hasHome);
-        }
-        if (typeof values != "undefined" && minRent !== values.minRent) {
-            setMinRent(values.minRent);
-        }
-        if (typeof values != "undefined" && maxRent !== values.maxRent) {
-            setMaxRent(values.maxRent);
-        }
-        if (typeof values != "undefined" && aboutSelf !== values.aboutSelf) {
-            setAboutSelf(values.aboutSelf);
-        }
-        setHasCheckedForExistingValues(true);
-    }
+
     const handleRemoveClick = index => {
         const list = [...extraAreas];
         list.splice(index, 1);
