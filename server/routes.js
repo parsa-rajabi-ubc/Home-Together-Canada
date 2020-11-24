@@ -13,6 +13,7 @@ const passport = require('passport');
 
 const abstractUsers = require('./controllers/abstractUserController');
 const businessAccounts = require('./controllers/businessAccountController');
+const memberAccounts = require('./controllers/memberAccountController');
 const usersValidator = require('./controllers/validators/userControllerValidator');
 const { validationResult } = require('express-validator/check');
 
@@ -47,21 +48,41 @@ router.get('/businessAccount/all/', function(req, res, next) {
     businessAccounts.findAllBusinessAccounts(req, res);
 });
 
+// Get all member accounts
+router.get('/memberAccount/all/', function (req, res, next) {
+    memberAccounts.findAllMemberAccounts(req, res);
+});
+
 // Create a business user
-router.post('/businessUser/create/', usersValidator.validate('createBusinessUser'),
+router.post('/business/create/', usersValidator.validate('createBusinessUser'),
     function (req, res, next) {
         const errors = validationResult(req);
 
         if (!errors.isEmpty()) {
             res.status(202).json({ errors: errors.array()});
         } else {
-            passport.authenticate('local-signup', {
+            passport.authenticate('local-signup-business', {
                 // change these routes to ones that send actual response data
                 successRedirect: '/checkAuth',
                 failureRedirect: '/checkAuth',
                 failureFlash: false })(req, res, next);
         }
 });
+
+router.post('/member/create/', usersValidator.validate('createMemberUser'),
+    function (req, res, next) {
+        const errors = validationResult(req);
+
+            if (!errors.isEmpty()) {
+                res.status(202).json({ errors: errors.array()});
+            } else {
+                passport.authenticate('local-signup-member', {
+                    // change these routes to ones that send actual response data
+                    successRedirect: '/checkAuth',
+                    failureRedirect: '/checkAuth',
+                    failureFlash: false })(req, res, next);
+            }
+    });
 
 // check if user is authenticated
 router.get('/checkAuth/',isLoggedIn, function(req, res, next) {

@@ -11,7 +11,8 @@ module.exports = (DataTypes, sequelize) => {
         uid: {
             type: DataTypes.INTEGER,
             primaryKey: true,
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
         businessName: {
             type: DataTypes.STRING,

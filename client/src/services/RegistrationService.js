@@ -23,7 +23,7 @@ const registerBusinessUser = (businessUserData) => {
         body: JSON.stringify(businessUserData)
     }
 
-    return fetch(`${DEV_URL}/businessUser/create`, request);
+    return fetch(`${DEV_URL}/business/create`, request);
 }
 
 module.exports = {
