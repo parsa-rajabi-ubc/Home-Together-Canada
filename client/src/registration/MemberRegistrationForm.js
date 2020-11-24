@@ -463,7 +463,7 @@ function MemberRegistrationForm() {
 
                         <div
                               className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6">
-                                <SubmitButton label={""} inputValue={"Create Account"}
+                                <SubmitButton inputValue={"Create Account"}
                                               className="text-base btn btn-green"
                                               onClick={onSubmit}/>
                         </div>

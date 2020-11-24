@@ -1224,7 +1224,6 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6"
         >
           <label>
-            
             <input
               className="text-base btn btn-green"
               onClick={[Function]}

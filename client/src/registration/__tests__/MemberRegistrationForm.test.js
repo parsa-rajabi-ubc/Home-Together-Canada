@@ -13,13 +13,8 @@ import MemberRegistrationForm from "../MemberRegistrationForm";
 describe('MemberProfileForm', () => {
     describe('Snapshot test', () => {
         it("should render correctly regardless of properties", () => {
-            const MemberProfile = (
-                <Router>
-                    <MemberRegistrationForm />
-                </Router>
-            )
             //when
-            const component = renderer.create(MemberProfile).toJSON();
+            const component = renderer.create(<MemberRegistrationForm />).toJSON();
             //then
             expect(component).toMatchSnapshot();
         });
