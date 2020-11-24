@@ -3,11 +3,11 @@
 exports[`Dropdown Snapshot test should render correctly regardless of properties 1`] = `
 <div>
   <div
-    className="CSS css-2b097c-container"
+    className=" css-2b097c-container"
     onKeyDown={[Function]}
   >
     <div
-      className=" css-yk16xz-control"
+      className=" css-bp7moi-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -15,7 +15,7 @@ exports[`Dropdown Snapshot test should render correctly regardless of properties
         className=" css-g1d714-ValueContainer"
       >
         <div
-          className=" css-1wa3eu0-placeholder"
+          className=" css-1d6d5xl-placeholder"
         >
           placeholders
         </div>
@@ -104,6 +104,11 @@ exports[`Dropdown Snapshot test should render correctly regardless of properties
         </div>
       </div>
     </div>
+    <input
+      name="Dropdown_name"
+      type="hidden"
+      value=""
+    />
   </div>
 </div>
 `;

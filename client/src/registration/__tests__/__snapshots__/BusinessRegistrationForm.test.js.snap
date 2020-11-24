@@ -193,7 +193,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                   onKeyDown={[Function]}
                 >
                   <div
-                    className=" css-yk16xz-control"
+                    className=" css-bp7moi-control"
                     onMouseDown={[Function]}
                     onTouchEnd={[Function]}
                   >
@@ -201,7 +201,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                       className=" css-g1d714-ValueContainer"
                     >
                       <div
-                        className=" css-1wa3eu0-placeholder"
+                        className=" css-1d6d5xl-placeholder"
                       >
                         Province
                       </div>
@@ -369,7 +369,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                   onKeyDown={[Function]}
                 >
                   <div
-                    className=" css-yk16xz-control"
+                    className=" css-bp7moi-control"
                     onMouseDown={[Function]}
                     onTouchEnd={[Function]}
                   >
@@ -377,7 +377,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                       className=" css-g1d714-ValueContainer"
                     >
                       <div
-                        className=" css-1wa3eu0-placeholder"
+                        className=" css-1d6d5xl-placeholder"
                       >
                         Province
                       </div>
@@ -662,12 +662,12 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
           className="px-4 sm:px-0"
         >
           <h3
-            className="text-lg font-medium leading-6 text-gray-900"
+            className="info-header"
           >
             Account Details
           </h3>
           <p
-            className="mt-1 text-sm text-gray-600"
+            className="info-text"
           >
             This information is to set up and access your account.
           </p>

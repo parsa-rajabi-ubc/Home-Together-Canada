@@ -11,21 +11,46 @@ import Select from 'react-select';
 import propTypes from "prop-types";
 
 function Dropdown(props) {
-    const {className, isSearchable, placeholder, options, onChange} = props;
+    const {isSearchable, name, placeholder, options, onChange} = props;
 
     const [selected, setSelected] = useState("");
 
     // this code is run every time selected changes
     useEffect(() => {
-        onChange(selected);	// this onChange function is the callback from the parent component
+        // this onChange function is the callback from the parent component
+        onChange(selected);
         // that can be used to get the value that is inside the dropdown
     }, [selected]);
 
+
+    const newStyling = {
+        control: base => ({
+                ...base,
+                marginTop: 8,
+                borderColor: "#e2e8f0",
+                marginBottom: 16,
+            }
+        ),
+        menuPortal: base => ({...base, zIndex: 9999}),
+    }
+
+
     return (
         <div>
-            <Select className={className} isSearchable={isSearchable} placeholder={placeholder}
+            <Select isSearchable={isSearchable} placeholder={placeholder}
                     options={options} value={options.find(obj => obj.label === selected)}
                     onChange={(e) => setSelected(e)}
+                    name={name}
+                    menuPortalTarget={document.body}
+                    styles={newStyling}
+                    theme={theme => ({
+                        ...theme,
+                        borderRadius: 8,
+                        colors: {
+                            ...theme.colors,
+                            neutral50: '#A0AEBF',  // Placeholder color
+                        }
+                    })}
             />
         </div>
     );
@@ -33,7 +58,7 @@ function Dropdown(props) {
 
 Dropdown.propTypes = {
     options: propTypes.array.isRequired,
-    className: propTypes.string,
+    name: propTypes.string,
     isSearchable: propTypes.bool,
     placeholder: propTypes.string,
     onChange: propTypes.func

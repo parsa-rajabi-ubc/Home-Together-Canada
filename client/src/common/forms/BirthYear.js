@@ -6,30 +6,35 @@
  *
  */
 
-import React, { useState } from 'react';
+import React from 'react';
 import Dropdown from "./Dropdown";
+import propTypes from "prop-types";
 
-function BirthYear() {
-    const [yearOfBirth,setYearOfBirth] = useState("");
+function BirthYear(props) {
+    const {onChange} = props;
 
     const currentYear = new Date().getFullYear();
-    const handleYearChange = e => {
-        setYearOfBirth(e.value);
-    }
     const YEARS = [];
 
-    for (let j = 0, i = currentYear-16; i >= currentYear - 60; i--,j++) {
+    for (let j = 0, i = currentYear - 16; i >= currentYear - 60; i--, j++) {
         YEARS.push({
-            label : i,
-            value : j}
+                label: i,
+                value: i
+            }
         )
     }
     return (
         <div>
-            <Dropdown isSearchable={true} placeholder={"Year of Birth"}
-                    options={YEARS}
-                    onChange={handleYearChange}/>
+            <Dropdown isSearchable={true} placeholder={"Select the Year You Were Born"}
+                      options={YEARS}
+                      onChange={onChange}/>
         </div>
+
     )
 }
+
+BirthYear.propTypes = {
+    onChange: propTypes.func
+};
+
 export default BirthYear;
