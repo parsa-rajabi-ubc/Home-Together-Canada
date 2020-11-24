@@ -14,8 +14,6 @@ const passport = require('passport');
 const abstractUsers = require('./controllers/abstractUserController');
 const businessAccounts = require('./controllers/businessAccountController');
 const memberAccounts = require('./controllers/memberAccountController');
-const roommates = require('./controllers/livesWithController');
-const areasOfInterest = require('./controllers/areaOfInterestController');
 const usersValidator = require('./controllers/validators/userControllerValidator');
 const { validationResult } = require('express-validator/check');
 
