@@ -33,7 +33,34 @@ function MemberProfileForm() {
     const [minRent, setMinRent] = useState("500.00");
     const [maxRent, setMaxRent] = useState("1500.00");
     const [aboutSelf, setAboutSelf] = useState("");
+    const [selectedLimit, setsSelectedLimit] = useState(null);
+    const [selectedStatus, setsSelectedStatus] = useState(null);
+    const [partners, setPartners] = useState(null);
+    const [groupMembers, setGroupMembers] = useState(null);
 
+    const handleStatusChange = e => {
+        setsSelectedStatus(e.value);
+    }
+
+    function checkStatus(selectedStatus) {
+        if (selectedStatus === "Couple") {
+            return <TextArea className={"input"} labelClassName={"label"} placeholder={"Partner's username"} label={null} onChange={(e) => {
+                setPartners(e.target.value)
+            }}/>
+        } else if (selectedStatus === "Couple With Children") {
+            return <TextArea className={"input"} labelClassName={"label"} placeholder={"Partner's username"} label={null} onChange={(e) => {
+                setPartners(e.target.value)
+            }}/>
+        } else if (selectedStatus === "Existing Group") {
+            return <TextArea className={"input"} labelClassName={"label"} placeholder={"Member's username(s) - divided by comma"} label={null} onChange={(e) => {
+                setGroupMembers(e.target.value)
+            }}/>
+        }
+
+    }
+    const handleLimitChange = e => {
+        setsSelectedLimit(e.value);
+    }
     // TODO: convert this into an array of errors
     const isFormValid = () => {
         return true;
@@ -114,9 +141,11 @@ function MemberProfileForm() {
                                         </div>
                                         <label className={"label"}> Status </label>
 
-                                        <Status/>
+                                        <Status onChange={handleStatusChange}/>
+                                        {checkStatus(selectedStatus)}
+
                                         <label className={"label text-base "}> open to sharing with </label>
-                                        <ShareLimit/>
+                                        <ShareLimit onChange={handleLimitChange}/>
                                         <div className={"label"}>Monthly Rent</div>
                                         <div className="grid grid-cols-6 gap-x-6">
                                             <div className="column-span-6-layout">

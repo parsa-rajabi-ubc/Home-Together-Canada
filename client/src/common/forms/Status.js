@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import TextArea from "./TextArea";
+import propTypes from "prop-types";
 import Dropdown from "./Dropdown";
 
 /**
@@ -35,41 +35,23 @@ const statuses = [
 ]
 
 
-function Status() {
-    const [selectedStatus, setsSelectedStatus] = useState(null);
-    const [partners, setPartners] = useState(null);
-    const [groupMembers, setGroupMembers] = useState(null);
+function Status(props) {
+    const {onChange} = props;
 
-    const handleStatusChange = e => {
-        setsSelectedStatus(e.value);
-    }
-
-    function checkStatus(selectedStatus) {
-        if (selectedStatus === "Couple") {
-            return <TextArea className={"input"} labelClassName={"label"} placeholder={"Partner's username"} label={null} onChange={(e) => {
-                setPartners(e.target.value)
-            }}/>
-        } else if (selectedStatus === "Couple With Children") {
-            return <TextArea className={"input"} labelClassName={"label"} placeholder={"Partner's username"} label={null} onChange={(e) => {
-                setPartners(e.target.value)
-            }}/>
-        } else if (selectedStatus === "Existing Group") {
-            return <TextArea className={"input"} labelClassName={"label"} placeholder={"Member's username(s) - divided by comma"} label={null} onChange={(e) => {
-                setGroupMembers(e.target.value)
-            }}/>
-        }
-
-    }
 
     return (
         <div>
             <Dropdown isSearchable={true} placeholder={"Family Status"}
                       options={statuses}
-                      onChange={handleStatusChange}/>
-            {checkStatus(selectedStatus)}
+                      onChange={onChange}/>
         </div>
     )
 
 }
+
+Status.propTypes = {
+  onChange: propTypes.func
+};
+
 
 export default Status;
