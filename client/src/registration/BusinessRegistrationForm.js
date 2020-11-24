@@ -215,6 +215,7 @@ const BusinessRegistrationForm = (props) => {
             event.preventDefault();
             return;
         }
+
         const registrationData = {
             username: username,
             password: password,
@@ -225,13 +226,13 @@ const BusinessRegistrationForm = (props) => {
             addressLine1: bAddress.street,
             addressLine2: bAddress.aptNum,
             city: bAddress.city,
-            province: bAddress.province[0],
+            province: bAddress.province,
             postalCode: bAddress.postalCode,
             hasDifferentMailingAddress: useDifferentMailingAddress,
             ...(useDifferentMailingAddress) && {mailingAddressLine1: bMailingAddress.street},
             ...(useDifferentMailingAddress) && {mailingAddressLine2: bMailingAddress.aptNum},
             ...(useDifferentMailingAddress) && {mailingCity: bMailingAddress.city},
-            ...(useDifferentMailingAddress) && {mailingProvince: bMailingAddress.province[0]},
+            ...(useDifferentMailingAddress) && {mailingProvince: bMailingAddress.province},
             ...(useDifferentMailingAddress) && {mailingPostalCode: bMailingAddress.postalCode},
             businessName: bName,
             logo: undefined,
@@ -243,7 +244,7 @@ const BusinessRegistrationForm = (props) => {
             ...(!isNationWide) && {mapAddressLine1: bMapAddress.street},
             ...(!isNationWide) && {mapAddressLine2: bMapAddress.aptNum},
             ...(!isNationWide) && {mapCity: bMapAddress.city},
-            ...(!isNationWide) && {mapProvince: bMapAddress.province[0]},
+            ...(!isNationWide) && {mapProvince: bMapAddress.province},
             ...(!isNationWide) && {mapPostalCode: bMapAddress.postalCode},
             website: website
         }

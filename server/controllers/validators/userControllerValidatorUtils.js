@@ -10,19 +10,19 @@ const abstractUserController = require('../abstractUserController');
 const memberAccountController = require('../memberAccountController');
 
 const PROVINCES = [
-    'Alberta',
-    'British Columbia',
-    'Manitoba',
-    'New Brunswick',
-    'Newfoundland and Labrador',
-    'Northwest Territories',
-    'Nova Scotia',
-    'Nunavut',
-    'Ontario',
-    'Prince Edward Island',
-    'Quebec',
-    'Saskatchewan',
-    'Yukon'
+    'AB',
+    'BC',
+    'MB',
+    'NB',
+    'NL',
+    'NT',
+    'NS',
+    'NU',
+    'ON',
+    'PE',
+    'QC',
+    'SK',
+    'YT'
 ];
 
 const GENDERS = [
