@@ -254,6 +254,7 @@ const BusinessRegistrationForm = (props) => {
             .then(data => {
                 if (!!data && data.authenticated) {
                         // user is authenticated, redirect to home screen
+                        alert('Business account successfully created!');
                         return history.push('/');
                 } else if (!!data && data.errors && data.errors.length) {
                     const errorMessage = getConcatenatedErrorMessage(data.errors);

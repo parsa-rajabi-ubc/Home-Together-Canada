@@ -91,10 +91,12 @@ router.get('/checkAuth/',isLoggedIn, function(req, res, next) {
     res.send({ authenticated: true });
 });
 
+// Get all roommates (existing groups & partners). TESTING ONLY
 router.get('/roommates/', function(req, res, next) {
     roommates.findAllRoommates(req, res);
 });
 
+// Get all areas of interest. TESTING ONLY
 router.get('/areasOfInterest/', function(req, res, next) {
     areasOfInterest.findAllAreasOfInterestsForAllUsers(req, res);
 });
