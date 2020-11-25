@@ -86,10 +86,8 @@ const shouldIncorporatedOwnersNamesBeDefined = (incorporatedOwnersNames, req) =>
 
 const isPositiveInteger = (num) => {
     if (num < 0) {
-        console.log('montly rent is negative');
         throw new Error('Must provide a positive value');
     } else {
-        console.log('montly rent is postiive');
         return true;
     }
 }
