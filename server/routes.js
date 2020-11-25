@@ -15,6 +15,8 @@ const abstractUsers = require('./controllers/abstractUserController');
 const businessAccounts = require('./controllers/businessAccountController');
 const memberAccounts = require('./controllers/memberAccountController');
 const usersValidator = require('./controllers/validators/userControllerValidator');
+const roommates = require("./controllers/livesWithController");
+const areasOfInterest = require("./controllers/areaOfInterestController");
 const { validationResult } = require('express-validator/check');
 
 /* GET home page. */
@@ -87,6 +89,14 @@ router.post('/member/create/', usersValidator.validate('createMemberUser'),
 // check if user is authenticated
 router.get('/checkAuth/',isLoggedIn, function(req, res, next) {
     res.send({ authenticated: true });
+});
+
+router.get('/roommates/', function(req, res, next) {
+    roommates.findAllRoommates(req, res);
+});
+
+router.get('/areasOfInterest/', function(req, res, next) {
+    areasOfInterest.findAllAreasOfInterestsForAllUsers(req, res);
 });
 
 // logout

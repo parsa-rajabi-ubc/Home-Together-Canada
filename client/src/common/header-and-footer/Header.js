@@ -14,6 +14,15 @@ import Button from "../forms/Button";
 
 const Header = () => {
 
+    const logout = () => {
+        LoginService.logoutUser()
+            .then(res => res.json())
+            .then(data => {
+                console.log('data: ', data);
+            })
+    }
+
+
     // TODO: Dynamically generate buttons in header based on authentication and user privileges
 
     return (
@@ -63,6 +72,7 @@ const Header = () => {
                               className="items-center justify-center w-full px-4 py-2 mr-4 transition duration-200 ease-in-out bg-white border-transparent rounded-md opacity-75 hover:bg-orange-400">Sign
                             Up
                         </Link>
+                        <Button value={'Logout'} onClick={logout}/>
                     </div>
                 </div>
                 {/*Bottom Border*/}
