@@ -52,6 +52,7 @@ function LoginForm(props) {
             .then(res => res.json())
             .then(data => {
                 if (!!data && data.authenticated) {
+                    alert('Successful login!');
                     // user is authenticated, redirect to home screen
                     return history.push('/');
                 } else if (!!data && !data.authenticated) {
