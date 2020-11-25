@@ -254,14 +254,16 @@ const BusinessRegistrationForm = (props) => {
             .then(data => {
                 if (!!data && data.authenticated) {
                         // user is authenticated, redirect to home screen
+                        alert('Business account successfully created!');
                         return history.push('/');
-                } else if (!!data && !data.authenticated) {
+                } else if (!!data && data.errors && data.errors.length) {
+                    const errorMessage = getConcatenatedErrorMessage(data.errors);
+                    // show list of all errors
+                    alert(errorMessage);
+                }
+                else if (!!data && !data.authenticated) {
                         // something went wrong with the AUTHENTICATION (not the user creation)
                         alert('Registration failed');
-                } else if (!!data && data.errors && data.errors.length) {
-                        const errorMessage = getConcatenatedErrorMessage(data.errors);
-                        // show list of all errors
-                        alert(errorMessage);
                 }
             })
             .catch((error) => {

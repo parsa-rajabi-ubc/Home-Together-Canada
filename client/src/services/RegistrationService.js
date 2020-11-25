@@ -26,6 +26,22 @@ const registerBusinessUser = (businessUserData) => {
     return fetch(`${DEV_URL}/business/create`, request);
 }
 
+const registerMemberUser = (memberUserData) => {
+    const request = {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        withCredentials: true,
+        body: JSON.stringify(memberUserData)
+    }
+
+    return fetch(`${DEV_URL}/member/create`, request);
+}
+
 module.exports = {
-    registerBusinessUser
+    registerBusinessUser,
+    registerMemberUser
 }

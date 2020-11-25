@@ -23,9 +23,11 @@ import ShareLimit from "../common/forms/ShareLimits";
 import InterestedArea from "../common/forms/InterestedArea";
 import YNButton from "../common/forms/YNButtons";
 import LargeTextArea from "../common/forms/LargeTextArea";
+import PropTypes from "prop-types";
 
 //Returns a Form with fields
-function MemberRegistrationForm() {
+function MemberRegistrationForm(props) {
+    const { history } = props;
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [yearOfBirth, setYearOfBirth] = useState("");
@@ -35,7 +37,6 @@ function MemberRegistrationForm() {
         middle: "",
         last: ""
     });
-    const [isSameAddress, setIsSameAddress] = useState(false);
     const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(false);
     const [address, setAddress] = useState({
         street: "",
@@ -54,44 +55,96 @@ function MemberRegistrationForm() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [passwordCheck, setPasswordCheck] = useState("");
+
     const [gender, setGender] = useState("");
+    const [genderDescription, setGenderDescription] = useState("");
+
     const [petFriendly, setPetFriendly] = useState("");
+    const [petDescription, setPetDescription] = useState("");
+
     const [smoking, setSmoking] = useState("");
+    const [smokingDescription, setSmokingDescription] = useState("");
+
     const [mobilityIssues, setMobilityIssues] = useState("");
+    const [mobilityIssuesDescription, setMobilityIssuesDescription] = useState("");
+
     const [hasAllergies, setHasAllergies] = useState("");
+    const [allergiesDescription, setAllergiesDescription] = useState("");
+
     const [religious, setReligious] = useState("");
+    const [religionDescription, setReligionDescription] = useState("");
+
     const [hasDiet, setHasDiet] = useState("");
+    const [dietDescription, setDietDescription] = useState("");
+
     const [hasHome, setHasHome] = useState("");
-    const [minRent, setMinRent] = useState("500.00");
-    const [maxRent, setMaxRent] = useState("1500.00");
+    const [homeDescription, setHomeDescription] = useState("");
+
+    const [minRent, setMinRent] = useState("00.00");
+    const [maxRent, setMaxRent] = useState("00.00");
+
     const [aboutSelf, setAboutSelf] = useState("");
+
     const [selectedLimit, setsSelectedLimit] = useState(null);
-    const [selectedStatus, setsSelectedStatus] = useState(null);
-    const [partners, setPartners] = useState(null);
-    const [groupMembers, setGroupMembers] = useState(null);
+
+    const [selectedStatus, setsSelectedStatus] = useState();
+
+    const [partner, setPartner] = useState("");
+    const [groupMembers, setGroupMembers] = useState("");
+
+    const [areasOfInterest, setAreasOfInterest]  = useState({
+        province: "",
+        city: "",
+        radius: ""
+    });
+
+    function checkStatus(selectedStatus) {
+        if (selectedStatus === "Couple") {
+            return <TextArea
+                className={"input"}
+                labelClassName={"label"}
+                placeholder={"Partner's username"}
+                onChange={(e) => setPartner(e.target.value)}
+                value={partner}
+            />
+        } else if (selectedStatus === "Couple With Children") {
+            return <TextArea
+                className={"input"}
+                labelClassName={"label"}
+                placeholder={"Partner's username"}
+                onChange={(e) => setPartner(e.target.value)}
+                value={partner}
+            />
+        } else if (selectedStatus === "Existing Group") {
+            return <TextArea
+                className={"input"}
+                labelClassName={"label"}
+                placeholder={"Member's username(s) - divided by commas"}
+                onChange={(e) => setGroupMembers(e.target.value)}
+                value={groupMembers}
+            />
+        }
+
+    }
 
     const handleStatusChange = e => {
         setsSelectedStatus(e.value);
     }
 
-    function checkStatus(selectedStatus) {
-        if (selectedStatus === "Couple") {
-            return <TextArea className={"input"} labelClassName={"label"} placeholder={"Partner's username"} label={null} onChange={(e) => {
-                setPartners(e.target.value)
-            }}/>
-        } else if (selectedStatus === "Couple With Children") {
-            return <TextArea className={"input"} labelClassName={"label"} placeholder={"Partner's username"} label={null} onChange={(e) => {
-                setPartners(e.target.value)
-            }}/>
-        } else if (selectedStatus === "Existing Group") {
-            return <TextArea className={"input"} labelClassName={"label"} placeholder={"Member's username(s) - divided by comma"} label={null} onChange={(e) => {
-                setGroupMembers(e.target.value)
-            }}/>
-        }
-
-    }
     const handleLimitChange = e => {
-        setsSelectedLimit(e.value);
+        setsSelectedLimit(parseInt(e.value));
+    }
+
+    function handlePhoneChange(e) {
+        const value = e.target.value;
+        setPhoneNumber({
+            ...phoneNumber,
+            [e.target.name]: value
+        });
+    }
+
+    const handleYearChange = e => {
+        setYearOfBirth(e.value);
     }
 
     // TODO: convert this into an array of errors
@@ -155,6 +208,9 @@ function MemberRegistrationForm() {
                 return false;
             }
         }
+
+        // TODO: when client-side validation to an array, abstract the validation of the username and
+        //  password to a function so that it can be use here and in business registration
         if (isStringEmpty(username)) {
             alert("username Required");
             return false;
@@ -183,66 +239,74 @@ function MemberRegistrationForm() {
             return;
         }
         const registrationData = {
+            // abstract user
             username: username,
             password: password,
             email: email,
-            yearOfBirth: yearOfBirth,
             firstName: firstName,
             lastName: lastName,
             phoneNumber: getPhoneNumberFromStrings(phoneNumber.first, phoneNumber.middle, phoneNumber.last),
             addressLine1: address.street,
             addressLine2: address.aptNum,
             city: address.city,
-            province: address.province[0],
+            province: address.province,
             postalCode: address.postalCode,
             hasDifferentMailingAddress: useDifferentMailingAddress,
             ...(useDifferentMailingAddress) && {mailingAddressLine1: mailingAddress.street},
             ...(useDifferentMailingAddress) && {mailingAddressLine2: mailingAddress.aptNum},
             ...(useDifferentMailingAddress) && {mailingCity: mailingAddress.city},
-            ...(useDifferentMailingAddress) && {mailingProvince: mailingAddress.province[0]},
+            ...(useDifferentMailingAddress) && {mailingProvince: mailingAddress.province},
             ...(useDifferentMailingAddress) && {mailingPostalCode: mailingAddress.postalCode},
+
+            // member account
+            gender: gender,
+            ...(gender === 'Other') && {genderDescription: gender},
+            birthYear: yearOfBirth,
+            status: selectedStatus,
+            ...((selectedStatus === 'Couple' || selectedStatus === 'Couple With Children') && !isStringEmpty(partner))&& {partnerUsername: partner},
+            ...(selectedStatus === 'Existing Group') && {existingGroupUsernames: groupMembers.split(',').map(item => item.trim())},
+            minMonthlyBudget: minRent,
+            maxMonthlyBudget: maxRent,
+            hasHomeToShare: (hasHome === 'yes'),
+            ...(hasHome === 'yes') && {hasHomeToShareDescription: homeDescription},
+            isReligionImportant: (religious === 'yes'),
+            ...(religious === 'yes') && {religionDescription: religionDescription},
+            isDietImportant: (hasDiet === 'yes'),
+            ...(hasDiet === 'yes') && {dietDescription: dietDescription},
+            hasHealthMobilityIssues: (mobilityIssues === 'yes'),
+            ...(mobilityIssues === 'yes') && {healthMobilityIssuesDescription: mobilityIssuesDescription},
+            hasAllergies: (hasAllergies === 'yes'),
+            ...(hasAllergies === 'yes') && {allergiesDescription: allergiesDescription},
+            hasPets: (petFriendly === 'yes'),
+            ...(petFriendly === 'yes') && {petsDescription: petDescription},
+            isSmoker: (smoking === 'yes'),
+            ...(smoking === 'yes') && {smokingDescription: smokingDescription},
+            numRoommates: selectedLimit,
+            bio: aboutSelf,
+            areasOfInterest: [areasOfInterest],
         }
 
-        //TODO: update this with MemberService.registerMemberUser(registrationData) after it has been implemented
+        console.log('registration data: ', registrationData);
 
-        // RegistrationService.registerBusinessUser(registrationData)
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (!!data && data.authenticated) {
-        //             // user is authenticated, redirect to home screen
-        //             return history.push('/');
-        //         } else if (!!data && !data.authenticated) {
-        //             // something went wrong with the AUTHENTICATION (not the user creation)
-        //             alert('Registration failed');
-        //         } else if (!!data && data.errors && data.errors.length) {
-        //             const errorMessage = getConcatenatedErrorMessage(data.errors);
-        //             // show list of all errors
-        //             alert(errorMessage);
-        //         }
-        //     })
-        //     .catch((error) => {
-        //         alert('Something went wrong creating your user. Please try again. Error: ' + error);
-        //     });
-    }
-
-    function handlePhoneChange(e) {
-        const value = e.target.value;
-        setPhoneNumber({
-            ...phoneNumber,
-            [e.target.name]: value
-        });
-    }
-
-    function handleAddressChange(address) {
-        setAddress(address);
-    }
-
-    function handleMailingAddress(maillingAddress) {
-        setMailingAddress(maillingAddress);
-    }
-
-    const handleYearChange = e => {
-        setYearOfBirth(e.value);
+        RegistrationService.registerMemberUser(registrationData)
+            .then(res => res.json())
+            .then(data => {
+                if (!!data && data.authenticated) {
+                    alert('Member account successfully created!');
+                    // user is authenticated, redirect to home screen
+                    return history.push('/');
+                } else if (!!data && data.errors && data.errors.length) {
+                    const errorMessage = getConcatenatedErrorMessage(data.errors);
+                    // show list of all errors
+                    alert(errorMessage);
+                } else if (!!data && !data.authenticated) {
+                    // something went wrong with the AUTHENTICATION (not the user creation)
+                    alert('Registration failed');
+                }
+            })
+            .catch((error) => {
+                alert('Something went wrong creating your member. Please try again. Error: ' + error);
+            });
     }
 
     return (
@@ -259,35 +323,48 @@ function MemberRegistrationForm() {
                 <div className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
                     <div className="grid grid-cols-2 gap-6">
                         <div className="col-span-3 sm:col-span-2">
-                            <TextArea className={"input"} labelClassName={"label"} label="First Name"
-                                      onChange={(e) => {
-                                          setFirstName(e.target.value);
-                                      }}/>
-                            <TextArea className={"input"} labelClassName={"label"} label="Last Name"
-                                      onChange={(e) => {
-                                          setLastName(e.target.value)
-                                      }}/>
-                            <TextArea className="input" placeholder="personal@email.ca"
-                                      label="Email" labelClassName={"label"} onChange={(e) => {
-                                setEmail(e.target.value)
-                            }}/>
+                            <TextArea
+                                className={"input"}
+                                labelClassName={"label"}
+                                label="First Name"
+                                onChange={(e) => setFirstName(e.target.value)}
+                            />
+                            <TextArea
+                                className={"input"}
+                                labelClassName={"label"}
+                                label="Last Name"
+                                onChange={(e) => setLastName(e.target.value)}
+                            />
+                            <TextArea
+                                className="input"
+                                placeholder="personal@email.ca"
+                                label="Email"
+                                labelClassName={"label"}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
                             <label className={"label"}>Year of Birth</label>
                             <BirthYear label={"Year of Birth"} onChange={handleYearChange}/>
                             <PhoneNumInput
                                 className="w-1/4 phone"
                                 labelClassName={"label"}
                                 label="Phone Number" onChange={handlePhoneChange}/>
-                            <Address label="Address"
-                                     cityClassName="city-postal" onChange={handleAddressChange}/>
+                            <Address
+                                label="Address"
+                                cityClassName="city-postal"
+                                onChange={setAddress}
+                            />
 
                             <span className="info-detail">Select checkbox below if your mailing address differs from the address above</span>
-                            <Checkbox label="Different Mailing Address" onChange={() => {
-                                setUseDifferentMailingAddress(useDifferentMailingAddress => !useDifferentMailingAddress)
-                            }}/>
+                            <Checkbox
+                                label="Different Mailing Address"
+                                onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}
+                            />
 
                             {useDifferentMailingAddress &&
-                            <Address label="Mailing Address"
-                                     onChange={handleMailingAddress}/>}
+                            <Address
+                                label="Mailing Address"
+                                onChange={setMailingAddress}
+                            />}
                         </div>
                     </div>
                 </div>
@@ -315,22 +392,34 @@ function MemberRegistrationForm() {
                                     <div className="col-span-3 sm:col-span-2">
                                         <label className={"label"}> Gender </label>
                                         <div className={"my-2"}>
-                                            <RadioButton label="Male" name="gender" value="male"
-                                                         checked={gender === "male"} onChange={(e) => {
-                                                setGender(e.target.value)
-                                            }}/>
-                                            <RadioButton label="Female" name="gender" value="female"
-                                                         checked={gender === "female"} onChange={(e) => {
-                                                setGender(e.target.value)
-                                            }}/>
-                                            <RadioButton label="Other " name="gender" value="other"
-                                                         checked={gender === "other"} onChange={(e) => {
-                                                setGender(e.target.value)
-                                            }}/>
-                                            {(gender === "other") &&
-                                            <TextArea className="input mt-0" labelClassName={"label mt-5"} label={""}
-                                                      placeholder="Optional: what gender do you identify as?"
-                                                      disabled={!(gender === "other")}/>}
+                                            <RadioButton
+                                                label="Male"
+                                                name="gender" value="Male"
+                                                checked={gender === "Male"}
+                                                onChange={(e) => setGender(e.target.value)}
+                                            />
+                                            <RadioButton
+                                                label="Female"
+                                                name="gender"
+                                                value="Female"
+                                                checked={gender === "Female"}
+                                                onChange={(e) => setGender(e.target.value)}
+                                            />
+                                            <RadioButton
+                                                label="Other "
+                                                name="gender"
+                                                value="Other"
+                                                checked={gender === "Other"}
+                                                onChange={(e) => setGender(e.target.value)}
+                                            />
+                                            {(gender === "Other") &&
+                                            <TextArea
+                                                className="input mt-0"
+                                                labelClassName={"label mt-5"}
+                                                placeholder="Optional: what gender do you identify as?"
+                                                value={genderDescription}
+                                                onChange={(e) => setGenderDescription(e.target.value)}
+                                            />}
                                         </div>
                                         <label className={"label"}> Status </label>
 
@@ -342,80 +431,139 @@ function MemberRegistrationForm() {
                                         <div className={"label"}>Monthly Rent</div>
                                         <div className="grid grid-cols-6 gap-x-6">
                                             <div className="column-span-6-layout">
-                                                <input className={"input label font-normal "} type="number" min="0"
-                                                       step="25" placeholder="MIN $ CAD" onChange={(e) => {
-                                                    setMinRent(e.target.value)
-                                                }}/>
+                                                <input
+                                                    className={"input label font-normal "}
+                                                    type="number"
+                                                    min="0"
+                                                    step="25"
+                                                    placeholder="MIN $ CAD"
+                                                    onChange={(e) => setMinRent(e.target.value)}
+                                                />
                                             </div>
                                             <div className="column-span-6-layout">
-                                                <input className={"input label font-normal "} type="number"
-                                                       min={minRent} step="25" placeholder=" MAX $ CAD"
-                                                       onChange={(e) => {
-                                                           setMaxRent(e.target.value)
-                                                       }}/>
+                                                <input
+                                                    className={"input label font-normal "}
+                                                    type="number"
+                                                    min={minRent}
+                                                    step="25"
+                                                    placeholder=" MAX $ CAD"
+                                                    onChange={(e) => setMaxRent(e.target.value)}
+                                                />
                                             </div>
                                         </div>
                                         <label className={"label"}>Interested Area</label>
-                                        <InterestedArea/>
+                                        <InterestedArea onChange={setAreasOfInterest}/>
                                         <div className="grid grid-cols-6 gap-x-6">
                                             <div className="column-span-6-layout">
-                                                <YNButton label="Pet Friendly?" name="petFriendly" onChange={(e) => {
-                                                    setPetFriendly(e.target.value)
-                                                }}/>
+                                                <YNButton
+                                                    label="Pet Friendly?"
+                                                    name="petFriendly"
+                                                    onChange={(e) => setPetFriendly(e.target.value)}
+                                                />
                                                 {(petFriendly === "yes") &&
-                                                <TextArea className={"input"} placeholder="Elaborate" label={""}/>}
+                                                <TextArea
+                                                    className={"input"}
+                                                    placeholder="Elaborate"
+                                                    onChange={e => setPetDescription(e.target.value)}
+                                                    value={petDescription}
+                                                />}
                                             </div>
                                             <div className="column-span-6-layout">
-                                                <YNButton label="Smoking Friendly?" name="smoking" onChange={(e) => {
-                                                    setSmoking(e.target.value)
-                                                }}/>
+                                                <YNButton
+                                                    label="Smoking Friendly?"
+                                                    name="smoking"
+                                                    onChange={(e) => setSmoking(e.target.value)}
+                                                />
                                                 {(smoking === "yes") &&
-                                                <TextArea className={"input"} placeholder="Elaborate" label={""}/>}
+                                                <TextArea
+                                                    className={"input"}
+                                                    placeholder="Elaborate"
+                                                    onChange={e => setSmokingDescription(e.target.value)}
+                                                    value={smokingDescription}
+                                                />}
                                             </div>
                                             <div className="column-span-6-layout">
-                                                <YNButton label="Health / Mobility Issues?" name="mobile"
-                                                          onChange={(e) => {
-                                                              setMobilityIssues(e.target.value)
-                                                          }}/>
+                                                <YNButton
+                                                    label="Health / Mobility Issues?"
+                                                    name="mobile"
+                                                    onChange={(e) => setMobilityIssues(e.target.value)}
+                                                />
                                                 {(mobilityIssues === "yes") &&
-                                                <TextArea className={"input"} placeholder="Elaborate" label={""}/>}
+                                                <TextArea
+                                                    className={"input"}
+                                                    placeholder="Elaborate"
+                                                    onChange={e => setMobilityIssuesDescription(e.target.value)}
+                                                    value={mobilityIssuesDescription}
+                                                />}
                                             </div>
                                             <div className="column-span-6-layout">
-                                                <YNButton label="Allergies?" name="allergies"
-                                                          checked={hasAllergies === "no"} onChange={(e) => {
-                                                    setHasAllergies(e.target.value)
-                                                }}/>
+                                                <YNButton
+                                                    label="Allergies?"
+                                                    name="allergies"
+                                                    checked={hasAllergies === "no"}
+                                                    onChange={(e) => setHasAllergies(e.target.value)}
+                                                />
                                                 {(hasAllergies === "yes") &&
-                                                <TextArea className={"input"} placeholder="Elaborate" label={""}/>}
+                                                <TextArea
+                                                    className={"input"}
+                                                    placeholder="Elaborate"
+                                                    onChange={e => setAllergiesDescription(e.target.value)}
+                                                    value={allergiesDescription}
+                                                />}
                                             </div>
                                             <div className="column-span-6-layout">
-                                                <YNButton label="Is religion important?" name="religion"
-                                                          checked={religious === "no"} onChange={(e) => {
-                                                    setReligious(e.target.value)
-                                                }}/>
+                                                <YNButton
+                                                    label="Is religion important?"
+                                                    name="religion"
+                                                    checked={religious === "no"}
+                                                    onChange={(e) => setReligious(e.target.value)}
+                                                />
                                                 {(religious === "yes") &&
-                                                <TextArea className={"input"} placeholder="Elaborate" label={""}/>}
+                                                <TextArea
+                                                    className={"input"}
+                                                    placeholder="Elaborate"
+                                                    onChange={e => setReligionDescription(e.target.value)}
+                                                    value={religionDescription}
+                                                />}
                                             </div>
                                             <div className="column-span-6-layout">
-                                                <YNButton label="Is diet of others important?" name="diet"
-                                                          checked={hasDiet === "no"} onChange={(e) => {
-                                                    setHasDiet(e.target.value)
-                                                }}/>
+                                                <YNButton
+                                                    label="Is diet of others important?"
+                                                    name="diet"
+                                                    checked={hasDiet === "no"}
+                                                    onChange={(e) => setHasDiet(e.target.value)}
+                                                />
                                                 {(hasDiet === "yes") &&
-                                                <TextArea className={"input"} placeholder="Elaborate" label={""}/>}
+                                                <TextArea
+                                                    className={"input"}
+                                                    placeholder="Elaborate"
+                                                    onChange={e => setDietDescription(e.target.value)}
+                                                    value={dietDescription}
+                                                />}
                                             </div>
-
                                             <div className="column-span-6-layout">
-                                                <YNButton label="Have a home to share?" name="hasHome" checked={hasHome==="no"} onChange={(e)=>{setHasHome(e.target.value)}}/>
-                                                {(hasHome==="yes") && <TextArea className={"input"} placeholder="Elaborate:" label={""}/>}
+                                                <YNButton
+                                                    label="Have a home to share?"
+                                                    name="hasHome"
+                                                    checked={hasHome==="no"}
+                                                    onChange={(e)=>setHasHome(e.target.value)}
+                                                />
+                                                {(hasHome==="yes") &&
+                                                    <TextArea
+                                                        className={"input"}
+                                                        placeholder="Elaborate"
+                                                        onChange={e => setHomeDescription(e.target.value)}
+                                                        value={homeDescription}
+                                                    />}
                                             </div>
                                         </div>
                                         <div className={"mt-4"}>
-                                            <LargeTextArea label="Tell others about yourself: " name="aboutSelf"
-                                                           placeholder="What is important to you, and why do you want to share a home?"
-                                                           onChange={(e) => {
-                                                               setAboutSelf(e.target.value)
-                                                           }}/>
+                                            <LargeTextArea
+                                                label="Tell others about yourself: "
+                                                name="aboutSelf"
+                                                placeholder="What is important to you, and why do you want to share a home?"
+                                                onChange={(e) => setAboutSelf(e.target.value)}
+                                            />
                                         </div>
                                     </div>
                                 </div>
@@ -447,25 +595,23 @@ function MemberRegistrationForm() {
                             <div className="px-4 py-6 bg-white sm:p-5">
                                 <div className="grid grid-cols-2 gap-6">
                                     <div className="col-span-3 sm:col-span-2">
-
-                                        <SignInInfo onChangeUsername={(e) => {
-                                            setUsername(e.target.value)
-                                        }} onChangePassword={(e) => {
-                                            setPassword(e.target.value)
-                                        }} onChangePasswordCheck={(e) => {
-                                            setPasswordCheck(e.target.value)
-                                        }}/>
+                                        <SignInInfo
+                                            onChangeUsername={(e) => setUsername(e.target.value)}
+                                            onChangePassword={(e) => setPassword(e.target.value)}
+                                            onChangePasswordCheck={(e) => setPasswordCheck(e.target.value)}
+                                        />
 
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div
-                              className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6">
-                                <SubmitButton inputValue={"Create Account"}
-                                              className="text-base btn btn-green"
-                                              onClick={onSubmit}/>
+                        <div className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6">
+                                <SubmitButton
+                                    inputValue={"Create Account"}
+                                    className="text-base btn btn-green"
+                                    onClick={onSubmit}
+                                />
                         </div>
                     </div>
                 </div>
@@ -473,6 +619,12 @@ function MemberRegistrationForm() {
             </div>
         </div>
     );
+}
+
+MemberRegistrationForm.propTypes = {
+    history: PropTypes.shape({
+        push: PropTypes.func
+    })
 }
 
 export default MemberRegistrationForm;

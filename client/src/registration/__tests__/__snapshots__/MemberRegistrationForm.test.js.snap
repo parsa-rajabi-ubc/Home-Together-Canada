@@ -438,7 +438,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                       name="gender"
                       onChange={[Function]}
                       type="radio"
-                      value="male"
+                      value="Male"
                     />
                     Male
                   </label>
@@ -451,7 +451,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                       name="gender"
                       onChange={[Function]}
                       type="radio"
-                      value="female"
+                      value="Female"
                     />
                     Female
                   </label>
@@ -464,7 +464,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                       name="gender"
                       onChange={[Function]}
                       type="radio"
-                      value="other"
+                      value="Other"
                     />
                     Other 
                   </label>
@@ -718,7 +718,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                   >
                     <input
                       className="input label font-normal "
-                      min="500.00"
+                      min="00.00"
                       onChange={[Function]}
                       placeholder=" MAX $ CAD"
                       step="25"

@@ -291,13 +291,13 @@ exports.validate = (method) => {
                     .optional()
                     .trim()
                     .stripLow(true),
-                body('partnerUsername', `A valid member's username must be provided`)
+                body('partnerUsername', `A valid member's username must be provided for partners`)
                     .optional()
                     .trim()
                     .stripLow()
                     .custom(partnerUsername => usernameShouldExistAndBeAMember(partnerUsername))
                     .custom((partnerUsername, { req }) => linkedMemberShouldHaveSameStatus(partnerUsername, req)),
-                body('existingGroupUsername', `A valid member's username must be provided`)
+                body('existingGroupUsernames', `A valid member's username must be provided for existing group members`)
                     .optional()
                     .trim()
                     .stripLow()
