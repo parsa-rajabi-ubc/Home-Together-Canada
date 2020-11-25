@@ -16,7 +16,7 @@ import {getProvinces} from "../utils/locationUtils"
 function Address(props) {
     const {label, onChange} = props;
     const [street, setStreet] = useState("");
-    const [apt, setApt] = useState("");
+    const [aptNum, setApt] = useState("");
     const [city, setCity] = useState("");
     const [province, setProvince] = useState('');
     const [postalCode, setPostalCode] = useState('');
@@ -27,7 +27,7 @@ function Address(props) {
                 setStreet(e.target.value);
                 break;
             }
-            case 'apt': {
+            case 'aptNum': {
                 setApt(e.target.value);
                 break;
             }
@@ -46,12 +46,12 @@ function Address(props) {
         // call on change function
         onChange({
             street,
-            apt,
+            aptNum,
             city,
             province,
             postalCode
         })
-    },[street, apt, city, province, postalCode]);
+    },[street, aptNum, city, province, postalCode]);
 
     return (
         <div>

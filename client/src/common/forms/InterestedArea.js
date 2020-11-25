@@ -6,13 +6,16 @@
  *
  */
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import radii from "./Radii";
 import {getProvinces, getCities} from "../utils/locationUtils";
 import Dropdown from "./Dropdown";
+import PropTypes from "prop-types";
 
 
-function InterestedArea() {
+
+function InterestedArea(props) {
+    const {onChange} = props;
     const [selectedProvince, setSelectedProvince] = useState(null);
     const [selectedCity, setSelectedCity] = useState(null);
     const [selectedRadius, setSelectedRadius] = useState(null);
@@ -26,6 +29,14 @@ function InterestedArea() {
     const handleRadiusChange = e => {
         setSelectedRadius(e.value);
     }
+
+    useEffect(() => {
+        onChange({
+            province: selectedProvince,
+            city: selectedCity,
+            radius: selectedRadius
+        })
+    }, [selectedProvince, selectedCity, selectedRadius])
 
     return (
         <div>
@@ -44,6 +55,10 @@ function InterestedArea() {
         </div>
     )
 
+}
+
+InterestedArea.propTypes = {
+    onChange: PropTypes.func
 }
 
 export default InterestedArea;
