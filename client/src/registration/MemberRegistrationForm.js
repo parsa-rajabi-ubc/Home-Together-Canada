@@ -24,6 +24,7 @@ import InterestedArea from "../common/forms/InterestedArea";
 import YNButton from "../common/forms/YNButtons";
 import LargeTextArea from "../common/forms/LargeTextArea";
 import PropTypes from "prop-types";
+import WorkStatus from "../common/forms/WorkStatus";
 
 //Returns a Form with fields
 function MemberRegistrationForm(props) {
@@ -80,6 +81,9 @@ function MemberRegistrationForm(props) {
     const [hasHome, setHasHome] = useState("");
     const [homeDescription, setHomeDescription] = useState("");
 
+    const [interestInBuyingHome, setInterestInBuyingHome] = useState("");
+    const [interestDescription, setInterestDescription] = useState("");
+
     const [minRent, setMinRent] = useState("00.00");
     const [maxRent, setMaxRent] = useState("00.00");
 
@@ -87,7 +91,8 @@ function MemberRegistrationForm(props) {
 
     const [selectedLimit, setsSelectedLimit] = useState(null);
 
-    const [selectedStatus, setsSelectedStatus] = useState();
+    const [selectedFamilyStatus, setsSelectedFamilyStatus] = useState();
+    const [selectedWorkStatus, setsSelectedWorkStatus] = useState();
 
     const [partner, setPartner] = useState("");
     const [groupMembers, setGroupMembers] = useState("");
@@ -127,8 +132,12 @@ function MemberRegistrationForm(props) {
 
     }
 
-    const handleStatusChange = e => {
-        setsSelectedStatus(e.value);
+    const handleFamilyStatusChange = e => {
+        setsSelectedFamilyStatus(e.value);
+    }
+
+    const handleWorkStatusChange = e => {
+        setsSelectedWorkStatus(e.value);
     }
 
     const handleLimitChange = e => {
@@ -262,9 +271,9 @@ function MemberRegistrationForm(props) {
             gender: gender,
             ...(gender === 'Other') && {genderDescription: gender},
             birthYear: yearOfBirth,
-            status: selectedStatus,
-            ...((selectedStatus === 'Couple' || selectedStatus === 'Couple With Children') && !isStringEmpty(partner))&& {partnerUsername: partner},
-            ...(selectedStatus === 'Existing Group') && {existingGroupUsernames: groupMembers.split(',').map(item => item.trim())},
+            status: selectedFamilyStatus,
+            ...((selectedFamilyStatus === 'Couple' || selectedFamilyStatus === 'Couple With Children') && !isStringEmpty(partner))&& {partnerUsername: partner},
+            ...(selectedFamilyStatus === 'Existing Group') && {existingGroupUsernames: groupMembers.split(',').map(item => item.trim())},
             minMonthlyBudget: minRent,
             maxMonthlyBudget: maxRent,
             hasHomeToShare: (hasHome === 'yes'),
@@ -315,8 +324,8 @@ function MemberRegistrationForm(props) {
                 <div className="md:col-span-1">
                     <div className="px-4 sm:px-0">
                         <h3 className="info-header">Personal Information</h3>
-                        <p className="info-text">
-                            This information is about you!
+                        <p className="info-text mr-10">
+                            This information is about you and is private. Home Together Canada will not share this information with anyone and will only be used for verification purposes.
                         </p>
                     </div>
                 </div>
@@ -380,7 +389,7 @@ function MemberRegistrationForm(props) {
                         <div className="px-4 sm:px-0">
                             <h3 className="info-header">Profile Details</h3>
                             <p className="info-text">
-                                This information is about your home-sharing preferences
+                                This information is about your home-sharing preferences and will be accessible by other members on the website.
                             </p>
                         </div>
                     </div>
@@ -423,8 +432,10 @@ function MemberRegistrationForm(props) {
                                         </div>
                                         <label className={"label"}> Status </label>
 
-                                        <Status onChange={handleStatusChange}/>
-                                        {checkStatus(selectedStatus)}
+                                        <WorkStatus onChange={handleWorkStatusChange}/>
+
+                                        <Status onChange={handleFamilyStatusChange}/>
+                                        {checkStatus(selectedFamilyStatus)}
 
                                         <label className={"label text-base "}> open to sharing with </label>
                                         <ShareLimit onChange={handleLimitChange}/>
@@ -555,6 +566,21 @@ function MemberRegistrationForm(props) {
                                                         onChange={e => setHomeDescription(e.target.value)}
                                                         value={homeDescription}
                                                     />}
+                                            </div>
+                                            <div className="column-span-6-layout">
+                                                <YNButton
+                                                    label="Interested in buying a home w/ others?"
+                                                    name="hasHome"
+                                                    checked={interestInBuyingHome==="no"}
+                                                    onChange={(e)=>setInterestInBuyingHome(e.target.value)}
+                                                />
+                                                {(interestInBuyingHome==="yes") &&
+                                                <TextArea
+                                                    className={"input"}
+                                                    placeholder="Elaborate"
+                                                    onChange={e => setInterestDescription(e.target.value)}
+                                                    value={interestDescription}
+                                                />}
                                             </div>
                                         </div>
                                         <div className={"mt-4"}>
