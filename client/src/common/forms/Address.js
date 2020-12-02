@@ -53,29 +53,30 @@ function Address(props) {
         })
     },[street, aptNum, city, province, postalCode]);
 
+    // Updated autoComplete based on: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
     return (
         <div>
             <label className="label">
                 {label}
-                <input className="input" type="text" name="street" placeholder="Address Line 1"
+                <input className="input" type="text" name="street" placeholder="Address Line 1" autoComplete="address-line1"
                        onChange={handleInputChange}/>
             </label>
             <label>
                 <input className="input" type="text" name="aptNum" placeholder="Address Line 2: Apt, suite, etc. (optional)"
-                       onChange={handleInputChange}/>
+                       autoComplete="address-line2" onChange={handleInputChange}/>
             </label>
             <label>
                 <input
                     className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
-                    type="text" name="city" placeholder="City" onChange={handleInputChange}/>
+                    type="text"  autoComplete="address-level2" name="city" placeholder="City" onChange={handleInputChange}/>
             </label>
             <Dropdown isSearchable={true} placeholder={"Province"}
-                    options={getProvinces()}
-                    onChange={address => setProvince(address.value)}/>
+                    options={getProvinces()} autoComplete="address-level1"
+                      onChange={address => setProvince(address.value)}/>
             <label>
                 <input
                     className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
-                    type="text" name="postalCode" placeholder="Postal Code"
+                    type="text" autoComplete="postal-code" name="postalCode" placeholder="Postal Code"
                     onChange={handleInputChange}/>
             </label>
         </div>

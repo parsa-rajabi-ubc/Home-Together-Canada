@@ -24,9 +24,10 @@ function BirthYear(props) {
         )
     }
     return (
+        // Updated autoComplete based on: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
         <div>
             <Dropdown isSearchable={true} placeholder={"Select the Year You Were Born"}
-                      options={YEARS}
+                      options={YEARS} autoComplete="bday-year"
                       onChange={onChange}/>
         </div>
 

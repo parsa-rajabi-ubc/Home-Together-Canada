@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
 
 function PhoneNumInput(props){
     const { label, labelClassName, className, onChange } = props;
+    // Updated autoComplete based on: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
     return(
         <div>
             <label className={labelClassName}>

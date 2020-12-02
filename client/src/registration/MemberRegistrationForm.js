@@ -336,18 +336,21 @@ function MemberRegistrationForm(props) {
                                 className={"input"}
                                 labelClassName={"label"}
                                 label="First Name"
+                                autoComplete={"given-name"}
                                 onChange={(e) => setFirstName(e.target.value)}
                             />
                             <TextArea
                                 className={"input"}
                                 labelClassName={"label"}
                                 label="Last Name"
+                                autoComplete={"family-name"}
                                 onChange={(e) => setLastName(e.target.value)}
                             />
                             <TextArea
                                 className="input"
                                 placeholder="personal@email.ca"
                                 label="Email"
+                                autoComplete={"email"}
                                 labelClassName={"label"}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
