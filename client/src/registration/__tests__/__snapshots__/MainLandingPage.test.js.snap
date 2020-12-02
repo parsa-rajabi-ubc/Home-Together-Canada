@@ -33,7 +33,7 @@ exports[`MainLandingPage Snapshot test should render correctly regardless of pro
               Free account registration
             </li>
             <li>
-              Create free Home Sharing listing
+              Create free Home Sharing listings
             </li>
             <li>
               Search and message other members
@@ -73,10 +73,10 @@ exports[`MainLandingPage Snapshot test should render correctly regardless of pro
               Free account registration
             </li>
             <li>
-              Create free service listing
+              Create free service listings
             </li>
             <li>
-              Create paid classified listing
+              Create paid classified listings
             </li>
             <li>
               Report any suspicious activity on the site
