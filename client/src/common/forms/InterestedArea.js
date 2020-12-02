@@ -51,32 +51,32 @@ function InterestedArea(props) {
         setExtraAreas(list);
     };
     useEffect(() => {
-        onChange({
+        onChange(
             extraAreas
-        })
+        )
     }, [extraAreas]);
     return(
         <div>
-            {extraAreas.map((x,i) =>{
+            {extraAreas.map((currentAreaValues,index) =>{
                 return(
-                    <div key={i}>
+                    <div key={index}>
                         <Dropdown isSearchable={true} placeholder={"Province"}
                                   name="province"
                                   options={getProvinces()}
-                                  onChange={e => handleAreaProvinceChange(e, i)}/>
-                                  <span>{x[i]}</span>
-                        {x.province &&
+                                  onChange={e => handleAreaProvinceChange(e, index)}/>
+                                  <span>{currentAreaValues[index]}</span>
+                        {currentAreaValues.province &&
                         <Dropdown isSearchable={true} placeholder={"City"}
                                   name="city"
-                                  options={getCities(x.province)}
-                                  onChange={e => handleAreaCityChange(e, i)}/>}
-                        {x.city && <Dropdown isSearchable={true} placeholder={"Radius"}
+                                  options={getCities(currentAreaValues.province)}
+                                  onChange={e => handleAreaCityChange(e, index)}/>}
+                        {currentAreaValues.city && <Dropdown isSearchable={true} placeholder={"Radius"}
                                                    name="radius"
                                                    options={radii}
-                                                   onChange={e => handleAreaRadiusChange(e, i)}/>}
+                                                   onChange={e => handleAreaRadiusChange(e, index)}/>}
                         <div>
-                            {extraAreas.length !== 1 && <Button label={""} value="Remove" onClick={()=>handleRemoveClick(i)}/> }
-                            {extraAreas.length - 1 === i && <Button label={""} value="Add" onClick={()=> {handleAddClick()}}/> }
+                            {extraAreas.length !== 1 && <Button label={""} value="Remove" onClick={()=>handleRemoveClick(index)}/> }
+                            {extraAreas.length - 1 === index && <Button label={""} value="Add" onClick={()=> {handleAddClick()}}/> }
                         </div>
 
                     </div>

@@ -283,7 +283,7 @@ function MemberRegistrationForm(props) {
             ...(smoking === 'yes') && {smokingDescription: smokingDescription},
             numRoommates: selectedLimit,
             bio: aboutSelf,
-            areasOfInterest: [areasOfInterest],
+            areasOfInterest: areasOfInterest,
         }
 
         console.log('registration data: ', registrationData);
