@@ -26,7 +26,7 @@ function MainLandingPage() {
                         <div className="mb-10 text-center">
                             <ul className="inline-block my-3 text-lg text-left list-disc list-inside">
                                 <li>Free account registration</li>
-                                <li>Create free Home Sharing listing</li>
+                                <li>Create free Home Sharing listings</li>
                                 <li>Search and message other members</li>
                                 <li>Report any suspicious activity on the site</li>
                             </ul>
@@ -47,8 +47,8 @@ function MainLandingPage() {
                         <div className="text-center">
                             <ul className="inline-block my-3 text-lg text-left list-disc list-inside">
                                 <li>Free account registration</li>
-                                <li>Create free service listing</li>
-                                <li>Create paid classified listing</li>
+                                <li>Create free service listings</li>
+                                <li>Create paid classified listings</li>
                                 <li>Report any suspicious activity on the site</li>
                             </ul>
                         </div>
