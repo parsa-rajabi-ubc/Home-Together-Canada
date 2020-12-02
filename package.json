@@ -38,6 +38,9 @@
     "setupFiles": [
       "<rootDir>/client/src/setupTests.js"
     ],
+    "transform": {
+      "\\.svg$": "<rootDir>/__mocks__/transformer.js"
+    },
     "projects": [
       {
         "displayName": "server",
