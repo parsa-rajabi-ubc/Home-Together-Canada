@@ -16,7 +16,7 @@ function BirthYear(props) {
     const currentYear = new Date().getFullYear();
     const YEARS = [];
 
-    for (let j = 0, i = currentYear - 16; i >= currentYear - 60; i--, j++) {
+    for (let j = 0, i = currentYear - 16; i >= currentYear - 100; i--, j++) {
         YEARS.push({
                 label: i,
                 value: i
