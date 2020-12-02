@@ -433,13 +433,6 @@ const BusinessRegistrationForm = (props) => {
                         </div>
 
                         <div className="column-span-6-layout">
-                            <TextArea className="input" placeholder="personal@email.ca"
-                                      label="Personal Email" labelClassName={"label"} onChange={(e) => {
-                                setBEmail(e.target.value)
-                            }}/>
-                        </div>
-
-                        <div className="column-span-6-layout">
                             <PhoneNumInput
                                 className="w-1/4 phone"
                                 labelClassName={"label"}
