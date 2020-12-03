@@ -297,16 +297,15 @@ exports.validate = (method) => {
                     .stripLow()
                     .custom(partnerUsername => usernameShouldExistAndBeAMember(partnerUsername))
                     .custom((partnerUsername, { req }) => linkedMemberShouldHaveSameStatus(partnerUsername, req)),
-                body('existingGroupUsernames', `A valid member's username must be provided for existing group members`)
+                body('existingGroupUsernames')
+                    .optional()
+                    .isArray(),
+                body('existingGroupUsernames.*')
                     .optional()
                     .trim()
                     .stripLow()
-                    .custom(existingGroupUsernames => existingGroupUsernames.forEach(username =>
-                       usernameShouldExistAndBeAMember(username)
-                    ))
-                    .custom((existingGroupUsernames, { req }) => existingGroupUsernames.forEach(username =>
-                        linkedMemberShouldHaveSameStatus(username, req)
-                    )),
+                    .custom(username => usernameShouldExistAndBeAMember(username))
+                    .custom((username, { req }) => linkedMemberShouldHaveSameStatus(username, req)),
                 body('areasOfInterest')
                     .exists()
                     .isArray()

@@ -1,7 +1,3 @@
-import React, {useState} from 'react';
-import propTypes from "prop-types";
-import Dropdown from "./Dropdown";
-
 /**
  * @Author:     Parsa Rajabi
  * @Created:    2020.11.23
@@ -10,6 +6,9 @@ import Dropdown from "./Dropdown";
  *
  */
 
+import React from 'react';
+import propTypes from "prop-types";
+import Dropdown from "./Dropdown";
 
 const statuses = [
     {
