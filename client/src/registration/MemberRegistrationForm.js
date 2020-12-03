@@ -92,11 +92,11 @@ function MemberRegistrationForm(props) {
     const [partner, setPartner] = useState("");
     const [groupMembers, setGroupMembers] = useState("");
 
-    const [areasOfInterest, setAreasOfInterest]  = useState({
+    const [areasOfInterest, setAreasOfInterest]  = useState([{
         province: "",
         city: "",
         radius: ""
-    });
+    }]);
 
     function checkStatus(selectedStatus) {
         if (selectedStatus === "Couple") {
@@ -283,7 +283,7 @@ function MemberRegistrationForm(props) {
             ...(smoking === 'yes') && {smokingDescription: smokingDescription},
             numRoommates: selectedLimit,
             bio: aboutSelf,
-            areasOfInterest: [areasOfInterest],
+            areasOfInterest: areasOfInterest,
         }
 
         console.log('registration data: ', registrationData);
