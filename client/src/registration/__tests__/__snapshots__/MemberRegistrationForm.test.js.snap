@@ -501,7 +501,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                           <div
                             className=" css-1d6d5xl-placeholder"
                           >
-                            Work Status
+                            Family Status
                           </div>
                           <div
                             className="css-b8ldur-Input"
@@ -591,6 +591,11 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                     </div>
                   </div>
                 </div>
+                <label
+                  className="label"
+                >
+                   Work Status 
+                </label>
                 <div>
                   <div>
                     <div
@@ -608,7 +613,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                           <div
                             className=" css-1d6d5xl-placeholder"
                           >
-                            Family Status
+                            Work Status
                           </div>
                           <div
                             className="css-b8ldur-Input"
@@ -871,38 +876,6 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                             <div
                               className="css-b8ldur-Input"
                             >
-<<<<<<< HEAD
-                              <input
-                                aria-autocomplete="list"
-                                autoCapitalize="none"
-                                autoComplete="off"
-                                autoCorrect="off"
-                                disabled={false}
-                                id="react-select-7-input"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                onFocus={[Function]}
-                                spellCheck="false"
-                                style={
-                                  Object {
-                                    "background": 0,
-                                    "border": 0,
-                                    "boxSizing": "content-box",
-                                    "color": "inherit",
-                                    "fontSize": "inherit",
-                                    "label": "input",
-                                    "opacity": 1,
-                                    "outline": 0,
-                                    "padding": 0,
-                                    "width": "1px",
-                                  }
-                                }
-                                tabIndex="0"
-                                type="text"
-                                value=""
-                              />
-=======
->>>>>>> 502c14354d65175ddd2dec7870892cdde8850fa1
                               <div
                                 className=""
                                 style={
@@ -917,7 +890,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                                   autoComplete="off"
                                   autoCorrect="off"
                                   disabled={false}
-                                  id="react-select-6-input"
+                                  id="react-select-7-input"
                                   onBlur={[Function]}
                                   onChange={[Function]}
                                   onFocus={[Function]}
