@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+- stable
+install:
+- npm install
+- cd client
+- npm install
+- cd ..
+script: npm test
+deploy:
+  provider: heroku
+  on:
+    repo: rachellegelden/Home-Together-Canada
+    branch: dev
+  api_key:
+    secure: vI2UvQEiZRVamoczPc0z+mOknCb2d/At2WlL5jTgMoCcuKJQPSQFnvt2NdW3WU8ra17FdtR+I0hSpFM5u567bD5LMJgnawkhfhdZmGYoAnCunDS8hiEcBof/v7cGi30HF02FTHL7BRO11LRQsj+pz/N1Koir8BRWIpepEfNwtsT3S3mUM5YBhIwFCU3mrYiNZ1lMx+t37Njd3NxOJFEZJ0JXrXM2pHHaAOxALGZ8icrR6Nt36dAxXkwawGp4PITu7Fnuu7wDIRzU0exdDRyOy8dM3IBGlH+ozkESZ/d5pgAntKhiTn6j5dZL/nbNHo288w4vZUpCoML9zdO9hfXzQpYd8Gtzl3+XhSI3qIII02QPmbMXxOmUt87JG35byjujmFjjf33r5XB5sw4zE9GTS/yevc/rH+FlBMv1pG4F8s8TKG6ixYtTzEociKQyuzIwYjgDqalnNXgrFQqH/jdKIaHIG3ph95sKXL6fCYfPBCEu6iL63zMRCrZxFeQKkd2iW3NziwHK61GcMWQUyD5MNZENjT+HU5YXSoSii39cinDlJsuZC+6dnKR3HeYuOB0XTAmD7q1q3KhDGKiAtcvgmgqZojNccTgPRxgAWSok/sz0REDQ+/rR+NpsjUWvHbEDJ87K8lZMTlODPKaBt8fgOeckPAfcEjC2b+PaMASZDKY=
+  app: home-together-canada
+notifications:
+  slack: cosc-499-2020:OxD2XZKUV8nVB5gWyUy5Z6gY

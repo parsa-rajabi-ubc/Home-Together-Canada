@@ -1,0 +1,64 @@
+@import "../home/Home.css";
+@import "../common/error/Error404.css";
+@import "../login/LoginForm.css";
+@import "../registration/BusinessRegistrationForm.css";
+
+.btn {
+    @apply items-center justify-center w-full px-8 py-3 text-lg text-white transition duration-150 ease-in-out border border-transparent rounded-md;
+}
+
+.btn:hover {
+    @apply cursor-pointer;
+}
+
+.btn:active {
+    @apply bg-green-600;
+}
+
+.btn:focus {
+    @apply shadow-outline outline-none;
+}
+
+.btn-green {
+    @apply bg-igreen-normal;
+}
+
+.btn-green:hover {
+    @apply bg-igreen-dark;
+}
+
+.btn-green:active {
+    @apply bg-green-600;
+}
+
+.btn-red {
+    @apply bg-ired-normal;
+}
+
+.btn-red:hover {
+    @apply bg-ired-dark;
+}
+
+.btn-red:active {
+    @apply bg-red-600;
+}
+
+.btn-blue {
+    @apply bg-iblue-normal;
+}
+
+.btn-blue:hover {
+    @apply bg-iblue-dark;
+}
+
+.btn-blue:active {
+    @apply bg-blue-600;
+}
+
+.input {
+    @apply block w-full px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;
+}
+
+.input:focus {
+    @apply outline-none shadow-outline;
+}

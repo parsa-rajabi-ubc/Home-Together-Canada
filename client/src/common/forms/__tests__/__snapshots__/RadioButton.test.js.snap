@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioButton Snapshot test should render correctly regardless of properties 1`] = `
+<label
+  className="text-base text-gray-700 pr-8"
+>
+  <input
+    className="form-radio mt-2 ml-2 mr-1 mb-4"
+    name="testLabelString2"
+    onChange={[MockFunction]}
+    type="radio"
+    value="testValue"
+  />
+  testLabelString1
+</label>
+`;

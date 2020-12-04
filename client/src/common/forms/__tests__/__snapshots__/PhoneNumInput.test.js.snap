@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PhoneNumInput Snapshot test should render correctly regardless of properties 1`] = `
+<div>
+  <label>
+    testLabelString1
+    <br />
+    <input
+      maxLength="3"
+      name="first"
+      onChange={[MockFunction]}
+      placeholder="222"
+      type="text"
+    />
+  </label>
+  <label>
+    <input
+      maxLength="3"
+      name="middle"
+      onChange={[MockFunction]}
+      placeholder="333"
+      type="text"
+    />
+  </label>
+  <label>
+    <input
+      maxLength="4"
+      name="last"
+      onChange={[MockFunction]}
+      placeholder="4444"
+      type="text"
+    />
+  </label>
+</div>
+`;

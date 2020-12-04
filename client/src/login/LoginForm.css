@@ -1,0 +1,10 @@
+.link {
+    @apply block my-2 text-iblue-normal text-base;
+}
+
+.link:hover{
+    @apply underline;
+}
+.h1 {
+    @apply mb-4 text-2xl font-semibold text-gray-900;
+}

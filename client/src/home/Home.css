@@ -1,0 +1,49 @@
+.header-home {
+    @apply w-full my-2 text-5xl font-bold leading-tight text-center text-gray-900;
+}
+
+.text-home {
+    @apply my-3 text-base text-2xl text-gray-700;
+}
+
+.gradient {
+    @apply bg-gradient-to-r from-igreen-normal to-iyellow-normal;
+}
+
+.underline-red {
+    text-decoration-color: #F4B400;
+    text-decoration: underline;
+}
+
+@screen xl {
+
+}
+@screen lg {
+    .text-home {
+        @apply mx-0;
+    }
+}
+
+@screen md {
+    .btn {
+        @apply flex px-10 py-4 text-sm;
+    }
+
+    .text-home {
+        @apply mt-5 text-xl;
+    }
+
+    .header-home {
+        @apply text-6xl;
+    }
+}
+
+@screen sm {
+    .text-home {
+        @apply max-w-xl mt-5 mr-auto text-lg;
+    }
+
+    .header-home {
+        @apply text-5xl leading-none;
+    }
+}

@@ -1,0 +1,747 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BusinessRegistrationForm Snapshot test should render correctly regardless of properties 1`] = `
+<div>
+  <div>
+    <div
+      className="m-10 md:grid md:grid-cols-4 md:gap-0"
+    >
+      <div
+        className="md:col-span-1"
+      >
+        <div
+          className="px-3 sm:px-0"
+        >
+          <h3
+            className="info-header"
+          >
+            Business Details
+          </h3>
+          <p
+            className="info-text"
+          >
+            This information is about your business.
+          </p>
+        </div>
+      </div>
+      <div
+        className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6"
+      >
+        <div
+          className="grid grid-cols-2 gap-6"
+        >
+          <div
+            className="col-span-3 sm:col-span-2"
+          >
+            <label
+              className="label"
+            >
+              Business Name
+              <input
+                className="mb-0 input"
+                disabled={false}
+                onChange={[Function]}
+                placeholder=""
+                type="text"
+              />
+            </label>
+            <span
+              className="info-detail"
+            >
+              Select incorporated business if your business is Inc.
+            </span>
+            <label
+              className="block label mt-0 "
+            >
+              <input
+                className=" align-middle mr-2 my-4 font-medium text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              Incorporated Business
+            </label>
+            <label
+              className="label"
+            >
+              Business Email
+              <input
+                className="input"
+                disabled={false}
+                onChange={[Function]}
+                placeholder="business@email.ca"
+                type="text"
+              />
+            </label>
+            <label
+              className="label"
+            >
+              Business Website
+              <input
+                className="input"
+                disabled={false}
+                onChange={[Function]}
+                placeholder="http://www.your-website.com"
+                type="text"
+              />
+            </label>
+            <div>
+              <label
+                className="label "
+              >
+                Business Phone Number
+                <br />
+                <input
+                  className="phone"
+                  maxLength="3"
+                  name="first"
+                  onChange={[Function]}
+                  placeholder="222"
+                  type="text"
+                />
+              </label>
+              <label>
+                <input
+                  className="phone"
+                  maxLength="3"
+                  name="middle"
+                  onChange={[Function]}
+                  placeholder="333"
+                  type="text"
+                />
+              </label>
+              <label>
+                <input
+                  className="phone"
+                  maxLength="4"
+                  name="last"
+                  onChange={[Function]}
+                  placeholder="4444"
+                  type="text"
+                />
+              </label>
+            </div>
+            <div>
+              <label
+                className="label"
+              >
+                Business Cell Number
+                <br />
+                <input
+                  className="phone"
+                  maxLength="3"
+                  name="first"
+                  onChange={[Function]}
+                  placeholder="222"
+                  type="text"
+                />
+              </label>
+              <label>
+                <input
+                  className="phone"
+                  maxLength="3"
+                  name="middle"
+                  onChange={[Function]}
+                  placeholder="333"
+                  type="text"
+                />
+              </label>
+              <label>
+                <input
+                  className="phone"
+                  maxLength="4"
+                  name="last"
+                  onChange={[Function]}
+                  placeholder="4444"
+                  type="text"
+                />
+              </label>
+            </div>
+            <div>
+              <label
+                className="label"
+              >
+                Business Address
+                <input
+                  className="input"
+                  name="street"
+                  onChange={[Function]}
+                  placeholder="Address Line 1"
+                  type="text"
+                />
+              </label>
+              <label>
+                <input
+                  className="input"
+                  name="aptNum"
+                  onChange={[Function]}
+                  placeholder="Address Line 2: Apt, suite, etc. (optional)"
+                  type="text"
+                />
+              </label>
+              <label>
+                <input
+                  className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
+                  name="city"
+                  onChange={[Function]}
+                  placeholder="City"
+                  type="text"
+                />
+              </label>
+              <div>
+                <div
+                  className=" css-2b097c-container"
+                  onKeyDown={[Function]}
+                >
+                  <div
+                    className=" css-d7dxyn-control"
+                    onMouseDown={[Function]}
+                    onTouchEnd={[Function]}
+                  >
+                    <div
+                      className=" css-g1d714-ValueContainer"
+                    >
+                      <div
+                        className=" css-1d6d5xl-placeholder"
+                      >
+                        Province
+                      </div>
+                      <div
+                        className="css-b8ldur-Input"
+                      >
+                        <div
+                          className=""
+                          style={
+                            Object {
+                              "display": "inline-block",
+                            }
+                          }
+                        >
+                          <input
+                            aria-autocomplete="list"
+                            autoCapitalize="none"
+                            autoComplete="off"
+                            autoCorrect="off"
+                            disabled={false}
+                            id="react-select-2-input"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            spellCheck="false"
+                            style={
+                              Object {
+                                "background": 0,
+                                "border": 0,
+                                "boxSizing": "content-box",
+                                "color": "inherit",
+                                "fontSize": "inherit",
+                                "label": "input",
+                                "opacity": 1,
+                                "outline": 0,
+                                "padding": 0,
+                                "width": "1px",
+                              }
+                            }
+                            tabIndex="0"
+                            type="text"
+                            value=""
+                          />
+                          <div
+                            style={
+                              Object {
+                                "height": 0,
+                                "left": 0,
+                                "overflow": "scroll",
+                                "position": "absolute",
+                                "top": 0,
+                                "visibility": "hidden",
+                                "whiteSpace": "pre",
+                              }
+                            }
+                          >
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className=" css-1hb7zxy-IndicatorsContainer"
+                    >
+                      <span
+                        className=" css-1okebmr-indicatorSeparator"
+                      />
+                      <div
+                        aria-hidden="true"
+                        className=" css-tlfecz-indicatorContainer"
+                        onMouseDown={[Function]}
+                        onTouchEnd={[Function]}
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="css-6q0nyr-Svg"
+                          focusable="false"
+                          height={20}
+                          viewBox="0 0 20 20"
+                          width={20}
+                        >
+                          <path
+                            d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <label>
+                <input
+                  className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
+                  name="postalCode"
+                  onChange={[Function]}
+                  placeholder="Postal Code"
+                  type="text"
+                />
+              </label>
+            </div>
+            <span
+              className="info-detail"
+            >
+              Select different mailing address if it differs from the address above:
+            </span>
+            <label
+              className="block label mt-0 "
+            >
+              <input
+                className=" align-middle mr-2 my-4 font-medium text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              Different Mailing Address
+            </label>
+            <span
+              className="info-detail"
+            >
+              Select nation-wide if your service spans across Canada:
+            </span>
+            <label
+              className="block label mt-0 "
+            >
+              <input
+                className=" align-middle mr-2 my-4 font-medium text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              Nation-wide 
+            </label>
+            <div>
+              <label
+                className="label"
+              >
+                Searchable Address
+                <input
+                  className="input"
+                  name="street"
+                  onChange={[Function]}
+                  placeholder="Address Line 1"
+                  type="text"
+                />
+              </label>
+              <label>
+                <input
+                  className="input"
+                  name="aptNum"
+                  onChange={[Function]}
+                  placeholder="Address Line 2: Apt, suite, etc. (optional)"
+                  type="text"
+                />
+              </label>
+              <label>
+                <input
+                  className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
+                  name="city"
+                  onChange={[Function]}
+                  placeholder="City"
+                  type="text"
+                />
+              </label>
+              <div>
+                <div
+                  className=" css-2b097c-container"
+                  onKeyDown={[Function]}
+                >
+                  <div
+                    className=" css-d7dxyn-control"
+                    onMouseDown={[Function]}
+                    onTouchEnd={[Function]}
+                  >
+                    <div
+                      className=" css-g1d714-ValueContainer"
+                    >
+                      <div
+                        className=" css-1d6d5xl-placeholder"
+                      >
+                        Province
+                      </div>
+                      <div
+                        className="css-b8ldur-Input"
+                      >
+                        <div
+                          className=""
+                          style={
+                            Object {
+                              "display": "inline-block",
+                            }
+                          }
+                        >
+                          <input
+                            aria-autocomplete="list"
+                            autoCapitalize="none"
+                            autoComplete="off"
+                            autoCorrect="off"
+                            disabled={false}
+                            id="react-select-3-input"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            spellCheck="false"
+                            style={
+                              Object {
+                                "background": 0,
+                                "border": 0,
+                                "boxSizing": "content-box",
+                                "color": "inherit",
+                                "fontSize": "inherit",
+                                "label": "input",
+                                "opacity": 1,
+                                "outline": 0,
+                                "padding": 0,
+                                "width": "1px",
+                              }
+                            }
+                            tabIndex="0"
+                            type="text"
+                            value=""
+                          />
+                          <div
+                            style={
+                              Object {
+                                "height": 0,
+                                "left": 0,
+                                "overflow": "scroll",
+                                "position": "absolute",
+                                "top": 0,
+                                "visibility": "hidden",
+                                "whiteSpace": "pre",
+                              }
+                            }
+                          >
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className=" css-1hb7zxy-IndicatorsContainer"
+                    >
+                      <span
+                        className=" css-1okebmr-indicatorSeparator"
+                      />
+                      <div
+                        aria-hidden="true"
+                        className=" css-tlfecz-indicatorContainer"
+                        onMouseDown={[Function]}
+                        onTouchEnd={[Function]}
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="css-6q0nyr-Svg"
+                          focusable="false"
+                          height={20}
+                          viewBox="0 0 20 20"
+                          width={20}
+                        >
+                          <path
+                            d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <label>
+                <input
+                  className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
+                  name="postalCode"
+                  onChange={[Function]}
+                  placeholder="Postal Code"
+                  type="text"
+                />
+              </label>
+            </div>
+          </div>
+        </div>
+        <label
+          className="label"
+        >
+          Business Logo
+        </label>
+        <div
+          className="flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md"
+        >
+          <div
+            className="space-y-1 text-center"
+          >
+            <svg
+              aria-hidden="true"
+              className="w-12 h-12 mx-auto text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 48 48"
+            >
+              <path
+                d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+              />
+            </svg>
+            <p
+              className="info-text"
+            >
+              <label>
+                
+                <input
+                  className="font-medium text-indigo-600 bg-white rounded-md hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  type="button"
+                  value="Upload a file"
+                />
+              </label>
+            </p>
+            <p
+              className="text-xs text-gray-500"
+            >
+              PNG or JPG up to 10MB
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="border-divider"
+  />
+  <div
+    className="mt-10 sm:mt-0 m-10 md:grid md:grid-cols-4 md:gap-6"
+  >
+    <div
+      className="md:col-span-1"
+    >
+      <div
+        className="px-4 sm:px-0"
+      >
+        <h3
+          className="info-header"
+        >
+          Contact Person
+        </h3>
+        <p
+          className="info-text"
+        >
+          This information is about the contact person for the business.
+        </p>
+      </div>
+    </div>
+    <div
+      className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6"
+    >
+      <div
+        className="grid grid-cols-6 gap-x-6"
+      >
+        <div
+          className="column-span-6-layout"
+        >
+          <label
+            className="label"
+          >
+            First Name
+            <input
+              className="input"
+              disabled={false}
+              onChange={[Function]}
+              type="text"
+            />
+          </label>
+        </div>
+        <div
+          className="column-span-6-layout"
+        >
+          <label
+            className="label"
+          >
+            Last Name
+            <input
+              className="input"
+              disabled={false}
+              onChange={[Function]}
+              type="text"
+            />
+          </label>
+        </div>
+        <div
+          className="column-span-6-layout"
+        >
+          <label
+            className="label"
+          >
+            Personal Email
+            <input
+              className="input"
+              disabled={false}
+              onChange={[Function]}
+              placeholder="personal@email.ca"
+              type="text"
+            />
+          </label>
+        </div>
+        <div
+          className="column-span-6-layout"
+        >
+          <div>
+            <label
+              className="label"
+            >
+              Personal Phone Number
+              <br />
+              <input
+                className="w-1/4 phone"
+                maxLength="3"
+                name="first"
+                onChange={[Function]}
+                placeholder="222"
+                type="text"
+              />
+            </label>
+            <label>
+              <input
+                className="w-1/4 phone"
+                maxLength="3"
+                name="middle"
+                onChange={[Function]}
+                placeholder="333"
+                type="text"
+              />
+            </label>
+            <label>
+              <input
+                className="w-1/4 phone"
+                maxLength="4"
+                name="last"
+                onChange={[Function]}
+                placeholder="4444"
+                type="text"
+              />
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="border-divider"
+  />
+  <div
+    className="mt-10 sm:mt-0"
+  >
+    <div
+      className="m-10 md:grid md:grid-cols-4 md:gap-6"
+    >
+      <div
+        className="md:col-span-1"
+      >
+        <div
+          className="px-4 sm:px-0"
+        >
+          <h3
+            className="info-header"
+          >
+            Account Details
+          </h3>
+          <p
+            className="info-text"
+          >
+            This information is to set up and access your account.
+          </p>
+        </div>
+      </div>
+      <div
+        className="mt-5 md:mt-0 md:col-span-2"
+      >
+        <div
+          className="overflow-hidden shadow sm:rounded-md"
+        >
+          <div
+            className="px-4 py-6 bg-white sm:p-5"
+          >
+            <div
+              className="grid grid-cols-2 gap-6"
+            >
+              <div
+                className="col-span-3 sm:col-span-2"
+              >
+                <div>
+                  <label
+                    className="label"
+                  >
+                    Username:
+                    <input
+                      className="input"
+                      onChange={[Function]}
+                      placeholder=""
+                      type="text"
+                    />
+                  </label>
+                  <label
+                    className="label"
+                  >
+                    Password:
+                    <input
+                      className="input"
+                      onChange={[Function]}
+                      placeholder=""
+                      type="password"
+                    />
+                  </label>
+                  <label
+                    className="label"
+                  >
+                    Confirm Password:
+                    <input
+                      className="input"
+                      onChange={[Function]}
+                      placeholder=""
+                      type="password"
+                    />
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6"
+        >
+          <label>
+            
+            <input
+              className="text-base btn btn-green"
+              onClick={[Function]}
+              type="submit"
+              value="Create Account"
+            />
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

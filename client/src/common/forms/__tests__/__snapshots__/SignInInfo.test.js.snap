@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
+<div>
+  <label
+    className="label"
+  >
+    Username:
+    <input
+      className="input"
+      onChange={[MockFunction]}
+      placeholder=""
+      type="text"
+    />
+  </label>
+  <label
+    className="label"
+  >
+    Password:
+    <input
+      className="input"
+      onChange={[MockFunction]}
+      placeholder=""
+      type="password"
+    />
+  </label>
+  <label
+    className="label"
+  >
+    Confirm Password:
+    <input
+      className="input"
+      onChange={[MockFunction]}
+      placeholder=""
+      type="password"
+    />
+  </label>
+</div>
+`;
