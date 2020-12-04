@@ -103,8 +103,8 @@ function MemberRegistrationForm(props) {
         radius: ""
     }]);
 
-    function checkStatus(selectedStatus) {
-        if (selectedStatus === "Couple") {
+    function checkStatus(selectedFamilyStatus) {
+        if (selectedFamilyStatus === "Couple") {
             return <TextArea
                 className={"input"}
                 labelClassName={"label"}
@@ -112,7 +112,7 @@ function MemberRegistrationForm(props) {
                 onChange={(e) => setPartner(e.target.value)}
                 value={partner}
             />
-        } else if (selectedStatus === "Couple With Children") {
+        } else if (selectedFamilyStatus === "Couple With Children") {
             return <TextArea
                 className={"input"}
                 labelClassName={"label"}
@@ -120,7 +120,7 @@ function MemberRegistrationForm(props) {
                 onChange={(e) => setPartner(e.target.value)}
                 value={partner}
             />
-        } else if (selectedStatus === "Existing Group") {
+        } else if (selectedFamilyStatus === "Existing Group") {
             return <TextArea
                 className={"input"}
                 labelClassName={"label"}
@@ -271,10 +271,10 @@ function MemberRegistrationForm(props) {
             gender: gender,
             ...(gender === 'Other') && {genderDescription: gender},
             birthYear: yearOfBirth,
-            status: selectedStatus,
-            ...((selectedStatus === 'Couple' || selectedStatus === 'Couple With Children') && !isStringEmpty(partner))
+            status: selectedFamilyStatus,
+            ...((selectedFamilyStatus === 'Couple' || selectedFamilyStatus === 'Couple With Children') && !isStringEmpty(partner))
                 && {partnerUsername: partner},
-            ...(selectedStatus === 'Existing Group' && !isStringEmpty(groupMembers))
+            ...(selectedFamilyStatus === 'Existing Group' && !isStringEmpty(groupMembers))
                 && {existingGroupUsernames: groupMembers.split(',').map(item => item.trim())},
             minMonthlyBudget: minRent,
             maxMonthlyBudget: maxRent,
@@ -436,11 +436,11 @@ function MemberRegistrationForm(props) {
                                             />}
                                         </div>
                                         <label className={"label"}> Status </label>
-
-                                        <WorkStatus onChange={handleWorkStatusChange}/>
-
                                         <Status onChange={handleFamilyStatusChange}/>
                                         {checkStatus(selectedFamilyStatus)}
+
+                                        <label className={"label"}> Work Status </label>
+                                        <WorkStatus onChange={handleWorkStatusChange}/>
 
                                         <label className={"label text-base "}> open to sharing with </label>
                                         <ShareLimit onChange={handleLimitChange}/>
