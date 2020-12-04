@@ -24,6 +24,7 @@ import InterestedArea from "../common/forms/InterestedArea";
 import YNButton from "../common/forms/YNButtons";
 import LargeTextArea from "../common/forms/LargeTextArea";
 import PropTypes from "prop-types";
+import WorkStatus from "../common/forms/WorkStatus";
 
 //Returns a Form with fields
 function MemberRegistrationForm(props) {
@@ -80,6 +81,9 @@ function MemberRegistrationForm(props) {
     const [hasHome, setHasHome] = useState("");
     const [homeDescription, setHomeDescription] = useState("");
 
+    const [interestInBuyingHome, setInterestInBuyingHome] = useState("");
+    const [interestDescription, setInterestDescription] = useState("");
+
     const [minRent, setMinRent] = useState("00.00");
     const [maxRent, setMaxRent] = useState("00.00");
 
@@ -87,7 +91,8 @@ function MemberRegistrationForm(props) {
 
     const [selectedLimit, setsSelectedLimit] = useState(null);
 
-    const [selectedStatus, setsSelectedStatus] = useState();
+    const [selectedFamilyStatus, setsSelectedFamilyStatus] = useState();
+    const [selectedWorkStatus, setsSelectedWorkStatus] = useState();
 
     const [partner, setPartner] = useState("");
     const [groupMembers, setGroupMembers] = useState("");
@@ -98,8 +103,8 @@ function MemberRegistrationForm(props) {
         radius: ""
     }]);
 
-    function checkStatus(selectedStatus) {
-        if (selectedStatus === "Couple") {
+    function checkStatus(selectedFamilyStatus) {
+        if (selectedFamilyStatus === "Couple") {
             return <TextArea
                 className={"input"}
                 labelClassName={"label"}
@@ -107,7 +112,7 @@ function MemberRegistrationForm(props) {
                 onChange={(e) => setPartner(e.target.value)}
                 value={partner}
             />
-        } else if (selectedStatus === "Couple With Children") {
+        } else if (selectedFamilyStatus === "Couple With Children") {
             return <TextArea
                 className={"input"}
                 labelClassName={"label"}
@@ -115,7 +120,7 @@ function MemberRegistrationForm(props) {
                 onChange={(e) => setPartner(e.target.value)}
                 value={partner}
             />
-        } else if (selectedStatus === "Existing Group") {
+        } else if (selectedFamilyStatus === "Existing Group") {
             return <TextArea
                 className={"input"}
                 labelClassName={"label"}
@@ -127,8 +132,12 @@ function MemberRegistrationForm(props) {
 
     }
 
-    const handleStatusChange = e => {
-        setsSelectedStatus(e.value);
+    const handleFamilyStatusChange = e => {
+        setsSelectedFamilyStatus(e.value);
+    }
+
+    const handleWorkStatusChange = e => {
+        setsSelectedWorkStatus(e.value);
     }
 
     const handleLimitChange = e => {
@@ -262,10 +271,10 @@ function MemberRegistrationForm(props) {
             gender: gender,
             ...(gender === 'Other') && {genderDescription: gender},
             birthYear: yearOfBirth,
-            status: selectedStatus,
-            ...((selectedStatus === 'Couple' || selectedStatus === 'Couple With Children') && !isStringEmpty(partner))
+            status: selectedFamilyStatus,
+            ...((selectedFamilyStatus === 'Couple' || selectedFamilyStatus === 'Couple With Children') && !isStringEmpty(partner))
                 && {partnerUsername: partner},
-            ...(selectedStatus === 'Existing Group' && !isStringEmpty(groupMembers))
+            ...(selectedFamilyStatus === 'Existing Group' && !isStringEmpty(groupMembers))
                 && {existingGroupUsernames: groupMembers.split(',').map(item => item.trim())},
             minMonthlyBudget: minRent,
             maxMonthlyBudget: maxRent,
@@ -317,8 +326,8 @@ function MemberRegistrationForm(props) {
                 <div className="md:col-span-1">
                     <div className="px-4 sm:px-0">
                         <h3 className="info-header">Personal Information</h3>
-                        <p className="info-text">
-                            This information is about you!
+                        <p className="info-text mr-10">
+                            This information is about you and is private. Home Together Canada will not share this information with anyone and will only be used for verification purposes.
                         </p>
                     </div>
                 </div>
@@ -329,18 +338,21 @@ function MemberRegistrationForm(props) {
                                 className={"input"}
                                 labelClassName={"label"}
                                 label="First Name"
+                                autoComplete={"given-name"}
                                 onChange={(e) => setFirstName(e.target.value)}
                             />
                             <TextArea
                                 className={"input"}
                                 labelClassName={"label"}
                                 label="Last Name"
+                                autoComplete={"family-name"}
                                 onChange={(e) => setLastName(e.target.value)}
                             />
                             <TextArea
                                 className="input"
                                 placeholder="personal@email.ca"
                                 label="Email"
+                                autoComplete={"email"}
                                 labelClassName={"label"}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
@@ -382,7 +394,7 @@ function MemberRegistrationForm(props) {
                         <div className="px-4 sm:px-0">
                             <h3 className="info-header">Profile Details</h3>
                             <p className="info-text">
-                                This information is about your home-sharing preferences
+                                This information is about your home-sharing preferences and will be accessible by other members on the website.
                             </p>
                         </div>
                     </div>
@@ -424,9 +436,11 @@ function MemberRegistrationForm(props) {
                                             />}
                                         </div>
                                         <label className={"label"}> Status </label>
+                                        <Status onChange={handleFamilyStatusChange}/>
+                                        {checkStatus(selectedFamilyStatus)}
 
-                                        <Status onChange={handleStatusChange}/>
-                                        {checkStatus(selectedStatus)}
+                                        <label className={"label"}> Work Status </label>
+                                        <WorkStatus onChange={handleWorkStatusChange}/>
 
                                         <label className={"label text-base "}> open to sharing with </label>
                                         <ShareLimit onChange={handleLimitChange}/>
@@ -557,6 +571,21 @@ function MemberRegistrationForm(props) {
                                                         onChange={e => setHomeDescription(e.target.value)}
                                                         value={homeDescription}
                                                     />}
+                                            </div>
+                                            <div className="column-span-6-layout">
+                                                <YNButton
+                                                    label="Interested in buying a home w/ others?"
+                                                    name="hasHome"
+                                                    checked={interestInBuyingHome==="no"}
+                                                    onChange={(e)=>setInterestInBuyingHome(e.target.value)}
+                                                />
+                                                {(interestInBuyingHome==="yes") &&
+                                                <TextArea
+                                                    className={"input"}
+                                                    placeholder="Elaborate"
+                                                    onChange={e => setInterestDescription(e.target.value)}
+                                                    value={interestDescription}
+                                                />}
                                             </div>
                                         </div>
                                         <div className={"mt-4"}>

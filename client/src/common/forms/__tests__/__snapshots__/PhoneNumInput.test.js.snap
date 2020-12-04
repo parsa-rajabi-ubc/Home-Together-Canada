@@ -6,6 +6,7 @@ exports[`PhoneNumInput Snapshot test should render correctly regardless of prope
     testLabelString1
     <br />
     <input
+      autoComplete="tel-area-code"
       maxLength="3"
       name="first"
       onChange={[MockFunction]}
@@ -15,6 +16,7 @@ exports[`PhoneNumInput Snapshot test should render correctly regardless of prope
   </label>
   <label>
     <input
+      autoComplete="tel-local-prefix"
       maxLength="3"
       name="middle"
       onChange={[MockFunction]}
@@ -24,6 +26,7 @@ exports[`PhoneNumInput Snapshot test should render correctly regardless of prope
   </label>
   <label>
     <input
+      autoComplete="tel-local-suffix"
       maxLength="4"
       name="last"
       onChange={[MockFunction]}

@@ -7,6 +7,7 @@ exports[`Address Snapshot test should render correctly regardless of properties 
   >
     testLabelString1
     <input
+      autoComplete="address-line1"
       className="input"
       name="street"
       onChange={[Function]}
@@ -16,6 +17,7 @@ exports[`Address Snapshot test should render correctly regardless of properties 
   </label>
   <label>
     <input
+      autoComplete="address-line2"
       className="input"
       name="aptNum"
       onChange={[Function]}
@@ -25,6 +27,7 @@ exports[`Address Snapshot test should render correctly regardless of properties 
   </label>
   <label>
     <input
+      autoComplete="address-level2"
       className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
       name="city"
       onChange={[Function]}
@@ -139,6 +142,7 @@ exports[`Address Snapshot test should render correctly regardless of properties 
   </div>
   <label>
     <input
+      autoComplete="postal-code"
       className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
       name="postalCode"
       onChange={[Function]}

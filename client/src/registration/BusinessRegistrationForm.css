@@ -11,7 +11,7 @@
 }
 
 .info-text {
-    @apply mt-1 text-base text-gray-600;
+    @apply mt-5 text-base text-gray-600;
 }
 
 .info-detail {

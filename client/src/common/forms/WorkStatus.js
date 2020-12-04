@@ -6,8 +6,10 @@
  *
  */
 
-import React, { useState } from 'react';
-import Select from "react-select";
+import React from 'react';
+import propTypes from "prop-types";
+import Dropdown from "./Dropdown";
+import Status from "./Status";
 
 const workStatuses = [
     {
@@ -35,25 +37,28 @@ const workStatuses = [
         value: "Retired"
     },
     {
+        label: "Semi-retired",
+        value: "Semi-retired"
+    },
+    {
         label: "Other",
         value: "Other"
     }
 ]
 
-function WorkStatus() {
-    const [selectedWorkStatus, setsSelectedWorkStatus] = useState(null);
-
-    const handleStatusChange = e => {
-        setsSelectedWorkStatus(e.value);
-    }
+function WorkStatus(props) {
+    const {onChange} = props;
 
     return (
         <div>
-            <Select isSearchable={true} placeholder={"Work Status"}
-                    options={workStatuses} value={workStatuses.find(obj => obj.value === setsSelectedWorkStatus)}
-                    onChange={handleStatusChange}/>
+            <Dropdown isSearchable={true} placeholder={"Work Status"}
+                      options={workStatuses}
+                      onChange={onChange}/>
         </div>
     )
-
 }
+
+WorkStatus.propTypes = {
+    onChange: propTypes.func
+};
 export default WorkStatus;
