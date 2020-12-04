@@ -97,11 +97,11 @@ function MemberRegistrationForm(props) {
     const [partner, setPartner] = useState("");
     const [groupMembers, setGroupMembers] = useState("");
 
-    const [areasOfInterest, setAreasOfInterest]  = useState({
+    const [areasOfInterest, setAreasOfInterest]  = useState([{
         province: "",
         city: "",
         radius: ""
-    });
+    }]);
 
     function checkStatus(selectedStatus) {
         if (selectedStatus === "Couple") {
@@ -271,9 +271,11 @@ function MemberRegistrationForm(props) {
             gender: gender,
             ...(gender === 'Other') && {genderDescription: gender},
             birthYear: yearOfBirth,
-            status: selectedFamilyStatus,
-            ...((selectedFamilyStatus === 'Couple' || selectedFamilyStatus === 'Couple With Children') && !isStringEmpty(partner))&& {partnerUsername: partner},
-            ...(selectedFamilyStatus === 'Existing Group') && {existingGroupUsernames: groupMembers.split(',').map(item => item.trim())},
+            status: selectedStatus,
+            ...((selectedStatus === 'Couple' || selectedStatus === 'Couple With Children') && !isStringEmpty(partner))
+                && {partnerUsername: partner},
+            ...(selectedStatus === 'Existing Group' && !isStringEmpty(groupMembers))
+                && {existingGroupUsernames: groupMembers.split(',').map(item => item.trim())},
             minMonthlyBudget: minRent,
             maxMonthlyBudget: maxRent,
             hasHomeToShare: (hasHome === 'yes'),
@@ -292,7 +294,7 @@ function MemberRegistrationForm(props) {
             ...(smoking === 'yes') && {smokingDescription: smokingDescription},
             numRoommates: selectedLimit,
             bio: aboutSelf,
-            areasOfInterest: [areasOfInterest],
+            areasOfInterest: areasOfInterest,
         }
 
         console.log('registration data: ', registrationData);
