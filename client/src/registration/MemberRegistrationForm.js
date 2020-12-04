@@ -263,8 +263,10 @@ function MemberRegistrationForm(props) {
             ...(gender === 'Other') && {genderDescription: gender},
             birthYear: yearOfBirth,
             status: selectedStatus,
-            ...((selectedStatus === 'Couple' || selectedStatus === 'Couple With Children') && !isStringEmpty(partner))&& {partnerUsername: partner},
-            ...(selectedStatus === 'Existing Group') && {existingGroupUsernames: groupMembers.split(',').map(item => item.trim())},
+            ...((selectedStatus === 'Couple' || selectedStatus === 'Couple With Children') && !isStringEmpty(partner))
+                && {partnerUsername: partner},
+            ...(selectedStatus === 'Existing Group' && !isStringEmpty(groupMembers))
+                && {existingGroupUsernames: groupMembers.split(',').map(item => item.trim())},
             minMonthlyBudget: minRent,
             maxMonthlyBudget: maxRent,
             hasHomeToShare: (hasHome === 'yes'),
