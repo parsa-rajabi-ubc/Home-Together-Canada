@@ -430,7 +430,7 @@ function MemberRegistrationForm(props) {
                                             <TextArea
                                                 className="input mt-0"
                                                 labelClassName={"label mt-5"}
-                                                placeholder="Optional: what gender do you identify as?"
+                                                placeholder="What gender do you identify as? (optional)"
                                                 value={genderDescription}
                                                 onChange={(e) => setGenderDescription(e.target.value)}
                                             />}
@@ -479,7 +479,7 @@ function MemberRegistrationForm(props) {
                                                 {(petFriendly === "yes") &&
                                                 <TextArea
                                                     className={"input"}
-                                                    placeholder="Elaborate"
+                                                    placeholder="Elaborate (optional)"
                                                     onChange={e => setPetDescription(e.target.value)}
                                                     value={petDescription}
                                                 />}
@@ -493,7 +493,7 @@ function MemberRegistrationForm(props) {
                                                 {(smoking === "yes") &&
                                                 <TextArea
                                                     className={"input"}
-                                                    placeholder="Elaborate"
+                                                    placeholder="Elaborate (optional)"
                                                     onChange={e => setSmokingDescription(e.target.value)}
                                                     value={smokingDescription}
                                                 />}
@@ -507,7 +507,7 @@ function MemberRegistrationForm(props) {
                                                 {(mobilityIssues === "yes") &&
                                                 <TextArea
                                                     className={"input"}
-                                                    placeholder="Elaborate"
+                                                    placeholder="Elaborate (optional)"
                                                     onChange={e => setMobilityIssuesDescription(e.target.value)}
                                                     value={mobilityIssuesDescription}
                                                 />}
@@ -522,7 +522,7 @@ function MemberRegistrationForm(props) {
                                                 {(hasAllergies === "yes") &&
                                                 <TextArea
                                                     className={"input"}
-                                                    placeholder="Elaborate"
+                                                    placeholder="Elaborate (optional)"
                                                     onChange={e => setAllergiesDescription(e.target.value)}
                                                     value={allergiesDescription}
                                                 />}
@@ -537,7 +537,7 @@ function MemberRegistrationForm(props) {
                                                 {(religious === "yes") &&
                                                 <TextArea
                                                     className={"input"}
-                                                    placeholder="Elaborate"
+                                                    placeholder="Elaborate (optional)"
                                                     onChange={e => setReligionDescription(e.target.value)}
                                                     value={religionDescription}
                                                 />}
@@ -552,7 +552,7 @@ function MemberRegistrationForm(props) {
                                                 {(hasDiet === "yes") &&
                                                 <TextArea
                                                     className={"input"}
-                                                    placeholder="Elaborate"
+                                                    placeholder="Elaborate (optional)"
                                                     onChange={e => setDietDescription(e.target.value)}
                                                     value={dietDescription}
                                                 />}
@@ -567,7 +567,7 @@ function MemberRegistrationForm(props) {
                                                 {(hasHome==="yes") &&
                                                     <TextArea
                                                         className={"input"}
-                                                        placeholder="Elaborate"
+                                                        placeholder="Elaborate (optional)"
                                                         onChange={e => setHomeDescription(e.target.value)}
                                                         value={homeDescription}
                                                     />}
@@ -582,7 +582,7 @@ function MemberRegistrationForm(props) {
                                                 {(interestInBuyingHome==="yes") &&
                                                 <TextArea
                                                     className={"input"}
-                                                    placeholder="Elaborate"
+                                                    placeholder="Elaborate (optional)"
                                                     onChange={e => setInterestDescription(e.target.value)}
                                                     value={interestDescription}
                                                 />}
