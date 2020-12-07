@@ -9,7 +9,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import member from "../images/member.svg";
-import business from "../images/business.svg";
+import business from "../images/business-yellow.svg";
 
 function MainLandingPage() {
     return (
@@ -35,7 +35,7 @@ function MainLandingPage() {
                     </div>
 
                 </Link>
-                    <Link to={'/registration/business'} className="flex flex-col w-full pt-2 mx-10 bg-red-200 rounded-lg shadow-2xl hover:bg-red-400 ">
+                    <Link to={'/registration/business'} className="flex flex-col w-full pt-2 mx-10 bg-yellow-200 rounded-lg shadow-2xl hover:bg-yellow-400 ">
 
                     <img className="w-auto h-64 mt-10"
                          src={business}
