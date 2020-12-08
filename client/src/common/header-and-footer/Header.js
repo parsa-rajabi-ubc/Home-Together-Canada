@@ -73,7 +73,7 @@ const Header = () => {
                             Up
                         </Link>
                         <Button
-                            className="items-center justify-center w-full px-4 py-2 mr-4 transition duration-200 ease-in-out bg-white border-transparent rounded-md opacity-75 hover:bg-orange-400"
+                            className="outline-none	items-center justify-center w-full px-4 py-2 transition duration-200 ease-in-out bg-white border-transparent rounded-md opacity-75 cursor-pointer hover:bg-orange-400"
                             value={'Logout'}
                             onClick={logout}/>
                     </div>
