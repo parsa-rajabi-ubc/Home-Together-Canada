@@ -22,7 +22,7 @@ function Address(props) {
     const [postalCode, setPostalCode] = useState('');
 
     const handleInputChange = (e) => {
-        switch(e.target.name) {
+        switch (e.target.name) {
             case 'street': {
                 setStreet(e.target.value);
                 break;
@@ -51,34 +51,47 @@ function Address(props) {
             province,
             postalCode
         })
-    },[street, aptNum, city, province, postalCode]);
+    }, [street, aptNum, city, province, postalCode]);
 
     // Updated autoComplete based on: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
     return (
-        <div>
-            <label className="label">
-                {label}
-                <input className="input" type="text" name="street" placeholder="Address Line 1" autoComplete="address-line1"
-                       onChange={handleInputChange}/>
-            </label>
-            <label>
-                <input className="input" type="text" name="aptNum" placeholder="Address Line 2: Apt, suite, etc. (optional)"
-                       autoComplete="address-line2" onChange={handleInputChange}/>
-            </label>
-            <label>
-                <input
-                    className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
-                    type="text"  autoComplete="address-level2" name="city" placeholder="City" onChange={handleInputChange}/>
-            </label>
-            <Dropdown isSearchable={true} placeholder={"Province"}
-                    options={getProvinces()} autoComplete="address-level1"
-                      onChange={address => setProvince(address.value)}/>
-            <label>
-                <input
-                    className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
-                    type="text" autoComplete="postal-code" name="postalCode" placeholder="Postal Code"
-                    onChange={handleInputChange}/>
-            </label>
+        <div className="grid grid-cols-9 gap-x-2">
+            <div className="col-start-1 col-end-8">
+                <label className="label">
+                    {label}
+                    <input className="input" type="text" name="street" placeholder="Address Line 1"
+                           autoComplete="address-line1"
+                           onChange={handleInputChange}/>
+                </label>
+            </div>
+            <div className="col-start-1 col-end-8">
+                <label>
+                    <input className="input" type="text" name="aptNum"
+                           placeholder="Address Line 2: Apt, suite, etc. (optional)"
+                           autoComplete="address-line2" onChange={handleInputChange}/>
+                </label>
+            </div>
+            <div className="col-start-1 col-end-4">
+                <label>
+                    <input
+                        className="input"
+                        type="text" autoComplete="address-level2" name="city" placeholder="City"
+                        onChange={handleInputChange}/>
+                </label>
+            </div>
+            <div className="col-start-4 col-end-8">
+                <Dropdown isSearchable={true} placeholder={"Province"}
+                          options={getProvinces()} autoComplete="address-level1"
+                          onChange={address => setProvince(address.value)}/>
+            </div>
+            <div className="col-start-1 col-end-4">
+                <label>
+                    <input
+                        className="input"
+                        type="text" autoComplete="postal-code" name="postalCode" placeholder="Postal Code"
+                        onChange={handleInputChange}/>
+                </label>
+            </div>
         </div>
     );
 }
