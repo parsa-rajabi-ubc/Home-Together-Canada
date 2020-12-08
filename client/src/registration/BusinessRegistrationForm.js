@@ -253,17 +253,16 @@ const BusinessRegistrationForm = (props) => {
             .then(res => res.json())
             .then(data => {
                 if (!!data && data.authenticated) {
-                        // user is authenticated, redirect to home screen
-                        alert('Business account successfully created!');
-                        return history.push('/');
+                    // user is authenticated, redirect to home screen
+                    alert('Business account successfully created!');
+                    return history.push('/');
                 } else if (!!data && data.errors && data.errors.length) {
                     const errorMessage = getConcatenatedErrorMessage(data.errors);
                     // show list of all errors
                     alert(errorMessage);
-                }
-                else if (!!data && !data.authenticated) {
-                        // something went wrong with the AUTHENTICATION (not the user creation)
-                        alert('Registration failed');
+                } else if (!!data && !data.authenticated) {
+                    // something went wrong with the AUTHENTICATION (not the user creation)
+                    alert('Registration failed');
                 }
             })
             .catch((error) => {
@@ -311,7 +310,6 @@ const BusinessRegistrationForm = (props) => {
     return (
         <div>
             <div>
-
                 {/*Business Details*/}
                 <div className="m-10 md:grid md:grid-cols-4 md:gap-0">
                     <div className="md:col-span-1">
@@ -323,10 +321,10 @@ const BusinessRegistrationForm = (props) => {
                         </div>
                     </div>
 
-                    <div className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
+                    <div
+                        className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
                         <div className="grid grid-cols-2 gap-6">
                             <div className="col-span-3 sm:col-span-2">
-
                                 <TextArea className="mb-0 input" placeholder="" label="Business Name"
                                           autoComplete={"organization"} labelClassName={"label"} onChange={(e) => {
                                     setBName(e.target.value)
@@ -339,13 +337,20 @@ const BusinessRegistrationForm = (props) => {
                                                              placeholder={"Names of Inc. Owners (separated by comma)"}
                                                              labelClassName={"label"}
                                                              onChange={(e) => setIncorporatedOwnersNames(e.target.value)}/>}
-                                <TextArea className="input" placeholder="business@email.ca"
-                                         autoComplete={"email"} label="Business Email" labelClassName={"label"} onChange={(e) => {
-                                    setBEmail(e.target.value)
-                                }}/>
-                                <TextArea className="input" placeholder="http://www.your-website.com"
-                                          autoComplete={"url"} label="Business Website" labelClassName={"label"}
-                                          onChange={e => setWebsite(e.target.value)}/>
+                                <div className="grid grid-cols-2 gap-6">
+                                    <div className="col-span-1">
+                                        <TextArea className="input" placeholder="business@email.ca"
+                                                  autoComplete={"email"} label="Business Email" labelClassName={"label"}
+                                                  onChange={(e) => {
+                                                      setBEmail(e.target.value)
+                                                  }}/>
+                                    </div>
+                                    <div className="col-span-1">
+                                        <TextArea className="input" placeholder="http://www.your-website.com"
+                                                  autoComplete={"url"} label="Business Website" labelClassName={"label"}
+                                                  onChange={e => setWebsite(e.target.value)}/>
+                                    </div>
+                                </div>
                                 <PhoneNumInput
                                     className="phone"
                                     labelClassName={"label "}
@@ -379,7 +384,8 @@ const BusinessRegistrationForm = (props) => {
                         <label className="label">
                             Business Logo
                         </label>
-                        <div className="flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                        <div
+                            className="flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                             <div className="space-y-1 text-center">
                                 <svg className="w-12 h-12 mx-auto text-gray-400" stroke="currentColor"
                                      fill="none" viewBox="0 0 48 48" aria-hidden="true">
@@ -416,20 +422,21 @@ const BusinessRegistrationForm = (props) => {
                         </p>
                     </div>
                 </div>
-                <div className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
+                <div
+                    className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
                     <div className="grid grid-cols-6 gap-x-6">
                         <div className="column-span-6-layout">
                             <TextArea className={"input"} labelClassName={"label"} label="First Name"
                                       autoComplete={"given-name"} onChange={(e) => {
-                                          setContactFName(e.target.value)
-                                      }}/>
+                                setContactFName(e.target.value)
+                            }}/>
                         </div>
 
                         <div className="column-span-6-layout">
                             <TextArea className={"input"} labelClassName={"label"} label="Last Name"
                                       autoComplete={"family-name"} onChange={(e) => {
-                                          setContactLName(e.target.value)
-                                      }}/>
+                                setContactLName(e.target.value)
+                            }}/>
                         </div>
 
                         <div className="column-span-6-layout">

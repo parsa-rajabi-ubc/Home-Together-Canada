@@ -28,7 +28,7 @@ import WorkStatus from "../common/forms/WorkStatus";
 
 //Returns a Form with fields
 function MemberRegistrationForm(props) {
-    const { history } = props;
+    const {history} = props;
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [yearOfBirth, setYearOfBirth] = useState("");
@@ -97,7 +97,7 @@ function MemberRegistrationForm(props) {
     const [partner, setPartner] = useState("");
     const [groupMembers, setGroupMembers] = useState("");
 
-    const [areasOfInterest, setAreasOfInterest]  = useState([{
+    const [areasOfInterest, setAreasOfInterest] = useState([{
         province: "",
         city: "",
         radius: ""
@@ -273,9 +273,9 @@ function MemberRegistrationForm(props) {
             birthYear: yearOfBirth,
             status: selectedFamilyStatus,
             ...((selectedFamilyStatus === 'Couple' || selectedFamilyStatus === 'Couple With Children') && !isStringEmpty(partner))
-                && {partnerUsername: partner},
+            && {partnerUsername: partner},
             ...(selectedFamilyStatus === 'Existing Group' && !isStringEmpty(groupMembers))
-                && {existingGroupUsernames: groupMembers.split(',').map(item => item.trim())},
+            && {existingGroupUsernames: groupMembers.split(',').map(item => item.trim())},
             minMonthlyBudget: minRent,
             maxMonthlyBudget: maxRent,
             hasHomeToShare: (hasHome === 'yes'),
@@ -327,11 +327,13 @@ function MemberRegistrationForm(props) {
                     <div className="px-4 sm:px-0">
                         <h3 className="info-header">Personal Information</h3>
                         <p className="info-text mr-10">
-                            This information is about you and is private. Home Together Canada will not share this information with anyone and will only be used for verification purposes.
+                            This information is about you and is private. Home Together Canada will not share this
+                            information with anyone and will only be used for verification purposes.
                         </p>
                     </div>
                 </div>
-                <div className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
+                <div
+                    className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-off_white sm:p-6">
                     <div className="grid grid-cols-2 gap-6">
                         <div className="col-span-3 sm:col-span-2">
                             <TextArea
@@ -359,7 +361,7 @@ function MemberRegistrationForm(props) {
                             <label className={"label"}>Year of Birth</label>
                             <BirthYear label={"Year of Birth"} onChange={handleYearChange}/>
                             <PhoneNumInput
-                                className="w-1/4 phone"
+                                className="phone"
                                 labelClassName={"label"}
                                 label="Phone Number" onChange={handlePhoneChange}/>
                             <Address
@@ -394,7 +396,8 @@ function MemberRegistrationForm(props) {
                         <div className="px-4 sm:px-0">
                             <h3 className="info-header">Profile Details</h3>
                             <p className="info-text">
-                                This information is about your home-sharing preferences and will be accessible by other members on the website.
+                                This information is about your home-sharing preferences and will be accessible by other
+                                members on the website.
                             </p>
                         </div>
                     </div>
@@ -435,6 +438,7 @@ function MemberRegistrationForm(props) {
                                                 onChange={(e) => setGenderDescription(e.target.value)}
                                             />}
                                         </div>
+
                                         <label className={"label"}> Status </label>
                                         <Status onChange={handleFamilyStatusChange}/>
                                         {checkStatus(selectedFamilyStatus)}
@@ -442,8 +446,9 @@ function MemberRegistrationForm(props) {
                                         <label className={"label"}> Work Status </label>
                                         <WorkStatus onChange={handleWorkStatusChange}/>
 
-                                        <label className={"label text-base "}> open to sharing with </label>
+                                        <label className={"label text-base "}> Open to sharing with </label>
                                         <ShareLimit onChange={handleLimitChange}/>
+
                                         <div className={"label"}>Monthly Rent</div>
                                         <div className="grid grid-cols-6 gap-x-6">
                                             <div className="column-span-6-layout">
@@ -451,7 +456,7 @@ function MemberRegistrationForm(props) {
                                                     className={"input label font-normal "}
                                                     type="number"
                                                     min="0"
-                                                    step="25"
+                                                    step="1"
                                                     placeholder="MIN $ CAD"
                                                     onChange={(e) => setMinRent(e.target.value)}
                                                 />
@@ -461,7 +466,7 @@ function MemberRegistrationForm(props) {
                                                     className={"input label font-normal "}
                                                     type="number"
                                                     min={minRent}
-                                                    step="25"
+                                                    step="1"
                                                     placeholder=" MAX $ CAD"
                                                     onChange={(e) => setMaxRent(e.target.value)}
                                                 />
@@ -561,25 +566,25 @@ function MemberRegistrationForm(props) {
                                                 <YNButton
                                                     label="Have a home to share?"
                                                     name="hasHome"
-                                                    checked={hasHome==="no"}
-                                                    onChange={(e)=>setHasHome(e.target.value)}
+                                                    checked={hasHome === "no"}
+                                                    onChange={(e) => setHasHome(e.target.value)}
                                                 />
-                                                {(hasHome==="yes") &&
-                                                    <TextArea
-                                                        className={"input"}
-                                                        placeholder="Elaborate (optional)"
-                                                        onChange={e => setHomeDescription(e.target.value)}
-                                                        value={homeDescription}
-                                                    />}
+                                                {(hasHome === "yes") &&
+                                                <TextArea
+                                                    className={"input"}
+                                                    placeholder="Elaborate (optional)"
+                                                    onChange={e => setHomeDescription(e.target.value)}
+                                                    value={homeDescription}
+                                                />}
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <YNButton
-                                                    label="Interested in buying a home w/ others?"
+                                                    label="Interested in buying a home with others?"
                                                     name="interestInBuyingHome"
-                                                    checked={interestInBuyingHome==="no"}
-                                                    onChange={(e)=>setInterestInBuyingHome(e.target.value)}
+                                                    checked={interestInBuyingHome === "no"}
+                                                    onChange={(e) => setInterestInBuyingHome(e.target.value)}
                                                 />
-                                                {(interestInBuyingHome==="yes") &&
+                                                {(interestInBuyingHome === "yes") &&
                                                 <TextArea
                                                     className={"input"}
                                                     placeholder="Elaborate (optional)"
@@ -602,9 +607,7 @@ function MemberRegistrationForm(props) {
                         </div>
                     </div>
                 </div>
-
             </div>
-
 
             {/*Divided*/}
             <div className="border-divider"/>
@@ -631,22 +634,21 @@ function MemberRegistrationForm(props) {
                                             onChangePassword={(e) => setPassword(e.target.value)}
                                             onChangePasswordCheck={(e) => setPasswordCheck(e.target.value)}
                                         />
-
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6">
-                                <SubmitButton
-                                    inputValue={"Create Account"}
-                                    className="text-base btn btn-green"
-                                    onClick={onSubmit}
-                                />
+                            <SubmitButton
+                                inputValue={"Create Account"}
+                                className="text-base btn btn-green"
+                                onClick={onSubmit}
+                            />
                         </div>
+
                     </div>
                 </div>
-
             </div>
         </div>
     );
