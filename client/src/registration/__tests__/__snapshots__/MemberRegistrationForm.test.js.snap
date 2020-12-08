@@ -994,7 +994,6 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                       className="col-start-1 col-end-4"
                     >
                       <label>
-                        
                         <input
                           className="btn btn-green text-sm py-2 mb-4"
                           onClick={[Function]}
