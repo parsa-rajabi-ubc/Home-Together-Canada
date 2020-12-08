@@ -28,7 +28,7 @@ import WorkStatus from "../common/forms/WorkStatus";
 
 //Returns a Form with fields
 function MemberRegistrationForm(props) {
-    const { history } = props;
+    const {history} = props;
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [yearOfBirth, setYearOfBirth] = useState("");
@@ -97,7 +97,7 @@ function MemberRegistrationForm(props) {
     const [partner, setPartner] = useState("");
     const [groupMembers, setGroupMembers] = useState("");
 
-    const [areasOfInterest, setAreasOfInterest]  = useState([{
+    const [areasOfInterest, setAreasOfInterest] = useState([{
         province: "",
         city: "",
         radius: ""
@@ -273,9 +273,9 @@ function MemberRegistrationForm(props) {
             birthYear: yearOfBirth,
             status: selectedFamilyStatus,
             ...((selectedFamilyStatus === 'Couple' || selectedFamilyStatus === 'Couple With Children') && !isStringEmpty(partner))
-                && {partnerUsername: partner},
+            && {partnerUsername: partner},
             ...(selectedFamilyStatus === 'Existing Group' && !isStringEmpty(groupMembers))
-                && {existingGroupUsernames: groupMembers.split(',').map(item => item.trim())},
+            && {existingGroupUsernames: groupMembers.split(',').map(item => item.trim())},
             minMonthlyBudget: minRent,
             maxMonthlyBudget: maxRent,
             hasHomeToShare: (hasHome === 'yes'),
@@ -331,7 +331,11 @@ function MemberRegistrationForm(props) {
                         </p>
                     </div>
                 </div>
-                <div className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
+                <div
+                    className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
+                    <div className="info-text info-note">
+                        All fields on this page are mandatory and must have a valid value unless they have an <span className="optional font-medium">optional</span> tag.
+                    </div>
                     <div className="grid grid-cols-2 gap-6">
                         <div className="col-span-3 sm:col-span-2">
                             <TextArea
@@ -394,7 +398,8 @@ function MemberRegistrationForm(props) {
                         <div className="px-4 sm:px-0">
                             <h3 className="info-header">Profile Details</h3>
                             <p className="info-text">
-                                This information is about your home-sharing preferences and will be accessible by other members on the website.
+                                This information is about your home-sharing preferences and will be accessible by other
+                                members on the website.
                             </p>
                         </div>
                     </div>
@@ -561,25 +566,25 @@ function MemberRegistrationForm(props) {
                                                 <YNButton
                                                     label="Have a home to share?"
                                                     name="hasHome"
-                                                    checked={hasHome==="no"}
-                                                    onChange={(e)=>setHasHome(e.target.value)}
+                                                    checked={hasHome === "no"}
+                                                    onChange={(e) => setHasHome(e.target.value)}
                                                 />
-                                                {(hasHome==="yes") &&
-                                                    <TextArea
-                                                        className={"input"}
-                                                        placeholder="Elaborate (optional)"
-                                                        onChange={e => setHomeDescription(e.target.value)}
-                                                        value={homeDescription}
-                                                    />}
+                                                {(hasHome === "yes") &&
+                                                <TextArea
+                                                    className={"input"}
+                                                    placeholder="Elaborate (optional)"
+                                                    onChange={e => setHomeDescription(e.target.value)}
+                                                    value={homeDescription}
+                                                />}
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <YNButton
                                                     label="Interested in buying a home w/ others?"
                                                     name="interestInBuyingHome"
-                                                    checked={interestInBuyingHome==="no"}
-                                                    onChange={(e)=>setInterestInBuyingHome(e.target.value)}
+                                                    checked={interestInBuyingHome === "no"}
+                                                    onChange={(e) => setInterestInBuyingHome(e.target.value)}
                                                 />
-                                                {(interestInBuyingHome==="yes") &&
+                                                {(interestInBuyingHome === "yes") &&
                                                 <TextArea
                                                     className={"input"}
                                                     placeholder="Elaborate (optional)"
@@ -590,6 +595,7 @@ function MemberRegistrationForm(props) {
                                         </div>
                                         <div className={"mt-4"}>
                                             <LargeTextArea
+                                                optional={true}
                                                 label="Tell others about yourself: "
                                                 name="aboutSelf"
                                                 placeholder="What is important to you, and why do you want to share a home?"
@@ -638,11 +644,11 @@ function MemberRegistrationForm(props) {
                         </div>
 
                         <div className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6">
-                                <SubmitButton
-                                    inputValue={"Create Account"}
-                                    className="text-base btn btn-green"
-                                    onClick={onSubmit}
-                                />
+                            <SubmitButton
+                                inputValue={"Create Account"}
+                                className="text-base btn btn-green"
+                                onClick={onSubmit}
+                            />
                         </div>
                     </div>
                 </div>

@@ -324,6 +324,9 @@ const BusinessRegistrationForm = (props) => {
                     </div>
 
                     <div className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
+                        <div className="info-text info-note">
+                            All fields on this page are mandatory and must have a valid value unless they have an <span className="optional font-medium">optional</span> tag.
+                        </div>
                         <div className="grid grid-cols-2 gap-6">
                             <div className="col-span-3 sm:col-span-2">
 
@@ -344,6 +347,7 @@ const BusinessRegistrationForm = (props) => {
                                     setBEmail(e.target.value)
                                 }}/>
                                 <TextArea className="input" placeholder="http://www.your-website.com"
+                                          optional={true}
                                           autoComplete={"url"} label="Business Website" labelClassName={"label"}
                                           onChange={e => setWebsite(e.target.value)}/>
                                 <PhoneNumInput
@@ -377,7 +381,7 @@ const BusinessRegistrationForm = (props) => {
                         </div>
 
                         <label className="label">
-                            Business Logo
+                            Business Logo <span className="optional"> (optional)</span>
                         </label>
                         <div className="flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                             <div className="space-y-1 text-center">
