@@ -8,18 +8,21 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
-function LargeTextArea(props){
-    const { label, name, placeholder, onChange } = props;
-    return(
+function LargeTextArea(props) {
+    const {label, name, placeholder, optional, onChange} = props;
+    return (
         <label className={"label"}>
-            {label}
-            <textarea className={"input "} name={name} rows="5" cols="50" placeholder={placeholder} onChange={onChange}/>
+            {label} {(optional ? <span className="optional"> (optional)</span> : '')}
+            <textarea className={"input "} name={name} rows="5" cols="50" placeholder={placeholder}
+                      onChange={onChange}/>
         </label>
     );
 }
+
 LargeTextArea.propTypes = {
     label: PropTypes.string.isRequired,
     name: PropTypes.string,
+    optional: PropTypes.bool,
     placeholder: PropTypes.string,
     onChange: PropTypes.func
 }

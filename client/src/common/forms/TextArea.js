@@ -17,12 +17,14 @@ function TextArea(props) {
         placeholder,
         onChange,
         autoComplete,
+        optional,
         disabled = false,
         value
     } = props;
     return (
         <label className={labelClassName}>
             {label}
+            {(optional ? <span className="optional"> (optional)</span> : '')}
             <input
                 className={className}
                 type="text"
@@ -38,6 +40,7 @@ function TextArea(props) {
 
 TextArea.propTypes = {
     label: PropTypes.string,
+    optional: PropTypes.bool,
     labelClassName: PropTypes.string,
     className: PropTypes.string,
     placeholder: PropTypes.string,
