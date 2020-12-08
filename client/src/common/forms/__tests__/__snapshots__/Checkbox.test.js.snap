@@ -6,7 +6,7 @@ exports[`Checkbox Snapshot test should render correctly regardless of properties
 >
   <input
     checked={true}
-    className=" align-middle mr-2 my-4 font-medium text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
+    className=" align-middle mt-3 mr-1 my-4 font-medium text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
     type="checkbox"
   />
   testLabelString1
