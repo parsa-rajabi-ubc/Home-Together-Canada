@@ -1,12 +1,12 @@
 .phone {
-    @apply w-1/6 px-2 py-2 mt-1 mb-4 mr-2 text-center text-base leading-normal bg-white border border-gray-300 rounded-lg appearance-none;
+    @apply w-1/4 px-2 py-2 mt-1 mb-4 mr-2 text-center text-base leading-normal bg-white border border-gray-300 rounded-lg appearance-none;
 }
 
 .label {
-    @apply mt-2 text-gray-700 uppercase text-base font-medium;
+    @apply mt-2 text-gray-700 text-base font-medium;
 }
 
-.info-header{
+.info-header {
     @apply text-2xl font-medium leading-6 text-gray-900;
 }
 
@@ -18,18 +18,20 @@
     @apply mt-4 text-xs text-gray-600;
 }
 
-.column-span-6-layout{
+.column-span-6-layout {
     @apply col-span-6;
 }
 
-.border-divider{
-    @apply py-5 border-t-2 border-gray-200 mx-16;
+.border-divider {
+    @apply py-5 border-dashed border-t-2 border-gray-200 mx-16;
 }
-@screen sm{
-    .column-span-6-layout{
+
+@screen sm {
+    .column-span-6-layout {
         @apply col-span-3;
     }
-    .border-divider{
+
+    .border-divider {
         @apply: hidden block;
     }
 }
