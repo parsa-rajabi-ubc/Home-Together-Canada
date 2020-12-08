@@ -467,7 +467,7 @@ function MemberRegistrationForm(props) {
                                                 />
                                             </div>
                                         </div>
-                                        <label className={"label"}>Interested Area</label>
+                                        <label className={"label"}>Preferred Living Location(s)</label>
                                         <InterestedArea onChange={setAreasOfInterest}/>
                                         <div className="grid grid-cols-6 gap-x-6">
                                             <div className="column-span-6-layout">
