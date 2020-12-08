@@ -1273,7 +1273,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                         >
                           <input
                             className="form-radio mt-2 ml-2 mr-1 mb-4"
-                            name="hasHome"
+                            name="interestInBuyingHome"
                             onChange={[Function]}
                             type="radio"
                             value="no"
@@ -1285,7 +1285,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                         >
                           <input
                             className="form-radio mt-2 ml-2 mr-1 mb-4"
-                            name="hasHome"
+                            name="interestInBuyingHome"
                             onChange={[Function]}
                             type="radio"
                             value="yes"

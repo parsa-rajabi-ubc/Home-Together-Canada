@@ -575,7 +575,7 @@ function MemberRegistrationForm(props) {
                                             <div className="column-span-6-layout">
                                                 <YNButton
                                                     label="Interested in buying a home w/ others?"
-                                                    name="hasHome"
+                                                    name="interestInBuyingHome"
                                                     checked={interestInBuyingHome==="no"}
                                                     onChange={(e)=>setInterestInBuyingHome(e.target.value)}
                                                 />
