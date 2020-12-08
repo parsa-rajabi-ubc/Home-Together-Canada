@@ -14,9 +14,6 @@ import PropTypes from "prop-types";
 import Button from "./Button";
 import { MdDeleteForever } from 'react-icons/md';
 
-
-
-
 function InterestedArea(props) {
     const {onChange} = props;
     const [extraAreas, setExtraAreas] = useState([{ province: "", city: "", radius: ""}]);
@@ -86,10 +83,10 @@ function InterestedArea(props) {
                                                     onChange={e => handleAreaRadiusChange(e, index)}/>}
                         </div>
                         <div className="col-start-10 col-end-auto">
-                            {extraAreas.length !== 1 && <MdDeleteForever className="" color="#DB4437" size="40" onClick={()=>handleRemoveClick(index)}/> }
+                            {extraAreas.length !== 1 && <MdDeleteForever color="#DB4437" size="40" onClick={()=>handleRemoveClick(index)}/> }
                         </div>
                         <div className="col-start-1 col-end-4">
-                            {extraAreas.length - 1 === index && <Button className="btn btn-green text-sm py-2 mb-4" label={""} value="Add Another Location" onClick={()=> {handleAddClick()}}/>}
+                            {extraAreas.length - 1 === index && <Button className="btn btn-green text-sm py-2 mb-4" value="Add Another Location" onClick={()=> {handleAddClick()}}/>}
                         </div>
                     </div>
                 );
