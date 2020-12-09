@@ -46,21 +46,138 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                 type="text"
               />
             </label>
-            <span
-              className="info-detail"
+            <div
+              className="my-2"
             >
-              Select incorporated business if your business is Inc.
-            </span>
-            <label
-              className="block label mt-0 "
-            >
-              <input
-                className=" align-middle mr-2 my-4 font-medium text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
-                onChange={[Function]}
-                type="checkbox"
-              />
-              Incorporated Business
-            </label>
+              <label>
+                <input
+                  className="align-middle mt-3 mr-1 my-4 font-medium text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+              </label>
+              <label
+                className="label mt-0"
+              >
+                Incorporated Business?
+              </label>
+              <span>
+                <a
+                  data-for="incorporated"
+                  data-tip={true}
+                >
+                  <svg
+                    className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    strokeWidth="0"
+                    style={
+                      Object {
+                        "color": undefined,
+                      }
+                    }
+                    viewBox="0 0 16 16"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clipRule="evenodd"
+                      d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                      fillRule="evenodd"
+                    />
+                  </svg>
+                </a>
+                <div
+                  className="__react_component_tooltip t22149791-ecfc-45d8-8f46-00e88847fed8 place-top type-dark"
+                  data-id="tooltip"
+                  id="incorporated"
+                >
+                  <style
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "
+  	.t22149791-ecfc-45d8-8f46-00e88847fed8 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t22149791-ecfc-45d8-8f46-00e88847fed8.place-top {
+        margin-top: -10px;
+    }
+    .t22149791-ecfc-45d8-8f46-00e88847fed8.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t22149791-ecfc-45d8-8f46-00e88847fed8.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t22149791-ecfc-45d8-8f46-00e88847fed8.place-bottom {
+        margin-top: 10px;
+    }
+    .t22149791-ecfc-45d8-8f46-00e88847fed8.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t22149791-ecfc-45d8-8f46-00e88847fed8.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t22149791-ecfc-45d8-8f46-00e88847fed8.place-left {
+        margin-left: -10px;
+    }
+    .t22149791-ecfc-45d8-8f46-00e88847fed8.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t22149791-ecfc-45d8-8f46-00e88847fed8.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t22149791-ecfc-45d8-8f46-00e88847fed8.place-right {
+        margin-left: 10px;
+    }
+    .t22149791-ecfc-45d8-8f46-00e88847fed8.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t22149791-ecfc-45d8-8f46-00e88847fed8.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                      }
+                    }
+                  />
+                  Select this checkbox if your business in Incorporated
+                </div>
+              </span>
+            </div>
             <label
               className="label"
             >
@@ -315,185 +432,413 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                 />
               </label>
             </div>
-            <span
-              className="info-detail"
-            >
-              Select different mailing address if it differs from the address above:
-            </span>
-            <label
-              className="block label mt-0 "
-            >
+            <label>
               <input
-                className=" align-middle mr-2 my-4 font-medium text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
+                className="align-middle mt-3 mr-1 my-4 font-medium text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
                 onChange={[Function]}
                 type="checkbox"
               />
-              Different Mailing Address
             </label>
-            <span
-              className="info-detail"
-            >
-              Select nation-wide if your service spans across Canada:
-            </span>
             <label
-              className="block label mt-0 "
+              className="label mt-0"
             >
-              <input
-                className=" align-middle mr-2 my-4 font-medium text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
-                onChange={[Function]}
-                type="checkbox"
-              />
-              Nation-wide 
+              Different Mailing Address?
             </label>
-            <div>
-              <label
-                className="label"
+            <span>
+              <a
+                data-for="differentMailingAddress"
+                data-tip={true}
               >
-                Searchable Address
-                <input
-                  autoComplete="address-line1"
-                  className="input"
-                  name="street"
-                  onChange={[Function]}
-                  placeholder="Address Line 1"
-                  type="text"
-                />
-              </label>
-              <label>
-                <input
-                  autoComplete="address-line2"
-                  className="input"
-                  name="aptNum"
-                  onChange={[Function]}
-                  placeholder="Address Line 2: Apt, suite, etc. (optional)"
-                  type="text"
-                />
-              </label>
-              <label>
-                <input
-                  autoComplete="address-level2"
-                  className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
-                  name="city"
-                  onChange={[Function]}
-                  placeholder="City"
-                  type="text"
-                />
-              </label>
-              <div>
-                <div
-                  className=" css-2b097c-container"
-                  onKeyDown={[Function]}
+                <svg
+                  className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": undefined,
+                    }
+                  }
+                  viewBox="0 0 16 16"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
+                  <path
+                    clipRule="evenodd"
+                    d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                    fillRule="evenodd"
+                  />
+                </svg>
+              </a>
+              <div
+                className="__react_component_tooltip t8a17ad0e-268e-4d41-94da-2161e042daba place-top type-dark"
+                data-id="tooltip"
+                id="differentMailingAddress"
+              >
+                <style
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "
+  	.t8a17ad0e-268e-4d41-94da-2161e042daba {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t8a17ad0e-268e-4d41-94da-2161e042daba.place-top {
+        margin-top: -10px;
+    }
+    .t8a17ad0e-268e-4d41-94da-2161e042daba.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t8a17ad0e-268e-4d41-94da-2161e042daba.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t8a17ad0e-268e-4d41-94da-2161e042daba.place-bottom {
+        margin-top: 10px;
+    }
+    .t8a17ad0e-268e-4d41-94da-2161e042daba.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t8a17ad0e-268e-4d41-94da-2161e042daba.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t8a17ad0e-268e-4d41-94da-2161e042daba.place-left {
+        margin-left: -10px;
+    }
+    .t8a17ad0e-268e-4d41-94da-2161e042daba.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t8a17ad0e-268e-4d41-94da-2161e042daba.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t8a17ad0e-268e-4d41-94da-2161e042daba.place-right {
+        margin-left: 10px;
+    }
+    .t8a17ad0e-268e-4d41-94da-2161e042daba.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t8a17ad0e-268e-4d41-94da-2161e042daba.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                    }
+                  }
+                />
+                Select this checkbox if your mailing address differs from the address above
+              </div>
+            </span>
+            <div>
+              <label>
+                <input
+                  className="align-middle mt-3 mr-1 my-4 font-medium text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+              </label>
+              <label
+                className="label mt-0"
+              >
+                Canada-wide Business?
+              </label>
+              <span>
+                <a
+                  data-for="nationWide"
+                  data-tip={true}
+                >
+                  <svg
+                    className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    strokeWidth="0"
+                    style={
+                      Object {
+                        "color": undefined,
+                      }
+                    }
+                    viewBox="0 0 16 16"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clipRule="evenodd"
+                      d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                      fillRule="evenodd"
+                    />
+                  </svg>
+                </a>
+                <div
+                  className="__react_component_tooltip tdf04b663-adea-4117-9042-fcd6b3e9523d place-top type-dark"
+                  data-id="tooltip"
+                  id="nationWide"
+                >
+                  <style
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "
+  	.tdf04b663-adea-4117-9042-fcd6b3e9523d {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.tdf04b663-adea-4117-9042-fcd6b3e9523d.place-top {
+        margin-top: -10px;
+    }
+    .tdf04b663-adea-4117-9042-fcd6b3e9523d.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .tdf04b663-adea-4117-9042-fcd6b3e9523d.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .tdf04b663-adea-4117-9042-fcd6b3e9523d.place-bottom {
+        margin-top: 10px;
+    }
+    .tdf04b663-adea-4117-9042-fcd6b3e9523d.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .tdf04b663-adea-4117-9042-fcd6b3e9523d.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .tdf04b663-adea-4117-9042-fcd6b3e9523d.place-left {
+        margin-left: -10px;
+    }
+    .tdf04b663-adea-4117-9042-fcd6b3e9523d.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .tdf04b663-adea-4117-9042-fcd6b3e9523d.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .tdf04b663-adea-4117-9042-fcd6b3e9523d.place-right {
+        margin-left: 10px;
+    }
+    .tdf04b663-adea-4117-9042-fcd6b3e9523d.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .tdf04b663-adea-4117-9042-fcd6b3e9523d.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                      }
+                    }
+                  />
+                  Select this checkbox if your service spans across Canada
+                </div>
+              </span>
+              <div>
+                <label
+                  className="label"
+                >
+                  Searchable Address
+                  <input
+                    autoComplete="address-line1"
+                    className="input"
+                    name="street"
+                    onChange={[Function]}
+                    placeholder="Address Line 1"
+                    type="text"
+                  />
+                </label>
+                <label>
+                  <input
+                    autoComplete="address-line2"
+                    className="input"
+                    name="aptNum"
+                    onChange={[Function]}
+                    placeholder="Address Line 2: Apt, suite, etc. (optional)"
+                    type="text"
+                  />
+                </label>
+                <label>
+                  <input
+                    autoComplete="address-level2"
+                    className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
+                    name="city"
+                    onChange={[Function]}
+                    placeholder="City"
+                    type="text"
+                  />
+                </label>
+                <div>
                   <div
-                    className=" css-d7dxyn-control"
-                    onMouseDown={[Function]}
-                    onTouchEnd={[Function]}
+                    className=" css-2b097c-container"
+                    onKeyDown={[Function]}
                   >
                     <div
-                      className=" css-g1d714-ValueContainer"
+                      className=" css-d7dxyn-control"
+                      onMouseDown={[Function]}
+                      onTouchEnd={[Function]}
                     >
                       <div
-                        className=" css-1d6d5xl-placeholder"
-                      >
-                        Province
-                      </div>
-                      <div
-                        className="css-b8ldur-Input"
+                        className=" css-g1d714-ValueContainer"
                       >
                         <div
-                          className=""
-                          style={
-                            Object {
-                              "display": "inline-block",
-                            }
-                          }
+                          className=" css-1d6d5xl-placeholder"
                         >
-                          <input
-                            aria-autocomplete="list"
-                            autoCapitalize="none"
-                            autoComplete="off"
-                            autoCorrect="off"
-                            disabled={false}
-                            id="react-select-3-input"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            onFocus={[Function]}
-                            spellCheck="false"
-                            style={
-                              Object {
-                                "background": 0,
-                                "border": 0,
-                                "boxSizing": "content-box",
-                                "color": "inherit",
-                                "fontSize": "inherit",
-                                "label": "input",
-                                "opacity": 1,
-                                "outline": 0,
-                                "padding": 0,
-                                "width": "1px",
-                              }
-                            }
-                            tabIndex="0"
-                            type="text"
-                            value=""
-                          />
+                          Province
+                        </div>
+                        <div
+                          className="css-b8ldur-Input"
+                        >
                           <div
+                            className=""
                             style={
                               Object {
-                                "height": 0,
-                                "left": 0,
-                                "overflow": "scroll",
-                                "position": "absolute",
-                                "top": 0,
-                                "visibility": "hidden",
-                                "whiteSpace": "pre",
+                                "display": "inline-block",
                               }
                             }
                           >
-                            
+                            <input
+                              aria-autocomplete="list"
+                              autoCapitalize="none"
+                              autoComplete="off"
+                              autoCorrect="off"
+                              disabled={false}
+                              id="react-select-3-input"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              onFocus={[Function]}
+                              spellCheck="false"
+                              style={
+                                Object {
+                                  "background": 0,
+                                  "border": 0,
+                                  "boxSizing": "content-box",
+                                  "color": "inherit",
+                                  "fontSize": "inherit",
+                                  "label": "input",
+                                  "opacity": 1,
+                                  "outline": 0,
+                                  "padding": 0,
+                                  "width": "1px",
+                                }
+                              }
+                              tabIndex="0"
+                              type="text"
+                              value=""
+                            />
+                            <div
+                              style={
+                                Object {
+                                  "height": 0,
+                                  "left": 0,
+                                  "overflow": "scroll",
+                                  "position": "absolute",
+                                  "top": 0,
+                                  "visibility": "hidden",
+                                  "whiteSpace": "pre",
+                                }
+                              }
+                            >
+                              
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div
-                      className=" css-1hb7zxy-IndicatorsContainer"
-                    >
-                      <span
-                        className=" css-1okebmr-indicatorSeparator"
-                      />
                       <div
-                        aria-hidden="true"
-                        className=" css-tlfecz-indicatorContainer"
-                        onMouseDown={[Function]}
-                        onTouchEnd={[Function]}
+                        className=" css-1hb7zxy-IndicatorsContainer"
                       >
-                        <svg
+                        <span
+                          className=" css-1okebmr-indicatorSeparator"
+                        />
+                        <div
                           aria-hidden="true"
-                          className="css-6q0nyr-Svg"
-                          focusable="false"
-                          height={20}
-                          viewBox="0 0 20 20"
-                          width={20}
+                          className=" css-tlfecz-indicatorContainer"
+                          onMouseDown={[Function]}
+                          onTouchEnd={[Function]}
                         >
-                          <path
-                            d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
-                          />
-                        </svg>
+                          <svg
+                            aria-hidden="true"
+                            className="css-6q0nyr-Svg"
+                            focusable="false"
+                            height={20}
+                            viewBox="0 0 20 20"
+                            width={20}
+                          >
+                            <path
+                              d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                            />
+                          </svg>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <label>
+                  <input
+                    autoComplete="postal-code"
+                    className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
+                    name="postalCode"
+                    onChange={[Function]}
+                    placeholder="Postal Code"
+                    type="text"
+                  />
+                </label>
               </div>
-              <label>
-                <input
-                  autoComplete="postal-code"
-                  className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
-                  name="postalCode"
-                  onChange={[Function]}
-                  placeholder="Postal Code"
-                  type="text"
-                />
-              </label>
             </div>
           </div>
         </div>
@@ -502,6 +847,122 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         >
           Business Logo
         </label>
+        <span>
+          <a
+            data-for="businessLogo"
+            data-tip={true}
+          >
+            <svg
+              className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 16 16"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clipRule="evenodd"
+                d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                fillRule="evenodd"
+              />
+            </svg>
+          </a>
+          <div
+            className="__react_component_tooltip t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711 place-top type-dark"
+            data-id="tooltip"
+            id="businessLogo"
+          >
+            <style
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "
+  	.t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711.place-top {
+        margin-top: -10px;
+    }
+    .t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711.place-bottom {
+        margin-top: 10px;
+    }
+    .t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711.place-left {
+        margin-left: -10px;
+    }
+    .t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711.place-right {
+        margin-left: 10px;
+    }
+    .t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                }
+              }
+            />
+            This logo will be displayed on your future listings
+          </div>
+        </span>
         <div
           className="flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md"
         >
@@ -695,10 +1156,128 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                 className="col-span-3 sm:col-span-2"
               >
                 <div>
-                  <label
-                    className="label"
-                  >
-                    Username:
+                  <label>
+                    <span
+                      className="label"
+                    >
+                      Username
+                    </span>
+                    <span>
+                      <a
+                        data-for="username"
+                        data-tip={true}
+                      >
+                        <svg
+                          className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 16 16"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clipRule="evenodd"
+                            d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                            fillRule="evenodd"
+                          />
+                        </svg>
+                      </a>
+                      <div
+                        className="__react_component_tooltip t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef place-top type-dark"
+                        data-id="tooltip"
+                        id="username"
+                      >
+                        <style
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "
+  	.t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef.place-top {
+        margin-top: -10px;
+    }
+    .t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef.place-bottom {
+        margin-top: 10px;
+    }
+    .t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef.place-left {
+        margin-left: -10px;
+    }
+    .t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef.place-right {
+        margin-left: 10px;
+    }
+    .t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                            }
+                          }
+                        />
+                        Your username should be unique and meaningful. Avoid using numbers in your username!
+                      </div>
+                    </span>
                     <input
                       className="input"
                       onChange={[Function]}
@@ -706,10 +1285,128 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                       type="text"
                     />
                   </label>
-                  <label
-                    className="label"
-                  >
-                    Password:
+                  <label>
+                    <span
+                      className="label"
+                    >
+                      Password
+                    </span>
+                    <span>
+                      <a
+                        data-for="password"
+                        data-tip={true}
+                      >
+                        <svg
+                          className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 16 16"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clipRule="evenodd"
+                            d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                            fillRule="evenodd"
+                          />
+                        </svg>
+                      </a>
+                      <div
+                        className="__react_component_tooltip t285efec5-d03f-43f6-98b6-28cdee7bd25c place-top type-dark"
+                        data-id="tooltip"
+                        id="password"
+                      >
+                        <style
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "
+  	.t285efec5-d03f-43f6-98b6-28cdee7bd25c {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t285efec5-d03f-43f6-98b6-28cdee7bd25c.place-top {
+        margin-top: -10px;
+    }
+    .t285efec5-d03f-43f6-98b6-28cdee7bd25c.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t285efec5-d03f-43f6-98b6-28cdee7bd25c.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t285efec5-d03f-43f6-98b6-28cdee7bd25c.place-bottom {
+        margin-top: 10px;
+    }
+    .t285efec5-d03f-43f6-98b6-28cdee7bd25c.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t285efec5-d03f-43f6-98b6-28cdee7bd25c.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t285efec5-d03f-43f6-98b6-28cdee7bd25c.place-left {
+        margin-left: -10px;
+    }
+    .t285efec5-d03f-43f6-98b6-28cdee7bd25c.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t285efec5-d03f-43f6-98b6-28cdee7bd25c.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t285efec5-d03f-43f6-98b6-28cdee7bd25c.place-right {
+        margin-left: 10px;
+    }
+    .t285efec5-d03f-43f6-98b6-28cdee7bd25c.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t285efec5-d03f-43f6-98b6-28cdee7bd25c.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                            }
+                          }
+                        />
+                        Your password must be at least 8 characters long and contain a mix of numeric digits, upper and lower case letters!
+                      </div>
+                    </span>
                     <input
                       className="input"
                       onChange={[Function]}
@@ -717,10 +1414,128 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                       type="password"
                     />
                   </label>
-                  <label
-                    className="label"
-                  >
-                    Confirm Password:
+                  <label>
+                    <span
+                      className="label"
+                    >
+                      Confirm Password
+                    </span>
+                    <span>
+                      <a
+                        data-for="confirmPassword"
+                        data-tip={true}
+                      >
+                        <svg
+                          className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 16 16"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clipRule="evenodd"
+                            d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                            fillRule="evenodd"
+                          />
+                        </svg>
+                      </a>
+                      <div
+                        className="__react_component_tooltip ta073d407-353e-4ff7-a094-47b93d9399e2 place-top type-dark"
+                        data-id="tooltip"
+                        id="confirmPassword"
+                      >
+                        <style
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "
+  	.ta073d407-353e-4ff7-a094-47b93d9399e2 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.ta073d407-353e-4ff7-a094-47b93d9399e2.place-top {
+        margin-top: -10px;
+    }
+    .ta073d407-353e-4ff7-a094-47b93d9399e2.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .ta073d407-353e-4ff7-a094-47b93d9399e2.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .ta073d407-353e-4ff7-a094-47b93d9399e2.place-bottom {
+        margin-top: 10px;
+    }
+    .ta073d407-353e-4ff7-a094-47b93d9399e2.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .ta073d407-353e-4ff7-a094-47b93d9399e2.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .ta073d407-353e-4ff7-a094-47b93d9399e2.place-left {
+        margin-left: -10px;
+    }
+    .ta073d407-353e-4ff7-a094-47b93d9399e2.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .ta073d407-353e-4ff7-a094-47b93d9399e2.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .ta073d407-353e-4ff7-a094-47b93d9399e2.place-right {
+        margin-left: 10px;
+    }
+    .ta073d407-353e-4ff7-a094-47b93d9399e2.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .ta073d407-353e-4ff7-a094-47b93d9399e2.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                            }
+                          }
+                        />
+                        This password must match the password you entered above!
+                      </div>
+                    </span>
                     <input
                       className="input"
                       onChange={[Function]}

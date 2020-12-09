@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tooltip Snapshot test should render correctly regardless of properties 1`] = `
+<span>
+  <a
+    data-for="randomID"
+    data-tip={true}
+  >
+    <svg
+      className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 16 16"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clipRule="evenodd"
+        d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+        fillRule="evenodd"
+      />
+    </svg>
+  </a>
+  <div
+    className="__react_component_tooltip t72bbd3af-80c4-48eb-b2d9-0780333572c7 place-top type-dark"
+    data-id="tooltip"
+    id="randomID"
+  >
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "
+  	.t72bbd3af-80c4-48eb-b2d9-0780333572c7 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t72bbd3af-80c4-48eb-b2d9-0780333572c7.place-top {
+        margin-top: -10px;
+    }
+    .t72bbd3af-80c4-48eb-b2d9-0780333572c7.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t72bbd3af-80c4-48eb-b2d9-0780333572c7.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t72bbd3af-80c4-48eb-b2d9-0780333572c7.place-bottom {
+        margin-top: 10px;
+    }
+    .t72bbd3af-80c4-48eb-b2d9-0780333572c7.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t72bbd3af-80c4-48eb-b2d9-0780333572c7.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t72bbd3af-80c4-48eb-b2d9-0780333572c7.place-left {
+        margin-left: -10px;
+    }
+    .t72bbd3af-80c4-48eb-b2d9-0780333572c7.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t72bbd3af-80c4-48eb-b2d9-0780333572c7.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t72bbd3af-80c4-48eb-b2d9-0780333572c7.place-right {
+        margin-left: 10px;
+    }
+    .t72bbd3af-80c4-48eb-b2d9-0780333572c7.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t72bbd3af-80c4-48eb-b2d9-0780333572c7.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+        }
+      }
+    />
+    helpful text
+  </div>
+</span>
+`;

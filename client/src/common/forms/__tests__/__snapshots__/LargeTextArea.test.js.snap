@@ -1,10 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LargeTextArea Snapshot test should render correctly regardless of properties 1`] = `
-<label
-  className="label"
->
-  testLabelString1
+<label>
   <textarea
     className="input "
     cols="50"

@@ -74,6 +74,122 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           >
             Year of Birth
           </label>
+          <span>
+            <a
+              data-for="yearOfBirth"
+              data-tip={true}
+            >
+              <svg
+                className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 16 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clipRule="evenodd"
+                  d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                  fillRule="evenodd"
+                />
+              </svg>
+            </a>
+            <div
+              className="__react_component_tooltip tdb7b53b6-6612-4cf9-a992-535777438f09 place-top type-dark"
+              data-id="tooltip"
+              id="yearOfBirth"
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "
+  	.tdb7b53b6-6612-4cf9-a992-535777438f09 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.tdb7b53b6-6612-4cf9-a992-535777438f09.place-top {
+        margin-top: -10px;
+    }
+    .tdb7b53b6-6612-4cf9-a992-535777438f09.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .tdb7b53b6-6612-4cf9-a992-535777438f09.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .tdb7b53b6-6612-4cf9-a992-535777438f09.place-bottom {
+        margin-top: 10px;
+    }
+    .tdb7b53b6-6612-4cf9-a992-535777438f09.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .tdb7b53b6-6612-4cf9-a992-535777438f09.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .tdb7b53b6-6612-4cf9-a992-535777438f09.place-left {
+        margin-left: -10px;
+    }
+    .tdb7b53b6-6612-4cf9-a992-535777438f09.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .tdb7b53b6-6612-4cf9-a992-535777438f09.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .tdb7b53b6-6612-4cf9-a992-535777438f09.place-right {
+        margin-left: 10px;
+    }
+    .tdb7b53b6-6612-4cf9-a992-535777438f09.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .tdb7b53b6-6612-4cf9-a992-535777438f09.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                  }
+                }
+              />
+              Please select the year you were born
+            </div>
+          </span>
           <div>
             <div>
               <div
@@ -370,21 +486,134 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
               />
             </label>
           </div>
-          <span
-            className="info-detail"
-          >
-            Select checkbox below if your mailing address differs from the address above
-          </span>
-          <label
-            className="block label mt-0 "
-          >
+          <label>
             <input
-              className=" align-middle mr-2 my-4 font-medium text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
+              className="align-middle mt-3 mr-1 my-4 font-medium text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
               onChange={[Function]}
               type="checkbox"
             />
-            Different Mailing Address
           </label>
+          <label
+            className="label mt-0"
+          >
+            Different Mailing Address?
+          </label>
+          <span>
+            <a
+              data-for="differentMailingAddress"
+              data-tip={true}
+            >
+              <svg
+                className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 16 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clipRule="evenodd"
+                  d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                  fillRule="evenodd"
+                />
+              </svg>
+            </a>
+            <div
+              className="__react_component_tooltip tde23499a-e974-48c3-b969-6e7a4bc02d61 place-top type-dark"
+              data-id="tooltip"
+              id="differentMailingAddress"
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "
+  	.tde23499a-e974-48c3-b969-6e7a4bc02d61 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.tde23499a-e974-48c3-b969-6e7a4bc02d61.place-top {
+        margin-top: -10px;
+    }
+    .tde23499a-e974-48c3-b969-6e7a4bc02d61.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .tde23499a-e974-48c3-b969-6e7a4bc02d61.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .tde23499a-e974-48c3-b969-6e7a4bc02d61.place-bottom {
+        margin-top: 10px;
+    }
+    .tde23499a-e974-48c3-b969-6e7a4bc02d61.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .tde23499a-e974-48c3-b969-6e7a4bc02d61.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .tde23499a-e974-48c3-b969-6e7a4bc02d61.place-left {
+        margin-left: -10px;
+    }
+    .tde23499a-e974-48c3-b969-6e7a4bc02d61.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .tde23499a-e974-48c3-b969-6e7a4bc02d61.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .tde23499a-e974-48c3-b969-6e7a4bc02d61.place-right {
+        margin-left: 10px;
+    }
+    .tde23499a-e974-48c3-b969-6e7a4bc02d61.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .tde23499a-e974-48c3-b969-6e7a4bc02d61.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                  }
+                }
+              />
+              Select this checkbox if your mailing address differs from the address above
+            </div>
+          </span>
         </div>
       </div>
     </div>
@@ -484,6 +713,122 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                 >
                    Status 
                 </label>
+                <span>
+                  <a
+                    data-for="familyStatus"
+                    data-tip={true}
+                  >
+                    <svg
+                      className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 16 16"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clipRule="evenodd"
+                        d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                        fillRule="evenodd"
+                      />
+                    </svg>
+                  </a>
+                  <div
+                    className="__react_component_tooltip tafd381fd-4fd5-4175-b560-8be613872222 place-top type-dark"
+                    data-id="tooltip"
+                    id="familyStatus"
+                  >
+                    <style
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "
+  	.tafd381fd-4fd5-4175-b560-8be613872222 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.tafd381fd-4fd5-4175-b560-8be613872222.place-top {
+        margin-top: -10px;
+    }
+    .tafd381fd-4fd5-4175-b560-8be613872222.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .tafd381fd-4fd5-4175-b560-8be613872222.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .tafd381fd-4fd5-4175-b560-8be613872222.place-bottom {
+        margin-top: 10px;
+    }
+    .tafd381fd-4fd5-4175-b560-8be613872222.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .tafd381fd-4fd5-4175-b560-8be613872222.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .tafd381fd-4fd5-4175-b560-8be613872222.place-left {
+        margin-left: -10px;
+    }
+    .tafd381fd-4fd5-4175-b560-8be613872222.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .tafd381fd-4fd5-4175-b560-8be613872222.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .tafd381fd-4fd5-4175-b560-8be613872222.place-right {
+        margin-left: 10px;
+    }
+    .tafd381fd-4fd5-4175-b560-8be613872222.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .tafd381fd-4fd5-4175-b560-8be613872222.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                        }
+                      }
+                    />
+                    Please select your family status
+                  </div>
+                </span>
                 <div>
                   <div>
                     <div
@@ -596,6 +941,122 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                 >
                    Work Status 
                 </label>
+                <span>
+                  <a
+                    data-for="workStatus"
+                    data-tip={true}
+                  >
+                    <svg
+                      className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 16 16"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clipRule="evenodd"
+                        d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                        fillRule="evenodd"
+                      />
+                    </svg>
+                  </a>
+                  <div
+                    className="__react_component_tooltip t9a875c69-470e-47c0-b16d-5b3721eceeef place-top type-dark"
+                    data-id="tooltip"
+                    id="workStatus"
+                  >
+                    <style
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "
+  	.t9a875c69-470e-47c0-b16d-5b3721eceeef {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t9a875c69-470e-47c0-b16d-5b3721eceeef.place-top {
+        margin-top: -10px;
+    }
+    .t9a875c69-470e-47c0-b16d-5b3721eceeef.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t9a875c69-470e-47c0-b16d-5b3721eceeef.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t9a875c69-470e-47c0-b16d-5b3721eceeef.place-bottom {
+        margin-top: 10px;
+    }
+    .t9a875c69-470e-47c0-b16d-5b3721eceeef.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t9a875c69-470e-47c0-b16d-5b3721eceeef.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t9a875c69-470e-47c0-b16d-5b3721eceeef.place-left {
+        margin-left: -10px;
+    }
+    .t9a875c69-470e-47c0-b16d-5b3721eceeef.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t9a875c69-470e-47c0-b16d-5b3721eceeef.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t9a875c69-470e-47c0-b16d-5b3721eceeef.place-right {
+        margin-left: 10px;
+    }
+    .t9a875c69-470e-47c0-b16d-5b3721eceeef.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t9a875c69-470e-47c0-b16d-5b3721eceeef.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                        }
+                      }
+                    />
+                    Please select your work status
+                  </div>
+                </span>
                 <div>
                   <div>
                     <div
@@ -708,6 +1169,122 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                 >
                    open to sharing with 
                 </label>
+                <span>
+                  <a
+                    data-for="numPeopleToShare"
+                    data-tip={true}
+                  >
+                    <svg
+                      className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 16 16"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clipRule="evenodd"
+                        d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                        fillRule="evenodd"
+                      />
+                    </svg>
+                  </a>
+                  <div
+                    className="__react_component_tooltip t09e07f71-90e3-43c1-a034-4ca8b790ebea place-top type-dark"
+                    data-id="tooltip"
+                    id="numPeopleToShare"
+                  >
+                    <style
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "
+  	.t09e07f71-90e3-43c1-a034-4ca8b790ebea {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t09e07f71-90e3-43c1-a034-4ca8b790ebea.place-top {
+        margin-top: -10px;
+    }
+    .t09e07f71-90e3-43c1-a034-4ca8b790ebea.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t09e07f71-90e3-43c1-a034-4ca8b790ebea.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t09e07f71-90e3-43c1-a034-4ca8b790ebea.place-bottom {
+        margin-top: 10px;
+    }
+    .t09e07f71-90e3-43c1-a034-4ca8b790ebea.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t09e07f71-90e3-43c1-a034-4ca8b790ebea.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t09e07f71-90e3-43c1-a034-4ca8b790ebea.place-left {
+        margin-left: -10px;
+    }
+    .t09e07f71-90e3-43c1-a034-4ca8b790ebea.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t09e07f71-90e3-43c1-a034-4ca8b790ebea.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t09e07f71-90e3-43c1-a034-4ca8b790ebea.place-right {
+        margin-left: 10px;
+    }
+    .t09e07f71-90e3-43c1-a034-4ca8b790ebea.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t09e07f71-90e3-43c1-a034-4ca8b790ebea.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                        }
+                      }
+                    />
+                    Please select how many people you would like to share a home with
+                  </div>
+                </span>
                 <div>
                   <div>
                     <div
@@ -815,11 +1392,127 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                     </div>
                   </div>
                 </div>
-                <div
+                <label
                   className="label"
                 >
                   Monthly Rent
-                </div>
+                </label>
+                <span>
+                  <a
+                    data-for="rent"
+                    data-tip={true}
+                  >
+                    <svg
+                      className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 16 16"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clipRule="evenodd"
+                        d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                        fillRule="evenodd"
+                      />
+                    </svg>
+                  </a>
+                  <div
+                    className="__react_component_tooltip tcccdaa50-7d2b-405e-990c-23c1767a4985 place-top type-dark"
+                    data-id="tooltip"
+                    id="rent"
+                  >
+                    <style
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "
+  	.tcccdaa50-7d2b-405e-990c-23c1767a4985 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.tcccdaa50-7d2b-405e-990c-23c1767a4985.place-top {
+        margin-top: -10px;
+    }
+    .tcccdaa50-7d2b-405e-990c-23c1767a4985.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .tcccdaa50-7d2b-405e-990c-23c1767a4985.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .tcccdaa50-7d2b-405e-990c-23c1767a4985.place-bottom {
+        margin-top: 10px;
+    }
+    .tcccdaa50-7d2b-405e-990c-23c1767a4985.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .tcccdaa50-7d2b-405e-990c-23c1767a4985.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .tcccdaa50-7d2b-405e-990c-23c1767a4985.place-left {
+        margin-left: -10px;
+    }
+    .tcccdaa50-7d2b-405e-990c-23c1767a4985.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .tcccdaa50-7d2b-405e-990c-23c1767a4985.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .tcccdaa50-7d2b-405e-990c-23c1767a4985.place-right {
+        margin-left: 10px;
+    }
+    .tcccdaa50-7d2b-405e-990c-23c1767a4985.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .tcccdaa50-7d2b-405e-990c-23c1767a4985.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                        }
+                      }
+                    />
+                    Please list your minimum and maximum budget for rent. Note: This does NOT include utilities
+                  </div>
+                </span>
                 <div
                   className="grid grid-cols-6 gap-x-6"
                 >
@@ -853,6 +1546,122 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                 >
                   Preferred Living Location(s)
                 </label>
+                <span>
+                  <a
+                    data-for="interestedArea"
+                    data-tip={true}
+                  >
+                    <svg
+                      className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 16 16"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clipRule="evenodd"
+                        d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                        fillRule="evenodd"
+                      />
+                    </svg>
+                  </a>
+                  <div
+                    className="__react_component_tooltip te1739394-d6b2-4220-854a-fb15a5b556a8 place-top type-dark"
+                    data-id="tooltip"
+                    id="interestedArea"
+                  >
+                    <style
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "
+  	.te1739394-d6b2-4220-854a-fb15a5b556a8 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.te1739394-d6b2-4220-854a-fb15a5b556a8.place-top {
+        margin-top: -10px;
+    }
+    .te1739394-d6b2-4220-854a-fb15a5b556a8.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .te1739394-d6b2-4220-854a-fb15a5b556a8.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .te1739394-d6b2-4220-854a-fb15a5b556a8.place-bottom {
+        margin-top: 10px;
+    }
+    .te1739394-d6b2-4220-854a-fb15a5b556a8.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .te1739394-d6b2-4220-854a-fb15a5b556a8.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .te1739394-d6b2-4220-854a-fb15a5b556a8.place-left {
+        margin-left: -10px;
+    }
+    .te1739394-d6b2-4220-854a-fb15a5b556a8.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .te1739394-d6b2-4220-854a-fb15a5b556a8.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .te1739394-d6b2-4220-854a-fb15a5b556a8.place-right {
+        margin-left: 10px;
+    }
+    .te1739394-d6b2-4220-854a-fb15a5b556a8.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .te1739394-d6b2-4220-854a-fb15a5b556a8.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                        }
+                      }
+                    />
+                    Please select your preferred living location(s) across Canada
+                  </div>
+                </span>
                 <div>
                   <div
                     className="grid grid-cols-9 gap-x-2"
@@ -1010,314 +1819,1210 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                   <div
                     className="column-span-6-layout"
                   >
-                    <label>
-                      <div
-                        className=""
-                      >
-                        <div
-                          className="label text-base "
-                        >
-                          Pet Friendly?
-                        </div>
-                        <label
-                          className="text-base text-gray-700 pr-8"
-                        >
-                          <input
-                            className="form-radio mt-2 ml-2 mr-1 mb-4"
-                            name="petFriendly"
-                            onChange={[Function]}
-                            type="radio"
-                            value="no"
-                          />
-                          No
-                        </label>
-                        <label
-                          className="text-base text-gray-700 pr-8"
-                        >
-                          <input
-                            className="form-radio mt-2 ml-2 mr-1 mb-4"
-                            name="petFriendly"
-                            onChange={[Function]}
-                            type="radio"
-                            value="yes"
-                          />
-                          Yes
-                        </label>
-                      </div>
+                    <label
+                      className="label"
+                    >
+                      Pet Friendly?
                     </label>
+                    <span>
+                      <a
+                        data-for="pet"
+                        data-tip={true}
+                      >
+                        <svg
+                          className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 16 16"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clipRule="evenodd"
+                            d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                            fillRule="evenodd"
+                          />
+                        </svg>
+                      </a>
+                      <div
+                        className="__react_component_tooltip t424e6f0e-8826-4dea-b499-b0bf3e849f12 place-top type-dark"
+                        data-id="tooltip"
+                        id="pet"
+                      >
+                        <style
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "
+  	.t424e6f0e-8826-4dea-b499-b0bf3e849f12 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t424e6f0e-8826-4dea-b499-b0bf3e849f12.place-top {
+        margin-top: -10px;
+    }
+    .t424e6f0e-8826-4dea-b499-b0bf3e849f12.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t424e6f0e-8826-4dea-b499-b0bf3e849f12.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t424e6f0e-8826-4dea-b499-b0bf3e849f12.place-bottom {
+        margin-top: 10px;
+    }
+    .t424e6f0e-8826-4dea-b499-b0bf3e849f12.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t424e6f0e-8826-4dea-b499-b0bf3e849f12.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t424e6f0e-8826-4dea-b499-b0bf3e849f12.place-left {
+        margin-left: -10px;
+    }
+    .t424e6f0e-8826-4dea-b499-b0bf3e849f12.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t424e6f0e-8826-4dea-b499-b0bf3e849f12.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t424e6f0e-8826-4dea-b499-b0bf3e849f12.place-right {
+        margin-left: 10px;
+    }
+    .t424e6f0e-8826-4dea-b499-b0bf3e849f12.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t424e6f0e-8826-4dea-b499-b0bf3e849f12.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                            }
+                          }
+                        />
+                        Would you like to live in a home that is pet friendly?
+                      </div>
+                    </span>
+                    <div>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="petFriendly"
+                          onChange={[Function]}
+                          type="radio"
+                          value="no"
+                        />
+                        No
+                      </label>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="petFriendly"
+                          onChange={[Function]}
+                          type="radio"
+                          value="yes"
+                        />
+                        Yes
+                      </label>
+                    </div>
                   </div>
                   <div
                     className="column-span-6-layout"
                   >
-                    <label>
-                      <div
-                        className=""
-                      >
-                        <div
-                          className="label text-base "
-                        >
-                          Smoking Friendly?
-                        </div>
-                        <label
-                          className="text-base text-gray-700 pr-8"
-                        >
-                          <input
-                            className="form-radio mt-2 ml-2 mr-1 mb-4"
-                            name="smoking"
-                            onChange={[Function]}
-                            type="radio"
-                            value="no"
-                          />
-                          No
-                        </label>
-                        <label
-                          className="text-base text-gray-700 pr-8"
-                        >
-                          <input
-                            className="form-radio mt-2 ml-2 mr-1 mb-4"
-                            name="smoking"
-                            onChange={[Function]}
-                            type="radio"
-                            value="yes"
-                          />
-                          Yes
-                        </label>
-                      </div>
+                    <label
+                      className="label"
+                    >
+                      Smoke Friendly?
                     </label>
+                    <span>
+                      <a
+                        data-for="smoke"
+                        data-tip={true}
+                      >
+                        <svg
+                          className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 16 16"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clipRule="evenodd"
+                            d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                            fillRule="evenodd"
+                          />
+                        </svg>
+                      </a>
+                      <div
+                        className="__react_component_tooltip te58c4b6b-33e2-41f0-830d-fa032f709486 place-top type-dark"
+                        data-id="tooltip"
+                        id="smoke"
+                      >
+                        <style
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "
+  	.te58c4b6b-33e2-41f0-830d-fa032f709486 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.te58c4b6b-33e2-41f0-830d-fa032f709486.place-top {
+        margin-top: -10px;
+    }
+    .te58c4b6b-33e2-41f0-830d-fa032f709486.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .te58c4b6b-33e2-41f0-830d-fa032f709486.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .te58c4b6b-33e2-41f0-830d-fa032f709486.place-bottom {
+        margin-top: 10px;
+    }
+    .te58c4b6b-33e2-41f0-830d-fa032f709486.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .te58c4b6b-33e2-41f0-830d-fa032f709486.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .te58c4b6b-33e2-41f0-830d-fa032f709486.place-left {
+        margin-left: -10px;
+    }
+    .te58c4b6b-33e2-41f0-830d-fa032f709486.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .te58c4b6b-33e2-41f0-830d-fa032f709486.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .te58c4b6b-33e2-41f0-830d-fa032f709486.place-right {
+        margin-left: 10px;
+    }
+    .te58c4b6b-33e2-41f0-830d-fa032f709486.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .te58c4b6b-33e2-41f0-830d-fa032f709486.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                            }
+                          }
+                        />
+                        Would you like to live in a home that is smoke friendly?
+                      </div>
+                    </span>
+                    <div>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="smoking"
+                          onChange={[Function]}
+                          type="radio"
+                          value="no"
+                        />
+                        No
+                      </label>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="smoking"
+                          onChange={[Function]}
+                          type="radio"
+                          value="yes"
+                        />
+                        Yes
+                      </label>
+                    </div>
                   </div>
                   <div
                     className="column-span-6-layout"
                   >
-                    <label>
-                      <div
-                        className=""
-                      >
-                        <div
-                          className="label text-base "
-                        >
-                          Health / Mobility Issues?
-                        </div>
-                        <label
-                          className="text-base text-gray-700 pr-8"
-                        >
-                          <input
-                            className="form-radio mt-2 ml-2 mr-1 mb-4"
-                            name="mobile"
-                            onChange={[Function]}
-                            type="radio"
-                            value="no"
-                          />
-                          No
-                        </label>
-                        <label
-                          className="text-base text-gray-700 pr-8"
-                        >
-                          <input
-                            className="form-radio mt-2 ml-2 mr-1 mb-4"
-                            name="mobile"
-                            onChange={[Function]}
-                            type="radio"
-                            value="yes"
-                          />
-                          Yes
-                        </label>
-                      </div>
+                    <label
+                      className="label"
+                    >
+                      Health / Mobility Issues?
                     </label>
+                    <span>
+                      <a
+                        data-for="health"
+                        data-tip={true}
+                      >
+                        <svg
+                          className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 16 16"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clipRule="evenodd"
+                            d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                            fillRule="evenodd"
+                          />
+                        </svg>
+                      </a>
+                      <div
+                        className="__react_component_tooltip t6d540652-42a7-4596-80ff-bb8666579a1e place-top type-dark"
+                        data-id="tooltip"
+                        id="health"
+                      >
+                        <style
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "
+  	.t6d540652-42a7-4596-80ff-bb8666579a1e {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t6d540652-42a7-4596-80ff-bb8666579a1e.place-top {
+        margin-top: -10px;
+    }
+    .t6d540652-42a7-4596-80ff-bb8666579a1e.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t6d540652-42a7-4596-80ff-bb8666579a1e.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t6d540652-42a7-4596-80ff-bb8666579a1e.place-bottom {
+        margin-top: 10px;
+    }
+    .t6d540652-42a7-4596-80ff-bb8666579a1e.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t6d540652-42a7-4596-80ff-bb8666579a1e.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t6d540652-42a7-4596-80ff-bb8666579a1e.place-left {
+        margin-left: -10px;
+    }
+    .t6d540652-42a7-4596-80ff-bb8666579a1e.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t6d540652-42a7-4596-80ff-bb8666579a1e.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t6d540652-42a7-4596-80ff-bb8666579a1e.place-right {
+        margin-left: 10px;
+    }
+    .t6d540652-42a7-4596-80ff-bb8666579a1e.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t6d540652-42a7-4596-80ff-bb8666579a1e.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                            }
+                          }
+                        />
+                        Do you have any health or mobility issues that others should be aware of?
+                      </div>
+                    </span>
+                    <div>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="health"
+                          onChange={[Function]}
+                          type="radio"
+                          value="no"
+                        />
+                        No
+                      </label>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="health"
+                          onChange={[Function]}
+                          type="radio"
+                          value="yes"
+                        />
+                        Yes
+                      </label>
+                    </div>
                   </div>
                   <div
                     className="column-span-6-layout"
                   >
-                    <label>
-                      <div
-                        className=""
-                      >
-                        <div
-                          className="label text-base "
-                        >
-                          Allergies?
-                        </div>
-                        <label
-                          className="text-base text-gray-700 pr-8"
-                        >
-                          <input
-                            className="form-radio mt-2 ml-2 mr-1 mb-4"
-                            name="allergies"
-                            onChange={[Function]}
-                            type="radio"
-                            value="no"
-                          />
-                          No
-                        </label>
-                        <label
-                          className="text-base text-gray-700 pr-8"
-                        >
-                          <input
-                            className="form-radio mt-2 ml-2 mr-1 mb-4"
-                            name="allergies"
-                            onChange={[Function]}
-                            type="radio"
-                            value="yes"
-                          />
-                          Yes
-                        </label>
-                      </div>
+                    <label
+                      className="label"
+                    >
+                      Allergies?
                     </label>
+                    <span>
+                      <a
+                        data-for="allergies"
+                        data-tip={true}
+                      >
+                        <svg
+                          className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 16 16"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clipRule="evenodd"
+                            d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                            fillRule="evenodd"
+                          />
+                        </svg>
+                      </a>
+                      <div
+                        className="__react_component_tooltip tea19fa06-abe4-47a2-9076-64a594d5ce49 place-top type-dark"
+                        data-id="tooltip"
+                        id="allergies"
+                      >
+                        <style
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "
+  	.tea19fa06-abe4-47a2-9076-64a594d5ce49 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.tea19fa06-abe4-47a2-9076-64a594d5ce49.place-top {
+        margin-top: -10px;
+    }
+    .tea19fa06-abe4-47a2-9076-64a594d5ce49.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .tea19fa06-abe4-47a2-9076-64a594d5ce49.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .tea19fa06-abe4-47a2-9076-64a594d5ce49.place-bottom {
+        margin-top: 10px;
+    }
+    .tea19fa06-abe4-47a2-9076-64a594d5ce49.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .tea19fa06-abe4-47a2-9076-64a594d5ce49.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .tea19fa06-abe4-47a2-9076-64a594d5ce49.place-left {
+        margin-left: -10px;
+    }
+    .tea19fa06-abe4-47a2-9076-64a594d5ce49.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .tea19fa06-abe4-47a2-9076-64a594d5ce49.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .tea19fa06-abe4-47a2-9076-64a594d5ce49.place-right {
+        margin-left: 10px;
+    }
+    .tea19fa06-abe4-47a2-9076-64a594d5ce49.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .tea19fa06-abe4-47a2-9076-64a594d5ce49.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                            }
+                          }
+                        />
+                        Do you have any allergies that others should be aware of?
+                      </div>
+                    </span>
+                    <div>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="allergies"
+                          onChange={[Function]}
+                          type="radio"
+                          value="no"
+                        />
+                        No
+                      </label>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="allergies"
+                          onChange={[Function]}
+                          type="radio"
+                          value="yes"
+                        />
+                        Yes
+                      </label>
+                    </div>
                   </div>
                   <div
                     className="column-span-6-layout"
                   >
-                    <label>
-                      <div
-                        className=""
-                      >
-                        <div
-                          className="label text-base "
-                        >
-                          Is religion important?
-                        </div>
-                        <label
-                          className="text-base text-gray-700 pr-8"
-                        >
-                          <input
-                            className="form-radio mt-2 ml-2 mr-1 mb-4"
-                            name="religion"
-                            onChange={[Function]}
-                            type="radio"
-                            value="no"
-                          />
-                          No
-                        </label>
-                        <label
-                          className="text-base text-gray-700 pr-8"
-                        >
-                          <input
-                            className="form-radio mt-2 ml-2 mr-1 mb-4"
-                            name="religion"
-                            onChange={[Function]}
-                            type="radio"
-                            value="yes"
-                          />
-                          Yes
-                        </label>
-                      </div>
+                    <label
+                      className="label"
+                    >
+                      Is religion important?
                     </label>
+                    <span>
+                      <a
+                        data-for="religion"
+                        data-tip={true}
+                      >
+                        <svg
+                          className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 16 16"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clipRule="evenodd"
+                            d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                            fillRule="evenodd"
+                          />
+                        </svg>
+                      </a>
+                      <div
+                        className="__react_component_tooltip t1157d714-14ca-43ed-8874-874b9b5fbcce place-top type-dark"
+                        data-id="tooltip"
+                        id="religion"
+                      >
+                        <style
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "
+  	.t1157d714-14ca-43ed-8874-874b9b5fbcce {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t1157d714-14ca-43ed-8874-874b9b5fbcce.place-top {
+        margin-top: -10px;
+    }
+    .t1157d714-14ca-43ed-8874-874b9b5fbcce.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t1157d714-14ca-43ed-8874-874b9b5fbcce.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t1157d714-14ca-43ed-8874-874b9b5fbcce.place-bottom {
+        margin-top: 10px;
+    }
+    .t1157d714-14ca-43ed-8874-874b9b5fbcce.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t1157d714-14ca-43ed-8874-874b9b5fbcce.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t1157d714-14ca-43ed-8874-874b9b5fbcce.place-left {
+        margin-left: -10px;
+    }
+    .t1157d714-14ca-43ed-8874-874b9b5fbcce.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t1157d714-14ca-43ed-8874-874b9b5fbcce.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t1157d714-14ca-43ed-8874-874b9b5fbcce.place-right {
+        margin-left: 10px;
+    }
+    .t1157d714-14ca-43ed-8874-874b9b5fbcce.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t1157d714-14ca-43ed-8874-874b9b5fbcce.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                            }
+                          }
+                        />
+                        Would you like to live with people who share the same religion as you?
+                      </div>
+                    </span>
+                    <div>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="religion"
+                          onChange={[Function]}
+                          type="radio"
+                          value="no"
+                        />
+                        No
+                      </label>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="religion"
+                          onChange={[Function]}
+                          type="radio"
+                          value="yes"
+                        />
+                        Yes
+                      </label>
+                    </div>
                   </div>
                   <div
                     className="column-span-6-layout"
                   >
-                    <label>
-                      <div
-                        className=""
-                      >
-                        <div
-                          className="label text-base "
-                        >
-                          Is diet of others important?
-                        </div>
-                        <label
-                          className="text-base text-gray-700 pr-8"
-                        >
-                          <input
-                            className="form-radio mt-2 ml-2 mr-1 mb-4"
-                            name="diet"
-                            onChange={[Function]}
-                            type="radio"
-                            value="no"
-                          />
-                          No
-                        </label>
-                        <label
-                          className="text-base text-gray-700 pr-8"
-                        >
-                          <input
-                            className="form-radio mt-2 ml-2 mr-1 mb-4"
-                            name="diet"
-                            onChange={[Function]}
-                            type="radio"
-                            value="yes"
-                          />
-                          Yes
-                        </label>
-                      </div>
+                    <label
+                      className="label"
+                    >
+                      Is diet of others important?
                     </label>
+                    <span>
+                      <a
+                        data-for="diet"
+                        data-tip={true}
+                      >
+                        <svg
+                          className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 16 16"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clipRule="evenodd"
+                            d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                            fillRule="evenodd"
+                          />
+                        </svg>
+                      </a>
+                      <div
+                        className="__react_component_tooltip td027eeea-242f-4bbf-81fa-2ac6958fe684 place-top type-dark"
+                        data-id="tooltip"
+                        id="diet"
+                      >
+                        <style
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "
+  	.td027eeea-242f-4bbf-81fa-2ac6958fe684 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.td027eeea-242f-4bbf-81fa-2ac6958fe684.place-top {
+        margin-top: -10px;
+    }
+    .td027eeea-242f-4bbf-81fa-2ac6958fe684.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .td027eeea-242f-4bbf-81fa-2ac6958fe684.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .td027eeea-242f-4bbf-81fa-2ac6958fe684.place-bottom {
+        margin-top: 10px;
+    }
+    .td027eeea-242f-4bbf-81fa-2ac6958fe684.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .td027eeea-242f-4bbf-81fa-2ac6958fe684.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .td027eeea-242f-4bbf-81fa-2ac6958fe684.place-left {
+        margin-left: -10px;
+    }
+    .td027eeea-242f-4bbf-81fa-2ac6958fe684.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .td027eeea-242f-4bbf-81fa-2ac6958fe684.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .td027eeea-242f-4bbf-81fa-2ac6958fe684.place-right {
+        margin-left: 10px;
+    }
+    .td027eeea-242f-4bbf-81fa-2ac6958fe684.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .td027eeea-242f-4bbf-81fa-2ac6958fe684.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                            }
+                          }
+                        />
+                        Would you like to live with people who share the same diet as you?
+                      </div>
+                    </span>
+                    <div>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="diet"
+                          onChange={[Function]}
+                          type="radio"
+                          value="no"
+                        />
+                        No
+                      </label>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="diet"
+                          onChange={[Function]}
+                          type="radio"
+                          value="yes"
+                        />
+                        Yes
+                      </label>
+                    </div>
                   </div>
                   <div
                     className="column-span-6-layout"
                   >
-                    <label>
-                      <div
-                        className=""
-                      >
-                        <div
-                          className="label text-base "
-                        >
-                          Have a home to share?
-                        </div>
-                        <label
-                          className="text-base text-gray-700 pr-8"
-                        >
-                          <input
-                            className="form-radio mt-2 ml-2 mr-1 mb-4"
-                            name="hasHome"
-                            onChange={[Function]}
-                            type="radio"
-                            value="no"
-                          />
-                          No
-                        </label>
-                        <label
-                          className="text-base text-gray-700 pr-8"
-                        >
-                          <input
-                            className="form-radio mt-2 ml-2 mr-1 mb-4"
-                            name="hasHome"
-                            onChange={[Function]}
-                            type="radio"
-                            value="yes"
-                          />
-                          Yes
-                        </label>
-                      </div>
+                    <label
+                      className="label"
+                    >
+                      Have a home to share?
                     </label>
+                    <span>
+                      <a
+                        data-for="homeToShare"
+                        data-tip={true}
+                      >
+                        <svg
+                          className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 16 16"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clipRule="evenodd"
+                            d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                            fillRule="evenodd"
+                          />
+                        </svg>
+                      </a>
+                      <div
+                        className="__react_component_tooltip tbf3413fc-5d2e-45f4-b363-b77808abf2ac place-top type-dark"
+                        data-id="tooltip"
+                        id="homeToShare"
+                      >
+                        <style
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "
+  	.tbf3413fc-5d2e-45f4-b363-b77808abf2ac {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.tbf3413fc-5d2e-45f4-b363-b77808abf2ac.place-top {
+        margin-top: -10px;
+    }
+    .tbf3413fc-5d2e-45f4-b363-b77808abf2ac.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .tbf3413fc-5d2e-45f4-b363-b77808abf2ac.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .tbf3413fc-5d2e-45f4-b363-b77808abf2ac.place-bottom {
+        margin-top: 10px;
+    }
+    .tbf3413fc-5d2e-45f4-b363-b77808abf2ac.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .tbf3413fc-5d2e-45f4-b363-b77808abf2ac.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .tbf3413fc-5d2e-45f4-b363-b77808abf2ac.place-left {
+        margin-left: -10px;
+    }
+    .tbf3413fc-5d2e-45f4-b363-b77808abf2ac.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .tbf3413fc-5d2e-45f4-b363-b77808abf2ac.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .tbf3413fc-5d2e-45f4-b363-b77808abf2ac.place-right {
+        margin-left: 10px;
+    }
+    .tbf3413fc-5d2e-45f4-b363-b77808abf2ac.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .tbf3413fc-5d2e-45f4-b363-b77808abf2ac.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                            }
+                          }
+                        />
+                        Do you have a home to share with others?
+                      </div>
+                    </span>
+                    <div>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="hasHome"
+                          onChange={[Function]}
+                          type="radio"
+                          value="no"
+                        />
+                        No
+                      </label>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="hasHome"
+                          onChange={[Function]}
+                          type="radio"
+                          value="yes"
+                        />
+                        Yes
+                      </label>
+                    </div>
                   </div>
                   <div
                     className="column-span-6-layout"
                   >
-                    <label>
-                      <div
-                        className=""
-                      >
-                        <div
-                          className="label text-base "
-                        >
-                          Interested in buying a home w/ others?
-                        </div>
-                        <label
-                          className="text-base text-gray-700 pr-8"
-                        >
-                          <input
-                            className="form-radio mt-2 ml-2 mr-1 mb-4"
-                            name="interestInBuyingHome"
-                            onChange={[Function]}
-                            type="radio"
-                            value="no"
-                          />
-                          No
-                        </label>
-                        <label
-                          className="text-base text-gray-700 pr-8"
-                        >
-                          <input
-                            className="form-radio mt-2 ml-2 mr-1 mb-4"
-                            name="interestInBuyingHome"
-                            onChange={[Function]}
-                            type="radio"
-                            value="yes"
-                          />
-                          Yes
-                        </label>
-                      </div>
+                    <label
+                      className="label"
+                    >
+                      Interested in buying a home with others?
                     </label>
+                    <span>
+                      <a
+                        data-for="homeToBuy"
+                        data-tip={true}
+                      >
+                        <svg
+                          className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 16 16"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clipRule="evenodd"
+                            d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                            fillRule="evenodd"
+                          />
+                        </svg>
+                      </a>
+                      <div
+                        className="__react_component_tooltip tb204cf09-44f3-4693-956e-f0e990485c34 place-top type-dark"
+                        data-id="tooltip"
+                        id="homeToBuy"
+                      >
+                        <style
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "
+  	.tb204cf09-44f3-4693-956e-f0e990485c34 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.tb204cf09-44f3-4693-956e-f0e990485c34.place-top {
+        margin-top: -10px;
+    }
+    .tb204cf09-44f3-4693-956e-f0e990485c34.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .tb204cf09-44f3-4693-956e-f0e990485c34.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .tb204cf09-44f3-4693-956e-f0e990485c34.place-bottom {
+        margin-top: 10px;
+    }
+    .tb204cf09-44f3-4693-956e-f0e990485c34.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .tb204cf09-44f3-4693-956e-f0e990485c34.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .tb204cf09-44f3-4693-956e-f0e990485c34.place-left {
+        margin-left: -10px;
+    }
+    .tb204cf09-44f3-4693-956e-f0e990485c34.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .tb204cf09-44f3-4693-956e-f0e990485c34.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .tb204cf09-44f3-4693-956e-f0e990485c34.place-right {
+        margin-left: 10px;
+    }
+    .tb204cf09-44f3-4693-956e-f0e990485c34.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .tb204cf09-44f3-4693-956e-f0e990485c34.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                            }
+                          }
+                        />
+                        Are you interested in purchasing a home with others?
+                      </div>
+                    </span>
+                    <div>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="interestInBuyingHome"
+                          onChange={[Function]}
+                          type="radio"
+                          value="no"
+                        />
+                        No
+                      </label>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="interestInBuyingHome"
+                          onChange={[Function]}
+                          type="radio"
+                          value="yes"
+                        />
+                        Yes
+                      </label>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -1326,7 +3031,125 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                   <label
                     className="label"
                   >
-                    Tell others about yourself: 
+                    Tell others about yourself
+                  </label>
+                  <span>
+                    <a
+                      data-for="about"
+                      data-tip={true}
+                    >
+                      <svg
+                        className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        strokeWidth="0"
+                        style={
+                          Object {
+                            "color": undefined,
+                          }
+                        }
+                        viewBox="0 0 16 16"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clipRule="evenodd"
+                          d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                          fillRule="evenodd"
+                        />
+                      </svg>
+                    </a>
+                    <div
+                      className="__react_component_tooltip tb2dad508-2dfd-45e6-b00b-a46691d3f16f place-top type-dark"
+                      data-id="tooltip"
+                      id="about"
+                    >
+                      <style
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "
+  	.tb2dad508-2dfd-45e6-b00b-a46691d3f16f {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.tb2dad508-2dfd-45e6-b00b-a46691d3f16f.place-top {
+        margin-top: -10px;
+    }
+    .tb2dad508-2dfd-45e6-b00b-a46691d3f16f.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .tb2dad508-2dfd-45e6-b00b-a46691d3f16f.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .tb2dad508-2dfd-45e6-b00b-a46691d3f16f.place-bottom {
+        margin-top: 10px;
+    }
+    .tb2dad508-2dfd-45e6-b00b-a46691d3f16f.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .tb2dad508-2dfd-45e6-b00b-a46691d3f16f.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .tb2dad508-2dfd-45e6-b00b-a46691d3f16f.place-left {
+        margin-left: -10px;
+    }
+    .tb2dad508-2dfd-45e6-b00b-a46691d3f16f.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .tb2dad508-2dfd-45e6-b00b-a46691d3f16f.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .tb2dad508-2dfd-45e6-b00b-a46691d3f16f.place-right {
+        margin-left: 10px;
+    }
+    .tb2dad508-2dfd-45e6-b00b-a46691d3f16f.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .tb2dad508-2dfd-45e6-b00b-a46691d3f16f.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                          }
+                        }
+                      />
+                      Please use this area to let others know more about your life style and values.
+                    </div>
+                  </span>
+                  <label>
                     <textarea
                       className="input "
                       cols="50"
@@ -1387,10 +3210,128 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                 className="col-span-3 sm:col-span-2"
               >
                 <div>
-                  <label
-                    className="label"
-                  >
-                    Username:
+                  <label>
+                    <span
+                      className="label"
+                    >
+                      Username
+                    </span>
+                    <span>
+                      <a
+                        data-for="username"
+                        data-tip={true}
+                      >
+                        <svg
+                          className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 16 16"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clipRule="evenodd"
+                            d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                            fillRule="evenodd"
+                          />
+                        </svg>
+                      </a>
+                      <div
+                        className="__react_component_tooltip t65a193de-4785-4a77-acc5-6d043aa06660 place-top type-dark"
+                        data-id="tooltip"
+                        id="username"
+                      >
+                        <style
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "
+  	.t65a193de-4785-4a77-acc5-6d043aa06660 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t65a193de-4785-4a77-acc5-6d043aa06660.place-top {
+        margin-top: -10px;
+    }
+    .t65a193de-4785-4a77-acc5-6d043aa06660.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t65a193de-4785-4a77-acc5-6d043aa06660.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t65a193de-4785-4a77-acc5-6d043aa06660.place-bottom {
+        margin-top: 10px;
+    }
+    .t65a193de-4785-4a77-acc5-6d043aa06660.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t65a193de-4785-4a77-acc5-6d043aa06660.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t65a193de-4785-4a77-acc5-6d043aa06660.place-left {
+        margin-left: -10px;
+    }
+    .t65a193de-4785-4a77-acc5-6d043aa06660.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t65a193de-4785-4a77-acc5-6d043aa06660.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t65a193de-4785-4a77-acc5-6d043aa06660.place-right {
+        margin-left: 10px;
+    }
+    .t65a193de-4785-4a77-acc5-6d043aa06660.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t65a193de-4785-4a77-acc5-6d043aa06660.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                            }
+                          }
+                        />
+                        Your username should be unique and meaningful. Avoid using numbers in your username!
+                      </div>
+                    </span>
                     <input
                       className="input"
                       onChange={[Function]}
@@ -1398,10 +3339,128 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                       type="text"
                     />
                   </label>
-                  <label
-                    className="label"
-                  >
-                    Password:
+                  <label>
+                    <span
+                      className="label"
+                    >
+                      Password
+                    </span>
+                    <span>
+                      <a
+                        data-for="password"
+                        data-tip={true}
+                      >
+                        <svg
+                          className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 16 16"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clipRule="evenodd"
+                            d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                            fillRule="evenodd"
+                          />
+                        </svg>
+                      </a>
+                      <div
+                        className="__react_component_tooltip t7b867957-1489-4cb1-b8b1-4ff5e80bab97 place-top type-dark"
+                        data-id="tooltip"
+                        id="password"
+                      >
+                        <style
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "
+  	.t7b867957-1489-4cb1-b8b1-4ff5e80bab97 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t7b867957-1489-4cb1-b8b1-4ff5e80bab97.place-top {
+        margin-top: -10px;
+    }
+    .t7b867957-1489-4cb1-b8b1-4ff5e80bab97.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t7b867957-1489-4cb1-b8b1-4ff5e80bab97.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t7b867957-1489-4cb1-b8b1-4ff5e80bab97.place-bottom {
+        margin-top: 10px;
+    }
+    .t7b867957-1489-4cb1-b8b1-4ff5e80bab97.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t7b867957-1489-4cb1-b8b1-4ff5e80bab97.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t7b867957-1489-4cb1-b8b1-4ff5e80bab97.place-left {
+        margin-left: -10px;
+    }
+    .t7b867957-1489-4cb1-b8b1-4ff5e80bab97.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t7b867957-1489-4cb1-b8b1-4ff5e80bab97.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t7b867957-1489-4cb1-b8b1-4ff5e80bab97.place-right {
+        margin-left: 10px;
+    }
+    .t7b867957-1489-4cb1-b8b1-4ff5e80bab97.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t7b867957-1489-4cb1-b8b1-4ff5e80bab97.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                            }
+                          }
+                        />
+                        Your password must be at least 8 characters long and contain a mix of numeric digits, upper and lower case letters!
+                      </div>
+                    </span>
                     <input
                       className="input"
                       onChange={[Function]}
@@ -1409,10 +3468,128 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                       type="password"
                     />
                   </label>
-                  <label
-                    className="label"
-                  >
-                    Confirm Password:
+                  <label>
+                    <span
+                      className="label"
+                    >
+                      Confirm Password
+                    </span>
+                    <span>
+                      <a
+                        data-for="confirmPassword"
+                        data-tip={true}
+                      >
+                        <svg
+                          className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 16 16"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clipRule="evenodd"
+                            d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                            fillRule="evenodd"
+                          />
+                        </svg>
+                      </a>
+                      <div
+                        className="__react_component_tooltip t172bba0b-7839-4c6b-a07e-631b269001cb place-top type-dark"
+                        data-id="tooltip"
+                        id="confirmPassword"
+                      >
+                        <style
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "
+  	.t172bba0b-7839-4c6b-a07e-631b269001cb {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t172bba0b-7839-4c6b-a07e-631b269001cb.place-top {
+        margin-top: -10px;
+    }
+    .t172bba0b-7839-4c6b-a07e-631b269001cb.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t172bba0b-7839-4c6b-a07e-631b269001cb.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t172bba0b-7839-4c6b-a07e-631b269001cb.place-bottom {
+        margin-top: 10px;
+    }
+    .t172bba0b-7839-4c6b-a07e-631b269001cb.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t172bba0b-7839-4c6b-a07e-631b269001cb.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t172bba0b-7839-4c6b-a07e-631b269001cb.place-left {
+        margin-left: -10px;
+    }
+    .t172bba0b-7839-4c6b-a07e-631b269001cb.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t172bba0b-7839-4c6b-a07e-631b269001cb.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t172bba0b-7839-4c6b-a07e-631b269001cb.place-right {
+        margin-left: 10px;
+    }
+    .t172bba0b-7839-4c6b-a07e-631b269001cb.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t172bba0b-7839-4c6b-a07e-631b269001cb.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                            }
+                          }
+                        />
+                        This password must match the password you entered above!
+                      </div>
+                    </span>
                     <input
                       className="input"
                       onChange={[Function]}
