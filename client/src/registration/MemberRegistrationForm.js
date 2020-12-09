@@ -242,6 +242,24 @@ function MemberRegistrationForm(props) {
         return true;
     }
 
+    const infoText = {
+        yearOfBirth: "Please select the year you were born.",
+        familyStatus: "family",
+        workStatus: "work",
+        numPeopleToShare: "people to share",
+        rent: "rent",
+        interestedArea: "interested area",
+        pet: "pet",
+        smoke: "smoke",
+        health: "heath",
+        allergies: "allergies",
+        religion: "religion",
+        diet: "diet",
+        homeToShare: "home to share",
+        homeToBuy: "home to buy",
+        about: "about",
+    };
+
     //function for input checks on submit
     function onSubmit(event) {
         if (!isFormValid()) {
@@ -358,7 +376,7 @@ function MemberRegistrationForm(props) {
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                             <label className={"label"}>Year of Birth</label>
-                            <Tooltip text={"hello"}/>
+                            <Tooltip text={infoText["yearOfBirth"]} toolTipID="yearOfBirth"/>
                             <BirthYear label={"Year of Birth"} onChange={handleYearChange}/>
                             <PhoneNumInput
                                 className="w-1/4 phone"
@@ -438,15 +456,20 @@ function MemberRegistrationForm(props) {
                                             />}
                                         </div>
                                         <label className={"label"}> Status </label>
+                                        <Tooltip text={infoText["familyStatus"]} toolTipID="familyStatus"/>
                                         <Status onChange={handleFamilyStatusChange}/>
                                         {checkStatus(selectedFamilyStatus)}
 
                                         <label className={"label"}> Work Status </label>
+                                        <Tooltip text={infoText["workStatus"]} toolTipID="workStatus"/>
                                         <WorkStatus onChange={handleWorkStatusChange}/>
 
                                         <label className={"label text-base "}> open to sharing with </label>
+                                        <Tooltip text={infoText["numPeopleToShare"]} toolTipID="numPeopleToShare"/>
                                         <ShareLimit onChange={handleLimitChange}/>
-                                        <div className={"label"}>Monthly Rent</div>
+
+                                        <label className={"label"}>Monthly Rent</label>
+                                        <Tooltip text={infoText["rent"]} toolTipID="rent"/>
                                         <div className="grid grid-cols-6 gap-x-6">
                                             <div className="column-span-6-layout">
                                                 <input
@@ -469,15 +492,21 @@ function MemberRegistrationForm(props) {
                                                 />
                                             </div>
                                         </div>
+
                                         <label className={"label"}>Preferred Living Location(s)</label>
+                                        <Tooltip text={infoText["interestedArea"]} toolTipID="interestedArea"/>
                                         <InterestedArea onChange={setAreasOfInterest}/>
                                         <div className="grid grid-cols-6 gap-x-6">
+
                                             <div className="column-span-6-layout">
+                                                <label className={"label"}>Pet Friendly?</label>
+                                                <Tooltip text={infoText["pet"]} toolTipID="pet"/>
                                                 <YNButton
-                                                    label="Pet Friendly?"
+                                                    label=""
                                                     name="petFriendly"
                                                     onChange={(e) => setPetFriendly(e.target.value)}
                                                 />
+
                                                 {(petFriendly === "yes") &&
                                                 <TextArea
                                                     className={"input"}
@@ -486,9 +515,12 @@ function MemberRegistrationForm(props) {
                                                     value={petDescription}
                                                 />}
                                             </div>
+
                                             <div className="column-span-6-layout">
+                                                <label className={"label"}>Smoke Friendly?</label>
+                                                <Tooltip text={infoText["smoke"]} toolTipID="smoke"/>
                                                 <YNButton
-                                                    label="Smoking Friendly?"
+                                                    label=""
                                                     name="smoking"
                                                     onChange={(e) => setSmoking(e.target.value)}
                                                 />
@@ -500,9 +532,12 @@ function MemberRegistrationForm(props) {
                                                     value={smokingDescription}
                                                 />}
                                             </div>
+
                                             <div className="column-span-6-layout">
+                                                <label className={"label"}>Health / Mobility Issues?</label>
+                                                <Tooltip text={infoText["health"]} toolTipID="health"/>
                                                 <YNButton
-                                                    label="Health / Mobility Issues?"
+                                                    label=""
                                                     name="mobile"
                                                     onChange={(e) => setMobilityIssues(e.target.value)}
                                                 />
@@ -514,9 +549,12 @@ function MemberRegistrationForm(props) {
                                                     value={mobilityIssuesDescription}
                                                 />}
                                             </div>
+
                                             <div className="column-span-6-layout">
+                                                <label className={"label"}>Allergies?</label>
+                                                <Tooltip text={infoText["allergies"]} toolTipID="allergies"/>
                                                 <YNButton
-                                                    label="Allergies?"
+                                                    label=""
                                                     name="allergies"
                                                     checked={hasAllergies === "no"}
                                                     onChange={(e) => setHasAllergies(e.target.value)}
@@ -529,9 +567,12 @@ function MemberRegistrationForm(props) {
                                                     value={allergiesDescription}
                                                 />}
                                             </div>
+
                                             <div className="column-span-6-layout">
+                                                <label className={"label"}>Is religion important?</label>
+                                                <Tooltip text={infoText["religion"]} toolTipID="religion"/>
                                                 <YNButton
-                                                    label="Is religion important?"
+                                                    label=""
                                                     name="religion"
                                                     checked={religious === "no"}
                                                     onChange={(e) => setReligious(e.target.value)}
@@ -544,9 +585,12 @@ function MemberRegistrationForm(props) {
                                                     value={religionDescription}
                                                 />}
                                             </div>
+
                                             <div className="column-span-6-layout">
+                                                <label className={"label"}>Is diet of others important?</label>
+                                                <Tooltip text={infoText["diet"]} toolTipID="diet"/>
                                                 <YNButton
-                                                    label="Is diet of others important?"
+                                                    label=""
                                                     name="diet"
                                                     checked={hasDiet === "no"}
                                                     onChange={(e) => setHasDiet(e.target.value)}
@@ -559,9 +603,12 @@ function MemberRegistrationForm(props) {
                                                     value={dietDescription}
                                                 />}
                                             </div>
+
                                             <div className="column-span-6-layout">
+                                                <label className={"label"}>Have a home to share?</label>
+                                                <Tooltip text={infoText["homeToShare"]} toolTipID="homeToShare"/>
                                                 <YNButton
-                                                    label="Have a home to share?"
+                                                    label=""
                                                     name="hasHome"
                                                     checked={hasHome==="no"}
                                                     onChange={(e)=>setHasHome(e.target.value)}
@@ -574,9 +621,12 @@ function MemberRegistrationForm(props) {
                                                         value={homeDescription}
                                                     />}
                                             </div>
+
                                             <div className="column-span-6-layout">
+                                                <label className={"label"}>Interested in buying a home with others?</label>
+                                                <Tooltip text={infoText["homeToBuy"]} toolTipID="homeToBuy"/>
                                                 <YNButton
-                                                    label="Interested in buying a home w/ others?"
+                                                    label=""
                                                     name="interestInBuyingHome"
                                                     checked={interestInBuyingHome==="no"}
                                                     onChange={(e)=>setInterestInBuyingHome(e.target.value)}
@@ -589,10 +639,13 @@ function MemberRegistrationForm(props) {
                                                     value={interestDescription}
                                                 />}
                                             </div>
+
                                         </div>
                                         <div className={"mt-4"}>
+                                            <label className={"label"}>Tell others about yourself</label>
+                                            <Tooltip text={infoText["about"]} toolTipID="about"/>
                                             <LargeTextArea
-                                                label="Tell others about yourself: "
+                                                label=""
                                                 name="aboutSelf"
                                                 placeholder="What is important to you, and why do you want to share a home?"
                                                 onChange={(e) => setAboutSelf(e.target.value)}
