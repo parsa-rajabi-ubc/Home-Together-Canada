@@ -25,6 +25,7 @@ import YNButton from "../common/forms/YNButtons";
 import LargeTextArea from "../common/forms/LargeTextArea";
 import PropTypes from "prop-types";
 import WorkStatus from "../common/forms/WorkStatus";
+import Tooltip from "../common/forms/Tooltip";
 
 //Returns a Form with fields
 function MemberRegistrationForm(props) {
@@ -357,6 +358,7 @@ function MemberRegistrationForm(props) {
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                             <label className={"label"}>Year of Birth</label>
+                            <Tooltip text={"hello"} type={"dark"}/>
                             <BirthYear label={"Year of Birth"} onChange={handleYearChange}/>
                             <PhoneNumInput
                                 className="w-1/4 phone"
