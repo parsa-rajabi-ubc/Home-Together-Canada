@@ -13,13 +13,13 @@ import { BsFillInfoCircleFill } from 'react-icons/bs';
 
 
 function Tooltip(props) {
-    const {text} = props;
+    const {text, toolTipID} = props;
     return (
         <span>
-        <a data-tip data-for="info">
+        <a data-tip data-for={toolTipID}>
             <BsFillInfoCircleFill className={"inline ml-2 mb-1 text-gray-800 hover:text-green-600"}/>
         </a>
-        <ReactTooltip id="info" className="" type={"dark"} effect='solid'>
+        <ReactTooltip id={toolTipID} className="" type={"dark"} effect='solid'>
             {text}
         </ReactTooltip>
         </span>
@@ -27,7 +27,8 @@ function Tooltip(props) {
 }
 
 Tooltip.propTypes = {
-    text: PropTypes.string
+    text: PropTypes.string,
+    toolTipID: PropTypes.string
 }
 
 export default Tooltip;
