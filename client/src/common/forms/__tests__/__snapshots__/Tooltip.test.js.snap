@@ -29,7 +29,7 @@ exports[`Tooltip Snapshot test should render correctly regardless of properties 
     </svg>
   </a>
   <div
-    className="__react_component_tooltip t72bbd3af-80c4-48eb-b2d9-0780333572c7 place-top type-dark"
+    className="__react_component_tooltip t8121c3c8-7da6-4a98-a842-1e47ab953922 place-top type-dark"
     data-id="tooltip"
     id="randomID"
   >
@@ -37,19 +37,19 @@ exports[`Tooltip Snapshot test should render correctly regardless of properties 
       dangerouslySetInnerHTML={
         Object {
           "__html": "
-  	.t72bbd3af-80c4-48eb-b2d9-0780333572c7 {
+  	.t8121c3c8-7da6-4a98-a842-1e47ab953922 {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
   	}
 
-  	.t72bbd3af-80c4-48eb-b2d9-0780333572c7.place-top {
+  	.t8121c3c8-7da6-4a98-a842-1e47ab953922.place-top {
         margin-top: -10px;
     }
-    .t72bbd3af-80c4-48eb-b2d9-0780333572c7.place-top::before {
+    .t8121c3c8-7da6-4a98-a842-1e47ab953922.place-top::before {
         border-top: 8px solid transparent;
     }
-    .t72bbd3af-80c4-48eb-b2d9-0780333572c7.place-top::after {
+    .t8121c3c8-7da6-4a98-a842-1e47ab953922.place-top::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         bottom: -6px;
@@ -60,13 +60,13 @@ exports[`Tooltip Snapshot test should render correctly regardless of properties 
         border-top-width: 6px;
     }
 
-    .t72bbd3af-80c4-48eb-b2d9-0780333572c7.place-bottom {
+    .t8121c3c8-7da6-4a98-a842-1e47ab953922.place-bottom {
         margin-top: 10px;
     }
-    .t72bbd3af-80c4-48eb-b2d9-0780333572c7.place-bottom::before {
+    .t8121c3c8-7da6-4a98-a842-1e47ab953922.place-bottom::before {
         border-bottom: 8px solid transparent;
     }
-    .t72bbd3af-80c4-48eb-b2d9-0780333572c7.place-bottom::after {
+    .t8121c3c8-7da6-4a98-a842-1e47ab953922.place-bottom::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         top: -6px;
@@ -77,13 +77,13 @@ exports[`Tooltip Snapshot test should render correctly regardless of properties 
         border-bottom-width: 6px;
     }
 
-    .t72bbd3af-80c4-48eb-b2d9-0780333572c7.place-left {
+    .t8121c3c8-7da6-4a98-a842-1e47ab953922.place-left {
         margin-left: -10px;
     }
-    .t72bbd3af-80c4-48eb-b2d9-0780333572c7.place-left::before {
+    .t8121c3c8-7da6-4a98-a842-1e47ab953922.place-left::before {
         border-left: 8px solid transparent;
     }
-    .t72bbd3af-80c4-48eb-b2d9-0780333572c7.place-left::after {
+    .t8121c3c8-7da6-4a98-a842-1e47ab953922.place-left::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         right: -6px;
@@ -94,13 +94,13 @@ exports[`Tooltip Snapshot test should render correctly regardless of properties 
         border-left-width: 6px;
     }
 
-    .t72bbd3af-80c4-48eb-b2d9-0780333572c7.place-right {
+    .t8121c3c8-7da6-4a98-a842-1e47ab953922.place-right {
         margin-left: 10px;
     }
-    .t72bbd3af-80c4-48eb-b2d9-0780333572c7.place-right::before {
+    .t8121c3c8-7da6-4a98-a842-1e47ab953922.place-right::before {
         border-right: 8px solid transparent;
     }
-    .t72bbd3af-80c4-48eb-b2d9-0780333572c7.place-right::after {
+    .t8121c3c8-7da6-4a98-a842-1e47ab953922.place-right::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         left: -6px;

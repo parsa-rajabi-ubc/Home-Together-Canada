@@ -89,7 +89,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                   </svg>
                 </a>
                 <div
-                  className="__react_component_tooltip t22149791-ecfc-45d8-8f46-00e88847fed8 place-top type-dark"
+                  className="__react_component_tooltip t15d8e699-22c9-4c01-bca5-1661344222e1 place-top type-dark"
                   data-id="tooltip"
                   id="incorporated"
                 >
@@ -97,19 +97,19 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                     dangerouslySetInnerHTML={
                       Object {
                         "__html": "
-  	.t22149791-ecfc-45d8-8f46-00e88847fed8 {
+  	.t15d8e699-22c9-4c01-bca5-1661344222e1 {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
   	}
 
-  	.t22149791-ecfc-45d8-8f46-00e88847fed8.place-top {
+  	.t15d8e699-22c9-4c01-bca5-1661344222e1.place-top {
         margin-top: -10px;
     }
-    .t22149791-ecfc-45d8-8f46-00e88847fed8.place-top::before {
+    .t15d8e699-22c9-4c01-bca5-1661344222e1.place-top::before {
         border-top: 8px solid transparent;
     }
-    .t22149791-ecfc-45d8-8f46-00e88847fed8.place-top::after {
+    .t15d8e699-22c9-4c01-bca5-1661344222e1.place-top::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         bottom: -6px;
@@ -120,13 +120,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-top-width: 6px;
     }
 
-    .t22149791-ecfc-45d8-8f46-00e88847fed8.place-bottom {
+    .t15d8e699-22c9-4c01-bca5-1661344222e1.place-bottom {
         margin-top: 10px;
     }
-    .t22149791-ecfc-45d8-8f46-00e88847fed8.place-bottom::before {
+    .t15d8e699-22c9-4c01-bca5-1661344222e1.place-bottom::before {
         border-bottom: 8px solid transparent;
     }
-    .t22149791-ecfc-45d8-8f46-00e88847fed8.place-bottom::after {
+    .t15d8e699-22c9-4c01-bca5-1661344222e1.place-bottom::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         top: -6px;
@@ -137,13 +137,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-bottom-width: 6px;
     }
 
-    .t22149791-ecfc-45d8-8f46-00e88847fed8.place-left {
+    .t15d8e699-22c9-4c01-bca5-1661344222e1.place-left {
         margin-left: -10px;
     }
-    .t22149791-ecfc-45d8-8f46-00e88847fed8.place-left::before {
+    .t15d8e699-22c9-4c01-bca5-1661344222e1.place-left::before {
         border-left: 8px solid transparent;
     }
-    .t22149791-ecfc-45d8-8f46-00e88847fed8.place-left::after {
+    .t15d8e699-22c9-4c01-bca5-1661344222e1.place-left::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         right: -6px;
@@ -154,13 +154,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-left-width: 6px;
     }
 
-    .t22149791-ecfc-45d8-8f46-00e88847fed8.place-right {
+    .t15d8e699-22c9-4c01-bca5-1661344222e1.place-right {
         margin-left: 10px;
     }
-    .t22149791-ecfc-45d8-8f46-00e88847fed8.place-right::before {
+    .t15d8e699-22c9-4c01-bca5-1661344222e1.place-right::before {
         border-right: 8px solid transparent;
     }
-    .t22149791-ecfc-45d8-8f46-00e88847fed8.place-right::after {
+    .t15d8e699-22c9-4c01-bca5-1661344222e1.place-right::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         left: -6px;
@@ -472,7 +472,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                 </svg>
               </a>
               <div
-                className="__react_component_tooltip t8a17ad0e-268e-4d41-94da-2161e042daba place-top type-dark"
+                className="__react_component_tooltip t7afee897-9f00-453f-b7e9-b8a0ec6a499b place-top type-dark"
                 data-id="tooltip"
                 id="differentMailingAddress"
               >
@@ -480,19 +480,19 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                   dangerouslySetInnerHTML={
                     Object {
                       "__html": "
-  	.t8a17ad0e-268e-4d41-94da-2161e042daba {
+  	.t7afee897-9f00-453f-b7e9-b8a0ec6a499b {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
   	}
 
-  	.t8a17ad0e-268e-4d41-94da-2161e042daba.place-top {
+  	.t7afee897-9f00-453f-b7e9-b8a0ec6a499b.place-top {
         margin-top: -10px;
     }
-    .t8a17ad0e-268e-4d41-94da-2161e042daba.place-top::before {
+    .t7afee897-9f00-453f-b7e9-b8a0ec6a499b.place-top::before {
         border-top: 8px solid transparent;
     }
-    .t8a17ad0e-268e-4d41-94da-2161e042daba.place-top::after {
+    .t7afee897-9f00-453f-b7e9-b8a0ec6a499b.place-top::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         bottom: -6px;
@@ -503,13 +503,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-top-width: 6px;
     }
 
-    .t8a17ad0e-268e-4d41-94da-2161e042daba.place-bottom {
+    .t7afee897-9f00-453f-b7e9-b8a0ec6a499b.place-bottom {
         margin-top: 10px;
     }
-    .t8a17ad0e-268e-4d41-94da-2161e042daba.place-bottom::before {
+    .t7afee897-9f00-453f-b7e9-b8a0ec6a499b.place-bottom::before {
         border-bottom: 8px solid transparent;
     }
-    .t8a17ad0e-268e-4d41-94da-2161e042daba.place-bottom::after {
+    .t7afee897-9f00-453f-b7e9-b8a0ec6a499b.place-bottom::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         top: -6px;
@@ -520,13 +520,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-bottom-width: 6px;
     }
 
-    .t8a17ad0e-268e-4d41-94da-2161e042daba.place-left {
+    .t7afee897-9f00-453f-b7e9-b8a0ec6a499b.place-left {
         margin-left: -10px;
     }
-    .t8a17ad0e-268e-4d41-94da-2161e042daba.place-left::before {
+    .t7afee897-9f00-453f-b7e9-b8a0ec6a499b.place-left::before {
         border-left: 8px solid transparent;
     }
-    .t8a17ad0e-268e-4d41-94da-2161e042daba.place-left::after {
+    .t7afee897-9f00-453f-b7e9-b8a0ec6a499b.place-left::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         right: -6px;
@@ -537,13 +537,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-left-width: 6px;
     }
 
-    .t8a17ad0e-268e-4d41-94da-2161e042daba.place-right {
+    .t7afee897-9f00-453f-b7e9-b8a0ec6a499b.place-right {
         margin-left: 10px;
     }
-    .t8a17ad0e-268e-4d41-94da-2161e042daba.place-right::before {
+    .t7afee897-9f00-453f-b7e9-b8a0ec6a499b.place-right::before {
         border-right: 8px solid transparent;
     }
-    .t8a17ad0e-268e-4d41-94da-2161e042daba.place-right::after {
+    .t7afee897-9f00-453f-b7e9-b8a0ec6a499b.place-right::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         left: -6px;
@@ -601,7 +601,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                   </svg>
                 </a>
                 <div
-                  className="__react_component_tooltip tdf04b663-adea-4117-9042-fcd6b3e9523d place-top type-dark"
+                  className="__react_component_tooltip tc72065cc-f748-4ef1-b262-e53b72e0d52e place-top type-dark"
                   data-id="tooltip"
                   id="nationWide"
                 >
@@ -609,19 +609,19 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                     dangerouslySetInnerHTML={
                       Object {
                         "__html": "
-  	.tdf04b663-adea-4117-9042-fcd6b3e9523d {
+  	.tc72065cc-f748-4ef1-b262-e53b72e0d52e {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
   	}
 
-  	.tdf04b663-adea-4117-9042-fcd6b3e9523d.place-top {
+  	.tc72065cc-f748-4ef1-b262-e53b72e0d52e.place-top {
         margin-top: -10px;
     }
-    .tdf04b663-adea-4117-9042-fcd6b3e9523d.place-top::before {
+    .tc72065cc-f748-4ef1-b262-e53b72e0d52e.place-top::before {
         border-top: 8px solid transparent;
     }
-    .tdf04b663-adea-4117-9042-fcd6b3e9523d.place-top::after {
+    .tc72065cc-f748-4ef1-b262-e53b72e0d52e.place-top::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         bottom: -6px;
@@ -632,13 +632,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-top-width: 6px;
     }
 
-    .tdf04b663-adea-4117-9042-fcd6b3e9523d.place-bottom {
+    .tc72065cc-f748-4ef1-b262-e53b72e0d52e.place-bottom {
         margin-top: 10px;
     }
-    .tdf04b663-adea-4117-9042-fcd6b3e9523d.place-bottom::before {
+    .tc72065cc-f748-4ef1-b262-e53b72e0d52e.place-bottom::before {
         border-bottom: 8px solid transparent;
     }
-    .tdf04b663-adea-4117-9042-fcd6b3e9523d.place-bottom::after {
+    .tc72065cc-f748-4ef1-b262-e53b72e0d52e.place-bottom::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         top: -6px;
@@ -649,13 +649,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-bottom-width: 6px;
     }
 
-    .tdf04b663-adea-4117-9042-fcd6b3e9523d.place-left {
+    .tc72065cc-f748-4ef1-b262-e53b72e0d52e.place-left {
         margin-left: -10px;
     }
-    .tdf04b663-adea-4117-9042-fcd6b3e9523d.place-left::before {
+    .tc72065cc-f748-4ef1-b262-e53b72e0d52e.place-left::before {
         border-left: 8px solid transparent;
     }
-    .tdf04b663-adea-4117-9042-fcd6b3e9523d.place-left::after {
+    .tc72065cc-f748-4ef1-b262-e53b72e0d52e.place-left::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         right: -6px;
@@ -666,13 +666,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-left-width: 6px;
     }
 
-    .tdf04b663-adea-4117-9042-fcd6b3e9523d.place-right {
+    .tc72065cc-f748-4ef1-b262-e53b72e0d52e.place-right {
         margin-left: 10px;
     }
-    .tdf04b663-adea-4117-9042-fcd6b3e9523d.place-right::before {
+    .tc72065cc-f748-4ef1-b262-e53b72e0d52e.place-right::before {
         border-right: 8px solid transparent;
     }
-    .tdf04b663-adea-4117-9042-fcd6b3e9523d.place-right::after {
+    .tc72065cc-f748-4ef1-b262-e53b72e0d52e.place-right::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         left: -6px;
@@ -875,7 +875,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
             </svg>
           </a>
           <div
-            className="__react_component_tooltip t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711 place-top type-dark"
+            className="__react_component_tooltip td554c79f-31a8-4d49-ae8c-3f6189377592 place-top type-dark"
             data-id="tooltip"
             id="businessLogo"
           >
@@ -883,19 +883,19 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
               dangerouslySetInnerHTML={
                 Object {
                   "__html": "
-  	.t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711 {
+  	.td554c79f-31a8-4d49-ae8c-3f6189377592 {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
   	}
 
-  	.t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711.place-top {
+  	.td554c79f-31a8-4d49-ae8c-3f6189377592.place-top {
         margin-top: -10px;
     }
-    .t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711.place-top::before {
+    .td554c79f-31a8-4d49-ae8c-3f6189377592.place-top::before {
         border-top: 8px solid transparent;
     }
-    .t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711.place-top::after {
+    .td554c79f-31a8-4d49-ae8c-3f6189377592.place-top::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         bottom: -6px;
@@ -906,13 +906,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-top-width: 6px;
     }
 
-    .t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711.place-bottom {
+    .td554c79f-31a8-4d49-ae8c-3f6189377592.place-bottom {
         margin-top: 10px;
     }
-    .t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711.place-bottom::before {
+    .td554c79f-31a8-4d49-ae8c-3f6189377592.place-bottom::before {
         border-bottom: 8px solid transparent;
     }
-    .t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711.place-bottom::after {
+    .td554c79f-31a8-4d49-ae8c-3f6189377592.place-bottom::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         top: -6px;
@@ -923,13 +923,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-bottom-width: 6px;
     }
 
-    .t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711.place-left {
+    .td554c79f-31a8-4d49-ae8c-3f6189377592.place-left {
         margin-left: -10px;
     }
-    .t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711.place-left::before {
+    .td554c79f-31a8-4d49-ae8c-3f6189377592.place-left::before {
         border-left: 8px solid transparent;
     }
-    .t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711.place-left::after {
+    .td554c79f-31a8-4d49-ae8c-3f6189377592.place-left::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         right: -6px;
@@ -940,13 +940,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-left-width: 6px;
     }
 
-    .t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711.place-right {
+    .td554c79f-31a8-4d49-ae8c-3f6189377592.place-right {
         margin-left: 10px;
     }
-    .t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711.place-right::before {
+    .td554c79f-31a8-4d49-ae8c-3f6189377592.place-right::before {
         border-right: 8px solid transparent;
     }
-    .t05eead0f-8fd1-4ce4-bb67-b8e0afa5b711.place-right::after {
+    .td554c79f-31a8-4d49-ae8c-3f6189377592.place-right::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         left: -6px;
@@ -1190,7 +1190,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                         </svg>
                       </a>
                       <div
-                        className="__react_component_tooltip t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef place-top type-dark"
+                        className="__react_component_tooltip t9f647b40-f60a-45d2-8971-714c8b07d1ba place-top type-dark"
                         data-id="tooltip"
                         id="username"
                       >
@@ -1198,19 +1198,19 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                           dangerouslySetInnerHTML={
                             Object {
                               "__html": "
-  	.t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef {
+  	.t9f647b40-f60a-45d2-8971-714c8b07d1ba {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
   	}
 
-  	.t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef.place-top {
+  	.t9f647b40-f60a-45d2-8971-714c8b07d1ba.place-top {
         margin-top: -10px;
     }
-    .t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef.place-top::before {
+    .t9f647b40-f60a-45d2-8971-714c8b07d1ba.place-top::before {
         border-top: 8px solid transparent;
     }
-    .t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef.place-top::after {
+    .t9f647b40-f60a-45d2-8971-714c8b07d1ba.place-top::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         bottom: -6px;
@@ -1221,13 +1221,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-top-width: 6px;
     }
 
-    .t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef.place-bottom {
+    .t9f647b40-f60a-45d2-8971-714c8b07d1ba.place-bottom {
         margin-top: 10px;
     }
-    .t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef.place-bottom::before {
+    .t9f647b40-f60a-45d2-8971-714c8b07d1ba.place-bottom::before {
         border-bottom: 8px solid transparent;
     }
-    .t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef.place-bottom::after {
+    .t9f647b40-f60a-45d2-8971-714c8b07d1ba.place-bottom::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         top: -6px;
@@ -1238,13 +1238,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-bottom-width: 6px;
     }
 
-    .t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef.place-left {
+    .t9f647b40-f60a-45d2-8971-714c8b07d1ba.place-left {
         margin-left: -10px;
     }
-    .t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef.place-left::before {
+    .t9f647b40-f60a-45d2-8971-714c8b07d1ba.place-left::before {
         border-left: 8px solid transparent;
     }
-    .t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef.place-left::after {
+    .t9f647b40-f60a-45d2-8971-714c8b07d1ba.place-left::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         right: -6px;
@@ -1255,13 +1255,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-left-width: 6px;
     }
 
-    .t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef.place-right {
+    .t9f647b40-f60a-45d2-8971-714c8b07d1ba.place-right {
         margin-left: 10px;
     }
-    .t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef.place-right::before {
+    .t9f647b40-f60a-45d2-8971-714c8b07d1ba.place-right::before {
         border-right: 8px solid transparent;
     }
-    .t091c4f83-ad39-4d0c-bc35-6bfc8da0e4ef.place-right::after {
+    .t9f647b40-f60a-45d2-8971-714c8b07d1ba.place-right::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         left: -6px;
@@ -1319,7 +1319,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                         </svg>
                       </a>
                       <div
-                        className="__react_component_tooltip t285efec5-d03f-43f6-98b6-28cdee7bd25c place-top type-dark"
+                        className="__react_component_tooltip t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21 place-top type-dark"
                         data-id="tooltip"
                         id="password"
                       >
@@ -1327,19 +1327,19 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                           dangerouslySetInnerHTML={
                             Object {
                               "__html": "
-  	.t285efec5-d03f-43f6-98b6-28cdee7bd25c {
+  	.t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21 {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
   	}
 
-  	.t285efec5-d03f-43f6-98b6-28cdee7bd25c.place-top {
+  	.t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21.place-top {
         margin-top: -10px;
     }
-    .t285efec5-d03f-43f6-98b6-28cdee7bd25c.place-top::before {
+    .t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21.place-top::before {
         border-top: 8px solid transparent;
     }
-    .t285efec5-d03f-43f6-98b6-28cdee7bd25c.place-top::after {
+    .t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21.place-top::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         bottom: -6px;
@@ -1350,13 +1350,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-top-width: 6px;
     }
 
-    .t285efec5-d03f-43f6-98b6-28cdee7bd25c.place-bottom {
+    .t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21.place-bottom {
         margin-top: 10px;
     }
-    .t285efec5-d03f-43f6-98b6-28cdee7bd25c.place-bottom::before {
+    .t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21.place-bottom::before {
         border-bottom: 8px solid transparent;
     }
-    .t285efec5-d03f-43f6-98b6-28cdee7bd25c.place-bottom::after {
+    .t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21.place-bottom::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         top: -6px;
@@ -1367,13 +1367,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-bottom-width: 6px;
     }
 
-    .t285efec5-d03f-43f6-98b6-28cdee7bd25c.place-left {
+    .t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21.place-left {
         margin-left: -10px;
     }
-    .t285efec5-d03f-43f6-98b6-28cdee7bd25c.place-left::before {
+    .t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21.place-left::before {
         border-left: 8px solid transparent;
     }
-    .t285efec5-d03f-43f6-98b6-28cdee7bd25c.place-left::after {
+    .t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21.place-left::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         right: -6px;
@@ -1384,13 +1384,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-left-width: 6px;
     }
 
-    .t285efec5-d03f-43f6-98b6-28cdee7bd25c.place-right {
+    .t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21.place-right {
         margin-left: 10px;
     }
-    .t285efec5-d03f-43f6-98b6-28cdee7bd25c.place-right::before {
+    .t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21.place-right::before {
         border-right: 8px solid transparent;
     }
-    .t285efec5-d03f-43f6-98b6-28cdee7bd25c.place-right::after {
+    .t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21.place-right::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         left: -6px;
@@ -1448,7 +1448,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                         </svg>
                       </a>
                       <div
-                        className="__react_component_tooltip ta073d407-353e-4ff7-a094-47b93d9399e2 place-top type-dark"
+                        className="__react_component_tooltip td78d4dae-5602-4fae-8e4d-f1b2e4f3102d place-top type-dark"
                         data-id="tooltip"
                         id="confirmPassword"
                       >
@@ -1456,19 +1456,19 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                           dangerouslySetInnerHTML={
                             Object {
                               "__html": "
-  	.ta073d407-353e-4ff7-a094-47b93d9399e2 {
+  	.td78d4dae-5602-4fae-8e4d-f1b2e4f3102d {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
   	}
 
-  	.ta073d407-353e-4ff7-a094-47b93d9399e2.place-top {
+  	.td78d4dae-5602-4fae-8e4d-f1b2e4f3102d.place-top {
         margin-top: -10px;
     }
-    .ta073d407-353e-4ff7-a094-47b93d9399e2.place-top::before {
+    .td78d4dae-5602-4fae-8e4d-f1b2e4f3102d.place-top::before {
         border-top: 8px solid transparent;
     }
-    .ta073d407-353e-4ff7-a094-47b93d9399e2.place-top::after {
+    .td78d4dae-5602-4fae-8e4d-f1b2e4f3102d.place-top::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         bottom: -6px;
@@ -1479,13 +1479,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-top-width: 6px;
     }
 
-    .ta073d407-353e-4ff7-a094-47b93d9399e2.place-bottom {
+    .td78d4dae-5602-4fae-8e4d-f1b2e4f3102d.place-bottom {
         margin-top: 10px;
     }
-    .ta073d407-353e-4ff7-a094-47b93d9399e2.place-bottom::before {
+    .td78d4dae-5602-4fae-8e4d-f1b2e4f3102d.place-bottom::before {
         border-bottom: 8px solid transparent;
     }
-    .ta073d407-353e-4ff7-a094-47b93d9399e2.place-bottom::after {
+    .td78d4dae-5602-4fae-8e4d-f1b2e4f3102d.place-bottom::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         top: -6px;
@@ -1496,13 +1496,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-bottom-width: 6px;
     }
 
-    .ta073d407-353e-4ff7-a094-47b93d9399e2.place-left {
+    .td78d4dae-5602-4fae-8e4d-f1b2e4f3102d.place-left {
         margin-left: -10px;
     }
-    .ta073d407-353e-4ff7-a094-47b93d9399e2.place-left::before {
+    .td78d4dae-5602-4fae-8e4d-f1b2e4f3102d.place-left::before {
         border-left: 8px solid transparent;
     }
-    .ta073d407-353e-4ff7-a094-47b93d9399e2.place-left::after {
+    .td78d4dae-5602-4fae-8e4d-f1b2e4f3102d.place-left::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         right: -6px;
@@ -1513,13 +1513,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-left-width: 6px;
     }
 
-    .ta073d407-353e-4ff7-a094-47b93d9399e2.place-right {
+    .td78d4dae-5602-4fae-8e4d-f1b2e4f3102d.place-right {
         margin-left: 10px;
     }
-    .ta073d407-353e-4ff7-a094-47b93d9399e2.place-right::before {
+    .td78d4dae-5602-4fae-8e4d-f1b2e4f3102d.place-right::before {
         border-right: 8px solid transparent;
     }
-    .ta073d407-353e-4ff7-a094-47b93d9399e2.place-right::after {
+    .td78d4dae-5602-4fae-8e4d-f1b2e4f3102d.place-right::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         left: -6px;
