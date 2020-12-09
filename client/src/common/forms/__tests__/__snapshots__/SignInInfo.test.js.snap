@@ -36,7 +36,7 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
         </svg>
       </a>
       <div
-        className="__react_component_tooltip t3264e969-f5e8-4c5e-958c-ff33dc1eab31 place-top type-dark"
+        className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
         data-id="tooltip"
         id="username"
       >
@@ -44,19 +44,19 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
           dangerouslySetInnerHTML={
             Object {
               "__html": "
-  	.t3264e969-f5e8-4c5e-958c-ff33dc1eab31 {
+  	.t00000000-0000-0000-0000-000000000000 {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
   	}
 
-  	.t3264e969-f5e8-4c5e-958c-ff33dc1eab31.place-top {
+  	.t00000000-0000-0000-0000-000000000000.place-top {
         margin-top: -10px;
     }
-    .t3264e969-f5e8-4c5e-958c-ff33dc1eab31.place-top::before {
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
         border-top: 8px solid transparent;
     }
-    .t3264e969-f5e8-4c5e-958c-ff33dc1eab31.place-top::after {
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         bottom: -6px;
@@ -67,13 +67,13 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
         border-top-width: 6px;
     }
 
-    .t3264e969-f5e8-4c5e-958c-ff33dc1eab31.place-bottom {
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
         margin-top: 10px;
     }
-    .t3264e969-f5e8-4c5e-958c-ff33dc1eab31.place-bottom::before {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
         border-bottom: 8px solid transparent;
     }
-    .t3264e969-f5e8-4c5e-958c-ff33dc1eab31.place-bottom::after {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         top: -6px;
@@ -84,13 +84,13 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
         border-bottom-width: 6px;
     }
 
-    .t3264e969-f5e8-4c5e-958c-ff33dc1eab31.place-left {
+    .t00000000-0000-0000-0000-000000000000.place-left {
         margin-left: -10px;
     }
-    .t3264e969-f5e8-4c5e-958c-ff33dc1eab31.place-left::before {
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
         border-left: 8px solid transparent;
     }
-    .t3264e969-f5e8-4c5e-958c-ff33dc1eab31.place-left::after {
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         right: -6px;
@@ -101,13 +101,13 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
         border-left-width: 6px;
     }
 
-    .t3264e969-f5e8-4c5e-958c-ff33dc1eab31.place-right {
+    .t00000000-0000-0000-0000-000000000000.place-right {
         margin-left: 10px;
     }
-    .t3264e969-f5e8-4c5e-958c-ff33dc1eab31.place-right::before {
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
         border-right: 8px solid transparent;
     }
-    .t3264e969-f5e8-4c5e-958c-ff33dc1eab31.place-right::after {
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         left: -6px;
@@ -165,7 +165,7 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
         </svg>
       </a>
       <div
-        className="__react_component_tooltip t04fccdcd-6f82-41cd-a10b-61663e322e48 place-top type-dark"
+        className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
         data-id="tooltip"
         id="password"
       >
@@ -173,19 +173,19 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
           dangerouslySetInnerHTML={
             Object {
               "__html": "
-  	.t04fccdcd-6f82-41cd-a10b-61663e322e48 {
+  	.t00000000-0000-0000-0000-000000000000 {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
   	}
 
-  	.t04fccdcd-6f82-41cd-a10b-61663e322e48.place-top {
+  	.t00000000-0000-0000-0000-000000000000.place-top {
         margin-top: -10px;
     }
-    .t04fccdcd-6f82-41cd-a10b-61663e322e48.place-top::before {
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
         border-top: 8px solid transparent;
     }
-    .t04fccdcd-6f82-41cd-a10b-61663e322e48.place-top::after {
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         bottom: -6px;
@@ -196,13 +196,13 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
         border-top-width: 6px;
     }
 
-    .t04fccdcd-6f82-41cd-a10b-61663e322e48.place-bottom {
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
         margin-top: 10px;
     }
-    .t04fccdcd-6f82-41cd-a10b-61663e322e48.place-bottom::before {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
         border-bottom: 8px solid transparent;
     }
-    .t04fccdcd-6f82-41cd-a10b-61663e322e48.place-bottom::after {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         top: -6px;
@@ -213,13 +213,13 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
         border-bottom-width: 6px;
     }
 
-    .t04fccdcd-6f82-41cd-a10b-61663e322e48.place-left {
+    .t00000000-0000-0000-0000-000000000000.place-left {
         margin-left: -10px;
     }
-    .t04fccdcd-6f82-41cd-a10b-61663e322e48.place-left::before {
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
         border-left: 8px solid transparent;
     }
-    .t04fccdcd-6f82-41cd-a10b-61663e322e48.place-left::after {
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         right: -6px;
@@ -230,13 +230,13 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
         border-left-width: 6px;
     }
 
-    .t04fccdcd-6f82-41cd-a10b-61663e322e48.place-right {
+    .t00000000-0000-0000-0000-000000000000.place-right {
         margin-left: 10px;
     }
-    .t04fccdcd-6f82-41cd-a10b-61663e322e48.place-right::before {
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
         border-right: 8px solid transparent;
     }
-    .t04fccdcd-6f82-41cd-a10b-61663e322e48.place-right::after {
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         left: -6px;
@@ -294,7 +294,7 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
         </svg>
       </a>
       <div
-        className="__react_component_tooltip tb34cf56d-e63b-44ad-a4cb-2d4032352faa place-top type-dark"
+        className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
         data-id="tooltip"
         id="confirmPassword"
       >
@@ -302,19 +302,19 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
           dangerouslySetInnerHTML={
             Object {
               "__html": "
-  	.tb34cf56d-e63b-44ad-a4cb-2d4032352faa {
+  	.t00000000-0000-0000-0000-000000000000 {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
   	}
 
-  	.tb34cf56d-e63b-44ad-a4cb-2d4032352faa.place-top {
+  	.t00000000-0000-0000-0000-000000000000.place-top {
         margin-top: -10px;
     }
-    .tb34cf56d-e63b-44ad-a4cb-2d4032352faa.place-top::before {
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
         border-top: 8px solid transparent;
     }
-    .tb34cf56d-e63b-44ad-a4cb-2d4032352faa.place-top::after {
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         bottom: -6px;
@@ -325,13 +325,13 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
         border-top-width: 6px;
     }
 
-    .tb34cf56d-e63b-44ad-a4cb-2d4032352faa.place-bottom {
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
         margin-top: 10px;
     }
-    .tb34cf56d-e63b-44ad-a4cb-2d4032352faa.place-bottom::before {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
         border-bottom: 8px solid transparent;
     }
-    .tb34cf56d-e63b-44ad-a4cb-2d4032352faa.place-bottom::after {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         top: -6px;
@@ -342,13 +342,13 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
         border-bottom-width: 6px;
     }
 
-    .tb34cf56d-e63b-44ad-a4cb-2d4032352faa.place-left {
+    .t00000000-0000-0000-0000-000000000000.place-left {
         margin-left: -10px;
     }
-    .tb34cf56d-e63b-44ad-a4cb-2d4032352faa.place-left::before {
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
         border-left: 8px solid transparent;
     }
-    .tb34cf56d-e63b-44ad-a4cb-2d4032352faa.place-left::after {
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         right: -6px;
@@ -359,13 +359,13 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
         border-left-width: 6px;
     }
 
-    .tb34cf56d-e63b-44ad-a4cb-2d4032352faa.place-right {
+    .t00000000-0000-0000-0000-000000000000.place-right {
         margin-left: 10px;
     }
-    .tb34cf56d-e63b-44ad-a4cb-2d4032352faa.place-right::before {
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
         border-right: 8px solid transparent;
     }
-    .tb34cf56d-e63b-44ad-a4cb-2d4032352faa.place-right::after {
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         left: -6px;

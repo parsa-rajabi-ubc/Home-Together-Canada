@@ -7,8 +7,9 @@
  */
 import React from 'react';
 import renderer from  'react-test-renderer'
-import { BrowserRouter as Router } from 'react-router-dom';
 import MemberRegistrationForm from "../MemberRegistrationForm";
+jest.mock("react-tooltip/node_modules/uuid", () => ({ v4: () => "00000000-0000-0000-0000-000000000000" }));
+
 
 describe('MemberProfileForm', () => {
     describe('Snapshot test', () => {

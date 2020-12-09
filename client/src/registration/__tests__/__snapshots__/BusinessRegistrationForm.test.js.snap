@@ -89,7 +89,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                   </svg>
                 </a>
                 <div
-                  className="__react_component_tooltip t15d8e699-22c9-4c01-bca5-1661344222e1 place-top type-dark"
+                  className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                   data-id="tooltip"
                   id="incorporated"
                 >
@@ -97,19 +97,19 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                     dangerouslySetInnerHTML={
                       Object {
                         "__html": "
-  	.t15d8e699-22c9-4c01-bca5-1661344222e1 {
+  	.t00000000-0000-0000-0000-000000000000 {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
   	}
 
-  	.t15d8e699-22c9-4c01-bca5-1661344222e1.place-top {
+  	.t00000000-0000-0000-0000-000000000000.place-top {
         margin-top: -10px;
     }
-    .t15d8e699-22c9-4c01-bca5-1661344222e1.place-top::before {
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
         border-top: 8px solid transparent;
     }
-    .t15d8e699-22c9-4c01-bca5-1661344222e1.place-top::after {
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         bottom: -6px;
@@ -120,13 +120,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-top-width: 6px;
     }
 
-    .t15d8e699-22c9-4c01-bca5-1661344222e1.place-bottom {
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
         margin-top: 10px;
     }
-    .t15d8e699-22c9-4c01-bca5-1661344222e1.place-bottom::before {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
         border-bottom: 8px solid transparent;
     }
-    .t15d8e699-22c9-4c01-bca5-1661344222e1.place-bottom::after {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         top: -6px;
@@ -137,13 +137,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-bottom-width: 6px;
     }
 
-    .t15d8e699-22c9-4c01-bca5-1661344222e1.place-left {
+    .t00000000-0000-0000-0000-000000000000.place-left {
         margin-left: -10px;
     }
-    .t15d8e699-22c9-4c01-bca5-1661344222e1.place-left::before {
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
         border-left: 8px solid transparent;
     }
-    .t15d8e699-22c9-4c01-bca5-1661344222e1.place-left::after {
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         right: -6px;
@@ -154,13 +154,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-left-width: 6px;
     }
 
-    .t15d8e699-22c9-4c01-bca5-1661344222e1.place-right {
+    .t00000000-0000-0000-0000-000000000000.place-right {
         margin-left: 10px;
     }
-    .t15d8e699-22c9-4c01-bca5-1661344222e1.place-right::before {
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
         border-right: 8px solid transparent;
     }
-    .t15d8e699-22c9-4c01-bca5-1661344222e1.place-right::after {
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         left: -6px;
@@ -472,7 +472,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                 </svg>
               </a>
               <div
-                className="__react_component_tooltip t7afee897-9f00-453f-b7e9-b8a0ec6a499b place-top type-dark"
+                className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                 data-id="tooltip"
                 id="differentMailingAddress"
               >
@@ -480,19 +480,19 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                   dangerouslySetInnerHTML={
                     Object {
                       "__html": "
-  	.t7afee897-9f00-453f-b7e9-b8a0ec6a499b {
+  	.t00000000-0000-0000-0000-000000000000 {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
   	}
 
-  	.t7afee897-9f00-453f-b7e9-b8a0ec6a499b.place-top {
+  	.t00000000-0000-0000-0000-000000000000.place-top {
         margin-top: -10px;
     }
-    .t7afee897-9f00-453f-b7e9-b8a0ec6a499b.place-top::before {
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
         border-top: 8px solid transparent;
     }
-    .t7afee897-9f00-453f-b7e9-b8a0ec6a499b.place-top::after {
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         bottom: -6px;
@@ -503,13 +503,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-top-width: 6px;
     }
 
-    .t7afee897-9f00-453f-b7e9-b8a0ec6a499b.place-bottom {
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
         margin-top: 10px;
     }
-    .t7afee897-9f00-453f-b7e9-b8a0ec6a499b.place-bottom::before {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
         border-bottom: 8px solid transparent;
     }
-    .t7afee897-9f00-453f-b7e9-b8a0ec6a499b.place-bottom::after {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         top: -6px;
@@ -520,13 +520,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-bottom-width: 6px;
     }
 
-    .t7afee897-9f00-453f-b7e9-b8a0ec6a499b.place-left {
+    .t00000000-0000-0000-0000-000000000000.place-left {
         margin-left: -10px;
     }
-    .t7afee897-9f00-453f-b7e9-b8a0ec6a499b.place-left::before {
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
         border-left: 8px solid transparent;
     }
-    .t7afee897-9f00-453f-b7e9-b8a0ec6a499b.place-left::after {
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         right: -6px;
@@ -537,13 +537,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-left-width: 6px;
     }
 
-    .t7afee897-9f00-453f-b7e9-b8a0ec6a499b.place-right {
+    .t00000000-0000-0000-0000-000000000000.place-right {
         margin-left: 10px;
     }
-    .t7afee897-9f00-453f-b7e9-b8a0ec6a499b.place-right::before {
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
         border-right: 8px solid transparent;
     }
-    .t7afee897-9f00-453f-b7e9-b8a0ec6a499b.place-right::after {
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         left: -6px;
@@ -601,7 +601,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                   </svg>
                 </a>
                 <div
-                  className="__react_component_tooltip tc72065cc-f748-4ef1-b262-e53b72e0d52e place-top type-dark"
+                  className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                   data-id="tooltip"
                   id="nationWide"
                 >
@@ -609,19 +609,19 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                     dangerouslySetInnerHTML={
                       Object {
                         "__html": "
-  	.tc72065cc-f748-4ef1-b262-e53b72e0d52e {
+  	.t00000000-0000-0000-0000-000000000000 {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
   	}
 
-  	.tc72065cc-f748-4ef1-b262-e53b72e0d52e.place-top {
+  	.t00000000-0000-0000-0000-000000000000.place-top {
         margin-top: -10px;
     }
-    .tc72065cc-f748-4ef1-b262-e53b72e0d52e.place-top::before {
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
         border-top: 8px solid transparent;
     }
-    .tc72065cc-f748-4ef1-b262-e53b72e0d52e.place-top::after {
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         bottom: -6px;
@@ -632,13 +632,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-top-width: 6px;
     }
 
-    .tc72065cc-f748-4ef1-b262-e53b72e0d52e.place-bottom {
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
         margin-top: 10px;
     }
-    .tc72065cc-f748-4ef1-b262-e53b72e0d52e.place-bottom::before {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
         border-bottom: 8px solid transparent;
     }
-    .tc72065cc-f748-4ef1-b262-e53b72e0d52e.place-bottom::after {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         top: -6px;
@@ -649,13 +649,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-bottom-width: 6px;
     }
 
-    .tc72065cc-f748-4ef1-b262-e53b72e0d52e.place-left {
+    .t00000000-0000-0000-0000-000000000000.place-left {
         margin-left: -10px;
     }
-    .tc72065cc-f748-4ef1-b262-e53b72e0d52e.place-left::before {
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
         border-left: 8px solid transparent;
     }
-    .tc72065cc-f748-4ef1-b262-e53b72e0d52e.place-left::after {
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         right: -6px;
@@ -666,13 +666,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-left-width: 6px;
     }
 
-    .tc72065cc-f748-4ef1-b262-e53b72e0d52e.place-right {
+    .t00000000-0000-0000-0000-000000000000.place-right {
         margin-left: 10px;
     }
-    .tc72065cc-f748-4ef1-b262-e53b72e0d52e.place-right::before {
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
         border-right: 8px solid transparent;
     }
-    .tc72065cc-f748-4ef1-b262-e53b72e0d52e.place-right::after {
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         left: -6px;
@@ -875,7 +875,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
             </svg>
           </a>
           <div
-            className="__react_component_tooltip td554c79f-31a8-4d49-ae8c-3f6189377592 place-top type-dark"
+            className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
             data-id="tooltip"
             id="businessLogo"
           >
@@ -883,19 +883,19 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
               dangerouslySetInnerHTML={
                 Object {
                   "__html": "
-  	.td554c79f-31a8-4d49-ae8c-3f6189377592 {
+  	.t00000000-0000-0000-0000-000000000000 {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
   	}
 
-  	.td554c79f-31a8-4d49-ae8c-3f6189377592.place-top {
+  	.t00000000-0000-0000-0000-000000000000.place-top {
         margin-top: -10px;
     }
-    .td554c79f-31a8-4d49-ae8c-3f6189377592.place-top::before {
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
         border-top: 8px solid transparent;
     }
-    .td554c79f-31a8-4d49-ae8c-3f6189377592.place-top::after {
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         bottom: -6px;
@@ -906,13 +906,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-top-width: 6px;
     }
 
-    .td554c79f-31a8-4d49-ae8c-3f6189377592.place-bottom {
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
         margin-top: 10px;
     }
-    .td554c79f-31a8-4d49-ae8c-3f6189377592.place-bottom::before {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
         border-bottom: 8px solid transparent;
     }
-    .td554c79f-31a8-4d49-ae8c-3f6189377592.place-bottom::after {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         top: -6px;
@@ -923,13 +923,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-bottom-width: 6px;
     }
 
-    .td554c79f-31a8-4d49-ae8c-3f6189377592.place-left {
+    .t00000000-0000-0000-0000-000000000000.place-left {
         margin-left: -10px;
     }
-    .td554c79f-31a8-4d49-ae8c-3f6189377592.place-left::before {
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
         border-left: 8px solid transparent;
     }
-    .td554c79f-31a8-4d49-ae8c-3f6189377592.place-left::after {
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         right: -6px;
@@ -940,13 +940,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-left-width: 6px;
     }
 
-    .td554c79f-31a8-4d49-ae8c-3f6189377592.place-right {
+    .t00000000-0000-0000-0000-000000000000.place-right {
         margin-left: 10px;
     }
-    .td554c79f-31a8-4d49-ae8c-3f6189377592.place-right::before {
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
         border-right: 8px solid transparent;
     }
-    .td554c79f-31a8-4d49-ae8c-3f6189377592.place-right::after {
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         left: -6px;
@@ -1190,7 +1190,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                         </svg>
                       </a>
                       <div
-                        className="__react_component_tooltip t9f647b40-f60a-45d2-8971-714c8b07d1ba place-top type-dark"
+                        className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                         data-id="tooltip"
                         id="username"
                       >
@@ -1198,19 +1198,19 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                           dangerouslySetInnerHTML={
                             Object {
                               "__html": "
-  	.t9f647b40-f60a-45d2-8971-714c8b07d1ba {
+  	.t00000000-0000-0000-0000-000000000000 {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
   	}
 
-  	.t9f647b40-f60a-45d2-8971-714c8b07d1ba.place-top {
+  	.t00000000-0000-0000-0000-000000000000.place-top {
         margin-top: -10px;
     }
-    .t9f647b40-f60a-45d2-8971-714c8b07d1ba.place-top::before {
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
         border-top: 8px solid transparent;
     }
-    .t9f647b40-f60a-45d2-8971-714c8b07d1ba.place-top::after {
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         bottom: -6px;
@@ -1221,13 +1221,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-top-width: 6px;
     }
 
-    .t9f647b40-f60a-45d2-8971-714c8b07d1ba.place-bottom {
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
         margin-top: 10px;
     }
-    .t9f647b40-f60a-45d2-8971-714c8b07d1ba.place-bottom::before {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
         border-bottom: 8px solid transparent;
     }
-    .t9f647b40-f60a-45d2-8971-714c8b07d1ba.place-bottom::after {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         top: -6px;
@@ -1238,13 +1238,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-bottom-width: 6px;
     }
 
-    .t9f647b40-f60a-45d2-8971-714c8b07d1ba.place-left {
+    .t00000000-0000-0000-0000-000000000000.place-left {
         margin-left: -10px;
     }
-    .t9f647b40-f60a-45d2-8971-714c8b07d1ba.place-left::before {
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
         border-left: 8px solid transparent;
     }
-    .t9f647b40-f60a-45d2-8971-714c8b07d1ba.place-left::after {
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         right: -6px;
@@ -1255,13 +1255,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-left-width: 6px;
     }
 
-    .t9f647b40-f60a-45d2-8971-714c8b07d1ba.place-right {
+    .t00000000-0000-0000-0000-000000000000.place-right {
         margin-left: 10px;
     }
-    .t9f647b40-f60a-45d2-8971-714c8b07d1ba.place-right::before {
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
         border-right: 8px solid transparent;
     }
-    .t9f647b40-f60a-45d2-8971-714c8b07d1ba.place-right::after {
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         left: -6px;
@@ -1319,7 +1319,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                         </svg>
                       </a>
                       <div
-                        className="__react_component_tooltip t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21 place-top type-dark"
+                        className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                         data-id="tooltip"
                         id="password"
                       >
@@ -1327,19 +1327,19 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                           dangerouslySetInnerHTML={
                             Object {
                               "__html": "
-  	.t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21 {
+  	.t00000000-0000-0000-0000-000000000000 {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
   	}
 
-  	.t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21.place-top {
+  	.t00000000-0000-0000-0000-000000000000.place-top {
         margin-top: -10px;
     }
-    .t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21.place-top::before {
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
         border-top: 8px solid transparent;
     }
-    .t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21.place-top::after {
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         bottom: -6px;
@@ -1350,13 +1350,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-top-width: 6px;
     }
 
-    .t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21.place-bottom {
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
         margin-top: 10px;
     }
-    .t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21.place-bottom::before {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
         border-bottom: 8px solid transparent;
     }
-    .t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21.place-bottom::after {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         top: -6px;
@@ -1367,13 +1367,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-bottom-width: 6px;
     }
 
-    .t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21.place-left {
+    .t00000000-0000-0000-0000-000000000000.place-left {
         margin-left: -10px;
     }
-    .t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21.place-left::before {
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
         border-left: 8px solid transparent;
     }
-    .t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21.place-left::after {
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         right: -6px;
@@ -1384,13 +1384,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-left-width: 6px;
     }
 
-    .t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21.place-right {
+    .t00000000-0000-0000-0000-000000000000.place-right {
         margin-left: 10px;
     }
-    .t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21.place-right::before {
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
         border-right: 8px solid transparent;
     }
-    .t1f8150d0-b52b-4fd5-9bc0-293a7d0dfb21.place-right::after {
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         left: -6px;
@@ -1448,7 +1448,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                         </svg>
                       </a>
                       <div
-                        className="__react_component_tooltip td78d4dae-5602-4fae-8e4d-f1b2e4f3102d place-top type-dark"
+                        className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                         data-id="tooltip"
                         id="confirmPassword"
                       >
@@ -1456,19 +1456,19 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                           dangerouslySetInnerHTML={
                             Object {
                               "__html": "
-  	.td78d4dae-5602-4fae-8e4d-f1b2e4f3102d {
+  	.t00000000-0000-0000-0000-000000000000 {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
   	}
 
-  	.td78d4dae-5602-4fae-8e4d-f1b2e4f3102d.place-top {
+  	.t00000000-0000-0000-0000-000000000000.place-top {
         margin-top: -10px;
     }
-    .td78d4dae-5602-4fae-8e4d-f1b2e4f3102d.place-top::before {
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
         border-top: 8px solid transparent;
     }
-    .td78d4dae-5602-4fae-8e4d-f1b2e4f3102d.place-top::after {
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         bottom: -6px;
@@ -1479,13 +1479,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-top-width: 6px;
     }
 
-    .td78d4dae-5602-4fae-8e4d-f1b2e4f3102d.place-bottom {
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
         margin-top: 10px;
     }
-    .td78d4dae-5602-4fae-8e4d-f1b2e4f3102d.place-bottom::before {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
         border-bottom: 8px solid transparent;
     }
-    .td78d4dae-5602-4fae-8e4d-f1b2e4f3102d.place-bottom::after {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         top: -6px;
@@ -1496,13 +1496,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-bottom-width: 6px;
     }
 
-    .td78d4dae-5602-4fae-8e4d-f1b2e4f3102d.place-left {
+    .t00000000-0000-0000-0000-000000000000.place-left {
         margin-left: -10px;
     }
-    .td78d4dae-5602-4fae-8e4d-f1b2e4f3102d.place-left::before {
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
         border-left: 8px solid transparent;
     }
-    .td78d4dae-5602-4fae-8e4d-f1b2e4f3102d.place-left::after {
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         right: -6px;
@@ -1513,13 +1513,13 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         border-left-width: 6px;
     }
 
-    .td78d4dae-5602-4fae-8e4d-f1b2e4f3102d.place-right {
+    .t00000000-0000-0000-0000-000000000000.place-right {
         margin-left: 10px;
     }
-    .td78d4dae-5602-4fae-8e4d-f1b2e4f3102d.place-right::before {
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
         border-right: 8px solid transparent;
     }
-    .td78d4dae-5602-4fae-8e4d-f1b2e4f3102d.place-right::after {
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         left: -6px;

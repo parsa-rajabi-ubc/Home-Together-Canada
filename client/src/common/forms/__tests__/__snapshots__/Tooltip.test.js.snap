@@ -29,7 +29,7 @@ exports[`Tooltip Snapshot test should render correctly regardless of properties 
     </svg>
   </a>
   <div
-    className="__react_component_tooltip t8121c3c8-7da6-4a98-a842-1e47ab953922 place-top type-dark"
+    className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
     data-id="tooltip"
     id="randomID"
   >
@@ -37,19 +37,19 @@ exports[`Tooltip Snapshot test should render correctly regardless of properties 
       dangerouslySetInnerHTML={
         Object {
           "__html": "
-  	.t8121c3c8-7da6-4a98-a842-1e47ab953922 {
+  	.t00000000-0000-0000-0000-000000000000 {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
   	}
 
-  	.t8121c3c8-7da6-4a98-a842-1e47ab953922.place-top {
+  	.t00000000-0000-0000-0000-000000000000.place-top {
         margin-top: -10px;
     }
-    .t8121c3c8-7da6-4a98-a842-1e47ab953922.place-top::before {
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
         border-top: 8px solid transparent;
     }
-    .t8121c3c8-7da6-4a98-a842-1e47ab953922.place-top::after {
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         bottom: -6px;
@@ -60,13 +60,13 @@ exports[`Tooltip Snapshot test should render correctly regardless of properties 
         border-top-width: 6px;
     }
 
-    .t8121c3c8-7da6-4a98-a842-1e47ab953922.place-bottom {
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
         margin-top: 10px;
     }
-    .t8121c3c8-7da6-4a98-a842-1e47ab953922.place-bottom::before {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
         border-bottom: 8px solid transparent;
     }
-    .t8121c3c8-7da6-4a98-a842-1e47ab953922.place-bottom::after {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         top: -6px;
@@ -77,13 +77,13 @@ exports[`Tooltip Snapshot test should render correctly regardless of properties 
         border-bottom-width: 6px;
     }
 
-    .t8121c3c8-7da6-4a98-a842-1e47ab953922.place-left {
+    .t00000000-0000-0000-0000-000000000000.place-left {
         margin-left: -10px;
     }
-    .t8121c3c8-7da6-4a98-a842-1e47ab953922.place-left::before {
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
         border-left: 8px solid transparent;
     }
-    .t8121c3c8-7da6-4a98-a842-1e47ab953922.place-left::after {
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         right: -6px;
@@ -94,13 +94,13 @@ exports[`Tooltip Snapshot test should render correctly regardless of properties 
         border-left-width: 6px;
     }
 
-    .t8121c3c8-7da6-4a98-a842-1e47ab953922.place-right {
+    .t00000000-0000-0000-0000-000000000000.place-right {
         margin-left: 10px;
     }
-    .t8121c3c8-7da6-4a98-a842-1e47ab953922.place-right::before {
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
         border-right: 8px solid transparent;
     }
-    .t8121c3c8-7da6-4a98-a842-1e47ab953922.place-right::after {
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         left: -6px;
