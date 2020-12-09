@@ -17,7 +17,7 @@ function Tooltip(props) {
     return (
         <span>
         <a data-tip data-for={toolTipID}>
-            <BsFillInfoCircleFill className={"inline ml-2 mb-1 text-yellow-500 hover:text-green-600"}/>
+            <BsFillInfoCircleFill className={"inline ml-1 mb-1 text-yellow-500 hover:text-green-600"}/>
         </a>
         <ReactTooltip id={toolTipID} className="" type={"dark"} effect="solid">
             {text}
