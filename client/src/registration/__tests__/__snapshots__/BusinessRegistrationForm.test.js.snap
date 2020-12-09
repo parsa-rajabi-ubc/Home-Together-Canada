@@ -59,7 +59,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
               <label
                 className="label mt-0"
               >
-                Incorporated Business?
+                Incorporated Business
               </label>
               <span>
                 <a
@@ -442,7 +442,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
             <label
               className="label mt-0"
             >
-              Different Mailing Address?
+              Different Mailing Address
             </label>
             <span>
               <a
@@ -571,7 +571,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
               <label
                 className="label mt-0"
               >
-                Canada-wide Business?
+                Canada-wide Business
               </label>
               <span>
                 <a

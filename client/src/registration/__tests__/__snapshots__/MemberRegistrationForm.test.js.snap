@@ -496,7 +496,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           <label
             className="label mt-0"
           >
-            Different Mailing Address?
+            Different Mailing Address
           </label>
           <span>
             <a
