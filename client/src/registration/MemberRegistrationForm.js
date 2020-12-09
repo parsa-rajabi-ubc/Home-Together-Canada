@@ -502,7 +502,6 @@ function MemberRegistrationForm(props) {
                                                 <label className={"label"}>Pet Friendly?</label>
                                                 <Tooltip text={infoText["pet"]} toolTipID="pet"/>
                                                 <YNButton
-                                                    label=""
                                                     name="petFriendly"
                                                     onChange={(e) => setPetFriendly(e.target.value)}
                                                 />
@@ -520,7 +519,6 @@ function MemberRegistrationForm(props) {
                                                 <label className={"label"}>Smoke Friendly?</label>
                                                 <Tooltip text={infoText["smoke"]} toolTipID="smoke"/>
                                                 <YNButton
-                                                    label=""
                                                     name="smoking"
                                                     onChange={(e) => setSmoking(e.target.value)}
                                                 />
@@ -537,8 +535,7 @@ function MemberRegistrationForm(props) {
                                                 <label className={"label"}>Health / Mobility Issues?</label>
                                                 <Tooltip text={infoText["health"]} toolTipID="health"/>
                                                 <YNButton
-                                                    label=""
-                                                    name="mobile"
+                                                    name="health"
                                                     onChange={(e) => setMobilityIssues(e.target.value)}
                                                 />
                                                 {(mobilityIssues === "yes") &&
@@ -554,7 +551,6 @@ function MemberRegistrationForm(props) {
                                                 <label className={"label"}>Allergies?</label>
                                                 <Tooltip text={infoText["allergies"]} toolTipID="allergies"/>
                                                 <YNButton
-                                                    label=""
                                                     name="allergies"
                                                     checked={hasAllergies === "no"}
                                                     onChange={(e) => setHasAllergies(e.target.value)}
@@ -572,7 +568,6 @@ function MemberRegistrationForm(props) {
                                                 <label className={"label"}>Is religion important?</label>
                                                 <Tooltip text={infoText["religion"]} toolTipID="religion"/>
                                                 <YNButton
-                                                    label=""
                                                     name="religion"
                                                     checked={religious === "no"}
                                                     onChange={(e) => setReligious(e.target.value)}
@@ -590,7 +585,6 @@ function MemberRegistrationForm(props) {
                                                 <label className={"label"}>Is diet of others important?</label>
                                                 <Tooltip text={infoText["diet"]} toolTipID="diet"/>
                                                 <YNButton
-                                                    label=""
                                                     name="diet"
                                                     checked={hasDiet === "no"}
                                                     onChange={(e) => setHasDiet(e.target.value)}
@@ -608,7 +602,6 @@ function MemberRegistrationForm(props) {
                                                 <label className={"label"}>Have a home to share?</label>
                                                 <Tooltip text={infoText["homeToShare"]} toolTipID="homeToShare"/>
                                                 <YNButton
-                                                    label=""
                                                     name="hasHome"
                                                     checked={hasHome==="no"}
                                                     onChange={(e)=>setHasHome(e.target.value)}
@@ -626,7 +619,6 @@ function MemberRegistrationForm(props) {
                                                 <label className={"label"}>Interested in buying a home with others?</label>
                                                 <Tooltip text={infoText["homeToBuy"]} toolTipID="homeToBuy"/>
                                                 <YNButton
-                                                    label=""
                                                     name="interestInBuyingHome"
                                                     checked={interestInBuyingHome==="no"}
                                                     onChange={(e)=>setInterestInBuyingHome(e.target.value)}

@@ -10,23 +10,18 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import RadioButton from "./RadioButton";
 
-function YNButton(props){
-    const { label, name, onChange } = props;
-    return(
-        <label>
-            <div className={""}>
-                <div className={"label text-base "}>{label}</div>
-                <RadioButton label="No" name={name} value="no" onChange={onChange}/>
-                <RadioButton label="Yes" name={name} value="yes"  onChange={onChange}/>
-            </div>
-        </label>
+function YNButton(props) {
+    const {name, onChange} = props;
+    return (
+        <div>
+            <RadioButton label="No" name={name} value="no" onChange={onChange}/>
+            <RadioButton label="Yes" name={name} value="yes" onChange={onChange}/>
+        </div>
     );
 }
 
 YNButton.propTypes = {
-    label: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    checked: PropTypes.bool,
     onChange: PropTypes.func
 }
 
