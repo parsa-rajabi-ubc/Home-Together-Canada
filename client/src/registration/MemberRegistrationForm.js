@@ -93,6 +93,7 @@ function MemberRegistrationForm(props) {
 
     const [selectedFamilyStatus, setsSelectedFamilyStatus] = useState();
     const [selectedWorkStatus, setsSelectedWorkStatus] = useState();
+    const [workStatus, setWorkStatus] = useState("");
 
     const [partner, setPartner] = useState("");
     const [groupMembers, setGroupMembers] = useState("");
@@ -103,7 +104,7 @@ function MemberRegistrationForm(props) {
         radius: ""
     }]);
 
-    function checkStatus(selectedFamilyStatus) {
+    function checkFamilyStatus(selectedFamilyStatus) {
         if (selectedFamilyStatus === "Couple") {
             return <TextArea
                 className={"input"}
@@ -129,7 +130,18 @@ function MemberRegistrationForm(props) {
                 value={groupMembers}
             />
         }
+    }
 
+    //TODO: ensure DB can handle this new change of "other" Work Status
+    function checkWorkStatus(selectedWorkStatus) {
+        if (selectedWorkStatus === "Other") {
+            return <TextArea
+                className={"input"}
+                placeholder="Elaborate (optional)"
+                onChange={(e) => setWorkStatus(e.target.value)}
+                value={workStatus}
+            />
+        }
     }
 
     const handleFamilyStatusChange = e => {
@@ -437,10 +449,11 @@ function MemberRegistrationForm(props) {
                                         </div>
                                         <label className={"label"}> Status </label>
                                         <Status onChange={handleFamilyStatusChange}/>
-                                        {checkStatus(selectedFamilyStatus)}
+                                        {checkFamilyStatus(selectedFamilyStatus)}
 
                                         <label className={"label"}> Work Status </label>
                                         <WorkStatus onChange={handleWorkStatusChange}/>
+                                        {checkWorkStatus(selectedWorkStatus)}
 
                                         <label className={"label text-base "}> open to sharing with </label>
                                         <ShareLimit onChange={handleLimitChange}/>
