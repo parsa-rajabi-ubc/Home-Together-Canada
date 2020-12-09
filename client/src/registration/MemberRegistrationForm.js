@@ -244,6 +244,7 @@ function MemberRegistrationForm(props) {
 
     const infoText = {
         yearOfBirth: "Please select the year you were born.",
+        differentMailingAddress: "Select this checkbox if your mailing address differs from the address above",
         familyStatus: "family",
         workStatus: "work",
         numPeopleToShare: "people to share",
@@ -388,11 +389,9 @@ function MemberRegistrationForm(props) {
                                 onChange={setAddress}
                             />
 
-                            <span className="info-detail">Select checkbox below if your mailing address differs from the address above</span>
-                            <Checkbox
-                                label="Different Mailing Address"
-                                onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}
-                            />
+                            <Checkbox onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}/>
+                            <label className={"label mt-0"}>Different Mailing Address?</label>
+                            <Tooltip text={infoText["differentMailingAddress"]} toolTipID="differentMailingAddress"/>
 
                             {useDifferentMailingAddress &&
                             <Address
