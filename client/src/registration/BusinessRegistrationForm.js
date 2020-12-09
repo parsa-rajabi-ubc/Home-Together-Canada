@@ -211,7 +211,7 @@ const BusinessRegistrationForm = (props) => {
     }
 
     const infoText = {
-        incorporated: "Select this checkbox if your business in Incorporated.",
+        incorporated: "Select this checkbox if your business in Incorporated",
         differentMailingAddress: "Select this checkbox if your mailing address differs from the address above",
         nationWide: "Select this checkbox if your service spans across Canada",
         businessLogo: "This logo will be displayed on your future listings",
@@ -340,15 +340,15 @@ const BusinessRegistrationForm = (props) => {
                                     setBName(e.target.value)
                                 }}/>
                                 <div className={"my-2"}>
-                                <Checkbox onChange={() => setIsIncorporated(!isIncorporated)}/>
-                                <label className={"label mt-0"}>Incorporated Business?</label>
-                                <Tooltip text={infoText["incorporated"]}
-                                         toolTipID="incorporated"/>
+                                    <Checkbox onChange={() => setIsIncorporated(!isIncorporated)}/>
+                                    <label className={"label mt-0"}>Incorporated Business?</label>
+                                    <Tooltip text={infoText["incorporated"]}
+                                             toolTipID="incorporated"/>
 
-                                {isIncorporated && <TextArea className="input" label={""}
-                                                             placeholder={"Names of Inc. Owners (separated by comma)"}
-                                                             labelClassName={"label"}
-                                                             onChange={(e) => setIncorporatedOwnersNames(e.target.value)}/>}
+                                    {isIncorporated && <TextArea className="input" label={""}
+                                                                 placeholder={"Names of Inc. Owners (separated by comma)"}
+                                                                 labelClassName={"label"}
+                                                                 onChange={(e) => setIncorporatedOwnersNames(e.target.value)}/>}
                                 </div>
                                 <TextArea className="input" placeholder="business@email.ca"
                                           autoComplete={"email"} label="Business Email" labelClassName={"label"}

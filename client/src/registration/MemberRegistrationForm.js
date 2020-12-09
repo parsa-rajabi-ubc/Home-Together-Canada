@@ -243,22 +243,22 @@ function MemberRegistrationForm(props) {
     }
 
     const infoText = {
-        yearOfBirth: "Please select the year you were born.",
+        yearOfBirth: "Please select the year you were born",
         differentMailingAddress: "Select this checkbox if your mailing address differs from the address above",
-        familyStatus: "family",
-        workStatus: "work",
-        numPeopleToShare: "people to share",
-        rent: "rent",
-        interestedArea: "interested area",
-        pet: "pet",
-        smoke: "smoke",
-        health: "heath",
-        allergies: "allergies",
-        religion: "religion",
-        diet: "diet",
-        homeToShare: "home to share",
-        homeToBuy: "home to buy",
-        about: "about",
+        familyStatus: "Please select your family status",
+        workStatus: "Please select your work status",
+        numPeopleToShare: "Please select how many people you would like to share a home with",
+        rent: "Please list your minimum and maximum budget for rent. Note: This does NOT include utilities",
+        interestedArea: "Please select your preferred living location(s) across Canada",
+        pet: "Would you like to live in a home that is pet friendly?",
+        smoke: "Would you like to live in a home that is smoke friendly?",
+        health: "Do you have any health or mobility issues that others should be aware of?",
+        allergies: "Do you have any allergies that others should be aware of?",
+        religion: "Would you like to live with people who share the same religion as you?",
+        diet: "Would you like to live with people who share the same diet as you?",
+        homeToShare: "Do you have a home to share with others?",
+        homeToBuy: "Are you interested in purchasing a home with others?",
+        about: "Please use this area to let others know more about your life style and values.",
     };
 
     //function for input checks on submit
