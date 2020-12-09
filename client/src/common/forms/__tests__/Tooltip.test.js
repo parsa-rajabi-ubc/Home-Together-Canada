@@ -15,8 +15,9 @@ describe('Tooltip', () => {
         it("should render correctly regardless of properties", () => {
             // given
             const text = "helpful text";
+            const toolTipID = "randomID"
             //when
-            const component = renderer.create(<Tooltip text={text} />).toJSON();
+            const component = renderer.create(<Tooltip text={text} toolTipID={toolTipID} />).toJSON();
             //then
             expect(component).toMatchSnapshot();
         });
