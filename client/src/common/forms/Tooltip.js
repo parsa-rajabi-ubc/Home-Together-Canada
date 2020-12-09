@@ -17,7 +17,7 @@ function Tooltip(props) {
     return (
         <span>
         <a data-tip data-for="happyFace">
-            <BsFillInfoCircleFill className={"align-middle"}/>
+            <BsFillInfoCircleFill className={"inline ml-2 mb-1"}/>
         </a>
         <ReactTooltip id="happyFace" className="" type={type}>
             <span>{text}</span>
