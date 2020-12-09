@@ -17,24 +17,24 @@ const infoText = {
 };
 
 
-function SignInInfo(props){
-    const { onChangeUsername, onChangePassword, onChangePasswordCheck } = props;
-    return(
+function SignInInfo(props) {
+    const {onChangeUsername, onChangePassword, onChangePasswordCheck} = props;
+    return (
         <div>
             <label>
                 <span className={"label"}>Username</span>
                 <Tooltip text={infoText["username"]} toolTipID="username"/>
-                <input className={"input"} type="text" placeholder="" onChange= {onChangeUsername}/>
+                <input className={"input"} type="text" placeholder="" onChange={onChangeUsername}/>
             </label>
             <label>
                 <span className={"label"}>Password</span>
                 <Tooltip text={infoText["password"]} toolTipID="password"/>
-                <input className={"input"} type="password" placeholder="" onChange= {onChangePassword}/>
+                <input className={"input"} type="password" placeholder="" onChange={onChangePassword}/>
             </label>
             <label>
                 <span className={"label"}>Confirm Password</span>
                 <Tooltip text={infoText["confirmPassword"]} toolTipID="confirmPassword"/>
-                <input className={"input"} type="password" placeholder="" onChange= {onChangePasswordCheck}/>
+                <input className={"input"} type="password" placeholder="" onChange={onChangePasswordCheck}/>
             </label>
         </div>
     );
