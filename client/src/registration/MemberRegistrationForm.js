@@ -387,7 +387,7 @@ function MemberRegistrationForm(props) {
                             <Address label="Address" cityClassName="city-postal" onChange={setAddress}/>
 
                             <Checkbox onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}/>
-                            <label className={"label mt-0"}>Different Mailing Address?</label>
+                            <label className={"label mt-0"}>Different Mailing Address</label>
                             <Tooltip text={infoText["differentMailingAddress"]} toolTipID="differentMailingAddress"/>
 
                             {useDifferentMailingAddress &&

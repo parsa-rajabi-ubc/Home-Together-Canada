@@ -341,7 +341,7 @@ const BusinessRegistrationForm = (props) => {
                                 }}/>
                                 <div className={"my-2"}>
                                     <Checkbox onChange={() => setIsIncorporated(!isIncorporated)}/>
-                                    <label className={"label mt-0"}>Incorporated Business?</label>
+                                    <label className={"label mt-0"}>Incorporated Business</label>
                                     <Tooltip text={infoText["incorporated"]}
                                              toolTipID="incorporated"/>
 
@@ -370,7 +370,7 @@ const BusinessRegistrationForm = (props) => {
                                          cityClassName="city-postal" onChange={handleBAddressChange}/>
 
                                 <Checkbox onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}/>
-                                <label className={"label mt-0"}>Different Mailing Address?</label>
+                                <label className={"label mt-0"}>Different Mailing Address</label>
                                 <Tooltip text={infoText["differentMailingAddress"]}
                                          toolTipID="differentMailingAddress"/>
                                 {useDifferentMailingAddress && <Address label="Business Mailing Address"
@@ -379,7 +379,7 @@ const BusinessRegistrationForm = (props) => {
                                     <Checkbox onChange={() => {
                                         setIfNationWide(isNationWide => !isNationWide)
                                     }}/>
-                                    <label className={"label mt-0"}>Canada-wide Business?</label>
+                                    <label className={"label mt-0"}>Canada-wide Business</label>
                                     <Tooltip text={infoText["nationWide"]} toolTipID="nationWide"/>
                                     {!isNationWide &&
                                     <Address label="Searchable Address" onChange={handleBMapAddress}/>}
