@@ -358,7 +358,7 @@ function MemberRegistrationForm(props) {
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                             <label className={"label"}>Year of Birth</label>
-                            <Tooltip text={"hello"} type={"dark"}/>
+                            <Tooltip text={"hello"}/>
                             <BirthYear label={"Year of Birth"} onChange={handleYearChange}/>
                             <PhoneNumInput
                                 className="w-1/4 phone"
