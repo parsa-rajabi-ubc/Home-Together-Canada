@@ -9,6 +9,11 @@ import React from 'react';
 import renderer from  'react-test-renderer'
 import MemberRegistrationForm from "../MemberRegistrationForm";
 
+jest.mock("react-tooltip/node_modules/uuid", () => ({
+            v4: () => "00000000-0000-0000-0000-000000000000"}
+    )
+);
+
 jest.mock('react-redux', () => ({
     connect: () => {
         return (component) => {
