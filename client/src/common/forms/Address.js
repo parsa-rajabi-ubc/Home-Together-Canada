@@ -11,10 +11,11 @@ import "canada"
 import PropTypes from "prop-types";
 import Dropdown from "./Dropdown";
 import {getProvinces} from "../utils/locationUtils"
+import Asterisk from "./Asterisk";
 
 
 function Address(props) {
-    const {label, onChange} = props;
+    const {label, onChange, required} = props;
     const [street, setStreet] = useState("");
     const [aptNum, setApt] = useState("");
     const [city, setCity] = useState("");
@@ -57,7 +58,7 @@ function Address(props) {
     return (
         <div>
             <label className="label">
-                {label}
+                {label} {(required ? <Asterisk/> : '')}
                 <input className="input" type="text" name="street" placeholder="Address Line 1" autoComplete="address-line1"
                        onChange={handleInputChange}/>
             </label>
@@ -85,7 +86,8 @@ function Address(props) {
 
 Address.propTypes = {
     label: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
+    required: PropTypes.bool
 };
 
 export default Address;

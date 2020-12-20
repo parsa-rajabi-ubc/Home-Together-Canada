@@ -7,12 +7,14 @@
  */
 import React from 'react';
 import PropTypes from "prop-types";
+import Asterisk from "./Asterisk";
 
 function LargeTextArea(props) {
-    const {label, name, placeholder, optional, onChange} = props;
+    const {label, name, placeholder, required, onChange} = props;
     return (
         <label className={"label"}>
-            {label} {(optional ? <span className="optional"> (optional)</span> : '')}
+            {label} {(required ? <Asterisk/> : '')}
+
             <textarea className={"input "} name={name} rows="5" cols="50" placeholder={placeholder}
                       onChange={onChange}/>
         </label>
@@ -22,7 +24,7 @@ function LargeTextArea(props) {
 LargeTextArea.propTypes = {
     label: PropTypes.string.isRequired,
     name: PropTypes.string,
-    optional: PropTypes.bool,
+    required: PropTypes.bool,
     placeholder: PropTypes.string,
     onChange: PropTypes.func
 }

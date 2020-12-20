@@ -8,14 +8,15 @@
 
 import React from "react";
 import PropTypes from 'prop-types';
+import Asterisk from "./Asterisk";
 
 function PhoneNumInput(props){
-    const { label, labelClassName, className, onChange } = props;
+    const { label, labelClassName, className, required, onChange } = props;
     // Updated autoComplete based on: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
     return(
         <div>
             <label className={labelClassName}>
-                {label}
+                {label}  {(required ? <Asterisk/> : '')}
                 <br/>
                 <input className={className} type="text" autoComplete="tel-area-code"
                        name="first" placeholder="222" onChange= {onChange} maxLength="3"/>
@@ -33,6 +34,7 @@ function PhoneNumInput(props){
 }
 PhoneNumInput.propTypes = {
     label: PropTypes.string.isRequired,
+    required: PropTypes.bool,
     labelClassName: PropTypes.string,
     className: PropTypes.string,
     onChange: PropTypes.func.isRequired
