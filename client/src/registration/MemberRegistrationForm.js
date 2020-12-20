@@ -8,7 +8,7 @@
 
 import React, {useState} from 'react';
 import TextArea from '../common/forms/TextArea';
-import Checkbox from '../common/forms/Checkbox';
+import CheckboxTooltip from "../common/forms/CheckboxTooltip";
 import SubmitButton from '../common/forms/SubmitButton';
 import Address from "../common/forms/Address";
 import SignInInfo from "../common/forms/SignInInfo";
@@ -22,7 +22,7 @@ import Status from "../common/forms/Status";
 import ShareLimit from "../common/forms/ShareLimits";
 import InterestedArea from "../common/forms/InterestedArea";
 import YNButton from "../common/forms/YNButtons";
-import LargeTextArea from "../common/forms/LargeTextArea";
+import LargeTextAreaTooltip from "../common/forms/LargeTextAreaTooltip";
 import PropTypes from "prop-types";
 import WorkStatus from "../common/forms/WorkStatus";
 import Tooltip from "../common/forms/Tooltip";
@@ -242,23 +242,20 @@ function MemberRegistrationForm(props) {
         return true;
     }
 
-    const infoText = {
-        yearOfBirth: "Please select the year you were born",
-        differentMailingAddress: "Select this checkbox if your mailing address differs from the address above",
-        familyStatus: "Please select your family status",
-        workStatus: "Please select your work status",
-        numPeopleToShare: "Please select how many people you would like to share a home with",
-        rent: "Please list your minimum and maximum budget for rent. Note: This does NOT include utilities",
-        interestedArea: "Please select your preferred living location(s) across Canada",
-        pet: "Would you like to live in a home that is pet friendly?",
-        smoke: "Would you like to live in a home that is smoke friendly?",
-        health: "Do you have any health or mobility issues that others should be aware of?",
-        allergies: "Do you have any allergies that others should be aware of?",
-        religion: "Would you like to live with people who share the same religion as you?",
-        diet: "Would you like to live with people who share the same diet as you?",
-        homeToShare: "Do you have a home to share with others?",
-        homeToBuy: "Are you interested in purchasing a home with others?",
-        about: "Please use this area to let others know more about your life style and values.",
+    const INFO_TEXT = {
+        YEAR_OF_BIRTH: "Age is required in order to help members connect with others in their desired age range",
+        DIFF_MAILING_ADDRESS: "Select this checkbox if your mailing address differs from the address above",
+        FAMILY_STATUS: "Select the status that most accurately reflects your living arrangement that you would like to maintain while home-sharing with",
+        NUM_PEOPLE_SHARE: "This number of people does not include yourself",
+        RENT: "Please list your minimum and maximum budget for rent. Note: This does NOT include utilities",
+        INTERESTED_AREA: "Preferred living location(s) across Canada",
+        PET: "You either have a pet or are open to living with pets",
+        SMOKE: "You either smoke yourself or are open to living with people who smoke",
+        HEALTH: "Health and mobility issues that are relevant to roommates",
+        RELIGION: "Religious compatibility is important to you",
+        DIET: "The diet of your roommate(s) is important to you",
+        HOME_TO_SHARE: "If you have a home to share, we recommend that you also create a free listing in addition to providing a short description below",
+        ABOUT: "Please use this area to let others know more about your life style and values. Remember not to disclose any personal information as this can be viewed by other members",
     };
 
     //function for input checks on submit
@@ -379,16 +376,16 @@ function MemberRegistrationForm(props) {
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                             <label className={"label"}>Year of Birth</label>
-                            <Tooltip text={infoText["yearOfBirth"]} toolTipID="yearOfBirth"/>
+                            <Tooltip text={INFO_TEXT["YEAR_OF_BIRTH"]} toolTipID="yearOfBirth"/>
                             <BirthYear label={"Year of Birth"} onChange={handleYearChange}/>
 
                             <PhoneNumInput className="w-1/4 phone" labelClassName={"label"}
                                            label="Phone Number" onChange={handlePhoneChange}/>
                             <Address label="Address" cityClassName="city-postal" onChange={setAddress}/>
 
-                            <Checkbox onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}/>
+                            <CheckboxTooltip onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}/>
                             <label className={"label mt-0"}>Different Mailing Address</label>
-                            <Tooltip text={infoText["differentMailingAddress"]} toolTipID="differentMailingAddress"/>
+                            <Tooltip text={INFO_TEXT["DIFF_MAILING_ADDRESS"]} toolTipID="differentMailingAddress"/>
 
                             {useDifferentMailingAddress &&
                             <Address label="Mailing Address" onChange={setMailingAddress}/>}
@@ -450,20 +447,19 @@ function MemberRegistrationForm(props) {
                                             />}
                                         </div>
                                         <label className={"label"}> Status </label>
-                                        <Tooltip text={infoText["familyStatus"]} toolTipID="familyStatus"/>
+                                        <Tooltip text={INFO_TEXT["FAMILY_STATUS"]} toolTipID="familyStatus"/>
                                         <Status onChange={handleFamilyStatusChange}/>
                                         {checkStatus(selectedFamilyStatus)}
 
                                         <label className={"label"}> Work Status </label>
-                                        <Tooltip text={infoText["workStatus"]} toolTipID="workStatus"/>
                                         <WorkStatus onChange={handleWorkStatusChange}/>
 
                                         <label className={"label text-base "}> open to sharing with </label>
-                                        <Tooltip text={infoText["numPeopleToShare"]} toolTipID="numPeopleToShare"/>
+                                        <Tooltip text={INFO_TEXT["NUM_PEOPLE_SHARE"]} toolTipID="numPeopleToShare"/>
                                         <ShareLimit onChange={handleLimitChange}/>
 
                                         <label className={"label"}>Monthly Rent</label>
-                                        <Tooltip text={infoText["rent"]} toolTipID="rent"/>
+                                        <Tooltip text={INFO_TEXT["RENT"]} toolTipID="rent"/>
                                         <div className="grid grid-cols-6 gap-x-6">
                                             <div className="column-span-6-layout">
                                                 <input
@@ -488,13 +484,13 @@ function MemberRegistrationForm(props) {
                                         </div>
 
                                         <label className={"label"}>Preferred Living Location(s)</label>
-                                        <Tooltip text={infoText["interestedArea"]} toolTipID="interestedArea"/>
+                                        <Tooltip text={INFO_TEXT["INTERESTED_AREA"]} toolTipID="interestedArea"/>
                                         <InterestedArea onChange={setAreasOfInterest}/>
                                         <div className="grid grid-cols-6 gap-x-6">
 
                                             <div className="column-span-6-layout">
                                                 <label className={"label"}>Pet Friendly?</label>
-                                                <Tooltip text={infoText["pet"]} toolTipID="pet"/>
+                                                <Tooltip text={INFO_TEXT["PET"]} toolTipID="pet"/>
                                                 <YNButton
                                                     name="petFriendly"
                                                     onChange={(e) => setPetFriendly(e.target.value)}
@@ -511,7 +507,7 @@ function MemberRegistrationForm(props) {
 
                                             <div className="column-span-6-layout">
                                                 <label className={"label"}>Smoke Friendly?</label>
-                                                <Tooltip text={infoText["smoke"]} toolTipID="smoke"/>
+                                                <Tooltip text={INFO_TEXT["SMOKE"]} toolTipID="smoke"/>
                                                 <YNButton
                                                     name="smoking"
                                                     onChange={(e) => setSmoking(e.target.value)}
@@ -527,7 +523,7 @@ function MemberRegistrationForm(props) {
 
                                             <div className="column-span-6-layout">
                                                 <label className={"label"}>Health / Mobility Issues?</label>
-                                                <Tooltip text={infoText["health"]} toolTipID="health"/>
+                                                <Tooltip text={INFO_TEXT["HEALTH"]} toolTipID="health"/>
                                                 <YNButton
                                                     name="health"
                                                     onChange={(e) => setMobilityIssues(e.target.value)}
@@ -543,7 +539,6 @@ function MemberRegistrationForm(props) {
 
                                             <div className="column-span-6-layout">
                                                 <label className={"label"}>Allergies?</label>
-                                                <Tooltip text={infoText["allergies"]} toolTipID="allergies"/>
                                                 <YNButton
                                                     name="allergies"
                                                     checked={hasAllergies === "no"}
@@ -560,7 +555,7 @@ function MemberRegistrationForm(props) {
 
                                             <div className="column-span-6-layout">
                                                 <label className={"label"}>Is religion important?</label>
-                                                <Tooltip text={infoText["religion"]} toolTipID="religion"/>
+                                                <Tooltip text={INFO_TEXT["RELIGION"]} toolTipID="religion"/>
                                                 <YNButton
                                                     name="religion"
                                                     checked={religious === "no"}
@@ -577,7 +572,7 @@ function MemberRegistrationForm(props) {
 
                                             <div className="column-span-6-layout">
                                                 <label className={"label"}>Is diet of others important?</label>
-                                                <Tooltip text={infoText["diet"]} toolTipID="diet"/>
+                                                <Tooltip text={INFO_TEXT["DIET"]} toolTipID="diet"/>
                                                 <YNButton
                                                     name="diet"
                                                     checked={hasDiet === "no"}
@@ -594,25 +589,27 @@ function MemberRegistrationForm(props) {
 
                                             <div className="column-span-6-layout">
                                                 <label className={"label"}>Have a home to share?</label>
-                                                <Tooltip text={infoText["homeToShare"]} toolTipID="homeToShare"/>
                                                 <YNButton
                                                     name="hasHome"
                                                     checked={hasHome === "no"}
                                                     onChange={(e) => setHasHome(e.target.value)}
                                                 />
-                                                {(hasHome === "yes") &&
+                                                {(hasHome === "yes")
+                                                && <section>
                                                 <TextArea
-                                                    className={"input"}
+                                                    className={"input inline w-11/12 "}
                                                     placeholder="Elaborate (optional)"
                                                     onChange={e => setHomeDescription(e.target.value)}
                                                     value={homeDescription}
-                                                />}
+                                                />
+                                                <Tooltip text={INFO_TEXT["HOME_TO_SHARE"]} toolTipID="homeToShare"/>
+                                                </section>
+                                                }
                                             </div>
 
                                             <div className="column-span-6-layout">
                                                 <label className={"label"}>Interested in buying a home with
                                                     others?</label>
-                                                <Tooltip text={infoText["homeToBuy"]} toolTipID="homeToBuy"/>
                                                 <YNButton
                                                     name="interestInBuyingHome"
                                                     checked={interestInBuyingHome === "no"}
@@ -630,8 +627,8 @@ function MemberRegistrationForm(props) {
                                         </div>
                                         <div className={"mt-4"}>
                                             <label className={"label"}>Tell others about yourself</label>
-                                            <Tooltip text={infoText["about"]} toolTipID="about"/>
-                                            <LargeTextArea
+                                            <Tooltip text={INFO_TEXT["ABOUT"]} toolTipID="about"/>
+                                            <LargeTextAreaTooltip
                                                 label=""
                                                 name="aboutSelf"
                                                 placeholder="What is important to you, and why do you want to share a home?"
