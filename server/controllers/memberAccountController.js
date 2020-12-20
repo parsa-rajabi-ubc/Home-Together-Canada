@@ -69,8 +69,13 @@ const findMemberAccountByUsername = (username) => {
     })
 }
 
+const findMemberAccountByUid = uid => {
+    return MemberAccount.findByPk(uid);
+}
+
 module.exports = {
     createMemberAccount,
     findAllMemberAccounts,
-    findMemberAccountByUsername
+    findMemberAccountByUsername,
+    findMemberAccountByUid
 }

@@ -27,10 +27,14 @@ import PropTypes from "prop-types";
 import WorkStatus from "../common/forms/WorkStatus";
 import Asterisk from "../common/forms/Asterisk";
 import LabelAsterisk from "../common/forms/LabelAsterisk";
+import { connect } from 'react-redux';
+import {setIsAdmin, setAccountType, setAuthenticated} from '../redux/slices/userPrivileges';
+
+const mapDispatch = { setIsAdmin, setAccountType, setAuthenticated };
 
 //Returns a Form with fields
 function MemberRegistrationForm(props) {
-    const {history} = props;
+    const { history, setIsAdmin, setAccountType, setAuthenticated } = props;
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [yearOfBirth, setYearOfBirth] = useState("");
@@ -299,13 +303,23 @@ function MemberRegistrationForm(props) {
             areasOfInterest: areasOfInterest,
         }
 
-        console.log('registration data: ', registrationData);
-
         RegistrationService.registerMemberUser(registrationData)
             .then(res => res.json())
             .then(data => {
                 if (!!data && data.authenticated) {
                     alert('Member account successfully created!');
+
+                    // dispatch action to set isAdmin
+                    setIsAdmin({isAdmin: data.member ? data.member.isAdmin : false});
+
+                    // dispatch action to set accountType
+                    if (data.member) {
+                        setAccountType({accountType: 'member'});
+                    }
+
+                    // dispatch action to set authenticated
+                    setAuthenticated({ authenticated: data.authenticated });
+
                     // user is authenticated, redirect to home screen
                     return history.push('/');
                 } else if (!!data && data.errors && data.errors.length) {
@@ -336,8 +350,7 @@ function MemberRegistrationForm(props) {
                         </p>
                     </div>
                 </div>
-                <div
-                    className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
+                <div className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
                     <div className="grid grid-cols-2 gap-6">
                         <div className="col-span-3 sm:col-span-2">
                             <TextArea
@@ -677,7 +690,10 @@ function MemberRegistrationForm(props) {
 MemberRegistrationForm.propTypes = {
     history: PropTypes.shape({
         push: PropTypes.func
-    })
+    }),
+    setAccountType: PropTypes.func,
+    setIsAdmin: PropTypes.func,
+    setAuthenticated: PropTypes.func
 }
 
-export default MemberRegistrationForm;
+export default connect(null, mapDispatch) (MemberRegistrationForm);

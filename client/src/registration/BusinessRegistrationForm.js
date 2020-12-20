@@ -19,10 +19,15 @@ import {isStringEmail, isStringEmpty, isStringSame, isStringNumeralsOnly} from "
 import RegistrationService from '../services/RegistrationService';
 import {getConcatenatedErrorMessage, getPhoneNumberFromStrings} from "./registrationUtils";
 import Asterisk from "../common/forms/Asterisk";
+import { connect } from 'react-redux';
+import {setAccountType, setAuthenticated} from '../redux/slices/userPrivileges';
+
+const mapDispatch = { setAccountType, setAuthenticated };
+
 
 // TODO: separate this into container and presentational components (see https://css-tricks.com/learning-react-container-components/)
 const BusinessRegistrationForm = (props) => {
-    const {history} = props;
+    const {history, setAccountType, setAuthenticated} = props;
 
     const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(false);
     const [isNationWide, setIfNationWide] = useState(false);
@@ -254,6 +259,14 @@ const BusinessRegistrationForm = (props) => {
             .then(res => res.json())
             .then(data => {
                 if (!!data && data.authenticated) {
+                    // dispatch action to set accountType
+                    if (data.business) {
+                        setAccountType({accountType: 'business'});
+                    }
+
+                    // dispatch action to set authenticated
+                    setAuthenticated({ authenticated: data.authenticated });
+
                     // user is authenticated, redirect to home screen
                     alert('Business account successfully created!');
                     return history.push('/');
@@ -405,8 +418,7 @@ const BusinessRegistrationForm = (props) => {
                         <label className="label">
                             Business Logo
                         </label>
-                        <div
-                            className="flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                        <div className="flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                             <div className="space-y-1 text-center">
                                 <svg className="w-12 h-12 mx-auto text-gray-400" stroke="currentColor"
                                      fill="none" viewBox="0 0 48 48" aria-hidden="true">
@@ -443,8 +455,7 @@ const BusinessRegistrationForm = (props) => {
                         </p>
                     </div>
                 </div>
-                <div
-                    className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
+                <div className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
                     <div className="grid grid-cols-6 gap-x-6">
                         <div className="column-span-6-layout">
                             <TextArea className={"input"}
@@ -528,7 +539,9 @@ const BusinessRegistrationForm = (props) => {
 BusinessRegistrationForm.propTypes = {
     history: PropTypes.shape({
         push: PropTypes.func
-    })
+    }),
+    setAccountType: PropTypes.func,
+    setAuthenticated: PropTypes.func
 }
 
-export default BusinessRegistrationForm;
+export default connect(null, mapDispatch) (BusinessRegistrationForm);

@@ -65,7 +65,7 @@ router.post('/business/create/', usersValidator.validate('createBusinessUser'),
         } else {
             passport.authenticate('local-signup-business', {
                 // change these routes to ones that send actual response data
-                successRedirect: '/checkAuth',
+                successRedirect: '/successfulLogin/',
                 failureRedirect: '/checkAuth',
                 failureFlash: false })(req, res, next);
         }
@@ -80,7 +80,7 @@ router.post('/member/create/', usersValidator.validate('createMemberUser'),
             } else {
                 passport.authenticate('local-signup-member', {
                     // change these routes to ones that send actual response data
-                    successRedirect: '/checkAuth',
+                    successRedirect: '/successfulLogin/',
                     failureRedirect: '/checkAuth',
                     failureFlash: false })(req, res, next);
             }
@@ -120,13 +120,36 @@ router.post("/login/user/", usersValidator.validate('loginUser'),
         } else {
             passport.authenticate('local-signin',
                 {
-                    successRedirect: '/checkAuth',
+                    successRedirect: '/successfulLogin/',
                     failureRedirect: '/checkAuth',
                     failureFlash: false
                 })(req, res, next);
         }
     }
 );
+
+router.get('/successfulLogin/', async function (req, res, next) {
+    const uid = req.user.uid;
+
+    const member = await memberAccounts.findMemberAccountByUid(uid);
+    const business = await businessAccounts.findBusinessByUid(uid);
+
+    if (!member && !business) {
+        res.status(202).json({error: 'cannot find user'});
+    } else {
+        let responseData = {
+            user: {...req.user},
+            authenticated: true
+        };
+
+        if (member) {
+            responseData.member = { ...member.dataValues };
+        } else {
+            responseData.business = { ...business.dataValues };
+        }
+        res.status(200).json(responseData);
+    }
+});
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
