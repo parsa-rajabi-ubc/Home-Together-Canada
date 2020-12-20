@@ -11,7 +11,7 @@ import {CgAsterisk} from "react-icons/cg";
 
 function Asterisk() {
     return (
-        <CgAsterisk className={"inline text-red-600"}/>
+        <CgAsterisk className={"inline align-top text-red-600"}/>
     );
 }
 
