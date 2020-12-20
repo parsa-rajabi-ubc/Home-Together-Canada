@@ -15,7 +15,7 @@ function YNButton(props) {
     const {label, name, onChange, required} = props;
     return (
         <label>
-            <div className={""}>
+            <div>
                 <div className={"label text-base "}>
                     {label} {(required ? <Asterisk/> : '')}
                 </div>
@@ -32,6 +32,6 @@ YNButton.propTypes = {
     required: PropTypes.bool,
     checked: PropTypes.bool,
     onChange: PropTypes.func
-}
+};
 
 export default YNButton;
