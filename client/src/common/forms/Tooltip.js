@@ -9,7 +9,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import ReactTooltip from "react-tooltip";
-import {BsFillInfoCircleFill} from 'react-icons/bs';
+import {BsFillQuestionSquareFill} from 'react-icons/bs';
 
 
 function Tooltip(props) {
@@ -17,7 +17,7 @@ function Tooltip(props) {
     return (
         <span>
         <a data-tip data-for={toolTipID}>
-            <BsFillInfoCircleFill className={"inline ml-1 mb-1 text-yellow-500 hover:text-green-600"}/>
+            <BsFillQuestionSquareFill className={"inline ml-1 mb-1 text-blue-500 hover:text-blue-400"}/>
         </a>
         <ReactTooltip id={toolTipID} type={"dark"} effect="solid">
             {text}
