@@ -2,9 +2,7 @@
 
 exports[`YNButtons Snapshot test should render correctly regardless of properties 1`] = `
 <label>
-  <div
-    className=""
-  >
+  <div>
     <div
       className="label text-base "
     >
