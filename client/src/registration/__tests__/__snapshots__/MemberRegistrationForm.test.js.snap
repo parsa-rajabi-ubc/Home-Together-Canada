@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MemberProfileForm Snapshot test should render correctly regardless of properties 1`] = `
+exports[`MemberProfileForm should render correctly regardless of properties 1`] = `
 <div>
   <div
     className="m-10 md:grid md:grid-cols-4 md:gap-0"

@@ -46,7 +46,12 @@ const findAllBusinessAccounts = (req, res) => {
         });
 }
 
+const findBusinessByUid = (uid) => {
+    return BusinessAccount.findByPk(uid);
+}
+
 module.exports = {
     createBusinessAccount,
-    findAllBusinessAccounts
+    findAllBusinessAccounts,
+    findBusinessByUid
 }

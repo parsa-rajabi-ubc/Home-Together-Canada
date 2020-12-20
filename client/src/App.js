@@ -9,25 +9,35 @@ import MemberRegistrationForm from "./registration/MemberRegistrationForm";
 import BusinessRegistration from './registration/BusinessRegistrationForm';
 import Error404 from './common/error/Error404'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
+import rootReducer from './redux/reducers';
+
+const store = configureStore({
+    reducer: rootReducer
+});
 
 function App() {
     return (
-        <Router>
-        <div>
-            <Header/>
-            {/* Matches the URL to the path and does not go through the rest of the routes*/}
-            <Switch>
-                {/* Renders the correct component based on the URL*/}
-                <Route path={"/"} exact component={Home}/>
-                <Route path={"/login"} component={Login}/>
-                <Route path={"/registration/business"} component={BusinessRegistration}/>
-                <Route path={"/registration/member"} component={MemberRegistrationForm}/>
-                <Route path={"/registration"} component={MainLandingPage}/>
-                <Route component={Error404} />
-            </Switch>
-            <Footer/>
-        </div>
-        </Router>
+        <Provider store={store}>
+            <Router>
+                <div>
+                    <Header/>
+                    {/* Matches the URL to the path and does not go through the rest of the routes*/}
+                    <Switch>
+                        {/* Renders the correct component based on the URL*/}
+                        <Route path={"/"} exact component={Home}/>
+                        <Route path={"/login"} component={Login}/>
+                        <Route path={"/registration/business"} component={BusinessRegistration}/>
+                        <Route path={"/registration/member"} component={MemberRegistrationForm}/>
+                        <Route path={"/registration"} component={MainLandingPage}/>
+                        <Route component={Error404} />
+                    </Switch>
+                    <Footer/>
+                </div>
+            </Router>
+        </Provider>
+
     );
 }
 

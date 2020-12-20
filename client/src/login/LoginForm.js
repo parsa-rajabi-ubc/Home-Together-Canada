@@ -18,9 +18,13 @@ import {Link} from 'react-router-dom';
 import LoginService from '../services/LoginService';
 import {getConcatenatedErrorMessage} from "../registration/registrationUtils";
 import PropTypes from "prop-types";
+import { connect } from 'react-redux';
+import {setIsAdmin, setAccountType, setAuthenticated} from "../redux/slices/userPrivileges";
+
+const mapDispatch = { setIsAdmin, setAccountType, setAuthenticated };
 
 function LoginForm(props) {
-    const { history } = props;
+    const { history, setIsAdmin, setAccountType, setAuthenticated } = props;
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -53,6 +57,21 @@ function LoginForm(props) {
             .then(data => {
                 if (!!data && data.authenticated) {
                     alert('Successful login!');
+                    // dispatch action to set isAdmin
+                    setIsAdmin({isAdmin: data.member ? data.member.isAdmin : false});
+
+                    // dispatch action to set accountType
+                    let accountType = null;
+                    if (data.member) {
+                        accountType = 'member';
+                    } else if (data.business) {
+                        accountType = 'business';
+                    }
+                    setAccountType({accountType});
+
+                    // dispatch action to set authenticated
+                    setAuthenticated({ authenticated: data.authenticated });
+
                     // user is authenticated, redirect to home screen
                     return history.push('/');
                 } else if (!!data && !data.authenticated) {
@@ -125,7 +144,10 @@ function LoginForm(props) {
 LoginForm.propTypes = {
     history: PropTypes.shape({
         push: PropTypes.func
-    })
+    }),
+    setAccountType: PropTypes.func,
+    setIsAdmin: PropTypes.func,
+    setAuthenticated: PropTypes.func
 }
 
-export default LoginForm;
+export default connect(null, mapDispatch) (LoginForm);

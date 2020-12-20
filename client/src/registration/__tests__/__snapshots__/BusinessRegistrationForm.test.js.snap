@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BusinessRegistrationForm Snapshot test should render correctly regardless of properties 1`] = `
+exports[`BusinessRegistrationForm should render correctly regardless of properties 1`] = `
 <div>
   <div>
     <div

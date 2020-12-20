@@ -11,13 +11,23 @@ import '../../tailwind.output.css';
 import {Link} from "react-router-dom";
 import LoginService from '../../services/LoginService';
 import Button from "../forms/Button";
+import {connect} from "react-redux";
+import {setAccountType, setAuthenticated, setIsAdmin} from "../../redux/slices/userPrivileges";
+import PropTypes from "prop-types";
 
-const Header = () => {
+const mapDispatch = { setIsAdmin, setAccountType, setAuthenticated };
+
+const Header = (props) => {
+
+    const { setIsAdmin, setAccountType, setAuthenticated } = props;
 
     const logout = () => {
         LoginService.logoutUser()
             .then(res => res.json())
             .then(() => {
+                setIsAdmin({ isAdmin: false });
+                setAccountType({ accountType: null });
+                setAuthenticated({ authenticated: false });
                 alert('You have been logged out.')
             })
     }
@@ -85,4 +95,10 @@ const Header = () => {
     )
 }
 
-export default Header;
+Header.propTypes = {
+    setAccountType: PropTypes.func,
+    setIsAdmin: PropTypes.func,
+    setAuthenticated: PropTypes.func
+}
+
+export default connect(null, mapDispatch) (Header);
