@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckboxTooltip Snapshot test should render correctly regardless of properties 1`] = `
+<label>
+  <input
+    checked={true}
+    className="align-middle mt-3 mr-1 my-4 font-medium text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
+    type="checkbox"
+  />
+</label>
+`;

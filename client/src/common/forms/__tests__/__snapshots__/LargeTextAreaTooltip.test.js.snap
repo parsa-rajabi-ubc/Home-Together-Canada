@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LargeTextArea Snapshot test should render correctly regardless of properties 1`] = `
+exports[`LargeTextAreaTooltip Snapshot test should render correctly regardless of properties 1`] = `
 <label>
-  testLabelString1
   <textarea
     className="input "
     cols="50"

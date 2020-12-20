@@ -67,7 +67,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                   data-tip={true}
                 >
                   <svg
-                    className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                    className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
                     fill="currentColor"
                     height="1em"
                     stroke="currentColor"
@@ -83,7 +83,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                   >
                     <path
                       clipRule="evenodd"
-                      d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                      d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
                       fillRule="evenodd"
                     />
                   </svg>
@@ -450,7 +450,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                 data-tip={true}
               >
                 <svg
-                  className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                  className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
                   fill="currentColor"
                   height="1em"
                   stroke="currentColor"
@@ -466,7 +466,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                 >
                   <path
                     clipRule="evenodd"
-                    d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                    d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
                     fillRule="evenodd"
                   />
                 </svg>
@@ -579,7 +579,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                   data-tip={true}
                 >
                   <svg
-                    className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                    className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
                     fill="currentColor"
                     height="1em"
                     stroke="currentColor"
@@ -595,7 +595,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                   >
                     <path
                       clipRule="evenodd"
-                      d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                      d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
                       fillRule="evenodd"
                     />
                   </svg>
@@ -686,7 +686,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                       }
                     }
                   />
-                  Select this checkbox if your service spans across Canada
+                  Select this checkbox if your business offers services across all of Canada
                 </div>
               </span>
               <div>
@@ -853,7 +853,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
             data-tip={true}
           >
             <svg
-              className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+              className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
               fill="currentColor"
               height="1em"
               stroke="currentColor"
@@ -869,7 +869,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
             >
               <path
                 clipRule="evenodd"
-                d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
                 fillRule="evenodd"
               />
             </svg>
@@ -960,7 +960,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                 }
               }
             />
-            This logo will be displayed on your future listings
+            This logo will be displayed on all of your listings and can be changed at any time
           </div>
         </span>
         <div
@@ -1168,7 +1168,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                         data-tip={true}
                       >
                         <svg
-                          className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                          className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
                           fill="currentColor"
                           height="1em"
                           stroke="currentColor"
@@ -1184,7 +1184,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                         >
                           <path
                             clipRule="evenodd"
-                            d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                            d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
                             fillRule="evenodd"
                           />
                         </svg>
@@ -1297,7 +1297,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                         data-tip={true}
                       >
                         <svg
-                          className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                          className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
                           fill="currentColor"
                           height="1em"
                           stroke="currentColor"
@@ -1313,7 +1313,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                         >
                           <path
                             clipRule="evenodd"
-                            d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                            d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
                             fillRule="evenodd"
                           />
                         </svg>
@@ -1426,7 +1426,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                         data-tip={true}
                       >
                         <svg
-                          className="inline ml-1 mb-1 text-yellow-500 hover:text-green-600"
+                          className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
                           fill="currentColor"
                           height="1em"
                           stroke="currentColor"
@@ -1442,7 +1442,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                         >
                           <path
                             clipRule="evenodd"
-                            d="M8 16A8 8 0 108 0a8 8 0 000 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 100-2 1 1 0 000 2z"
+                            d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
                             fillRule="evenodd"
                           />
                         </svg>
