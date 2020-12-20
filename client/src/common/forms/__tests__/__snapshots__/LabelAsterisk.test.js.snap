@@ -7,7 +7,7 @@ exports[`LabelAsterisk Snapshot test should render correctly regardless of prope
   testLabel
    
   <svg
-    className="inline text-red-600"
+    className="inline align-top text-red-600"
     fill="none"
     height="1em"
     stroke="currentColor"

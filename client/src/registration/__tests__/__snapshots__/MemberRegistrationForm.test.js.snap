@@ -25,7 +25,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           className="info-text mr-10"
         >
           <svg
-            className="inline text-red-600"
+            className="inline align-top text-red-600"
             fill="none"
             height="1em"
             stroke="currentColor"
@@ -62,7 +62,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           >
             First Name
             <svg
-              className="inline text-red-600"
+              className="inline align-top text-red-600"
               fill="none"
               height="1em"
               stroke="currentColor"
@@ -94,7 +94,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           >
             Last Name
             <svg
-              className="inline text-red-600"
+              className="inline align-top text-red-600"
               fill="none"
               height="1em"
               stroke="currentColor"
@@ -126,7 +126,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
           >
             Email
             <svg
-              className="inline text-red-600"
+              className="inline align-top text-red-600"
               fill="none"
               height="1em"
               stroke="currentColor"
@@ -160,7 +160,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
             Year of Birth
              
             <svg
-              className="inline text-red-600"
+              className="inline align-top text-red-600"
               fill="none"
               height="1em"
               stroke="currentColor"
@@ -294,7 +294,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
               Phone Number
                 
               <svg
-                className="inline text-red-600"
+                className="inline align-top text-red-600"
                 fill="none"
                 height="1em"
                 stroke="currentColor"
@@ -354,7 +354,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
               Address
                
               <svg
-                className="inline text-red-600"
+                className="inline align-top text-red-600"
                 fill="none"
                 height="1em"
                 stroke="currentColor"
@@ -585,7 +585,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                   Gender
                    
                   <svg
-                    className="inline text-red-600"
+                    className="inline align-top text-red-600"
                     fill="none"
                     height="1em"
                     stroke="currentColor"
@@ -654,7 +654,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                   Family Status
                    
                   <svg
-                    className="inline text-red-600"
+                    className="inline align-top text-red-600"
                     fill="none"
                     height="1em"
                     stroke="currentColor"
@@ -787,7 +787,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                   Work Status
                    
                   <svg
-                    className="inline text-red-600"
+                    className="inline align-top text-red-600"
                     fill="none"
                     height="1em"
                     stroke="currentColor"
@@ -920,7 +920,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                   Open to Sharing With
                    
                   <svg
-                    className="inline text-red-600"
+                    className="inline align-top text-red-600"
                     fill="none"
                     height="1em"
                     stroke="currentColor"
@@ -1053,7 +1053,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                   Monthly Rent
                    
                   <svg
-                    className="inline text-red-600"
+                    className="inline align-top text-red-600"
                     fill="none"
                     height="1em"
                     stroke="currentColor"
@@ -1107,7 +1107,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                   Preferred Living Location(s)
                    
                   <svg
-                    className="inline text-red-600"
+                    className="inline align-top text-red-600"
                     fill="none"
                     height="1em"
                     stroke="currentColor"
@@ -1294,7 +1294,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                           Pet Friendly?
                            
                           <svg
-                            className="inline text-red-600"
+                            className="inline align-top text-red-600"
                             fill="none"
                             height="1em"
                             stroke="currentColor"
@@ -1354,7 +1354,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                           Smoking Friendly?
                            
                           <svg
-                            className="inline text-red-600"
+                            className="inline align-top text-red-600"
                             fill="none"
                             height="1em"
                             stroke="currentColor"
@@ -1414,7 +1414,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                           Health / Mobility Issues?
                            
                           <svg
-                            className="inline text-red-600"
+                            className="inline align-top text-red-600"
                             fill="none"
                             height="1em"
                             stroke="currentColor"
@@ -1474,7 +1474,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                           Allergies?
                            
                           <svg
-                            className="inline text-red-600"
+                            className="inline align-top text-red-600"
                             fill="none"
                             height="1em"
                             stroke="currentColor"
@@ -1534,7 +1534,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                           Is religion important?
                            
                           <svg
-                            className="inline text-red-600"
+                            className="inline align-top text-red-600"
                             fill="none"
                             height="1em"
                             stroke="currentColor"
@@ -1594,7 +1594,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                           Is diet of others important?
                            
                           <svg
-                            className="inline text-red-600"
+                            className="inline align-top text-red-600"
                             fill="none"
                             height="1em"
                             stroke="currentColor"
@@ -1654,7 +1654,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                           Have a home to share?
                            
                           <svg
-                            className="inline text-red-600"
+                            className="inline align-top text-red-600"
                             fill="none"
                             height="1em"
                             stroke="currentColor"
@@ -1714,7 +1714,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                           Interested in buying a home w/ others?
                            
                           <svg
-                            className="inline text-red-600"
+                            className="inline align-top text-red-600"
                             fill="none"
                             height="1em"
                             stroke="currentColor"
@@ -1836,7 +1836,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                   >
                     Username: 
                     <svg
-                      className="inline text-red-600"
+                      className="inline align-top text-red-600"
                       fill="none"
                       height="1em"
                       stroke="currentColor"
@@ -1867,7 +1867,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                   >
                     Password: 
                     <svg
-                      className="inline text-red-600"
+                      className="inline align-top text-red-600"
                       fill="none"
                       height="1em"
                       stroke="currentColor"
@@ -1898,7 +1898,7 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                   >
                     Confirm Password: 
                     <svg
-                      className="inline text-red-600"
+                      className="inline align-top text-red-600"
                       fill="none"
                       height="1em"
                       stroke="currentColor"

@@ -7,7 +7,7 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
   >
     Username: 
     <svg
-      className="inline text-red-600"
+      className="inline align-top text-red-600"
       fill="none"
       height="1em"
       stroke="currentColor"
@@ -38,7 +38,7 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
   >
     Password: 
     <svg
-      className="inline text-red-600"
+      className="inline align-top text-red-600"
       fill="none"
       height="1em"
       stroke="currentColor"
@@ -69,7 +69,7 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
   >
     Confirm Password: 
     <svg
-      className="inline text-red-600"
+      className="inline align-top text-red-600"
       fill="none"
       height="1em"
       stroke="currentColor"

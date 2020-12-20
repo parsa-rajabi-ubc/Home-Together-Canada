@@ -2,7 +2,7 @@
 
 exports[`Asterisk Snapshot test should render correctly regardless of properties 1`] = `
 <svg
-  className="inline text-red-600"
+  className="inline align-top text-red-600"
   fill="none"
   height="1em"
   stroke="currentColor"
