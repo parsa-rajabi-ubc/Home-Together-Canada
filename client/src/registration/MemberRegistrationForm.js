@@ -25,6 +25,8 @@ import YNButton from "../common/forms/YNButtons";
 import LargeTextArea from "../common/forms/LargeTextArea";
 import PropTypes from "prop-types";
 import WorkStatus from "../common/forms/WorkStatus";
+import Asterisk from "../common/forms/Asterisk";
+import LabelAsterisk from "../common/forms/LabelAsterisk";
 
 //Returns a Form with fields
 function MemberRegistrationForm(props) {
@@ -329,13 +331,13 @@ function MemberRegistrationForm(props) {
                         <p className="info-text mr-10">
                             This information is about you and is private. Home Together Canada will not share this information with anyone and will only be used for verification purposes.
                         </p>
+                        <p className="info-text mr-10">
+                        <Asterisk/> = Required Field
+                        </p>
                     </div>
                 </div>
                 <div
                     className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
-                    <div className="info-text info-note">
-                        All fields on this page are mandatory and must have a valid value unless they have an <span className="optional font-medium">optional</span> tag.
-                    </div>
                     <div className="grid grid-cols-2 gap-6">
                         <div className="col-span-3 sm:col-span-2">
                             <TextArea
@@ -343,6 +345,7 @@ function MemberRegistrationForm(props) {
                                 labelClassName={"label"}
                                 label="First Name"
                                 autoComplete={"given-name"}
+                                required={true}
                                 onChange={(e) => setFirstName(e.target.value)}
                             />
                             <TextArea
@@ -350,6 +353,7 @@ function MemberRegistrationForm(props) {
                                 labelClassName={"label"}
                                 label="Last Name"
                                 autoComplete={"family-name"}
+                                required={true}
                                 onChange={(e) => setLastName(e.target.value)}
                             />
                             <TextArea
@@ -358,17 +362,20 @@ function MemberRegistrationForm(props) {
                                 label="Email"
                                 autoComplete={"email"}
                                 labelClassName={"label"}
+                                required={true}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
-                            <label className={"label"}>Year of Birth</label>
+                            <LabelAsterisk label={"Year of Birth"}/>
                             <BirthYear label={"Year of Birth"} onChange={handleYearChange}/>
                             <PhoneNumInput
                                 className="w-1/4 phone"
                                 labelClassName={"label"}
+                                required={true}
                                 label="Phone Number" onChange={handlePhoneChange}/>
                             <Address
                                 label="Address"
                                 cityClassName="city-postal"
+                                required={true}
                                 onChange={setAddress}
                             />
 
@@ -377,10 +384,10 @@ function MemberRegistrationForm(props) {
                                 label="Different Mailing Address"
                                 onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}
                             />
-
                             {useDifferentMailingAddress &&
                             <Address
                                 label="Mailing Address"
+                                required={true}
                                 onChange={setMailingAddress}
                             />}
                         </div>
@@ -409,7 +416,7 @@ function MemberRegistrationForm(props) {
                             <div className="px-4 py-6 bg-white sm:p-5">
                                 <div className="grid grid-cols-2 gap-6 ">
                                     <div className="col-span-3 sm:col-span-2">
-                                        <label className={"label"}> Gender </label>
+                                        <LabelAsterisk label={"Gender"}/>
                                         <div className={"my-2"}>
                                             <RadioButton
                                                 label="Male"
@@ -437,19 +444,20 @@ function MemberRegistrationForm(props) {
                                                 labelClassName={"label mt-5"}
                                                 placeholder="What gender do you identify as? (optional)"
                                                 value={genderDescription}
+                                                required={true}
                                                 onChange={(e) => setGenderDescription(e.target.value)}
                                             />}
                                         </div>
-                                        <label className={"label"}> Status </label>
+                                        <LabelAsterisk label={"Family Status"}/>
                                         <Status onChange={handleFamilyStatusChange}/>
                                         {checkStatus(selectedFamilyStatus)}
 
-                                        <label className={"label"}> Work Status </label>
+                                        <LabelAsterisk label={"Work Status"}/>
                                         <WorkStatus onChange={handleWorkStatusChange}/>
 
-                                        <label className={"label text-base "}> open to sharing with </label>
+                                        <LabelAsterisk label={"Open to Sharing With"}/>
                                         <ShareLimit onChange={handleLimitChange}/>
-                                        <div className={"label"}>Monthly Rent</div>
+                                        <LabelAsterisk label={"Monthly Rent"}/>
                                         <div className="grid grid-cols-6 gap-x-6">
                                             <div className="column-span-6-layout">
                                                 <input
@@ -472,13 +480,14 @@ function MemberRegistrationForm(props) {
                                                 />
                                             </div>
                                         </div>
-                                        <label className={"label"}>Preferred Living Location(s)</label>
+                                        <LabelAsterisk label={"Preferred Living Location(s)"}/>
                                         <InterestedArea onChange={setAreasOfInterest}/>
                                         <div className="grid grid-cols-6 gap-x-6">
                                             <div className="column-span-6-layout">
                                                 <YNButton
                                                     label="Pet Friendly?"
                                                     name="petFriendly"
+                                                    required={true}
                                                     onChange={(e) => setPetFriendly(e.target.value)}
                                                 />
                                                 {(petFriendly === "yes") &&
@@ -493,6 +502,7 @@ function MemberRegistrationForm(props) {
                                                 <YNButton
                                                     label="Smoking Friendly?"
                                                     name="smoking"
+                                                    required={true}
                                                     onChange={(e) => setSmoking(e.target.value)}
                                                 />
                                                 {(smoking === "yes") &&
@@ -507,6 +517,7 @@ function MemberRegistrationForm(props) {
                                                 <YNButton
                                                     label="Health / Mobility Issues?"
                                                     name="mobile"
+                                                    required={true}
                                                     onChange={(e) => setMobilityIssues(e.target.value)}
                                                 />
                                                 {(mobilityIssues === "yes") &&
@@ -521,6 +532,7 @@ function MemberRegistrationForm(props) {
                                                 <YNButton
                                                     label="Allergies?"
                                                     name="allergies"
+                                                    required={true}
                                                     checked={hasAllergies === "no"}
                                                     onChange={(e) => setHasAllergies(e.target.value)}
                                                 />
@@ -536,6 +548,7 @@ function MemberRegistrationForm(props) {
                                                 <YNButton
                                                     label="Is religion important?"
                                                     name="religion"
+                                                    required={true}
                                                     checked={religious === "no"}
                                                     onChange={(e) => setReligious(e.target.value)}
                                                 />
@@ -551,6 +564,7 @@ function MemberRegistrationForm(props) {
                                                 <YNButton
                                                     label="Is diet of others important?"
                                                     name="diet"
+                                                    required={true}
                                                     checked={hasDiet === "no"}
                                                     onChange={(e) => setHasDiet(e.target.value)}
                                                 />
@@ -566,6 +580,7 @@ function MemberRegistrationForm(props) {
                                                 <YNButton
                                                     label="Have a home to share?"
                                                     name="hasHome"
+                                                    required={true}
                                                     checked={hasHome === "no"}
                                                     onChange={(e) => setHasHome(e.target.value)}
                                                 />
@@ -581,6 +596,7 @@ function MemberRegistrationForm(props) {
                                                 <YNButton
                                                     label="Interested in buying a home w/ others?"
                                                     name="interestInBuyingHome"
+                                                    required={true}
                                                     checked={interestInBuyingHome === "no"}
                                                     onChange={(e) => setInterestInBuyingHome(e.target.value)}
                                                 />
@@ -596,7 +612,8 @@ function MemberRegistrationForm(props) {
                                         <div className={"mt-4"}>
                                             <LargeTextArea
                                                 optional={true}
-                                                label="Tell others about yourself: "
+                                                label="Tell others about yourself "
+                                                required={false}
                                                 name="aboutSelf"
                                                 placeholder="What is important to you, and why do you want to share a home?"
                                                 onChange={(e) => setAboutSelf(e.target.value)}

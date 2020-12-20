@@ -18,6 +18,7 @@ import PhoneNumInput from "../common/forms/PhoneNumInput";
 import {isStringEmail, isStringEmpty, isStringSame, isStringNumeralsOnly} from "../common/utils/stringUtils";
 import RegistrationService from '../services/RegistrationService';
 import {getConcatenatedErrorMessage, getPhoneNumberFromStrings} from "./registrationUtils";
+import Asterisk from "../common/forms/Asterisk";
 
 // TODO: separate this into container and presentational components (see https://css-tricks.com/learning-react-container-components/)
 const BusinessRegistrationForm = (props) => {
@@ -253,17 +254,16 @@ const BusinessRegistrationForm = (props) => {
             .then(res => res.json())
             .then(data => {
                 if (!!data && data.authenticated) {
-                        // user is authenticated, redirect to home screen
-                        alert('Business account successfully created!');
-                        return history.push('/');
+                    // user is authenticated, redirect to home screen
+                    alert('Business account successfully created!');
+                    return history.push('/');
                 } else if (!!data && data.errors && data.errors.length) {
                     const errorMessage = getConcatenatedErrorMessage(data.errors);
                     // show list of all errors
                     alert(errorMessage);
-                }
-                else if (!!data && !data.authenticated) {
-                        // something went wrong with the AUTHENTICATION (not the user creation)
-                        alert('Registration failed');
+                } else if (!!data && !data.authenticated) {
+                    // something went wrong with the AUTHENTICATION (not the user creation)
+                    alert('Registration failed');
                 }
             })
             .catch((error) => {
@@ -320,20 +320,26 @@ const BusinessRegistrationForm = (props) => {
                             <p className="info-text">
                                 This information is about your business.
                             </p>
+                            <p className="info-text mr-10">
+                                <Asterisk/> = Required Field
+                            </p>
                         </div>
                     </div>
 
-                    <div className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
-                        <div className="info-text info-note">
-                            All fields on this page are mandatory and must have a valid value unless they have an <span className="optional font-medium">optional</span> tag.
-                        </div>
+                    <div
+                        className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
                         <div className="grid grid-cols-2 gap-6">
                             <div className="col-span-3 sm:col-span-2">
 
-                                <TextArea className="mb-0 input" placeholder="" label="Business Name"
-                                          autoComplete={"organization"} labelClassName={"label"} onChange={(e) => {
-                                    setBName(e.target.value)
-                                }}/>
+                                <TextArea
+                                    className="mb-0 input"
+                                    placeholder="" label="Business Name"
+                                    autoComplete={"organization"}
+                                    labelClassName={"label"}
+                                    required={true}
+                                    onChange={(e) => {
+                                        setBName(e.target.value)
+                                    }}/>
                                 <span
                                     className="info-detail">Select incorporated business if your business is Inc.</span>
                                 <Checkbox label={"Incorporated Business"}
@@ -342,30 +348,45 @@ const BusinessRegistrationForm = (props) => {
                                                              placeholder={"Names of Inc. Owners (separated by comma)"}
                                                              labelClassName={"label"}
                                                              onChange={(e) => setIncorporatedOwnersNames(e.target.value)}/>}
-                                <TextArea className="input" placeholder="business@email.ca"
-                                         autoComplete={"email"} label="Business Email" labelClassName={"label"} onChange={(e) => {
-                                    setBEmail(e.target.value)
-                                }}/>
-                                <TextArea className="input" placeholder="http://www.your-website.com"
+                                <TextArea className="input"
+                                          placeholder="business@email.ca"
+                                          autoComplete={"email"}
+                                          label="Business Email"
+                                          labelClassName={"label"}
+                                          required={true}
+                                          onChange={(e) => {
+                                              setBEmail(e.target.value)
+                                          }}/>
+                                <TextArea className="input"
+                                          placeholder="http://www.your-website.com"
                                           optional={true}
-                                          autoComplete={"url"} label="Business Website" labelClassName={"label"}
+                                          autoComplete={"url"}
+                                          label="Business Website"
+                                          labelClassName={"label"}
                                           onChange={e => setWebsite(e.target.value)}/>
                                 <PhoneNumInput
                                     className="phone"
+                                    required={true}
                                     labelClassName={"label "}
-                                    label="Business Phone Number" onChange={handleBPhoneChange}/>
+                                    label="Business Phone Number"
+                                    onChange={handleBPhoneChange}/>
                                 <PhoneNumInput
                                     className="phone"
-                                    label="Business Cell Number" labelClassName={"label"}
+                                    required={true}
+                                    label="Business Cell Number"
+                                    labelClassName={"label"}
                                     onChange={handleCellPhoneChange}/>
                                 <Address label="Business Address"
-                                         cityClassName="city-postal" onChange={handleBAddressChange}/>
+                                         cityClassName="city-postal"
+                                         required={true}
+                                         onChange={handleBAddressChange}/>
                                 <span className="info-detail">Select different mailing address if it differs from the address above:</span>
                                 <Checkbox label="Different Mailing Address" onChange={() => {
                                     setUseDifferentMailingAddress(useDifferentMailingAddress => !useDifferentMailingAddress)
                                 }}/>
                                 {useDifferentMailingAddress &&
                                 <Address label="Business Mailing Address"
+                                         required={true}
                                          onChange={handleBMailingAddress}/>}
 
 
@@ -376,14 +397,16 @@ const BusinessRegistrationForm = (props) => {
                                     setIfNationWide(isNationWide => !isNationWide)
                                 }}/>
                                 {!isNationWide && <Address label="Searchable Address"
+                                                           required={true}
                                                            onChange={handleBMapAddress}/>}
                             </div>
                         </div>
 
                         <label className="label">
-                            Business Logo <span className="optional"> (optional)</span>
+                            Business Logo
                         </label>
-                        <div className="flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                        <div
+                            className="flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                             <div className="space-y-1 text-center">
                                 <svg className="w-12 h-12 mx-auto text-gray-400" stroke="currentColor"
                                      fill="none" viewBox="0 0 48 48" aria-hidden="true">
@@ -420,24 +443,34 @@ const BusinessRegistrationForm = (props) => {
                         </p>
                     </div>
                 </div>
-                <div className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
+                <div
+                    className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
                     <div className="grid grid-cols-6 gap-x-6">
                         <div className="column-span-6-layout">
-                            <TextArea className={"input"} labelClassName={"label"} label="First Name"
-                                      autoComplete={"given-name"} onChange={(e) => {
+                            <TextArea className={"input"}
+                                      labelClassName={"label"}
+                                      label="First Name"
+                                      autoComplete={"given-name"}
+                                      required={true}
+                                      onChange={(e) => {
                                           setContactFName(e.target.value)
-                                      }}/>
+                            }}/>
                         </div>
 
                         <div className="column-span-6-layout">
-                            <TextArea className={"input"} labelClassName={"label"} label="Last Name"
-                                      autoComplete={"family-name"} onChange={(e) => {
+                            <TextArea className={"input"}
+                                      labelClassName={"label"}
+                                      label="Last Name"
+                                      required={true}
+                                      autoComplete={"family-name"}
+                                      onChange={(e) => {
                                           setContactLName(e.target.value)
-                                      }}/>
+                            }}/>
                         </div>
 
                         <div className="column-span-6-layout">
                             <PhoneNumInput
+                                required={true}
                                 className="w-1/4 phone"
                                 labelClassName={"label"}
                                 label="Personal Phone Number" onChange={handleContactPhoneChange}/>
