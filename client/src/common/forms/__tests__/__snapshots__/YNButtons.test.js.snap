@@ -9,6 +9,8 @@ exports[`YNButtons Snapshot test should render correctly regardless of propertie
       className="label text-base "
     >
       testLabelString1
+       
+      
     </div>
     <label
       className="text-base text-gray-700 pr-8"

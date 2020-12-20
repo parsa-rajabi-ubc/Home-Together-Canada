@@ -21,22 +21,36 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
         >
           This information is about you and is private. Home Together Canada will not share this information with anyone and will only be used for verification purposes.
         </p>
+        <p
+          className="info-text mr-10"
+        >
+          <svg
+            className="inline text-red-600"
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            strokeWidth="0"
+            style={
+              Object {
+                "color": undefined,
+              }
+            }
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+              fill="currentColor"
+            />
+          </svg>
+           = Required Field
+        </p>
       </div>
     </div>
     <div
       className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6"
     >
-      <div
-        className="info-text info-note"
-      >
-        All fields on this page are mandatory and must have a valid value unless they have an 
-        <span
-          className="optional font-medium"
-        >
-          optional
-        </span>
-         tag.
-      </div>
       <div
         className="grid grid-cols-2 gap-6"
       >
@@ -47,7 +61,26 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
             className="label"
           >
             First Name
-            
+            <svg
+              className="inline text-red-600"
+              fill="none"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                fill="currentColor"
+              />
+            </svg>
             <input
               autoComplete="given-name"
               className="input"
@@ -60,7 +93,26 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
             className="label"
           >
             Last Name
-            
+            <svg
+              className="inline text-red-600"
+              fill="none"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                fill="currentColor"
+              />
+            </svg>
             <input
               autoComplete="family-name"
               className="input"
@@ -73,7 +125,26 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
             className="label"
           >
             Email
-            
+            <svg
+              className="inline text-red-600"
+              fill="none"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                fill="currentColor"
+              />
+            </svg>
             <input
               autoComplete="email"
               className="input"
@@ -87,6 +158,27 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
             className="label"
           >
             Year of Birth
+             
+            <svg
+              className="inline text-red-600"
+              fill="none"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                fill="currentColor"
+              />
+            </svg>
           </label>
           <div>
             <div>
@@ -200,6 +292,27 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
               className="label"
             >
               Phone Number
+                
+              <svg
+                className="inline text-red-600"
+                fill="none"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                  fill="currentColor"
+                />
+              </svg>
               <br />
               <input
                 autoComplete="tel-area-code"
@@ -239,6 +352,27 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
               className="label"
             >
               Address
+               
+              <svg
+                className="inline text-red-600"
+                fill="none"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                  fill="currentColor"
+                />
+              </svg>
               <input
                 autoComplete="address-line1"
                 className="input"
@@ -448,7 +582,28 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                 <label
                   className="label"
                 >
-                   Gender 
+                  Gender
+                   
+                  <svg
+                    className="inline text-red-600"
+                    fill="none"
+                    height="1em"
+                    stroke="currentColor"
+                    strokeWidth="0"
+                    style={
+                      Object {
+                        "color": undefined,
+                      }
+                    }
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </label>
                 <div
                   className="my-2"
@@ -496,7 +651,28 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                 <label
                   className="label"
                 >
-                   Status 
+                  Family Status
+                   
+                  <svg
+                    className="inline text-red-600"
+                    fill="none"
+                    height="1em"
+                    stroke="currentColor"
+                    strokeWidth="0"
+                    style={
+                      Object {
+                        "color": undefined,
+                      }
+                    }
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </label>
                 <div>
                   <div>
@@ -608,7 +784,28 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                 <label
                   className="label"
                 >
-                   Work Status 
+                  Work Status
+                   
+                  <svg
+                    className="inline text-red-600"
+                    fill="none"
+                    height="1em"
+                    stroke="currentColor"
+                    strokeWidth="0"
+                    style={
+                      Object {
+                        "color": undefined,
+                      }
+                    }
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </label>
                 <div>
                   <div>
@@ -718,9 +915,30 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                   </div>
                 </div>
                 <label
-                  className="label text-base "
+                  className="label"
                 >
-                   open to sharing with 
+                  Open to Sharing With
+                   
+                  <svg
+                    className="inline text-red-600"
+                    fill="none"
+                    height="1em"
+                    stroke="currentColor"
+                    strokeWidth="0"
+                    style={
+                      Object {
+                        "color": undefined,
+                      }
+                    }
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </label>
                 <div>
                   <div>
@@ -829,11 +1047,32 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                     </div>
                   </div>
                 </div>
-                <div
+                <label
                   className="label"
                 >
                   Monthly Rent
-                </div>
+                   
+                  <svg
+                    className="inline text-red-600"
+                    fill="none"
+                    height="1em"
+                    stroke="currentColor"
+                    strokeWidth="0"
+                    style={
+                      Object {
+                        "color": undefined,
+                      }
+                    }
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </label>
                 <div
                   className="grid grid-cols-6 gap-x-6"
                 >
@@ -866,6 +1105,27 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                   className="label"
                 >
                   Preferred Living Location(s)
+                   
+                  <svg
+                    className="inline text-red-600"
+                    fill="none"
+                    height="1em"
+                    stroke="currentColor"
+                    strokeWidth="0"
+                    style={
+                      Object {
+                        "color": undefined,
+                      }
+                    }
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </label>
                 <div>
                   <div
@@ -1032,6 +1292,27 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                           className="label text-base "
                         >
                           Pet Friendly?
+                           
+                          <svg
+                            className="inline text-red-600"
+                            fill="none"
+                            height="1em"
+                            stroke="currentColor"
+                            strokeWidth="0"
+                            style={
+                              Object {
+                                "color": undefined,
+                              }
+                            }
+                            viewBox="0 0 24 24"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                              fill="currentColor"
+                            />
+                          </svg>
                         </div>
                         <label
                           className="text-base text-gray-700 pr-8"
@@ -1071,6 +1352,27 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                           className="label text-base "
                         >
                           Smoking Friendly?
+                           
+                          <svg
+                            className="inline text-red-600"
+                            fill="none"
+                            height="1em"
+                            stroke="currentColor"
+                            strokeWidth="0"
+                            style={
+                              Object {
+                                "color": undefined,
+                              }
+                            }
+                            viewBox="0 0 24 24"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                              fill="currentColor"
+                            />
+                          </svg>
                         </div>
                         <label
                           className="text-base text-gray-700 pr-8"
@@ -1110,6 +1412,27 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                           className="label text-base "
                         >
                           Health / Mobility Issues?
+                           
+                          <svg
+                            className="inline text-red-600"
+                            fill="none"
+                            height="1em"
+                            stroke="currentColor"
+                            strokeWidth="0"
+                            style={
+                              Object {
+                                "color": undefined,
+                              }
+                            }
+                            viewBox="0 0 24 24"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                              fill="currentColor"
+                            />
+                          </svg>
                         </div>
                         <label
                           className="text-base text-gray-700 pr-8"
@@ -1149,6 +1472,27 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                           className="label text-base "
                         >
                           Allergies?
+                           
+                          <svg
+                            className="inline text-red-600"
+                            fill="none"
+                            height="1em"
+                            stroke="currentColor"
+                            strokeWidth="0"
+                            style={
+                              Object {
+                                "color": undefined,
+                              }
+                            }
+                            viewBox="0 0 24 24"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                              fill="currentColor"
+                            />
+                          </svg>
                         </div>
                         <label
                           className="text-base text-gray-700 pr-8"
@@ -1188,6 +1532,27 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                           className="label text-base "
                         >
                           Is religion important?
+                           
+                          <svg
+                            className="inline text-red-600"
+                            fill="none"
+                            height="1em"
+                            stroke="currentColor"
+                            strokeWidth="0"
+                            style={
+                              Object {
+                                "color": undefined,
+                              }
+                            }
+                            viewBox="0 0 24 24"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                              fill="currentColor"
+                            />
+                          </svg>
                         </div>
                         <label
                           className="text-base text-gray-700 pr-8"
@@ -1227,6 +1592,27 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                           className="label text-base "
                         >
                           Is diet of others important?
+                           
+                          <svg
+                            className="inline text-red-600"
+                            fill="none"
+                            height="1em"
+                            stroke="currentColor"
+                            strokeWidth="0"
+                            style={
+                              Object {
+                                "color": undefined,
+                              }
+                            }
+                            viewBox="0 0 24 24"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                              fill="currentColor"
+                            />
+                          </svg>
                         </div>
                         <label
                           className="text-base text-gray-700 pr-8"
@@ -1266,6 +1652,27 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                           className="label text-base "
                         >
                           Have a home to share?
+                           
+                          <svg
+                            className="inline text-red-600"
+                            fill="none"
+                            height="1em"
+                            stroke="currentColor"
+                            strokeWidth="0"
+                            style={
+                              Object {
+                                "color": undefined,
+                              }
+                            }
+                            viewBox="0 0 24 24"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                              fill="currentColor"
+                            />
+                          </svg>
                         </div>
                         <label
                           className="text-base text-gray-700 pr-8"
@@ -1305,6 +1712,27 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                           className="label text-base "
                         >
                           Interested in buying a home w/ others?
+                           
+                          <svg
+                            className="inline text-red-600"
+                            fill="none"
+                            height="1em"
+                            stroke="currentColor"
+                            strokeWidth="0"
+                            style={
+                              Object {
+                                "color": undefined,
+                              }
+                            }
+                            viewBox="0 0 24 24"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                              fill="currentColor"
+                            />
+                          </svg>
                         </div>
                         <label
                           className="text-base text-gray-700 pr-8"
@@ -1340,13 +1768,9 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                   <label
                     className="label"
                   >
-                    Tell others about yourself: 
+                    Tell others about yourself 
                      
-                    <span
-                      className="optional"
-                    >
-                       (optional)
-                    </span>
+                    
                     <textarea
                       className="input "
                       cols="50"
@@ -1410,7 +1834,27 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                   <label
                     className="label"
                   >
-                    Username:
+                    Username: 
+                    <svg
+                      className="inline text-red-600"
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                        fill="currentColor"
+                      />
+                    </svg>
                     <input
                       className="input"
                       onChange={[Function]}
@@ -1421,7 +1865,27 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                   <label
                     className="label"
                   >
-                    Password:
+                    Password: 
+                    <svg
+                      className="inline text-red-600"
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                        fill="currentColor"
+                      />
+                    </svg>
                     <input
                       className="input"
                       onChange={[Function]}
@@ -1432,7 +1896,27 @@ exports[`MemberProfileForm Snapshot test should render correctly regardless of p
                   <label
                     className="label"
                   >
-                    Confirm Password:
+                    Confirm Password: 
+                    <svg
+                      className="inline text-red-600"
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                        fill="currentColor"
+                      />
+                    </svg>
                     <input
                       className="input"
                       onChange={[Function]}
