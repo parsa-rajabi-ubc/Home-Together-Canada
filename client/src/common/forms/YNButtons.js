@@ -9,15 +9,18 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import RadioButton from "./RadioButton";
+import Asterisk from "./Asterisk";
 
-function YNButton(props){
-    const { label, name, onChange } = props;
-    return(
+function YNButton(props) {
+    const {label, name, onChange, required} = props;
+    return (
         <label>
             <div className={""}>
-                <div className={"label text-base "}>{label}</div>
+                <div className={"label text-base "}>
+                    {label} {(required ? <Asterisk/> : '')}
+                </div>
                 <RadioButton label="No" name={name} value="no" onChange={onChange}/>
-                <RadioButton label="Yes" name={name} value="yes"  onChange={onChange}/>
+                <RadioButton label="Yes" name={name} value="yes" onChange={onChange}/>
             </div>
         </label>
     );
@@ -26,6 +29,7 @@ function YNButton(props){
 YNButton.propTypes = {
     label: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    required: PropTypes.bool,
     checked: PropTypes.bool,
     onChange: PropTypes.func
 }

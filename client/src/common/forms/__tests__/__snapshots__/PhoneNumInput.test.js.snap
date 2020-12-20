@@ -4,6 +4,8 @@ exports[`PhoneNumInput Snapshot test should render correctly regardless of prope
 <div>
   <label>
     testLabelString1
+      
+    
     <br />
     <input
       autoComplete="tel-area-code"

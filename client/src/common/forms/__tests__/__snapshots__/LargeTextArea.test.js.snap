@@ -5,6 +5,8 @@ exports[`LargeTextArea Snapshot test should render correctly regardless of prope
   className="label"
 >
   testLabelString1
+   
+  
   <textarea
     className="input "
     cols="50"

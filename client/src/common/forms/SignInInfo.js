@@ -8,21 +8,22 @@
 
 import React from "react";
 import PropTypes from "prop-types";
+import Asterisk from "./Asterisk";
 
 function SignInInfo(props){
     const { onChangeUsername, onChangePassword, onChangePasswordCheck } = props;
     return(
         <div>
             <label className={"label"}>
-                Username:
+                Username: <Asterisk/>
                 <input className={"input"} type="text" placeholder="" onChange= {onChangeUsername}/>
             </label>
             <label className={"label"}>
-                Password:
+                Password: <Asterisk/>
                 <input className={"input"} type="password" placeholder="" onChange= {onChangePassword}/>
             </label>
             <label className={"label"}>
-                Confirm Password:
+                Confirm Password: <Asterisk/>
                 <input className={"input"} type="password" placeholder="" onChange= {onChangePasswordCheck}/>
             </label>
         </div>

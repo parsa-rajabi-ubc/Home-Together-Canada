@@ -8,6 +8,7 @@
 
 import React from 'react';
 import PropTypes from "prop-types";
+import Asterisk from './Asterisk';
 
 function TextArea(props) {
     const {
@@ -17,12 +18,14 @@ function TextArea(props) {
         placeholder,
         onChange,
         autoComplete,
+        required,
         disabled = false,
         value
     } = props;
     return (
         <label className={labelClassName}>
             {label}
+            {(required ? <Asterisk/> : '')}
             <input
                 className={className}
                 type="text"
@@ -38,6 +41,7 @@ function TextArea(props) {
 
 TextArea.propTypes = {
     label: PropTypes.string,
+    required: PropTypes.bool,
     labelClassName: PropTypes.string,
     className: PropTypes.string,
     placeholder: PropTypes.string,

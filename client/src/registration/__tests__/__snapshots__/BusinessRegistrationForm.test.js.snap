@@ -22,6 +22,31 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
           >
             This information is about your business.
           </p>
+          <p
+            className="info-text mr-10"
+          >
+            <svg
+              className="inline align-top text-red-600"
+              fill="none"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                fill="currentColor"
+              />
+            </svg>
+             = Required Field
+          </p>
         </div>
       </div>
       <div
@@ -37,6 +62,26 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
               className="label"
             >
               Business Name
+              <svg
+                className="inline align-top text-red-600"
+                fill="none"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                  fill="currentColor"
+                />
+              </svg>
               <input
                 autoComplete="organization"
                 className="mb-0 input"
@@ -65,6 +110,26 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
               className="label"
             >
               Business Email
+              <svg
+                className="inline align-top text-red-600"
+                fill="none"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                  fill="currentColor"
+                />
+              </svg>
               <input
                 autoComplete="email"
                 className="input"
@@ -78,6 +143,7 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
               className="label"
             >
               Business Website
+              
               <input
                 autoComplete="url"
                 className="input"
@@ -92,6 +158,27 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                 className="label "
               >
                 Business Phone Number
+                  
+                <svg
+                  className="inline align-top text-red-600"
+                  fill="none"
+                  height="1em"
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": undefined,
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                    fill="currentColor"
+                  />
+                </svg>
                 <br />
                 <input
                   autoComplete="tel-area-code"
@@ -131,6 +218,27 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                 className="label"
               >
                 Business Cell Number
+                  
+                <svg
+                  className="inline align-top text-red-600"
+                  fill="none"
+                  height="1em"
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": undefined,
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                    fill="currentColor"
+                  />
+                </svg>
                 <br />
                 <input
                   autoComplete="tel-area-code"
@@ -170,6 +278,27 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                 className="label"
               >
                 Business Address
+                 
+                <svg
+                  className="inline align-top text-red-600"
+                  fill="none"
+                  height="1em"
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": undefined,
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                    fill="currentColor"
+                  />
+                </svg>
                 <input
                   autoComplete="address-line1"
                   className="input"
@@ -350,6 +479,27 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                 className="label"
               >
                 Searchable Address
+                 
+                <svg
+                  className="inline align-top text-red-600"
+                  fill="none"
+                  height="1em"
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": undefined,
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                    fill="currentColor"
+                  />
+                </svg>
                 <input
                   autoComplete="address-line1"
                   className="input"
@@ -581,6 +731,26 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
             className="label"
           >
             First Name
+            <svg
+              className="inline align-top text-red-600"
+              fill="none"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                fill="currentColor"
+              />
+            </svg>
             <input
               autoComplete="given-name"
               className="input"
@@ -597,6 +767,26 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
             className="label"
           >
             Last Name
+            <svg
+              className="inline align-top text-red-600"
+              fill="none"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                fill="currentColor"
+              />
+            </svg>
             <input
               autoComplete="family-name"
               className="input"
@@ -614,6 +804,27 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
               className="label"
             >
               Personal Phone Number
+                
+              <svg
+                className="inline align-top text-red-600"
+                fill="none"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                  fill="currentColor"
+                />
+              </svg>
               <br />
               <input
                 autoComplete="tel-area-code"
@@ -698,7 +909,27 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                   <label
                     className="label"
                   >
-                    Username:
+                    Username: 
+                    <svg
+                      className="inline align-top text-red-600"
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                        fill="currentColor"
+                      />
+                    </svg>
                     <input
                       className="input"
                       onChange={[Function]}
@@ -709,7 +940,27 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                   <label
                     className="label"
                   >
-                    Password:
+                    Password: 
+                    <svg
+                      className="inline align-top text-red-600"
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                        fill="currentColor"
+                      />
+                    </svg>
                     <input
                       className="input"
                       onChange={[Function]}
@@ -720,7 +971,27 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                   <label
                     className="label"
                   >
-                    Confirm Password:
+                    Confirm Password: 
+                    <svg
+                      className="inline align-top text-red-600"
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                        fill="currentColor"
+                      />
+                    </svg>
                     <input
                       className="input"
                       onChange={[Function]}
