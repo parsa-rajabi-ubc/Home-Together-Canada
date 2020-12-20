@@ -7,7 +7,7 @@
  */
 import React from 'react';
 import renderer from  'react-test-renderer'
-import LargeTextAreaToolTip from "../LargeTextAreaToolTip";
+import LargeTextAreaTooltip from "../LargeTextAreaTooltip";
 
 describe('LargeTextAreaTooltip', () => {
     describe('Snapshot test', () => {
@@ -18,7 +18,7 @@ describe('LargeTextAreaTooltip', () => {
             const onChangeMock = jest.fn();
 
             //when
-            const component = renderer.create(<LargeTextAreaToolTip name={name} placeholder={placeholder} onChange={onChangeMock} />).toJSON();
+            const component = renderer.create(<LargeTextAreaTooltip name={name} placeholder={placeholder} onChange={onChangeMock} />).toJSON();
 
             //then
             expect(component).toMatchSnapshot();
