@@ -11,7 +11,7 @@ import PropTypes from "prop-types";
 function LargeTextArea(props) {
     const {label, name, placeholder, onChange} = props;
     return (
-        <label>
+        <label className={"label"}>
             {label}
             <textarea className={"input "} name={name} rows="5" cols="50" placeholder={placeholder}
                       onChange={onChange}/>
