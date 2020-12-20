@@ -62,7 +62,3 @@
 .input:focus {
     @apply outline-none shadow-outline;
 }
-
-.optional {
-    @apply text-indigo-600 italic lowercase;
-}
