@@ -611,7 +611,6 @@ function MemberRegistrationForm(props) {
                                         </div>
                                         <div className={"mt-4"}>
                                             <LargeTextArea
-                                                optional={true}
                                                 label="Tell others about yourself "
                                                 required={false}
                                                 name="aboutSelf"
