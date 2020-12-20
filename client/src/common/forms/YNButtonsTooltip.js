@@ -1,8 +1,8 @@
 /**
- * @Author:     Jeff Hatton
- * @Created:    2020.11.16
+ * @Author:     Parsa Rajabi
+ * @Created:    2020.12.19
  *
- * @Description: Yes/No radio button form functional Component.
+ * @Description: Yes/No radio button for tooltip form functional Component.
  *
  */
 
@@ -11,20 +11,16 @@ import PropTypes from 'prop-types';
 import RadioButton from "./RadioButton";
 
 function YNButton(props) {
-    const {label, name, onChange} = props;
+    const {name, onChange} = props;
     return (
-        <label>
-            <div>
-                <div className={"label text-base "}>{label}</div>
+        <div>
             <RadioButton label="No" name={name} value="no" onChange={onChange}/>
             <RadioButton label="Yes" name={name} value="yes" onChange={onChange}/>
-            </div>
-        </label>
+        </div>
     );
 }
 
 YNButton.propTypes = {
-    label: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     onChange: PropTypes.func
 }
