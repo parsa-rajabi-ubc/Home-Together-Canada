@@ -29,6 +29,7 @@ import Asterisk from "../common/forms/Asterisk";
 import LabelAsterisk from "../common/forms/LabelAsterisk";
 import { connect } from 'react-redux';
 import {setIsAdmin, setAccountType, setAuthenticated} from '../redux/slices/userPrivileges';
+import {USER_TYPES} from "../common/constants/users";
 
 const mapDispatch = { setIsAdmin, setAccountType, setAuthenticated };
 
@@ -314,7 +315,7 @@ function MemberRegistrationForm(props) {
 
                     // dispatch action to set accountType
                     if (data.member) {
-                        setAccountType({accountType: 'member'});
+                        setAccountType({accountType: USER_TYPES.MEMBER});
                     }
 
                     // dispatch action to set authenticated
@@ -688,12 +689,12 @@ function MemberRegistrationForm(props) {
 }
 
 MemberRegistrationForm.propTypes = {
+    setAccountType: PropTypes.func.isRequired,
+    setIsAdmin: PropTypes.func.isRequired,
+    setAuthenticated: PropTypes.func.isRequired,
     history: PropTypes.shape({
         push: PropTypes.func
-    }),
-    setAccountType: PropTypes.func,
-    setIsAdmin: PropTypes.func,
-    setAuthenticated: PropTypes.func
+    })
 }
 
 export default connect(null, mapDispatch) (MemberRegistrationForm);
