@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Header structure should match snapshot test 1`] = `
+<div>
+  <nav
+    className="top-0 flex w-full bg-green-400 tex-black"
+  >
+    <div
+      className="container flex items-center justify-between w-full py-2 mx-auto mt-0 whitespace-no-wrap"
+    >
+      <div
+        className="flex flex-no-wrap items-center ml-4"
+      >
+        <a
+          className="text-lg font-bold lg:text-xl"
+          href="/"
+          onClick={[Function]}
+        >
+          Home Together Canada
+        </a>
+      </div>
+      <div
+        className="flex-no-wrap hidden w-full p-4 mt-2 tex-black lg:flex lg:items-center lg:w-auto lg:block lg:mt-0 lg:bg-transparent lg:p-0"
+      >
+        <div
+          className="items-center justify-end flex-1 mr-16 list-reset lg:flex"
+        >
+          <a
+            className="inline-block px-4 py-2 mr-3 transition duration-200 ease-in-out border-transparent rounded-md hover:bg-white hover:text-black hover:opacity-50"
+            href="/members"
+            onClick={[Function]}
+          >
+            Connect with Members
+          </a>
+          <a
+            className="inline-block px-4 py-2 mr-3 transition duration-200 ease-in-out border-transparent rounded-md hover:bg-white hover:text-black hover:opacity-50"
+            href="/services"
+            onClick={[Function]}
+          >
+            Services
+          </a>
+          <a
+            className="inline-block px-4 py-2 mr-3 transition duration-200 ease-in-out border-transparent rounded-md hover:bg-white hover:text-black hover:opacity-50"
+            href="/classifieds"
+            onClick={[Function]}
+          >
+            Classifieds
+          </a>
+          <a
+            className="inline-block px-4 py-2 mr-3 transition duration-200 ease-in-out border-transparent rounded-md hover:bg-white hover:text-black hover:opacity-50"
+            href="/about"
+            onClick={[Function]}
+          >
+            About Us
+          </a>
+          <a
+            className="inline-block px-4 py-2 mr-3 no-underline transition duration-200 ease-in-out border-transparent rounded-md hover:bg-white hover:text-black hover:opacity-50"
+            href="/faq"
+            onClick={[Function]}
+          >
+            FAQ
+          </a>
+        </div>
+        <a
+          className="items-center justify-center w-full px-6 py-2 mr-4 transition duration-200 ease-in-out bg-white border-transparent rounded-md opacity-75 hover:bg-orange-400"
+          href="/login"
+          onClick={[Function]}
+        >
+          Login
+        </a>
+        <a
+          className="items-center justify-center w-full px-4 py-2 mr-4 transition duration-200 ease-in-out bg-white border-transparent rounded-md opacity-75 hover:bg-orange-400"
+          href="/registration"
+          onClick={[Function]}
+        >
+          Sign Up
+        </a>
+      </div>
+    </div>
+    <hr
+      className="py-0 my-0 border-b border-gray-200 opacity-25"
+    />
+  </nav>
+</div>
+`;

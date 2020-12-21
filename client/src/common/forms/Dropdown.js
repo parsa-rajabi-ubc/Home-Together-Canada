@@ -11,9 +11,9 @@ import Select from 'react-select';
 import propTypes from "prop-types";
 
 function Dropdown(props) {
-    const {isSearchable, name, placeholder, options, onChange} = props;
+    const {isSearchable, name, placeholder, options, onChange, intialSelection} = props;
 
-    const [selected, setSelected] = useState("");
+    const [selected, setSelected] = useState(intialSelection || "");
 
     // this code is run every time selected changes
     useEffect(() => {
@@ -37,20 +37,23 @@ function Dropdown(props) {
 
     return (
         <div>
-            <Select isSearchable={isSearchable} placeholder={placeholder}
-                    options={options} value={options.find(obj => obj.label === selected)}
-                    onChange={(e) => setSelected(e)}
-                    name={name}
-                    menuPortalTarget={document.body}
-                    styles={newStyling}
-                    theme={theme => ({
-                        ...theme,
-                        borderRadius: 8,
-                        colors: {
-                            ...theme.colors,
-                            neutral50: '#A0AEBF',  // Placeholder color
-                        }
-                    })}
+            <Select
+                isSearchable={isSearchable}
+                placeholder={placeholder}
+                options={options}
+                value={options.find(obj => obj.label === selected)}
+                onChange={(e) => setSelected(e)}
+                name={name}
+                menuPortalTarget={document.body}
+                styles={newStyling}
+                theme={theme => ({
+                    ...theme,
+                    borderRadius: 8,
+                    colors: {
+                        ...theme.colors,
+                        neutral50: '#A0AEBF',  // Placeholder color
+                    }
+                })}
             />
         </div>
     );
@@ -61,7 +64,8 @@ Dropdown.propTypes = {
     name: propTypes.string,
     isSearchable: propTypes.bool,
     placeholder: propTypes.string,
-    onChange: propTypes.func
+    onChange: propTypes.func,
+    intialSelection: propTypes.string
 };
 
 export default Dropdown;
