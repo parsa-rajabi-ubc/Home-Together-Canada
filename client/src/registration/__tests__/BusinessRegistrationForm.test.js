@@ -15,10 +15,18 @@ jest.mock('react-redux', () => ({
     }
 }));
 
+const setAccountType = jest.fn();
+const setAuthenticated = jest.fn();
+
 describe('BusinessRegistrationForm', () => {
     it("should render correctly regardless of properties", () => {
+        // given
+        const props = {
+            setAccountType,
+            setAuthenticated
+        };
         //when
-        const component = renderer.create(<BusinessRegistrationForm/>);
+        const component = renderer.create(<BusinessRegistrationForm {...props}/>);
         const tree = component.toJSON();
         //then
         expect(tree).toMatchSnapshot();

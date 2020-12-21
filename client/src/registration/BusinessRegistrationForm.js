@@ -22,6 +22,7 @@ import Asterisk from "../common/forms/Asterisk";
 import {connect} from 'react-redux';
 import {setAccountType, setAuthenticated} from '../redux/slices/userPrivileges';
 import Tooltip from "../common/forms/Tooltip";
+import {USER_TYPES} from "../common/constants/users";
 
 const mapDispatch = {setAccountType, setAuthenticated};
 
@@ -271,7 +272,7 @@ const BusinessRegistrationForm = (props) => {
                 if (!!data && data.authenticated) {
                     // dispatch action to set accountType
                     if (data.business) {
-                        setAccountType({accountType: 'business'});
+                        setAccountType({accountType: USER_TYPES.BUSINESS});
                     }
 
                     // dispatch action to set authenticated
@@ -554,11 +555,11 @@ const BusinessRegistrationForm = (props) => {
 }
 
 BusinessRegistrationForm.propTypes = {
+    setAccountType: PropTypes.func.isRequired,
+    setAuthenticated: PropTypes.func.isRequired,
     history: PropTypes.shape({
         push: PropTypes.func
-    }),
-    setAccountType: PropTypes.func,
-    setAuthenticated: PropTypes.func
+    })
 }
 
 export default connect(null, mapDispatch)(BusinessRegistrationForm);

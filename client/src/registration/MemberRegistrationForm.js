@@ -30,6 +30,7 @@ import LabelAsterisk from "../common/forms/LabelAsterisk";
 import {connect} from 'react-redux';
 import {setIsAdmin, setAccountType, setAuthenticated} from '../redux/slices/userPrivileges';
 import Tooltip from "../common/forms/Tooltip";
+import {USER_TYPES} from "../common/constants/users";
 
 const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
 
@@ -331,7 +332,7 @@ function MemberRegistrationForm(props) {
 
                     // dispatch action to set accountType
                     if (data.member) {
-                        setAccountType({accountType: 'member'});
+                        setAccountType({accountType: USER_TYPES.MEMBER});
                     }
 
                     // dispatch action to set authenticated
@@ -492,10 +493,8 @@ function MemberRegistrationForm(props) {
                                         <LabelAsterisk label={"Open to Sharing With"}/>
                                         <Tooltip text={INFO_TEXT.NUM_PEOPLE_SHARE} toolTipID="numPeopleToShare"/>
                                         <ShareLimit onChange={handleLimitChange}/>
-
                                         <LabelAsterisk label={"Monthly Rent"}/>
                                         <Tooltip text={INFO_TEXT.RENT} toolTipID="rent"/>
-
                                         <div className="grid grid-cols-6 gap-x-6">
                                             <div className="column-span-6-layout">
                                                 <input
@@ -518,11 +517,9 @@ function MemberRegistrationForm(props) {
                                                 />
                                             </div>
                                         </div>
-
                                         <LabelAsterisk label={"Preferred Living Location(s)"}/>
                                         <Tooltip text={INFO_TEXT.INTERESTED_AREA} toolTipID="interestedArea"/>
                                         <InterestedArea onChange={setAreasOfInterest}/>
-
                                         <div className="grid grid-cols-6 gap-x-6">
                                             <div className="column-span-6-layout">
                                                 <YNButton
@@ -540,7 +537,6 @@ function MemberRegistrationForm(props) {
                                                     onChange={e => setPetDescription(e.target.value)}
                                                     value={petDescription}
                                                 />}
-
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <YNButton
@@ -558,7 +554,6 @@ function MemberRegistrationForm(props) {
                                                     onChange={e => setSmokingDescription(e.target.value)}
                                                     value={smokingDescription}
                                                 />}
-
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <YNButton
@@ -576,7 +571,6 @@ function MemberRegistrationForm(props) {
                                                     onChange={e => setMobilityIssuesDescription(e.target.value)}
                                                     value={mobilityIssuesDescription}
                                                 />}
-
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <YNButton
@@ -593,7 +587,6 @@ function MemberRegistrationForm(props) {
                                                     onChange={e => setAllergiesDescription(e.target.value)}
                                                     value={allergiesDescription}
                                                 />}
-
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <YNButton
@@ -612,7 +605,6 @@ function MemberRegistrationForm(props) {
                                                     onChange={e => setReligionDescription(e.target.value)}
                                                     value={religionDescription}
                                                 />}
-
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <YNButton
@@ -631,7 +623,6 @@ function MemberRegistrationForm(props) {
                                                     onChange={e => setDietDescription(e.target.value)}
                                                     value={dietDescription}
                                                 />}
-
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <YNButton
@@ -738,12 +729,12 @@ function MemberRegistrationForm(props) {
 }
 
 MemberRegistrationForm.propTypes = {
+    setAccountType: PropTypes.func.isRequired,
+    setIsAdmin: PropTypes.func.isRequired,
+    setAuthenticated: PropTypes.func.isRequired,
     history: PropTypes.shape({
         push: PropTypes.func
-    }),
-    setAccountType: PropTypes.func,
-    setIsAdmin: PropTypes.func,
-    setAuthenticated: PropTypes.func
+    })
 }
 
 export default connect(null, mapDispatch)(MemberRegistrationForm);

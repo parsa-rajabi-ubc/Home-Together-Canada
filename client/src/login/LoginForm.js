@@ -20,6 +20,7 @@ import {getConcatenatedErrorMessage} from "../registration/registrationUtils";
 import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 import {setIsAdmin, setAccountType, setAuthenticated} from "../redux/slices/userPrivileges";
+import {USER_TYPES} from "../common/constants/users";
 
 const mapDispatch = { setIsAdmin, setAccountType, setAuthenticated };
 
@@ -63,9 +64,9 @@ function LoginForm(props) {
                     // dispatch action to set accountType
                     let accountType = null;
                     if (data.member) {
-                        accountType = 'member';
+                        accountType = USER_TYPES.MEMBER;
                     } else if (data.business) {
-                        accountType = 'business';
+                        accountType = USER_TYPES.BUSINESS;
                     }
                     setAccountType({accountType});
 
@@ -142,12 +143,12 @@ function LoginForm(props) {
 }
 
 LoginForm.propTypes = {
+    setAccountType: PropTypes.func.isRequired,
+    setIsAdmin: PropTypes.func.isRequired,
+    setAuthenticated: PropTypes.func.isRequired,
     history: PropTypes.shape({
         push: PropTypes.func
-    }),
-    setAccountType: PropTypes.func,
-    setIsAdmin: PropTypes.func,
-    setAuthenticated: PropTypes.func
+    })
 }
 
 export default connect(null, mapDispatch) (LoginForm);
