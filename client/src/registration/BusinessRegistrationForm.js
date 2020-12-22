@@ -222,6 +222,7 @@ const BusinessRegistrationForm = (props) => {
         NATION_WIDE: "Select this checkbox if your business offers services across all of Canada",
         //TODO: Add max file size to this tooltip
         BUSINESS_LOGO: "This logo will be displayed on all of your listings and can be changed at any time",
+        MAP_ADDRESS: "Address that users use to search for the business"
     };
 
     //function for input checks on submit
@@ -422,6 +423,8 @@ const BusinessRegistrationForm = (props) => {
                                               }}/>
                                     {!isNationWide &&
                                     <Address label="Searchable Address"
+                                             toolTipText={INFO_TEXT.MAP_ADDRESS}
+                                             toolTipID={"mapAddress"}
                                              required={true}
                                              onChange={handleBMapAddress}/>}
                                 </div>

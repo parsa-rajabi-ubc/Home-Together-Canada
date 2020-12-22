@@ -12,10 +12,11 @@ import PropTypes from "prop-types";
 import Dropdown from "./Dropdown";
 import {getProvinces} from "../utils/locationUtils"
 import Asterisk from "./Asterisk";
+import Tooltip from "./Tooltip";
 
 
 function Address(props) {
-    const {label, onChange, required} = props;
+    const {label, onChange, required, toolTipID, toolTipText} = props;
     const [street, setStreet] = useState("");
     const [aptNum, setApt] = useState("");
     const [city, setCity] = useState("");
@@ -58,10 +59,13 @@ function Address(props) {
     return (
         <div>
             <label className="label">
-                {label} {(required ? <Asterisk/> : '')}
+                {label}
+            </label>
+                {(required ? <Asterisk/> : '')}
+                {toolTipID && <Tooltip text={toolTipText} toolTipID={toolTipID}/>}
                 <input className="input" type="text" name="street" placeholder="Address Line 1" autoComplete="address-line1"
                        onChange={handleInputChange}/>
-            </label>
+
             <label>
                 <input className="input" type="text" name="aptNum" placeholder="Address Line 2: Apt, suite, etc. (optional)"
                        autoComplete="address-line2" onChange={handleInputChange}/>
@@ -87,6 +91,8 @@ function Address(props) {
 Address.propTypes = {
     label: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
+    toolTipText: PropTypes.string,
+    toolTipID: PropTypes.string,
     required: PropTypes.bool
 };
 
