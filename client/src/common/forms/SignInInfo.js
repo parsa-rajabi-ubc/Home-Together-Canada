@@ -13,7 +13,7 @@ import Tooltip from "./Tooltip";
 import LabelAsterisk from "./LabelAsterisk";
 
 const INFO_TEXT = {
-    USERNAME: "Your username should be unique and meaningful. Avoid using numbers in your username!",
+    USERNAME: "Your username should be unique and meaningful.",
     PASSWORD: "Your password must be at least 8 characters long and contain a mix of numeric digits, upper and lower case letters!",
 };
 
