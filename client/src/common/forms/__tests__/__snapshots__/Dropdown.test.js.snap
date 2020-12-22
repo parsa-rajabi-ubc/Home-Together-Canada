@@ -7,7 +7,7 @@ exports[`Dropdown Snapshot test should render correctly regardless of properties
     onKeyDown={[Function]}
   >
     <div
-      className=" css-d7dxyn-control"
+      className=" css-1jumw1e-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
