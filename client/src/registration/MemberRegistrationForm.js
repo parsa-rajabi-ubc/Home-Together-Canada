@@ -22,7 +22,6 @@ import Status from "../common/forms/Status";
 import ShareLimit from "../common/forms/ShareLimits";
 import InterestedArea from "../common/forms/InterestedArea";
 import YNButton from "../common/forms/YNButtons";
-import YNButtonsTooltip from "../common/forms/YNButtonsTooltip";
 import LargeTextAreaTooltip from "../common/forms/LargeTextAreaTooltip";
 import PropTypes from "prop-types";
 import WorkStatus from "../common/forms/WorkStatus";
@@ -526,9 +525,10 @@ function MemberRegistrationForm(props) {
 
                                         <div className="grid grid-cols-6 gap-x-6">
                                             <div className="column-span-6-layout">
-                                                <LabelAsterisk label={"Pet Friendly?"}/>
-                                                <Tooltip text={INFO_TEXT.PET} toolTipID="pet"/>
-                                                <YNButtonsTooltip
+                                                <YNButton
+                                                    label={"Pet Friendly?"}
+                                                    toolTipText={INFO_TEXT.PET}
+                                                    toolTipID="pet"
                                                     name="petFriendly"
                                                     required={true}
                                                     onChange={(e) => setPetFriendly(e.target.value)}
@@ -543,10 +543,10 @@ function MemberRegistrationForm(props) {
 
                                             </div>
                                             <div className="column-span-6-layout">
-
-                                                <LabelAsterisk label={"Smoke Friendly?"}/>
-                                                <Tooltip text={INFO_TEXT.SMOKE} toolTipID="smoke"/>
-                                                <YNButtonsTooltip
+                                                <YNButton
+                                                    label={"Smoke Friendly?"}
+                                                    toolTipText={INFO_TEXT.SMOKE}
+                                                    toolTipID="smoke"
                                                     name="smoking"
                                                     required={true}
                                                     onChange={(e) => setSmoking(e.target.value)}
@@ -561,10 +561,10 @@ function MemberRegistrationForm(props) {
 
                                             </div>
                                             <div className="column-span-6-layout">
-
-                                                <LabelAsterisk label={"Health / Mobility Issues?"}/>
-                                                <Tooltip text={INFO_TEXT.HEALTH} toolTipID="health"/>
-                                                <YNButtonsTooltip
+                                                <YNButton
+                                                    label={"Health / Mobility Issues?"}
+                                                    toolTipText={INFO_TEXT.HEALTH}
+                                                    toolTipID="health"
                                                     name="mobile"
                                                     required={true}
                                                     onChange={(e) => setMobilityIssues(e.target.value)}
@@ -579,9 +579,8 @@ function MemberRegistrationForm(props) {
 
                                             </div>
                                             <div className="column-span-6-layout">
-
-                                                <LabelAsterisk label={"Allergies"}/>
-                                                <YNButtonsTooltip
+                                                <YNButton
+                                                    label={"Allergies"}
                                                     name="allergies"
                                                     required={true}
                                                     checked={hasAllergies === "no"}
@@ -597,10 +596,10 @@ function MemberRegistrationForm(props) {
 
                                             </div>
                                             <div className="column-span-6-layout">
-
-                                                <LabelAsterisk label={"Is religion important?"}/>
-                                                <Tooltip text={INFO_TEXT.RELIGION} toolTipID="religion"/>
-                                                <YNButtonsTooltip
+                                                <YNButton
+                                                    label={"Is religion important?"}
+                                                    toolTipText={INFO_TEXT.RELIGION}
+                                                    toolTipID="religion"
                                                     name="religion"
                                                     required={true}
                                                     checked={religious === "no"}
@@ -616,10 +615,10 @@ function MemberRegistrationForm(props) {
 
                                             </div>
                                             <div className="column-span-6-layout">
-
-                                                <LabelAsterisk label={"Is diet of others important?"}/>
-                                                <Tooltip text={INFO_TEXT.DIET} toolTipID="diet"/>
-                                                <YNButtonsTooltip
+                                                <YNButton
+                                                    label={"Is diet of others important?"}
+                                                    toolTipText={INFO_TEXT.DIET}
+                                                    toolTipID="diet"
                                                     name="diet"
                                                     required={true}
                                                     checked={hasDiet === "no"}
@@ -635,10 +634,10 @@ function MemberRegistrationForm(props) {
 
                                             </div>
                                             <div className="column-span-6-layout">
-
-                                                <LabelAsterisk label={"Have a home to share?"}/>
-                                                <Tooltip text={INFO_TEXT.HOME_TO_SHARE} toolTipID="homeToShare"/>
-                                                <YNButtonsTooltip
+                                                <YNButton
+                                                    label={"Have a home to share?"}
+                                                    toolTipText={INFO_TEXT.HOME_TO_SHARE}
+                                                    toolTipID="homeToShare"
                                                     name="hasHome"
                                                     required={true}
                                                     checked={hasHome === "no"}
