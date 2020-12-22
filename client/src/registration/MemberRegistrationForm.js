@@ -401,7 +401,7 @@ function MemberRegistrationForm(props) {
                             <Tooltip text={INFO_TEXT.YEAR_OF_BIRTH} toolTipID="yearOfBirth"/>
                             <BirthYear label={"Year of Birth"} onChange={handleYearChange}/>
                             <PhoneNumInput
-                                className="w-1/4 phone"
+                                className="phone"
                                 labelClassName={"label"}
                                 required={true}
                                 label="Phone Number" onChange={handlePhoneChange}/>
@@ -502,7 +502,7 @@ function MemberRegistrationForm(props) {
                                                     className={"input label font-normal "}
                                                     type="number"
                                                     min="0"
-                                                    step="25"
+                                                    step="1"
                                                     placeholder="MIN $ CAD"
                                                     onChange={(e) => setMinRent(e.target.value)}
                                                 />
@@ -512,7 +512,7 @@ function MemberRegistrationForm(props) {
                                                     className={"input label font-normal "}
                                                     type="number"
                                                     min={minRent}
-                                                    step="25"
+                                                    step="1"
                                                     placeholder=" MAX $ CAD"
                                                     onChange={(e) => setMaxRent(e.target.value)}
                                                 />
@@ -526,7 +526,7 @@ function MemberRegistrationForm(props) {
                                         <div className="grid grid-cols-6 gap-x-6">
                                             <div className="column-span-6-layout">
                                                 <YNButton
-                                                    label={"Pet Friendly?"}
+                                                    label={"Pet friendly?"}
                                                     toolTipText={INFO_TEXT.PET}
                                                     toolTipID="pet"
                                                     name="petFriendly"
@@ -544,7 +544,7 @@ function MemberRegistrationForm(props) {
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <YNButton
-                                                    label={"Smoke Friendly?"}
+                                                    label={"Smoke friendly?"}
                                                     toolTipText={INFO_TEXT.SMOKE}
                                                     toolTipID="smoke"
                                                     name="smoking"
@@ -562,7 +562,7 @@ function MemberRegistrationForm(props) {
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <YNButton
-                                                    label={"Health / Mobility Issues?"}
+                                                    label={"Health / mobility issues?"}
                                                     toolTipText={INFO_TEXT.HEALTH}
                                                     toolTipID="health"
                                                     name="mobile"
@@ -580,7 +580,7 @@ function MemberRegistrationForm(props) {
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <YNButton
-                                                    label={"Allergies"}
+                                                    label={"Allergies?"}
                                                     name="allergies"
                                                     required={true}
                                                     checked={hasAllergies === "no"}
@@ -645,11 +645,11 @@ function MemberRegistrationForm(props) {
                                                 />
                                                 {(hasHome === "yes")
                                                 && <TextArea
-                                                        className={"input inline w-11/12 "}
-                                                        placeholder="Elaborate (optional)"
-                                                        onChange={e => setHomeDescription(e.target.value)}
-                                                        value={homeDescription}
-                                                    />
+                                                    className={"input inline w-11/12 "}
+                                                    placeholder="Elaborate (optional)"
+                                                    onChange={e => setHomeDescription(e.target.value)}
+                                                    value={homeDescription}
+                                                />
                                                 }
 
                                             </div>
