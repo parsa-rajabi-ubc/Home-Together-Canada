@@ -2,13 +2,13 @@
  * @Author:     Alex Qin
  * @Created:    2020.11.10
  *
- * @Description: MemberRegistration Static Form
+ * @Description: Member Registration Component
  *
  */
 
 import React, {useState} from 'react';
 import TextArea from '../common/forms/TextArea';
-import Checkbox from '../common/forms/Checkbox';
+import Checkbox from "../common/forms/Checkbox";
 import SubmitButton from '../common/forms/SubmitButton';
 import Address from "../common/forms/Address";
 import SignInInfo from "../common/forms/SignInInfo";
@@ -27,14 +27,15 @@ import PropTypes from "prop-types";
 import WorkStatus from "../common/forms/WorkStatus";
 import Asterisk from "../common/forms/Asterisk";
 import LabelAsterisk from "../common/forms/LabelAsterisk";
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import {setIsAdmin, setAccountType, setAuthenticated} from '../redux/slices/userPrivileges';
+import Tooltip from "../common/forms/Tooltip";
 
-const mapDispatch = { setIsAdmin, setAccountType, setAuthenticated };
+const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
 
 //Returns a Form with fields
 function MemberRegistrationForm(props) {
-    const { history, setIsAdmin, setAccountType, setAuthenticated } = props;
+    const {history, setIsAdmin, setAccountType, setAuthenticated} = props;
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [yearOfBirth, setYearOfBirth] = useState("");
@@ -247,6 +248,22 @@ function MemberRegistrationForm(props) {
         return true;
     }
 
+    const INFO_TEXT = {
+        YEAR_OF_BIRTH: "Age is required in order to help members connect with others in their desired age range",
+        DIFF_MAILING_ADDRESS: "Select this checkbox if your mailing address differs from the address above",
+        FAMILY_STATUS: "Select the status that most accurately reflects your living arrangement that you would like to maintain while home-sharing",
+        NUM_PEOPLE_SHARE: "This number of people does not include yourself",
+        RENT: "This does NOT include utilities",
+        INTERESTED_AREA: "Preferred living location(s) across Canada",
+        PET: "You either have a pet or are open to living with pets",
+        SMOKE: "You either smoke yourself or are open to living with people who smoke",
+        HEALTH: "Health and mobility issues that are relevant to roommates",
+        RELIGION: "Religious compatibility is important to you",
+        DIET: "The diet of your roommate(s) is important to you",
+        HOME_TO_SHARE: "If you have a home to share, we recommend that you also create a free listing in addition to providing a short description below",
+        ABOUT: "Do not disclose any personal information as your profile is publicly viewable by all members on Home Together",
+    };
+
     //function for input checks on submit
     function onSubmit(event) {
         if (!isFormValid()) {
@@ -318,7 +335,7 @@ function MemberRegistrationForm(props) {
                     }
 
                     // dispatch action to set authenticated
-                    setAuthenticated({ authenticated: data.authenticated });
+                    setAuthenticated({authenticated: data.authenticated});
 
                     // user is authenticated, redirect to home screen
                     return history.push('/');
@@ -343,14 +360,16 @@ function MemberRegistrationForm(props) {
                     <div className="px-4 sm:px-0">
                         <h3 className="info-header">Personal Information</h3>
                         <p className="info-text mr-10">
-                            This information is about you and is private. Home Together Canada will not share this information with anyone and will only be used for verification purposes.
+                            This information is about you and is private. Home Together Canada will not share this
+                            information with anyone and will only be used for verification purposes.
                         </p>
                         <p className="info-text mr-10">
-                        <Asterisk/> = Required Field
+                            <Asterisk/> = Required Field
                         </p>
                     </div>
                 </div>
-                <div className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
+                <div
+                    className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
                     <div className="grid grid-cols-2 gap-6">
                         <div className="col-span-3 sm:col-span-2">
                             <TextArea
@@ -379,6 +398,7 @@ function MemberRegistrationForm(props) {
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                             <LabelAsterisk label={"Year of Birth"}/>
+                            <Tooltip text={INFO_TEXT.YEAR_OF_BIRTH} toolTipID="yearOfBirth"/>
                             <BirthYear label={"Year of Birth"} onChange={handleYearChange}/>
                             <PhoneNumInput
                                 className="w-1/4 phone"
@@ -391,10 +411,10 @@ function MemberRegistrationForm(props) {
                                 required={true}
                                 onChange={setAddress}
                             />
-
-                            <span className="info-detail">Select checkbox below if your mailing address differs from the address above</span>
                             <Checkbox
                                 label="Different Mailing Address"
+                                toolTipText={INFO_TEXT.DIFF_MAILING_ADDRESS}
+                                toolTipID="differentMailingAddress"
                                 onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}
                             />
                             {useDifferentMailingAddress &&
@@ -462,6 +482,7 @@ function MemberRegistrationForm(props) {
                                             />}
                                         </div>
                                         <LabelAsterisk label={"Family Status"}/>
+                                        <Tooltip text={INFO_TEXT.FAMILY_STATUS} toolTipID="familyStatus"/>
                                         <Status onChange={handleFamilyStatusChange}/>
                                         {checkStatus(selectedFamilyStatus)}
 
@@ -469,8 +490,12 @@ function MemberRegistrationForm(props) {
                                         <WorkStatus onChange={handleWorkStatusChange}/>
 
                                         <LabelAsterisk label={"Open to Sharing With"}/>
+                                        <Tooltip text={INFO_TEXT.NUM_PEOPLE_SHARE} toolTipID="numPeopleToShare"/>
                                         <ShareLimit onChange={handleLimitChange}/>
+
                                         <LabelAsterisk label={"Monthly Rent"}/>
+                                        <Tooltip text={INFO_TEXT.RENT} toolTipID="rent"/>
+
                                         <div className="grid grid-cols-6 gap-x-6">
                                             <div className="column-span-6-layout">
                                                 <input
@@ -493,12 +518,17 @@ function MemberRegistrationForm(props) {
                                                 />
                                             </div>
                                         </div>
+
                                         <LabelAsterisk label={"Preferred Living Location(s)"}/>
+                                        <Tooltip text={INFO_TEXT.INTERESTED_AREA} toolTipID="interestedArea"/>
                                         <InterestedArea onChange={setAreasOfInterest}/>
+
                                         <div className="grid grid-cols-6 gap-x-6">
                                             <div className="column-span-6-layout">
                                                 <YNButton
-                                                    label="Pet Friendly?"
+                                                    label={"Pet Friendly?"}
+                                                    toolTipText={INFO_TEXT.PET}
+                                                    toolTipID="pet"
                                                     name="petFriendly"
                                                     required={true}
                                                     onChange={(e) => setPetFriendly(e.target.value)}
@@ -510,10 +540,13 @@ function MemberRegistrationForm(props) {
                                                     onChange={e => setPetDescription(e.target.value)}
                                                     value={petDescription}
                                                 />}
+
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <YNButton
-                                                    label="Smoking Friendly?"
+                                                    label={"Smoke Friendly?"}
+                                                    toolTipText={INFO_TEXT.SMOKE}
+                                                    toolTipID="smoke"
                                                     name="smoking"
                                                     required={true}
                                                     onChange={(e) => setSmoking(e.target.value)}
@@ -525,10 +558,13 @@ function MemberRegistrationForm(props) {
                                                     onChange={e => setSmokingDescription(e.target.value)}
                                                     value={smokingDescription}
                                                 />}
+
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <YNButton
-                                                    label="Health / Mobility Issues?"
+                                                    label={"Health / Mobility Issues?"}
+                                                    toolTipText={INFO_TEXT.HEALTH}
+                                                    toolTipID="health"
                                                     name="mobile"
                                                     required={true}
                                                     onChange={(e) => setMobilityIssues(e.target.value)}
@@ -540,10 +576,11 @@ function MemberRegistrationForm(props) {
                                                     onChange={e => setMobilityIssuesDescription(e.target.value)}
                                                     value={mobilityIssuesDescription}
                                                 />}
+
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <YNButton
-                                                    label="Allergies?"
+                                                    label={"Allergies"}
                                                     name="allergies"
                                                     required={true}
                                                     checked={hasAllergies === "no"}
@@ -556,10 +593,13 @@ function MemberRegistrationForm(props) {
                                                     onChange={e => setAllergiesDescription(e.target.value)}
                                                     value={allergiesDescription}
                                                 />}
+
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <YNButton
-                                                    label="Is religion important?"
+                                                    label={"Is religion important?"}
+                                                    toolTipText={INFO_TEXT.RELIGION}
+                                                    toolTipID="religion"
                                                     name="religion"
                                                     required={true}
                                                     checked={religious === "no"}
@@ -572,10 +612,13 @@ function MemberRegistrationForm(props) {
                                                     onChange={e => setReligionDescription(e.target.value)}
                                                     value={religionDescription}
                                                 />}
+
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <YNButton
-                                                    label="Is diet of others important?"
+                                                    label={"Is diet of others important?"}
+                                                    toolTipText={INFO_TEXT.DIET}
+                                                    toolTipID="diet"
                                                     name="diet"
                                                     required={true}
                                                     checked={hasDiet === "no"}
@@ -588,22 +631,27 @@ function MemberRegistrationForm(props) {
                                                     onChange={e => setDietDescription(e.target.value)}
                                                     value={dietDescription}
                                                 />}
+
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <YNButton
-                                                    label="Have a home to share?"
+                                                    label={"Have a home to share?"}
+                                                    toolTipText={INFO_TEXT.HOME_TO_SHARE}
+                                                    toolTipID="homeToShare"
                                                     name="hasHome"
                                                     required={true}
                                                     checked={hasHome === "no"}
                                                     onChange={(e) => setHasHome(e.target.value)}
                                                 />
-                                                {(hasHome === "yes") &&
-                                                <TextArea
-                                                    className={"input"}
-                                                    placeholder="Elaborate (optional)"
-                                                    onChange={e => setHomeDescription(e.target.value)}
-                                                    value={homeDescription}
-                                                />}
+                                                {(hasHome === "yes")
+                                                && <TextArea
+                                                        className={"input inline w-11/12 "}
+                                                        placeholder="Elaborate (optional)"
+                                                        onChange={e => setHomeDescription(e.target.value)}
+                                                        value={homeDescription}
+                                                    />
+                                                }
+
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <YNButton
@@ -624,10 +672,12 @@ function MemberRegistrationForm(props) {
                                         </div>
                                         <div className={"mt-4"}>
                                             <LargeTextArea
-                                                label="Tell others about yourself "
+                                                label={"Tell others about yourself"}
+                                                toolTipText={INFO_TEXT.ABOUT}
+                                                toolTipID="about"
                                                 required={false}
                                                 name="aboutSelf"
-                                                placeholder="What is important to you, and why do you want to share a home?"
+                                                placeholder="Let others know more about your lifestyle, values and why you want to home share"
                                                 onChange={(e) => setAboutSelf(e.target.value)}
                                             />
                                         </div>
@@ -696,4 +746,4 @@ MemberRegistrationForm.propTypes = {
     setAuthenticated: PropTypes.func
 }
 
-export default connect(null, mapDispatch) (MemberRegistrationForm);
+export default connect(null, mapDispatch)(MemberRegistrationForm);

@@ -6,17 +6,16 @@ exports[`Address Snapshot test should render correctly regardless of properties 
     className="label"
   >
     testLabelString1
-     
-    
-    <input
-      autoComplete="address-line1"
-      className="input"
-      name="street"
-      onChange={[Function]}
-      placeholder="Address Line 1"
-      type="text"
-    />
   </label>
+  
+  <input
+    autoComplete="address-line1"
+    className="input"
+    name="street"
+    onChange={[Function]}
+    placeholder="Address Line 1"
+    type="text"
+  />
   <label>
     <input
       autoComplete="address-line2"

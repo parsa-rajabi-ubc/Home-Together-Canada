@@ -9,7 +9,7 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import TextArea from '../common/forms/TextArea';
-import Checkbox from '../common/forms/Checkbox';
+import Checkbox from "../common/forms/Checkbox";
 import Button from '../common/forms/Button';
 import SubmitButton from "../common/forms/SubmitButton";
 import Address from "../common/forms/Address";
@@ -19,10 +19,11 @@ import {isStringEmail, isStringEmpty, isStringSame, isStringNumeralsOnly} from "
 import RegistrationService from '../services/RegistrationService';
 import {getConcatenatedErrorMessage, getPhoneNumberFromStrings} from "./registrationUtils";
 import Asterisk from "../common/forms/Asterisk";
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import {setAccountType, setAuthenticated} from '../redux/slices/userPrivileges';
+import Tooltip from "../common/forms/Tooltip";
 
-const mapDispatch = { setAccountType, setAuthenticated };
+const mapDispatch = {setAccountType, setAuthenticated};
 
 
 // TODO: separate this into container and presentational components (see https://css-tricks.com/learning-react-container-components/)
@@ -215,6 +216,15 @@ const BusinessRegistrationForm = (props) => {
         return true;
     }
 
+    const INFO_TEXT = {
+        INC_COMPANY: "Select this checkbox if your business in Incorporated",
+        DIFF_MAILING_ADDRESS: "Select this checkbox if your mailing address differs from the address above",
+        NATION_WIDE: "Select this checkbox if your business offers services across all of Canada",
+        //TODO: Add max file size to this tooltip
+        BUSINESS_LOGO: "This logo will be displayed on all of your listings and can be changed at any time",
+        MAP_ADDRESS: "Address that users use to search for the business"
+    };
+
     //function for input checks on submit
     function onSubmit(event) {
         if (!isFormValid()) {
@@ -265,7 +275,7 @@ const BusinessRegistrationForm = (props) => {
                     }
 
                     // dispatch action to set authenticated
-                    setAuthenticated({ authenticated: data.authenticated });
+                    setAuthenticated({authenticated: data.authenticated});
 
                     // user is authenticated, redirect to home screen
                     alert('Business account successfully created!');
@@ -353,14 +363,16 @@ const BusinessRegistrationForm = (props) => {
                                     onChange={(e) => {
                                         setBName(e.target.value)
                                     }}/>
-                                <span
-                                    className="info-detail">Select incorporated business if your business is Inc.</span>
-                                <Checkbox label={"Incorporated Business"}
-                                          onChange={() => setIsIncorporated(!isIncorporated)}/>
-                                {isIncorporated && <TextArea className="input" label={""}
-                                                             placeholder={"Names of Inc. Owners (separated by comma)"}
-                                                             labelClassName={"label"}
-                                                             onChange={(e) => setIncorporatedOwnersNames(e.target.value)}/>}
+                                <div className={"my-2"}>
+                                    <Checkbox label={"Incorporated Business"}
+                                              toolTipText={INFO_TEXT.INC_COMPANY}
+                                              toolTipID="incorporated"
+                                              onChange={() => setIsIncorporated(!isIncorporated)}/>
+                                    {isIncorporated && <TextArea className="input"
+                                                                 placeholder={"Names of Inc. Owners (separated by comma)"}
+                                                                 labelClassName={"label"}
+                                                                 onChange={(e) => setIncorporatedOwnersNames(e.target.value)}/>}
+                                </div>
                                 <TextArea className="input"
                                           placeholder="business@email.ca"
                                           autoComplete={"email"}
@@ -393,32 +405,36 @@ const BusinessRegistrationForm = (props) => {
                                          cityClassName="city-postal"
                                          required={true}
                                          onChange={handleBAddressChange}/>
-                                <span className="info-detail">Select different mailing address if it differs from the address above:</span>
-                                <Checkbox label="Different Mailing Address" onChange={() => {
-                                    setUseDifferentMailingAddress(useDifferentMailingAddress => !useDifferentMailingAddress)
-                                }}/>
+
+                                <Checkbox label={"Different Mailing Address"}
+                                          toolTipText={INFO_TEXT.DIFF_MAILING_ADDRESS}
+                                          toolTipID="differentMailingAddress"
+                                          onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}/>
                                 {useDifferentMailingAddress &&
                                 <Address label="Business Mailing Address"
                                          required={true}
                                          onChange={handleBMailingAddress}/>}
-
-
-                                <span
-                                    className="info-detail">Select nation-wide if your service spans across Canada:</span>
-
-                                <Checkbox label="Nation-wide " onChange={() => {
-                                    setIfNationWide(isNationWide => !isNationWide)
-                                }}/>
-                                {!isNationWide && <Address label="Searchable Address"
-                                                           required={true}
-                                                           onChange={handleBMapAddress}/>}
+                                <div>
+                                    <Checkbox label={"Canada-wide Business"}
+                                              toolTipText={INFO_TEXT.NATION_WIDE}
+                                              toolTipID="nationWide"
+                                              onChange={() => {
+                                                  setIfNationWide(isNationWide => !isNationWide)
+                                              }}/>
+                                    {!isNationWide &&
+                                    <Address label="Searchable Address"
+                                             toolTipText={INFO_TEXT.MAP_ADDRESS}
+                                             toolTipID={"mapAddress"}
+                                             required={true}
+                                             onChange={handleBMapAddress}/>}
+                                </div>
                             </div>
                         </div>
 
-                        <label className="label">
-                            Business Logo
-                        </label>
-                        <div className="flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                        <label className="label"> Business Logo </label>
+                        <Tooltip text={INFO_TEXT.BUSINESS_LOGO} toolTipID="businessLogo"/>
+                        <div
+                            className="flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                             <div className="space-y-1 text-center">
                                 <svg className="w-12 h-12 mx-auto text-gray-400" stroke="currentColor"
                                      fill="none" viewBox="0 0 48 48" aria-hidden="true">
@@ -455,7 +471,8 @@ const BusinessRegistrationForm = (props) => {
                         </p>
                     </div>
                 </div>
-                <div className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
+                <div
+                    className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
                     <div className="grid grid-cols-6 gap-x-6">
                         <div className="column-span-6-layout">
                             <TextArea className={"input"}
@@ -465,7 +482,7 @@ const BusinessRegistrationForm = (props) => {
                                       required={true}
                                       onChange={(e) => {
                                           setContactFName(e.target.value)
-                            }}/>
+                                      }}/>
                         </div>
 
                         <div className="column-span-6-layout">
@@ -476,7 +493,7 @@ const BusinessRegistrationForm = (props) => {
                                       autoComplete={"family-name"}
                                       onChange={(e) => {
                                           setContactLName(e.target.value)
-                            }}/>
+                                      }}/>
                         </div>
 
                         <div className="column-span-6-layout">
@@ -544,4 +561,4 @@ BusinessRegistrationForm.propTypes = {
     setAuthenticated: PropTypes.func
 }
 
-export default connect(null, mapDispatch) (BusinessRegistrationForm);
+export default connect(null, mapDispatch)(BusinessRegistrationForm);

@@ -1,29 +1,28 @@
 /**
- * @Author:     Jeff Hatton
- * @Created:    2020.11.13
+ * @Author:     Parsa Rajabi
+ * @Created:    2020.12.08
  *
- * @Description: Address Component Snapshot test
+ * @Description: Tooltip Component Snapshot test
  *
  */
 
 import React from 'react';
-import renderer from  'react-test-renderer'
-import Address from "../Address";
+import renderer from 'react-test-renderer'
+import Tooltip from "../Tooltip";
 
 jest.mock("react-tooltip/node_modules/uuid", () => ({
             v4: () => "00000000-0000-0000-0000-000000000000"}
     )
 );
 
-describe('Address', () => {
+describe('Tooltip', () => {
     describe('Snapshot test', () => {
         it("should render correctly regardless of properties", () => {
             // given
-            const label = "testLabelString1";
-            const onChange = jest.fn();
-
+            const text = "helpful text";
+            const toolTipID = "randomID";
             //when
-            const component = renderer.create(<Address label={label} onChange={onChange} />).toJSON();
+            const component = renderer.create(<Tooltip text={text} toolTipID={toolTipID}/>).toJSON();
             //then
             expect(component).toMatchSnapshot();
         });
