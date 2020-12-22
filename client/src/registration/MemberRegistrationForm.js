@@ -8,7 +8,7 @@
 
 import React, {useState} from 'react';
 import TextArea from '../common/forms/TextArea';
-import CheckboxTooltip from "../common/forms/CheckboxTooltip";
+import Checkbox from "../common/forms/Checkbox";
 import SubmitButton from '../common/forms/SubmitButton';
 import Address from "../common/forms/Address";
 import SignInInfo from "../common/forms/SignInInfo";
@@ -412,12 +412,12 @@ function MemberRegistrationForm(props) {
                                 required={true}
                                 onChange={setAddress}
                             />
-                            <CheckboxTooltip
+                            <Checkbox
                                 label="Different Mailing Address"
+                                toolTipText={INFO_TEXT.DIFF_MAILING_ADDRESS}
+                                toolTipID="differentMailingAddress"
                                 onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}
                             />
-                            <label className={"label mt-0"}>Different Mailing Address</label>
-                            <Tooltip text={INFO_TEXT.DIFF_MAILING_ADDRESS} toolTipID="differentMailingAddress"/>
                             {useDifferentMailingAddress &&
                             <Address
                                 label="Mailing Address"

@@ -9,7 +9,7 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import TextArea from '../common/forms/TextArea';
-import CheckboxTooltip from "../common/forms/CheckboxTooltip";
+import Checkbox from "../common/forms/Checkbox";
 import Button from '../common/forms/Button';
 import SubmitButton from "../common/forms/SubmitButton";
 import Address from "../common/forms/Address";
@@ -363,11 +363,10 @@ const BusinessRegistrationForm = (props) => {
                                         setBName(e.target.value)
                                     }}/>
                                 <div className={"my-2"}>
-                                    <CheckboxTooltip onChange={() => setIsIncorporated(!isIncorporated)}/>
-                                    <label className={"label mt-0"}>Incorporated Business</label>
-                                    <Tooltip text={INFO_TEXT.INC_COMPANY}
-                                             toolTipID="incorporated"/>
-
+                                    <Checkbox label={"Incorporated Business"}
+                                              toolTipText={INFO_TEXT.INC_COMPANY}
+                                              toolTipID="incorporated"
+                                              onChange={() => setIsIncorporated(!isIncorporated)}/>
                                     {isIncorporated && <TextArea className="input"
                                                                  placeholder={"Names of Inc. Owners (separated by comma)"}
                                                                  labelClassName={"label"}
@@ -406,21 +405,21 @@ const BusinessRegistrationForm = (props) => {
                                          required={true}
                                          onChange={handleBAddressChange}/>
 
-                                <CheckboxTooltip
-                                    onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}/>
-                                <label className={"label mt-0"}>Different Mailing Address</label>
-                                <Tooltip text={INFO_TEXT.DIFF_MAILING_ADDRESS}
-                                         toolTipID="differentMailingAddress"/>
+                                <Checkbox label={"Different Mailing Address"}
+                                          toolTipText={INFO_TEXT.DIFF_MAILING_ADDRESS}
+                                          toolTipID="differentMailingAddress"
+                                          onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}/>
                                 {useDifferentMailingAddress &&
                                 <Address label="Business Mailing Address"
                                          required={true}
                                          onChange={handleBMailingAddress}/>}
                                 <div>
-                                    <CheckboxTooltip onChange={() => {
-                                        setIfNationWide(isNationWide => !isNationWide)
-                                    }}/>
-                                    <label className={"label mt-0"}>Canada-wide Business</label>
-                                    <Tooltip text={INFO_TEXT.NATION_WIDE} toolTipID="nationWide"/>
+                                    <Checkbox label={"Canada-wide Business"}
+                                              toolTipText={INFO_TEXT.NATION_WIDE}
+                                              toolTipID="nationWide"
+                                              onChange={() => {
+                                                  setIfNationWide(isNationWide => !isNationWide)
+                                              }}/>
                                     {!isNationWide &&
                                     <Address label="Searchable Address"
                                              required={true}
