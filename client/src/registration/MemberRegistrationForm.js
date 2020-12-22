@@ -637,6 +637,7 @@ function MemberRegistrationForm(props) {
                                             <div className="column-span-6-layout">
 
                                                 <LabelAsterisk label={"Have a home to share?"}/>
+                                                <Tooltip text={INFO_TEXT.HOME_TO_SHARE} toolTipID="homeToShare"/>
                                                 <YNButtonsTooltip
                                                     name="hasHome"
                                                     required={true}
@@ -644,15 +645,12 @@ function MemberRegistrationForm(props) {
                                                     onChange={(e) => setHasHome(e.target.value)}
                                                 />
                                                 {(hasHome === "yes")
-                                                && <section>
-                                                    <TextArea
+                                                && <TextArea
                                                         className={"input inline w-11/12 "}
                                                         placeholder="Elaborate (optional)"
                                                         onChange={e => setHomeDescription(e.target.value)}
                                                         value={homeDescription}
                                                     />
-                                                    <Tooltip text={INFO_TEXT.HOME_TO_SHARE} toolTipID="homeToShare"/>
-                                                </section>
                                                 }
 
                                             </div>
