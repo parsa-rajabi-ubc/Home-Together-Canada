@@ -279,7 +279,6 @@ const BusinessRegistrationForm = (props) => {
                     setAuthenticated({authenticated: data.authenticated});
 
                     // user is authenticated, redirect to home screen
-                    alert('Business account successfully created!');
                     return history.push('/');
                 } else if (!!data && data.errors && data.errors.length) {
                     const errorMessage = getConcatenatedErrorMessage(data.errors);
@@ -335,7 +334,6 @@ const BusinessRegistrationForm = (props) => {
     return (
         <div>
             <div>
-
                 {/*Business Details*/}
                 <div className="m-10 md:grid md:grid-cols-4 md:gap-0">
                     <div className="md:col-span-1">
@@ -349,12 +347,9 @@ const BusinessRegistrationForm = (props) => {
                             </p>
                         </div>
                     </div>
-
-                    <div
-                        className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
+                    <div className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
                         <div className="grid grid-cols-2 gap-6">
                             <div className="col-span-3 sm:col-span-2">
-
                                 <TextArea
                                     className="mb-0 input"
                                     placeholder="" label="Business Name"

@@ -10,12 +10,12 @@ import PropTypes from "prop-types";
 import GenericInput from "./GenericInput";
 
 function ChangePassword(props) {
-    const {className, onChange, oldPassword, label} = props;
+    const {className, onChange, oldPassword} = props;
     const [newPassword, setNewPassword] = useState("");
     const [confirmNewPassword, setConfirmNewPassword] = useState("");
     return (
         <label>
-            {label}
+            Change Password
             <GenericInput className={className} label="Old Password: " inputType="password" placeholder={oldPassword}/>
             <GenericInput className={className} label="New Password: " inputType="password" onChange={(e)=>{setNewPassword(e.target.value)}}/>
             <GenericInput className={className} label="Confirm New Password: " inputType="password" onChange={(e)=>{setConfirmNewPassword(e.target.value)}}/>
@@ -24,9 +24,8 @@ function ChangePassword(props) {
     );
 }
 ChangePassword.propTypes = {
-    label: PropTypes.string.isRequired,
-    oldPassword: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
+    oldPassword: PropTypes.string,
     className: PropTypes.string
 };
 export default ChangePassword;
