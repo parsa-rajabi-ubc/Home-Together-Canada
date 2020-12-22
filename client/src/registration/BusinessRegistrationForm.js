@@ -157,19 +157,19 @@ const BusinessRegistrationForm = (props) => {
         }
         if (!isNationWide) {
             if (isStringEmpty(bMapAddress.street)) {
-                alert("Business Map Address Street missing");
+                alert("Searchable Address Street missing");
                 return false;
             }
             if (isStringEmpty(bMapAddress.city)) {
-                alert("Business Map Address City missing");
+                alert("Searchable Address City missing");
                 return false;
             }
             if (isStringEmpty(bMapAddress.province)) {
-                alert("Business Map Address Province not selected");
+                alert("Searchable Address Province not selected");
                 return false;
             }
             if (isStringEmpty(bMapAddress.postalCode)) {
-                alert("Business Map Address Postal Code missing");
+                alert("Searchable Address Postal Code missing");
                 return false;
             }
         }
