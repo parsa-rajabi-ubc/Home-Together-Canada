@@ -15,17 +15,15 @@ import Tooltip from "./Tooltip";
 function YNButton(props) {
     const {label, name, onChange, required, toolTipID, toolTipText} = props;
     return (
-        <label>
+        <div>
             <div>
-                <div>
-                    <label className={"label text-base"}>{label}</label>
-                    {(required ? <Asterisk/> : '')}
-                    {toolTipID && <Tooltip text={toolTipText} toolTipID={toolTipID}/>}
-                </div>
-                <RadioButton label="No" name={name} value="no" onChange={onChange}/>
-                <RadioButton label="Yes" name={name} value="yes" onChange={onChange}/>
+                <label className={"label text-base"}>{label}</label>
+                {(required ? <Asterisk/> : '')}
+                {toolTipID && <Tooltip text={toolTipText} toolTipID={toolTipID}/>}
             </div>
-        </label>
+            <RadioButton label="No" name={name} value="no" onChange={onChange}/>
+            <RadioButton label="Yes" name={name} value="yes" onChange={onChange}/>
+        </div>
     );
 }
 

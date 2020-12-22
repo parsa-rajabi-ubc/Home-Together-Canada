@@ -22,7 +22,7 @@ import Status from "../common/forms/Status";
 import ShareLimit from "../common/forms/ShareLimits";
 import InterestedArea from "../common/forms/InterestedArea";
 import YNButton from "../common/forms/YNButtons";
-import LargeTextAreaTooltip from "../common/forms/LargeTextAreaTooltip";
+import LargeTextArea from "../common/forms/LargeTextArea";
 import PropTypes from "prop-types";
 import WorkStatus from "../common/forms/WorkStatus";
 import Asterisk from "../common/forms/Asterisk";
@@ -671,9 +671,10 @@ function MemberRegistrationForm(props) {
                                             </div>
                                         </div>
                                         <div className={"mt-4"}>
-                                            <label className={"label"}>Tell others about yourself</label>
-                                            <Tooltip text={INFO_TEXT.ABOUT} toolTipID="about"/>
-                                            <LargeTextAreaTooltip
+                                            <LargeTextArea
+                                                label={"Tell others about yourself"}
+                                                toolTipText={INFO_TEXT.ABOUT}
+                                                toolTipID="about"
                                                 required={false}
                                                 name="aboutSelf"
                                                 placeholder="Let others know more about your lifestyle, values and why you want to home share"
