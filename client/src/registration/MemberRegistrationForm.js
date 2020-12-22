@@ -325,8 +325,6 @@ function MemberRegistrationForm(props) {
             .then(res => res.json())
             .then(data => {
                 if (!!data && data.authenticated) {
-                    alert('Member account successfully created!');
-
                     // dispatch action to set isAdmin
                     setIsAdmin({isAdmin: data.member ? data.member.isAdmin : false});
 
@@ -444,7 +442,6 @@ function MemberRegistrationForm(props) {
                             </p>
                         </div>
                     </div>
-
                     <div className="mt-5 md:mt-0 md:col-span-2">
                         <div className="overflow-hidden shadow sm:rounded-md">
                             <div className="px-4 py-6 bg-white sm:p-5">
@@ -678,7 +675,6 @@ function MemberRegistrationForm(props) {
                         </div>
                     </div>
                 </div>
-
             </div>
 
 
@@ -712,7 +708,6 @@ function MemberRegistrationForm(props) {
                                 </div>
                             </div>
                         </div>
-
                         <div className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6">
                             <SubmitButton
                                 inputValue={"Create Account"}

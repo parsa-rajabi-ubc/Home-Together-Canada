@@ -15,7 +15,7 @@ const userPrivilegesSlice = createSlice({
     initialState: {
         isAdmin: false,
         accountType: null,
-        authenticated: null
+        authenticated: false
     },
     reducers: {
         setIsAdmin(state, action) {

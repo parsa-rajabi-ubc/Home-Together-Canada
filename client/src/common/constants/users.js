@@ -48,4 +48,12 @@ export const BUSINESS_SUBPAGES = [
         label: 'Manage Listings',
         value: 'Manage Listings'
     }
-]
+];
+
+export const ALL_SUBPAGES = {
+  ACCOUNT_INFO: 'Account Info',
+  PROFILE: 'Profile',
+  PASSWORD: 'Password',
+  MESSAGING: 'Messaging',
+  MANAGE_LISTINGS: 'Manage Listings'
+};
