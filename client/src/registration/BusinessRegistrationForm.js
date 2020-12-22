@@ -364,7 +364,7 @@ const BusinessRegistrationForm = (props) => {
                                 <div className={"my-2"}>
                                     <CheckboxTooltip onChange={() => setIsIncorporated(!isIncorporated)}/>
                                     <label className={"label mt-0"}>Incorporated Business</label>
-                                    <Tooltip text={INFO_TEXT["INC_COMPANY"]}
+                                    <Tooltip text={INFO_TEXT.INC_COMPANY}
                                              toolTipID="incorporated"/>
 
                                     {isIncorporated && <TextArea className="input" label={""}
@@ -408,7 +408,7 @@ const BusinessRegistrationForm = (props) => {
                                 <CheckboxTooltip
                                     onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}/>
                                 <label className={"label mt-0"}>Different Mailing Address</label>
-                                <Tooltip text={INFO_TEXT["DIFF_MAILING_ADDRESS"]}
+                                <Tooltip text={INFO_TEXT.DIFF_MAILING_ADDRESS}
                                          toolTipID="differentMailingAddress"/>
                                 {useDifferentMailingAddress &&
                                 <Address label="Business Mailing Address"
@@ -419,7 +419,7 @@ const BusinessRegistrationForm = (props) => {
                                         setIfNationWide(isNationWide => !isNationWide)
                                     }}/>
                                     <label className={"label mt-0"}>Canada-wide Business</label>
-                                    <Tooltip text={INFO_TEXT["NATION_WIDE"]} toolTipID="nationWide"/>
+                                    <Tooltip text={INFO_TEXT.NATION_WIDE} toolTipID="nationWide"/>
                                     {!isNationWide &&
                                     <Address label="Searchable Address"
                                              required={true}
@@ -429,7 +429,7 @@ const BusinessRegistrationForm = (props) => {
                         </div>
 
                         <label className="label"> Business Logo </label>
-                        <Tooltip text={INFO_TEXT["BUSINESS_LOGO"]} toolTipID="businessLogo"/>
+                        <Tooltip text={INFO_TEXT.BUSINESS_LOGO} toolTipID="businessLogo"/>
                         <div
                             className="flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                             <div className="space-y-1 text-center">

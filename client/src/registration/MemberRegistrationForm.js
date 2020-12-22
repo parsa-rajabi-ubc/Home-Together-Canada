@@ -399,7 +399,7 @@ function MemberRegistrationForm(props) {
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                             <LabelAsterisk label={"Year of Birth"}/>
-                            <Tooltip text={INFO_TEXT["YEAR_OF_BIRTH"]} toolTipID="yearOfBirth"/>
+                            <Tooltip text={INFO_TEXT.YEAR_OF_BIRTH} toolTipID="yearOfBirth"/>
                             <BirthYear label={"Year of Birth"} onChange={handleYearChange}/>
                             <PhoneNumInput
                                 className="w-1/4 phone"
@@ -417,7 +417,7 @@ function MemberRegistrationForm(props) {
                                 onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}
                             />
                             <label className={"label mt-0"}>Different Mailing Address</label>
-                            <Tooltip text={INFO_TEXT["DIFF_MAILING_ADDRESS"]} toolTipID="differentMailingAddress"/>
+                            <Tooltip text={INFO_TEXT.DIFF_MAILING_ADDRESS} toolTipID="differentMailingAddress"/>
                             {useDifferentMailingAddress &&
                             <Address
                                 label="Mailing Address"
@@ -483,7 +483,7 @@ function MemberRegistrationForm(props) {
                                             />}
                                         </div>
                                         <LabelAsterisk label={"Family Status"}/>
-                                        <Tooltip text={INFO_TEXT["FAMILY_STATUS"]} toolTipID="familyStatus"/>
+                                        <Tooltip text={INFO_TEXT.FAMILY_STATUS} toolTipID="familyStatus"/>
                                         <Status onChange={handleFamilyStatusChange}/>
                                         {checkStatus(selectedFamilyStatus)}
 
@@ -491,11 +491,11 @@ function MemberRegistrationForm(props) {
                                         <WorkStatus onChange={handleWorkStatusChange}/>
 
                                         <LabelAsterisk label={"Open to Sharing With"}/>
-                                        <Tooltip text={INFO_TEXT["NUM_PEOPLE_SHARE"]} toolTipID="numPeopleToShare"/>
+                                        <Tooltip text={INFO_TEXT.NUM_PEOPLE_SHARE} toolTipID="numPeopleToShare"/>
                                         <ShareLimit onChange={handleLimitChange}/>
 
                                         <LabelAsterisk label={"Monthly Rent"}/>
-                                        <Tooltip text={INFO_TEXT["RENT"]} toolTipID="rent"/>
+                                        <Tooltip text={INFO_TEXT.RENT} toolTipID="rent"/>
 
                                         <div className="grid grid-cols-6 gap-x-6">
                                             <div className="column-span-6-layout">
@@ -521,13 +521,13 @@ function MemberRegistrationForm(props) {
                                         </div>
 
                                         <LabelAsterisk label={"Preferred Living Location(s)"}/>
-                                        <Tooltip text={INFO_TEXT["INTERESTED_AREA"]} toolTipID="interestedArea"/>
+                                        <Tooltip text={INFO_TEXT.INTERESTED_AREA} toolTipID="interestedArea"/>
                                         <InterestedArea onChange={setAreasOfInterest}/>
 
                                         <div className="grid grid-cols-6 gap-x-6">
                                             <div className="column-span-6-layout">
                                                 <LabelAsterisk label={"Pet Friendly?"}/>
-                                                <Tooltip text={INFO_TEXT["PET"]} toolTipID="pet"/>
+                                                <Tooltip text={INFO_TEXT.PET} toolTipID="pet"/>
                                                 <YNButtonsTooltip
                                                     name="petFriendly"
                                                     required={true}
@@ -545,7 +545,7 @@ function MemberRegistrationForm(props) {
                                             <div className="column-span-6-layout">
 
                                                 <LabelAsterisk label={"Smoke Friendly?"}/>
-                                                <Tooltip text={INFO_TEXT["SMOKE"]} toolTipID="smoke"/>
+                                                <Tooltip text={INFO_TEXT.SMOKE} toolTipID="smoke"/>
                                                 <YNButtonsTooltip
                                                     name="smoking"
                                                     required={true}
@@ -563,7 +563,7 @@ function MemberRegistrationForm(props) {
                                             <div className="column-span-6-layout">
 
                                                 <LabelAsterisk label={"Health / Mobility Issues?"}/>
-                                                <Tooltip text={INFO_TEXT["HEALTH"]} toolTipID="health"/>
+                                                <Tooltip text={INFO_TEXT.HEALTH} toolTipID="health"/>
                                                 <YNButtonsTooltip
                                                     name="mobile"
                                                     required={true}
@@ -599,7 +599,7 @@ function MemberRegistrationForm(props) {
                                             <div className="column-span-6-layout">
 
                                                 <LabelAsterisk label={"Is religion important?"}/>
-                                                <Tooltip text={INFO_TEXT["RELIGION"]} toolTipID="religion"/>
+                                                <Tooltip text={INFO_TEXT.RELIGION} toolTipID="religion"/>
                                                 <YNButtonsTooltip
                                                     name="religion"
                                                     required={true}
@@ -618,7 +618,7 @@ function MemberRegistrationForm(props) {
                                             <div className="column-span-6-layout">
 
                                                 <LabelAsterisk label={"Is diet of others important?"}/>
-                                                <Tooltip text={INFO_TEXT["DIET"]} toolTipID="diet"/>
+                                                <Tooltip text={INFO_TEXT.DIET} toolTipID="diet"/>
                                                 <YNButtonsTooltip
                                                     name="diet"
                                                     required={true}
@@ -651,7 +651,7 @@ function MemberRegistrationForm(props) {
                                                         onChange={e => setHomeDescription(e.target.value)}
                                                         value={homeDescription}
                                                     />
-                                                    <Tooltip text={INFO_TEXT["HOME_TO_SHARE"]} toolTipID="homeToShare"/>
+                                                    <Tooltip text={INFO_TEXT.HOME_TO_SHARE} toolTipID="homeToShare"/>
                                                 </section>
                                                 }
 
@@ -675,7 +675,7 @@ function MemberRegistrationForm(props) {
                                         </div>
                                         <div className={"mt-4"}>
                                             <label className={"label"}>Tell others about yourself</label>
-                                            <Tooltip text={INFO_TEXT["ABOUT"]} toolTipID="about"/>
+                                            <Tooltip text={INFO_TEXT.ABOUT} toolTipID="about"/>
                                             <LargeTextAreaTooltip
                                                 required={false}
                                                 name="aboutSelf"
