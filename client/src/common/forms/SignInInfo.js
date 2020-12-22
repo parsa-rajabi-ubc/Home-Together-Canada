@@ -23,12 +23,12 @@ function SignInInfo(props){
         <div>
             <label>
                 <LabelAsterisk label={"Username"}/>
-                <Tooltip text={INFO_TEXT["USERNAME"]} toolTipID="username"/>
+                <Tooltip text={INFO_TEXT.USERNAME} toolTipID="username"/>
                 <input className={"input"} type="text" placeholder="" onChange= {onChangeUsername}/>
             </label>
             <label>
             <LabelAsterisk label={"Password"}/>
-                <Tooltip text={INFO_TEXT["PASSWORD"]} toolTipID="password"/>
+                <Tooltip text={INFO_TEXT.PASSWORD} toolTipID="password"/>
                 <input className={"input"} type="password" placeholder="" onChange= {onChangePassword}/>
             </label>
             <label>
