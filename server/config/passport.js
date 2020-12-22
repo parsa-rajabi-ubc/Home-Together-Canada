@@ -151,6 +151,12 @@ module.exports = function (passport) {
                     });
                 }
 
+                if (user.isBanned) {
+                    return done(null, false, {
+                        message: 'Account is frozen. Please contact Home Together Canada for more information.'
+                    });
+                }
+
                 const userinfo = user.get();
                 return done(null, userinfo);
 

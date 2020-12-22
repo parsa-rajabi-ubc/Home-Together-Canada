@@ -74,9 +74,10 @@ function LoginForm(props) {
 
                     // user is authenticated, redirect to home screen
                     return history.push('/');
+
                 } else if (!!data && !data.authenticated) {
                     // something went wrong with authentication
-                    alert('Login failed');
+                    alert('Login failed. Please try again and contact Home Together if the issue persists.');
                 } else if (!!data && data.errors && data.errors.length) {
                     const errorMessage = getConcatenatedErrorMessage(data.errors);
                     // show list of all errors
