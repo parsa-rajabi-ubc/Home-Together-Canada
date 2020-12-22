@@ -373,22 +373,28 @@ const BusinessRegistrationForm = (props) => {
                                                                  labelClassName={"label"}
                                                                  onChange={(e) => setIncorporatedOwnersNames(e.target.value)}/>}
                                 </div>
-                                <TextArea className="input"
-                                          placeholder="business@email.ca"
-                                          autoComplete={"email"}
-                                          label="Business Email"
-                                          labelClassName={"label"}
-                                          required={true}
-                                          onChange={(e) => {
-                                              setBEmail(e.target.value)
-                                          }}/>
-                                <TextArea className="input"
-                                          placeholder="http://www.your-website.com"
-                                          optional={true}
-                                          autoComplete={"url"}
-                                          label="Business Website"
-                                          labelClassName={"label"}
-                                          onChange={e => setWebsite(e.target.value)}/>
+                                <div className="grid grid-cols-2 gap-6">
+                                    <div className="col-span-1">
+                                        <TextArea className="input"
+                                                  placeholder="business@email.ca"
+                                                  autoComplete={"email"}
+                                                  label="Business Email"
+                                                  labelClassName={"label"}
+                                                  required={true}
+                                                  onChange={(e) => {
+                                                      setBEmail(e.target.value)
+                                                  }}/>
+                                    </div>
+                                    <div className="col-span-1">
+                                        <TextArea className="input"
+                                                  placeholder="http://www.your-website.com"
+                                                  optional={true}
+                                                  autoComplete={"url"}
+                                                  label="Business Website"
+                                                  labelClassName={"label"}
+                                                  onChange={e => setWebsite(e.target.value)}/>
+                                    </div>
+                                </div>
                                 <PhoneNumInput
                                     className="phone"
                                     required={true}
