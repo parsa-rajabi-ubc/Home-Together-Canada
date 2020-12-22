@@ -468,36 +468,35 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
               className="label"
             >
               Address
-               
-              <svg
-                className="inline align-top text-red-600"
-                fill="none"
-                height="1em"
-                stroke="currentColor"
-                strokeWidth="0"
-                style={
-                  Object {
-                    "color": undefined,
-                  }
-                }
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                  fill="currentColor"
-                />
-              </svg>
-              <input
-                autoComplete="address-line1"
-                className="input"
-                name="street"
-                onChange={[Function]}
-                placeholder="Address Line 1"
-                type="text"
-              />
             </label>
+            <svg
+              className="inline align-top text-red-600"
+              fill="none"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                fill="currentColor"
+              />
+            </svg>
+            <input
+              autoComplete="address-line1"
+              className="input"
+              name="street"
+              onChange={[Function]}
+              placeholder="Address Line 1"
+              type="text"
+            />
             <label>
               <input
                 autoComplete="address-line2"
@@ -634,54 +633,53 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
               />
             </label>
           </div>
-          <label>
+          <div>
             <input
-              className="align-middle mt-3 mr-1 my-4 font-medium text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
+              className=" align-middle mr-2 my-4 font-medium text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
               onChange={[Function]}
               type="checkbox"
             />
-          </label>
-          <label
-            className="label mt-0"
-          >
-            Different Mailing Address
-          </label>
-          <span>
-            <a
-              data-for="differentMailingAddress"
-              data-tip={true}
+            <label
+              className="label"
             >
-              <svg
-                className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
-                fill="currentColor"
-                height="1em"
-                stroke="currentColor"
-                strokeWidth="0"
-                style={
-                  Object {
-                    "color": undefined,
-                  }
-                }
-                viewBox="0 0 16 16"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
+              Different Mailing Address
+            </label>
+            <span>
+              <a
+                data-for="differentMailingAddress"
+                data-tip={true}
               >
-                <path
-                  clipRule="evenodd"
-                  d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                  fillRule="evenodd"
-                />
-              </svg>
-            </a>
-            <div
-              className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-              data-id="tooltip"
-              id="differentMailingAddress"
-            >
-              <style
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "
+                <svg
+                  className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": undefined,
+                    }
+                  }
+                  viewBox="0 0 16 16"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clipRule="evenodd"
+                    d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                    fillRule="evenodd"
+                  />
+                </svg>
+              </a>
+              <div
+                className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
+                data-id="tooltip"
+                id="differentMailingAddress"
+              >
+                <style
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "
   	.t00000000-0000-0000-0000-000000000000 {
 	    color: #fff;
 	    background: #222;
@@ -756,12 +754,13 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
         border-right-width: 6px;
     }
   ",
+                    }
                   }
-                }
-              />
-              Select this checkbox if your mailing address differs from the address above
-            </div>
-          </span>
+                />
+                Select this checkbox if your mailing address differs from the address above
+              </div>
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -1977,1194 +1976,1204 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                   <div
                     className="column-span-6-layout"
                   >
-                    <label
-                      className="label"
-                    >
-                      Pet Friendly?
-                       
-                      <svg
-                        className="inline align-top text-red-600"
-                        fill="none"
-                        height="1em"
-                        stroke="currentColor"
-                        strokeWidth="0"
-                        style={
-                          Object {
-                            "color": undefined,
-                          }
-                        }
-                        viewBox="0 0 24 24"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </label>
-                    <span>
-                      <a
-                        data-for="pet"
-                        data-tip={true}
-                      >
-                        <svg
-                          className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
-                          fill="currentColor"
-                          height="1em"
-                          stroke="currentColor"
-                          strokeWidth="0"
-                          style={
-                            Object {
-                              "color": undefined,
-                            }
-                          }
-                          viewBox="0 0 16 16"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            clipRule="evenodd"
-                            d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                            fillRule="evenodd"
-                          />
-                        </svg>
-                      </a>
-                      <div
-                        className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-                        data-id="tooltip"
-                        id="pet"
-                      >
-                        <style
-                          dangerouslySetInnerHTML={
-                            Object {
-                              "__html": "
-  	.t00000000-0000-0000-0000-000000000000 {
-	    color: #fff;
-	    background: #222;
-	    border: 1px solid transparent;
-  	}
-
-  	.t00000000-0000-0000-0000-000000000000.place-top {
-        margin-top: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
-        border-top: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        bottom: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
-        margin-top: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
-        border-bottom: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        top: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-left {
-        margin-left: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
-        border-left: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        right: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-right {
-        margin-left: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
-        border-right: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        left: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
-    }
-  ",
-                            }
-                          }
-                        />
-                        You either have a pet or are open to living with pets
-                      </div>
-                    </span>
                     <div>
-                      <label
-                        className="text-base text-gray-700 pr-8"
-                      >
-                        <input
-                          className="form-radio mt-2 ml-2 mr-1 mb-4"
-                          name="petFriendly"
-                          onChange={[Function]}
-                          type="radio"
-                          value="no"
-                        />
-                        No
-                      </label>
-                      <label
-                        className="text-base text-gray-700 pr-8"
-                      >
-                        <input
-                          className="form-radio mt-2 ml-2 mr-1 mb-4"
-                          name="petFriendly"
-                          onChange={[Function]}
-                          type="radio"
-                          value="yes"
-                        />
-                        Yes
-                      </label>
-                    </div>
-                  </div>
-                  <div
-                    className="column-span-6-layout"
-                  >
-                    <label
-                      className="label"
-                    >
-                      Smoke Friendly?
-                       
-                      <svg
-                        className="inline align-top text-red-600"
-                        fill="none"
-                        height="1em"
-                        stroke="currentColor"
-                        strokeWidth="0"
-                        style={
-                          Object {
-                            "color": undefined,
-                          }
-                        }
-                        viewBox="0 0 24 24"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </label>
-                    <span>
-                      <a
-                        data-for="smoke"
-                        data-tip={true}
-                      >
-                        <svg
-                          className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
-                          fill="currentColor"
-                          height="1em"
-                          stroke="currentColor"
-                          strokeWidth="0"
-                          style={
-                            Object {
-                              "color": undefined,
-                            }
-                          }
-                          viewBox="0 0 16 16"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            clipRule="evenodd"
-                            d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                            fillRule="evenodd"
-                          />
-                        </svg>
-                      </a>
-                      <div
-                        className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-                        data-id="tooltip"
-                        id="smoke"
-                      >
-                        <style
-                          dangerouslySetInnerHTML={
-                            Object {
-                              "__html": "
-  	.t00000000-0000-0000-0000-000000000000 {
-	    color: #fff;
-	    background: #222;
-	    border: 1px solid transparent;
-  	}
-
-  	.t00000000-0000-0000-0000-000000000000.place-top {
-        margin-top: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
-        border-top: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        bottom: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
-        margin-top: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
-        border-bottom: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        top: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-left {
-        margin-left: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
-        border-left: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        right: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-right {
-        margin-left: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
-        border-right: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        left: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
-    }
-  ",
-                            }
-                          }
-                        />
-                        You either smoke yourself or are open to living with people who smoke
-                      </div>
-                    </span>
-                    <div>
-                      <label
-                        className="text-base text-gray-700 pr-8"
-                      >
-                        <input
-                          className="form-radio mt-2 ml-2 mr-1 mb-4"
-                          name="smoking"
-                          onChange={[Function]}
-                          type="radio"
-                          value="no"
-                        />
-                        No
-                      </label>
-                      <label
-                        className="text-base text-gray-700 pr-8"
-                      >
-                        <input
-                          className="form-radio mt-2 ml-2 mr-1 mb-4"
-                          name="smoking"
-                          onChange={[Function]}
-                          type="radio"
-                          value="yes"
-                        />
-                        Yes
-                      </label>
-                    </div>
-                  </div>
-                  <div
-                    className="column-span-6-layout"
-                  >
-                    <label
-                      className="label"
-                    >
-                      Health / Mobility Issues?
-                       
-                      <svg
-                        className="inline align-top text-red-600"
-                        fill="none"
-                        height="1em"
-                        stroke="currentColor"
-                        strokeWidth="0"
-                        style={
-                          Object {
-                            "color": undefined,
-                          }
-                        }
-                        viewBox="0 0 24 24"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </label>
-                    <span>
-                      <a
-                        data-for="health"
-                        data-tip={true}
-                      >
-                        <svg
-                          className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
-                          fill="currentColor"
-                          height="1em"
-                          stroke="currentColor"
-                          strokeWidth="0"
-                          style={
-                            Object {
-                              "color": undefined,
-                            }
-                          }
-                          viewBox="0 0 16 16"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            clipRule="evenodd"
-                            d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                            fillRule="evenodd"
-                          />
-                        </svg>
-                      </a>
-                      <div
-                        className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-                        data-id="tooltip"
-                        id="health"
-                      >
-                        <style
-                          dangerouslySetInnerHTML={
-                            Object {
-                              "__html": "
-  	.t00000000-0000-0000-0000-000000000000 {
-	    color: #fff;
-	    background: #222;
-	    border: 1px solid transparent;
-  	}
-
-  	.t00000000-0000-0000-0000-000000000000.place-top {
-        margin-top: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
-        border-top: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        bottom: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
-        margin-top: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
-        border-bottom: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        top: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-left {
-        margin-left: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
-        border-left: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        right: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-right {
-        margin-left: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
-        border-right: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        left: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
-    }
-  ",
-                            }
-                          }
-                        />
-                        Health and mobility issues that are relevant to roommates
-                      </div>
-                    </span>
-                    <div>
-                      <label
-                        className="text-base text-gray-700 pr-8"
-                      >
-                        <input
-                          className="form-radio mt-2 ml-2 mr-1 mb-4"
-                          name="mobile"
-                          onChange={[Function]}
-                          type="radio"
-                          value="no"
-                        />
-                        No
-                      </label>
-                      <label
-                        className="text-base text-gray-700 pr-8"
-                      >
-                        <input
-                          className="form-radio mt-2 ml-2 mr-1 mb-4"
-                          name="mobile"
-                          onChange={[Function]}
-                          type="radio"
-                          value="yes"
-                        />
-                        Yes
-                      </label>
-                    </div>
-                  </div>
-                  <div
-                    className="column-span-6-layout"
-                  >
-                    <label
-                      className="label"
-                    >
-                      Allergies
-                       
-                      <svg
-                        className="inline align-top text-red-600"
-                        fill="none"
-                        height="1em"
-                        stroke="currentColor"
-                        strokeWidth="0"
-                        style={
-                          Object {
-                            "color": undefined,
-                          }
-                        }
-                        viewBox="0 0 24 24"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </label>
-                    <div>
-                      <label
-                        className="text-base text-gray-700 pr-8"
-                      >
-                        <input
-                          className="form-radio mt-2 ml-2 mr-1 mb-4"
-                          name="allergies"
-                          onChange={[Function]}
-                          type="radio"
-                          value="no"
-                        />
-                        No
-                      </label>
-                      <label
-                        className="text-base text-gray-700 pr-8"
-                      >
-                        <input
-                          className="form-radio mt-2 ml-2 mr-1 mb-4"
-                          name="allergies"
-                          onChange={[Function]}
-                          type="radio"
-                          value="yes"
-                        />
-                        Yes
-                      </label>
-                    </div>
-                  </div>
-                  <div
-                    className="column-span-6-layout"
-                  >
-                    <label
-                      className="label"
-                    >
-                      Is religion important?
-                       
-                      <svg
-                        className="inline align-top text-red-600"
-                        fill="none"
-                        height="1em"
-                        stroke="currentColor"
-                        strokeWidth="0"
-                        style={
-                          Object {
-                            "color": undefined,
-                          }
-                        }
-                        viewBox="0 0 24 24"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </label>
-                    <span>
-                      <a
-                        data-for="religion"
-                        data-tip={true}
-                      >
-                        <svg
-                          className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
-                          fill="currentColor"
-                          height="1em"
-                          stroke="currentColor"
-                          strokeWidth="0"
-                          style={
-                            Object {
-                              "color": undefined,
-                            }
-                          }
-                          viewBox="0 0 16 16"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            clipRule="evenodd"
-                            d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                            fillRule="evenodd"
-                          />
-                        </svg>
-                      </a>
-                      <div
-                        className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-                        data-id="tooltip"
-                        id="religion"
-                      >
-                        <style
-                          dangerouslySetInnerHTML={
-                            Object {
-                              "__html": "
-  	.t00000000-0000-0000-0000-000000000000 {
-	    color: #fff;
-	    background: #222;
-	    border: 1px solid transparent;
-  	}
-
-  	.t00000000-0000-0000-0000-000000000000.place-top {
-        margin-top: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
-        border-top: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        bottom: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
-        margin-top: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
-        border-bottom: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        top: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-left {
-        margin-left: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
-        border-left: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        right: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-right {
-        margin-left: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
-        border-right: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        left: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
-    }
-  ",
-                            }
-                          }
-                        />
-                        Religious compatibility is important to you
-                      </div>
-                    </span>
-                    <div>
-                      <label
-                        className="text-base text-gray-700 pr-8"
-                      >
-                        <input
-                          className="form-radio mt-2 ml-2 mr-1 mb-4"
-                          name="religion"
-                          onChange={[Function]}
-                          type="radio"
-                          value="no"
-                        />
-                        No
-                      </label>
-                      <label
-                        className="text-base text-gray-700 pr-8"
-                      >
-                        <input
-                          className="form-radio mt-2 ml-2 mr-1 mb-4"
-                          name="religion"
-                          onChange={[Function]}
-                          type="radio"
-                          value="yes"
-                        />
-                        Yes
-                      </label>
-                    </div>
-                  </div>
-                  <div
-                    className="column-span-6-layout"
-                  >
-                    <label
-                      className="label"
-                    >
-                      Is diet of others important?
-                       
-                      <svg
-                        className="inline align-top text-red-600"
-                        fill="none"
-                        height="1em"
-                        stroke="currentColor"
-                        strokeWidth="0"
-                        style={
-                          Object {
-                            "color": undefined,
-                          }
-                        }
-                        viewBox="0 0 24 24"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </label>
-                    <span>
-                      <a
-                        data-for="diet"
-                        data-tip={true}
-                      >
-                        <svg
-                          className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
-                          fill="currentColor"
-                          height="1em"
-                          stroke="currentColor"
-                          strokeWidth="0"
-                          style={
-                            Object {
-                              "color": undefined,
-                            }
-                          }
-                          viewBox="0 0 16 16"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            clipRule="evenodd"
-                            d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                            fillRule="evenodd"
-                          />
-                        </svg>
-                      </a>
-                      <div
-                        className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-                        data-id="tooltip"
-                        id="diet"
-                      >
-                        <style
-                          dangerouslySetInnerHTML={
-                            Object {
-                              "__html": "
-  	.t00000000-0000-0000-0000-000000000000 {
-	    color: #fff;
-	    background: #222;
-	    border: 1px solid transparent;
-  	}
-
-  	.t00000000-0000-0000-0000-000000000000.place-top {
-        margin-top: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
-        border-top: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        bottom: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
-        margin-top: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
-        border-bottom: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        top: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-left {
-        margin-left: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
-        border-left: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        right: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-right {
-        margin-left: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
-        border-right: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        left: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
-    }
-  ",
-                            }
-                          }
-                        />
-                        The diet of your roommate(s) is important to you
-                      </div>
-                    </span>
-                    <div>
-                      <label
-                        className="text-base text-gray-700 pr-8"
-                      >
-                        <input
-                          className="form-radio mt-2 ml-2 mr-1 mb-4"
-                          name="diet"
-                          onChange={[Function]}
-                          type="radio"
-                          value="no"
-                        />
-                        No
-                      </label>
-                      <label
-                        className="text-base text-gray-700 pr-8"
-                      >
-                        <input
-                          className="form-radio mt-2 ml-2 mr-1 mb-4"
-                          name="diet"
-                          onChange={[Function]}
-                          type="radio"
-                          value="yes"
-                        />
-                        Yes
-                      </label>
-                    </div>
-                  </div>
-                  <div
-                    className="column-span-6-layout"
-                  >
-                    <label
-                      className="label"
-                    >
-                      Have a home to share?
-                       
-                      <svg
-                        className="inline align-top text-red-600"
-                        fill="none"
-                        height="1em"
-                        stroke="currentColor"
-                        strokeWidth="0"
-                        style={
-                          Object {
-                            "color": undefined,
-                          }
-                        }
-                        viewBox="0 0 24 24"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </label>
-                    <span>
-                      <a
-                        data-for="homeToShare"
-                        data-tip={true}
-                      >
-                        <svg
-                          className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
-                          fill="currentColor"
-                          height="1em"
-                          stroke="currentColor"
-                          strokeWidth="0"
-                          style={
-                            Object {
-                              "color": undefined,
-                            }
-                          }
-                          viewBox="0 0 16 16"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            clipRule="evenodd"
-                            d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                            fillRule="evenodd"
-                          />
-                        </svg>
-                      </a>
-                      <div
-                        className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-                        data-id="tooltip"
-                        id="homeToShare"
-                      >
-                        <style
-                          dangerouslySetInnerHTML={
-                            Object {
-                              "__html": "
-  	.t00000000-0000-0000-0000-000000000000 {
-	    color: #fff;
-	    background: #222;
-	    border: 1px solid transparent;
-  	}
-
-  	.t00000000-0000-0000-0000-000000000000.place-top {
-        margin-top: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
-        border-top: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        bottom: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
-        margin-top: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
-        border-bottom: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        top: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-left {
-        margin-left: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
-        border-left: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        right: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-right {
-        margin-left: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
-        border-right: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        left: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
-    }
-  ",
-                            }
-                          }
-                        />
-                        If you have a home to share, we recommend that you also create a free listing in addition to providing a short description below
-                      </div>
-                    </span>
-                    <div>
-                      <label
-                        className="text-base text-gray-700 pr-8"
-                      >
-                        <input
-                          className="form-radio mt-2 ml-2 mr-1 mb-4"
-                          name="hasHome"
-                          onChange={[Function]}
-                          type="radio"
-                          value="no"
-                        />
-                        No
-                      </label>
-                      <label
-                        className="text-base text-gray-700 pr-8"
-                      >
-                        <input
-                          className="form-radio mt-2 ml-2 mr-1 mb-4"
-                          name="hasHome"
-                          onChange={[Function]}
-                          type="radio"
-                          value="yes"
-                        />
-                        Yes
-                      </label>
-                    </div>
-                  </div>
-                  <div
-                    className="column-span-6-layout"
-                  >
-                    <label>
                       <div>
-                        <div
-                          className="label text-base "
+                        <label
+                          className="label text-base"
+                        >
+                          Pet Friendly?
+                        </label>
+                        <svg
+                          className="inline align-top text-red-600"
+                          fill="none"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 24 24"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                        <span>
+                          <a
+                            data-for="pet"
+                            data-tip={true}
+                          >
+                            <svg
+                              className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
+                              fill="currentColor"
+                              height="1em"
+                              stroke="currentColor"
+                              strokeWidth="0"
+                              style={
+                                Object {
+                                  "color": undefined,
+                                }
+                              }
+                              viewBox="0 0 16 16"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                clipRule="evenodd"
+                                d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                                fillRule="evenodd"
+                              />
+                            </svg>
+                          </a>
+                          <div
+                            className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
+                            data-id="tooltip"
+                            id="pet"
+                          >
+                            <style
+                              dangerouslySetInnerHTML={
+                                Object {
+                                  "__html": "
+  	.t00000000-0000-0000-0000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-0000-0000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                                }
+                              }
+                            />
+                            You either have a pet or are open to living with pets
+                          </div>
+                        </span>
+                      </div>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="petFriendly"
+                          onChange={[Function]}
+                          type="radio"
+                          value="no"
+                        />
+                        No
+                      </label>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="petFriendly"
+                          onChange={[Function]}
+                          type="radio"
+                          value="yes"
+                        />
+                        Yes
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    className="column-span-6-layout"
+                  >
+                    <div>
+                      <div>
+                        <label
+                          className="label text-base"
+                        >
+                          Smoke Friendly?
+                        </label>
+                        <svg
+                          className="inline align-top text-red-600"
+                          fill="none"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 24 24"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                        <span>
+                          <a
+                            data-for="smoke"
+                            data-tip={true}
+                          >
+                            <svg
+                              className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
+                              fill="currentColor"
+                              height="1em"
+                              stroke="currentColor"
+                              strokeWidth="0"
+                              style={
+                                Object {
+                                  "color": undefined,
+                                }
+                              }
+                              viewBox="0 0 16 16"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                clipRule="evenodd"
+                                d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                                fillRule="evenodd"
+                              />
+                            </svg>
+                          </a>
+                          <div
+                            className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
+                            data-id="tooltip"
+                            id="smoke"
+                          >
+                            <style
+                              dangerouslySetInnerHTML={
+                                Object {
+                                  "__html": "
+  	.t00000000-0000-0000-0000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-0000-0000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                                }
+                              }
+                            />
+                            You either smoke yourself or are open to living with people who smoke
+                          </div>
+                        </span>
+                      </div>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="smoking"
+                          onChange={[Function]}
+                          type="radio"
+                          value="no"
+                        />
+                        No
+                      </label>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="smoking"
+                          onChange={[Function]}
+                          type="radio"
+                          value="yes"
+                        />
+                        Yes
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    className="column-span-6-layout"
+                  >
+                    <div>
+                      <div>
+                        <label
+                          className="label text-base"
+                        >
+                          Health / Mobility Issues?
+                        </label>
+                        <svg
+                          className="inline align-top text-red-600"
+                          fill="none"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 24 24"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                        <span>
+                          <a
+                            data-for="health"
+                            data-tip={true}
+                          >
+                            <svg
+                              className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
+                              fill="currentColor"
+                              height="1em"
+                              stroke="currentColor"
+                              strokeWidth="0"
+                              style={
+                                Object {
+                                  "color": undefined,
+                                }
+                              }
+                              viewBox="0 0 16 16"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                clipRule="evenodd"
+                                d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                                fillRule="evenodd"
+                              />
+                            </svg>
+                          </a>
+                          <div
+                            className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
+                            data-id="tooltip"
+                            id="health"
+                          >
+                            <style
+                              dangerouslySetInnerHTML={
+                                Object {
+                                  "__html": "
+  	.t00000000-0000-0000-0000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-0000-0000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                                }
+                              }
+                            />
+                            Health and mobility issues that are relevant to roommates
+                          </div>
+                        </span>
+                      </div>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="mobile"
+                          onChange={[Function]}
+                          type="radio"
+                          value="no"
+                        />
+                        No
+                      </label>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="mobile"
+                          onChange={[Function]}
+                          type="radio"
+                          value="yes"
+                        />
+                        Yes
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    className="column-span-6-layout"
+                  >
+                    <div>
+                      <div>
+                        <label
+                          className="label text-base"
+                        >
+                          Allergies
+                        </label>
+                        <svg
+                          className="inline align-top text-red-600"
+                          fill="none"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 24 24"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </div>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="allergies"
+                          onChange={[Function]}
+                          type="radio"
+                          value="no"
+                        />
+                        No
+                      </label>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="allergies"
+                          onChange={[Function]}
+                          type="radio"
+                          value="yes"
+                        />
+                        Yes
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    className="column-span-6-layout"
+                  >
+                    <div>
+                      <div>
+                        <label
+                          className="label text-base"
+                        >
+                          Is religion important?
+                        </label>
+                        <svg
+                          className="inline align-top text-red-600"
+                          fill="none"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 24 24"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                        <span>
+                          <a
+                            data-for="religion"
+                            data-tip={true}
+                          >
+                            <svg
+                              className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
+                              fill="currentColor"
+                              height="1em"
+                              stroke="currentColor"
+                              strokeWidth="0"
+                              style={
+                                Object {
+                                  "color": undefined,
+                                }
+                              }
+                              viewBox="0 0 16 16"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                clipRule="evenodd"
+                                d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                                fillRule="evenodd"
+                              />
+                            </svg>
+                          </a>
+                          <div
+                            className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
+                            data-id="tooltip"
+                            id="religion"
+                          >
+                            <style
+                              dangerouslySetInnerHTML={
+                                Object {
+                                  "__html": "
+  	.t00000000-0000-0000-0000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-0000-0000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                                }
+                              }
+                            />
+                            Religious compatibility is important to you
+                          </div>
+                        </span>
+                      </div>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="religion"
+                          onChange={[Function]}
+                          type="radio"
+                          value="no"
+                        />
+                        No
+                      </label>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="religion"
+                          onChange={[Function]}
+                          type="radio"
+                          value="yes"
+                        />
+                        Yes
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    className="column-span-6-layout"
+                  >
+                    <div>
+                      <div>
+                        <label
+                          className="label text-base"
+                        >
+                          Is diet of others important?
+                        </label>
+                        <svg
+                          className="inline align-top text-red-600"
+                          fill="none"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 24 24"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                        <span>
+                          <a
+                            data-for="diet"
+                            data-tip={true}
+                          >
+                            <svg
+                              className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
+                              fill="currentColor"
+                              height="1em"
+                              stroke="currentColor"
+                              strokeWidth="0"
+                              style={
+                                Object {
+                                  "color": undefined,
+                                }
+                              }
+                              viewBox="0 0 16 16"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                clipRule="evenodd"
+                                d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                                fillRule="evenodd"
+                              />
+                            </svg>
+                          </a>
+                          <div
+                            className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
+                            data-id="tooltip"
+                            id="diet"
+                          >
+                            <style
+                              dangerouslySetInnerHTML={
+                                Object {
+                                  "__html": "
+  	.t00000000-0000-0000-0000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-0000-0000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                                }
+                              }
+                            />
+                            The diet of your roommate(s) is important to you
+                          </div>
+                        </span>
+                      </div>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="diet"
+                          onChange={[Function]}
+                          type="radio"
+                          value="no"
+                        />
+                        No
+                      </label>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="diet"
+                          onChange={[Function]}
+                          type="radio"
+                          value="yes"
+                        />
+                        Yes
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    className="column-span-6-layout"
+                  >
+                    <div>
+                      <div>
+                        <label
+                          className="label text-base"
+                        >
+                          Have a home to share?
+                        </label>
+                        <svg
+                          className="inline align-top text-red-600"
+                          fill="none"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 24 24"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                        <span>
+                          <a
+                            data-for="homeToShare"
+                            data-tip={true}
+                          >
+                            <svg
+                              className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
+                              fill="currentColor"
+                              height="1em"
+                              stroke="currentColor"
+                              strokeWidth="0"
+                              style={
+                                Object {
+                                  "color": undefined,
+                                }
+                              }
+                              viewBox="0 0 16 16"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                clipRule="evenodd"
+                                d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                                fillRule="evenodd"
+                              />
+                            </svg>
+                          </a>
+                          <div
+                            className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
+                            data-id="tooltip"
+                            id="homeToShare"
+                          >
+                            <style
+                              dangerouslySetInnerHTML={
+                                Object {
+                                  "__html": "
+  	.t00000000-0000-0000-0000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-0000-0000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                                }
+                              }
+                            />
+                            If you have a home to share, we recommend that you also create a free listing in addition to providing a short description below
+                          </div>
+                        </span>
+                      </div>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="hasHome"
+                          onChange={[Function]}
+                          type="radio"
+                          value="no"
+                        />
+                        No
+                      </label>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="hasHome"
+                          onChange={[Function]}
+                          type="radio"
+                          value="yes"
+                        />
+                        Yes
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    className="column-span-6-layout"
+                  >
+                    <div>
+                      <div>
+                        <label
+                          className="label text-base"
                         >
                           Interested in buying a home w/ others?
-                           
-                          <svg
-                            className="inline align-top text-red-600"
-                            fill="none"
-                            height="1em"
-                            stroke="currentColor"
-                            strokeWidth="0"
-                            style={
-                              Object {
-                                "color": undefined,
-                              }
+                        </label>
+                        <svg
+                          className="inline align-top text-red-600"
+                          fill="none"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
                             }
-                            viewBox="0 0 24 24"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                              fill="currentColor"
-                            />
-                          </svg>
-                        </div>
-                        <label
-                          className="text-base text-gray-700 pr-8"
+                          }
+                          viewBox="0 0 24 24"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
-                          <input
-                            className="form-radio mt-2 ml-2 mr-1 mb-4"
-                            name="interestInBuyingHome"
-                            onChange={[Function]}
-                            type="radio"
-                            value="no"
+                          <path
+                            d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                            fill="currentColor"
                           />
-                          No
-                        </label>
-                        <label
-                          className="text-base text-gray-700 pr-8"
-                        >
-                          <input
-                            className="form-radio mt-2 ml-2 mr-1 mb-4"
-                            name="interestInBuyingHome"
-                            onChange={[Function]}
-                            type="radio"
-                            value="yes"
-                          />
-                          Yes
-                        </label>
+                        </svg>
                       </div>
-                    </label>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="interestInBuyingHome"
+                          onChange={[Function]}
+                          type="radio"
+                          value="no"
+                        />
+                        No
+                      </label>
+                      <label
+                        className="text-base text-gray-700 pr-8"
+                      >
+                        <input
+                          className="form-radio mt-2 ml-2 mr-1 mb-4"
+                          name="interestInBuyingHome"
+                          onChange={[Function]}
+                          type="radio"
+                          value="yes"
+                        />
+                        Yes
+                      </label>
+                    </div>
                   </div>
                 </div>
                 <div
                   className="mt-4"
                 >
-                  <label
-                    className="label"
-                  >
-                    Tell others about yourself
-                  </label>
-                  <span>
-                    <a
-                      data-for="about"
-                      data-tip={true}
+                  <div>
+                    <label
+                      className="label"
                     >
-                      <svg
-                        className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
-                        fill="currentColor"
-                        height="1em"
-                        stroke="currentColor"
-                        strokeWidth="0"
-                        style={
-                          Object {
-                            "color": undefined,
-                          }
-                        }
-                        viewBox="0 0 16 16"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
+                       
+                      Tell others about yourself
+                       
+                    </label>
+                    
+                    <span>
+                      <a
+                        data-for="about"
+                        data-tip={true}
                       >
-                        <path
-                          clipRule="evenodd"
-                          d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                          fillRule="evenodd"
-                        />
-                      </svg>
-                    </a>
-                    <div
-                      className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-                      data-id="tooltip"
-                      id="about"
-                    >
-                      <style
-                        dangerouslySetInnerHTML={
-                          Object {
-                            "__html": "
+                        <svg
+                          className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 16 16"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clipRule="evenodd"
+                            d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                            fillRule="evenodd"
+                          />
+                        </svg>
+                      </a>
+                      <div
+                        className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
+                        data-id="tooltip"
+                        id="about"
+                      >
+                        <style
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "
   	.t00000000-0000-0000-0000-000000000000 {
 	    color: #fff;
 	    background: #222;
@@ -3239,13 +3248,12 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
         border-right-width: 6px;
     }
   ",
+                            }
                           }
-                        }
-                      />
-                      Do not disclose any personal information as your profile is publicly viewable by all members on Home Together
-                    </div>
-                  </span>
-                  <label>
+                        />
+                        Do not disclose any personal information as your profile is publicly viewable by all members on Home Together
+                      </div>
+                    </span>
                     <textarea
                       className="input "
                       cols="50"
@@ -3254,7 +3262,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                       placeholder="Let others know more about your lifestyle, values and why you want to home share"
                       rows="5"
                     />
-                  </label>
+                  </div>
                 </div>
               </div>
             </div>

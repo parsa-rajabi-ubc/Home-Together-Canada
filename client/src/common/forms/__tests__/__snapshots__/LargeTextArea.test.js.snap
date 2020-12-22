@@ -1,11 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LargeTextArea Snapshot test should render correctly regardless of properties 1`] = `
-<label
-  className="label"
->
-  testLabelString1
-   
+<div>
+  <label
+    className="label"
+  >
+     
+    testLabelString1
+     
+  </label>
   
   <textarea
     className="input "
@@ -15,5 +18,5 @@ exports[`LargeTextArea Snapshot test should render correctly regardless of prope
     placeholder="testLabelString3"
     rows="5"
   />
-</label>
+</div>
 `;
