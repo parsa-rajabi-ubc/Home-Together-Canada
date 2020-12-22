@@ -262,7 +262,7 @@ function MemberRegistrationForm(props) {
         RELIGION: "Religious compatibility is important to you",
         DIET: "The diet of your roommate(s) is important to you",
         HOME_TO_SHARE: "If you have a home to share, we recommend that you also create a free listing in addition to providing a short description below",
-        ABOUT: "Please use this area to let others know more about your life style and values. Remember not to disclose any personal information as this can be viewed by other members",
+        ABOUT: "Do not disclose any personal information as your profile is publicly viewable by all members on Home Together",
     };
 
     //function for input checks on submit
@@ -677,7 +677,7 @@ function MemberRegistrationForm(props) {
                                             <LargeTextAreaTooltip
                                                 required={false}
                                                 name="aboutSelf"
-                                                placeholder="What is important to you, and why do you want to share a home?"
+                                                placeholder="Let others know more about your lifestyle, values and why you want to home share"
                                                 onChange={(e) => setAboutSelf(e.target.value)}
                                             />
                                         </div>
