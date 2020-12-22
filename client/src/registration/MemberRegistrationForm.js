@@ -254,7 +254,7 @@ function MemberRegistrationForm(props) {
         DIFF_MAILING_ADDRESS: "Select this checkbox if your mailing address differs from the address above",
         FAMILY_STATUS: "Select the status that most accurately reflects your living arrangement that you would like to maintain while home-sharing",
         NUM_PEOPLE_SHARE: "This number of people does not include yourself",
-        RENT: "Please list your minimum and maximum budget for rent. Note: This does NOT include utilities",
+        RENT: "This does NOT include utilities",
         INTERESTED_AREA: "Preferred living location(s) across Canada",
         PET: "You either have a pet or are open to living with pets",
         SMOKE: "You either smoke yourself or are open to living with people who smoke",
