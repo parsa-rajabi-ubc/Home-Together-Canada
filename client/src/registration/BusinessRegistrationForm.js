@@ -367,7 +367,7 @@ const BusinessRegistrationForm = (props) => {
                                     <Tooltip text={INFO_TEXT.INC_COMPANY}
                                              toolTipID="incorporated"/>
 
-                                    {isIncorporated && <TextArea className="input" label={""}
+                                    {isIncorporated && <TextArea className="input"
                                                                  placeholder={"Names of Inc. Owners (separated by comma)"}
                                                                  labelClassName={"label"}
                                                                  onChange={(e) => setIncorporatedOwnersNames(e.target.value)}/>}
