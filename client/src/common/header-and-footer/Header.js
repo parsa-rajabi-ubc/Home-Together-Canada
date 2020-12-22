@@ -16,12 +16,16 @@ import {setAccountType, setAuthenticated, setIsAdmin} from "../../redux/slices/u
 import PropTypes from "prop-types";
 import {BUSINESS_SUBPAGES, MEMBER_SUBPAGES, USER_TYPES} from "../constants/users";
 import Dropdown from "../forms/Dropdown";
+import {pushToRoute} from "../utils/navigationUtils";
+import {withRouter} from "react-router-dom";
+import {compose} from "redux";
 
 const mapDispatch = { setIsAdmin, setAccountType, setAuthenticated };
 
 const Header = (props) => {
 
     const {
+        history,
         setIsAdmin,
         setAccountType,
         setAuthenticated,
@@ -37,12 +41,11 @@ const Header = (props) => {
                 setIsAdmin({ isAdmin: false });
                 setAccountType({ accountType: USER_TYPES.UNREGISTERED });
                 setAuthenticated({ authenticated: false });
-                alert('You have been logged out.')
+
+                // redirect to home page
+                history.push('/');
             })
     }
-
-
-    // TODO: Dynamically generate buttons in header based on authentication and user privileges
 
     return (
         <div>
@@ -119,7 +122,7 @@ const Header = (props) => {
                         {(authenticated || accountType !== USER_TYPES.UNREGISTERED) &&
                         <Dropdown
                             options={accountType === USER_TYPES.MEMBER ? MEMBER_SUBPAGES : BUSINESS_SUBPAGES}
-                            onChange={() => null}
+                            onChange={(selected) => pushToRoute(history, '/accountSummary', {accountType: accountType, selected: selected.label })}
                             placeholder={'Account'}
                             name={'Account'}
                         />
@@ -140,6 +143,9 @@ const mapStateToProps = (state) => ({
 });
 
 Header.propTypes = {
+    history: PropTypes.shape({
+        push: PropTypes.func
+    }).isRequired,
     setAccountType: PropTypes.func.isRequired,
     setIsAdmin: PropTypes.func.isRequired,
     setAuthenticated: PropTypes.func.isRequired,
@@ -148,4 +154,7 @@ Header.propTypes = {
     accountType: PropTypes.string
 }
 
-export default connect(mapStateToProps, mapDispatch) (Header);
+export default compose(
+    withRouter,
+    connect(mapStateToProps, mapDispatch)
+)(Header);
