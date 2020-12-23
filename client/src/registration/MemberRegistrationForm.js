@@ -655,7 +655,7 @@ function MemberRegistrationForm(props) {
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <YNButton
-                                                    label="Interested in buying a home w/ others?"
+                                                    label="Interested in buying a home with others?"
                                                     name="interestInBuyingHome"
                                                     required={true}
                                                     checked={interestInBuyingHome === "no"}
