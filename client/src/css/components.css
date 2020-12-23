@@ -58,7 +58,3 @@
 .input {
     @apply block w-full px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;
 }
-
-.input:focus {
-    @apply outline-none shadow-outline;
-}

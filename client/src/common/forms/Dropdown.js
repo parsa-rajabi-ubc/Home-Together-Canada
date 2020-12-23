@@ -29,6 +29,8 @@ function Dropdown(props) {
                 marginTop: 4,
                 borderColor: "#e2e8f0",
                 marginBottom: 16,
+                paddingTop: 2,
+                paddingBottom: 2,
             }
         ),
         menuPortal: base => ({...base, zIndex: 9999}),
