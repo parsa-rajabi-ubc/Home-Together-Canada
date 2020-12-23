@@ -37,7 +37,7 @@ const Navigation = (props) => {
                     <Route path={"/registration/member"} component={MemberRegistrationForm}/>
                     <Route path={"/registration"} component={MainLandingPage}/>
                     {(authenticated && accountType !== USER_TYPES.UNREGISTERED) &&
-                        <Route path={"/accountSummary"} component={AccountSummaryContainer}/>
+                        <Route path={"/account"} component={AccountSummaryContainer}/>
                     }
                     <Route component={Error404}/>
                 </Switch>

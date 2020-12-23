@@ -123,7 +123,7 @@ const Header = (props) => {
                                     ? logout()
                                     : pushToRoute(
                                         history,
-                                    '/accountSummary',
+                                    '/account',
                                     {accountType: accountType, selected: selected.label })}
                             placeholder={'Account'}
                             name={'Account'}
