@@ -433,30 +433,26 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
               <div
                 className="col-start-1 col-end-8"
               >
-                <label>
-                  <input
-                    autoComplete="address-line2"
-                    className="input"
-                    name="aptNum"
-                    onChange={[Function]}
-                    placeholder="Address Line 2: Apt, suite, etc. (optional)"
-                    type="text"
-                  />
-                </label>
+                <input
+                  autoComplete="address-line2"
+                  className="input"
+                  name="aptNum"
+                  onChange={[Function]}
+                  placeholder="Address Line 2: Apt, suite, etc. (optional)"
+                  type="text"
+                />
               </div>
               <div
                 className="col-start-1 col-end-4"
               >
-                <label>
-                  <input
-                    autoComplete="address-level2"
-                    className="input"
-                    name="city"
-                    onChange={[Function]}
-                    placeholder="City"
-                    type="text"
-                  />
-                </label>
+                <input
+                  autoComplete="address-level2"
+                  className="input"
+                  name="city"
+                  onChange={[Function]}
+                  placeholder="City"
+                  type="text"
+                />
               </div>
               <div
                 className="col-start-4 col-end-8"
@@ -570,16 +566,14 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
               <div
                 className="col-start-1 col-end-4"
               >
-                <label>
-                  <input
-                    autoComplete="postal-code"
-                    className="input"
-                    name="postalCode"
-                    onChange={[Function]}
-                    placeholder="Postal Code"
-                    type="text"
-                  />
-                </label>
+                <input
+                  autoComplete="postal-code"
+                  className="input"
+                  name="postalCode"
+                  onChange={[Function]}
+                  placeholder="Postal Code"
+                  type="text"
+                />
               </div>
             </div>
             <div>
@@ -998,30 +992,26 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 <div
                   className="col-start-1 col-end-8"
                 >
-                  <label>
-                    <input
-                      autoComplete="address-line2"
-                      className="input"
-                      name="aptNum"
-                      onChange={[Function]}
-                      placeholder="Address Line 2: Apt, suite, etc. (optional)"
-                      type="text"
-                    />
-                  </label>
+                  <input
+                    autoComplete="address-line2"
+                    className="input"
+                    name="aptNum"
+                    onChange={[Function]}
+                    placeholder="Address Line 2: Apt, suite, etc. (optional)"
+                    type="text"
+                  />
                 </div>
                 <div
                   className="col-start-1 col-end-4"
                 >
-                  <label>
-                    <input
-                      autoComplete="address-level2"
-                      className="input"
-                      name="city"
-                      onChange={[Function]}
-                      placeholder="City"
-                      type="text"
-                    />
-                  </label>
+                  <input
+                    autoComplete="address-level2"
+                    className="input"
+                    name="city"
+                    onChange={[Function]}
+                    placeholder="City"
+                    type="text"
+                  />
                 </div>
                 <div
                   className="col-start-4 col-end-8"
@@ -1135,16 +1125,14 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 <div
                   className="col-start-1 col-end-4"
                 >
-                  <label>
-                    <input
-                      autoComplete="postal-code"
-                      className="input"
-                      name="postalCode"
-                      onChange={[Function]}
-                      placeholder="Postal Code"
-                      type="text"
-                    />
-                  </label>
+                  <input
+                    autoComplete="postal-code"
+                    className="input"
+                    name="postalCode"
+                    onChange={[Function]}
+                    placeholder="Postal Code"
+                    type="text"
+                  />
                 </div>
               </div>
             </div>
