@@ -57,7 +57,6 @@ function LoginForm(props) {
             .then(res => res.json())
             .then(data => {
                 if (!!data && data.authenticated) {
-                    alert('Successful login!');
                     // dispatch action to set isAdmin
                     setIsAdmin({isAdmin: data.member ? data.member.isAdmin : false});
 
