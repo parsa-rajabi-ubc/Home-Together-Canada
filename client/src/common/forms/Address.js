@@ -69,19 +69,15 @@ function Address(props) {
                        onChange={handleInputChange}/>
             </div>
             <div className="col-start-1 col-end-8">
-                <label>
-                    <input className="input" type="text" name="aptNum"
-                           placeholder="Address Line 2: Apt, suite, etc. (optional)"
-                           autoComplete="address-line2" onChange={handleInputChange}/>
-                </label>
+                <input className="input" type="text" name="aptNum"
+                       placeholder="Address Line 2: Apt, suite, etc. (optional)"
+                       autoComplete="address-line2" onChange={handleInputChange}/>
             </div>
             <div className="col-start-1 col-end-4">
-                <label>
-                    <input
-                        className="input"
-                        type="text" autoComplete="address-level2" name="city" placeholder="City"
-                        onChange={handleInputChange}/>
-                </label>
+                <input
+                    className="input"
+                    type="text" autoComplete="address-level2" name="city" placeholder="City"
+                    onChange={handleInputChange}/>
             </div>
             <div className="col-start-4 col-end-8">
                 <Dropdown isSearchable={true} placeholder={"Province"}
@@ -89,12 +85,10 @@ function Address(props) {
                           onChange={address => setProvince(address.value)}/>
             </div>
             <div className="col-start-1 col-end-4">
-                <label>
-                    <input
-                        className="input"
-                        type="text" autoComplete="postal-code" name="postalCode" placeholder="Postal Code"
-                        onChange={handleInputChange}/>
-                </label>
+                <input
+                    className="input"
+                    type="text" autoComplete="postal-code" name="postalCode" placeholder="Postal Code"
+                    onChange={handleInputChange}/>
             </div>
         </div>
     );
