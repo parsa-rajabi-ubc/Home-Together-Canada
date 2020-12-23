@@ -102,31 +102,40 @@ module.exports = (DataTypes, sequelize) => {
 
         // PREFERENCES
         minAgePreference: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         maxAgePreference: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         statusPreference: {
-            type: DataTypes.STRING // JSON of status preferences
+            type: DataTypes.STRING, // JSON of status preferences
+            allowNull: false
         },
         minNumRoommatesPreference: {   // -1 means any number
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         maxNumRoommatesPreference: {   // -1 means any number
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         dietPreference: {
-            type: DataTypes.BOOLEAN
+            type: DataTypes.BOOLEAN,
+            allowNull: false
         },
         petsPreference: {
-            type: DataTypes.BOOLEAN
+            type: DataTypes.BOOLEAN,
+            allowNull: false
         },
         smokingPreference: {
-            type: DataTypes.BOOLEAN
+            type: DataTypes.BOOLEAN,
+            allowNull: false
         },
         healthAndMobilityPreference: {
-            type: DataTypes.BOOLEAN
+            type: DataTypes.BOOLEAN,
+            allowNull: false
         }
     });
 }
