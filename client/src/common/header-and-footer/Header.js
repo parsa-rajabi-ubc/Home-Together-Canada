@@ -10,7 +10,6 @@ import React from 'react';
 import '../../tailwind.output.css';
 import {Link} from "react-router-dom";
 import LoginService from '../../services/LoginService';
-import Button from "../forms/Button";
 import {connect} from "react-redux";
 import {setAccountType, setAuthenticated, setIsAdmin} from "../../redux/slices/userPrivileges";
 import PropTypes from "prop-types";
@@ -46,6 +45,10 @@ const Header = (props) => {
                 history.push('/');
             })
     }
+
+    const dropdownOptions = accountType === USER_TYPES.MEMBER
+        ? [...MEMBER_SUBPAGES, {label: 'Logout', value: 'Logout'}]
+        : [...BUSINESS_SUBPAGES, {label: 'Logout', value: 'Logout'}];
 
     return (
         <div>
@@ -112,17 +115,16 @@ const Header = (props) => {
                                 Up
                             </Link>
                         }
-                        {authenticated &&
-                            <Button
-                                className="outline-none	items-center justify-center w-full px-4 py-2 transition duration-200 ease-in-out bg-white border-transparent rounded-md opacity-75 cursor-pointer hover:bg-orange-400"
-                                value={'Logout'}
-                                onClick={logout}
-                            />
-                        }
                         {(authenticated || accountType !== USER_TYPES.UNREGISTERED) &&
                         <Dropdown
-                            options={accountType === USER_TYPES.MEMBER ? MEMBER_SUBPAGES : BUSINESS_SUBPAGES}
-                            onChange={(selected) => pushToRoute(history, '/accountSummary', {accountType: accountType, selected: selected.label })}
+                            options={dropdownOptions}
+                            onChange={(selected) =>
+                                selected.label === 'Logout'
+                                    ? logout()
+                                    : pushToRoute(
+                                        history,
+                                    '/accountSummary',
+                                    {accountType: accountType, selected: selected.label })}
                             placeholder={'Account'}
                             name={'Account'}
                         />
