@@ -74,10 +74,10 @@ function InterestedArea(props) {
                                       onChange={e => handleAreaCityChange(e, index)}/>}
                         </div>
                         <div className="col-start-8 col-end-10">
-                            {currentAreaValues.city && <Dropdown isSearchable={true} placeholder={"Radius"}
-                                                                 name="radius"
-                                                                 options={radii}
-                                                                 onChange={e => handleAreaRadiusChange(e, index)}/>}
+                            {currentAreaValues.city && <Dropdown isSearchable={true} placeholder={"Within Radius"}
+                                                    name="radius"
+                                                    options={radii}
+                                                    onChange={e => handleAreaRadiusChange(e, index)}/>}
                         </div>
                         <div className="col-start-10 col-end-auto">
                             {extraAreas.length !== 1 &&
