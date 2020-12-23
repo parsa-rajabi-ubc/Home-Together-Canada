@@ -92,6 +92,27 @@ const isPositiveInteger = (num) => {
     }
 }
 
+const validateMinAndMax = (min, max) => {
+    if (min > max) {
+        throw new Error('Min is greater than the max');
+    } else {
+        return true;
+    }
+}
+
+const validStatusPreferences = (statuses) => {
+    if (!statuses || !statuses.length) {
+        throw new Error('Status list is empty');
+    } else {
+        statuses.forEach(status => {
+            if (!STATUSES.includes(status)) {
+                throw new Error('Status is not included valid statuses');
+            }
+        });
+    }
+    return true;
+}
+
 // TODO: write tests for this function
 const isValidShareLimit = (limit) => SHARE_LIMITS.includes(limit);
 
@@ -166,6 +187,8 @@ module.exports = {
     shouldMapAddressBeDefined,
     shouldIncorporatedOwnersNamesBeDefined,
     isPositiveInteger,
+    validateMinAndMax,
+    validStatusPreferences,
     isValidShareLimit,
     isValidAreasOfInterest,
     usernameShouldNotAlreadyExist,

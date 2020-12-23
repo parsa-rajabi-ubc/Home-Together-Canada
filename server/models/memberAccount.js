@@ -110,7 +110,10 @@ module.exports = (DataTypes, sequelize) => {
         statusPreference: {
             type: DataTypes.STRING // JSON of status preferences
         },
-        numRoommatesPreference: {   // -1 means any number
+        minNumRoommatesPreference: {   // -1 means any number
+            type: DataTypes.INTEGER
+        },
+        maxNumRoommatesPreference: {   // -1 means any number
             type: DataTypes.INTEGER
         },
         dietPreference: {

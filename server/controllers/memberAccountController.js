@@ -38,6 +38,15 @@ const createMemberAccount = (req, uid) => {
         smokingDescription: req.body.smokingDescription,
         numRoommates: req.body.numRoommates,
         bio: req.body.bio,
+        minAgePreference: req.body.minAgePreference,
+        maxAgePreference: req.body.maxAgePreference,
+        statusPreference: req.body.statusPreference,
+        minNumRoommatesPreference: req.body.minNumRoommatesPreference,
+        maxNumRoommatesPreference: req.body.maxNumRoommatesPreference,
+        dietPreference: req.body.dietPreference,
+        petsPreference: req.body.petsPreference,
+        smokingPreference: req.body.smokingPreference,
+        healthAndMobilityPreference: req.body.healthAndMobilityPreference
     }
 
     return MemberAccount.create(memberAccount);
