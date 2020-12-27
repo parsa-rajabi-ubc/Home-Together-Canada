@@ -12,6 +12,7 @@ const {
     PROVINCES,
     GENDERS,
     STATUSES,
+    WORK_STATUSES,
     isValidPhoneNumber,
     isValidCanadianPostalCode,
     shouldMailingAddressBeDefined,
@@ -310,6 +311,11 @@ exports.validate = (method) => {
                     .exists()
                     .isArray()
                     .custom(areasOfInterest => isValidAreasOfInterest(areasOfInterest)),
+                body('workStatus')
+                    .exists()
+                    .trim()
+                    .stripLow()
+                    .isIn(WORK_STATUSES)
             ]
         }
     }

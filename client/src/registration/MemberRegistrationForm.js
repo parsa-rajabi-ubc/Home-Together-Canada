@@ -1,3 +1,4 @@
+
 /**
  * @Author:     Alex Qin
  * @Created:    2020.11.10
@@ -300,6 +301,7 @@ function MemberRegistrationForm(props) {
             && {partnerUsername: partner},
             ...(selectedFamilyStatus === 'Existing Group' && !isStringEmpty(groupMembers))
             && {existingGroupUsernames: groupMembers.split(',').map(item => item.trim())},
+            workStatus: selectedWorkStatus,
             minMonthlyBudget: minRent,
             maxMonthlyBudget: maxRent,
             hasHomeToShare: (hasHome === 'yes'),

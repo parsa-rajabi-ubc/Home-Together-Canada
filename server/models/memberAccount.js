@@ -96,6 +96,10 @@ module.exports = (DataTypes, sequelize) => {
             type: DataTypes.INTEGER,
             allowNull: false
         },
+        workStatus: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         bio: {
             type: DataTypes.STRING
         },

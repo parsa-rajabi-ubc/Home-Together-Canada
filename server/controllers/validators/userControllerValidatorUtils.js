@@ -41,6 +41,17 @@ const STATUSES = [
 
 const SHARE_LIMITS = [1, 2, 3, 4, -1];  // -1 means any number of people
 
+const WORK_STATUSES = [
+    'Unemployed',
+    'Student',
+    'Part-time',
+    'Full-time',
+    'Self-employed',
+    'Retired',
+    'Semi-retired',
+    'Other'
+];
+
 const isValidPhoneNumber = (phoneNum) => {
     if (phoneNum.toString().length !== 10) {
         throw new Error('Phone number must be 10 digits long')
@@ -160,6 +171,7 @@ module.exports = {
     PROVINCES,
     GENDERS,
     STATUSES,
+    WORK_STATUSES,
     isValidPhoneNumber,
     isValidCanadianPostalCode,
     shouldMailingAddressBeDefined,
