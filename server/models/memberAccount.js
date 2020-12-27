@@ -114,7 +114,7 @@ module.exports = (DataTypes, sequelize) => {
             allowNull: false
         },
         statusPreference: {
-            type: DataTypes.STRING, // JSON of status preferences
+            type: DataTypes.STRING, // stringified array
             allowNull: false
         },
         minNumRoommatesPreference: {   // -1 means any number
@@ -124,6 +124,14 @@ module.exports = (DataTypes, sequelize) => {
         maxNumRoommatesPreference: {   // -1 means any number
             type: DataTypes.INTEGER,
             allowNull: false
+        },
+        minBudgetPreference: {
+          type: DataTypes.INTEGER,
+          allowNull: false
+        },
+        maxBudgetPreference: {
+          type: DataTypes.INTEGER,
+          allowNull: false
         },
         dietPreference: {
             type: DataTypes.BOOLEAN,
@@ -138,6 +146,18 @@ module.exports = (DataTypes, sequelize) => {
             allowNull: false
         },
         healthAndMobilityPreference: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
+        },
+        genderPreference: {
+            type: DataTypes.STRING,     // stringified array
+            allowNull: false
+        },
+        religionPreference: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
+        },
+        othersWithHomeToSharePreference: {
             type: DataTypes.BOOLEAN,
             allowNull: false
         }

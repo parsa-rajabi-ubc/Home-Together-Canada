@@ -110,9 +110,6 @@ module.exports = function (passport) {
                         });
                     }
 
-                    console.log('user: ', user);
-
-
                     return done(null, user);
                 })
                 .catch(error => {
