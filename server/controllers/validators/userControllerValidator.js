@@ -21,6 +21,7 @@ const {
     validateMinAndMax,
     isValidShareLimit,
     validStatusPreferences,
+    validGenderPreferences,
     isValidAreasOfInterest,
     usernameShouldNotAlreadyExist,
     emailShouldNotAlreadyBeInUse,
@@ -221,7 +222,7 @@ exports.validate = (method) => {
                     .isNumeric()
                     .customSanitizer(rent => parseInt(rent))
                     .custom(rent => isPositiveInteger(rent))
-                    .custom((rent, {req}) => validateMinAndMax(req.minMonthlyBudget, rent)),
+                    .custom((rent, {req}) => validateMinAndMax(req.body.minMonthlyBudget, rent)),
                 body('hasHomeToShare', 'A boolean value must be provided')
                     .exists()
                     .trim()
@@ -320,7 +321,16 @@ exports.validate = (method) => {
                     .exists()
                     .isNumeric()
                     .custom(age => isPositiveInteger(age))
-                    .custom((age, { req }) => validateMinAndMax(req.minAgePreference, age)),
+                    .custom((age, { req }) => validateMinAndMax(req.body.minAgePreference, age)),
+                body('minBudgetPreference')
+                    .exists()
+                    .isNumeric()
+                    .custom(budget => isPositiveInteger(budget)),
+                body('maxBudgetPreference')
+                    .exists()
+                    .isNumeric()
+                    .custom(budget => isPositiveInteger(budget))
+                    .custom((budget, {req}) => validateMinAndMax(req.body.minBudgetPreference, budget)),
                 body('statusPreference')
                     .exists()
                     .isArray()
@@ -343,6 +353,16 @@ exports.validate = (method) => {
                     .exists()
                     .isBoolean(),
                 body('healthAndMobilityPreference')
+                    .exists()
+                    .isBoolean(),
+                body('genderPreference')
+                    .exists()
+                    .isArray()
+                    .custom(genderPreferences => validGenderPreferences(genderPreferences)),
+                body('religionPreference')
+                    .exists()
+                    .isBoolean(),
+                body('othersWithHomeToSharePreference')
                     .exists()
                     .isBoolean()
             ]
