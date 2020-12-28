@@ -1488,7 +1488,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
           <h3
             className="info-header"
           >
-            Account Details
+            Sign In Details
           </h3>
           <p
             className="info-text"

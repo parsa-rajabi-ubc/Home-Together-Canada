@@ -31,6 +31,7 @@ import {connect} from 'react-redux';
 import {setIsAdmin, setAccountType, setAuthenticated} from '../redux/slices/userPrivileges';
 import Tooltip from "../common/forms/Tooltip";
 import {USER_TYPES} from "../common/constants/users";
+import {Link} from "react-router-dom";
 
 const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
 
@@ -360,10 +361,11 @@ function MemberRegistrationForm(props) {
                         <h3 className="info-header">Personal Information</h3>
                         <p className="info-text mr-10">
                             This information is about you and is private. Home Together Canada will not share this
-                            information with anyone and will only be used for verification purposes.
+                            information with anyone and will only be used for verification purposes. Please see
+                            <Link to={'/faq'} className={"label"}> FAQs</Link> for more information.
                         </p>
                         <p className="info-text mr-10">
-                            <Asterisk/> = Required Field
+                            <Asterisk/>Required Field
                         </p>
                     </div>
                 </div>
@@ -396,9 +398,6 @@ function MemberRegistrationForm(props) {
                                 required={true}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
-                            <LabelAsterisk label={"Year of Birth"}/>
-                            <Tooltip text={INFO_TEXT.YEAR_OF_BIRTH} toolTipID="yearOfBirth"/>
-                            <BirthYear label={"Year of Birth"} onChange={handleYearChange}/>
                             <PhoneNumInput
                                 className="phone"
                                 labelClassName={"label"}
@@ -479,6 +478,11 @@ function MemberRegistrationForm(props) {
                                                 onChange={(e) => setGenderDescription(e.target.value)}
                                             />}
                                         </div>
+
+                                        <LabelAsterisk label={"Year of Birth"}/>
+                                        <Tooltip text={INFO_TEXT.YEAR_OF_BIRTH} toolTipID="yearOfBirth"/>
+                                        <BirthYear label={"Year of Birth"} onChange={handleYearChange}/>
+
                                         <LabelAsterisk label={"Family Status"}/>
                                         <Tooltip text={INFO_TEXT.FAMILY_STATUS} toolTipID="familyStatus"/>
                                         <Status onChange={handleFamilyStatusChange}/>
@@ -685,9 +689,14 @@ function MemberRegistrationForm(props) {
                 <div className="m-10 md:grid md:grid-cols-4 md:gap-6">
                     <div className="md:col-span-1">
                         <div className="px-4 sm:px-0">
-                            <h3 className="info-header">Account Details</h3>
+                            <h3 className="info-header">Sign In Details</h3>
                             <p className="info-text">
-                                This information is to set up and access your account.
+                                This information is to set up and access your account. Usernames are permanent and
+                                cannot be changed at a later time! The user name you choose is how you will be
+                                identified by others on the site. Do NOT use your real name! We recommend you choose
+                                something you will remember and not tire of. User names are extremely important and are
+                                for the protection of you and all of the users of this site. Please read
+                                <Link to={'/faq'} className={"label"}> FAQs</Link>.
                             </p>
                         </div>
                     </div>
@@ -702,7 +711,6 @@ function MemberRegistrationForm(props) {
                                             onChangePassword={(e) => setPassword(e.target.value)}
                                             onChangePasswordCheck={(e) => setPasswordCheck(e.target.value)}
                                         />
-
                                     </div>
                                 </div>
                             </div>
