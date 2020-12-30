@@ -16,6 +16,15 @@ const INFO_TEXT = {
     PASSWORD: "Your password must be at least 8 characters long and contain a mix of numeric digits, upper and lower case letters!",
 };
 
+const ERROR_TEXT = {
+    USERNAME: "Username can not be empty",
+    PASSWORD: {
+        EMPTY: "Password can not be empty",
+        CONFIRM_EMPTY: "Password confirmation can not be empty",
+        MIS_MATCH: "Passwords do not match",
+    }
+}
+
 function SignInInfo(props) {
     const {
         onChangeUsername,
@@ -34,19 +43,22 @@ function SignInInfo(props) {
                 <LabelAsterisk label={"Username"}/>
                 <Tooltip text={INFO_TEXT.USERNAME} toolTipID="username"/>
                 <input className={usernameClassName} type="text" placeholder="" onChange={onChangeUsername}/>
-                <label className={"error-msg"}>{usernameErrorMsg}</label>
+                {usernameErrorMsg && <label className={"error-msg"}>{ERROR_TEXT.USERNAME}</label>}
             </label>
             <label>
                 <LabelAsterisk label={"Password"}/>
                 <Tooltip text={INFO_TEXT.PASSWORD} toolTipID="password"/>
                 <input className={passwordClassName} type="password" placeholder="" onChange={onChangePassword}/>
-                <label className={"error-msg"}>{passwordErrorMsg}</label>
+                {passwordErrorMsg && <label className={"error-msg"}>{ERROR_TEXT.PASSWORD.EMPTY}</label>}
             </label>
             <label>
                 <LabelAsterisk label={"Confirm Password"}/>
                 <input className={passwordConfirmClassName} type="password" placeholder=""
                        onChange={onChangePasswordCheck}/>
-                <label className={"error-msg"}>{passwordConfirmErrorMsg}</label>
+                {passwordConfirmErrorMsg && <label className={"error-msg"}>
+                    {(passwordConfirmErrorMsg === "empty") ?
+                        ERROR_TEXT.PASSWORD.CONFIRM_EMPTY : (passwordConfirmErrorMsg === "mismatch" ?
+                            ERROR_TEXT.PASSWORD.MIS_MATCH : "")}</label>}
             </label>
         </div>
     );

@@ -876,9 +876,9 @@ function MemberRegistrationForm(props) {
                                             usernameClassName={`${usernameError && "border-red-500 mb-0"} input`}
                                             passwordClassName={`${(passwordError || passwordConfirmError === "mismatch") && "border-red-500 mb-0"} input`}
                                             passwordConfirmClassName={`${passwordConfirmError && "border-red-500 mb-0"} input`}
-                                            usernameErrorMsg={usernameError && ERROR_TEXT.USERNAME}
-                                            passwordErrorMsg={passwordError && ERROR_TEXT.PASSWORD.EMPTY}
-                                            passwordConfirmErrorMsg={(passwordConfirmError === "empty") ? ERROR_TEXT.PASSWORD.CONFIRM_EMPTY : (passwordConfirmError === "mismatch" ? ERROR_TEXT.PASSWORD.MIS_MATCH : "")}
+                                            usernameErrorMsg={usernameError}
+                                            passwordErrorMsg={passwordError}
+                                            passwordConfirmErrorMsg={(passwordConfirmError === "empty") ? "empty" : (passwordConfirmError === "mismatch" ? "mismatch" : "")}
                                         />
 
                                     </div>
