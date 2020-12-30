@@ -15,7 +15,7 @@ import Button from "./Button";
 import {MdDeleteForever} from 'react-icons/md';
 
 function InterestedArea(props) {
-    const {onChange} = props;
+    const {onChange, styling, areaOfInterestErrorMsg} = props;
     const [extraAreas, setExtraAreas] = useState([{province: "", city: "", radius: ""}]);
 
     const handleRemoveClick = index => {
@@ -25,22 +25,22 @@ function InterestedArea(props) {
     };
     const handleAddClick = () => {
         const list = [...extraAreas];
-        list.push({province: undefined, city: undefined, radius: undefined});
+        list.push({province: "", city: "", radius: ""});
         setExtraAreas(list);
     };
     const handleAreaProvinceChange = (e, index) => {
         const {value} = e;
         const list = [...extraAreas];
         list[index].province = value;
-        list[index].city = undefined;
-        list[index].radius = undefined;
+        list[index].city = "";
+        list[index].radius = "";
         setExtraAreas(list);
     };
     const handleAreaCityChange = (e, index) => {
         const {value} = e;
         const list = [...extraAreas];
         list[index].city = value;
-        list[index].radius = undefined;
+        list[index].radius = "";
         setExtraAreas(list);
     };
     const handleAreaRadiusChange = (e, index) => {
@@ -63,7 +63,9 @@ function InterestedArea(props) {
                             <Dropdown isSearchable={true} placeholder={"Province"}
                                       name="province"
                                       options={getProvinces()}
-                                      onChange={e => handleAreaProvinceChange(e, index)}/>
+                                      onChange={e => handleAreaProvinceChange(e, index)}
+                                      styling={styling}
+                            />
                             <span>{currentAreaValues[index]}</span>
                         </div>
                         <div className="col-start-4 col-end-8">
@@ -71,13 +73,20 @@ function InterestedArea(props) {
                             <Dropdown isSearchable={true} placeholder={"City"}
                                       name="city"
                                       options={getCities(currentAreaValues.province)}
-                                      onChange={e => handleAreaCityChange(e, index)}/>}
+                                      onChange={e => handleAreaCityChange(e, index)}
+                                      styling={styling}
+                            />}
                         </div>
                         <div className="col-start-8 col-end-10">
                             {currentAreaValues.city && <Dropdown isSearchable={true} placeholder={"Within Radius"}
-                                                    name="radius"
-                                                    options={radii}
-                                                    onChange={e => handleAreaRadiusChange(e, index)}/>}
+                                                                 name="radius"
+                                                                 options={radii}
+                                                                 onChange={e => handleAreaRadiusChange(e, index)}
+                                                                 styling={styling}
+                            />}
+                        </div>
+                        <div className="col-start-1 col-end-6">
+                        {areaOfInterestErrorMsg && <label className={"error-msg"}>{areaOfInterestErrorMsg}</label>}
                         </div>
                         <div className="col-start-10 col-end-auto">
                             {extraAreas.length !== 1 &&
@@ -98,7 +107,9 @@ function InterestedArea(props) {
 }
 
 InterestedArea.propTypes = {
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    styling: PropTypes.object,
+    areaOfInterestErrorMsg: PropTypes.string
 }
 
 export default InterestedArea;

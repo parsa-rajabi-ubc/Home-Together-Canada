@@ -10,8 +10,21 @@ import React, {useEffect, useState} from 'react';
 import Select from 'react-select';
 import propTypes from "prop-types";
 
+const newStyling = {
+    control: base => ({
+            ...base,
+            marginTop: 4,
+            borderColor: "#e2e8f0",
+            marginBottom: 16,
+            paddingTop: 2,
+            paddingBottom: 2,
+        }
+    ),
+    menuPortal: base => ({...base, zIndex: 9999}),
+}
+
 function Dropdown(props) {
-    const {isSearchable, name, placeholder, options, onChange, intialSelection} = props;
+    const {isSearchable, name, placeholder, options, onChange, intialSelection, styling = newStyling} = props;
 
     const [selected, setSelected] = useState(intialSelection || "");
 
@@ -21,21 +34,6 @@ function Dropdown(props) {
         onChange(selected);
         // that can be used to get the value that is inside the dropdown
     }, [selected]);
-
-
-    const newStyling = {
-        control: base => ({
-                ...base,
-                marginTop: 4,
-                borderColor: "#e2e8f0",
-                marginBottom: 16,
-                paddingTop: 2,
-                paddingBottom: 2,
-            }
-        ),
-        menuPortal: base => ({...base, zIndex: 9999}),
-    }
-
 
     return (
         <div>
@@ -47,7 +45,7 @@ function Dropdown(props) {
                 onChange={(e) => setSelected(e)}
                 name={name}
                 menuPortalTarget={document.body}
-                styles={newStyling}
+                styles={styling}
                 theme={theme => ({
                     ...theme,
                     borderRadius: 8,
@@ -67,7 +65,8 @@ Dropdown.propTypes = {
     isSearchable: propTypes.bool,
     placeholder: propTypes.string,
     onChange: propTypes.func,
-    intialSelection: propTypes.string
+    intialSelection: propTypes.string,
+    styling: propTypes.object
 };
 
 export default Dropdown;

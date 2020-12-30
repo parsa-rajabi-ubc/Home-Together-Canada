@@ -35,21 +35,24 @@ const statuses = [
 
 
 function Status(props) {
-    const {onChange} = props;
+    const {onChange, styling} = props;
 
 
     return (
         <div>
             <Dropdown isSearchable={true} placeholder={"Family Status"}
                       options={statuses}
-                      onChange={onChange}/>
+                      onChange={onChange}
+                      styling={styling}
+            />
         </div>
     )
 
 }
 
 Status.propTypes = {
-  onChange: propTypes.func
+    onChange: propTypes.func,
+    styling: propTypes.object
 };
 
 

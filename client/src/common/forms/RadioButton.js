@@ -14,7 +14,7 @@ function RadioButton(props){
         <label className={"text-base text-gray-700 pr-8"}>
 
             <input
-            className={"form-radio mt-2 ml-2 mr-1 mb-4"}
+            className={"form-radio mt-2 ml-2 mr-1 pb-4"}
                 type="radio"
                    name={name}
                    value={value}
