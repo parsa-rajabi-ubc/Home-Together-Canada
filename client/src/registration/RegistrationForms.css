@@ -26,6 +26,10 @@
     @apply py-5 border-dashed border-t-2 border-gray-200 mx-16;
 }
 
+.error-msg{
+    @apply block mb-2 text-sm text-red-500;
+}
+
 @screen sm {
     .column-span-6-layout {
         @apply col-span-3;
