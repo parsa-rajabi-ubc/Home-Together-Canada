@@ -97,7 +97,7 @@ function MemberRegistrationForm(props) {
 
     const [aboutSelf, setAboutSelf] = useState("");
 
-    const [selectedLimit, setsSelectedLimit] = useState(null);
+    const [selectedLimit, setsSelectedLimit] = useState("");
 
     const [selectedFamilyStatus, setsSelectedFamilyStatus] = useState();
     const [selectedWorkStatus, setsSelectedWorkStatus] = useState();
@@ -318,7 +318,7 @@ function MemberRegistrationForm(props) {
         LIMIT: "Number of people to share with has not been set",
         MIN_RENT: "Minimum rent can not be empty",
         MAX_RENT: "Maximum rent can not be empty",
-        AREA_OF_INTEREST: "Area of interest has not been set",
+        AREA_OF_INTEREST: "Preferred living location(s) have not been set",
         PET: "Pet preference has not been set",
         SMOKING: "Smoking preference has not been set",
         MOBILITY: "Mobility issue has not been set",
@@ -648,11 +648,10 @@ function MemberRegistrationForm(props) {
                                         <LabelAsterisk label={"Preferred Living Location(s)"}/>
                                         <Tooltip text={INFO_TEXT.INTERESTED_AREA} toolTipID="interestedArea"/>
                                         <InterestedArea onChange={setAreasOfInterest}
-                                                        styling={areasOfInterestError ? dropdownError : dropdownDefaultStyling}
+                                                        areasOfInterestError={areasOfInterestError && true}
                                                         areaOfInterestErrorMsg={areasOfInterestError ? ERROR_TEXT.AREA_OF_INTEREST : ""}
                                         />
-                                        {/*{areasOfInterestError && <label className={"error-msg"}>{ERROR_TEXT.AREA_OF_INTEREST}</label>}*/}
-                                        <div className="grid grid-cols-6 gap-x-6">
+                                        <div className="grid grid-cols-6 gap-x-6 mt-5">
                                             <div className="column-span-6-layout">
                                                 <section
                                                     className={`${petFriendlyError && "pl-1 border rounded-lg border-red-500"} my-2`}>

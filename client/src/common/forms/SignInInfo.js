@@ -71,8 +71,8 @@ SignInInfo.propTypes = {
     usernameClassName: PropTypes.string,
     passwordClassName: PropTypes.string,
     passwordConfirmClassName: PropTypes.string,
-    usernameErrorMsg: PropTypes.string,
-    passwordErrorMsg: PropTypes.string,
+    usernameErrorMsg: PropTypes.bool,
+    passwordErrorMsg: PropTypes.bool,
     passwordConfirmErrorMsg: PropTypes.string,
 };
 
