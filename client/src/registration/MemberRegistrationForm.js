@@ -136,6 +136,8 @@ function MemberRegistrationForm(props) {
     // Profile Details Start
     const [genderError, setGenderError] = useState(false);
     const [familyStatusError, setFamilyStatusError] = useState(false);
+    const [coupleError, setCoupleError] = useState(false);
+    const [groupError, setGroupError] = useState(false);
     const [workStatusError, setWorkStatusError] = useState(false);
     const [limitError, setLimitError] = useState(false);
     const [minRentError, setMinRentError] = useState(false);
@@ -161,29 +163,37 @@ function MemberRegistrationForm(props) {
 
     function checkStatus(selectedFamilyStatus) {
         if (selectedFamilyStatus === "Couple") {
-            return <TextArea
-                className={"input"}
-                labelClassName={"label"}
-                placeholder={"Partner's username"}
-                onChange={(e) => setPartner(e.target.value)}
-                value={partner}
-            />
+            return <section>
+                <TextArea
+                    className={`${coupleError && "border-red-500 mb-0"} input`}
+                    labelClassName={"label"}
+                    placeholder={"Partner's username"}
+                    onChange={(e) => setPartner(e.target.value)}
+                    value={partner}
+                />
+                {coupleError && <label className={"error-msg"}>{ERROR_TEXT.FAMILY_STATUS.PARTNER}</label>}
+            </section>
         } else if (selectedFamilyStatus === "Couple With Children") {
-            return <TextArea
-                className={"input"}
-                labelClassName={"label"}
-                placeholder={"Partner's username"}
-                onChange={(e) => setPartner(e.target.value)}
-                value={partner}
-            />
+            return <section>
+                <TextArea
+                    className={`${coupleError && "border-red-500 mb-0"} input`}
+                    labelClassName={"label"}
+                    placeholder={"Partner's username"}
+                    onChange={(e) => setPartner(e.target.value)}
+                    value={partner}
+                />
+                {coupleError && <label className={"error-msg"}>{ERROR_TEXT.FAMILY_STATUS.PARTNER}</label>}
+            </section>
         } else if (selectedFamilyStatus === "Existing Group") {
-            return <TextArea
-                className={"input"}
+            return <section><TextArea
+                className={`${groupError && "border-red-500 mb-0"} input`}
                 labelClassName={"label"}
                 placeholder={"Member's username(s) - divided by commas"}
                 onChange={(e) => setGroupMembers(e.target.value)}
                 value={groupMembers}
             />
+                {groupError && <label className={"error-msg"}>{ERROR_TEXT.FAMILY_STATUS.GROUP}</label>}
+            </section>
         }
 
     }
@@ -275,6 +285,11 @@ function MemberRegistrationForm(props) {
         // Profile Validation
         (isStringEmpty(gender) ? setGenderError(true) : setGenderError(false));
         (isStringEmpty(selectedFamilyStatus) ? setFamilyStatusError(true) : setFamilyStatusError(false));
+        if (selectedFamilyStatus === "Couple" || selectedFamilyStatus === "Couple With Children") {
+            (isStringEmpty(partner) ? setCoupleError(true) : setCoupleError(false));
+        } else if (selectedFamilyStatus === "Existing Group") {
+            (isStringEmpty(groupMembers) ? setGroupError(true) : setGroupError(false));
+        }
         (isStringEmpty(selectedWorkStatus) ? setWorkStatusError(true) : setWorkStatusError(false));
         (isStringEmpty(selectedLimit) ? setLimitError(true) : setLimitError(false));
         (isStringEmpty(minRent) ? setMinRentError(true) : setMinRentError(false));
@@ -328,6 +343,15 @@ function MemberRegistrationForm(props) {
             || religionError || dietError || homeError || interestInBuyingError) {
             console.log("Error in profile");
             return false;
+            // check to ensure partner and group are set
+        } else if (selectedFamilyStatus === "Couple" || selectedFamilyStatus === "Couple With Children") {
+            if (coupleError) {
+                return false;
+            }
+        } else if (selectedFamilyStatus === "Existing Group") {
+            if (groupError) {
+                return false;
+            }
             // check account details for errors
         } else if (usernameError || passwordError || !isStringEmpty(passwordConfirmError)) {
             console.log("Error in account details");
@@ -352,7 +376,11 @@ function MemberRegistrationForm(props) {
             POSTAL_CODE: "Postal code can not be empty",
         },
         GENDER: "Gender has not been set",
-        FAMILY_STATUS: "Family status has not been set",
+        FAMILY_STATUS: {
+            DROPDOWN: "Family status has not been set",
+            PARTNER: "Partner username can not be empty",
+            GROUP: "Group member username(s) can not be empty"
+        },
         WORK_STATUS: "Work status has not been set",
         LIMIT: "Number of people to share with has not been set",
         MIN_RENT: "Minimum rent can not be empty",
@@ -641,7 +669,7 @@ function MemberRegistrationForm(props) {
                                         />
                                         {checkStatus(selectedFamilyStatus)}
                                         {familyStatusError &&
-                                        <label className={"error-msg"}>{ERROR_TEXT.FAMILY_STATUS}</label>}
+                                        <label className={"error-msg"}>{ERROR_TEXT.FAMILY_STATUS.DROPDOWN}</label>}
 
                                         <LabelAsterisk label={"Work Status"}/>
                                         <WorkStatus onChange={handleWorkStatusChange}
