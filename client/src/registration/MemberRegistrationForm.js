@@ -95,58 +95,69 @@ function MemberRegistrationForm(props) {
     const [minRent, setMinRent] = useState("");
     const [maxRent, setMaxRent] = useState("");
 
-    const [aboutSelf, setAboutSelf] = useState("");
-
-    const [selectedLimit, setsSelectedLimit] = useState("");
-
-    const [selectedFamilyStatus, setsSelectedFamilyStatus] = useState();
-    const [selectedWorkStatus, setsSelectedWorkStatus] = useState();
-
-    const [partner, setPartner] = useState("");
-    const [groupMembers, setGroupMembers] = useState("");
-    const [firstNameError, setFirstNameError] = useState("");
-    const [lastNameError, setLastNameError] = useState("");
-    const [emailError, setEmailError] = useState("");
-    const [yearOfBirthError, setYearOfBirthError] = useState("");
-    const [phoneNumberError, setPhoneNumberError] = useState("");
-
-    //Address
-    const [streetAddressError, setStreetAddressError] = useState("");
-    const [cityAddressError, setCityAddressError] = useState("");
-    const [provinceAddressError, setProvinceAddressError] = useState("");
-    const [postalCodeError, setPostalCodeError] = useState("");
-
-    // Mailing Address
-    const [streetMailingAddressError, setStreetMailingAddressError] = useState("");
-    const [cityMailingAddressError, setCityMailingAddressError] = useState("");
-    const [provinceMailingAddressError, setProvinceMailingAddressError] = useState("");
-    const [postalCodeMailingError, setPostalCodeMailingError] = useState("");
-
-    const [genderError, setGenderError] = useState("");
-    const [familyStatusError, setFamilyStatusError] = useState("");
-    const [workStatusError, setWorkStatusError] = useState("");
-    const [limitError, setLimitError] = useState("");
-    const [minRentError, setMinRentError] = useState("");
-    const [maxRentError, setMaxRentError] = useState("");
-    const [areasOfInterestError, setAreasOfInterestError] = useState("");
-    const [petFriendlyError, setPetFriendlyError] = useState("");
-    const [smokingError, setSmokingError] = useState("");
-    const [mobilityIssuesError, setMobilityIssuesError] = useState("");
-    const [allergiesError, setAllergiesError] = useState("");
-    const [religionError, setReligionError] = useState("");
-    const [dietError, setDietError] = useState("");
-    const [homeError, setHomeError] = useState("");
-    const [interestInBuyingError, setInterestInBuyingError] = useState("");
-
-    const [usernameError, setUsernameError] = useState("");
-    const [passwordError, setPasswordError] = useState("");
-    const [passwordConfirmError, setPasswordConfirmError] = useState("");
-
     const [areasOfInterest, setAreasOfInterest] = useState([{
         province: "",
         city: "",
         radius: ""
     }]);
+
+    const [aboutSelf, setAboutSelf] = useState("");
+
+    const [selectedLimit, setsSelectedLimit] = useState("");
+
+    const [selectedFamilyStatus, setsSelectedFamilyStatus] = useState();
+    const [partner, setPartner] = useState("");
+    const [groupMembers, setGroupMembers] = useState("");
+
+    const [selectedWorkStatus, setsSelectedWorkStatus] = useState();
+
+    // Error state variables 
+    // Personal Information Start  
+    const [firstNameError, setFirstNameError] = useState(false);
+    const [lastNameError, setLastNameError] = useState(false);
+    const [emailError, setEmailError] = useState(false);
+    const [yearOfBirthError, setYearOfBirthError] = useState(false);
+    const [phoneNumberError, setPhoneNumberError] = useState("");
+
+    //Address
+    const [streetAddressError, setStreetAddressError] = useState(false);
+    const [cityAddressError, setCityAddressError] = useState(false);
+    const [provinceAddressError, setProvinceAddressError] = useState(false);
+    const [postalCodeError, setPostalCodeError] = useState(false);
+
+    // Mailing Address
+    const [streetMailingAddressError, setStreetMailingAddressError] = useState(false);
+    const [cityMailingAddressError, setCityMailingAddressError] = useState(false);
+    const [provinceMailingAddressError, setProvinceMailingAddressError] = useState(false);
+    const [postalCodeMailingError, setPostalCodeMailingError] = useState(false);
+    // Personal Information End
+
+
+    // Profile Details Start
+    const [genderError, setGenderError] = useState(false);
+    const [familyStatusError, setFamilyStatusError] = useState(false);
+    const [workStatusError, setWorkStatusError] = useState(false);
+    const [limitError, setLimitError] = useState(false);
+    const [minRentError, setMinRentError] = useState(false);
+    const [maxRentError, setMaxRentError] = useState(false);
+    const [areasOfInterestError, setAreasOfInterestError] = useState(false);
+    const [petFriendlyError, setPetFriendlyError] = useState(false);
+    const [smokingError, setSmokingError] = useState(false);
+    const [mobilityIssuesError, setMobilityIssuesError] = useState(false);
+    const [allergiesError, setAllergiesError] = useState(false);
+    const [religionError, setReligionError] = useState(false);
+    const [dietError, setDietError] = useState(false);
+    const [homeError, setHomeError] = useState(false);
+    const [interestInBuyingError, setInterestInBuyingError] = useState(false);
+    // Profile Details End
+
+    // Account Details Start
+    const [usernameError, setUsernameError] = useState(false);
+    const [passwordError, setPasswordError] = useState(false);
+    const [passwordConfirmError, setPasswordConfirmError] = useState("");
+
+    // Account Details End
+
 
     function checkStatus(selectedFamilyStatus) {
         if (selectedFamilyStatus === "Couple") {
@@ -202,7 +213,7 @@ function MemberRegistrationForm(props) {
     }
 
 
-    const dropdownError = {
+    const dropdownErrorCSS = {
         control: base => ({
                 ...base,
                 marginTop: 4,
@@ -218,7 +229,7 @@ function MemberRegistrationForm(props) {
         menuPortal: base => ({...base, zIndex: 9999}),
     }
 
-    const dropdownDefaultStyling = {
+    const dropdownDefaultCSS = {
         control: base => ({
                 ...base,
                 marginTop: 4,
@@ -230,8 +241,9 @@ function MemberRegistrationForm(props) {
         ),
         menuPortal: base => ({...base, zIndex: 9999}),
     }
-    // TODO: convert this into an array of errors
+
     const isFormValid = () => {
+        // Personal Information Validation
         (isStringEmpty(firstName) ? setFirstNameError(true) : setFirstNameError(false));
         (isStringEmpty(lastName) ? setLastNameError(true) : setLastNameError(false));
         (isStringEmpty(email) ? setEmailError(true) : setEmailError(false));
@@ -259,6 +271,8 @@ function MemberRegistrationForm(props) {
             (isStringEmpty(mailingAddress.province) ? setProvinceMailingAddressError(true) : setProvinceMailingAddressError(false));
             (isStringEmpty(mailingAddress.postalCode) ? setPostalCodeMailingError(true) : setPostalCodeMailingError(false));
         }
+
+        // Profile Validation
         (isStringEmpty(gender) ? setGenderError(true) : setGenderError(false));
         (isStringEmpty(selectedFamilyStatus) ? setFamilyStatusError(true) : setFamilyStatusError(false));
         (isStringEmpty(selectedWorkStatus) ? setWorkStatusError(true) : setWorkStatusError(false));
@@ -279,6 +293,7 @@ function MemberRegistrationForm(props) {
             } else
                 setAreasOfInterestError(false);
         }
+        // Yes/No Validation
         (isStringEmpty(petFriendly) ? setPetFriendlyError(true) : setPetFriendlyError(false));
         (isStringEmpty(smoking) ? setSmokingError(true) : setSmokingError(false));
         (isStringEmpty(mobilityIssues) ? setMobilityIssuesError(true) : setMobilityIssuesError(false));
@@ -288,13 +303,37 @@ function MemberRegistrationForm(props) {
         (isStringEmpty(hasHome) ? setHomeError(true) : setHomeError(false));
         (isStringEmpty(interestInBuyingHome) ? setInterestInBuyingError(true) : setInterestInBuyingError(false));
 
+        // Account Details Validation
         (isStringEmpty(username) ? setUsernameError(true) : setUsernameError(false));
         (isStringEmpty(password) ? setPasswordError(true) : setPasswordError(false));
         (isStringEmpty(passwordCheck) ? setPasswordConfirmError("empty") : setPasswordConfirmError(false));
         if (!isStringEmpty(password) && !isStringEmpty(passwordCheck)) {
             (!isStringSame(password, passwordCheck) ? setPasswordConfirmError("mismatch") : setPasswordConfirmError(false));
         }
-        // return true;
+
+        // check personal information for errors
+        if (firstNameError || lastNameError || emailError || yearOfBirthError || !isStringEmpty(phoneNumberError) ||
+            streetAddressError || cityAddressError || provinceAddressError || postalCodeError) {
+            console.log("Error in personal information");
+            return false;
+            // check mailing address for errors
+        } else if (useDifferentMailingAddress) {
+            if (streetMailingAddressError || cityMailingAddressError || provinceMailingAddressError || postalCodeMailingError) {
+                console.log("Error in mailing");
+                return false;
+            }
+            // check profile for errors
+        } else if (genderError || familyStatusError || workStatusError || limitError || minRentError || maxRentError ||
+            areasOfInterestError || petFriendlyError || smokingError || mobilityIssuesError || allergiesError
+            || religionError || dietError || homeError || interestInBuyingError) {
+            console.log("Error in profile");
+            return false;
+            // check account details for errors
+        } else if (usernameError || passwordError || !isStringEmpty(passwordConfirmError)) {
+            console.log("Error in account details");
+            return false;
+        } else
+            return true;
     }
     const ERROR_TEXT = {
         FIRST_NAME: "First name can not be empty",
@@ -490,7 +529,7 @@ function MemberRegistrationForm(props) {
                             <LabelAsterisk label={"Year of Birth"}/>
                             <Tooltip text={INFO_TEXT.YEAR_OF_BIRTH} toolTipID="yearOfBirth"/>
                             <BirthYear label={"Year of Birth"} onChange={handleYearChange}
-                                       styling={yearOfBirthError ? dropdownError : dropdownDefaultStyling}/>
+                                       styling={yearOfBirthError ? dropdownErrorCSS : dropdownDefaultCSS}/>
                             {yearOfBirthError && <label className={"error-msg"}>{ERROR_TEXT.YEAR_OF_BIRTH}</label>}
                             <PhoneNumInput
                                 className={`${phoneNumberError && "border-red-500 mb-0"} phone`}
@@ -505,7 +544,7 @@ function MemberRegistrationForm(props) {
                                 label="Address"
                                 streetClassName={`${streetAddressError && "border-red-500 mb-0"} input`}
                                 cityClassName={`${streetAddressError && "border-red-500 mb-0"} input`}
-                                provinceClassName={provinceAddressError ? dropdownError : dropdownDefaultStyling}
+                                provinceClassName={provinceAddressError ? dropdownErrorCSS : dropdownDefaultCSS}
                                 postalCodeClassName={`${postalCodeError && "border-red-500 mb-0"} input`}
                                 streetErrorMsg={streetAddressError ? ERROR_TEXT.ADDRESS.STREET : ""}
                                 cityErrorMsg={cityAddressError ? ERROR_TEXT.ADDRESS.CITY : ""}
@@ -525,7 +564,7 @@ function MemberRegistrationForm(props) {
                                 label="Mailing Address"
                                 streetClassName={`${streetMailingAddressError && "border-red-500 mb-0"} input`}
                                 cityClassName={`${cityMailingAddressError && "border-red-500 mb-0"} input`}
-                                provinceClassName={provinceMailingAddressError ? dropdownError : dropdownDefaultStyling}
+                                provinceClassName={provinceMailingAddressError ? dropdownErrorCSS : dropdownDefaultCSS}
                                 postalCodeClassName={`${postalCodeMailingError && "border-red-500 mb-0"} input`}
                                 streetErrorMsg={streetMailingAddressError ? ERROR_TEXT.ADDRESS.STREET : ""}
                                 cityErrorMsg={cityMailingAddressError ? ERROR_TEXT.ADDRESS.CITY : ""}
@@ -598,7 +637,7 @@ function MemberRegistrationForm(props) {
                                         <LabelAsterisk label={"Family Status"}/>
                                         <Tooltip text={INFO_TEXT.FAMILY_STATUS} toolTipID="familyStatus"/>
                                         <Status onChange={handleFamilyStatusChange}
-                                                styling={familyStatusError ? dropdownError : dropdownDefaultStyling}
+                                                styling={familyStatusError ? dropdownErrorCSS : dropdownDefaultCSS}
                                         />
                                         {checkStatus(selectedFamilyStatus)}
                                         {familyStatusError &&
@@ -606,14 +645,14 @@ function MemberRegistrationForm(props) {
 
                                         <LabelAsterisk label={"Work Status"}/>
                                         <WorkStatus onChange={handleWorkStatusChange}
-                                                    styling={workStatusError ? dropdownError : dropdownDefaultStyling}/>
+                                                    styling={workStatusError ? dropdownErrorCSS : dropdownDefaultCSS}/>
                                         {workStatusError &&
                                         <label className={"error-msg"}>{ERROR_TEXT.WORK_STATUS}</label>}
 
                                         <LabelAsterisk label={"Open to Sharing With"}/>
                                         <Tooltip text={INFO_TEXT.NUM_PEOPLE_SHARE} toolTipID="numPeopleToShare"/>
                                         <ShareLimit onChange={handleLimitChange}
-                                                    styling={limitError ? dropdownError : dropdownDefaultStyling}/>
+                                                    styling={limitError ? dropdownErrorCSS : dropdownDefaultCSS}/>
                                         {limitError && <label className={"error-msg"}>{ERROR_TEXT.LIMIT}</label>}
 
                                         <LabelAsterisk label={"Monthly Rent"}/>
@@ -648,7 +687,7 @@ function MemberRegistrationForm(props) {
                                         <LabelAsterisk label={"Preferred Living Location(s)"}/>
                                         <Tooltip text={INFO_TEXT.INTERESTED_AREA} toolTipID="interestedArea"/>
                                         <InterestedArea onChange={setAreasOfInterest}
-                                                        areasOfInterestError={areasOfInterestError && true}
+                                                        areasOfInterestError={areasOfInterestError}
                                                         areaOfInterestErrorMsg={areasOfInterestError ? ERROR_TEXT.AREA_OF_INTEREST : ""}
                                         />
                                         <div className="grid grid-cols-6 gap-x-6 mt-5">
