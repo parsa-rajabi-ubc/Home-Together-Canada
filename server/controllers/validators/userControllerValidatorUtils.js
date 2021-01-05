@@ -8,6 +8,7 @@
 
 const abstractUserController = require('../abstractUserController');
 const memberAccountController = require('../memberAccountController');
+const PasswordService = require('../../services/PasswordService');
 
 const PROVINCES = [
     'AB',
@@ -156,6 +157,38 @@ const linkedMemberShouldHaveSameStatus = (username, req) => {
         });
 }
 
+const providedOldPasswordShouldMatchExistingPassword = (password, uid) => {
+    return abstractUserController.findAbstractUser(uid)
+        .then(userObject => {
+            if (!userObject) {
+                return Promise.reject('User cannot be found');
+            } else {
+                const user = userObject.dataValues;
+                const hashedPassword = PasswordService.getHashedPassword(password, user.salt);
+
+                if (hashedPassword !== user.password) {
+                    return Promise.reject(`Old password must match the current saved password`);
+                }
+            }
+        });
+}
+
+const providedNewPasswordShouldNotMatchExistingPassword = (password, uid) => {
+    return abstractUserController.findAbstractUser(uid)
+        .then(userObject => {
+            if (!userObject) {
+                return Promise.reject('User cannot be found');
+            } else {
+                const user = userObject.dataValues;
+                const hashedPassword = PasswordService.getHashedPassword(password, user.salt);
+
+                if (hashedPassword === user.password) {
+                    return Promise.reject('New password cannot be the same as previous password');
+                }
+            }
+        });
+}
+
 module.exports = {
     PROVINCES,
     GENDERS,
@@ -172,5 +205,7 @@ module.exports = {
     emailShouldNotAlreadyBeInUse,
     usernameShouldExist,
     usernameShouldExistAndBeAMember,
-    linkedMemberShouldHaveSameStatus
+    linkedMemberShouldHaveSameStatus,
+    providedOldPasswordShouldMatchExistingPassword,
+    providedNewPasswordShouldNotMatchExistingPassword
 }
