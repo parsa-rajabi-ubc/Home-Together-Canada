@@ -10,7 +10,7 @@ import React, {useState} from 'react';
 import {useLocation} from 'react-router-dom';
 import SubPages from "./SubPages";
 import {ALL_SUBPAGES, BUSINESS_SUBPAGES, MEMBER_SUBPAGES, USER_TYPES} from "../common/constants/users";
-import ChangePassword from "../common/forms/ChangePassword";
+import ChangePasswordContainer from "../common/forms/ChangePasswordContainer";
 
 const AccountSummaryContainer = () => {
     const {accountType, selected} = useLocation().state;
@@ -24,7 +24,7 @@ const AccountSummaryContainer = () => {
             case ALL_SUBPAGES.PROFILE:
                 return <div>Profile Component</div>
             case ALL_SUBPAGES.PASSWORD:
-                return <ChangePassword onChange={() => null}/>
+                return <ChangePasswordContainer/>
             case ALL_SUBPAGES.MESSAGING:
                 return <div>Messaging Component</div>
             case ALL_SUBPAGES.MANAGE_LISTINGS:

@@ -1,4 +1,4 @@
-import {getConcatenatedErrorMessage, getPhoneNumberFromStrings} from "../registrationUtils";
+import {getConcatenatedErrorMessage, getPhoneNumberFromStrings, getFirstErrorMessage} from "../registrationUtils";
 
 describe('registrationUtils', () => {
 
@@ -73,6 +73,81 @@ describe('registrationUtils', () => {
 
             // when
             const errorMessage = getConcatenatedErrorMessage(errors);
+
+            // then
+            expect(errorMessage).toBe(expectedErrorMessage);
+        });
+        it('should return an empty string if errors is empty', () => {
+            // expected result
+            const expectedErrorMessage = '';
+
+            // given
+            const errors = [];
+
+            // when
+            const errorMessage = getConcatenatedErrorMessage(errors);
+
+            // then
+            expect(errorMessage).toBe(expectedErrorMessage);
+        });
+        it('should return an empty string if errors is empty', () => {
+            // expected result
+            const expectedErrorMessage = '';
+
+            // given
+            const errors = undefined;
+
+            // when
+            const errorMessage = getConcatenatedErrorMessage(errors);
+
+            // then
+            expect(errorMessage).toBe(expectedErrorMessage);
+        });
+    });
+
+    describe('getFirstErrorMessage', () => {
+        it('should return a concatenated string of errors', () => {
+            // expect result
+            const expectedErrorMessage = 'Email already in use.';
+
+            // given
+            const errors = [
+                {
+                    msg: 'Email already in use.'
+                },
+                {
+                    msg: 'Username already in use.'
+                }
+            ];
+
+            // when
+            const errorMessage = getFirstErrorMessage(errors);
+
+            // then
+            expect(errorMessage).toBe(expectedErrorMessage);
+        });
+        it('should return an empty string if errors is empty', () => {
+            // expected result
+            const expectedErrorMessage = '';
+
+            // given
+            const errors = [];
+
+            // when
+            const errorMessage = getFirstErrorMessage(errors);
+
+            // then
+            expect(errorMessage).toBe(expectedErrorMessage);
+        });
+        it('should return an empty string if errors is empty', () => {
+            // expected result
+            const expectedErrorMessage = '';
+
+            // given
+            const errors = undefined;
+
+            // when
+            const errorMessage = getFirstErrorMessage(errors);
 
             // then
             expect(errorMessage).toBe(expectedErrorMessage);
