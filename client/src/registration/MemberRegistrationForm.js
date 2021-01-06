@@ -157,8 +157,21 @@ function MemberRegistrationForm(props) {
     const [usernameError, setUsernameError] = useState(undefined);
     const [passwordError, setPasswordError] = useState(undefined);
     const [passwordConfirmError, setPasswordConfirmError] = useState(undefined);
-
     // Account Details End
+
+    useEffect(() => {
+        console.log('useEffect is called...');
+        console.log('firstNameError !== undefined && isStringEmpty(firstName)', firstName !== undefined && isStringEmpty(firstName));
+        console.log('firstNameError', firstNameError);
+        console.log('isStringEmpty(firstName)', isStringEmpty(firstName));
+        firstNameError !== undefined && isStringEmpty(firstName) ? setFirstNameError(true) : setFirstNameError(false);
+        console.log('useEffect firstNameError: ', firstNameError);
+    }, [firstName, firstNameError]);
+
+    useEffect(() => {
+        yearOfBirth !== undefined && (isStringEmpty(yearOfBirth) ? setYearOfBirthError(true) : setYearOfBirthError(false));
+    }, [yearOfBirth]);
+
 
     function checkStatus(selectedFamilyStatus) {
         if (selectedFamilyStatus === "Couple") {
