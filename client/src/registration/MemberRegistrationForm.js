@@ -168,9 +168,6 @@ function MemberRegistrationForm(props) {
         emailError !== undefined && isStringEmpty(email) ? setEmailError(true) : setEmailError(false);
     }, [email]);
     useEffect(() => {
-        emailError !== undefined && isStringEmpty(email) ? setEmailError(true) : setEmailError(false);
-    }, [email]);
-    useEffect(() => {
         phoneNumberError !== undefined && isStringEmpty(phoneNumber) ? setPhoneNumberError(true) : setPhoneNumberError(false);
     }, [phoneNumber]);
 
@@ -205,53 +202,11 @@ function MemberRegistrationForm(props) {
 
     // Profile
     useEffect(() => {
-        genderError !== undefined && isStringEmpty(gender) ? setGenderError(true) : setGenderError(false);
-    }, [gender]);
-    useEffect(() => {
-        familyStatusError !== undefined && isStringEmpty(selectedFamilyStatus) ? setFamilyStatusError(true) : setFamilyStatusError(false);
-    }, [selectedFamilyStatus]);
-    useEffect(() => {
-        workStatusError !== undefined && isStringEmpty(selectedWorkStatus) ? setWorkStatusError(true) : setWorkStatusError(false);
-    }, [selectedWorkStatus]);
-    useEffect(() => {
-        limitError !== undefined && isStringEmpty(selectedLimit) ? setLimitError(true) : setLimitError(false);
-    }, [selectedLimit]);
-    useEffect(() => {
-        areasOfInterestError !== undefined && isStringEmpty(areasOfInterest) ? setAreasOfInterestError(true) : setAreasOfInterestError(false);
-    }, [areasOfInterest]);
-    useEffect(() => {
         minRentError !== undefined && isStringEmpty(minRent) ? setMinRentError(true) : setMinRentError(false);
     }, [minRent]);
     useEffect(() => {
         maxRentError !== undefined && isStringEmpty(maxRent) ? setMaxRentError(true) : setMaxRentError(false);
     }, [maxRent]);
-    useEffect(() => {
-        areasOfInterestError !== undefined && isStringEmpty(areasOfInterest) ? setAreasOfInterestError(true) : setAreasOfInterestError(false);
-    }, [areasOfInterest]);
-    useEffect(() => {
-        petFriendlyError !== undefined && isStringEmpty(petFriendly) ? setPetFriendlyError(true) : setPetFriendlyError(false);
-    }, [petFriendly]);
-    useEffect(() => {
-        smokingError !== undefined && isStringEmpty(smoking) ? setSmokingError(true) : setSmokingError(false);
-    }, [smoking]);
-    useEffect(() => {
-        mobilityIssuesError !== undefined && isStringEmpty(mobilityIssues) ? setMobilityIssues(true) : setMobilityIssues(false);
-    }, [mobilityIssues]);
-    useEffect(() => {
-        allergiesError !== undefined && isStringEmpty(hasAllergies) ? setAllergiesError(true) : setAllergiesError(false);
-    }, [hasAllergies]);
-    useEffect(() => {
-        religionError !== undefined && isStringEmpty(religious) ? setReligionError(true) : setReligionError(false);
-    }, [religious]);
-    useEffect(() => {
-        dietError !== undefined && isStringEmpty(hasDiet) ? setDietError(true) : setDietError(false);
-    }, [hasDiet]);
-    useEffect(() => {
-        homeError !== undefined && isStringEmpty(hasHome) ? setHomeError(true) : setHomeError(false);
-    }, [hasHome]);
-    useEffect(() => {
-        interestInBuyingError !== undefined && isStringEmpty(interestInBuyingHome) ? setAreasOfInterestError(true) : setAreasOfInterestError(false);
-    }, [interestInBuyingHome]);
 
 
     // Account Details
