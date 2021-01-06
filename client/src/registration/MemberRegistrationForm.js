@@ -15,7 +15,12 @@ import SignInInfo from "../common/forms/SignInInfo";
 import PhoneNumInput from "../common/forms/PhoneNumInput";
 import BirthYear from "../common/forms/BirthYear";
 import {isStringEmpty, isStringNumeralsOnly, isStringSame} from "../common/utils/stringUtils";
-import {getConcatenatedErrorMessage, getPhoneNumberFromStrings, validateFirstName} from "./registrationUtils";
+import {
+    getConcatenatedErrorMessage,
+    getPhoneNumberFromStrings,
+    validateFirstName,
+    validateInput
+} from "./registrationUtils";
 import RegistrationService from "../services/RegistrationService";
 import RadioButton from "../common/forms/RadioButton";
 import Status from "../common/forms/Status";
@@ -333,13 +338,43 @@ function MemberRegistrationForm(props) {
     };
     const isFormValid = () => {
         // Personal Information Validation
+        (isStringEmpty(firstName) ? setFirstNameError(true) : setFirstNameError(false));
+        (isStringEmpty(lastName) ? setLastNameError(true) : setLastNameError(false));
+        (isStringEmpty(email) ? setEmailError(true) : setEmailError(false));
         (isStringEmpty(yearOfBirth) ? setYearOfBirthError(true) : setYearOfBirthError(false));
-
+        if (isStringEmpty(phoneNumber.first) || isStringEmpty(phoneNumber.middle) || isStringEmpty(phoneNumber.last)) {
+            // empty
+            setPhoneNumberError(true);
+        } else {
+            if (!isStringNumeralsOnly(phoneNumber.first) || !isStringNumeralsOnly(phoneNumber.middle) || !isStringNumeralsOnly(phoneNumber.last)) {
+                // invalid character
+                setPhoneNumberError(true);
+            } else {
+                if (!(phoneNumber.first.length === 3) || !(phoneNumber.middle.length === 3) || !(phoneNumber.last.length === 4)) {
+                    // missing number
+                    setPhoneNumberError(true);
+                } else {
+                    setPhoneNumberError(false);
+                }
+            }
+        }
+        (isStringEmpty(address.street) ? setStreetAddressError(true) : setStreetAddressError(false));
+        (isStringEmpty(address.city) ? setCityAddressError(true) : setCityAddressError(false));
+        (isStringEmpty(address.province) ? setProvinceAddressError(true) : setProvinceAddressError(false));
+        (isStringEmpty(address.postalCode) ? setPostalCodeError(true) : setPostalCodeError(false));
+        if (useDifferentMailingAddress) {
+            (isStringEmpty(mailingAddress.street) ? setStreetMailingAddressError(true) : setStreetMailingAddressError(false));
+            (isStringEmpty(mailingAddress.city) ? setCityMailingAddressError(true) : setCityMailingAddressError(false));
+            (isStringEmpty(mailingAddress.province) ? setProvinceMailingAddressError(true) : setProvinceMailingAddressError(false));
+            (isStringEmpty(mailingAddress.postalCode) ? setPostalCodeMailingError(true) : setPostalCodeMailingError(false));
+        }
         // Profile Validation
         (isStringEmpty(gender) ? setGenderError(true) : setGenderError(false));
         (isStringEmpty(selectedFamilyStatus) ? setFamilyStatusError(true) : setFamilyStatusError(false));
         (isStringEmpty(selectedWorkStatus) ? setWorkStatusError(true) : setWorkStatusError(false));
         (isStringEmpty(selectedLimit) ? setLimitError(true) : setLimitError(false));
+        (isStringEmpty(minRent) ? setMinRentError(true) : setMinRentError(false));
+        (isStringEmpty(maxRent) ? setMaxRentError(true) : setMaxRentError(false));
 
         for (let i = 0; i <= areasOfInterest.length - 1; i++) {
             if (areasOfInterest[i].province === undefined) {
@@ -364,43 +399,47 @@ function MemberRegistrationForm(props) {
         (isStringEmpty(hasHome) ? setHomeError(true) : setHomeError(false));
         (isStringEmpty(interestInBuyingHome) ? setInterestInBuyingError(true) : setInterestInBuyingError(false));
 
+        // Account Details Validation
+        (isStringEmpty(username) ? setUsernameError(true) : setUsernameError(false));
+        (isStringEmpty(password) ? setPasswordError(true) : setPasswordError(false));
+        (isStringEmpty(passwordCheck) ? setPasswordConfirmError("empty") : setPasswordConfirmError(false));
+        if (!isStringEmpty(password) && !isStringEmpty(passwordCheck)) {
+            (!isStringSame(password, passwordCheck) ? setPasswordConfirmError("mismatch") : setPasswordConfirmError(false));
+        }
 
-        // // check personal information for errors
-        // if (firstNameError || lastNameError || emailError || yearOfBirthError || !isStringEmpty(phoneNumberError) ||
-        //     streetAddressError || cityAddressError || provinceAddressError || postalCodeError) {
-        //     console.log("Error in personal information");
-        //     return false;
-        //     // check mailing address for errors
-        // } else if (useDifferentMailingAddress) {
-        //     if (streetMailingAddressError || cityMailingAddressError || provinceMailingAddressError || postalCodeMailingError) {
-        //         console.log("Error in mailing");
-        //         return false;
-        //     }
-        //     // check profile for errors
-        // } else if (genderError || familyStatusError || workStatusError || limitError || minRentError || maxRentError ||
-        //     areasOfInterestError || petFriendlyError || smokingError || mobilityIssuesError || allergiesError
-        //     || religionError || dietError || homeError || interestInBuyingError) {
-        //     console.log("Error in profile");
-        //     return false;
-        //     // check to ensure partner and group are set
-        // } else if (selectedFamilyStatus === "Couple" || selectedFamilyStatus === "Couple With Children") {
-        //     if (coupleError) {
-        //         console.log("Error couple");
-        //         return false;
-        //     }
-        // } else if (selectedFamilyStatus === "Existing Group") {
-        //     if (groupError) {
-        //         console.log("Error group");
-        //         return false;
-        //     }
-        //     // check account details for errors
-        // } else if (usernameError || passwordError || !isStringEmpty(passwordConfirmError)) {
-        //     console.log("Error in account details");
-        //     return false;
-        // } else {
-        //     console.log("No errors");
-        // }
-        // return true;
+        // check personal information for errors
+        if ((isStringEmpty(firstName) || isStringEmpty(lastName) || isStringEmpty(email) || isStringEmpty(yearOfBirth) || isStringEmpty(phoneNumber) ||
+            isStringEmpty(address.street) || isStringEmpty(address.city) || isStringEmpty(address.province) || isStringEmpty(address.postalCode))) {
+            console.log("Error in personal information");
+            return false;
+
+            // check mailing address for errors if selected
+        } else if (useDifferentMailingAddress) {
+            if (isStringEmpty(mailingAddress.street) || isStringEmpty(mailingAddress.city)
+                || isStringEmpty(mailingAddress.province) || isStringEmpty(mailingAddress.postalCode)) {
+                return false;
+            }
+
+            // check profile for errors
+        } else if (isStringEmpty(gender) || isStringEmpty(setsSelectedFamilyStatus) || isStringEmpty(selectedWorkStatus) ||
+            isStringEmpty(selectedLimit) || isStringEmpty(minRent) || isStringEmpty(maxRent) || isStringEmpty(areasOfInterest)) {
+            return false;
+
+            // check profile Y/N questions for errors
+        } else if (isStringEmpty(petFriendly) || isStringEmpty(smoking) || isStringEmpty(mobilityIssues) ||
+            isStringEmpty(hasAllergies) || isStringEmpty(religious) || isStringEmpty(hasDiet) ||
+            isStringEmpty(hasHome) || isStringEmpty(interestInBuyingHome)) {
+            return false;
+
+            // check account details for errors
+        } else if (isStringEmpty(username) || isStringEmpty(password) || isStringEmpty(passwordCheck)) {
+            return false;
+
+            // return true if no errors
+        } else {
+            return true;
+        }
+
     }
 
 
@@ -423,8 +462,7 @@ function MemberRegistrationForm(props) {
     //function for input checks on submit
     function onSubmit(event) {
 
-        if (!validateFirstName(firstName)) {
-            isFormValid();
+        if (!isFormValid()) {
             console.log('form is invalid');
             event.preventDefault();
             return;
@@ -538,7 +576,6 @@ function MemberRegistrationForm(props) {
                                 autoComplete={"given-name"}
                                 required={true}
                                 onChange={(e) => {
-                                    console.log('onChange called');
                                     setFirstName(e.target.value)
                                 }}
                             />
