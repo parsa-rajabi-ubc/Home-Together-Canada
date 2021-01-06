@@ -15,12 +15,7 @@ import SignInInfo from "../common/forms/SignInInfo";
 import PhoneNumInput from "../common/forms/PhoneNumInput";
 import BirthYear from "../common/forms/BirthYear";
 import {isStringEmpty, isStringNumeralsOnly, isStringSame} from "../common/utils/stringUtils";
-import {
-    getConcatenatedErrorMessage,
-    getPhoneNumberFromStrings,
-    validateFirstName,
-    validateInput
-} from "./registrationUtils";
+import {getConcatenatedErrorMessage, getPhoneNumberFromStrings,} from "./registrationUtils";
 import RegistrationService from "../services/RegistrationService";
 import RadioButton from "../common/forms/RadioButton";
 import Status from "../common/forms/Status";
@@ -122,7 +117,7 @@ function MemberRegistrationForm(props) {
     const [lastNameError, setLastNameError] = useState(undefined);
     const [emailError, setEmailError] = useState(undefined);
     const [yearOfBirthError, setYearOfBirthError] = useState(undefined);
-    const [phoneNumberError, setPhoneNumberError] = useState("");
+    const [phoneNumberError, setPhoneNumberError] = useState(undefined);
 
     //Address
     const [streetAddressError, setStreetAddressError] = useState(undefined);
@@ -166,15 +161,15 @@ function MemberRegistrationForm(props) {
     useEffect(() => {
         firstNameError !== undefined && isStringEmpty(firstName) ? setFirstNameError(true) : setFirstNameError(false);
     }, [firstName]);
-
     useEffect(() => {
         lastNameError !== undefined && isStringEmpty(lastName) ? setLastNameError(true) : setLastNameError(false);
     }, [lastName]);
-
     useEffect(() => {
         emailError !== undefined && isStringEmpty(email) ? setEmailError(true) : setEmailError(false);
     }, [email]);
-
+    useEffect(() => {
+        emailError !== undefined && isStringEmpty(email) ? setEmailError(true) : setEmailError(false);
+    }, [email]);
     useEffect(() => {
         phoneNumberError !== undefined && isStringEmpty(phoneNumber) ? setPhoneNumberError(true) : setPhoneNumberError(false);
     }, [phoneNumber]);
@@ -183,11 +178,9 @@ function MemberRegistrationForm(props) {
     useEffect(() => {
         streetAddressError !== undefined && isStringEmpty(address.street) ? setStreetAddressError(true) : setStreetAddressError(false);
     }, [address.street]);
-
     useEffect(() => {
         cityAddressError !== undefined && isStringEmpty(address.city) ? setCityAddressError(true) : setCityAddressError(false);
     }, [address.city]);
-
     useEffect(() => {
         postalCodeError !== undefined && isStringEmpty(address.postalCode) ? setPostalCodeError(true) : setPostalCodeError(false);
     }, [address.postalCode]);
@@ -198,43 +191,82 @@ function MemberRegistrationForm(props) {
             streetMailingAddressError !== undefined && isStringEmpty(mailingAddress.street) ? setStreetMailingAddressError(true) : setStreetMailingAddressError(false);
         }
     }, [mailingAddress.street, useDifferentMailingAddress]);
-
     useEffect(() => {
         if (useDifferentMailingAddress) {
             cityMailingAddressError !== undefined && isStringEmpty(mailingAddress.city) ? setCityMailingAddressError(true) : setCityMailingAddressError(false);
         }
     }, [mailingAddress.city, useDifferentMailingAddress]);
-
     useEffect(() => {
         if (useDifferentMailingAddress) {
             postalCodeMailingError !== undefined && isStringEmpty(mailingAddress.postalCode) ? setPostalCodeMailingError(true) : setPostalCodeMailingError(false);
         }
     }, [mailingAddress.postalCode, useDifferentMailingAddress]);
 
+
+    // Profile
+    useEffect(() => {
+        genderError !== undefined && isStringEmpty(gender) ? setGenderError(true) : setGenderError(false);
+    }, [gender]);
+    useEffect(() => {
+        familyStatusError !== undefined && isStringEmpty(selectedFamilyStatus) ? setFamilyStatusError(true) : setFamilyStatusError(false);
+    }, [selectedFamilyStatus]);
+    useEffect(() => {
+        workStatusError !== undefined && isStringEmpty(selectedWorkStatus) ? setWorkStatusError(true) : setWorkStatusError(false);
+    }, [selectedWorkStatus]);
+    useEffect(() => {
+        limitError !== undefined && isStringEmpty(selectedLimit) ? setLimitError(true) : setLimitError(false);
+    }, [selectedLimit]);
+    useEffect(() => {
+        areasOfInterestError !== undefined && isStringEmpty(areasOfInterest) ? setAreasOfInterestError(true) : setAreasOfInterestError(false);
+    }, [areasOfInterest]);
     useEffect(() => {
         minRentError !== undefined && isStringEmpty(minRent) ? setMinRentError(true) : setMinRentError(false);
     }, [minRent]);
-
     useEffect(() => {
         maxRentError !== undefined && isStringEmpty(maxRent) ? setMaxRentError(true) : setMaxRentError(false);
     }, [maxRent]);
+    useEffect(() => {
+        areasOfInterestError !== undefined && isStringEmpty(areasOfInterest) ? setAreasOfInterestError(true) : setAreasOfInterestError(false);
+    }, [areasOfInterest]);
+    useEffect(() => {
+        petFriendlyError !== undefined && isStringEmpty(petFriendly) ? setPetFriendlyError(true) : setPetFriendlyError(false);
+    }, [petFriendly]);
+    useEffect(() => {
+        smokingError !== undefined && isStringEmpty(smoking) ? setSmokingError(true) : setSmokingError(false);
+    }, [smoking]);
+    useEffect(() => {
+        mobilityIssuesError !== undefined && isStringEmpty(mobilityIssues) ? setMobilityIssues(true) : setMobilityIssues(false);
+    }, [mobilityIssues]);
+    useEffect(() => {
+        allergiesError !== undefined && isStringEmpty(hasAllergies) ? setAllergiesError(true) : setAllergiesError(false);
+    }, [hasAllergies]);
+    useEffect(() => {
+        religionError !== undefined && isStringEmpty(religious) ? setReligionError(true) : setReligionError(false);
+    }, [religious]);
+    useEffect(() => {
+        dietError !== undefined && isStringEmpty(hasDiet) ? setDietError(true) : setDietError(false);
+    }, [hasDiet]);
+    useEffect(() => {
+        homeError !== undefined && isStringEmpty(hasHome) ? setHomeError(true) : setHomeError(false);
+    }, [hasHome]);
+    useEffect(() => {
+        interestInBuyingError !== undefined && isStringEmpty(interestInBuyingHome) ? setAreasOfInterestError(true) : setAreasOfInterestError(false);
+    }, [interestInBuyingHome]);
 
+
+    // Account Details
     useEffect(() => {
         usernameError !== undefined && isStringEmpty(username) ? setUsernameError(true) : setUsernameError(false);
     }, [username]);
-
     useEffect(() => {
         passwordError !== undefined && isStringEmpty(password) ? setPasswordError(true) : setPasswordError(false);
     }, [password]);
-
     useEffect(() => {
         passwordError !== undefined && isStringEmpty(password) ? setPasswordError(true) : setPasswordError(false);
     }, [password]);
-
     useEffect(() => {
         passwordConfirmError !== undefined && isStringEmpty(passwordCheck) ? setPasswordConfirmError("empty") : setPasswordConfirmError(false);
     }, [passwordCheck]);
-
     useEffect(() => {
         if (passwordError !== undefined && passwordConfirmError !== undefined) {
             if (!isStringEmpty(password) && !isStringEmpty(passwordCheck)) {
