@@ -397,7 +397,6 @@ function MemberRegistrationForm(props) {
         // check personal information for errors
         if ((isStringEmpty(firstName) || isStringEmpty(lastName) || isStringEmpty(email) || isStringEmpty(yearOfBirth) || isStringEmpty(phoneNumber) ||
             isStringEmpty(address.street) || isStringEmpty(address.city) || isStringEmpty(address.province) || isStringEmpty(address.postalCode))) {
-            console.log("Error in personal information");
             return false;
 
             // check mailing address for errors if selected
@@ -450,12 +449,11 @@ function MemberRegistrationForm(props) {
     function onSubmit(event) {
 
         if (!isFormValid()) {
-            console.log('form is invalid');
+            // form is invalid
             event.preventDefault();
             return;
-        } else {
-            console.log('form is valid');
         }
+        // else form is valid and proceed to make request
         const registrationData = {
             // abstract user
             username: username,
@@ -586,7 +584,7 @@ function MemberRegistrationForm(props) {
                             <LabelAsterisk label={"Year of Birth"}/>
                             <Tooltip text={INFO_TEXT.YEAR_OF_BIRTH} toolTipID="yearOfBirth"/>
                             <BirthYear label={"Year of Birth"} onChange={handleYearChange}
-                                       styling={yearOfBirthError ? dropdownErrorCSS : dropdownDefaultCSS}/>
+                                       dropdownCSS={yearOfBirthError ? dropdownErrorCSS : dropdownDefaultCSS}/>
                             <PhoneNumInput
                                 className={`${phoneNumberError && "border-red-500"} phone`}
                                 labelClassName={"label"}
@@ -681,16 +679,16 @@ function MemberRegistrationForm(props) {
                                         <LabelAsterisk label={"Family Status"}/>
                                         <Tooltip text={INFO_TEXT.FAMILY_STATUS} toolTipID="familyStatus"/>
                                         <Status onChange={handleFamilyStatusChange}
-                                                styling={familyStatusError ? dropdownErrorCSS : dropdownDefaultCSS}
+                                                dropdownCSS={familyStatusError ? dropdownErrorCSS : dropdownDefaultCSS}
                                         />
                                         {checkStatus(selectedFamilyStatus)}
                                         <LabelAsterisk label={"Work Status"}/>
                                         <WorkStatus onChange={handleWorkStatusChange}
-                                                    styling={workStatusError ? dropdownErrorCSS : dropdownDefaultCSS}/>
+                                                    dropdownCSS={workStatusError ? dropdownErrorCSS : dropdownDefaultCSS}/>
                                         <LabelAsterisk label={"Open to Sharing With"}/>
                                         <Tooltip text={INFO_TEXT.NUM_PEOPLE_SHARE} toolTipID="numPeopleToShare"/>
                                         <ShareLimit onChange={handleLimitChange}
-                                                    styling={limitError ? dropdownErrorCSS : dropdownDefaultCSS}/>
+                                                    dropdownCSS={limitError ? dropdownErrorCSS : dropdownDefaultCSS}/>
 
                                         <LabelAsterisk label={"Monthly Rent"}/>
                                         <Tooltip text={INFO_TEXT.RENT} toolTipID="rent"/>
