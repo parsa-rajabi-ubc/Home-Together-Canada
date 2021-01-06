@@ -326,40 +326,6 @@ function MemberRegistrationForm(props) {
     }
 
     const ERROR_TEXT = {
-        FIRST_NAME: "First name must be provided",
-        LAST_NAME: "Last name must be provided",
-        EMAIL: "Email must be provided",
-        YEAR_OF_BIRTH: "Year of birth has not been set",
-        PHONE_NUMBER: {
-            EMPTY: "All three fields of the phone number must be provided",
-            INVALID_CHAR: "Phone number cannot contain non-numerical characters",
-            INVALID_NUM: "Phone number contains invalid number of numerical characters",
-        },
-        ADDRESS: {
-            STREET: "Street address must be provided",
-            CITY: "City must be provided",
-            PROVINCE: "Province has not been set",
-            POSTAL_CODE: "Postal code must be provided",
-        },
-        GENDER: "Gender has not been set",
-        FAMILY_STATUS: {
-            DROPDOWN: "Family status has not been set",
-            PARTNER: "Partner username can not be empty",
-            GROUP: "Group member username(s) can not be empty"
-        },
-        WORK_STATUS: "Work status has not been set",
-        LIMIT: "Number of people to share with has not been set",
-        MIN_RENT: "Minimum rent must be provided",
-        MAX_RENT: "Maximum rent must be provided",
-        AREA_OF_INTEREST: "Preferred living location(s) have not been set",
-        PET: "Pet preference has not been set",
-        SMOKING: "Smoking preference has not been set",
-        MOBILITY: "Mobility issue has not been set",
-        ALLERGIES: "Allergies has not been set",
-        RELIGION: "Religion preference has not been set",
-        DIET: "Diet preference has not been set",
-        HOME: "Home to share has not been set",
-        INTEREST_IN_BUYING: "Interest has not been set",
         USERNAME: "Username must be provided",
         PASSWORD: {
             EMPTY: "Password must be provided",
