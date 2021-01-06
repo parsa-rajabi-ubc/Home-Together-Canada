@@ -23,3 +23,9 @@ export const getConcatenatedErrorMessage = (errors) => {
     errors.forEach(error => errorMessage += (error.msg + '\n'));
     return errorMessage;
 }
+
+export const validateFirstName = (firstName) => {
+    console.log('firstName: ', firstName);
+    console.log('isStringEmpty(firstName)', isStringEmpty(firstName));
+    return !isStringEmpty(firstName);
+}
