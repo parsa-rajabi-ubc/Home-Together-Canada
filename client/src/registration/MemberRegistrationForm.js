@@ -136,8 +136,6 @@ function MemberRegistrationForm(props) {
     // Profile Details Start
     const [genderError, setGenderError] = useState(undefined);
     const [familyStatusError, setFamilyStatusError] = useState(undefined);
-    const [coupleError, setCoupleError] = useState(undefined);
-    const [groupError, setGroupError] = useState(undefined);
     const [workStatusError, setWorkStatusError] = useState(undefined);
     const [limitError, setLimitError] = useState(undefined);
     const [minRentError, setMinRentError] = useState(undefined);
