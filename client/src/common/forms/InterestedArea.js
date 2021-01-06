@@ -25,22 +25,22 @@ function InterestedArea(props) {
     };
     const handleAddClick = () => {
         const list = [...extraAreas];
-        list.push({province: "", city: "", radius: ""});
+        list.push({province: undefined, city: undefined, radius: undefined});
         setExtraAreas(list);
     };
     const handleAreaProvinceChange = (e, index) => {
         const {value} = e;
         const list = [...extraAreas];
         list[index].province = value;
-        list[index].city = "";
-        list[index].radius = "";
+        list[index].city = undefined;
+        list[index].radius = undefined;
         setExtraAreas(list);
     };
     const handleAreaCityChange = (e, index) => {
         const {value} = e;
         const list = [...extraAreas];
         list[index].city = value;
-        list[index].radius = "";
+        list[index].radius = undefined;
         setExtraAreas(list);
     };
     const handleAreaRadiusChange = (e, index) => {
