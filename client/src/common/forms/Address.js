@@ -26,10 +26,6 @@ function Address(props) {
         cityClassName,
         provinceClassName,
         postalCodeClassName,
-        streetErrorMsg,
-        cityErrorMsg,
-        provinceErrorMsg,
-        postalCodeErrorMsg
     } = props;
     const [street, setStreet] = useState("");
     const [aptNum, setApt] = useState("");
@@ -81,7 +77,6 @@ function Address(props) {
                 <input className={streetClassName} type="text" name="street" placeholder="Address Line 1"
                        autoComplete="address-line1"
                        onChange={handleInputChange}/>
-                <label className={"error-msg"}>{streetErrorMsg}</label>
             </div>
             <div className="col-start-1 col-end-8">
                 <input className="input" type="text" name="aptNum"
@@ -93,7 +88,6 @@ function Address(props) {
                     className={cityClassName}
                     type="text" autoComplete="address-level2" name="city" placeholder="City"
                     onChange={handleInputChange}/>
-                <label className={"error-msg"}>{cityErrorMsg}</label>
             </div>
             <div className="col-start-4 col-end-8">
                 <Dropdown isSearchable={true} placeholder={"Province"}
@@ -101,7 +95,6 @@ function Address(props) {
                           onChange={address => setProvince(address.value)}
                           styling={provinceClassName}
                 />
-                <label className={"error-msg"}>{provinceErrorMsg}</label>
             </div>
             <div className="col-start-1 col-end-4">
                 <input
@@ -109,7 +102,6 @@ function Address(props) {
                     type="text" autoComplete="postal-code" name="postalCode" placeholder="Postal Code"
                     onChange={handleInputChange}/>
             </div>
-            <label className={"col-start-1 col-end-5 error-msg"}>{postalCodeErrorMsg}</label>
         </div>
     );
 }
@@ -124,10 +116,6 @@ Address.propTypes = {
     cityClassName: PropTypes.string,
     provinceClassName: PropTypes.object,
     postalCodeClassName: PropTypes.string,
-    streetErrorMsg: PropTypes.string,
-    cityErrorMsg: PropTypes.string,
-    provinceErrorMsg: PropTypes.string,
-    postalCodeErrorMsg: PropTypes.string,
 };
 
 export default Address;
