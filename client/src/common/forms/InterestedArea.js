@@ -15,7 +15,7 @@ import Button from "./Button";
 import {MdDeleteForever} from 'react-icons/md';
 
 function InterestedArea(props) {
-    const {onChange, styling, areasOfInterestError, areaOfInterestErrorMsg} = props;
+    const {onChange, styling, areasOfInterestError} = props;
     const [extraAreas, setExtraAreas] = useState([{province: "", city: "", radius: ""}]);
 
     const handleRemoveClick = index => {
@@ -114,7 +114,6 @@ InterestedArea.propTypes = {
     onChange: PropTypes.func,
     areasOfInterestError: PropTypes.bool,
     styling: PropTypes.object,
-    areaOfInterestErrorMsg: PropTypes.string
 }
 
 export default InterestedArea;
