@@ -242,7 +242,7 @@ function MemberRegistrationForm(props) {
     function checkStatus(selectedFamilyStatus) {
         if (selectedFamilyStatus === "Couple") {
             return <TextArea
-                className={`${coupleError && "border-red-500"} input`}
+                className={"input"}
                 labelClassName={"label"}
                 placeholder={"Partner's username"}
                 onChange={(e) => setPartner(e.target.value)}
@@ -250,7 +250,7 @@ function MemberRegistrationForm(props) {
             />
         } else if (selectedFamilyStatus === "Couple With Children") {
             return <TextArea
-                className={`${coupleError && "border-red-500"} input`}
+                className={"input"}
                 labelClassName={"label"}
                 placeholder={"Partner's username"}
                 onChange={(e) => setPartner(e.target.value)}
@@ -259,7 +259,7 @@ function MemberRegistrationForm(props) {
 
         } else if (selectedFamilyStatus === "Existing Group") {
             return <TextArea
-                className={`${groupError && "border-red-500"} input`}
+                className={"input"}
                 labelClassName={"label"}
                 placeholder={"Member's username(s) - divided by commas"}
                 onChange={(e) => setGroupMembers(e.target.value)}
