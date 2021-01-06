@@ -159,18 +159,86 @@ function MemberRegistrationForm(props) {
     const [passwordConfirmError, setPasswordConfirmError] = useState(undefined);
     // Account Details End
 
+    // useEffects
     useEffect(() => {
-        console.log('useEffect is called...');
-        console.log('firstNameError !== undefined && isStringEmpty(firstName)', firstName !== undefined && isStringEmpty(firstName));
-        console.log('firstNameError', firstNameError);
-        console.log('isStringEmpty(firstName)', isStringEmpty(firstName));
         firstNameError !== undefined && isStringEmpty(firstName) ? setFirstNameError(true) : setFirstNameError(false);
-        console.log('useEffect firstNameError: ', firstNameError);
-    }, [firstName, firstNameError]);
+    }, [firstName]);
 
     useEffect(() => {
-        yearOfBirth !== undefined && (isStringEmpty(yearOfBirth) ? setYearOfBirthError(true) : setYearOfBirthError(false));
-    }, [yearOfBirth]);
+        lastNameError !== undefined && isStringEmpty(lastName) ? setLastNameError(true) : setLastNameError(false);
+    }, [lastName]);
+
+    useEffect(() => {
+        emailError !== undefined && isStringEmpty(email) ? setEmailError(true) : setEmailError(false);
+    }, [email]);
+
+    useEffect(() => {
+        phoneNumberError !== undefined && isStringEmpty(phoneNumber) ? setPhoneNumberError(true) : setPhoneNumberError(false);
+    }, [phoneNumber]);
+
+    // Address
+    useEffect(() => {
+        streetAddressError !== undefined && isStringEmpty(address.street) ? setStreetAddressError(true) : setStreetAddressError(false);
+    }, [address.street]);
+
+    useEffect(() => {
+        cityAddressError !== undefined && isStringEmpty(address.city) ? setCityAddressError(true) : setCityAddressError(false);
+    }, [address.city]);
+
+    useEffect(() => {
+        postalCodeError !== undefined && isStringEmpty(address.postalCode) ? setPostalCodeError(true) : setPostalCodeError(false);
+    }, [address.postalCode]);
+
+    // Mailing Address
+    useEffect(() => {
+        if (useDifferentMailingAddress) {
+            streetMailingAddressError !== undefined && isStringEmpty(mailingAddress.street) ? setStreetMailingAddressError(true) : setStreetMailingAddressError(false);
+        }
+    }, [mailingAddress.street, useDifferentMailingAddress]);
+
+    useEffect(() => {
+        if (useDifferentMailingAddress) {
+            cityMailingAddressError !== undefined && isStringEmpty(mailingAddress.city) ? setCityMailingAddressError(true) : setCityMailingAddressError(false);
+        }
+    }, [mailingAddress.city, useDifferentMailingAddress]);
+
+    useEffect(() => {
+        if (useDifferentMailingAddress) {
+            postalCodeMailingError !== undefined && isStringEmpty(mailingAddress.postalCode) ? setPostalCodeMailingError(true) : setPostalCodeMailingError(false);
+        }
+    }, [mailingAddress.postalCode, useDifferentMailingAddress]);
+
+    useEffect(() => {
+        minRentError !== undefined && isStringEmpty(minRent) ? setMinRentError(true) : setMinRentError(false);
+    }, [minRent]);
+
+    useEffect(() => {
+        maxRentError !== undefined && isStringEmpty(maxRent) ? setMaxRentError(true) : setMaxRentError(false);
+    }, [maxRent]);
+
+    useEffect(() => {
+        usernameError !== undefined && isStringEmpty(username) ? setUsernameError(true) : setUsernameError(false);
+    }, [username]);
+
+    useEffect(() => {
+        passwordError !== undefined && isStringEmpty(password) ? setPasswordError(true) : setPasswordError(false);
+    }, [password]);
+
+    useEffect(() => {
+        passwordError !== undefined && isStringEmpty(password) ? setPasswordError(true) : setPasswordError(false);
+    }, [password]);
+
+    useEffect(() => {
+        passwordConfirmError !== undefined && isStringEmpty(passwordCheck) ? setPasswordConfirmError("empty") : setPasswordConfirmError(false);
+    }, [passwordCheck]);
+
+    useEffect(() => {
+        if (passwordError !== undefined && passwordConfirmError !== undefined) {
+            if (!isStringEmpty(password) && !isStringEmpty(passwordCheck)) {
+                (!isStringSame(password, passwordCheck) ? setPasswordConfirmError("mismatch") : setPasswordConfirmError(false));
+            }
+        }
+    }, [password, passwordCheck]);
 
 
     function checkStatus(selectedFamilyStatus) {
@@ -301,46 +369,13 @@ function MemberRegistrationForm(props) {
     };
     const isFormValid = () => {
         // Personal Information Validation
-        (isStringEmpty(firstName) ? setFirstNameError(true) : setFirstNameError(false));
-        (isStringEmpty(lastName) ? setLastNameError(true) : setLastNameError(false));
-        (isStringEmpty(email) ? setEmailError(true) : setEmailError(false));
         (isStringEmpty(yearOfBirth) ? setYearOfBirthError(true) : setYearOfBirthError(false));
-        if (isStringEmpty(phoneNumber.first) || isStringEmpty(phoneNumber.middle) || isStringEmpty(phoneNumber.last)) {
-            setPhoneNumberError("empty");
-        } else {
-            if (!isStringNumeralsOnly(phoneNumber.first) || !isStringNumeralsOnly(phoneNumber.middle) || !isStringNumeralsOnly(phoneNumber.last)) {
-                setPhoneNumberError("invalidChar");
-            } else {
-                if (!(phoneNumber.first.length === 3) || !(phoneNumber.middle.length === 3) || !(phoneNumber.last.length === 4)) {
-                    setPhoneNumberError("invalidNum");
-                } else {
-                    setPhoneNumberError(false);
-                }
-            }
-        }
-        (isStringEmpty(address.street) ? setStreetAddressError(true) : setStreetAddressError(false));
-        (isStringEmpty(address.city) ? setCityAddressError(true) : setCityAddressError(false));
-        (isStringEmpty(address.province) ? setProvinceAddressError(true) : setProvinceAddressError(false));
-        (isStringEmpty(address.postalCode) ? setPostalCodeError(true) : setPostalCodeError(false));
-        if (useDifferentMailingAddress) {
-            (isStringEmpty(mailingAddress.street) ? setStreetMailingAddressError(true) : setStreetMailingAddressError(false));
-            (isStringEmpty(mailingAddress.city) ? setCityMailingAddressError(true) : setCityMailingAddressError(false));
-            (isStringEmpty(mailingAddress.province) ? setProvinceMailingAddressError(true) : setProvinceMailingAddressError(false));
-            (isStringEmpty(mailingAddress.postalCode) ? setPostalCodeMailingError(true) : setPostalCodeMailingError(false));
-        }
 
         // Profile Validation
         (isStringEmpty(gender) ? setGenderError(true) : setGenderError(false));
         (isStringEmpty(selectedFamilyStatus) ? setFamilyStatusError(true) : setFamilyStatusError(false));
-        if (selectedFamilyStatus === "Couple" || selectedFamilyStatus === "Couple With Children") {
-            (isStringEmpty(partner) ? setCoupleError(true) : setCoupleError(false));
-        } else if (selectedFamilyStatus === "Existing Group") {
-            (isStringEmpty(groupMembers) ? setGroupError(true) : setGroupError(false));
-        }
         (isStringEmpty(selectedWorkStatus) ? setWorkStatusError(true) : setWorkStatusError(false));
         (isStringEmpty(selectedLimit) ? setLimitError(true) : setLimitError(false));
-        (isStringEmpty(minRent) ? setMinRentError(true) : setMinRentError(false));
-        (isStringEmpty(maxRent) ? setMaxRentError(true) : setMaxRentError(false));
 
         for (let i = 0; i <= areasOfInterest.length - 1; i++) {
             if (areasOfInterest[i].province === undefined) {
@@ -365,13 +400,6 @@ function MemberRegistrationForm(props) {
         (isStringEmpty(hasHome) ? setHomeError(true) : setHomeError(false));
         (isStringEmpty(interestInBuyingHome) ? setInterestInBuyingError(true) : setInterestInBuyingError(false));
 
-        // Account Details Validation
-        (isStringEmpty(username) ? setUsernameError(true) : setUsernameError(false));
-        (isStringEmpty(password) ? setPasswordError(true) : setPasswordError(false));
-        (isStringEmpty(passwordCheck) ? setPasswordConfirmError("empty") : setPasswordConfirmError(false));
-        if (!isStringEmpty(password) && !isStringEmpty(passwordCheck)) {
-            (!isStringSame(password, passwordCheck) ? setPasswordConfirmError("mismatch") : setPasswordConfirmError(false));
-        }
 
         // // check personal information for errors
         // if (firstNameError || lastNameError || emailError || yearOfBirthError || !isStringEmpty(phoneNumberError) ||
@@ -539,7 +567,6 @@ function MemberRegistrationForm(props) {
                     className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
                     <div className="grid grid-cols-2 gap-6">
                         <div className="col-span-3 sm:col-span-2">
-                            {console.log("Line 552: First name error value ", firstNameError)}
                             <TextArea
                                 className={`${firstNameError && "border-red-500"} input`}
                                 labelClassName={"label"}
@@ -581,13 +608,9 @@ function MemberRegistrationForm(props) {
                             <Address
                                 label="Address"
                                 streetClassName={`${streetAddressError && "border-red-500"} input`}
-                                cityClassName={`${streetAddressError && "border-red-500"} input`}
+                                cityClassName={`${cityAddressError && "border-red-500"} input`}
                                 provinceClassName={provinceAddressError ? dropdownErrorCSS : dropdownDefaultCSS}
                                 postalCodeClassName={`${postalCodeError && "border-red-500"} input`}
-                                streetErrorMsg={streetAddressError ? ERROR_TEXT.ADDRESS.STREET : ""}
-                                cityErrorMsg={cityAddressError ? ERROR_TEXT.ADDRESS.CITY : ""}
-                                provinceErrorMsg={provinceAddressError ? ERROR_TEXT.ADDRESS.PROVINCE : ""}
-                                postalCodeErrorMsg={postalCodeError ? ERROR_TEXT.ADDRESS.POSTAL_CODE : ""}
                                 required={true}
                                 onChange={setAddress}
                             />
@@ -604,10 +627,6 @@ function MemberRegistrationForm(props) {
                                 cityClassName={`${cityMailingAddressError && "border-red-500"} input`}
                                 provinceClassName={provinceMailingAddressError ? dropdownErrorCSS : dropdownDefaultCSS}
                                 postalCodeClassName={`${postalCodeMailingError && "border-red-500"} input`}
-                                streetErrorMsg={streetMailingAddressError ? ERROR_TEXT.ADDRESS.STREET : ""}
-                                cityErrorMsg={cityMailingAddressError ? ERROR_TEXT.ADDRESS.CITY : ""}
-                                provinceErrorMsg={provinceMailingAddressError ? ERROR_TEXT.ADDRESS.PROVINCE : ""}
-                                postalCodeErrorMsg={postalCodeMailingError ? ERROR_TEXT.ADDRESS.POSTAL_CODE : ""}
                                 required={true}
                                 onChange={setMailingAddress}
                             />}
@@ -638,7 +657,7 @@ function MemberRegistrationForm(props) {
                                 <div className="grid grid-cols-2 gap-6 ">
                                     <div className="col-span-3 sm:col-span-2">
                                         <section
-                                            className={`${genderError && "mr-56 pl-1 border rounded-lg border-red-500"}`}>
+                                            className={`${genderError && "pl-1 border rounded-lg border-red-500 mr-52"}`}>
                                             <LabelAsterisk label={"Gender"}/>
                                             <div className={"my-2"}>
                                                 <RadioButton
@@ -923,9 +942,9 @@ function MemberRegistrationForm(props) {
                                             onChangeUsername={(e) => setUsername(e.target.value)}
                                             onChangePassword={(e) => setPassword(e.target.value)}
                                             onChangePasswordCheck={(e) => setPasswordCheck(e.target.value)}
-                                            usernameClassName={`${usernameError && "border-red-500"} input`}
-                                            passwordClassName={`${(passwordError || passwordConfirmError === "mismatch") && "border-red-500"} input`}
-                                            passwordConfirmClassName={`${passwordConfirmError && "border-red-500"} input`}
+                                            usernameClassName={`${usernameError && "border-red-500 mb-0"} input`}
+                                            passwordClassName={`${(passwordError) && "border-red-500 mb-0"} input`}
+                                            passwordConfirmClassName={`${passwordConfirmError && "border-red-500 mb-0"} input`}
                                             usernameErrorMsg={usernameError}
                                             passwordErrorMsg={passwordError}
                                             passwordConfirmErrorMsg={(passwordConfirmError === "empty") ? "empty" : (passwordConfirmError === "mismatch" ? "mismatch" : "")}
