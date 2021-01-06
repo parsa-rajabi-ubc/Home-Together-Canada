@@ -6,7 +6,7 @@
  *
  */
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import TextArea from '../common/forms/TextArea';
 import Checkbox from "../common/forms/Checkbox";
 import SubmitButton from '../common/forms/SubmitButton';
@@ -15,7 +15,7 @@ import SignInInfo from "../common/forms/SignInInfo";
 import PhoneNumInput from "../common/forms/PhoneNumInput";
 import BirthYear from "../common/forms/BirthYear";
 import {isStringEmpty, isStringNumeralsOnly, isStringSame} from "../common/utils/stringUtils";
-import {getConcatenatedErrorMessage, getPhoneNumberFromStrings} from "./registrationUtils";
+import {getConcatenatedErrorMessage, getPhoneNumberFromStrings, validateFirstName} from "./registrationUtils";
 import RegistrationService from "../services/RegistrationService";
 import RadioButton from "../common/forms/RadioButton";
 import Status from "../common/forms/Status";
@@ -113,87 +113,79 @@ function MemberRegistrationForm(props) {
 
     // Error state variables 
     // Personal Information Start  
-    const [firstNameError, setFirstNameError] = useState(false);
-    const [lastNameError, setLastNameError] = useState(false);
-    const [emailError, setEmailError] = useState(false);
-    const [yearOfBirthError, setYearOfBirthError] = useState(false);
+    const [firstNameError, setFirstNameError] = useState(undefined);
+    const [lastNameError, setLastNameError] = useState(undefined);
+    const [emailError, setEmailError] = useState(undefined);
+    const [yearOfBirthError, setYearOfBirthError] = useState(undefined);
     const [phoneNumberError, setPhoneNumberError] = useState("");
 
     //Address
-    const [streetAddressError, setStreetAddressError] = useState(false);
-    const [cityAddressError, setCityAddressError] = useState(false);
-    const [provinceAddressError, setProvinceAddressError] = useState(false);
-    const [postalCodeError, setPostalCodeError] = useState(false);
+    const [streetAddressError, setStreetAddressError] = useState(undefined);
+    const [cityAddressError, setCityAddressError] = useState(undefined);
+    const [provinceAddressError, setProvinceAddressError] = useState(undefined);
+    const [postalCodeError, setPostalCodeError] = useState(undefined);
 
     // Mailing Address
-    const [streetMailingAddressError, setStreetMailingAddressError] = useState(false);
-    const [cityMailingAddressError, setCityMailingAddressError] = useState(false);
-    const [provinceMailingAddressError, setProvinceMailingAddressError] = useState(false);
-    const [postalCodeMailingError, setPostalCodeMailingError] = useState(false);
+    const [streetMailingAddressError, setStreetMailingAddressError] = useState(undefined);
+    const [cityMailingAddressError, setCityMailingAddressError] = useState(undefined);
+    const [provinceMailingAddressError, setProvinceMailingAddressError] = useState(undefined);
+    const [postalCodeMailingError, setPostalCodeMailingError] = useState(undefined);
     // Personal Information End
 
 
     // Profile Details Start
-    const [genderError, setGenderError] = useState(false);
-    const [familyStatusError, setFamilyStatusError] = useState(false);
-    const [coupleError, setCoupleError] = useState(false);
-    const [groupError, setGroupError] = useState(false);
-    const [workStatusError, setWorkStatusError] = useState(false);
-    const [limitError, setLimitError] = useState(false);
-    const [minRentError, setMinRentError] = useState(false);
-    const [maxRentError, setMaxRentError] = useState(false);
-    const [areasOfInterestError, setAreasOfInterestError] = useState(false);
-    const [petFriendlyError, setPetFriendlyError] = useState(false);
-    const [smokingError, setSmokingError] = useState(false);
-    const [mobilityIssuesError, setMobilityIssuesError] = useState(false);
-    const [allergiesError, setAllergiesError] = useState(false);
-    const [religionError, setReligionError] = useState(false);
-    const [dietError, setDietError] = useState(false);
-    const [homeError, setHomeError] = useState(false);
-    const [interestInBuyingError, setInterestInBuyingError] = useState(false);
+    const [genderError, setGenderError] = useState(undefined);
+    const [familyStatusError, setFamilyStatusError] = useState(undefined);
+    const [coupleError, setCoupleError] = useState(undefined);
+    const [groupError, setGroupError] = useState(undefined);
+    const [workStatusError, setWorkStatusError] = useState(undefined);
+    const [limitError, setLimitError] = useState(undefined);
+    const [minRentError, setMinRentError] = useState(undefined);
+    const [maxRentError, setMaxRentError] = useState(undefined);
+    const [areasOfInterestError, setAreasOfInterestError] = useState(undefined);
+    const [petFriendlyError, setPetFriendlyError] = useState(undefined);
+    const [smokingError, setSmokingError] = useState(undefined);
+    const [mobilityIssuesError, setMobilityIssuesError] = useState(undefined);
+    const [allergiesError, setAllergiesError] = useState(undefined);
+    const [religionError, setReligionError] = useState(undefined);
+    const [dietError, setDietError] = useState(undefined);
+    const [homeError, setHomeError] = useState(undefined);
+    const [interestInBuyingError, setInterestInBuyingError] = useState(undefined);
     // Profile Details End
 
     // Account Details Start
-    const [usernameError, setUsernameError] = useState(false);
-    const [passwordError, setPasswordError] = useState(false);
-    const [passwordConfirmError, setPasswordConfirmError] = useState("");
+    const [usernameError, setUsernameError] = useState(undefined);
+    const [passwordError, setPasswordError] = useState(undefined);
+    const [passwordConfirmError, setPasswordConfirmError] = useState(undefined);
 
     // Account Details End
 
-
     function checkStatus(selectedFamilyStatus) {
         if (selectedFamilyStatus === "Couple") {
-            return <section>
-                <TextArea
-                    className={`${coupleError && "border-red-500 mb-0"} input`}
-                    labelClassName={"label"}
-                    placeholder={"Partner's username"}
-                    onChange={(e) => setPartner(e.target.value)}
-                    value={partner}
-                />
-                {coupleError && <label className={"error-msg"}>{ERROR_TEXT.FAMILY_STATUS.PARTNER}</label>}
-            </section>
+            return <TextArea
+                className={`${coupleError && "border-red-500"} input`}
+                labelClassName={"label"}
+                placeholder={"Partner's username"}
+                onChange={(e) => setPartner(e.target.value)}
+                value={partner}
+            />
         } else if (selectedFamilyStatus === "Couple With Children") {
-            return <section>
-                <TextArea
-                    className={`${coupleError && "border-red-500 mb-0"} input`}
-                    labelClassName={"label"}
-                    placeholder={"Partner's username"}
-                    onChange={(e) => setPartner(e.target.value)}
-                    value={partner}
-                />
-                {coupleError && <label className={"error-msg"}>{ERROR_TEXT.FAMILY_STATUS.PARTNER}</label>}
-            </section>
+            return <TextArea
+                className={`${coupleError && "border-red-500"} input`}
+                labelClassName={"label"}
+                placeholder={"Partner's username"}
+                onChange={(e) => setPartner(e.target.value)}
+                value={partner}
+            />
+
         } else if (selectedFamilyStatus === "Existing Group") {
-            return <section><TextArea
-                className={`${groupError && "border-red-500 mb-0"} input`}
+            return <TextArea
+                className={`${groupError && "border-red-500"} input`}
                 labelClassName={"label"}
                 placeholder={"Member's username(s) - divided by commas"}
                 onChange={(e) => setGroupMembers(e.target.value)}
                 value={groupMembers}
             />
-                {groupError && <label className={"error-msg"}>{ERROR_TEXT.FAMILY_STATUS.GROUP}</label>}
-            </section>
         }
 
     }
@@ -228,7 +220,7 @@ function MemberRegistrationForm(props) {
                 ...base,
                 marginTop: 4,
                 borderColor: 'red',
-                marginBottom: 0,
+                marginBottom: 16,
                 paddingTop: 2,
                 paddingBottom: 2,
                 ':hover': {
@@ -252,6 +244,48 @@ function MemberRegistrationForm(props) {
         menuPortal: base => ({...base, zIndex: 9999}),
     }
 
+    const ERROR_TEXT = {
+        FIRST_NAME: "First name must be provided",
+        LAST_NAME: "Last name must be provided",
+        EMAIL: "Email must be provided",
+        YEAR_OF_BIRTH: "Year of birth has not been set",
+        PHONE_NUMBER: {
+            EMPTY: "All three fields of the phone number must be provided",
+            INVALID_CHAR: "Phone number cannot contain non-numerical characters",
+            INVALID_NUM: "Phone number contains invalid number of numerical characters",
+        },
+        ADDRESS: {
+            STREET: "Street address must be provided",
+            CITY: "City must be provided",
+            PROVINCE: "Province has not been set",
+            POSTAL_CODE: "Postal code must be provided",
+        },
+        GENDER: "Gender has not been set",
+        FAMILY_STATUS: {
+            DROPDOWN: "Family status has not been set",
+            PARTNER: "Partner username can not be empty",
+            GROUP: "Group member username(s) can not be empty"
+        },
+        WORK_STATUS: "Work status has not been set",
+        LIMIT: "Number of people to share with has not been set",
+        MIN_RENT: "Minimum rent must be provided",
+        MAX_RENT: "Maximum rent must be provided",
+        AREA_OF_INTEREST: "Preferred living location(s) have not been set",
+        PET: "Pet preference has not been set",
+        SMOKING: "Smoking preference has not been set",
+        MOBILITY: "Mobility issue has not been set",
+        ALLERGIES: "Allergies has not been set",
+        RELIGION: "Religion preference has not been set",
+        DIET: "Diet preference has not been set",
+        HOME: "Home to share has not been set",
+        INTEREST_IN_BUYING: "Interest has not been set",
+        USERNAME: "Username must be provided",
+        PASSWORD: {
+            EMPTY: "Password must be provided",
+            CONFIRM_EMPTY: "Password confirmation must be provided",
+            MIS_MATCH: "Passwords do not match",
+        }
+    };
     const isFormValid = () => {
         // Personal Information Validation
         (isStringEmpty(firstName) ? setFirstNameError(true) : setFirstNameError(false));
@@ -326,81 +360,44 @@ function MemberRegistrationForm(props) {
             (!isStringSame(password, passwordCheck) ? setPasswordConfirmError("mismatch") : setPasswordConfirmError(false));
         }
 
-        // check personal information for errors
-        if (firstNameError || lastNameError || emailError || yearOfBirthError || !isStringEmpty(phoneNumberError) ||
-            streetAddressError || cityAddressError || provinceAddressError || postalCodeError) {
-            console.log("Error in personal information");
-            return false;
-            // check mailing address for errors
-        } else if (useDifferentMailingAddress) {
-            if (streetMailingAddressError || cityMailingAddressError || provinceMailingAddressError || postalCodeMailingError) {
-                console.log("Error in mailing");
-                return false;
-            }
-            // check profile for errors
-        } else if (genderError || familyStatusError || workStatusError || limitError || minRentError || maxRentError ||
-            areasOfInterestError || petFriendlyError || smokingError || mobilityIssuesError || allergiesError
-            || religionError || dietError || homeError || interestInBuyingError) {
-            console.log("Error in profile");
-            return false;
-            // check to ensure partner and group are set
-        } else if (selectedFamilyStatus === "Couple" || selectedFamilyStatus === "Couple With Children") {
-            if (coupleError) {
-                return false;
-            }
-        } else if (selectedFamilyStatus === "Existing Group") {
-            if (groupError) {
-                return false;
-            }
-            // check account details for errors
-        } else if (usernameError || passwordError || !isStringEmpty(passwordConfirmError)) {
-            console.log("Error in account details");
-            return false;
-        } else
-            return true;
+        // // check personal information for errors
+        // if (firstNameError || lastNameError || emailError || yearOfBirthError || !isStringEmpty(phoneNumberError) ||
+        //     streetAddressError || cityAddressError || provinceAddressError || postalCodeError) {
+        //     console.log("Error in personal information");
+        //     return false;
+        //     // check mailing address for errors
+        // } else if (useDifferentMailingAddress) {
+        //     if (streetMailingAddressError || cityMailingAddressError || provinceMailingAddressError || postalCodeMailingError) {
+        //         console.log("Error in mailing");
+        //         return false;
+        //     }
+        //     // check profile for errors
+        // } else if (genderError || familyStatusError || workStatusError || limitError || minRentError || maxRentError ||
+        //     areasOfInterestError || petFriendlyError || smokingError || mobilityIssuesError || allergiesError
+        //     || religionError || dietError || homeError || interestInBuyingError) {
+        //     console.log("Error in profile");
+        //     return false;
+        //     // check to ensure partner and group are set
+        // } else if (selectedFamilyStatus === "Couple" || selectedFamilyStatus === "Couple With Children") {
+        //     if (coupleError) {
+        //         console.log("Error couple");
+        //         return false;
+        //     }
+        // } else if (selectedFamilyStatus === "Existing Group") {
+        //     if (groupError) {
+        //         console.log("Error group");
+        //         return false;
+        //     }
+        //     // check account details for errors
+        // } else if (usernameError || passwordError || !isStringEmpty(passwordConfirmError)) {
+        //     console.log("Error in account details");
+        //     return false;
+        // } else {
+        //     console.log("No errors");
+        // }
+        // return true;
     }
-    const ERROR_TEXT = {
-        FIRST_NAME: "First name can not be empty",
-        LAST_NAME: "Last name can not be empty",
-        EMAIL: "Email can not be empty",
-        YEAR_OF_BIRTH: "Year of birth has not been set",
-        PHONE_NUMBER: {
-            EMPTY: "Phone number can not be empty",
-            INVALID_CHAR: "Phone number contains invalid characters",
-            INVALID_NUM: "Phone number contains invalid number of characters",
-        },
-        ADDRESS: {
-            STREET: "Street address can not be empty",
-            CITY: "City can not be empty",
-            PROVINCE: "Province has not been set",
-            POSTAL_CODE: "Postal code can not be empty",
-        },
-        GENDER: "Gender has not been set",
-        FAMILY_STATUS: {
-            DROPDOWN: "Family status has not been set",
-            PARTNER: "Partner username can not be empty",
-            GROUP: "Group member username(s) can not be empty"
-        },
-        WORK_STATUS: "Work status has not been set",
-        LIMIT: "Number of people to share with has not been set",
-        MIN_RENT: "Minimum rent can not be empty",
-        MAX_RENT: "Maximum rent can not be empty",
-        AREA_OF_INTEREST: "Preferred living location(s) have not been set",
-        PET: "Pet preference has not been set",
-        SMOKING: "Smoking preference has not been set",
-        MOBILITY: "Mobility issue has not been set",
-        ALLERGIES: "Allergies has not been set",
-        RELIGION: "Religion preference has not been set",
-        DIET: "Diet preference has not been set",
-        HOME: "Home to share has not been set",
-        INTEREST_IN_BUYING: "Interest has not been set",
-        USERNAME: "Username can not be empty",
-        PASSWORD: {
-            EMPTY: "Password can not be empty",
-            CONFIRM_EMPTY: "Password confirmation can not be empty",
-            MIS_MATCH: "Passwords do not match",
-        }
-    };
+
 
     const INFO_TEXT = {
         YEAR_OF_BIRTH: "Age is required in order to help members connect with others in their desired age range",
@@ -420,9 +417,14 @@ function MemberRegistrationForm(props) {
 
     //function for input checks on submit
     function onSubmit(event) {
-        if (!isFormValid()) {
+
+        if (!validateFirstName(firstName)) {
+            isFormValid();
+            console.log('form is invalid');
             event.preventDefault();
             return;
+        } else {
+            console.log('form is valid');
         }
         const registrationData = {
             // abstract user
@@ -524,28 +526,28 @@ function MemberRegistrationForm(props) {
                     className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
                     <div className="grid grid-cols-2 gap-6">
                         <div className="col-span-3 sm:col-span-2">
+                            {console.log("Line 552: First name error value ", firstNameError)}
                             <TextArea
-                                className={`${firstNameError && "border-red-500 mb-0"} input`}
+                                className={`${firstNameError && "border-red-500"} input`}
                                 labelClassName={"label"}
                                 label="First Name"
                                 autoComplete={"given-name"}
                                 required={true}
-                                onChange={(e) => setFirstName(e.target.value)}
+                                onChange={(e) => {
+                                    console.log('onChange called');
+                                    setFirstName(e.target.value)
+                                }}
                             />
-                            {firstNameError && <label className={"error-msg"}>{ERROR_TEXT.FIRST_NAME}</label>}
-                            {/*{errors && console.log("error outside is ", errors)}*/}
                             <TextArea
-                                className={`${lastNameError && "border-red-500 mb-0"} input`}
+                                className={`${lastNameError && "border-red-500"} input`}
                                 labelClassName={"label"}
                                 label="Last Name"
                                 autoComplete={"family-name"}
                                 required={true}
                                 onChange={(e) => setLastName(e.target.value)}
                             />
-                            {lastNameError && <label className={"error-msg"}>{ERROR_TEXT.LAST_NAME}</label>}
-
                             <TextArea
-                                className={`${emailError && "border-red-500 mb-0"} input`}
+                                className={`${emailError && "border-red-500"} input`}
                                 placeholder="personal@email.ca"
                                 label="Email"
                                 autoComplete={"email"}
@@ -553,27 +555,22 @@ function MemberRegistrationForm(props) {
                                 required={true}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
-                            {emailError && <label className={"error-msg"}>{ERROR_TEXT.EMAIL}</label>}
                             <LabelAsterisk label={"Year of Birth"}/>
                             <Tooltip text={INFO_TEXT.YEAR_OF_BIRTH} toolTipID="yearOfBirth"/>
                             <BirthYear label={"Year of Birth"} onChange={handleYearChange}
                                        styling={yearOfBirthError ? dropdownErrorCSS : dropdownDefaultCSS}/>
-                            {yearOfBirthError && <label className={"error-msg"}>{ERROR_TEXT.YEAR_OF_BIRTH}</label>}
                             <PhoneNumInput
-                                className={`${phoneNumberError && "border-red-500 mb-0"} phone`}
+                                className={`${phoneNumberError && "border-red-500"} phone`}
                                 labelClassName={"label"}
                                 required={true}
                                 label="Phone Number" onChange={handlePhoneChange}/>
-                            {phoneNumberError && <label className={"error-msg"}>
-                                {(phoneNumberError === "empty") ? ERROR_TEXT.PHONE_NUMBER.EMPTY : (phoneNumberError === "invalidChar") ? ERROR_TEXT.PHONE_NUMBER.INVALID_CHAR : (phoneNumberError === "invalidNum" ? ERROR_TEXT.PHONE_NUMBER.INVALID_NUM : "")}
-                            </label>}
 
                             <Address
                                 label="Address"
-                                streetClassName={`${streetAddressError && "border-red-500 mb-0"} input`}
-                                cityClassName={`${streetAddressError && "border-red-500 mb-0"} input`}
+                                streetClassName={`${streetAddressError && "border-red-500"} input`}
+                                cityClassName={`${streetAddressError && "border-red-500"} input`}
                                 provinceClassName={provinceAddressError ? dropdownErrorCSS : dropdownDefaultCSS}
-                                postalCodeClassName={`${postalCodeError && "border-red-500 mb-0"} input`}
+                                postalCodeClassName={`${postalCodeError && "border-red-500"} input`}
                                 streetErrorMsg={streetAddressError ? ERROR_TEXT.ADDRESS.STREET : ""}
                                 cityErrorMsg={cityAddressError ? ERROR_TEXT.ADDRESS.CITY : ""}
                                 provinceErrorMsg={provinceAddressError ? ERROR_TEXT.ADDRESS.PROVINCE : ""}
@@ -590,10 +587,10 @@ function MemberRegistrationForm(props) {
                             {useDifferentMailingAddress &&
                             <Address
                                 label="Mailing Address"
-                                streetClassName={`${streetMailingAddressError && "border-red-500 mb-0"} input`}
-                                cityClassName={`${cityMailingAddressError && "border-red-500 mb-0"} input`}
+                                streetClassName={`${streetMailingAddressError && "border-red-500"} input`}
+                                cityClassName={`${cityMailingAddressError && "border-red-500"} input`}
                                 provinceClassName={provinceMailingAddressError ? dropdownErrorCSS : dropdownDefaultCSS}
-                                postalCodeClassName={`${postalCodeMailingError && "border-red-500 mb-0"} input`}
+                                postalCodeClassName={`${postalCodeMailingError && "border-red-500"} input`}
                                 streetErrorMsg={streetMailingAddressError ? ERROR_TEXT.ADDRESS.STREET : ""}
                                 cityErrorMsg={cityMailingAddressError ? ERROR_TEXT.ADDRESS.CITY : ""}
                                 provinceErrorMsg={provinceMailingAddressError ? ERROR_TEXT.ADDRESS.PROVINCE : ""}
@@ -661,54 +658,42 @@ function MemberRegistrationForm(props) {
                                             value={genderDescription}
                                             onChange={(e) => setGenderDescription(e.target.value)}
                                         />}
-                                        {genderError && <label className={"error-msg"}>{ERROR_TEXT.GENDER}</label>}
                                         <LabelAsterisk label={"Family Status"}/>
                                         <Tooltip text={INFO_TEXT.FAMILY_STATUS} toolTipID="familyStatus"/>
                                         <Status onChange={handleFamilyStatusChange}
                                                 styling={familyStatusError ? dropdownErrorCSS : dropdownDefaultCSS}
                                         />
                                         {checkStatus(selectedFamilyStatus)}
-                                        {familyStatusError &&
-                                        <label className={"error-msg"}>{ERROR_TEXT.FAMILY_STATUS.DROPDOWN}</label>}
-
                                         <LabelAsterisk label={"Work Status"}/>
                                         <WorkStatus onChange={handleWorkStatusChange}
                                                     styling={workStatusError ? dropdownErrorCSS : dropdownDefaultCSS}/>
-                                        {workStatusError &&
-                                        <label className={"error-msg"}>{ERROR_TEXT.WORK_STATUS}</label>}
-
                                         <LabelAsterisk label={"Open to Sharing With"}/>
                                         <Tooltip text={INFO_TEXT.NUM_PEOPLE_SHARE} toolTipID="numPeopleToShare"/>
                                         <ShareLimit onChange={handleLimitChange}
                                                     styling={limitError ? dropdownErrorCSS : dropdownDefaultCSS}/>
-                                        {limitError && <label className={"error-msg"}>{ERROR_TEXT.LIMIT}</label>}
 
                                         <LabelAsterisk label={"Monthly Rent"}/>
                                         <Tooltip text={INFO_TEXT.RENT} toolTipID="rent"/>
                                         <div className="grid grid-cols-6 gap-x-6">
                                             <div className="column-span-6-layout">
                                                 <input
-                                                    className={`${minRentError && "border-red-500 mb-0"} input`}
+                                                    className={`${minRentError && "border-red-500"} input`}
                                                     type="number"
                                                     min="0"
                                                     step="1"
                                                     placeholder="MIN $ CAD"
                                                     onChange={(e) => setMinRent(e.target.value)}
                                                 />
-                                                {minRentError &&
-                                                <label className={"error-msg"}>{ERROR_TEXT.MIN_RENT}</label>}
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <input
-                                                    className={`${maxRentError && "border-red-500 mb-0"} input`}
+                                                    className={`${maxRentError && "border-red-500"} input`}
                                                     type="number"
                                                     min={minRent}
                                                     step="1"
                                                     placeholder=" MAX $ CAD"
                                                     onChange={(e) => setMaxRent(e.target.value)}
                                                 />
-                                                {maxRentError &&
-                                                <label className={"error-msg"}>{ERROR_TEXT.MAX_RENT}</label>}
 
                                             </div>
                                         </div>
@@ -738,8 +723,6 @@ function MemberRegistrationForm(props) {
                                                         value={petDescription}
                                                     />}
                                                 </section>
-                                                {petFriendlyError &&
-                                                <label className={"error-msg"}>{ERROR_TEXT.PET}</label>}
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <section
@@ -760,8 +743,6 @@ function MemberRegistrationForm(props) {
                                                         value={smokingDescription}
                                                     />}
                                                 </section>
-                                                {smokingError &&
-                                                <label className={"error-msg"}>{ERROR_TEXT.SMOKING}</label>}
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <section
@@ -782,8 +763,6 @@ function MemberRegistrationForm(props) {
                                                         value={mobilityIssuesDescription}
                                                     />}
                                                 </section>
-                                                {mobilityIssuesError &&
-                                                <label className={"error-msg"}>{ERROR_TEXT.MOBILITY}</label>}
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <section
@@ -803,8 +782,6 @@ function MemberRegistrationForm(props) {
                                                         value={allergiesDescription}
                                                     />}
                                                 </section>
-                                                {allergiesError &&
-                                                <label className={"error-msg"}>{ERROR_TEXT.ALLERGIES}</label>}
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <section
@@ -826,8 +803,6 @@ function MemberRegistrationForm(props) {
                                                         value={religionDescription}
                                                     />}
                                                 </section>
-                                                {religionError &&
-                                                <label className={"error-msg"}>{ERROR_TEXT.RELIGION}</label>}
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <section
@@ -849,7 +824,6 @@ function MemberRegistrationForm(props) {
                                                         value={dietDescription}
                                                     />}
                                                 </section>
-                                                {dietError && <label className={"error-msg"}>{ERROR_TEXT.DIET}</label>}
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <section
@@ -871,7 +845,6 @@ function MemberRegistrationForm(props) {
                                                         value={homeDescription}
                                                     />}
                                                 </section>
-                                                {homeError && <label className={"error-msg"}>{ERROR_TEXT.HOME}</label>}
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <section
@@ -891,8 +864,6 @@ function MemberRegistrationForm(props) {
                                                         value={interestDescription}
                                                     />}
                                                 </section>
-                                                {interestInBuyingError &&
-                                                <label className={"error-msg"}>{ERROR_TEXT.INTEREST_IN_BUYING}</label>}
                                             </div>
                                         </div>
                                         <div className={"mt-4"}>
@@ -939,9 +910,9 @@ function MemberRegistrationForm(props) {
                                             onChangeUsername={(e) => setUsername(e.target.value)}
                                             onChangePassword={(e) => setPassword(e.target.value)}
                                             onChangePasswordCheck={(e) => setPasswordCheck(e.target.value)}
-                                            usernameClassName={`${usernameError && "border-red-500 mb-0"} input`}
-                                            passwordClassName={`${(passwordError || passwordConfirmError === "mismatch") && "border-red-500 mb-0"} input`}
-                                            passwordConfirmClassName={`${passwordConfirmError && "border-red-500 mb-0"} input`}
+                                            usernameClassName={`${usernameError && "border-red-500"} input`}
+                                            passwordClassName={`${(passwordError || passwordConfirmError === "mismatch") && "border-red-500"} input`}
+                                            passwordConfirmClassName={`${passwordConfirmError && "border-red-500"} input`}
                                             usernameErrorMsg={usernameError}
                                             passwordErrorMsg={passwordError}
                                             passwordConfirmErrorMsg={(passwordConfirmError === "empty") ? "empty" : (passwordConfirmError === "mismatch" ? "mismatch" : "")}
