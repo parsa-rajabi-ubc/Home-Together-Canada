@@ -105,9 +105,6 @@ function InterestedArea(props) {
                     );
                 })}
             </section>
-            <div className="col-start-1 col-end-6">
-                {areaOfInterestErrorMsg && <label className={"error-msg"}>{areaOfInterestErrorMsg}</label>}
-            </div>
         </div>
 
     );

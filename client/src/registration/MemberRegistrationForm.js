@@ -315,14 +315,6 @@ function MemberRegistrationForm(props) {
         menuPortal: base => ({...base, zIndex: 9999}),
     }
 
-    const ERROR_TEXT = {
-        USERNAME: "Username must be provided",
-        PASSWORD: {
-            EMPTY: "Password must be provided",
-            CONFIRM_EMPTY: "Password confirmation must be provided",
-            MIS_MATCH: "Passwords do not match",
-        }
-    };
     const isFormValid = () => {
         // Personal Information Validation
         (isStringEmpty(firstName) ? setFirstNameError(true) : setFirstNameError(false));
@@ -719,7 +711,6 @@ function MemberRegistrationForm(props) {
                                         <Tooltip text={INFO_TEXT.INTERESTED_AREA} toolTipID="interestedArea"/>
                                         <InterestedArea onChange={setAreasOfInterest}
                                                         areasOfInterestError={areasOfInterestError}
-                                                        areaOfInterestErrorMsg={areasOfInterestError ? ERROR_TEXT.AREA_OF_INTEREST : ""}
                                         />
                                         <div className="grid grid-cols-6 gap-x-6 mt-5">
                                             <div className="column-span-6-layout">
