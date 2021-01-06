@@ -11,7 +11,7 @@ import Dropdown from "./Dropdown";
 import propTypes from "prop-types";
 
 function BirthYear(props) {
-    const {onChange, styling} = props;
+    const {onChange, dropdownCSS} = props;
 
     const currentYear = new Date().getFullYear();
     const YEARS = [];
@@ -32,7 +32,7 @@ function BirthYear(props) {
             <Dropdown isSearchable={true} placeholder={"Select the Year You Were Born"}
                       options={YEARS} autoComplete="bday-year"
                       onChange={onChange}
-                      styling={styling}
+                      dropdownCSS={dropdownCSS}
             />
         </div>
 
@@ -41,7 +41,7 @@ function BirthYear(props) {
 
 BirthYear.propTypes = {
     onChange: propTypes.func,
-    styling: propTypes.object
+    dropdownCSS: propTypes.object
 };
 
 export default BirthYear;

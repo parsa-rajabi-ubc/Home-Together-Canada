@@ -34,14 +34,14 @@ const shareLimits = [
 ]
 
 function ShareLimit(props) {
-    const {onChange, styling} = props;
+    const {onChange, dropdownCSS} = props;
 
     return (
         <div>
             <Dropdown isSearchable={true} placeholder={"Number of People to Share With"}
                       options={shareLimits}
                       onChange={onChange}
-                      styling={styling}
+                      dropdownCSS={dropdownCSS}
             />
         </div>
     )
@@ -49,7 +49,7 @@ function ShareLimit(props) {
 
 ShareLimit.propTypes = {
     onChange: propTypes.func,
-    styling: propTypes.object
+    dropdownCSS: propTypes.object
 };
 
 export default ShareLimit;

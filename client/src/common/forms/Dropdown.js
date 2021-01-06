@@ -24,7 +24,7 @@ const newStyling = {
 }
 
 function Dropdown(props) {
-    const {isSearchable, name, placeholder, options, onChange, intialSelection, styling = newStyling} = props;
+    const {isSearchable, name, placeholder, options, onChange, intialSelection, dropdownCSS} = props;
 
     const [selected, setSelected] = useState(intialSelection || "");
 
@@ -45,7 +45,7 @@ function Dropdown(props) {
                 onChange={(e) => setSelected(e)}
                 name={name}
                 menuPortalTarget={document.body}
-                styles={styling}
+                styles={dropdownCSS}
                 theme={theme => ({
                     ...theme,
                     borderRadius: 8,
@@ -66,7 +66,7 @@ Dropdown.propTypes = {
     placeholder: propTypes.string,
     onChange: propTypes.func,
     intialSelection: propTypes.string,
-    styling: propTypes.object
+    dropdownCSS: propTypes.object
 };
 
 export default Dropdown;
