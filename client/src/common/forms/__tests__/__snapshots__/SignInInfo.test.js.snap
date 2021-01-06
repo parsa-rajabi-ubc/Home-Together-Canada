@@ -146,7 +146,6 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
       </div>
     </span>
     <input
-      className="input"
       onChange={[MockFunction]}
       placeholder=""
       type="text"
@@ -296,7 +295,6 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
       </div>
     </span>
     <input
-      className="input"
       onChange={[MockFunction]}
       placeholder=""
       type="password"
@@ -330,7 +328,6 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
       </svg>
     </label>
     <input
-      className="input"
       onChange={[MockFunction]}
       placeholder=""
       type="password"
