@@ -24,8 +24,3 @@ export const getConcatenatedErrorMessage = (errors) => {
     return errorMessage;
 }
 
-export const validateFirstName = (firstName) => {
-    console.log('firstName: ', firstName);
-    console.log('isStringEmpty(firstName)', isStringEmpty(firstName));
-    return !isStringEmpty(firstName);
-}
