@@ -1,3 +1,12 @@
+/**
+ * @Author:     Rachelle Gelden
+ * @Created:    2021.01.04
+ *
+ * @Description: container for ChangePassword. Container is a "smart" component and handles all of the logic for change
+ * password where ChangePassword is the presentational component
+ *
+ */
+
 import React, {useState} from 'react';
 import AccountService from '../../services/AccountService';
 import ChangePassword from "./ChangePassword";

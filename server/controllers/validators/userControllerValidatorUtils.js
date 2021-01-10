@@ -167,7 +167,7 @@ const providedOldPasswordShouldMatchExistingPassword = (password, uid) => {
                 const hashedPassword = PasswordService.getHashedPassword(password, user.salt);
 
                 if (hashedPassword !== user.password) {
-                    return Promise.reject(`Old password must match the current saved password`);
+                    return Promise.reject(`Old password is incorrect`);
                 }
             }
         });

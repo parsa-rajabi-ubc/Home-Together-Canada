@@ -29,21 +29,21 @@ function ChangePassword(props) {
             <GenericInput
                 className={className}
                 label={"Old Password: "}
-                inputType={"text"}
+                inputType={"password"}
                 value={oldPassword}
                 onChange={e => onOldPasswordChange(e.target.value)}
             />
             <GenericInput
                 className={className}
                 label={"New Password: "}
-                inputType={"text"}
+                inputType={"password"}
                 value={newPassword}
                 onChange={(e)=>{onNewPasswordChange(e.target.value)}}
             />
             <GenericInput
                 className={className}
                 label={"Confirm New Password: "}
-                inputType={"text"}
+                inputType={"password"}
                 value={confirmedPassword}
                 onChange={(e)=>{onConfirmedPasswordChange(e.target.value)}}
             />

@@ -1,3 +1,11 @@
+/**
+ * @Author:     Rachelle Gelden
+ * @Created:    2021.01.04
+ *
+ * @Description: service used to make API calls related to users accounts
+ *
+ */
+
 let DEV_URL = '';
 if (process.env.NODE_ENV === 'development') {
     DEV_URL = 'http://localhost:3001';
