@@ -1493,7 +1493,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
           <p
             className="info-text"
           >
-            This information is to set up and access your account.
+            This information is to set up and access your account. Usernames are permanent. They cannot be changed at a later time.
           </p>
         </div>
       </div>

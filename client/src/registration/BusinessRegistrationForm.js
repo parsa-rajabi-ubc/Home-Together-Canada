@@ -512,7 +512,8 @@ const BusinessRegistrationForm = (props) => {
                         <div className="px-4 sm:px-0">
                             <h3 className="info-header">Sign In Details</h3>
                             <p className="info-text">
-                                This information is to set up and access your account.
+                                This information is to set up and access your account. Usernames are permanent.
+                                They cannot be changed at a later time.
                             </p>
                         </div>
                     </div>
