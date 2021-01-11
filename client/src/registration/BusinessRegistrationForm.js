@@ -6,7 +6,7 @@
  *
  */
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import TextArea from '../common/forms/TextArea';
 import Checkbox from "../common/forms/Checkbox";
@@ -17,7 +17,12 @@ import SignInInfo from "../common/forms/SignInInfo";
 import PhoneNumInput from "../common/forms/PhoneNumInput";
 import {isStringEmail, isStringEmpty, isStringSame, isStringNumeralsOnly} from "../common/utils/stringUtils";
 import RegistrationService from '../services/RegistrationService';
-import {getConcatenatedErrorMessage, getPhoneNumberFromStrings} from "./registrationUtils";
+import {
+    getConcatenatedErrorMessage,
+    getPhoneNumberFromStrings, isPhoneNumberValid,
+    validateEmail,
+    validateInput, validatePasswordConfirmationEmpty, validatePasswordConfirmationMismatch, validatePhoneNumber
+} from "./registrationUtils";
 import Asterisk from "../common/forms/Asterisk";
 import {connect} from 'react-redux';
 import {setAccountType, setAuthenticated} from '../redux/slices/userPrivileges';
@@ -82,139 +87,198 @@ const BusinessRegistrationForm = (props) => {
     const [password, setPassword] = useState("");
     const [passwordCheck, setPasswordCheck] = useState("");
 
-    // TODO: convert this into an array of errors
-    const isFormValid = () => {
-        if (isStringEmpty(bName)) {
-            alert("Business Name Required");
-            return false;
-        }
-        if (isStringEmpty(bEmail)) {
-            alert("Business Email Required");
-            return false;
-        } else {
-            if (!isStringEmail(bEmail)) {
-                alert("Business email is invalid");
-                return false;
-            }
-        }
-        if (isStringEmpty(bPhoneNumber.first) || isStringEmpty(bPhoneNumber.middle) || isStringEmpty(bPhoneNumber.last)) {
-            alert("Business Phone Number missing parts");
-            return false;
-        } else {
-            if (!isStringNumeralsOnly(bPhoneNumber.first) || !isStringNumeralsOnly(bPhoneNumber.middle) || !isStringNumeralsOnly(bPhoneNumber.last)) {
-                alert("Business Phone Number has invalid characters");
-                return false;
-            }
-            if (!(bPhoneNumber.first.length === 3) || !(bPhoneNumber.middle.length === 3) || !(bPhoneNumber.last.length === 4)) {
-                alert("Business Phone Number has invalid number of characters");
-                return false;
-            }
-        }
-        if (isStringEmpty(bCellNumber.first) || isStringEmpty(bCellNumber.middle) || isStringEmpty(bCellNumber.last)) {
-            alert("Business Cell Phone Number missing parts");
-            return false;
-        } else {
-            if (!isStringNumeralsOnly(bCellNumber.first) || !isStringNumeralsOnly(bCellNumber.middle) || !isStringNumeralsOnly(bCellNumber.last)) {
-                alert("Business Cell Phone Number has invalid characters");
-                return false;
-            }
-            if (!(bCellNumber.first.length === 3) || !(bCellNumber.middle.length === 3) || !(bCellNumber.last.length === 4)) {
-                alert("Business Cell Phone Number has invalid number of characters");
-                return false;
-            }
-        }
-        if (isStringEmpty(bAddress.street)) {
-            alert("Business Street Address missing");
-            return false;
-        }
-        if (isStringEmpty(bAddress.city)) {
-            alert("Business Address City missing");
-            return false;
-        }
-        if (isStringEmpty(bAddress.province)) {
-            alert("Business Address Province not selected");
-            return false
-        }
-        if (isStringEmpty(bAddress.postalCode)) {
-            alert("Business Address Postal Code missing");
-            return false;
-        }
+    // Business Details
+    const [businessNameError, setBusinessNameError] = useState(undefined);
+    const [bEmailError, setBEmailError] = useState(undefined);
+    const [bPhoneNumberError, setBPhoneNumberError] = useState(undefined);
+    const [bCellNumberError, setBCellNumberError] = useState(undefined);
+
+    // Business Address
+    const [streetAddressError, setStreetAddressError] = useState(undefined);
+    const [cityAddressError, setCityAddressError] = useState(undefined);
+    const [provinceAddressError, setProvinceAddressError] = useState(undefined);
+    const [postalCodeError, setPostalCodeError] = useState(undefined);
+
+    // Mailing Address
+    const [streetMailingAddressError, setStreetMailingAddressError] = useState(undefined);
+    const [cityMailingAddressError, setCityMailingAddressError] = useState(undefined);
+    const [provinceMailingAddressError, setProvinceMailingAddressError] = useState(undefined);
+    const [postalCodeMailingError, setPostalCodeMailingError] = useState(undefined);
+
+    // Map Address
+    const [streetMapAddressError, setStreetMapAddressError] = useState(undefined);
+    const [cityMapAddressError, setCityMapAddressError] = useState(undefined);
+    const [provinceMapAddressError, setProvinceMapAddressError] = useState(undefined);
+    const [postalCodeMapError, setPostalCodeMapError] = useState(undefined);
+
+    // Contact Person Start
+    const [contactFirstNameError, setContactFirstNameError] = useState(undefined);
+    const [contactLastNameError, setContactLastNameError] = useState(undefined);
+    const [contactPhoneNumberError, setContactPhoneNumberError] = useState(undefined);
+    // Contact Person End
+
+    // Account Details Start
+    const [usernameError, setUsernameError] = useState(undefined);
+    const [passwordError, setPasswordError] = useState(undefined);
+    const [passwordConfirmError, setPasswordConfirmError] = useState(undefined);
+    // Account Details End
+
+
+    // business details
+    useEffect(() => {
+        businessNameError !== undefined && validateEmail(bName, setBusinessNameError);
+    }, [bName]);
+    useEffect(() => {
+        bEmailError !== undefined && validateEmail(bEmail, setBEmailError);
+    }, [bEmail]);
+    useEffect(() => {
+        bPhoneNumberError !== undefined && validatePhoneNumber(bPhoneNumber, setBPhoneNumberError);
+    }, [bPhoneNumber]);
+    useEffect(() => {
+        bCellNumberError !== undefined && validatePhoneNumber(bCellNumber, setBCellNumberError);
+    }, [bCellNumber]);
+
+    // Address
+    useEffect(() => {
+        streetAddressError !== undefined && validateInput(bAddress.street, setStreetAddressError);
+    }, [bAddress.street]);
+    useEffect(() => {
+        cityAddressError !== undefined && validateInput(bAddress.city, setCityAddressError);
+    }, [bAddress.city]);
+    useEffect(() => {
+        postalCodeError !== undefined && validateInput(bAddress.postalCode, setPostalCodeError);
+    }, [bAddress.postalCode]);
+
+    // Mailing Address
+    useEffect(() => {
         if (useDifferentMailingAddress) {
-            if (isStringEmpty(bMailingAddress.street)) {
-                alert("Business Mailing Address Street missing");
-                return false;
-            }
-            if (isStringEmpty(bMailingAddress.city)) {
-                alert("Business Mailing Address City missing");
-                return false;
-            }
-            if (isStringEmpty(bMailingAddress.province)) {
-                alert("Business Mailing Address Province not selected");
-                return false;
-            }
-            if (isStringEmpty(bMailingAddress.postalCode)) {
-                alert("Business Mailing Address Postal Code missing");
-                return false;
-            }
+            streetMailingAddressError !== undefined && validateInput(bMailingAddress.street, setStreetMailingAddressError);
+        }
+    }, [bMailingAddress.street, useDifferentMailingAddress]);
+    useEffect(() => {
+        if (useDifferentMailingAddress) {
+            cityMailingAddressError !== undefined && validateInput(bMailingAddress.city, setCityMailingAddressError);
+        }
+    }, [bMailingAddress.city, useDifferentMailingAddress]);
+    useEffect(() => {
+        if (useDifferentMailingAddress) {
+            postalCodeMailingError !== undefined && validateInput(bMailingAddress.postalCode, setPostalCodeMailingError);
+        }
+    }, [bMailingAddress.postalCode, useDifferentMailingAddress]);
+
+    // Map Address
+    useEffect(() => {
+        if (!isNationWide) {
+            streetMapAddressError !== undefined && validateInput(bMapAddress.street, setStreetMapAddressError);
+        }
+    }, [bMapAddress.street, isNationWide]);
+    useEffect(() => {
+        if (!isNationWide) {
+            cityMapAddressError !== undefined && validateInput(bMapAddress.city, setCityMapAddressError);
+        }
+    }, [bMapAddress.city, isNationWide]);
+    useEffect(() => {
+        if (!isNationWide) {
+            postalCodeMapError !== undefined && validateInput(bMapAddress.postalCode, setPostalCodeMapError);
+        }
+    }, [bMapAddress.postalCode, isNationWide]);
+
+
+    // contact person useEffect
+    useEffect(() => {
+        contactFirstNameError !== undefined && validateInput(contactFName, setContactFirstNameError);
+    }, [contactFName]);
+    useEffect(() => {
+        contactLastNameError !== undefined && validateInput(contactLName, setContactLastNameError);
+    }, [contactLName]);
+    useEffect(() => {
+        contactPhoneNumberError !== undefined && validatePhoneNumber(contactPhoneNumber, setContactPhoneNumberError);
+    }, [contactPhoneNumber]);
+
+    // Account Details
+    useEffect(() => {
+        usernameError !== undefined && validateInput(username, setUsernameError);
+    }, [username]);
+    useEffect(() => {
+        passwordError !== undefined && validateInput(password, setPasswordError);
+    }, [password]);
+    useEffect(() => {
+        passwordConfirmError !== undefined && validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
+    }, [passwordCheck]);
+    useEffect(() => {
+        if (passwordError !== undefined && passwordConfirmError !== undefined) {
+            validatePasswordConfirmationMismatch(password, passwordCheck, setPasswordConfirmError);
+        }
+    }, [password, passwordCheck]);
+
+    const isFormValid = () => {
+        // Business Details
+        validateEmail(bName, setBusinessNameError);
+        validateEmail(bEmail, setBEmailError);
+        validatePhoneNumber(bPhoneNumber, setBPhoneNumberError);
+        validatePhoneNumber(bCellNumber, setBCellNumberError);
+
+        validateInput(bAddress.street, setStreetAddressError);
+        validateInput(bAddress.city, setCityAddressError);
+        validateInput(bAddress.province, setProvinceAddressError);
+        validateInput(bAddress.postalCode, setPostalCodeError);
+
+        if (useDifferentMailingAddress) {
+            validateInput(bMailingAddress.street, setStreetMailingAddressError);
+            validateInput(bMailingAddress.city, setCityMailingAddressError);
+            validateInput(bMailingAddress.province, setProvinceMailingAddressError);
+            validateInput(bMailingAddress.postalCode, setPostalCodeMailingError);
         }
         if (!isNationWide) {
-            if (isStringEmpty(bMapAddress.street)) {
-                alert("Searchable Address Street missing");
-                return false;
-            }
-            if (isStringEmpty(bMapAddress.city)) {
-                alert("Searchable Address City missing");
-                return false;
-            }
-            if (isStringEmpty(bMapAddress.province)) {
-                alert("Searchable Address Province not selected");
-                return false;
-            }
-            if (isStringEmpty(bMapAddress.postalCode)) {
-                alert("Searchable Address Postal Code missing");
-                return false;
-            }
+            validateInput(bMapAddress.street, setStreetMapAddressError);
+            validateInput(bMapAddress.city, setCityMapAddressError);
+            validateInput(bMapAddress.province, setProvinceMapAddressError);
+            validateInput(bMapAddress.postalCode, setPostalCodeMapError);
         }
-        if (isStringEmpty(contactFName)) {
-            alert("Contact First Name Required");
+
+        // Contact Person Validation
+        validateInput(contactFName, setContactFirstNameError);
+        validateInput(contactLName, setContactLastNameError);
+        validatePhoneNumber(contactPhoneNumber, setContactPhoneNumberError);
+
+        // Account Details Validation
+        validateInput(username, setUsernameError);
+        validateInput(password, setPasswordError);
+        validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
+        validatePasswordConfirmationMismatch(password, passwordCheck, setPasswordConfirmError);
+
+        //    check business name, email and phone numbers for errors
+        if (isStringEmpty(bName) || !isStringEmail(bEmail) || isPhoneNumberValid(bPhoneNumber) || isPhoneNumberValid(bCellNumber)) {
             return false;
-        }
-        if (isStringEmpty(contactLName)) {
-            alert("Contact Last Name Required");
+
+            //    check business address for errors
+        } else if (isStringEmpty(bAddress.street) || isStringEmpty(bAddress.city) || isStringEmpty(bAddress.province) || isStringEmpty(bAddress.postalCode)) {
             return false;
-        }
-        if (isStringEmpty(contactPhoneNumber.first) || isStringEmpty(contactPhoneNumber.middle) || isStringEmpty(contactPhoneNumber.last)) {
-            alert("Contact Phone Number missing parts");
+
+            //    check mailing address for errors if different mailing address is selected
+        } else if (useDifferentMailingAddress) {
+            if (isStringEmpty(bMailingAddress.street) || isStringEmpty(bMailingAddress.city) || isStringEmpty(bMailingAddress.province) || isStringEmpty(bMailingAddress.postalCode)) {
+                return false;
+            }
+
+            //    check map address for errors if nation wide is not selected
+        } else if (!isNationWide) {
+            if (isStringEmpty(bMapAddress.street) || isStringEmpty(bMapAddress.city) || isStringEmpty(bMapAddress.province) || isStringEmpty(bMapAddress.postalCode)) {
+                return false;
+            }
+
+            // check contact person for errors
+        } else if (isStringEmpty(contactFName) || isStringEmpty(contactLName) || isPhoneNumberValid(contactPhoneNumber)) {
             return false;
+
+            // check account details for errors
+        } else if (isStringEmpty(username) || isStringEmpty(password) || isStringEmpty(passwordCheck) || isStringSame(password, passwordCheck)) {
+            return false;
+
+            // return true if no errors
         } else {
-            if (!isStringNumeralsOnly(contactPhoneNumber.first) || !isStringNumeralsOnly(contactPhoneNumber.middle) || !isStringNumeralsOnly(contactPhoneNumber.last)) {
-                alert("Contact Phone Number has invalid characters");
-                return false;
-            }
-            if (!(contactPhoneNumber.first.length === 3) || !(contactPhoneNumber.middle.length === 3) || !(contactPhoneNumber.last.length === 4)) {
-                alert("Contact Phone Number has invalid number of characters");
-                return false;
-            }
+            return true;
         }
-        if (isStringEmpty(username)) {
-            alert("username Required");
-            return false;
-        }
-        if (isStringEmpty(password)) {
-            alert("Password Required");
-            return false;
-        }
-        if (isStringEmpty(passwordCheck)) {
-            alert("Password confirmation Required");
-            return false;
-        }
-        if (!isStringEmpty(password) && !isStringEmpty(passwordCheck)) {
-            if (!isStringSame(password, passwordCheck)) {
-                alert("Passwords do NOT match");
-                return false;
-            }
-        }
-        return true;
     }
 
     const INFO_TEXT = {
@@ -226,7 +290,7 @@ const BusinessRegistrationForm = (props) => {
         MAP_ADDRESS: "Address that users use to search for the business"
     };
 
-    //function for input checks on submit
+//function for input checks on submit
     function onSubmit(event) {
         if (!isFormValid()) {
             event.preventDefault();
@@ -347,7 +411,8 @@ const BusinessRegistrationForm = (props) => {
                             </p>
                         </div>
                     </div>
-                    <div className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
+                    <div
+                        className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
                         <div className="grid grid-cols-2 gap-6">
                             <div className="col-span-3 sm:col-span-2">
                                 <TextArea
@@ -522,14 +587,15 @@ const BusinessRegistrationForm = (props) => {
                             <div className="px-4 py-6 bg-white sm:p-5">
                                 <div className="grid grid-cols-2 gap-6">
                                     <div className="col-span-3 sm:col-span-2">
-
-                                        <SignInInfo onChangeUsername={(e) => {
-                                            setUsername(e.target.value)
-                                        }} onChangePassword={(e) => {
-                                            setPassword(e.target.value)
-                                        }} onChangePasswordCheck={(e) => {
-                                            setPasswordCheck(e.target.value)
-                                        }}/>
+                                        <SignInInfo
+                                            onChangeUsername={(e) => setUsername(e.target.value)}
+                                            onChangePassword={(e) => setPassword(e.target.value)}
+                                            onChangePasswordCheck={(e) => setPasswordCheck(e.target.value)}
+                                            usernameError={usernameError}
+                                            passwordError={passwordError}
+                                            passwordConfirmError={passwordConfirmError}
+                                            passwordConfirmErrorMsg={(passwordConfirmError === "empty") ? "empty" : (passwordConfirmError === "mismatch" ? "mismatch" : "")}
+                                        />
                                     </div>
                                 </div>
                             </div>
