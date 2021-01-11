@@ -14,7 +14,13 @@ import Address from "../common/forms/Address";
 import SignInInfo from "../common/forms/SignInInfo";
 import PhoneNumInput from "../common/forms/PhoneNumInput";
 import BirthYear from "../common/forms/BirthYear";
-import {isStringEmpty, isStringNumeralsOnly, isStringSame} from "../common/utils/stringUtils";
+import {
+    isStringEmail,
+    isStringEmpty,
+    isStringNumeralsOnly,
+    isStringSame,
+    validateEmptyString
+} from "../common/utils/stringUtils";
 import {getConcatenatedErrorMessage, getPhoneNumberFromStrings,} from "./registrationUtils";
 import RegistrationService from "../services/RegistrationService";
 import RadioButton from "../common/forms/RadioButton";
@@ -31,6 +37,7 @@ import {connect} from 'react-redux';
 import {setIsAdmin, setAccountType, setAuthenticated} from '../redux/slices/userPrivileges';
 import Tooltip from "../common/forms/Tooltip";
 import {USER_TYPES} from "../common/constants/users";
+import {dropdownDefaultCSS, dropdownErrorCSS} from "../css/dropdownCSSUtil"
 
 const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
 
@@ -165,10 +172,22 @@ function MemberRegistrationForm(props) {
         lastNameError !== undefined && isStringEmpty(lastName) ? setLastNameError(true) : setLastNameError(false);
     }, [lastName]);
     useEffect(() => {
-        emailError !== undefined && isStringEmpty(email) ? setEmailError(true) : setEmailError(false);
+        if (emailError !== undefined) {
+            if (isStringEmpty(email) || !isStringEmail(email)) {
+                setEmailError(true);
+            } else
+                setEmailError(false);
+        }
+
     }, [email]);
     useEffect(() => {
-        phoneNumberError !== undefined && isStringEmpty(phoneNumber) ? setPhoneNumberError(true) : setPhoneNumberError(false);
+        if (phoneNumberError !== undefined) {
+            if (isStringEmpty(phoneNumber.first) || isStringEmpty(phoneNumber.middle) || isStringEmpty(phoneNumber.last)) {
+                // empty phone number
+                setPhoneNumberError(true);
+            } else
+                setPhoneNumberError(false);
+        }
     }, [phoneNumber]);
 
     // Address
@@ -285,35 +304,6 @@ function MemberRegistrationForm(props) {
         setYearOfBirth(e.value);
     }
 
-
-    const dropdownErrorCSS = {
-        control: base => ({
-                ...base,
-                marginTop: 4,
-                borderColor: 'red',
-                marginBottom: 16,
-                paddingTop: 2,
-                paddingBottom: 2,
-                ':hover': {
-                    borderColor: 'red'
-                }
-            }
-        ),
-        menuPortal: base => ({...base, zIndex: 9999}),
-    }
-
-    const dropdownDefaultCSS = {
-        control: base => ({
-                ...base,
-                marginTop: 4,
-                borderColor: "#e2e8f0",
-                marginBottom: 16,
-                paddingTop: 2,
-                paddingBottom: 2,
-            }
-        ),
-        menuPortal: base => ({...base, zIndex: 9999}),
-    }
 
     const isFormValid = () => {
         // Personal Information Validation
@@ -585,12 +575,12 @@ function MemberRegistrationForm(props) {
 
                             <Address
                                 label="Address"
-                                streetClassName={`${streetAddressError && "border-red-500"} input`}
-                                cityClassName={`${cityAddressError && "border-red-500"} input`}
-                                provinceClassName={provinceAddressError ? dropdownErrorCSS : dropdownDefaultCSS}
-                                postalCodeClassName={`${postalCodeError && "border-red-500"} input`}
                                 required={true}
                                 onChange={setAddress}
+                                streetAddressError={streetAddressError}
+                                cityAddressError={cityAddressError}
+                                provinceAddressError={provinceAddressError}
+                                postalCodeError={postalCodeError}
                             />
                             <Checkbox
                                 label="Different Mailing Address"
