@@ -880,11 +880,9 @@ function MemberRegistrationForm(props) {
                                             onChangeUsername={(e) => setUsername(e.target.value)}
                                             onChangePassword={(e) => setPassword(e.target.value)}
                                             onChangePasswordCheck={(e) => setPasswordCheck(e.target.value)}
-                                            usernameClassName={`${usernameError && "border-red-500 mb-0"} input`}
-                                            passwordClassName={`${(passwordError) && "border-red-500 mb-0"} input`}
-                                            passwordConfirmClassName={`${passwordConfirmError && "border-red-500 mb-0"} input`}
-                                            usernameErrorMsg={usernameError}
-                                            passwordErrorMsg={passwordError}
+                                            usernameError={usernameError}
+                                            passwordError={passwordError}
+                                            passwordConfirmError={passwordConfirmError}
                                             passwordConfirmErrorMsg={(passwordConfirmError === "empty") ? "empty" : (passwordConfirmError === "mismatch" ? "mismatch" : "")}
                                         />
                                     </div>

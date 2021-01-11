@@ -30,11 +30,9 @@ function SignInInfo(props) {
         onChangeUsername,
         onChangePassword,
         onChangePasswordCheck,
-        usernameClassName,
-        passwordClassName,
-        passwordConfirmClassName,
-        usernameErrorMsg,
-        passwordErrorMsg,
+        usernameError,
+        passwordError,
+        passwordConfirmError,
         passwordConfirmErrorMsg
     } = props;
     return (
@@ -42,18 +40,20 @@ function SignInInfo(props) {
             <label>
                 <LabelAsterisk label={"Username"}/>
                 <Tooltip text={INFO_TEXT.USERNAME} toolTipID="username"/>
-                <input className={usernameClassName} type="text" onChange={onChangeUsername}/>
-                {usernameErrorMsg && <label className={"error-msg"}>{ERROR_TEXT.USERNAME}</label>}
+                <input className={`${usernameError && "border-red-500 mb-0"} input`} type="text"
+                       onChange={onChangeUsername}/>
+                {usernameError && <label className={"error-msg"}>{ERROR_TEXT.USERNAME}</label>}
             </label>
             <label>
                 <LabelAsterisk label={"Password"}/>
                 <Tooltip text={INFO_TEXT.PASSWORD} toolTipID="password"/>
-                <input className={passwordClassName} type="password" onChange={onChangePassword}/>
-                {passwordErrorMsg && <label className={"error-msg"}>{ERROR_TEXT.PASSWORD.EMPTY}</label>}
+                <input className={`${(passwordError) && "border-red-500 mb-0"} input`} type="password"
+                       onChange={onChangePassword}/>
+                {passwordError && <label className={"error-msg"}>{ERROR_TEXT.PASSWORD.EMPTY}</label>}
             </label>
             <label>
                 <LabelAsterisk label={"Confirm Password"}/>
-                <input className={passwordConfirmClassName} type="password"
+                <input className={`${passwordConfirmError && "border-red-500 mb-0"} input`} type="password"
                        onChange={onChangePasswordCheck}/>
                 {passwordConfirmErrorMsg && <label className={"error-msg"}>
                     {(passwordConfirmErrorMsg === "empty") ?
@@ -68,11 +68,9 @@ SignInInfo.propTypes = {
     onChangeUsername: PropTypes.func.isRequired,
     onChangePassword: PropTypes.func.isRequired,
     onChangePasswordCheck: PropTypes.func.isRequired,
-    usernameClassName: PropTypes.string,
-    passwordClassName: PropTypes.string,
-    passwordConfirmClassName: PropTypes.string,
-    usernameErrorMsg: PropTypes.bool,
-    passwordErrorMsg: PropTypes.bool,
+    usernameError: PropTypes.bool,
+    passwordError: PropTypes.bool,
+    passwordConfirmError: PropTypes.bool,
     passwordConfirmErrorMsg: PropTypes.string,
 };
 
