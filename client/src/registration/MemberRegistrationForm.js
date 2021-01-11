@@ -16,11 +16,16 @@ import PhoneNumInput from "../common/forms/PhoneNumInput";
 import BirthYear from "../common/forms/BirthYear";
 import {
     isStringEmail,
-    isStringEmpty,
-    isStringNumeralsOnly,
-    isStringSame,
+    isStringEmpty, isStringSame,
 } from "../common/utils/stringUtils";
-import {getConcatenatedErrorMessage, getPhoneNumberFromStrings,} from "./registrationUtils";
+import {
+    getConcatenatedErrorMessage,
+    getPhoneNumberFromStrings,
+    validateInput,
+    validatePhoneNumber,
+    validatePasswordConfirmationMismatch,
+    validatePasswordConfirmationEmpty, validateEmail, isPhoneNumberValid
+} from "./registrationUtils";
 import RegistrationService from "../services/RegistrationService";
 import RadioButton from "../common/forms/RadioButton";
 import Status from "../common/forms/Status";
@@ -38,7 +43,6 @@ import Tooltip from "../common/forms/Tooltip";
 import {USER_TYPES} from "../common/constants/users";
 import {dropdownDefaultCSS, dropdownErrorCSS} from "../css/dropdownCSSUtil"
 import {Link} from "react-router-dom";
-import {validateInput} from "./registrationUtils";
 
 const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
 
@@ -173,22 +177,10 @@ function MemberRegistrationForm(props) {
         lastNameError !== undefined && validateInput(lastName, setLastNameError);
     }, [lastName]);
     useEffect(() => {
-        if (emailError !== undefined) {
-            if (isStringEmpty(email) || !isStringEmail(email)) {
-                setEmailError(true);
-            } else
-                setEmailError(false);
-        }
-
+        emailError !== undefined && validateEmail(email, setEmailError);
     }, [email]);
     useEffect(() => {
-        if (phoneNumberError !== undefined) {
-            if (isStringEmpty(phoneNumber.first) || isStringEmpty(phoneNumber.middle) || isStringEmpty(phoneNumber.last)) {
-                // empty phone number
-                setPhoneNumberError(true);
-            } else
-                setPhoneNumberError(false);
-        }
+        phoneNumberError !== undefined && validatePhoneNumber(phoneNumber, setPhoneNumberError);
     }, [phoneNumber]);
 
     // Address
@@ -237,13 +229,11 @@ function MemberRegistrationForm(props) {
         passwordError !== undefined && validateInput(password, setPasswordError);
     }, [password]);
     useEffect(() => {
-        passwordConfirmError !== undefined && isStringEmpty(passwordCheck) ? setPasswordConfirmError("empty") : setPasswordConfirmError(false);
+        passwordConfirmError !== undefined && validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
     }, [passwordCheck]);
     useEffect(() => {
         if (passwordError !== undefined && passwordConfirmError !== undefined) {
-            if (!isStringEmpty(password) && !isStringEmpty(passwordCheck)) {
-                (!isStringSame(password, passwordCheck) ? setPasswordConfirmError("mismatch") : setPasswordConfirmError(false));
-            }
+            validatePasswordConfirmationMismatch(password, passwordCheck, setPasswordConfirmError);
         }
     }, [password, passwordCheck]);
 
@@ -307,24 +297,9 @@ function MemberRegistrationForm(props) {
         // Personal Information Validation
         validateInput(firstName, setFirstNameError);
         validateInput(lastNameError, setLastNameError);
-        validateInput(email, setEmailError);
+        validateEmail(email, setEmailError);
         validateInput(yearOfBirth, setYearOfBirthError);
-        if (isStringEmpty(phoneNumber.first) || isStringEmpty(phoneNumber.middle) || isStringEmpty(phoneNumber.last)) {
-            // empty phone number
-            setPhoneNumberError(true);
-        } else {
-            if (!isStringNumeralsOnly(phoneNumber.first) || !isStringNumeralsOnly(phoneNumber.middle) || !isStringNumeralsOnly(phoneNumber.last)) {
-                // invalid character
-                setPhoneNumberError(true);
-            } else {
-                if (!(phoneNumber.first.length === 3) || !(phoneNumber.middle.length === 3) || !(phoneNumber.last.length === 4)) {
-                    // missing number
-                    setPhoneNumberError(true);
-                } else {
-                    setPhoneNumberError(false);
-                }
-            }
-        }
+        validatePhoneNumber(phoneNumber, setPhoneNumberError);
         validateInput(address.street, setStreetAddressError);
         validateInput(address.city, setCityAddressError);
         validateInput(address.province, setProvinceAddressError);
@@ -363,20 +338,17 @@ function MemberRegistrationForm(props) {
         // Account Details Validation
         validateInput(username, setUsernameError);
         validateInput(password, setPasswordError);
-        (isStringEmpty(passwordCheck) ? setPasswordConfirmError("empty") : setPasswordConfirmError(false));
-        if (!isStringEmpty(password) && !isStringEmpty(passwordCheck)) {
-            (!isStringSame(password, passwordCheck) ? setPasswordConfirmError("mismatch") : setPasswordConfirmError(false));
-        }
+        validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
+        validatePasswordConfirmationMismatch(password, passwordCheck, setPasswordConfirmError);
 
         // check personal information for errors
-        if ((isStringEmpty(firstName) || isStringEmpty(lastName) || isStringEmpty(email) || isStringEmpty(yearOfBirth) || isStringEmpty(phoneNumber) ||
+        if ((isStringEmpty(firstName) || isStringEmpty(lastName) || isStringEmpty(email) || !isStringEmail(email) || isStringEmpty(yearOfBirth) || isPhoneNumberValid(phoneNumber) ||
             isStringEmpty(address.street) || isStringEmpty(address.city) || isStringEmpty(address.province) || isStringEmpty(address.postalCode))) {
             return false;
 
             // check mailing address for errors if selected
         } else if (useDifferentMailingAddress) {
-            if (isStringEmpty(mailingAddress.street) || isStringEmpty(mailingAddress.city)
-                || isStringEmpty(mailingAddress.province) || isStringEmpty(mailingAddress.postalCode)) {
+            if (isStringEmpty(mailingAddress.street) || isStringEmpty(mailingAddress.city) || isStringEmpty(mailingAddress.province) || isStringEmpty(mailingAddress.postalCode)) {
                 return false;
             }
 
@@ -392,7 +364,7 @@ function MemberRegistrationForm(props) {
             return false;
 
             // check account details for errors
-        } else if (isStringEmpty(username) || isStringEmpty(password) || isStringEmpty(passwordCheck)) {
+        } else if (isStringEmpty(username) || isStringEmpty(password) || isStringEmpty(passwordCheck) || isStringSame(password, passwordCheck))  {
             return false;
 
             // return true if no errors
