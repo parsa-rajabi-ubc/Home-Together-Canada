@@ -42,18 +42,18 @@ function SignInInfo(props) {
             <label>
                 <LabelAsterisk label={"Username"}/>
                 <Tooltip text={INFO_TEXT.USERNAME} toolTipID="username"/>
-                <input className={usernameClassName} type="text" placeholder="" onChange={onChangeUsername}/>
+                <input className={usernameClassName} type="text" onChange={onChangeUsername}/>
                 {usernameErrorMsg && <label className={"error-msg"}>{ERROR_TEXT.USERNAME}</label>}
             </label>
             <label>
                 <LabelAsterisk label={"Password"}/>
                 <Tooltip text={INFO_TEXT.PASSWORD} toolTipID="password"/>
-                <input className={passwordClassName} type="password" placeholder="" onChange={onChangePassword}/>
+                <input className={passwordClassName} type="password" onChange={onChangePassword}/>
                 {passwordErrorMsg && <label className={"error-msg"}>{ERROR_TEXT.PASSWORD.EMPTY}</label>}
             </label>
             <label>
                 <LabelAsterisk label={"Confirm Password"}/>
-                <input className={passwordConfirmClassName} type="password" placeholder=""
+                <input className={passwordConfirmClassName} type="password"
                        onChange={onChangePasswordCheck}/>
                 {passwordConfirmErrorMsg && <label className={"error-msg"}>
                     {(passwordConfirmErrorMsg === "empty") ?
