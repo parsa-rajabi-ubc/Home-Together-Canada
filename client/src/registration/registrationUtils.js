@@ -33,9 +33,12 @@ export const getFirstErrorMessage = errors => {
 // check if string is empty, if so, set state variable to true
 export function validateInput(st, setStateVar) {
     if (isStringEmpty(st)) {
-        return setStateVar(true);
-    } else
-        return setStateVar(false);
+        setStateVar(true);
+        return true;
+    } else {
+        setStateVar(false);
+        return false;
+    }
 }
 
 // check if phone number is valid and contains all appropriate properties, if so,return true
@@ -85,4 +88,16 @@ export function validatePasswordConfirmationEmpty(passwordConfirmation, setState
         return setStateVar("empty");
     } else
         return setStateVar(false);
+}
+
+// checks object for true and returns true if there is one
+export function validateObject(obj){
+    return Object.values(obj).includes(true);
+}
+
+// default values for phone number object
+export const DEFAULT_PHONE_NUMBER = {
+    first: undefined,
+    middle: undefined,
+    last: undefined
 }
