@@ -8,6 +8,7 @@
 import React from 'react';
 import renderer from  'react-test-renderer'
 import MemberRegistrationForm from "../MemberRegistrationForm";
+import { BrowserRouter as Router } from 'react-router-dom';
 
 jest.mock("react-tooltip/node_modules/uuid", () => ({
             v4: () => "00000000-0000-0000-0000-000000000000"}
@@ -35,9 +36,9 @@ describe('MemberProfileForm', () => {
             setAuthenticated
         };
         //when
-        const component = renderer.create(<MemberRegistrationForm {...props}/>);
+        const component = renderer.create(<Router><MemberRegistrationForm {...props}/></Router>);
         const tree = component.toJSON();
         //then
         expect(tree).toMatchSnapshot();
     });
-})
+});

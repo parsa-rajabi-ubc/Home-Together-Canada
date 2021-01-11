@@ -31,4 +31,4 @@ describe('BusinessRegistrationForm', () => {
         //then
         expect(tree).toMatchSnapshot();
     });
-})
+});
