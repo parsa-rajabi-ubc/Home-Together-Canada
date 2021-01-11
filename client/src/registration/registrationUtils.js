@@ -6,6 +6,7 @@
  *
  */
 import {isStringEmpty} from "../common/utils/stringUtils";
+import head from 'lodash/head';
 
 export const getPhoneNumberFromStrings = (areaCode, exchangeCode, stationCode) => {
     if (!areaCode || isStringEmpty(areaCode) ||
@@ -20,6 +21,11 @@ export const getPhoneNumberFromStrings = (areaCode, exchangeCode, stationCode) =
 // given an array of error objects, extract the messages of each error and concatenate into a string
 export const getConcatenatedErrorMessage = (errors) => {
     let errorMessage = '';
+    if (!errors || !errors.length) return errorMessage;
     errors.forEach(error => errorMessage += (error.msg + '\n'));
     return errorMessage;
+}
+
+export const getFirstErrorMessage = errors => {
+    return (!errors || !errors.length) ? '' : head(errors).msg;
 }

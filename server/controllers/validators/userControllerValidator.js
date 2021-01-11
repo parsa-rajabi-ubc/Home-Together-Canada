@@ -25,7 +25,9 @@ const {
     emailShouldNotAlreadyBeInUse,
     usernameShouldExist,
     usernameShouldExistAndBeAMember,
-    linkedMemberShouldHaveSameStatus
+    linkedMemberShouldHaveSameStatus,
+    providedOldPasswordShouldMatchExistingPassword,
+    providedNewPasswordShouldNotMatchExistingPassword
 } = require('./userControllerValidatorUtils');
 const { removeAllWhiteSpace } = require('../utils/stringUtils');
 
@@ -316,6 +318,22 @@ exports.validate = (method) => {
                     .trim()
                     .stripLow()
                     .isIn(WORK_STATUSES)
+            ]
+        }
+        case 'changePassword': {
+            return [
+                // old password must match the current password
+                body('oldPassword')
+                    .exists()
+                    .trim()
+                    .stripLow()
+                    .custom((oldPassword, {req}) => providedOldPasswordShouldMatchExistingPassword(oldPassword, req.user.uid)),
+                // new password should not match the current password
+                body('newPassword')
+                    .exists()
+                    .trim()
+                    .stripLow()
+                    .custom((newPassword, {req}) => providedNewPasswordShouldNotMatchExistingPassword(newPassword, req.user.uid))
             ]
         }
     }
