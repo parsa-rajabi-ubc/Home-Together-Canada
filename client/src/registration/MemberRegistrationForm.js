@@ -14,10 +14,7 @@ import Address from "../common/forms/Address";
 import SignInInfo from "../common/forms/SignInInfo";
 import PhoneNumInput from "../common/forms/PhoneNumInput";
 import BirthYear from "../common/forms/BirthYear";
-import {
-    isStringEmail,
-    isStringEmpty, isStringSame,
-} from "../common/utils/stringUtils";
+import {isStringEmpty} from "../common/utils/stringUtils";
 import {
     getConcatenatedErrorMessage,
     getPhoneNumberFromStrings,
@@ -25,7 +22,7 @@ import {
     validateObject,
     validatePhoneNumber,
     validatePasswordConfirmationMismatch,
-    validatePasswordConfirmationEmpty, validateEmail, isPhoneNumberValid, DEFAULT_PHONE_NUMBER
+    validatePasswordConfirmationEmpty, validateEmail, DEFAULT_PHONE_NUMBER
 } from "./registrationUtils";
 import RegistrationService from "../services/RegistrationService";
 import RadioButton from "../common/forms/RadioButton";
@@ -102,8 +99,8 @@ function MemberRegistrationForm(props) {
     const [interestInBuyingHome, setInterestInBuyingHome] = useState("");
     const [interestDescription, setInterestDescription] = useState("");
 
-    const [minRent, setMinRent] = useState("");
-    const [maxRent, setMaxRent] = useState("");
+    const [minRent, setMinRent] = useState(undefined);
+    const [maxRent, setMaxRent] = useState(undefined);
 
     const [areasOfInterest, setAreasOfInterest] = useState([{
         province: "",
