@@ -42,7 +42,7 @@ export function isStringSame(str1, str2) {
     return false;
 }
 
-export function validateEmptyString(st, setStateVar){
+export function validateUpdateState(st, setStateVar){
     if (isStringEmpty(st)){
         return setStateVar(true);
     } else
