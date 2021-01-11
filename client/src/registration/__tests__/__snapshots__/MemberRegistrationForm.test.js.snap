@@ -19,7 +19,15 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
         <p
           className="info-text mr-10"
         >
-          This information is about you and is private. Home Together Canada will not share this information with anyone and will only be used for verification purposes.
+          This information is about you and is private. Home Together Canada will not share this information with anyone and will only be used for verification purposes. Please see
+          <a
+            className="label"
+            href="/faq"
+            onClick={[Function]}
+          >
+             FAQs
+          </a>
+           for more information.
         </p>
         <p
           className="info-text mr-10"
@@ -44,7 +52,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
               fill="currentColor"
             />
           </svg>
-           = Required Field
+          Required Field
         </p>
       </div>
     </div>
@@ -154,255 +162,6 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
               type="text"
             />
           </label>
-          <label
-            className="label"
-          >
-            Year of Birth
-             
-            <svg
-              className="inline align-top text-red-600"
-              fill="none"
-              height="1em"
-              stroke="currentColor"
-              strokeWidth="0"
-              style={
-                Object {
-                  "color": undefined,
-                }
-              }
-              viewBox="0 0 24 24"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                fill="currentColor"
-              />
-            </svg>
-          </label>
-          <span>
-            <a
-              data-for="yearOfBirth"
-              data-tip={true}
-            >
-              <svg
-                className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
-                fill="currentColor"
-                height="1em"
-                stroke="currentColor"
-                strokeWidth="0"
-                style={
-                  Object {
-                    "color": undefined,
-                  }
-                }
-                viewBox="0 0 16 16"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clipRule="evenodd"
-                  d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                  fillRule="evenodd"
-                />
-              </svg>
-            </a>
-            <div
-              className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-              data-id="tooltip"
-              id="yearOfBirth"
-            >
-              <style
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "
-  	.t00000000-0000-0000-0000-000000000000 {
-	    color: #fff;
-	    background: #222;
-	    border: 1px solid transparent;
-  	}
-
-  	.t00000000-0000-0000-0000-000000000000.place-top {
-        margin-top: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
-        border-top: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        bottom: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
-        margin-top: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
-        border-bottom: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        top: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-left {
-        margin-left: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
-        border-left: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        right: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-right {
-        margin-left: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
-        border-right: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        left: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
-    }
-  ",
-                  }
-                }
-              />
-              Age is required in order to help members connect with others in their desired age range
-            </div>
-          </span>
-          <div>
-            <div>
-              <div
-                className=" css-2b097c-container"
-                onKeyDown={[Function]}
-              >
-                <div
-                  className=" css-1jumw1e-control"
-                  onMouseDown={[Function]}
-                  onTouchEnd={[Function]}
-                >
-                  <div
-                    className=" css-g1d714-ValueContainer"
-                  >
-                    <div
-                      className=" css-1d6d5xl-placeholder"
-                    >
-                      Select the Year You Were Born
-                    </div>
-                    <div
-                      className="css-b8ldur-Input"
-                    >
-                      <div
-                        className=""
-                        style={
-                          Object {
-                            "display": "inline-block",
-                          }
-                        }
-                      >
-                        <input
-                          aria-autocomplete="list"
-                          autoCapitalize="none"
-                          autoComplete="off"
-                          autoCorrect="off"
-                          disabled={false}
-                          id="react-select-2-input"
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          onFocus={[Function]}
-                          spellCheck="false"
-                          style={
-                            Object {
-                              "background": 0,
-                              "border": 0,
-                              "boxSizing": "content-box",
-                              "color": "inherit",
-                              "fontSize": "inherit",
-                              "label": "input",
-                              "opacity": 1,
-                              "outline": 0,
-                              "padding": 0,
-                              "width": "1px",
-                            }
-                          }
-                          tabIndex="0"
-                          type="text"
-                          value=""
-                        />
-                        <div
-                          style={
-                            Object {
-                              "height": 0,
-                              "left": 0,
-                              "overflow": "scroll",
-                              "position": "absolute",
-                              "top": 0,
-                              "visibility": "hidden",
-                              "whiteSpace": "pre",
-                            }
-                          }
-                        >
-                          
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className=" css-1hb7zxy-IndicatorsContainer"
-                  >
-                    <span
-                      className=" css-1okebmr-indicatorSeparator"
-                    />
-                    <div
-                      aria-hidden="true"
-                      className=" css-tlfecz-indicatorContainer"
-                      onMouseDown={[Function]}
-                      onTouchEnd={[Function]}
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className="css-6q0nyr-Svg"
-                        focusable="false"
-                        height={20}
-                        viewBox="0 0 20 20"
-                        width={20}
-                      >
-                        <path
-                          d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
           <div>
             <label
               className="label"
@@ -565,7 +324,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                             autoComplete="off"
                             autoCorrect="off"
                             disabled={false}
-                            id="react-select-3-input"
+                            id="react-select-2-input"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -896,6 +655,255 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                     </label>
                   </div>
                 </section>
+                <label
+                  className="label"
+                >
+                  Year of Birth
+                   
+                  <svg
+                    className="inline align-top text-red-600"
+                    fill="none"
+                    height="1em"
+                    stroke="currentColor"
+                    strokeWidth="0"
+                    style={
+                      Object {
+                        "color": undefined,
+                      }
+                    }
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </label>
+                <span>
+                  <a
+                    data-for="yearOfBirth"
+                    data-tip={true}
+                  >
+                    <svg
+                      className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 16 16"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clipRule="evenodd"
+                        d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                        fillRule="evenodd"
+                      />
+                    </svg>
+                  </a>
+                  <div
+                    className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
+                    data-id="tooltip"
+                    id="yearOfBirth"
+                  >
+                    <style
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "
+  	.t00000000-0000-0000-0000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-0000-0000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                        }
+                      }
+                    />
+                    Age is required in order to help members connect with others in their desired age range
+                  </div>
+                </span>
+                <div>
+                  <div>
+                    <div
+                      className=" css-2b097c-container"
+                      onKeyDown={[Function]}
+                    >
+                      <div
+                        className=" css-1jumw1e-control"
+                        onMouseDown={[Function]}
+                        onTouchEnd={[Function]}
+                      >
+                        <div
+                          className=" css-g1d714-ValueContainer"
+                        >
+                          <div
+                            className=" css-1d6d5xl-placeholder"
+                          >
+                            Select the Year You Were Born
+                          </div>
+                          <div
+                            className="css-b8ldur-Input"
+                          >
+                            <div
+                              className=""
+                              style={
+                                Object {
+                                  "display": "inline-block",
+                                }
+                              }
+                            >
+                              <input
+                                aria-autocomplete="list"
+                                autoCapitalize="none"
+                                autoComplete="off"
+                                autoCorrect="off"
+                                disabled={false}
+                                id="react-select-3-input"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onFocus={[Function]}
+                                spellCheck="false"
+                                style={
+                                  Object {
+                                    "background": 0,
+                                    "border": 0,
+                                    "boxSizing": "content-box",
+                                    "color": "inherit",
+                                    "fontSize": "inherit",
+                                    "label": "input",
+                                    "opacity": 1,
+                                    "outline": 0,
+                                    "padding": 0,
+                                    "width": "1px",
+                                  }
+                                }
+                                tabIndex="0"
+                                type="text"
+                                value=""
+                              />
+                              <div
+                                style={
+                                  Object {
+                                    "height": 0,
+                                    "left": 0,
+                                    "overflow": "scroll",
+                                    "position": "absolute",
+                                    "top": 0,
+                                    "visibility": "hidden",
+                                    "whiteSpace": "pre",
+                                  }
+                                }
+                              >
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          className=" css-1hb7zxy-IndicatorsContainer"
+                        >
+                          <span
+                            className=" css-1okebmr-indicatorSeparator"
+                          />
+                          <div
+                            aria-hidden="true"
+                            className=" css-tlfecz-indicatorContainer"
+                            onMouseDown={[Function]}
+                            onTouchEnd={[Function]}
+                          >
+                            <svg
+                              aria-hidden="true"
+                              className="css-6q0nyr-Svg"
+                              focusable="false"
+                              height={20}
+                              viewBox="0 0 20 20"
+                              width={20}
+                            >
+                              <path
+                                d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <label
                   className="label"
                 >
@@ -3340,12 +3348,20 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
           <h3
             className="info-header"
           >
-            Account Details
+            Sign In Details
           </h3>
           <p
             className="info-text"
           >
-            This information is to set up and access your account.
+            This information is to set up and access your account. Usernames are permanent and cannot be changed at a later time! The user name you choose is how you will be identified by others on the site. Do NOT use your real name! We recommend you choose something you will remember and not tire of. User names are extremely important and are for the protection of you and all of the users of this site. Please read
+            <a
+              className="label"
+              href="/faq"
+              onClick={[Function]}
+            >
+               FAQs
+            </a>
+            .
           </p>
         </div>
       </div>

@@ -9,7 +9,6 @@
 import React from 'react';
 import propTypes from "prop-types";
 import Dropdown from "./Dropdown";
-import Status from "./Status";
 
 const workStatuses = [
     {

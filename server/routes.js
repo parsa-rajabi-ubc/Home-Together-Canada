@@ -151,6 +151,18 @@ router.get('/successfulLogin/', async function (req, res, next) {
     }
 });
 
+// request to change password
+router.post('/changePassword', isLoggedIn, usersValidator.validate('changePassword'),
+    function(req, res, next) {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            res.status(400).json({ errors: errors.array()});
+        } else {
+            abstractUsers.changePassword(req, res);
+        }
+    });
+
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();

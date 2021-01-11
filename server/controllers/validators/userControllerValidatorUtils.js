@@ -8,6 +8,7 @@
 
 const abstractUserController = require('../abstractUserController');
 const memberAccountController = require('../memberAccountController');
+const PasswordService = require('../../services/PasswordService');
 
 const PROVINCES = [
     'AB',
@@ -40,6 +41,17 @@ const STATUSES = [
 ];
 
 const SHARE_LIMITS = [1, 2, 3, 4, -1];  // -1 means any number of people
+
+const WORK_STATUSES = [
+    'Unemployed',
+    'Student',
+    'Part-time',
+    'Full-time',
+    'Self-employed',
+    'Retired',
+    'Semi-retired',
+    'Other'
+];
 
 const isValidPhoneNumber = (phoneNum) => {
     if (phoneNum.toString().length !== 10) {
@@ -156,10 +168,43 @@ const linkedMemberShouldHaveSameStatus = (username, req) => {
         });
 }
 
+const providedOldPasswordShouldMatchExistingPassword = (password, uid) => {
+    return abstractUserController.findAbstractUser(uid)
+        .then(userObject => {
+            if (!userObject) {
+                return Promise.reject('User cannot be found');
+            } else {
+                const user = userObject.dataValues;
+                const hashedPassword = PasswordService.getHashedPassword(password, user.salt);
+
+                if (hashedPassword !== user.password) {
+                    return Promise.reject(`Old password is incorrect`);
+                }
+            }
+        });
+}
+
+const providedNewPasswordShouldNotMatchExistingPassword = (password, uid) => {
+    return abstractUserController.findAbstractUser(uid)
+        .then(userObject => {
+            if (!userObject) {
+                return Promise.reject('User cannot be found');
+            } else {
+                const user = userObject.dataValues;
+                const hashedPassword = PasswordService.getHashedPassword(password, user.salt);
+
+                if (hashedPassword === user.password) {
+                    return Promise.reject('New password cannot be the same as previous password');
+                }
+            }
+        });
+}
+
 module.exports = {
     PROVINCES,
     GENDERS,
     STATUSES,
+    WORK_STATUSES,
     isValidPhoneNumber,
     isValidCanadianPostalCode,
     shouldMailingAddressBeDefined,
@@ -172,5 +217,7 @@ module.exports = {
     emailShouldNotAlreadyBeInUse,
     usernameShouldExist,
     usernameShouldExistAndBeAMember,
-    linkedMemberShouldHaveSameStatus
+    linkedMemberShouldHaveSameStatus,
+    providedOldPasswordShouldMatchExistingPassword,
+    providedNewPasswordShouldNotMatchExistingPassword
 }

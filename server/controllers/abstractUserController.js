@@ -67,10 +67,23 @@ const findAllAbstractUsers = (req, res) => {
         });
 }
 
+const changePassword = (req, res) => {
+    AbstractUser.update({ password: PasswordService.getHashedPassword(req.body.newPassword, req.user.salt) }, {
+        where: {
+            uid: req.user.uid
+        }
+    })
+        .then(data => {
+            res.status(200).send({ success: true });
+        })
+        .catch(err => res.status(500).send({ success: false, message: err.message }));
+}
+
 module.exports = {
     createAbstractUser,
     findAllAbstractUsers,
     findAbstractUser,
     findUserByUsername,
-    findUserByEmail
+    findUserByEmail,
+    changePassword
 }

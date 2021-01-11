@@ -10,12 +10,19 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 function GenericInput(props) {
-    const {className, inputType, placeholder, autoComplete, onChange, label} = props;
+    const {className, inputType, placeholder, autoComplete, onChange, label, onClick, value} = props;
     return (
-
         <label>
             {label}
-            <input className={className} type={inputType} placeholder={placeholder} autoComplete={autoComplete} onChange={onChange}/>
+            <input
+                className={className}
+                type={inputType}
+                placeholder={placeholder}
+                autoComplete={autoComplete}
+                onChange={onChange}
+                onClick={onClick}
+                value={value}
+            />
         </label>
     );
 }
@@ -26,7 +33,9 @@ GenericInput.propTypes = {
     className: PropTypes.string,
     placeholder: PropTypes.string,
     autoComplete: PropTypes.string,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    onClick: PropTypes.func,
+    value: PropTypes.any
 };
 
 export default GenericInput;

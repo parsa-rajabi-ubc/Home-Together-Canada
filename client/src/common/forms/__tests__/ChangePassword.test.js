@@ -13,13 +13,20 @@ describe('ConfirmPassword', () => {
     describe('Snapshot test', () => {
         it("should render correctly regardless of properties", () => {
             // given
-            const label = 'testLabelString1';
-            const onChange = jest.fn();
-            const className = 'testClassNameString';
-            const oldPassword = 'oldPasswordString1';
+            const props = {
+                onPasswordChangeSubmit: jest.fn(),
+                onOldPasswordChange: jest.fn(),
+                onNewPasswordChange: jest.fn(),
+                onConfirmedPasswordChange: jest.fn(),
+                showError: false,
+                errorMessage: '',
+                oldPassword: 'an_old_password',
+                newPassword: 'a_new_password',
+                confirmedPassword: 'a_new_password'
+            }
 
             // when
-            const component = renderer.create(<ChangePassword className={className} label={label} oldPassword={oldPassword} onChange={onChange}/>).toJSON();
+            const component = renderer.create(<ChangePassword {...props} />).toJSON();
 
             // then
             expect(component).toMatchSnapshot();
