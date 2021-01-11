@@ -126,87 +126,87 @@ const BusinessRegistrationForm = (props) => {
 
     // business details
     useEffect(() => {
-        businessNameError !== undefined && validateEmail(bName, setBusinessNameError);
+        bName !== undefined && validateEmail(bName, setBusinessNameError);
     }, [bName]);
     useEffect(() => {
-        bEmailError !== undefined && validateEmail(bEmail, setBEmailError);
+        bEmail !== undefined && validateEmail(bEmail, setBEmailError);
     }, [bEmail]);
     useEffect(() => {
-        bPhoneNumberError !== undefined && validatePhoneNumber(bPhoneNumber, setBPhoneNumberError);
+        bPhoneNumber !== undefined && validatePhoneNumber(bPhoneNumber, setBPhoneNumberError);
     }, [bPhoneNumber]);
     useEffect(() => {
-        bCellNumberError !== undefined && validatePhoneNumber(bCellNumber, setBCellNumberError);
+        bCellNumber !== undefined && validatePhoneNumber(bCellNumber, setBCellNumberError);
     }, [bCellNumber]);
 
     // Address
     useEffect(() => {
-        streetAddressError !== undefined && validateInput(bAddress.street, setStreetAddressError);
+        bAddress.street !== undefined && validateInput(bAddress.street, setStreetAddressError);
     }, [bAddress.street]);
     useEffect(() => {
-        cityAddressError !== undefined && validateInput(bAddress.city, setCityAddressError);
+        bAddress.city !== undefined && validateInput(bAddress.city, setCityAddressError);
     }, [bAddress.city]);
     useEffect(() => {
-        postalCodeError !== undefined && validateInput(bAddress.postalCode, setPostalCodeError);
+        bAddress.postalCode !== undefined && validateInput(bAddress.postalCode, setPostalCodeError);
     }, [bAddress.postalCode]);
 
     // Mailing Address
     useEffect(() => {
         if (useDifferentMailingAddress) {
-            streetMailingAddressError !== undefined && validateInput(bMailingAddress.street, setStreetMailingAddressError);
+            bMailingAddress.street !== undefined && validateInput(bMailingAddress.street, setStreetMailingAddressError);
         }
     }, [bMailingAddress.street, useDifferentMailingAddress]);
     useEffect(() => {
         if (useDifferentMailingAddress) {
-            cityMailingAddressError !== undefined && validateInput(bMailingAddress.city, setCityMailingAddressError);
+            bMailingAddress.city !== undefined && validateInput(bMailingAddress.city, setCityMailingAddressError);
         }
     }, [bMailingAddress.city, useDifferentMailingAddress]);
     useEffect(() => {
         if (useDifferentMailingAddress) {
-            postalCodeMailingError !== undefined && validateInput(bMailingAddress.postalCode, setPostalCodeMailingError);
+            bMailingAddress.postalCode !== undefined && validateInput(bMailingAddress.postalCode, setPostalCodeMailingError);
         }
     }, [bMailingAddress.postalCode, useDifferentMailingAddress]);
 
     // Map Address
     useEffect(() => {
         if (!isNationWide) {
-            streetMapAddressError !== undefined && validateInput(bMapAddress.street, setStreetMapAddressError);
+            bMapAddress.street !== undefined && validateInput(bMapAddress.street, setStreetMapAddressError);
         }
     }, [bMapAddress.street, isNationWide]);
     useEffect(() => {
         if (!isNationWide) {
-            cityMapAddressError !== undefined && validateInput(bMapAddress.city, setCityMapAddressError);
+            bMapAddress.city !== undefined && validateInput(bMapAddress.city, setCityMapAddressError);
         }
     }, [bMapAddress.city, isNationWide]);
     useEffect(() => {
         if (!isNationWide) {
-            postalCodeMapError !== undefined && validateInput(bMapAddress.postalCode, setPostalCodeMapError);
+            bMapAddress.postalCode !== undefined && validateInput(bMapAddress.postalCode, setPostalCodeMapError);
         }
     }, [bMapAddress.postalCode, isNationWide]);
 
 
     // contact person useEffect
     useEffect(() => {
-        contactFirstNameError !== undefined && validateInput(contactFName, setContactFirstNameError);
+        contactFName !== undefined && validateInput(contactFName, setContactFirstNameError);
     }, [contactFName]);
     useEffect(() => {
-        contactLastNameError !== undefined && validateInput(contactLName, setContactLastNameError);
+        contactLName !== undefined && validateInput(contactLName, setContactLastNameError);
     }, [contactLName]);
     useEffect(() => {
-        contactPhoneNumberError !== undefined && validatePhoneNumber(contactPhoneNumber, setContactPhoneNumberError);
+        contactPhoneNumber !== undefined && validatePhoneNumber(contactPhoneNumber, setContactPhoneNumberError);
     }, [contactPhoneNumber]);
 
     // Account Details
     useEffect(() => {
-        usernameError !== undefined && validateInput(username, setUsernameError);
+        username !== undefined && validateInput(username, setUsernameError);
     }, [username]);
     useEffect(() => {
-        passwordError !== undefined && validateInput(password, setPasswordError);
+        password !== undefined && validateInput(password, setPasswordError);
     }, [password]);
     useEffect(() => {
-        passwordConfirmError !== undefined && validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
+        passwordCheck !== undefined && validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
     }, [passwordCheck]);
     useEffect(() => {
-        if (passwordError !== undefined && passwordConfirmError !== undefined) {
+        if (password !== undefined && passwordCheck !== undefined) {
             validatePasswordConfirmationMismatch(password, passwordCheck, setPasswordConfirmError);
         }
     }, [password, passwordCheck]);
