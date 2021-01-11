@@ -228,7 +228,7 @@ function MemberRegistrationForm(props) {
         passwordCheck !== undefined && validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
     }, [passwordCheck]);
     useEffect(() => {
-        if (passwordError !== undefined && passwordConfirmError !== undefined) {
+        if (password !== undefined && passwordCheck !== undefined) {
             validatePasswordConfirmationMismatch(password, passwordCheck, setPasswordConfirmError);
         }
     }, [password, passwordCheck]);
