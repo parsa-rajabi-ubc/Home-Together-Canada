@@ -192,7 +192,7 @@ function MemberRegistrationForm(props) {
 
     // Mailing Address
     useEffect(() => {
-        if (useDifferentMailingAddress) {
+        if (useDifferentMailingAddress) {X
             mailingAddress.street !== undefined && validateInput(mailingAddress.street, setStreetMailingAddressError);
         }
     }, [mailingAddress.street, useDifferentMailingAddress]);
