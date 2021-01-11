@@ -416,8 +416,8 @@ const BusinessRegistrationForm = (props) => {
                         <div className="grid grid-cols-2 gap-6">
                             <div className="col-span-3 sm:col-span-2">
                                 <TextArea
-                                    className="mb-0 input"
-                                    placeholder="" label="Business Name"
+                                    className={`${businessNameError && "border-red-500"} mb-0 input`}
+                                    label="Business Name"
                                     autoComplete={"organization"}
                                     labelClassName={"label"}
                                     required={true}
@@ -434,7 +434,7 @@ const BusinessRegistrationForm = (props) => {
                                                                  labelClassName={"label"}
                                                                  onChange={(e) => setIncorporatedOwnersNames(e.target.value)}/>}
                                 </div>
-                                <TextArea className="input"
+                                <TextArea className={`${bEmailError && "border-red-500"} input`}
                                           placeholder="business@email.ca"
                                           autoComplete={"email"}
                                           label="Business Email"
@@ -451,13 +451,13 @@ const BusinessRegistrationForm = (props) => {
                                           labelClassName={"label"}
                                           onChange={e => setWebsite(e.target.value)}/>
                                 <PhoneNumInput
-                                    className="phone"
+                                    className={`${bPhoneNumberError && "border-red-500"} phone`}
                                     required={true}
                                     labelClassName={"label "}
                                     label="Business Phone Number"
                                     onChange={handleBPhoneChange}/>
                                 <PhoneNumInput
-                                    className="phone"
+                                    className={`${bCellNumberError && "border-red-500"} phone`}
                                     required={true}
                                     label="Business Cell Number"
                                     labelClassName={"label"}
@@ -465,6 +465,10 @@ const BusinessRegistrationForm = (props) => {
                                 <Address label="Business Address"
                                          cityClassName="city-postal"
                                          required={true}
+                                         streetAddressError={streetAddressError}
+                                         cityAddressError={cityAddressError}
+                                         provinceAddressError={provinceAddressError}
+                                         postalCodeError={postalCodeError}
                                          onChange={handleBAddressChange}/>
                                 <Checkbox label={"Different Mailing Address"}
                                           toolTipText={INFO_TEXT.DIFF_MAILING_ADDRESS}
@@ -473,6 +477,10 @@ const BusinessRegistrationForm = (props) => {
                                 {useDifferentMailingAddress &&
                                 <Address label="Business Mailing Address"
                                          required={true}
+                                         streetAddressError={streetMailingAddressError}
+                                         cityAddressError={cityMailingAddressError}
+                                         provinceAddressError={provinceMailingAddressError}
+                                         postalCodeError={postalCodeMailingError}
                                          onChange={handleBMailingAddress}/>}
                                 <div>
                                     <Checkbox label={"Canada-wide Business"}
@@ -486,6 +494,10 @@ const BusinessRegistrationForm = (props) => {
                                              toolTipText={INFO_TEXT.MAP_ADDRESS}
                                              toolTipID={"mapAddress"}
                                              required={true}
+                                             streetAddressError={streetMapAddressError}
+                                             cityAddressError={cityMapAddressError}
+                                             provinceAddressError={provinceMapAddressError}
+                                             postalCodeError={postalCodeMapError}
                                              onChange={handleBMapAddress}/>}
                                 </div>
                             </div>
@@ -535,7 +547,7 @@ const BusinessRegistrationForm = (props) => {
                     className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
                     <div className="grid grid-cols-6 gap-x-6">
                         <div className="column-span-6-layout">
-                            <TextArea className={"input"}
+                            <TextArea className={`${contactFirstNameError && "border-red-500"} input`}
                                       labelClassName={"label"}
                                       label="First Name"
                                       autoComplete={"given-name"}
@@ -546,7 +558,7 @@ const BusinessRegistrationForm = (props) => {
                         </div>
 
                         <div className="column-span-6-layout">
-                            <TextArea className={"input"}
+                            <TextArea className={`${contactLastNameError && "border-red-500"} input`}
                                       labelClassName={"label"}
                                       label="Last Name"
                                       required={true}
@@ -558,8 +570,8 @@ const BusinessRegistrationForm = (props) => {
 
                         <div className="column-span-6-layout">
                             <PhoneNumInput
+                                className={`${contactPhoneNumberError && "border-red-500"} phone`}
                                 required={true}
-                                className="w-1/4 phone"
                                 labelClassName={"label"}
                                 label="Personal Phone Number" onChange={handleContactPhoneChange}/>
                         </div>
