@@ -19,7 +19,7 @@ import {
     isStringEmpty,
     isStringNumeralsOnly,
     isStringSame,
-    validateEmptyString
+    validateUpdateState
 } from "../common/utils/stringUtils";
 import {getConcatenatedErrorMessage, getPhoneNumberFromStrings,} from "./registrationUtils";
 import RegistrationService from "../services/RegistrationService";
@@ -166,10 +166,10 @@ function MemberRegistrationForm(props) {
 
     // useEffects
     useEffect(() => {
-        firstNameError !== undefined && isStringEmpty(firstName) ? setFirstNameError(true) : setFirstNameError(false);
+        firstNameError !== undefined && validateUpdateState(firstName, setFirstNameError);
     }, [firstName]);
     useEffect(() => {
-        lastNameError !== undefined && isStringEmpty(lastName) ? setLastNameError(true) : setLastNameError(false);
+        lastNameError !== undefined && validateUpdateState(lastNameError, setLastNameError);
     }, [lastName]);
     useEffect(() => {
         if (emailError !== undefined) {
@@ -192,51 +192,48 @@ function MemberRegistrationForm(props) {
 
     // Address
     useEffect(() => {
-        streetAddressError !== undefined && isStringEmpty(address.street) ? setStreetAddressError(true) : setStreetAddressError(false);
+        streetAddressError !== undefined && validateUpdateState(address.street, setStreetAddressError);
     }, [address.street]);
     useEffect(() => {
-        cityAddressError !== undefined && isStringEmpty(address.city) ? setCityAddressError(true) : setCityAddressError(false);
+        cityAddressError !== undefined &&  validateUpdateState(address.city, setCityAddressError);
     }, [address.city]);
     useEffect(() => {
-        postalCodeError !== undefined && isStringEmpty(address.postalCode) ? setPostalCodeError(true) : setPostalCodeError(false);
+        postalCodeError !== undefined && validateUpdateState(address.postalCode, setPostalCodeError);
     }, [address.postalCode]);
 
     // Mailing Address
     useEffect(() => {
         if (useDifferentMailingAddress) {
-            streetMailingAddressError !== undefined && isStringEmpty(mailingAddress.street) ? setStreetMailingAddressError(true) : setStreetMailingAddressError(false);
+            streetMailingAddressError !== undefined && validateUpdateState(mailingAddress.street, setStreetMailingAddressError);
         }
     }, [mailingAddress.street, useDifferentMailingAddress]);
     useEffect(() => {
         if (useDifferentMailingAddress) {
-            cityMailingAddressError !== undefined && isStringEmpty(mailingAddress.city) ? setCityMailingAddressError(true) : setCityMailingAddressError(false);
+            cityMailingAddressError !== undefined && validateUpdateState(mailingAddress.city, setCityMailingAddressError);
         }
     }, [mailingAddress.city, useDifferentMailingAddress]);
     useEffect(() => {
         if (useDifferentMailingAddress) {
-            postalCodeMailingError !== undefined && isStringEmpty(mailingAddress.postalCode) ? setPostalCodeMailingError(true) : setPostalCodeMailingError(false);
+            postalCodeMailingError !== undefined && validateUpdateState(mailingAddress.postalCode, setPostalCodeMailingError);
         }
     }, [mailingAddress.postalCode, useDifferentMailingAddress]);
 
 
     // Profile
     useEffect(() => {
-        minRentError !== undefined && isStringEmpty(minRent) ? setMinRentError(true) : setMinRentError(false);
+        minRentError !== undefined && validateUpdateState(minRent, setMinRentError);
     }, [minRent]);
     useEffect(() => {
-        maxRentError !== undefined && isStringEmpty(maxRent) ? setMaxRentError(true) : setMaxRentError(false);
+        maxRentError !== undefined && validateUpdateState(maxRent, setMaxRentError);
     }, [maxRent]);
 
 
     // Account Details
     useEffect(() => {
-        usernameError !== undefined && isStringEmpty(username) ? setUsernameError(true) : setUsernameError(false);
+        usernameError !== undefined && validateUpdateState(username, setUsernameError);
     }, [username]);
     useEffect(() => {
-        passwordError !== undefined && isStringEmpty(password) ? setPasswordError(true) : setPasswordError(false);
-    }, [password]);
-    useEffect(() => {
-        passwordError !== undefined && isStringEmpty(password) ? setPasswordError(true) : setPasswordError(false);
+        passwordError !== undefined && validateUpdateState(password, setPasswordError);
     }, [password]);
     useEffect(() => {
         passwordConfirmError !== undefined && isStringEmpty(passwordCheck) ? setPasswordConfirmError("empty") : setPasswordConfirmError(false);
@@ -307,12 +304,12 @@ function MemberRegistrationForm(props) {
 
     const isFormValid = () => {
         // Personal Information Validation
-        (isStringEmpty(firstName) ? setFirstNameError(true) : setFirstNameError(false));
-        (isStringEmpty(lastName) ? setLastNameError(true) : setLastNameError(false));
-        (isStringEmpty(email) ? setEmailError(true) : setEmailError(false));
-        (isStringEmpty(yearOfBirth) ? setYearOfBirthError(true) : setYearOfBirthError(false));
+        validateUpdateState(firstName, setFirstNameError);
+        validateUpdateState(lastNameError, setLastNameError);
+        validateUpdateState(email, setEmailError);
+        validateUpdateState(yearOfBirth, setYearOfBirthError);
         if (isStringEmpty(phoneNumber.first) || isStringEmpty(phoneNumber.middle) || isStringEmpty(phoneNumber.last)) {
-            // empty
+            // empty phone number
             setPhoneNumberError(true);
         } else {
             if (!isStringNumeralsOnly(phoneNumber.first) || !isStringNumeralsOnly(phoneNumber.middle) || !isStringNumeralsOnly(phoneNumber.last)) {
@@ -327,50 +324,44 @@ function MemberRegistrationForm(props) {
                 }
             }
         }
-        (isStringEmpty(address.street) ? setStreetAddressError(true) : setStreetAddressError(false));
-        (isStringEmpty(address.city) ? setCityAddressError(true) : setCityAddressError(false));
-        (isStringEmpty(address.province) ? setProvinceAddressError(true) : setProvinceAddressError(false));
-        (isStringEmpty(address.postalCode) ? setPostalCodeError(true) : setPostalCodeError(false));
+        validateUpdateState(address.street, setStreetAddressError);
+        validateUpdateState(address.city, setCityAddressError);
+        validateUpdateState(address.province, setProvinceAddressError);
+        validateUpdateState(address.postalCode, setPostalCodeError);
         if (useDifferentMailingAddress) {
-            (isStringEmpty(mailingAddress.street) ? setStreetMailingAddressError(true) : setStreetMailingAddressError(false));
-            (isStringEmpty(mailingAddress.city) ? setCityMailingAddressError(true) : setCityMailingAddressError(false));
-            (isStringEmpty(mailingAddress.province) ? setProvinceMailingAddressError(true) : setProvinceMailingAddressError(false));
-            (isStringEmpty(mailingAddress.postalCode) ? setPostalCodeMailingError(true) : setPostalCodeMailingError(false));
+            validateUpdateState(mailingAddress.street, setStreetMailingAddressError);
+            validateUpdateState(mailingAddress.city, setCityMailingAddressError);
+            validateUpdateState(mailingAddress.province, setProvinceMailingAddressError);
+            validateUpdateState(mailingAddress.postalCode, setPostalCodeMailingError);
         }
         // Profile Validation
-        (isStringEmpty(gender) ? setGenderError(true) : setGenderError(false));
-        (isStringEmpty(selectedFamilyStatus) ? setFamilyStatusError(true) : setFamilyStatusError(false));
-        (isStringEmpty(selectedWorkStatus) ? setWorkStatusError(true) : setWorkStatusError(false));
-        (isStringEmpty(selectedLimit) ? setLimitError(true) : setLimitError(false));
-        (isStringEmpty(minRent) ? setMinRentError(true) : setMinRentError(false));
-        (isStringEmpty(maxRent) ? setMaxRentError(true) : setMaxRentError(false));
+        validateUpdateState(gender, setGenderError);
+        validateUpdateState(selectedFamilyStatus, setFamilyStatusError);
+        validateUpdateState(selectedWorkStatus, setWorkStatusError);
+        validateUpdateState(selectedLimit, setLimitError);
+        validateUpdateState(minRent, setMinRentError);
+        validateUpdateState(maxRent, setMaxRentError);
 
         for (let i = 0; i <= areasOfInterest.length - 1; i++) {
-            if (areasOfInterest[i].province === undefined) {
-                setAreasOfInterestError(true);
-                break;
-            } else if (areasOfInterest[i].city === undefined) {
-                setAreasOfInterestError(true);
-                break;
-            } else if (areasOfInterest[i].radius === undefined) {
+            if (!areasOfInterest[i].province || !areasOfInterest[i].city || !areasOfInterest[i].radius) {
                 setAreasOfInterestError(true);
                 break;
             } else
                 setAreasOfInterestError(false);
         }
         // Yes/No Validation
-        (isStringEmpty(petFriendly) ? setPetFriendlyError(true) : setPetFriendlyError(false));
-        (isStringEmpty(smoking) ? setSmokingError(true) : setSmokingError(false));
-        (isStringEmpty(mobilityIssues) ? setMobilityIssuesError(true) : setMobilityIssuesError(false));
-        (isStringEmpty(hasAllergies) ? setAllergiesError(true) : setAllergiesError(false));
-        (isStringEmpty(religious) ? setReligionError(true) : setReligionError(false));
-        (isStringEmpty(hasDiet) ? setDietError(true) : setDietError(false));
-        (isStringEmpty(hasHome) ? setHomeError(true) : setHomeError(false));
-        (isStringEmpty(interestInBuyingHome) ? setInterestInBuyingError(true) : setInterestInBuyingError(false));
+        validateUpdateState(petFriendly, setPetFriendlyError);
+        validateUpdateState(smoking, setSmokingError);
+        validateUpdateState(mobilityIssues, setMobilityIssuesError);
+        validateUpdateState(hasAllergies, setAllergiesError);
+        validateUpdateState(religious, setReligionError);
+        validateUpdateState(hasDiet, setDietError);
+        validateUpdateState(hasHome, setHomeError);
+        validateUpdateState(interestInBuyingHome, setInterestInBuyingError);
 
         // Account Details Validation
-        (isStringEmpty(username) ? setUsernameError(true) : setUsernameError(false));
-        (isStringEmpty(password) ? setPasswordError(true) : setPasswordError(false));
+        validateUpdateState(username, setUsernameError);
+        validateUpdateState(password, setPasswordError);
         (isStringEmpty(passwordCheck) ? setPasswordConfirmError("empty") : setPasswordConfirmError(false));
         if (!isStringEmpty(password) && !isStringEmpty(passwordCheck)) {
             (!isStringSame(password, passwordCheck) ? setPasswordConfirmError("mismatch") : setPasswordConfirmError(false));
