@@ -41,51 +41,51 @@ const BusinessRegistrationForm = (props) => {
     const [isIncorporated, setIsIncorporated] = useState(false);
 
     //Validation state variables
-    const [bName, setBName] = useState("");
-    const [bEmail, setBEmail] = useState("");
+    const [bName, setBName] = useState(undefined);
+    const [bEmail, setBEmail] = useState(undefined);
     const [incorporatedOwnersNames, setIncorporatedOwnersNames] = useState("");
     const [bPhoneNumber, setBPhoneNumber] = useState({
-        first: "",
-        middle: "",
-        last: ""
+        first: undefined,
+        middle: undefined,
+        last: undefined,
     });
     const [bCellNumber, setBCellNumber] = useState({
-        first: "",
-        middle: "",
-        last: ""
+        first: undefined,
+        middle: undefined,
+        last: undefined,
     });
     const [bAddress, setBAddress] = useState({
-        street: "",
-        aptNum: "",
-        city: "",
-        province: "",
-        postalCode: ""
+        street: undefined,
+        aptNum: undefined,
+        city: undefined,
+        province: undefined,
+        postalCode: undefined,
     });
     const [bMailingAddress, setBMailingAddress] = useState({
-        street: "",
-        aptNum: "",
-        city: "",
-        province: "",
-        postalCode: ""
+        street: undefined,
+        aptNum: undefined,
+        city: undefined,
+        province: undefined,
+        postalCode: undefined,
     });
     const [bMapAddress, setBMapAddress] = useState({
-        street: "",
-        aptNum: "",
-        city: "",
-        province: "",
-        postalCode: ""
+        street: undefined,
+        aptNum: undefined,
+        city: undefined,
+        province: undefined,
+        postalCode: undefined,
     });
     const [website, setWebsite] = useState("");
-    const [contactFName, setContactFName] = useState("");
-    const [contactLName, setContactLName] = useState("");
+    const [contactFName, setContactFName] = useState(undefined);
+    const [contactLName, setContactLName] = useState(undefined);
     const [contactPhoneNumber, setContactPhoneNumber] = useState({
-        first: "",
-        middle: "",
-        last: ""
+        first: undefined,
+        middle: undefined,
+        last: undefined,
     });
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [passwordCheck, setPasswordCheck] = useState("");
+    const [username, setUsername] = useState(undefined);
+    const [password, setPassword] = useState(undefined);
+    const [passwordCheck, setPasswordCheck] = useState(undefined);
 
     // Business Details
     const [businessNameError, setBusinessNameError] = useState(undefined);
