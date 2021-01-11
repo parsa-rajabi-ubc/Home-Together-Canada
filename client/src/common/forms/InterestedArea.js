@@ -13,6 +13,8 @@ import Dropdown from "./Dropdown";
 import PropTypes from "prop-types";
 import Button from "./Button";
 import {MdDeleteForever} from 'react-icons/md';
+import {dropdownDefaultCSS} from "../../css/dropdownCSSUtil"
+
 
 function InterestedArea(props) {
     const {onChange, styling, areasOfInterestError} = props;
@@ -58,17 +60,15 @@ function InterestedArea(props) {
     return (
         <div>
             <section className={`${areasOfInterestError && "border rounded-lg p-1 border-red-500"}`}>
-
                 {extraAreas.map((currentAreaValues, index) => {
                     return (
                         <div key={index} className="grid grid-cols-9 gap-x-2">
-
                             <div className="col-start-1 col-end-4">
                                 <Dropdown isSearchable={true} placeholder={"Province"}
                                           name="province"
                                           options={getProvinces()}
                                           onChange={e => handleAreaProvinceChange(e, index)}
-                                          styling={styling}
+                                          dropdownCSS={dropdownDefaultCSS}
                                 />
                                 <span>{currentAreaValues[index]}</span>
                             </div>
@@ -78,7 +78,7 @@ function InterestedArea(props) {
                                           name="city"
                                           options={getCities(currentAreaValues.province)}
                                           onChange={e => handleAreaCityChange(e, index)}
-                                          styling={styling}
+                                          dropdownCSS={dropdownDefaultCSS}
                                 />}
                             </div>
                             <div className="col-start-8 col-end-10">
@@ -86,10 +86,9 @@ function InterestedArea(props) {
                                                                      name="radius"
                                                                      options={radii}
                                                                      onChange={e => handleAreaRadiusChange(e, index)}
-                                                                     styling={styling}
+                                                                     dropdownCSS={dropdownDefaultCSS}
                                 />}
                             </div>
-
                             <div className="col-start-10 col-end-auto">
                                 {extraAreas.length !== 1 &&
                                 <MdDeleteForever color="#DB4437" size="40" onClick={() => handleRemoveClick(index)}/>}
