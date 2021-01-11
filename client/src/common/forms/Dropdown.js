@@ -10,19 +10,6 @@ import React, {useEffect, useState} from 'react';
 import Select from 'react-select';
 import propTypes from "prop-types";
 
-const newStyling = {
-    control: base => ({
-            ...base,
-            marginTop: 4,
-            borderColor: "#e2e8f0",
-            marginBottom: 16,
-            paddingTop: 2,
-            paddingBottom: 2,
-        }
-    ),
-    menuPortal: base => ({...base, zIndex: 9999}),
-}
-
 function Dropdown(props) {
     const {isSearchable, name, placeholder, options, onChange, intialSelection, dropdownCSS} = props;
 
