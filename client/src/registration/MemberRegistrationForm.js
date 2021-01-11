@@ -296,7 +296,7 @@ function MemberRegistrationForm(props) {
     const isFormValid = () => {
         // Personal Information Validation
         validateInput(firstName, setFirstNameError);
-        validateInput(lastNameError, setLastNameError);
+        validateInput(lastName, setLastNameError);
         validateEmail(email, setEmailError);
         validateInput(yearOfBirth, setYearOfBirthError);
         validatePhoneNumber(phoneNumber, setPhoneNumberError);
