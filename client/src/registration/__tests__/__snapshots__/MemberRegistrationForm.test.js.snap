@@ -536,7 +536,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                   onKeyDown={[Function]}
                 >
                   <div
-                    className=" css-1cnxohn-control"
+                    className=" css-1jumw1e-control"
                     onMouseDown={[Function]}
                     onTouchEnd={[Function]}
                   >
@@ -1855,7 +1855,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                             onKeyDown={[Function]}
                           >
                             <div
-                              className=" css-1cnxohn-control"
+                              className=" css-1jumw1e-control"
                               onMouseDown={[Function]}
                               onTouchEnd={[Function]}
                             >
@@ -3511,7 +3511,6 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                     <input
                       className="undefined input"
                       onChange={[Function]}
-                      placeholder=""
                       type="text"
                     />
                   </label>
@@ -3661,7 +3660,6 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                     <input
                       className="undefined input"
                       onChange={[Function]}
-                      placeholder=""
                       type="password"
                     />
                   </label>
@@ -3695,7 +3693,6 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                     <input
                       className="undefined input"
                       onChange={[Function]}
-                      placeholder=""
                       type="password"
                     />
                     

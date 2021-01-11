@@ -15,6 +15,7 @@ exports[`Address Snapshot test should render correctly regardless of properties 
     
     <input
       autoComplete="address-line1"
+      className="undefined input"
       name="street"
       onChange={[Function]}
       placeholder="Address Line 1"
@@ -38,6 +39,7 @@ exports[`Address Snapshot test should render correctly regardless of properties 
   >
     <input
       autoComplete="address-level2"
+      className="undefined input"
       name="city"
       onChange={[Function]}
       placeholder="City"
@@ -53,7 +55,7 @@ exports[`Address Snapshot test should render correctly regardless of properties 
         onKeyDown={[Function]}
       >
         <div
-          className=" css-1cnxohn-control"
+          className=" css-1jumw1e-control"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -158,6 +160,7 @@ exports[`Address Snapshot test should render correctly regardless of properties 
   >
     <input
       autoComplete="postal-code"
+      className="undefined input"
       name="postalCode"
       onChange={[Function]}
       placeholder="Postal Code"
