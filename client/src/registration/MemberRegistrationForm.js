@@ -1,4 +1,3 @@
-
 /**
  * @Author:     Alex Qin
  * @Created:    2020.11.10
@@ -20,7 +19,6 @@ import {
     isStringEmpty,
     isStringNumeralsOnly,
     isStringSame,
-    validateUpdateState
 } from "../common/utils/stringUtils";
 import {getConcatenatedErrorMessage, getPhoneNumberFromStrings,} from "./registrationUtils";
 import RegistrationService from "../services/RegistrationService";
@@ -40,6 +38,7 @@ import Tooltip from "../common/forms/Tooltip";
 import {USER_TYPES} from "../common/constants/users";
 import {dropdownDefaultCSS, dropdownErrorCSS} from "../css/dropdownCSSUtil"
 import {Link} from "react-router-dom";
+import {validateInput} from "./registrationUtils";
 
 const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
 
@@ -168,10 +167,10 @@ function MemberRegistrationForm(props) {
 
     // useEffects
     useEffect(() => {
-        firstNameError !== undefined && validateUpdateState(firstName, setFirstNameError);
+        firstNameError !== undefined && validateInput(firstName, setFirstNameError);
     }, [firstName]);
     useEffect(() => {
-        lastNameError !== undefined && validateUpdateState(lastName, setLastNameError);
+        lastNameError !== undefined && validateInput(lastName, setLastNameError);
     }, [lastName]);
     useEffect(() => {
         if (emailError !== undefined) {
@@ -194,48 +193,48 @@ function MemberRegistrationForm(props) {
 
     // Address
     useEffect(() => {
-        streetAddressError !== undefined && validateUpdateState(address.street, setStreetAddressError);
+        streetAddressError !== undefined && validateInput(address.street, setStreetAddressError);
     }, [address.street]);
     useEffect(() => {
-        cityAddressError !== undefined &&  validateUpdateState(address.city, setCityAddressError);
+        cityAddressError !== undefined && validateInput(address.city, setCityAddressError);
     }, [address.city]);
     useEffect(() => {
-        postalCodeError !== undefined && validateUpdateState(address.postalCode, setPostalCodeError);
+        postalCodeError !== undefined && validateInput(address.postalCode, setPostalCodeError);
     }, [address.postalCode]);
 
     // Mailing Address
     useEffect(() => {
         if (useDifferentMailingAddress) {
-            streetMailingAddressError !== undefined && validateUpdateState(mailingAddress.street, setStreetMailingAddressError);
+            streetMailingAddressError !== undefined && validateInput(mailingAddress.street, setStreetMailingAddressError);
         }
     }, [mailingAddress.street, useDifferentMailingAddress]);
     useEffect(() => {
         if (useDifferentMailingAddress) {
-            cityMailingAddressError !== undefined && validateUpdateState(mailingAddress.city, setCityMailingAddressError);
+            cityMailingAddressError !== undefined && validateInput(mailingAddress.city, setCityMailingAddressError);
         }
     }, [mailingAddress.city, useDifferentMailingAddress]);
     useEffect(() => {
         if (useDifferentMailingAddress) {
-            postalCodeMailingError !== undefined && validateUpdateState(mailingAddress.postalCode, setPostalCodeMailingError);
+            postalCodeMailingError !== undefined && validateInput(mailingAddress.postalCode, setPostalCodeMailingError);
         }
     }, [mailingAddress.postalCode, useDifferentMailingAddress]);
 
 
     // Profile
     useEffect(() => {
-        minRentError !== undefined && validateUpdateState(minRent, setMinRentError);
+        minRentError !== undefined && validateInput(minRent, setMinRentError);
     }, [minRent]);
     useEffect(() => {
-        maxRentError !== undefined && validateUpdateState(maxRent, setMaxRentError);
+        maxRentError !== undefined && validateInput(maxRent, setMaxRentError);
     }, [maxRent]);
 
 
     // Account Details
     useEffect(() => {
-        usernameError !== undefined && validateUpdateState(username, setUsernameError);
+        usernameError !== undefined && validateInput(username, setUsernameError);
     }, [username]);
     useEffect(() => {
-        passwordError !== undefined && validateUpdateState(password, setPasswordError);
+        passwordError !== undefined && validateInput(password, setPasswordError);
     }, [password]);
     useEffect(() => {
         passwordConfirmError !== undefined && isStringEmpty(passwordCheck) ? setPasswordConfirmError("empty") : setPasswordConfirmError(false);
@@ -306,10 +305,10 @@ function MemberRegistrationForm(props) {
 
     const isFormValid = () => {
         // Personal Information Validation
-        validateUpdateState(firstName, setFirstNameError);
-        validateUpdateState(lastNameError, setLastNameError);
-        validateUpdateState(email, setEmailError);
-        validateUpdateState(yearOfBirth, setYearOfBirthError);
+        validateInput(firstName, setFirstNameError);
+        validateInput(lastNameError, setLastNameError);
+        validateInput(email, setEmailError);
+        validateInput(yearOfBirth, setYearOfBirthError);
         if (isStringEmpty(phoneNumber.first) || isStringEmpty(phoneNumber.middle) || isStringEmpty(phoneNumber.last)) {
             // empty phone number
             setPhoneNumberError(true);
@@ -326,23 +325,23 @@ function MemberRegistrationForm(props) {
                 }
             }
         }
-        validateUpdateState(address.street, setStreetAddressError);
-        validateUpdateState(address.city, setCityAddressError);
-        validateUpdateState(address.province, setProvinceAddressError);
-        validateUpdateState(address.postalCode, setPostalCodeError);
+        validateInput(address.street, setStreetAddressError);
+        validateInput(address.city, setCityAddressError);
+        validateInput(address.province, setProvinceAddressError);
+        validateInput(address.postalCode, setPostalCodeError);
         if (useDifferentMailingAddress) {
-            validateUpdateState(mailingAddress.street, setStreetMailingAddressError);
-            validateUpdateState(mailingAddress.city, setCityMailingAddressError);
-            validateUpdateState(mailingAddress.province, setProvinceMailingAddressError);
-            validateUpdateState(mailingAddress.postalCode, setPostalCodeMailingError);
+            validateInput(mailingAddress.street, setStreetMailingAddressError);
+            validateInput(mailingAddress.city, setCityMailingAddressError);
+            validateInput(mailingAddress.province, setProvinceMailingAddressError);
+            validateInput(mailingAddress.postalCode, setPostalCodeMailingError);
         }
         // Profile Validation
-        validateUpdateState(gender, setGenderError);
-        validateUpdateState(selectedFamilyStatus, setFamilyStatusError);
-        validateUpdateState(selectedWorkStatus, setWorkStatusError);
-        validateUpdateState(selectedLimit, setLimitError);
-        validateUpdateState(minRent, setMinRentError);
-        validateUpdateState(maxRent, setMaxRentError);
+        validateInput(gender, setGenderError);
+        validateInput(selectedFamilyStatus, setFamilyStatusError);
+        validateInput(selectedWorkStatus, setWorkStatusError);
+        validateInput(selectedLimit, setLimitError);
+        validateInput(minRent, setMinRentError);
+        validateInput(maxRent, setMaxRentError);
 
         for (let i = 0; i <= areasOfInterest.length - 1; i++) {
             if (!areasOfInterest[i].province || !areasOfInterest[i].city || !areasOfInterest[i].radius) {
@@ -352,18 +351,18 @@ function MemberRegistrationForm(props) {
                 setAreasOfInterestError(false);
         }
         // Yes/No Validation
-        validateUpdateState(petFriendly, setPetFriendlyError);
-        validateUpdateState(smoking, setSmokingError);
-        validateUpdateState(mobilityIssues, setMobilityIssuesError);
-        validateUpdateState(hasAllergies, setAllergiesError);
-        validateUpdateState(religious, setReligionError);
-        validateUpdateState(hasDiet, setDietError);
-        validateUpdateState(hasHome, setHomeError);
-        validateUpdateState(interestInBuyingHome, setInterestInBuyingError);
+        validateInput(petFriendly, setPetFriendlyError);
+        validateInput(smoking, setSmokingError);
+        validateInput(mobilityIssues, setMobilityIssuesError);
+        validateInput(hasAllergies, setAllergiesError);
+        validateInput(religious, setReligionError);
+        validateInput(hasDiet, setDietError);
+        validateInput(hasHome, setHomeError);
+        validateInput(interestInBuyingHome, setInterestInBuyingError);
 
         // Account Details Validation
-        validateUpdateState(username, setUsernameError);
-        validateUpdateState(password, setPasswordError);
+        validateInput(username, setUsernameError);
+        validateInput(password, setPasswordError);
         (isStringEmpty(passwordCheck) ? setPasswordConfirmError("empty") : setPasswordConfirmError(false));
         if (!isStringEmpty(password) && !isStringEmpty(passwordCheck)) {
             (!isStringSame(password, passwordCheck) ? setPasswordConfirmError("mismatch") : setPasswordConfirmError(false));
@@ -649,10 +648,10 @@ function MemberRegistrationForm(props) {
                                             value={genderDescription}
                                             onChange={(e) => setGenderDescription(e.target.value)}
                                         />}
-                                      <LabelAsterisk label={"Year of Birth"}/>
-                                      <Tooltip text={INFO_TEXT.YEAR_OF_BIRTH} toolTipID="yearOfBirth"/>
-                                     <BirthYear label={"Year of Birth"} onChange={handleYearChange}
-                                            dropdownCSS={yearOfBirthError ? dropdownErrorCSS : dropdownDefaultCSS}/>
+                                        <LabelAsterisk label={"Year of Birth"}/>
+                                        <Tooltip text={INFO_TEXT.YEAR_OF_BIRTH} toolTipID="yearOfBirth"/>
+                                        <BirthYear label={"Year of Birth"} onChange={handleYearChange}
+                                                   dropdownCSS={yearOfBirthError ? dropdownErrorCSS : dropdownDefaultCSS}/>
                                         <LabelAsterisk label={"Family Status"}/>
                                         <Tooltip text={INFO_TEXT.FAMILY_STATUS} toolTipID="familyStatus"/>
                                         <Status onChange={handleFamilyStatusChange}

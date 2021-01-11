@@ -29,3 +29,10 @@ export const getConcatenatedErrorMessage = (errors) => {
 export const getFirstErrorMessage = errors => {
     return (!errors || !errors.length) ? '' : head(errors).msg;
 }
+
+export function validateInput(st, setStateVar){
+    if (isStringEmpty(st)){
+        return setStateVar(true);
+    } else
+        return setStateVar(false);
+}
