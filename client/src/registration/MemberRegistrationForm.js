@@ -49,34 +49,33 @@ const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
 //Returns a Form with fields
 function MemberRegistrationForm(props) {
     const {history, setIsAdmin, setAccountType, setAuthenticated} = props;
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [yearOfBirth, setYearOfBirth] = useState("");
-    const [email, setEmail] = useState("");
+    const [firstName, setFirstName] = useState(undefined);
+    const [lastName, setLastName] = useState(undefined);
+    const [yearOfBirth, setYearOfBirth] = useState(undefined);
+    const [email, setEmail] = useState(undefined);
     const [phoneNumber, setPhoneNumber] = useState({
-        first: "",
-        middle: "",
-        last: ""
+        first: undefined,
+        middle: undefined,
+        last: undefined
     });
-    const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(false);
+    const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(undefined);
     const [address, setAddress] = useState({
-        street: "",
-        aptNum: "",
-        city: "",
-        province: "",
-        postalCode: ""
+        street: undefined,
+        aptNum: undefined,
+        city: undefined,
+        province: undefined,
+        postalCode: undefined
     });
     const [mailingAddress, setMailingAddress] = useState({
-        street: "",
-        aptNum: "",
-        city: "",
-        province: "",
-        postalCode: ""
+        street: undefined,
+        aptNum: undefined,
+        city: undefined,
+        province: undefined,
+        postalCode: undefined
     });
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [passwordCheck, setPasswordCheck] = useState("");
-
+    const [username, setUsername] = useState(undefined);
+    const [password, setPassword] = useState(undefined);
+    const [passwordCheck, setPasswordCheck] = useState(undefined);
     const [gender, setGender] = useState("");
     const [genderDescription, setGenderDescription] = useState("");
 
@@ -171,65 +170,70 @@ function MemberRegistrationForm(props) {
 
     // useEffects
     useEffect(() => {
-        firstNameError !== undefined && validateInput(firstName, setFirstNameError);
+        firstName !== undefined && validateInput(firstName, setFirstNameError);
     }, [firstName]);
     useEffect(() => {
-        lastNameError !== undefined && validateInput(lastName, setLastNameError);
+        lastName !== undefined && validateInput(lastName, setLastNameError);
     }, [lastName]);
     useEffect(() => {
-        emailError !== undefined && validateEmail(email, setEmailError);
+        email !== undefined && validateEmail(email, setEmailError);
     }, [email]);
     useEffect(() => {
-        phoneNumberError !== undefined && validatePhoneNumber(phoneNumber, setPhoneNumberError);
+        if (phoneNumber.first !== undefined && phoneNumber.middle !== undefined && phoneNumber.last !== undefined) {
+            validatePhoneNumber(phoneNumber, setPhoneNumberError);
+        }
     }, [phoneNumber]);
 
     // Address
     useEffect(() => {
-        streetAddressError !== undefined && validateInput(address.street, setStreetAddressError);
+        console.log("address.street", address.street)
+        address.street !== undefined && validateInput(address.street, setStreetAddressError);
     }, [address.street]);
     useEffect(() => {
-        cityAddressError !== undefined && validateInput(address.city, setCityAddressError);
+        console.log("address.city", address.city)
+        address.city !== undefined && validateInput(address.city, setCityAddressError);
     }, [address.city]);
     useEffect(() => {
-        postalCodeError !== undefined && validateInput(address.postalCode, setPostalCodeError);
+        console.log("address.postalCode", address.postalCode)
+        address.postalCode !== undefined && validateInput(address.postalCode, setPostalCodeError);
     }, [address.postalCode]);
 
     // Mailing Address
     useEffect(() => {
         if (useDifferentMailingAddress) {
-            streetMailingAddressError !== undefined && validateInput(mailingAddress.street, setStreetMailingAddressError);
+            mailingAddress.street !== undefined && validateInput(mailingAddress.street, setStreetMailingAddressError);
         }
     }, [mailingAddress.street, useDifferentMailingAddress]);
     useEffect(() => {
         if (useDifferentMailingAddress) {
-            cityMailingAddressError !== undefined && validateInput(mailingAddress.city, setCityMailingAddressError);
+            mailingAddress.city !== undefined && validateInput(mailingAddress.city, setCityMailingAddressError);
         }
     }, [mailingAddress.city, useDifferentMailingAddress]);
     useEffect(() => {
         if (useDifferentMailingAddress) {
-            postalCodeMailingError !== undefined && validateInput(mailingAddress.postalCode, setPostalCodeMailingError);
+            mailingAddress.postalCode !== undefined && validateInput(mailingAddress.postalCode, setPostalCodeMailingError);
         }
     }, [mailingAddress.postalCode, useDifferentMailingAddress]);
 
 
     // Profile
     useEffect(() => {
-        minRentError !== undefined && validateInput(minRent, setMinRentError);
+        minRent !== undefined && validateInput(minRent, setMinRentError);
     }, [minRent]);
     useEffect(() => {
-        maxRentError !== undefined && validateInput(maxRent, setMaxRentError);
+        maxRent !== undefined && validateInput(maxRent, setMaxRentError);
     }, [maxRent]);
 
 
     // Account Details
     useEffect(() => {
-        usernameError !== undefined && validateInput(username, setUsernameError);
+        username !== undefined && validateInput(username, setUsernameError);
     }, [username]);
     useEffect(() => {
-        passwordError !== undefined && validateInput(password, setPasswordError);
+        password !== undefined && validateInput(password, setPasswordError);
     }, [password]);
     useEffect(() => {
-        passwordConfirmError !== undefined && validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
+        passwordCheck !== undefined && validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
     }, [passwordCheck]);
     useEffect(() => {
         if (passwordError !== undefined && passwordConfirmError !== undefined) {
