@@ -346,7 +346,7 @@ function MemberRegistrationForm(props) {
 
         // Personal Information Validation
         personalInfoErrors.errorFirstName = validateInput(firstName, setFirstNameError);
-        personalInfoErrors.errorLastName = validateInput(lastNameError, setLastNameError);
+        personalInfoErrors.errorLastName = validateInput(lastName, setLastNameError);
         personalInfoErrors.errorEmail = validateEmail(email, setEmailError);
         personalInfoErrors.errorPhoneNumber = validatePhoneNumber(phoneNumber, setPhoneNumberError);
         personalInfoErrors.errorAddress.street = validateInput(address.street, setStreetAddressError);
