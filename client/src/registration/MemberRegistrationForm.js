@@ -171,7 +171,7 @@ function MemberRegistrationForm(props) {
         firstNameError !== undefined && validateUpdateState(firstName, setFirstNameError);
     }, [firstName]);
     useEffect(() => {
-        lastNameError !== undefined && validateUpdateState(lastNameError, setLastNameError);
+        lastNameError !== undefined && validateUpdateState(lastName, setLastNameError);
     }, [lastName]);
     useEffect(() => {
         if (emailError !== undefined) {
