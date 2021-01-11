@@ -17,9 +17,7 @@ const INFO_TEXT = {
 };
 
 const ERROR_TEXT = {
-    USERNAME: "Username can not be empty",
     PASSWORD: {
-        EMPTY: "Password can not be empty",
         CONFIRM_EMPTY: "Password confirmation can not be empty",
         MIS_MATCH: "Passwords do not match",
     }
@@ -42,14 +40,12 @@ function SignInInfo(props) {
                 <Tooltip text={INFO_TEXT.USERNAME} toolTipID="username"/>
                 <input className={`${usernameError && "border-red-500 mb-0"} input`} type="text"
                        onChange={onChangeUsername}/>
-                {usernameError && <label className={"error-msg"}>{ERROR_TEXT.USERNAME}</label>}
             </label>
             <label>
                 <LabelAsterisk label={"Password"}/>
                 <Tooltip text={INFO_TEXT.PASSWORD} toolTipID="password"/>
                 <input className={`${(passwordError) && "border-red-500 mb-0"} input`} type="password"
                        onChange={onChangePassword}/>
-                {passwordError && <label className={"error-msg"}>{ERROR_TEXT.PASSWORD.EMPTY}</label>}
             </label>
             <label>
                 <LabelAsterisk label={"Confirm Password"}/>

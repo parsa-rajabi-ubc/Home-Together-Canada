@@ -22,9 +22,10 @@ import {
     getConcatenatedErrorMessage,
     getPhoneNumberFromStrings,
     validateInput,
+    validateObject,
     validatePhoneNumber,
     validatePasswordConfirmationMismatch,
-    validatePasswordConfirmationEmpty, validateEmail, isPhoneNumberValid
+    validatePasswordConfirmationEmpty, validateEmail, isPhoneNumberValid, DEFAULT_PHONE_NUMBER
 } from "./registrationUtils";
 import RegistrationService from "../services/RegistrationService";
 import RadioButton from "../common/forms/RadioButton";
@@ -49,34 +50,31 @@ const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
 //Returns a Form with fields
 function MemberRegistrationForm(props) {
     const {history, setIsAdmin, setAccountType, setAuthenticated} = props;
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [yearOfBirth, setYearOfBirth] = useState("");
-    const [email, setEmail] = useState("");
+    const [firstName, setFirstName] = useState(undefined);
+    const [lastName, setLastName] = useState(undefined);
+    const [yearOfBirth, setYearOfBirth] = useState(undefined);
+    const [email, setEmail] = useState(undefined);
     const [phoneNumber, setPhoneNumber] = useState({
-        first: "",
-        middle: "",
-        last: ""
+        ...DEFAULT_PHONE_NUMBER
     });
-    const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(false);
+    const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(undefined);
     const [address, setAddress] = useState({
-        street: "",
-        aptNum: "",
-        city: "",
-        province: "",
-        postalCode: ""
+        street: undefined,
+        aptNum: undefined,
+        city: undefined,
+        province: undefined,
+        postalCode: undefined
     });
     const [mailingAddress, setMailingAddress] = useState({
-        street: "",
-        aptNum: "",
-        city: "",
-        province: "",
-        postalCode: ""
+        street: undefined,
+        aptNum: undefined,
+        city: undefined,
+        province: undefined,
+        postalCode: undefined
     });
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [passwordCheck, setPasswordCheck] = useState("");
-
+    const [username, setUsername] = useState(undefined);
+    const [password, setPassword] = useState(undefined);
+    const [passwordCheck, setPasswordCheck] = useState(undefined);
     const [gender, setGender] = useState("");
     const [genderDescription, setGenderDescription] = useState("");
 
@@ -171,65 +169,66 @@ function MemberRegistrationForm(props) {
 
     // useEffects
     useEffect(() => {
-        firstNameError !== undefined && validateInput(firstName, setFirstNameError);
+        firstName !== undefined && validateInput(firstName, setFirstNameError);
     }, [firstName]);
     useEffect(() => {
-        lastNameError !== undefined && validateInput(lastName, setLastNameError);
+        lastName !== undefined && validateInput(lastName, setLastNameError);
     }, [lastName]);
     useEffect(() => {
-        emailError !== undefined && validateEmail(email, setEmailError);
+        email !== undefined && validateEmail(email, setEmailError);
     }, [email]);
     useEffect(() => {
-        phoneNumberError !== undefined && validatePhoneNumber(phoneNumber, setPhoneNumberError);
+        // shallow comparison done on purpose
+        phoneNumber != DEFAULT_PHONE_NUMBER && validatePhoneNumber(phoneNumber, setPhoneNumberError);
     }, [phoneNumber]);
 
     // Address
     useEffect(() => {
-        streetAddressError !== undefined && validateInput(address.street, setStreetAddressError);
+        address.street !== undefined && validateInput(address.street, setStreetAddressError);
     }, [address.street]);
     useEffect(() => {
-        cityAddressError !== undefined && validateInput(address.city, setCityAddressError);
+        address.city !== undefined && validateInput(address.city, setCityAddressError);
     }, [address.city]);
     useEffect(() => {
-        postalCodeError !== undefined && validateInput(address.postalCode, setPostalCodeError);
+        address.postalCode !== undefined && validateInput(address.postalCode, setPostalCodeError);
     }, [address.postalCode]);
 
     // Mailing Address
     useEffect(() => {
         if (useDifferentMailingAddress) {
-            streetMailingAddressError !== undefined && validateInput(mailingAddress.street, setStreetMailingAddressError);
+            mailingAddress.street !== undefined && validateInput(mailingAddress.street, setStreetMailingAddressError);
         }
     }, [mailingAddress.street, useDifferentMailingAddress]);
     useEffect(() => {
         if (useDifferentMailingAddress) {
-            cityMailingAddressError !== undefined && validateInput(mailingAddress.city, setCityMailingAddressError);
+            mailingAddress.city !== undefined && validateInput(mailingAddress.city, setCityMailingAddressError);
         }
     }, [mailingAddress.city, useDifferentMailingAddress]);
     useEffect(() => {
         if (useDifferentMailingAddress) {
-            postalCodeMailingError !== undefined && validateInput(mailingAddress.postalCode, setPostalCodeMailingError);
+            mailingAddress.postalCode !== undefined && validateInput(mailingAddress.postalCode, setPostalCodeMailingError);
         }
     }, [mailingAddress.postalCode, useDifferentMailingAddress]);
 
 
     // Profile
     useEffect(() => {
-        minRentError !== undefined && validateInput(minRent, setMinRentError);
+        minRent !== undefined && validateInput(minRent, setMinRentError);
     }, [minRent]);
     useEffect(() => {
-        maxRentError !== undefined && validateInput(maxRent, setMaxRentError);
+        maxRent !== undefined && validateInput(maxRent, setMaxRentError);
     }, [maxRent]);
 
 
     // Account Details
     useEffect(() => {
-        usernameError !== undefined && validateInput(username, setUsernameError);
+        username !== undefined && validateInput(username, setUsernameError);
     }, [username]);
     useEffect(() => {
-        passwordError !== undefined && validateInput(password, setPasswordError);
+        password !== undefined && validateInput(password, setPasswordError);
     }, [password]);
     useEffect(() => {
-        passwordConfirmError !== undefined && validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
+        passwordCheck !== undefined && validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
     }, [passwordCheck]);
     useEffect(() => {
         if (passwordError !== undefined && passwordConfirmError !== undefined) {
@@ -294,29 +293,80 @@ function MemberRegistrationForm(props) {
 
 
     const isFormValid = () => {
+
+        const personalInfoErrors = {
+            errorFirstName: false,
+            errorLastName: false,
+            errorEmail: false,
+            errorPhoneNumber: false,
+            errorAddress: {
+                street: false,
+                city: false,
+                province: false,
+                postalCode: false,
+            },
+            errorMailingAddress: {
+                street: false,
+                city: false,
+                province: false,
+                postalCode: false,
+            }
+        }
+
+        const profileInfoErrors = {
+            errorGender: false,
+            errorYearOfBirth: false,
+            errorFamilyStatus: false,
+            errorWorkStatus: false,
+            errorLimit: false,
+            errorRent: {
+                min: false,
+                max: false,
+            },
+            errorInterestedArea: false,
+            errorPet: false,
+            errorSmoking: false,
+            errorHealth: false,
+            errorAllergies: false,
+            errorReligion: false,
+            errorDiet: false,
+            errorHomeToShare: false,
+            errorBuyingHome: false,
+        }
+
+        const accountDetailsErrors = {
+            errorUsername: false,
+            errorPassword: {
+                password: false,
+                passwordConfirmationEmpty: false,
+                passwordConfirmationMismatch: false,
+            }
+
+        }
+
         // Personal Information Validation
-        validateInput(firstName, setFirstNameError);
-        validateInput(lastNameError, setLastNameError);
-        validateEmail(email, setEmailError);
-        validateInput(yearOfBirth, setYearOfBirthError);
-        validatePhoneNumber(phoneNumber, setPhoneNumberError);
-        validateInput(address.street, setStreetAddressError);
-        validateInput(address.city, setCityAddressError);
-        validateInput(address.province, setProvinceAddressError);
-        validateInput(address.postalCode, setPostalCodeError);
+        personalInfoErrors.errorFirstName = validateInput(firstName, setFirstNameError);
+        personalInfoErrors.errorLastName = validateInput(lastName, setLastNameError);
+        personalInfoErrors.errorEmail = validateEmail(email, setEmailError);
+        personalInfoErrors.errorPhoneNumber = validatePhoneNumber(phoneNumber, setPhoneNumberError);
+        personalInfoErrors.errorAddress.street = validateInput(address.street, setStreetAddressError);
+        personalInfoErrors.errorAddress.city = validateInput(address.city, setCityAddressError);
+        personalInfoErrors.errorAddress.province = validateInput(address.province, setProvinceAddressError);
+        personalInfoErrors.errorAddress.postalCode = validateInput(address.postalCode, setPostalCodeError);
         if (useDifferentMailingAddress) {
-            validateInput(mailingAddress.street, setStreetMailingAddressError);
-            validateInput(mailingAddress.city, setCityMailingAddressError);
-            validateInput(mailingAddress.province, setProvinceMailingAddressError);
-            validateInput(mailingAddress.postalCode, setPostalCodeMailingError);
+            personalInfoErrors.errorMailingAddress.street = validateInput(mailingAddress.street, setStreetMailingAddressError);
+            personalInfoErrors.errorMailingAddress.city = validateInput(mailingAddress.city, setCityMailingAddressError);
+            personalInfoErrors.errorMailingAddress.province = validateInput(mailingAddress.province, setProvinceMailingAddressError);
+            personalInfoErrors.errorMailingAddress.postalCode = validateInput(mailingAddress.postalCode, setPostalCodeMailingError);
         }
         // Profile Validation
-        validateInput(gender, setGenderError);
-        validateInput(selectedFamilyStatus, setFamilyStatusError);
-        validateInput(selectedWorkStatus, setWorkStatusError);
-        validateInput(selectedLimit, setLimitError);
-        validateInput(minRent, setMinRentError);
-        validateInput(maxRent, setMaxRentError);
+        profileInfoErrors.errorGender = validateInput(gender, setGenderError);
+        profileInfoErrors.errorYearOfBirth = validateInput(yearOfBirth, setYearOfBirthError);
+        profileInfoErrors.errorFamilyStatus = validateInput(selectedFamilyStatus, setFamilyStatusError);
+        profileInfoErrors.errorWorkStatus = validateInput(selectedWorkStatus, setWorkStatusError);
+        profileInfoErrors.errorLimit = validateInput(selectedLimit, setLimitError);
+        profileInfoErrors.errorRent.min = validateInput(minRent, setMinRentError);
+        profileInfoErrors.errorRent.max = validateInput(maxRent, setMaxRentError);
 
         for (let i = 0; i <= areasOfInterest.length - 1; i++) {
             if (!areasOfInterest[i].province || !areasOfInterest[i].city || !areasOfInterest[i].radius) {
@@ -326,54 +376,36 @@ function MemberRegistrationForm(props) {
                 setAreasOfInterestError(false);
         }
         // Yes/No Validation
-        validateInput(petFriendly, setPetFriendlyError);
-        validateInput(smoking, setSmokingError);
-        validateInput(mobilityIssues, setMobilityIssuesError);
-        validateInput(hasAllergies, setAllergiesError);
-        validateInput(religious, setReligionError);
-        validateInput(hasDiet, setDietError);
-        validateInput(hasHome, setHomeError);
-        validateInput(interestInBuyingHome, setInterestInBuyingError);
+        profileInfoErrors.errorPet = validateInput(petFriendly, setPetFriendlyError);
+        profileInfoErrors.errorSmoking = validateInput(smoking, setSmokingError);
+        profileInfoErrors.errorHealth = validateInput(mobilityIssues, setMobilityIssuesError);
+        profileInfoErrors.errorAllergies = validateInput(hasAllergies, setAllergiesError);
+        profileInfoErrors.errorAllergies = validateInput(religious, setReligionError);
+        profileInfoErrors.errorDiet = validateInput(hasDiet, setDietError);
+        profileInfoErrors.errorHomeToShare = validateInput(hasHome, setHomeError);
+        profileInfoErrors.errorBuyingHome = validateInput(interestInBuyingHome, setInterestInBuyingError);
 
         // Account Details Validation
-        validateInput(username, setUsernameError);
-        validateInput(password, setPasswordError);
-        validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
-        validatePasswordConfirmationMismatch(password, passwordCheck, setPasswordConfirmError);
+        accountDetailsErrors.errorUsername = validateInput(username, setUsernameError);
+        accountDetailsErrors.errorPassword.password = validateInput(password, setPasswordError);
+        accountDetailsErrors.errorPassword.passwordConfirmationEmpty = validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
+        accountDetailsErrors.errorPassword.passwordConfirmationMismatch = validatePasswordConfirmationMismatch(password, passwordCheck, setPasswordConfirmError);
 
         // check personal information for errors
-        if ((isStringEmpty(firstName) || isStringEmpty(lastName) || isStringEmpty(email) || !isStringEmail(email) || isStringEmpty(yearOfBirth) || isPhoneNumberValid(phoneNumber) ||
-            isStringEmpty(address.street) || isStringEmpty(address.city) || isStringEmpty(address.province) || isStringEmpty(address.postalCode))) {
+        if (validateObject(personalInfoErrors)) {
             return false;
-
-            // check mailing address for errors if selected
-        } else if (useDifferentMailingAddress) {
-            if (isStringEmpty(mailingAddress.street) || isStringEmpty(mailingAddress.city) || isStringEmpty(mailingAddress.province) || isStringEmpty(mailingAddress.postalCode)) {
-                return false;
-            }
-
             // check profile for errors
-        } else if (isStringEmpty(gender) || isStringEmpty(setsSelectedFamilyStatus) || isStringEmpty(selectedWorkStatus) ||
-            isStringEmpty(selectedLimit) || isStringEmpty(minRent) || isStringEmpty(maxRent) || isStringEmpty(areasOfInterest)) {
+        } else if (validateObject(profileInfoErrors)) {
             return false;
-
-            // check profile Y/N questions for errors
-        } else if (isStringEmpty(petFriendly) || isStringEmpty(smoking) || isStringEmpty(mobilityIssues) ||
-            isStringEmpty(hasAllergies) || isStringEmpty(religious) || isStringEmpty(hasDiet) ||
-            isStringEmpty(hasHome) || isStringEmpty(interestInBuyingHome)) {
-            return false;
-
             // check account details for errors
-        } else if (isStringEmpty(username) || isStringEmpty(password) || isStringEmpty(passwordCheck) || isStringSame(password, passwordCheck))  {
+        } else if (validateObject(accountDetailsErrors)) {
             return false;
-
             // return true if no errors
         } else {
             return true;
         }
 
     }
-
 
     const INFO_TEXT = {
         YEAR_OF_BIRTH: "Age is required in order to help members connect with others in their desired age range",

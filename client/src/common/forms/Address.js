@@ -27,11 +27,11 @@ function Address(props) {
         provinceAddressError,
         postalCodeError,
     } = props;
-    const [street, setStreet] = useState("");
+    const [street, setStreet] = useState(undefined);
     const [aptNum, setApt] = useState("");
-    const [city, setCity] = useState("");
-    const [province, setProvince] = useState('');
-    const [postalCode, setPostalCode] = useState('');
+    const [city, setCity] = useState(undefined);
+    const [province, setProvince] = useState("");
+    const [postalCode, setPostalCode] = useState(undefined);
 
     const handleInputChange = (e) => {
         switch (e.target.name) {
