@@ -38,13 +38,13 @@ function SignInInfo(props) {
             <label>
                 <LabelAsterisk label={"Username"}/>
                 <Tooltip text={INFO_TEXT.USERNAME} toolTipID="username"/>
-                <input className={`${usernameError && "border-red-500 mb-0"} input`} type="text"
+                <input className={`${usernameError && "border-red-500"} input`} type="text"
                        onChange={onChangeUsername}/>
             </label>
             <label>
                 <LabelAsterisk label={"Password"}/>
                 <Tooltip text={INFO_TEXT.PASSWORD} toolTipID="password"/>
-                <input className={`${(passwordError) && "border-red-500 mb-0"} input`} type="password"
+                <input className={`${(passwordError) && "border-red-500"} input`} type="password"
                        onChange={onChangePassword}/>
             </label>
             <label>
