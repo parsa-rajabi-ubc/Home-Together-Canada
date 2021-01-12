@@ -18,8 +18,11 @@ import Dropdown from "../forms/Dropdown";
 import {pushToRoute} from "../utils/navigationUtils";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
+import {dropdownAccountCSS, dropdownAccountTheme} from "../../css/dropdownCSSUtil"
 
-const mapDispatch = { setIsAdmin, setAccountType, setAuthenticated };
+const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
+
+
 
 const Header = (props) => {
 
@@ -37,9 +40,9 @@ const Header = (props) => {
         LoginService.logoutUser()
             .then(res => res.json())
             .then(() => {
-                setIsAdmin({ isAdmin: false });
-                setAccountType({ accountType: USER_TYPES.UNREGISTERED });
-                setAuthenticated({ authenticated: false });
+                setIsAdmin({isAdmin: false});
+                setAccountType({accountType: USER_TYPES.UNREGISTERED});
+                setAuthenticated({authenticated: false});
 
                 // redirect to home page
                 history.push('/');
@@ -90,49 +93,54 @@ const Header = (props) => {
                                 FAQ
                             </Link>
                             {(authenticated && accountType !== USER_TYPES.UNREGISTERED) &&
-                                < Link to={'/create/listing'}
-                                    className="inline-block px-4 py-2 mr-3 no-underline transition duration-200 ease-in-out border-transparent rounded-md hover:bg-white hover:text-black hover:opacity-50">
-                                    Create Listing
-                                </Link>
+                            < Link to={'/create/listing'}
+                                   className="inline-block px-4 py-2 mr-3 no-underline transition duration-200 ease-in-out border-transparent rounded-md hover:bg-white hover:text-black hover:opacity-50">
+                                Create Listing
+                            </Link>
                             }
                             {(authenticated && isAdmin) &&
-                                <Link to={'/admin'}
-                                      className="inline-block px-4 py-2 mr-3 no-underline transition duration-200 ease-in-out border-transparent rounded-md hover:bg-white hover:text-black hover:opacity-50">
-                                    Admin
-                                </Link>
+                            <Link to={'/admin'}
+                                  className="inline-block px-4 py-2 mr-3 no-underline transition duration-200 ease-in-out border-transparent rounded-md hover:bg-white hover:text-black hover:opacity-50">
+                                Admin
+                            </Link>
                             }
                         </div>
 
                         {/* Login and Sign Up Buttons */}
                         {(accountType === USER_TYPES.UNREGISTERED || !authenticated) &&
-                            <Link to={'/login'}
-                                  className="items-center justify-center w-full px-6 py-2 mr-4 transition duration-200 ease-in-out bg-white border-transparent rounded-md opacity-75 hover:bg-orange-400">Login
-                            </Link>
+                        <Link to={'/login'}
+                              className="items-center justify-center w-full px-6 py-2 mr-4 transition duration-200 ease-in-out bg-white border-transparent rounded-md opacity-75 hover:bg-orange-400">Login
+                        </Link>
                         }
                         {(accountType === USER_TYPES.UNREGISTERED || !authenticated) &&
-                            <Link to={'/registration'}
-                                  className="items-center justify-center w-full px-4 py-2 mr-4 transition duration-200 ease-in-out bg-white border-transparent rounded-md opacity-75 hover:bg-orange-400">Sign
-                                Up
-                            </Link>
-                        }
-                        {(authenticated || accountType !== USER_TYPES.UNREGISTERED) &&
-                        <Dropdown
-                            options={dropdownOptions}
-                            onChange={(selected) =>
-                                selected.label === 'Logout'
-                                    ? logout()
-                                    : pushToRoute(
-                                        history,
-                                    '/account',
-                                    {accountType: accountType, selected: selected.label })}
-                            placeholder={'Account'}
-                            name={'Account'}
-                        />
+                        <Link to={'/registration'}
+                              className="items-center justify-center w-full px-4 py-2 mr-4 transition duration-200 ease-in-out bg-white border-transparent rounded-md opacity-75 hover:bg-orange-400">Sign
+                            Up
+                        </Link>
                         }
                     </div>
                 </div>
                 {/*Bottom Border*/}
                 <hr className="py-0 my-0 border-b border-gray-200 opacity-25"/>
+                {(authenticated || accountType !== USER_TYPES.UNREGISTERED) &&
+                <section className={"mr-10"}>
+                    <Dropdown
+                        options={dropdownOptions}
+                        onChange={(selected) =>
+                            selected.label === 'Logout'
+                                ? logout()
+                                : pushToRoute(
+                                history,
+                                '/account',
+                                {accountType: accountType, selected: selected.label})}
+                        placeholder={'Account'}
+                        name={'Account'}
+                        dropdownCSS={dropdownAccountCSS}
+                        dropdownTheme={dropdownAccountTheme}
+                        isSearchable={false}
+                    />
+                </section>
+                }
             </nav>
         </div>
     )
