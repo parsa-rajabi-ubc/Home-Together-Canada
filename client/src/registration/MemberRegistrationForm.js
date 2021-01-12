@@ -281,6 +281,7 @@ function MemberRegistrationForm(props) {
         }
 
     }
+
     const handleFamilyStatusPreferenceChange = e => {
         setFamilyStatusPreference(e.value);
     }
@@ -707,7 +708,7 @@ function MemberRegistrationForm(props) {
                                                     type="number"
                                                     min="0"
                                                     step="1"
-                                                    placeholder="MIN $ CAD"
+                                                    placeholder="Min $ CAD"
                                                     onChange={(e) => setMinRent(e.target.value)}
                                                 />
                                             </div>
@@ -717,7 +718,7 @@ function MemberRegistrationForm(props) {
                                                     type="number"
                                                     min={minRent}
                                                     step="1"
-                                                    placeholder=" MAX $ CAD"
+                                                    placeholder=" Max $ CAD"
                                                     onChange={(e) => setMaxRent(e.target.value)}
                                                 />
 
@@ -980,12 +981,15 @@ function MemberRegistrationForm(props) {
                                         </div>
 
                                         <LabelAsterisk label={"I am open to sharing with"}/>
-                                        {/*<Tooltip text={INFO_TEXT.FAMILY_STATUS} toolTipID="familyStatusPreference"/>*/}
-                                        <Status onChange={handleFamilyStatusPreferenceChange}/>
+                                        <Tooltip text={INFO_TEXT.FAMILY_STATUS} toolTipID="familyStatusPref"/>
+                                        <Status onChange={handleFamilyStatusPreferenceChange}
+                                                dropdownCSS={familyStatusError ? dropdownErrorCSS : dropdownDefaultCSS}
+                                        />
 
                                         <LabelAsterisk label={"I would like to share with"}/>
-                                        {/*<Tooltip text={INFO_TEXT.NUM_PEOPLE_SHARE} toolTipID="numPeopleToShare"/>*/}
-                                        <ShareLimit onChange={handleLimitPreferenceChange}/>
+                                        <Tooltip text={INFO_TEXT.NUM_PEOPLE_SHARE} toolTipID="numPeopleToSharePref"/>
+                                        <ShareLimit onChange={handleLimitPreferenceChange}
+                                                    dropdownCSS={limitError ? dropdownErrorCSS : dropdownDefaultCSS}/>
 
                                         <LabelAsterisk label={"Monthly budget"}/>
                                         <Tooltip text={INFO_TEXT.RENT} toolTipID="rentPref"/>
