@@ -84,10 +84,9 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
               </svg>
               <input
                 autoComplete="organization"
-                className="mb-0 input"
+                className="undefined mb-0 input"
                 disabled={false}
                 onChange={[Function]}
-                placeholder=""
                 type="text"
               />
             </label>
@@ -249,7 +248,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
               </svg>
               <input
                 autoComplete="email"
-                className="input"
+                className="undefined input"
                 disabled={false}
                 onChange={[Function]}
                 placeholder="business@email.ca"
@@ -299,7 +298,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 <br />
                 <input
                   autoComplete="tel-area-code"
-                  className="phone"
+                  className="undefined phone"
                   maxLength="3"
                   name="first"
                   onChange={[Function]}
@@ -310,7 +309,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
               <label>
                 <input
                   autoComplete="tel-local-prefix"
-                  className="phone"
+                  className="undefined phone"
                   maxLength="3"
                   name="middle"
                   onChange={[Function]}
@@ -321,7 +320,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
               <label>
                 <input
                   autoComplete="tel-local-suffix"
-                  className="phone"
+                  className="undefined phone"
                   maxLength="4"
                   name="last"
                   onChange={[Function]}
@@ -359,7 +358,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 <br />
                 <input
                   autoComplete="tel-area-code"
-                  className="phone"
+                  className="undefined phone"
                   maxLength="3"
                   name="first"
                   onChange={[Function]}
@@ -370,7 +369,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
               <label>
                 <input
                   autoComplete="tel-local-prefix"
-                  className="phone"
+                  className="undefined phone"
                   maxLength="3"
                   name="middle"
                   onChange={[Function]}
@@ -381,7 +380,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
               <label>
                 <input
                   autoComplete="tel-local-suffix"
-                  className="phone"
+                  className="undefined phone"
                   maxLength="4"
                   name="last"
                   onChange={[Function]}
@@ -1360,7 +1359,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
             </svg>
             <input
               autoComplete="given-name"
-              className="input"
+              className="undefined input"
               disabled={false}
               onChange={[Function]}
               type="text"
@@ -1396,7 +1395,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
             </svg>
             <input
               autoComplete="family-name"
-              className="input"
+              className="undefined input"
               disabled={false}
               onChange={[Function]}
               type="text"
@@ -1435,7 +1434,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
               <br />
               <input
                 autoComplete="tel-area-code"
-                className="w-1/4 phone"
+                className="undefined phone"
                 maxLength="3"
                 name="first"
                 onChange={[Function]}
@@ -1446,7 +1445,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
             <label>
               <input
                 autoComplete="tel-local-prefix"
-                className="w-1/4 phone"
+                className="undefined phone"
                 maxLength="3"
                 name="middle"
                 onChange={[Function]}
@@ -1457,7 +1456,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
             <label>
               <input
                 autoComplete="tel-local-suffix"
-                className="w-1/4 phone"
+                className="undefined phone"
                 maxLength="4"
                 name="last"
                 onChange={[Function]}
@@ -1843,6 +1842,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                       onChange={[Function]}
                       type="password"
                     />
+                    
                   </label>
                 </div>
               </div>
