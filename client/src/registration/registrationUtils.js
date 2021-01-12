@@ -98,7 +98,6 @@ export function validatePasswordConfirmationEmpty(passwordConfirmation, setState
         setStateVar(false);
         return false;
     }
-
 }
 
 // checks object for true and returns true if there is one
