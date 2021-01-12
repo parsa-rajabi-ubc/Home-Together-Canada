@@ -9,9 +9,10 @@
 import React, {useEffect, useState} from 'react';
 import Select from 'react-select';
 import propTypes from "prop-types";
+import {dropdownDefaultTheme} from "../../css/dropdownCSSUtil";
 
 function Dropdown(props) {
-    const {isSearchable, name, placeholder, options, onChange, intialSelection, dropdownCSS, dropdownTheme} = props;
+    const {isSearchable, name, placeholder, options, onChange, intialSelection, dropdownCSS, dropdownTheme = dropdownDefaultTheme} = props;
 
     const [selected, setSelected] = useState(intialSelection || "");
 
@@ -47,7 +48,7 @@ Dropdown.propTypes = {
     onChange: propTypes.func,
     intialSelection: propTypes.string,
     dropdownCSS: propTypes.object,
-    dropdownTheme: propTypes.object
+    dropdownTheme: propTypes.func
 };
 
 export default Dropdown;

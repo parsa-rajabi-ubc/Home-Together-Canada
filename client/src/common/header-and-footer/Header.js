@@ -18,38 +18,10 @@ import Dropdown from "../forms/Dropdown";
 import {pushToRoute} from "../utils/navigationUtils";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
+import {dropdownAccountCSS, dropdownAccountTheme} from "../../css/dropdownCSSUtil"
 
 const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
 
-const dropdownAccountCSS = {
-    control: base => ({
-            ...base,
-            height: 40,
-            width: 125,
-            marginTop: 8,
-            borderColor: "white",
-            backgroundColor: "white",
-            boxShadow: 'none',
-            border: 0,
-            ':hover': {
-                backgroundColor: '#DEECFF',
-                borderColor: 'white'
-            }
-        }
-    ),
-    menuPortal: base => ({...base, zIndex: 9999}),
-    // removes the "stick"
-    indicatorSeparator: () => {
-    },
-}
-
-const dropdownAccountTheme = theme => ({
-    ...theme,
-    colors: {
-        ...theme.colors,
-        neutral50: 'black'
-    }
-})
 
 
 const Header = (props) => {
