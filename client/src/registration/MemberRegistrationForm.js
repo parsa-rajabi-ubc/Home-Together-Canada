@@ -1048,7 +1048,7 @@ function MemberRegistrationForm(props) {
                                                 />
                                             </div>
                                         </div>
-                                        <LabelAsterisk label={"Number of roommates I would like to have"}/>
+                                        <LabelAsterisk label={"Number of roommate(s) I would like to have"}/>
                                         <Tooltip text={INFO_TEXT.NUM_PEOPLE_SHARE} toolTipID="numPeopleToSharePref"/>
                                         <div className="grid grid-cols-6 gap-x-6">
                                             <div className="column-span-6-layout">
@@ -1057,7 +1057,7 @@ function MemberRegistrationForm(props) {
                                                     type="number"
                                                     min="16"
                                                     step="1"
-                                                    placeholder="Min # Roommates"
+                                                    placeholder="Min # Roommate(s)"
                                                     onChange={(e) => setMinNumRoommate(e.target.value)}
                                                 />
                                             </div>
@@ -1067,7 +1067,7 @@ function MemberRegistrationForm(props) {
                                                     type="number"
                                                     min={minNumRoommatePreference}
                                                     step="1"
-                                                    placeholder="Max # Roommates"
+                                                    placeholder="Max # Roommate(s)"
                                                     onChange={(e) => setMaxNumRoommate(e.target.value)}
                                                 />
                                             </div>
