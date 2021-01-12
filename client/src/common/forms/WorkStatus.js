@@ -6,7 +6,7 @@
  *
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import propTypes from "prop-types";
 import Dropdown from "./Dropdown";
 
@@ -46,7 +46,8 @@ const workStatuses = [
 ]
 
 function WorkStatus(props) {
-    const {onChange, dropdownCSS} = props;
+    const {givenSelection, onChange, dropdownCSS} = props;
+    const [intialSelection, setIntialSelection] = useState({label: givenSelection, value: givenSelection});
 
     return (
         <div>
@@ -54,6 +55,7 @@ function WorkStatus(props) {
                       options={workStatuses}
                       onChange={onChange}
                       dropdownCSS={dropdownCSS}
+                      intialSelection={intialSelection}
             />
         </div>
     )
@@ -61,6 +63,7 @@ function WorkStatus(props) {
 
 WorkStatus.propTypes = {
     onChange: propTypes.func,
-    dropdownCSS: propTypes.object
+    dropdownCSS: propTypes.object,
+    givenSelection: propTypes.string
 };
 export default WorkStatus;

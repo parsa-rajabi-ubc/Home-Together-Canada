@@ -6,7 +6,7 @@
  *
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import propTypes from "prop-types";
 import Dropdown from "./Dropdown";
 
@@ -35,8 +35,8 @@ const statuses = [
 
 
 function Status(props) {
-    const {onChange, dropdownCSS} = props;
-
+    const {givenSelection, onChange, dropdownCSS} = props;
+    const [intialSelection, setIntialSelection] = useState({label: givenSelection, value: givenSelection});
 
     return (
         <div>
@@ -44,6 +44,7 @@ function Status(props) {
                       options={statuses}
                       onChange={onChange}
                       dropdownCSS={dropdownCSS}
+                      intialSelection={intialSelection}
             />
         </div>
     )
@@ -52,7 +53,8 @@ function Status(props) {
 
 Status.propTypes = {
     onChange: propTypes.func,
-    dropdownCSS: propTypes.object
+    dropdownCSS: propTypes.object,
+    givenSelection: propTypes.string
 };
 
 
