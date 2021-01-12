@@ -31,6 +31,7 @@ function Dropdown(props) {
                 isMulti={isMulti}
                 placeholder={placeholder}
                 options={options}
+                defaultValue={intialSelection}
                 value={options.find(obj => obj.label === selected)}
                 onChange={(e) => setSelected(e)}
                 name={name}
@@ -48,7 +49,7 @@ Dropdown.propTypes = {
     isSearchable: propTypes.bool,
     placeholder: propTypes.string,
     onChange: propTypes.func,
-    intialSelection: propTypes.string,
+    intialSelection: propTypes.object,
     dropdownCSS: propTypes.object,
     dropdownTheme: propTypes.func,
     isMulti: propTypes.bool

@@ -35,7 +35,8 @@ const statuses = [
 
 
 function Status(props) {
-    const {onChange, dropdownCSS, isDropdownMulti} = props;
+    const {givenSelection, onChange, dropdownCSS, isDropdownMulti} = props;
+    const [intialSelection, setIntialSelection] = useState({label: givenSelection, value: givenSelection});
     const [selected, setSelected] = useState("");
 
     const handleInputChange = (e) => {
@@ -58,6 +59,7 @@ function Status(props) {
                       options={statuses}
                       onChange={isDropdownMulti ? handleInputChange : onChange}
                       dropdownCSS={dropdownCSS}
+                      intialSelection={intialSelection}
                       isMulti={isDropdownMulti}
             />
         </div>
@@ -68,7 +70,8 @@ function Status(props) {
 Status.propTypes = {
     onChange: propTypes.func,
     dropdownCSS: propTypes.object,
-    isDropdownMulti: propTypes.bool
+    isDropdownMulti: propTypes.bool,
+    givenSelection: propTypes.string
 };
 
 
