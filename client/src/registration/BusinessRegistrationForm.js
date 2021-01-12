@@ -74,7 +74,7 @@ const BusinessRegistrationForm = (props) => {
         province: undefined,
         postalCode: undefined,
     });
-    const [website, setWebsite] = useState("");
+    const [website, setWebsite] = useState(undefined);
     const [contactFName, setContactFName] = useState(undefined);
     const [contactLName, setContactLName] = useState(undefined);
     const [contactPhoneNumber, setContactPhoneNumber] = useState({
@@ -261,7 +261,7 @@ const BusinessRegistrationForm = (props) => {
         }
 
         // Business Details
-        businessDetailsErrors.errorBusinessName = validateEmail(bName, setBusinessNameError);
+        businessDetailsErrors.errorBusinessName = validateInput(bName, setBusinessNameError);
         businessDetailsErrors.errorBusinessEmail = validateEmail(bEmail, setBEmailError);
         businessDetailsErrors.errorPhoneNumber.regular = validatePhoneNumber(bPhoneNumber, setBPhoneNumberError);
         businessDetailsErrors.errorPhoneNumber.cell = validatePhoneNumber(bCellNumber, setBCellNumberError);
