@@ -11,7 +11,7 @@ import Select from 'react-select';
 import propTypes from "prop-types";
 
 function Dropdown(props) {
-    const {isSearchable, name, placeholder, options, onChange, intialSelection, dropdownCSS} = props;
+    const {isSearchable, name, placeholder, options, onChange, intialSelection, dropdownCSS, dropdownTheme} = props;
 
     const [selected, setSelected] = useState(intialSelection || "");
 
@@ -33,14 +33,7 @@ function Dropdown(props) {
                 name={name}
                 menuPortalTarget={document.body}
                 styles={dropdownCSS}
-                theme={theme => ({
-                    ...theme,
-                    borderRadius: 8,
-                    colors: {
-                        ...theme.colors,
-                        neutral50: '#A0AEBF',  // Placeholder color
-                    }
-                })}
+                theme={dropdownTheme}
             />
         </div>
     );
@@ -53,7 +46,8 @@ Dropdown.propTypes = {
     placeholder: propTypes.string,
     onChange: propTypes.func,
     intialSelection: propTypes.string,
-    dropdownCSS: propTypes.object
+    dropdownCSS: propTypes.object,
+    dropdownTheme: propTypes.object
 };
 
 export default Dropdown;
