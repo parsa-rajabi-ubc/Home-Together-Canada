@@ -19,7 +19,10 @@ const {
     shouldMapAddressBeDefined,
     shouldIncorporatedOwnersNamesBeDefined,
     isPositiveInteger,
+    validateMinAndMax,
     isValidShareLimit,
+    validStatusPreferences,
+    validGenderPreferences,
     isValidAreasOfInterest,
     usernameShouldNotAlreadyExist,
     emailShouldNotAlreadyBeInUse,
@@ -110,7 +113,6 @@ const abstractUserValidation = [
         .customSanitizer(postalCode => removeAllWhiteSpace(postalCode))
         .custom(postalCode => isValidCanadianPostalCode(postalCode))
         .custom((postalCode, { req }) => shouldMailingAddressBeDefined(postalCode, req)),
-
 ];
 
 
@@ -222,7 +224,8 @@ exports.validate = (method) => {
                     .exists()
                     .isNumeric()
                     .customSanitizer(rent => parseInt(rent))
-                    .custom(rent => isPositiveInteger(rent)),
+                    .custom(rent => isPositiveInteger(rent))
+                    .custom((rent, {req}) => validateMinAndMax(req.body.minMonthlyBudget, rent)),
                 body('hasHomeToShare', 'A boolean value must be provided')
                     .exists()
                     .trim()
@@ -317,7 +320,59 @@ exports.validate = (method) => {
                     .exists()
                     .trim()
                     .stripLow()
-                    .isIn(WORK_STATUSES)
+                    .isIn(WORK_STATUSES),
+                body('minAgePreference')
+                    .exists()
+                    .isNumeric()
+                    .custom(age => isPositiveInteger(age)),
+                body('maxAgePreference')
+                    .exists()
+                    .isNumeric()
+                    .custom(age => isPositiveInteger(age))
+                    .custom((age, { req }) => validateMinAndMax(req.body.minAgePreference, age)),
+                body('minBudgetPreference')
+                    .exists()
+                    .isNumeric()
+                    .custom(budget => isPositiveInteger(budget)),
+                body('maxBudgetPreference')
+                    .exists()
+                    .isNumeric()
+                    .custom(budget => isPositiveInteger(budget))
+                    .custom((budget, {req}) => validateMinAndMax(req.body.minBudgetPreference, budget)),
+                body('statusPreference')
+                    .exists()
+                    .isArray()
+                    .custom(statusPreference => validStatusPreferences(statusPreference)),
+                body('minNumRoommatesPreference')
+                    .exists()
+                    .isNumeric()
+                    .custom(limit => isValidShareLimit(limit)),
+                body('maxNumRoommatesPreference')
+                    .exists()
+                    .isNumeric()
+                    .custom(limit => isValidShareLimit(limit)),
+                body('dietPreference')
+                    .exists()
+                    .isBoolean(),
+                body('petsPreference')
+                    .exists()
+                    .isBoolean(),
+                body('smokingPreference')
+                    .exists()
+                    .isBoolean(),
+                body('healthAndMobilityPreference')
+                    .exists()
+                    .isBoolean(),
+                body('genderPreference')
+                    .exists()
+                    .isArray()
+                    .custom(genderPreferences => validGenderPreferences(genderPreferences)),
+                body('religionPreference')
+                    .exists()
+                    .isBoolean(),
+                body('othersWithHomeToSharePreference')
+                    .exists()
+                    .isBoolean()
             ]
         }
         case 'changePassword': {

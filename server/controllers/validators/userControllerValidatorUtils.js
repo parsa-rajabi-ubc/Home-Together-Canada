@@ -5,7 +5,7 @@
  * @Description: custom validators to validate input to controller functions to create business and member users
  *
  */
-
+const isNumber = require('lodash/isNumber');
 const abstractUserController = require('../abstractUserController');
 const memberAccountController = require('../memberAccountController');
 const PasswordService = require('../../services/PasswordService');
@@ -97,21 +97,53 @@ const shouldIncorporatedOwnersNamesBeDefined = (incorporatedOwnersNames, req) =>
 };
 
 const isPositiveInteger = (num) => {
-    if (num < 0) {
+    if (num === undefined || num === null || num < 0) {
         throw new Error('Must provide a positive value');
     } else {
         return true;
     }
 }
 
-// TODO: write tests for this function
+const validateMinAndMax = (min, max) => {
+    if (!isNumber(min) || !isNumber(max) || min > max) {
+        throw new Error('Min is greater than the max');
+    } else {
+        return true;
+    }
+}
+
+const validStatusPreferences = (statuses) => {
+    if (!statuses || !statuses.length) {
+        throw new Error('Status list is empty');
+    } else {
+        statuses.forEach(status => {
+            if (!STATUSES.includes(status)) {
+                throw new Error('Status is not included valid statuses');
+            }
+        });
+    }
+    return true;
+}
+
+const validGenderPreferences = (genders) => {
+    if (!genders || !genders.length) {
+        throw new Error('Gender preferences list is empty');
+    } else {
+        genders.forEach(gender => {
+            if (!GENDERS.includes(gender)) {
+                throw new Error('Gender is not included in valid genders');
+            }
+        });
+    }
+    return true;
+}
+
 const isValidShareLimit = (limit) => SHARE_LIMITS.includes(limit);
 
-// TODO: write tests for this function
 const isValidAreasOfInterest = (areasOfInterest) => {
     if (!!areasOfInterest && areasOfInterest.length > 0) {
         areasOfInterest.forEach(areaOfInterest => {
-            if (!areaOfInterest || !areaOfInterest.province || !areaOfInterest.city || !areaOfInterest.radius) {
+            if (!areaOfInterest || !areaOfInterest.province || !areaOfInterest.city || !isNumber(areaOfInterest.radius)) {
                 throw new Error('Area of interest must include province, city and radius properties');
             } else if (!PROVINCES.includes(areaOfInterest.province)) {
                 throw new Error('Must provide a valid Canadian Province');
@@ -120,7 +152,7 @@ const isValidAreasOfInterest = (areasOfInterest) => {
                 throw new Error('Radius must be positive');
             }
         });
-    } else if (!!areasOfInterest && !areasOfInterest.length) {
+    } else if (!areasOfInterest || (!!areasOfInterest && !areasOfInterest.length)) {
         throw new Error('At least one area of interest must be provided');
     }
     return true;
@@ -211,6 +243,9 @@ module.exports = {
     shouldMapAddressBeDefined,
     shouldIncorporatedOwnersNamesBeDefined,
     isPositiveInteger,
+    validateMinAndMax,
+    validStatusPreferences,
+    validGenderPreferences,
     isValidShareLimit,
     isValidAreasOfInterest,
     usernameShouldNotAlreadyExist,
