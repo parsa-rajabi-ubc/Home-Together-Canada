@@ -4021,7 +4021,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                   >
                     <input
                       className="undefined input"
-                      min="16"
+                      min="0"
                       onChange={[Function]}
                       placeholder="Min # Roommate(s)"
                       step="1"
