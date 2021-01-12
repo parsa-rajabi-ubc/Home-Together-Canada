@@ -15,11 +15,11 @@ import SubmitButton from "../common/forms/SubmitButton";
 import Address from "../common/forms/Address";
 import SignInInfo from "../common/forms/SignInInfo";
 import PhoneNumInput from "../common/forms/PhoneNumInput";
-import {isStringEmail, isStringEmpty, isStringSame, isStringNumeralsOnly} from "../common/utils/stringUtils";
 import RegistrationService from '../services/RegistrationService';
 import {
+    checkIfErrorsExistInMapping,
     getConcatenatedErrorMessage,
-    getPhoneNumberFromStrings, isPhoneNumberValid,
+    getPhoneNumberFromStrings,
     validateEmail,
     validateInput, validatePasswordConfirmationEmpty, validatePasswordConfirmationMismatch, validatePhoneNumber
 } from "./registrationUtils";
@@ -32,7 +32,6 @@ import {USER_TYPES} from "../common/constants/users";
 const mapDispatch = {setAccountType, setAuthenticated};
 
 
-// TODO: separate this into container and presentational components (see https://css-tricks.com/learning-react-container-components/)
 const BusinessRegistrationForm = (props) => {
     const {history, setAccountType, setAuthenticated} = props;
 
@@ -126,16 +125,20 @@ const BusinessRegistrationForm = (props) => {
 
     // business details
     useEffect(() => {
-        bName !== undefined && validateEmail(bName, setBusinessNameError);
+        bName !== undefined && validateInput(bName, setBusinessNameError);
     }, [bName]);
     useEffect(() => {
         bEmail !== undefined && validateEmail(bEmail, setBEmailError);
     }, [bEmail]);
     useEffect(() => {
-        bPhoneNumber !== undefined && validatePhoneNumber(bPhoneNumber, setBPhoneNumberError);
+        if (bPhoneNumber.first !== undefined || bPhoneNumber.middle !== undefined || bPhoneNumber.last !== undefined) {
+            validatePhoneNumber(bPhoneNumber, setBPhoneNumberError);
+        }
     }, [bPhoneNumber]);
     useEffect(() => {
-        bCellNumber !== undefined && validatePhoneNumber(bCellNumber, setBCellNumberError);
+        if (bCellNumber.first !== undefined || bCellNumber.middle !== undefined || bCellNumber.last !== undefined) {
+            validatePhoneNumber(bCellNumber, setBCellNumberError);
+        }
     }, [bCellNumber]);
 
     // Address
@@ -192,7 +195,9 @@ const BusinessRegistrationForm = (props) => {
         contactLName !== undefined && validateInput(contactLName, setContactLastNameError);
     }, [contactLName]);
     useEffect(() => {
-        contactPhoneNumber !== undefined && validatePhoneNumber(contactPhoneNumber, setContactPhoneNumberError);
+        if (contactPhoneNumber.first !== undefined || contactPhoneNumber.middle !== undefined || contactPhoneNumber.last !== undefined) {
+            validatePhoneNumber(contactPhoneNumber, setContactPhoneNumberError);
+        }
     }, [contactPhoneNumber]);
 
     // Account Details
@@ -212,69 +217,93 @@ const BusinessRegistrationForm = (props) => {
     }, [password, passwordCheck]);
 
     const isFormValid = () => {
-        // Business Details
-        validateEmail(bName, setBusinessNameError);
-        validateEmail(bEmail, setBEmailError);
-        validatePhoneNumber(bPhoneNumber, setBPhoneNumberError);
-        validatePhoneNumber(bCellNumber, setBCellNumberError);
 
-        validateInput(bAddress.street, setStreetAddressError);
-        validateInput(bAddress.city, setCityAddressError);
-        validateInput(bAddress.province, setProvinceAddressError);
-        validateInput(bAddress.postalCode, setPostalCodeError);
+        const businessDetailsErrors = {
+            errorBusinessName: false,
+            errorBusinessEmail: false,
+            errorPhoneNumber: {
+                regular: false,
+                cell: false,
+            },
+            errorAddress: {
+                street: false,
+                city: false,
+                province: false,
+                postalCode: false,
+            },
+            errorMailingAddress: {
+                street: false,
+                city: false,
+                province: false,
+                postalCode: false,
+            },
+            errorMapAddress: {
+                street: false,
+                city: false,
+                province: false,
+                postalCode: false,
+            }
+        }
+
+        const contactPersonErrors = {
+            errorFirstName: false,
+            errorLastName: false,
+            errorPhoneNumber: false,
+        }
+
+        const accountDetailsErrors = {
+            errorUsername: false,
+            errorPassword: {
+                password: false,
+                passwordConfirmationEmpty: false,
+                passwordConfirmationMismatch: false,
+            }
+        }
+
+        // Business Details
+        businessDetailsErrors.errorBusinessName = validateEmail(bName, setBusinessNameError);
+        businessDetailsErrors.errorBusinessEmail = validateEmail(bEmail, setBEmailError);
+        businessDetailsErrors.errorPhoneNumber.regular = validatePhoneNumber(bPhoneNumber, setBPhoneNumberError);
+        businessDetailsErrors.errorPhoneNumber.cell = validatePhoneNumber(bCellNumber, setBCellNumberError);
+
+        businessDetailsErrors.errorAddress.street = validateInput(bAddress.street, setStreetAddressError);
+        businessDetailsErrors.errorAddress.city = validateInput(bAddress.city, setCityAddressError);
+        businessDetailsErrors.errorAddress.province = validateInput(bAddress.province, setProvinceAddressError);
+        businessDetailsErrors.errorAddress.postalCode = validateInput(bAddress.postalCode, setPostalCodeError);
 
         if (useDifferentMailingAddress) {
-            validateInput(bMailingAddress.street, setStreetMailingAddressError);
-            validateInput(bMailingAddress.city, setCityMailingAddressError);
-            validateInput(bMailingAddress.province, setProvinceMailingAddressError);
-            validateInput(bMailingAddress.postalCode, setPostalCodeMailingError);
+            businessDetailsErrors.errorMailingAddress.street = validateInput(bMailingAddress.street, setStreetMailingAddressError);
+            businessDetailsErrors.errorMailingAddress.city = validateInput(bMailingAddress.city, setCityMailingAddressError);
+            businessDetailsErrors.errorMailingAddress.province = validateInput(bMailingAddress.province, setProvinceMailingAddressError);
+            businessDetailsErrors.errorMailingAddress.postalCode = validateInput(bMailingAddress.postalCode, setPostalCodeMailingError);
         }
         if (!isNationWide) {
-            validateInput(bMapAddress.street, setStreetMapAddressError);
-            validateInput(bMapAddress.city, setCityMapAddressError);
-            validateInput(bMapAddress.province, setProvinceMapAddressError);
-            validateInput(bMapAddress.postalCode, setPostalCodeMapError);
+            businessDetailsErrors.errorMapAddress.street = validateInput(bMapAddress.street, setStreetMapAddressError);
+            businessDetailsErrors.errorMapAddress.city = validateInput(bMapAddress.city, setCityMapAddressError);
+            businessDetailsErrors.errorMapAddress.province = validateInput(bMapAddress.province, setProvinceMapAddressError);
+            businessDetailsErrors.errorMapAddress.postalCode = validateInput(bMapAddress.postalCode, setPostalCodeMapError);
         }
 
         // Contact Person Validation
-        validateInput(contactFName, setContactFirstNameError);
-        validateInput(contactLName, setContactLastNameError);
-        validatePhoneNumber(contactPhoneNumber, setContactPhoneNumberError);
+        contactPersonErrors.errorFirstName = validateInput(contactFName, setContactFirstNameError);
+        contactPersonErrors.errorLastName = validateInput(contactLName, setContactLastNameError);
+        contactPersonErrors.errorPhoneNumber = validatePhoneNumber(contactPhoneNumber, setContactPhoneNumberError);
 
         // Account Details Validation
-        validateInput(username, setUsernameError);
-        validateInput(password, setPasswordError);
-        validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
-        validatePasswordConfirmationMismatch(password, passwordCheck, setPasswordConfirmError);
+        accountDetailsErrors.errorUsername = validateInput(username, setUsernameError);
+        accountDetailsErrors.errorPassword.password = validateInput(password, setPasswordError);
+        accountDetailsErrors.errorPassword.passwordConfirmationEmpty = validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
+        accountDetailsErrors.errorPassword.passwordConfirmationMismatch = validatePasswordConfirmationMismatch(password, passwordCheck, setPasswordConfirmError);
 
-        //    check business name, email and phone numbers for errors
-        if (isStringEmpty(bName) || !isStringEmail(bEmail) || isPhoneNumberValid(bPhoneNumber) || isPhoneNumberValid(bCellNumber)) {
+        // check business details for errors
+        if (checkIfErrorsExistInMapping(businessDetailsErrors)) {
             return false;
-
-            //    check business address for errors
-        } else if (isStringEmpty(bAddress.street) || isStringEmpty(bAddress.city) || isStringEmpty(bAddress.province) || isStringEmpty(bAddress.postalCode)) {
-            return false;
-
-            //    check mailing address for errors if different mailing address is selected
-        } else if (useDifferentMailingAddress) {
-            if (isStringEmpty(bMailingAddress.street) || isStringEmpty(bMailingAddress.city) || isStringEmpty(bMailingAddress.province) || isStringEmpty(bMailingAddress.postalCode)) {
-                return false;
-            }
-
-            //    check map address for errors if nation wide is not selected
-        } else if (!isNationWide) {
-            if (isStringEmpty(bMapAddress.street) || isStringEmpty(bMapAddress.city) || isStringEmpty(bMapAddress.province) || isStringEmpty(bMapAddress.postalCode)) {
-                return false;
-            }
-
             // check contact person for errors
-        } else if (isStringEmpty(contactFName) || isStringEmpty(contactLName) || isPhoneNumberValid(contactPhoneNumber)) {
+        } else if (checkIfErrorsExistInMapping(contactPersonErrors)) {
             return false;
-
             // check account details for errors
-        } else if (isStringEmpty(username) || isStringEmpty(password) || isStringEmpty(passwordCheck) || isStringSame(password, passwordCheck)) {
+        } else if (checkIfErrorsExistInMapping(accountDetailsErrors)) {
             return false;
-
             // return true if no errors
         } else {
             return true;

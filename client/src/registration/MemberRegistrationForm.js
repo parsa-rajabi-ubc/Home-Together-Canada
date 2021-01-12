@@ -341,7 +341,6 @@ function MemberRegistrationForm(props) {
                 passwordConfirmationEmpty: false,
                 passwordConfirmationMismatch: false,
             }
-
         }
 
         // Personal Information Validation
