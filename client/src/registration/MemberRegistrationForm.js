@@ -1055,7 +1055,7 @@ function MemberRegistrationForm(props) {
                                                 <input
                                                     className={`${minNumRoommatePreferenceError && "border-red-500"} input`}
                                                     type="number"
-                                                    min="16"
+                                                    min="0"
                                                     step="1"
                                                     placeholder="Min # Roommate(s)"
                                                     onChange={(e) => setMinNumRoommate(e.target.value)}
