@@ -120,6 +120,19 @@ function MemberRegistrationForm(props) {
 
     const [selectedWorkStatus, setsSelectedWorkStatus] = useState();
 
+    const [minAgePreference, setMinAgePreference] = useState("");
+    const [maxAgePreference, setMaxAgePreference] = useState("");
+    const [genderPreference, setGenderPreference] = useState("");
+    const [familyStatusPreference, setFamilyStatusPreference] = useState("");
+    const [limitPreference, setLimitPreference] = useState("");
+    const [religionPreference, setReligionPreference] = useState("");
+    const [dietPreference, setDietPreference] = useState("");
+    const [homeToSharePreference, setHomeToSharePreference] = useState("");
+    const [minBudgetPreference, setMinBudgetPreference] = useState("");
+    const [maxBudgetPreference, setMaxBudgetPreference] = useState("");
+    const [petPreference, setPetPreference] = useState("");
+    const [smokingPreference, setSmokingPreference] = useState("");
+
     // Error state variables 
     // Personal Information Start  
     const [firstNameError, setFirstNameError] = useState(undefined);
@@ -161,18 +174,18 @@ function MemberRegistrationForm(props) {
     // Profile Details End
 
     // Search Criteria
-    const [minAgePreference, setMinAgePreference] = useState("");
-    const [maxAgePreference, setMaxAgePreference] = useState("");
-    const [genderPreference, setGenderPreference] = useState("");
-    const [familyStatusPreference, setFamilyStatusPreference] = useState("");
-    const [limitPreference, setLimitPreference] = useState("");
-    const [religionPreference, setReligionPreference] = useState("");
-    const [dietPreference, setDietPreference] = useState("");
-    const [homeToSharePreference, setHomeToSharePreference] = useState("");
-    const [minBudgetPreference, setMinBudgetPreference] = useState("");
-    const [maxBudgetPreference, setMaxBudgetPreference] = useState("");
-    const [petPreference, setPetPreference] = useState("");
-    const [smokingPreference, setSmokingPreference] = useState("");
+    const [minAgePreferenceError, setMinAgePreferenceError] = useState("");
+    const [maxAgePreferenceError, setMaxAgePreferenceError] = useState("");
+    const [genderPreferenceError, setGenderPreferenceError] = useState("");
+    const [familyStatusPreferenceError, setFamilyStatusPreferenceError] = useState("");
+    const [limitPreferenceError, setLimitPreferenceError] = useState("");
+    const [religionPreferenceError, setReligionPreferenceError] = useState("");
+    const [dietPreferenceError, setDietPreferenceError] = useState("");
+    const [homeToSharePreferenceError, setHomeToSharePreferenceError] = useState("");
+    const [minBudgetPreferenceError, setMinBudgetPreferenceError] = useState("");
+    const [maxBudgetPreferenceError, setMaxBudgetPreferenceError] = useState("");
+    const [petPreferenceError, setPetPreferenceError] = useState("");
+    const [smokingPreferenceError, setSmokingPreferenceError] = useState("");
 
 
     // Account Details Start
@@ -357,6 +370,26 @@ function MemberRegistrationForm(props) {
             errorBuyingHome: false,
         }
 
+        const searchErrors = {
+            errorGenderPref: false,
+            errorAgePref: {
+                min: false,
+                max: false,
+            },
+            errorFamilyStatusPref: false,
+            errorLimitPref: false,
+            errorBudgetPref: {
+                min: false,
+                max: false,
+            },
+            errorPetPref: false,
+            errorSmokingPref: false,
+            errorReligionPref: false,
+            errorDietPref: false,
+            errorHomeToSharePref: false,
+
+        }
+
         const accountDetailsErrors = {
             errorUsername: false,
             errorPassword: {
@@ -411,6 +444,20 @@ function MemberRegistrationForm(props) {
         profileInfoErrors.errorHomeToShare = validateInput(hasHome, setHomeError);
         profileInfoErrors.errorBuyingHome = validateInput(interestInBuyingHome, setInterestInBuyingError);
 
+        // Search Criteria Validation
+        searchErrors.errorGenderPref = validateInput(genderPreference, setGenderPreferenceError);
+        searchErrors.errorAgePref.min = validateInput(minAgePreference, setMinAgePreferenceError);
+        searchErrors.errorAgePref.max = validateInput(maxAgePreference, setMaxAgePreferenceError);
+        searchErrors.errorFamilyStatusPref = validateInput(familyStatusPreference, setFamilyStatusPreferenceError);
+        searchErrors.errorLimitPref = validateInput(limitPreference, setLimitPreferenceError);
+        searchErrors.errorBudgetPref.min = validateInput(minBudgetPreference, setMinBudgetPreferenceError);
+        searchErrors.errorBudgetPref.max = validateInput(maxBudgetPreference, setMaxBudgetPreferenceError);
+        searchErrors.errorPetPref = validateInput(petPreference, setPetPreferenceError);
+        searchErrors.errorSmokingPref = validateInput(smokingPreference, setSmokingPreferenceError);
+        searchErrors.errorReligionPref = validateInput(religionPreference, setReligionPreferenceError);
+        searchErrors.errorDietPref = validateInput(dietPreference, setDietPreferenceError);
+        searchErrors.errorHomeToSharePref = validateInput(homeToSharePreference, setHomeToSharePreferenceError);
+
         // Account Details Validation
         accountDetailsErrors.errorUsername = validateInput(username, setUsernameError);
         accountDetailsErrors.errorPassword.password = validateInput(password, setPasswordError);
@@ -423,13 +470,10 @@ function MemberRegistrationForm(props) {
             // check profile for errors
         } else if (checkIfErrorsExistInMapping(profileInfoErrors)) {
             return false;
-            // check account details for errors
-        } else if (checkIfErrorsExistInMapping(accountDetailsErrors)) {
+        } else if (checkIfErrorsExistInMapping(searchErrors)) {
             return false;
-            // return true if no errors
-        } else {
-            return true;
-        }
+            // check account details for errors
+        } else return !checkIfErrorsExistInMapping(accountDetailsErrors);
 
     }
 
@@ -452,7 +496,7 @@ function MemberRegistrationForm(props) {
         }
     };
 
-    //function for input checks on submit
+//function for input checks on submit
     function onSubmit(event) {
 
         if (!isFormValid()) {
@@ -932,35 +976,38 @@ function MemberRegistrationForm(props) {
                             <div className="px-4 py-6 bg-white sm:p-5">
                                 <div className="grid grid-cols-2 gap-6">
                                     <div className="col-span-3 sm:col-span-2">
-                                        <LabelAsterisk label={"I am open to sharing with"}/>
-                                        <div className={"my-2"}>
-                                            <RadioButton
-                                                label="Male"
-                                                name="gender" value="Male"
-                                                checked={genderPreference === "Male"}
-                                                onChange={(e) => setGenderPreference(e.target.value)}
-                                            />
-                                            <RadioButton
-                                                label="Female"
-                                                name="gender"
-                                                value="Female"
-                                                checked={genderPreference === "Female"}
-                                                onChange={(e) => setGenderPreference(e.target.value)}
-                                            />
-                                            <RadioButton
-                                                label="Other "
-                                                name="gender"
-                                                value="Other"
-                                                checked={genderPreference === "Other"}
-                                                onChange={(e) => setGenderPreference(e.target.value)}
-                                            />
-                                        </div>
+                                        <section
+                                            className={`${genderPreferenceError && "pl-1 border rounded-lg border-red-500 mr-52"}`}>
+                                            <LabelAsterisk label={"I am open to sharing with"}/>
+                                            <div className={"my-2"}>
+                                                <RadioButton
+                                                    label="Male"
+                                                    name="gender" value="Male"
+                                                    checked={genderPreference === "Male"}
+                                                    onChange={(e) => setGenderPreference(e.target.value)}
+                                                />
+                                                <RadioButton
+                                                    label="Female"
+                                                    name="gender"
+                                                    value="Female"
+                                                    checked={genderPreference === "Female"}
+                                                    onChange={(e) => setGenderPreference(e.target.value)}
+                                                />
+                                                <RadioButton
+                                                    label="Other "
+                                                    name="gender"
+                                                    value="Other"
+                                                    checked={genderPreference === "Other"}
+                                                    onChange={(e) => setGenderPreference(e.target.value)}
+                                                />
+                                            </div>
+                                        </section>
                                         <LabelAsterisk label={"Age range of person(s) I would like to share with"}/>
                                         <Tooltip text={INFO_TEXT.PREF.AGE} toolTipID="agePref"/>
                                         <div className="grid grid-cols-6 gap-x-6">
                                             <div className="column-span-6-layout">
                                                 <input
-                                                    className={"input label font-normal "}
+                                                    className={`${minAgePreferenceError && "border-red-500"} input`}
                                                     type="number"
                                                     min="16"
                                                     step="1"
@@ -970,7 +1017,7 @@ function MemberRegistrationForm(props) {
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <input
-                                                    className={"input label font-normal "}
+                                                    className={`${maxAgePreferenceError && "border-red-500"} input`}
                                                     type="number"
                                                     min={minAgePreference}
                                                     step="1"
@@ -983,20 +1030,20 @@ function MemberRegistrationForm(props) {
                                         <LabelAsterisk label={"I am open to sharing with"}/>
                                         <Tooltip text={INFO_TEXT.FAMILY_STATUS} toolTipID="familyStatusPref"/>
                                         <Status onChange={handleFamilyStatusPreferenceChange}
-                                                dropdownCSS={familyStatusError ? dropdownErrorCSS : dropdownDefaultCSS}
+                                                dropdownCSS={familyStatusPreferenceError ? dropdownErrorCSS : dropdownDefaultCSS}
                                         />
 
                                         <LabelAsterisk label={"I would like to share with"}/>
                                         <Tooltip text={INFO_TEXT.NUM_PEOPLE_SHARE} toolTipID="numPeopleToSharePref"/>
                                         <ShareLimit onChange={handleLimitPreferenceChange}
-                                                    dropdownCSS={limitError ? dropdownErrorCSS : dropdownDefaultCSS}/>
+                                                    dropdownCSS={limitPreferenceError ? dropdownErrorCSS : dropdownDefaultCSS}/>
 
                                         <LabelAsterisk label={"Monthly budget"}/>
                                         <Tooltip text={INFO_TEXT.RENT} toolTipID="rentPref"/>
                                         <div className="grid grid-cols-6 gap-x-6">
                                             <div className="column-span-6-layout">
                                                 <input
-                                                    className={"input label font-normal "}
+                                                    className={`${minBudgetPreferenceError && "border-red-500"} input`}
                                                     type="number"
                                                     min="0"
                                                     step="1"
@@ -1006,7 +1053,7 @@ function MemberRegistrationForm(props) {
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <input
-                                                    className={"input label font-normal "}
+                                                    className={`${maxBudgetPreferenceError && "border-red-500"} input`}
                                                     type="number"
                                                     min={minRent}
                                                     step="1"
@@ -1017,54 +1064,69 @@ function MemberRegistrationForm(props) {
                                         </div>
                                         <div className="grid grid-cols-6 gap-x-6">
                                             <div className="column-span-6-layout">
-                                                <YNButton
-                                                    label={"Pet friendly?"}
-                                                    toolTipText={INFO_TEXT.PET}
-                                                    toolTipID="pet"
-                                                    name="petFriendlyPref"
-                                                    required={true}
-                                                    onChange={(e) => setPetPreference(e.target.value)}
-                                                />
+                                                <section
+                                                    className={`${petPreferenceError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                                    <YNButton
+                                                        label={"Pet friendly?"}
+                                                        toolTipText={INFO_TEXT.PET}
+                                                        toolTipID="pet"
+                                                        name="petFriendlyPref"
+                                                        required={true}
+                                                        onChange={(e) => setPetPreference(e.target.value)}
+                                                    />
+                                                </section>
                                             </div>
                                             <div className="column-span-6-layout">
-                                                <YNButton
-                                                    label={"Smoke friendly?"}
-                                                    toolTipText={INFO_TEXT.SMOKE}
-                                                    toolTipID="smoke"
-                                                    name="smokingPref"
-                                                    required={true}
-                                                    onChange={(e) => setSmokingPreference(e.target.value)}
-                                                />
+                                                <section
+                                                    className={`${smokingPreferenceError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                                    <YNButton
+                                                        label={"Smoke friendly?"}
+                                                        toolTipText={INFO_TEXT.SMOKE}
+                                                        toolTipID="smoke"
+                                                        name="smokingPref"
+                                                        required={true}
+                                                        onChange={(e) => setSmokingPreference(e.target.value)}
+                                                    />
+                                                </section>
                                             </div>
                                             <div className="column-span-6-layout">
-                                                <YNButton
-                                                    label={"Is religion important?"}
-                                                    toolTipText={INFO_TEXT.RELIGION}
-                                                    toolTipID="religion"
-                                                    name="religion"
-                                                    required={true}
-                                                    onChange={(e) => setReligionPreference(e.target.value)}
-                                                />
+                                                <section
+                                                    className={`${religionPreferenceError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                                    <YNButton
+                                                        label={"Is religion important?"}
+                                                        toolTipText={INFO_TEXT.RELIGION}
+                                                        toolTipID="religion"
+                                                        name="religion"
+                                                        required={true}
+                                                        onChange={(e) => setReligionPreference(e.target.value)}
+                                                    />
+                                                </section>
                                             </div>
                                             <div className="column-span-6-layout">
-                                                <YNButton
-                                                    label={"Is diet of others important?"}
-                                                    toolTipText={INFO_TEXT.DIET}
-                                                    toolTipID="diet"
-                                                    name="diet"
-                                                    required={true}
-                                                    onChange={(e) => setDietPreference(e.target.value)}
-                                                />
+                                                <section
+                                                    className={`${dietPreferenceError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                                    <YNButton
+                                                        label={"Is diet of others important?"}
+                                                        toolTipText={INFO_TEXT.DIET}
+                                                        toolTipID="diet"
+                                                        name="diet"
+                                                        required={true}
+                                                        onChange={(e) => setDietPreference(e.target.value)}
+                                                    />
+                                                </section>
                                             </div>
                                             <div className="column-span-6-layout">
-                                                <YNButton
-                                                    label={"Others with a home to share?"}
-                                                    toolTipText={INFO_TEXT.HOME_TO_SHARE}
-                                                    toolTipID="homeToShare"
-                                                    name="homeToSharePref"
-                                                    required={true}
-                                                    onChange={(e) => setHomeToSharePreference(e.target.value)}
-                                                />
+                                                <section
+                                                    className={`${homeToSharePreferenceError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                                    <YNButton
+                                                        label={"Others with a home to share?"}
+                                                        toolTipText={INFO_TEXT.HOME_TO_SHARE}
+                                                        toolTipID="homeToShare"
+                                                        name="homeToSharePref"
+                                                        required={true}
+                                                        onChange={(e) => setHomeToSharePreference(e.target.value)}
+                                                    />
+                                                </section>
                                             </div>
 
                                         </div>
