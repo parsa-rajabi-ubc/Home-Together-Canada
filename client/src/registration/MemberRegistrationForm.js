@@ -19,10 +19,10 @@ import {
     getConcatenatedErrorMessage,
     getPhoneNumberFromStrings,
     validateInput,
-    validateObject,
+    checkIfErrorsExistInMapping,
     validatePhoneNumber,
     validatePasswordConfirmationMismatch,
-    validatePasswordConfirmationEmpty, validateEmail, DEFAULT_PHONE_NUMBER
+    validatePasswordConfirmationEmpty, validateEmail
 } from "./registrationUtils";
 import RegistrationService from "../services/RegistrationService";
 import RadioButton from "../common/forms/RadioButton";
@@ -52,7 +52,9 @@ function MemberRegistrationForm(props) {
     const [yearOfBirth, setYearOfBirth] = useState(undefined);
     const [email, setEmail] = useState(undefined);
     const [phoneNumber, setPhoneNumber] = useState({
-        ...DEFAULT_PHONE_NUMBER
+        first: undefined,
+        middle: undefined,
+        last: undefined
     });
     const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(undefined);
     const [address, setAddress] = useState({
@@ -175,8 +177,9 @@ function MemberRegistrationForm(props) {
         email !== undefined && validateEmail(email, setEmailError);
     }, [email]);
     useEffect(() => {
-        // shallow comparison done on purpose
-        phoneNumber != DEFAULT_PHONE_NUMBER && validatePhoneNumber(phoneNumber, setPhoneNumberError);
+        if (phoneNumber.first !== undefined || phoneNumber.middle !== undefined || phoneNumber.last !== undefined) {
+            validatePhoneNumber(phoneNumber, setPhoneNumberError);
+        }
     }, [phoneNumber]);
 
     // Address
@@ -368,16 +371,19 @@ function MemberRegistrationForm(props) {
         for (let i = 0; i <= areasOfInterest.length - 1; i++) {
             if (!areasOfInterest[i].province || !areasOfInterest[i].city || !areasOfInterest[i].radius) {
                 setAreasOfInterestError(true);
+                profileInfoErrors.errorInterestedArea = true;
                 break;
-            } else
+            } else {
                 setAreasOfInterestError(false);
+                profileInfoErrors.errorInterestedArea = false;
+            }
         }
         // Yes/No Validation
         profileInfoErrors.errorPet = validateInput(petFriendly, setPetFriendlyError);
         profileInfoErrors.errorSmoking = validateInput(smoking, setSmokingError);
         profileInfoErrors.errorHealth = validateInput(mobilityIssues, setMobilityIssuesError);
         profileInfoErrors.errorAllergies = validateInput(hasAllergies, setAllergiesError);
-        profileInfoErrors.errorAllergies = validateInput(religious, setReligionError);
+        profileInfoErrors.errorReligion = validateInput(religious, setReligionError);
         profileInfoErrors.errorDiet = validateInput(hasDiet, setDietError);
         profileInfoErrors.errorHomeToShare = validateInput(hasHome, setHomeError);
         profileInfoErrors.errorBuyingHome = validateInput(interestInBuyingHome, setInterestInBuyingError);
@@ -389,13 +395,13 @@ function MemberRegistrationForm(props) {
         accountDetailsErrors.errorPassword.passwordConfirmationMismatch = validatePasswordConfirmationMismatch(password, passwordCheck, setPasswordConfirmError);
 
         // check personal information for errors
-        if (validateObject(personalInfoErrors)) {
+        if (checkIfErrorsExistInMapping(personalInfoErrors)) {
             return false;
             // check profile for errors
-        } else if (validateObject(profileInfoErrors)) {
+        } else if (checkIfErrorsExistInMapping(profileInfoErrors)) {
             return false;
             // check account details for errors
-        } else if (validateObject(accountDetailsErrors)) {
+        } else if (checkIfErrorsExistInMapping(accountDetailsErrors)) {
             return false;
             // return true if no errors
         } else {

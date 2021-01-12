@@ -17,7 +17,7 @@ import {dropdownDefaultCSS} from "../../css/dropdownCSSUtil"
 
 
 function InterestedArea(props) {
-    const {onChange, styling, areasOfInterestError} = props;
+    const {onChange, areasOfInterestError} = props;
     const [extraAreas, setExtraAreas] = useState([{province: "", city: "", radius: ""}]);
 
     const handleRemoveClick = index => {
@@ -112,7 +112,6 @@ function InterestedArea(props) {
 InterestedArea.propTypes = {
     onChange: PropTypes.func,
     areasOfInterestError: PropTypes.bool,
-    styling: PropTypes.object,
 }
 
 export default InterestedArea;
