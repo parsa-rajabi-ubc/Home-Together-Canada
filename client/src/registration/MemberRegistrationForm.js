@@ -376,40 +376,8 @@ function MemberRegistrationForm(props) {
                 setAreasOfInterestError(false);
                 profileInfoErrors.errorInterestedArea = false;
             }
-
         }
 
-        // Personal Information Validation
-        personalInfoErrors.errorFirstName = validateInput(firstName, setFirstNameError);
-        personalInfoErrors.errorLastName = validateInput(lastName, setLastNameError);
-        personalInfoErrors.errorEmail = validateEmail(email, setEmailError);
-        personalInfoErrors.errorPhoneNumber = validatePhoneNumber(phoneNumber, setPhoneNumberError);
-        personalInfoErrors.errorAddress.street = validateInput(address.street, setStreetAddressError);
-        personalInfoErrors.errorAddress.city = validateInput(address.city, setCityAddressError);
-        personalInfoErrors.errorAddress.province = validateInput(address.province, setProvinceAddressError);
-        personalInfoErrors.errorAddress.postalCode = validateInput(address.postalCode, setPostalCodeError);
-        if (useDifferentMailingAddress) {
-            personalInfoErrors.errorMailingAddress.street = validateInput(mailingAddress.street, setStreetMailingAddressError);
-            personalInfoErrors.errorMailingAddress.city = validateInput(mailingAddress.city, setCityMailingAddressError);
-            personalInfoErrors.errorMailingAddress.province = validateInput(mailingAddress.province, setProvinceMailingAddressError);
-            personalInfoErrors.errorMailingAddress.postalCode = validateInput(mailingAddress.postalCode, setPostalCodeMailingError);
-        }
-        // Profile Validation
-        profileInfoErrors.errorGender = validateInput(gender, setGenderError);
-        profileInfoErrors.errorYearOfBirth = validateInput(yearOfBirth, setYearOfBirthError);
-        profileInfoErrors.errorFamilyStatus = validateInput(selectedFamilyStatus, setFamilyStatusError);
-        profileInfoErrors.errorWorkStatus = validateInput(selectedWorkStatus, setWorkStatusError);
-        profileInfoErrors.errorLimit = validateInput(selectedLimit, setLimitError);
-        profileInfoErrors.errorRent.min = validateInput(minRent, setMinRentError);
-        profileInfoErrors.errorRent.max = validateInput(maxRent, setMaxRentError);
-
-        for (let i = 0; i <= areasOfInterest.length - 1; i++) {
-            if (!areasOfInterest[i].province || !areasOfInterest[i].city || !areasOfInterest[i].radius) {
-                setAreasOfInterestError(true);
-                break;
-            } else
-                setAreasOfInterestError(false);
-        }
         // Yes/No Validation
         profileInfoErrors.errorPet = validateInput(petFriendly, setPetFriendlyError);
         profileInfoErrors.errorSmoking = validateInput(smoking, setSmokingError);
