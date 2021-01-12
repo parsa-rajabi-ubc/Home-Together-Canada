@@ -8,39 +8,52 @@
  * @Description: User Login Form with Validation:
  *
  */
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import TextArea from '../common/forms/TextArea';
 import SubmitButton from '../common/forms/SubmitButton';
-import {isStringEmpty} from '../common/utils/stringUtils';
 import TypingPicture from '../images/typing.jpg';
 import GenericInput from '../common/forms/GenericInput';
 import {Link} from 'react-router-dom';
 import LoginService from '../services/LoginService';
-import {getConcatenatedErrorMessage} from "../registration/registrationUtils";
+import {
+    checkIfErrorsExistInMapping,
+    getConcatenatedErrorMessage,
+    validateInput
+} from "../registration/registrationUtils";
 import PropTypes from "prop-types";
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import {setIsAdmin, setAccountType, setAuthenticated} from "../redux/slices/userPrivileges";
 import {USER_TYPES} from "../common/constants/users";
 
-const mapDispatch = { setIsAdmin, setAccountType, setAuthenticated };
+const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
 
 function LoginForm(props) {
-    const { history, setIsAdmin, setAccountType, setAuthenticated } = props;
+    const {history, setIsAdmin, setAccountType, setAuthenticated} = props;
 
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    const [username, setUsername] = useState(undefined);
+    const [password, setPassword] = useState(undefined);
 
-    // TODO: create an array of errors
+    const [usernameError, setUsernameError] = useState(undefined);
+    const [passwordError, setPasswordError] = useState(undefined);
+
+    // Account Details
+    useEffect(() => {
+        username !== undefined && validateInput(username, setUsernameError);
+    }, [username]);
+    useEffect(() => {
+        password !== undefined && validateInput(password, setPasswordError);
+    }, [password]);
+
     const isFormValid = () => {
-        if (isStringEmpty(username)) {
-            alert("Username Required.");
-            return false;
+        const loginErrors = {
+            username: false,
+            password: false,
         }
-        if (isStringEmpty(password)) {
-            alert("password Required.");
-            return false;
-        }
-        return true;
+        loginErrors.username = validateInput(username, setUsernameError);
+        loginErrors.password = validateInput(password, setPasswordError);
+
+        // check personal information for errors
+        return !checkIfErrorsExistInMapping(loginErrors);
     }
 
     const onSubmit = (event) => {
@@ -70,7 +83,7 @@ function LoginForm(props) {
                     setAccountType({accountType});
 
                     // dispatch action to set authenticated
-                    setAuthenticated({ authenticated: data.authenticated });
+                    setAuthenticated({authenticated: data.authenticated});
 
                     // user is authenticated, redirect to home screen
                     return history.push('/');
@@ -106,22 +119,25 @@ function LoginForm(props) {
                                 <h1 className="h1">
                                     Login
                                 </h1>
-                                <TextArea className="input" label={''}
-                                          inputType="text" placeholder="Username" onChange={(input) => {
+                                <TextArea
+                                    className={`${usernameError && "border-red-500"} input`}
+                                    inputType="text" placeholder="Username" onChange={(input) => {
                                     setUsername(input.target.value)
                                 }}/>
 
-                                <GenericInput className="input" label={''}
-                                              inputType="password" placeholder="Password" onChange={(input) => {
+                                <GenericInput
+                                    className={`${passwordError && "border-red-500"} input`}
+                                    label={''}
+                                    inputType="password" placeholder="Password" onChange={(input) => {
                                     setPassword(input.target.value)
                                 }}/>
 
                                 {/* TODO: replace alerts with css warning i.e make the input box red and add a text:
                                  "Please enter a password / Password is invalid*/}
 
-                                    <SubmitButton
-                                        className="block px-4 py-2 mt-4 text-sm font-medium text-center btn btn-green"
-                                        inputValue='Login' onClick={onSubmit}/>
+                                <SubmitButton
+                                    className="block px-4 py-2 mt-4 text-sm font-medium text-center btn btn-green"
+                                    inputValue='Login' onClick={onSubmit}/>
 
                                 {/* TODO: remember me feature, using the checkbox function*/}
                                 {/*<Checkbox label="Remember me "/>*/}
@@ -151,4 +167,4 @@ LoginForm.propTypes = {
     })
 }
 
-export default connect(null, mapDispatch) (LoginForm);
+export default connect(null, mapDispatch)(LoginForm);
