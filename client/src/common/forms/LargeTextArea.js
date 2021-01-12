@@ -11,12 +11,12 @@ import Asterisk from "./Asterisk";
 import Tooltip from "./Tooltip";
 
 function LargeTextArea(props) {
-    const {label, name, placeholder, required, onChange, toolTipID, toolTipText} = props;
+    const {label, name, placeholder, value, required, onChange, toolTipID, toolTipText} = props;
     return (
         <div>
             <label className={"label"}> {label} </label>{(required ? <Asterisk/> : '')}
             {toolTipID && <Tooltip text={toolTipText} toolTipID={toolTipID}/>}
-            <textarea className={"input "} name={name} rows="5" cols="50" placeholder={placeholder}
+            <textarea className={"input "} name={name} rows="5" cols="50" placeholder={placeholder} value={value}
                       onChange={onChange}/>
         </div>
     );
@@ -29,6 +29,7 @@ LargeTextArea.propTypes = {
     name: PropTypes.string,
     required: PropTypes.bool,
     placeholder: PropTypes.string,
+    value: PropTypes.string,
     onChange: PropTypes.func
 };
 

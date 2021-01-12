@@ -11,6 +11,9 @@ import {useLocation} from 'react-router-dom';
 import SubPages from "./SubPages";
 import {ALL_SUBPAGES, BUSINESS_SUBPAGES, MEMBER_SUBPAGES, USER_TYPES} from "../common/constants/users";
 import ChangePasswordContainer from "../common/forms/ChangePasswordContainer";
+import MemberAccountSummary from "./MemberAccountSummary";
+import history from "./MockData";
+import MemberProfileSummary from "./MemberProfileSummary";
 
 const AccountSummaryContainer = () => {
     const {accountType, selected} = useLocation().state;
@@ -22,7 +25,7 @@ const AccountSummaryContainer = () => {
     const subpageComponent = (subpage) => {
         switch (subpage) {
             case ALL_SUBPAGES.PROFILE:
-                return <div>Profile Component</div>
+                return <MemberProfileSummary history={history}/>
             case ALL_SUBPAGES.PASSWORD:
                 return <ChangePasswordContainer/>
             case ALL_SUBPAGES.MESSAGING:
@@ -30,7 +33,7 @@ const AccountSummaryContainer = () => {
             case ALL_SUBPAGES.MANAGE_LISTINGS:
                 return <div>Manage Listings Component</div>
             default:
-                return <div>Account Info Component</div>
+                return <MemberAccountSummary history={history}/>
         }
     }
 
