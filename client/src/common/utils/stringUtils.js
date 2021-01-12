@@ -42,5 +42,3 @@ export function isStringSame(str1, str2) {
     return false;
 }
 
-
-

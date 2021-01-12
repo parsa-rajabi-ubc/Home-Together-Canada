@@ -15,7 +15,7 @@ exports[`Address Snapshot test should render correctly regardless of properties 
     
     <input
       autoComplete="address-line1"
-      className="input"
+      className="undefined input"
       name="street"
       onChange={[Function]}
       placeholder="Address Line 1"
@@ -39,7 +39,7 @@ exports[`Address Snapshot test should render correctly regardless of properties 
   >
     <input
       autoComplete="address-level2"
-      className="input"
+      className="undefined input"
       name="city"
       onChange={[Function]}
       placeholder="City"
@@ -160,7 +160,7 @@ exports[`Address Snapshot test should render correctly regardless of properties 
   >
     <input
       autoComplete="postal-code"
-      className="input"
+      className="undefined input"
       name="postalCode"
       onChange={[Function]}
       placeholder="Postal Code"

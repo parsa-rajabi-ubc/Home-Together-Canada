@@ -1,4 +1,3 @@
-
 /**
  * @Author:     Alex Qin
  * @Created:    2020.11.10
@@ -7,7 +6,7 @@
  *
  */
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import TextArea from '../common/forms/TextArea';
 import Checkbox from "../common/forms/Checkbox";
 import SubmitButton from '../common/forms/SubmitButton';
@@ -15,8 +14,16 @@ import Address from "../common/forms/Address";
 import SignInInfo from "../common/forms/SignInInfo";
 import PhoneNumInput from "../common/forms/PhoneNumInput";
 import BirthYear from "../common/forms/BirthYear";
-import {isStringEmpty, isStringNumeralsOnly, isStringSame} from "../common/utils/stringUtils";
-import {getConcatenatedErrorMessage, getPhoneNumberFromStrings} from "./registrationUtils";
+import {isStringEmpty} from "../common/utils/stringUtils";
+import {
+    getConcatenatedErrorMessage,
+    getPhoneNumberFromStrings,
+    validateInput,
+    checkIfErrorsExistInMapping,
+    validatePhoneNumber,
+    validatePasswordConfirmationMismatch,
+    validatePasswordConfirmationEmpty, validateEmail
+} from "./registrationUtils";
 import RegistrationService from "../services/RegistrationService";
 import RadioButton from "../common/forms/RadioButton";
 import Status from "../common/forms/Status";
@@ -32,6 +39,7 @@ import {connect} from 'react-redux';
 import {setIsAdmin, setAccountType, setAuthenticated} from '../redux/slices/userPrivileges';
 import Tooltip from "../common/forms/Tooltip";
 import {USER_TYPES} from "../common/constants/users";
+import {dropdownDefaultCSS, dropdownErrorCSS} from "../css/dropdownCSSUtil"
 import {Link} from "react-router-dom";
 
 const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
@@ -39,34 +47,33 @@ const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
 //Returns a Form with fields
 function MemberRegistrationForm(props) {
     const {history, setIsAdmin, setAccountType, setAuthenticated} = props;
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [yearOfBirth, setYearOfBirth] = useState("");
-    const [email, setEmail] = useState("");
+    const [firstName, setFirstName] = useState(undefined);
+    const [lastName, setLastName] = useState(undefined);
+    const [yearOfBirth, setYearOfBirth] = useState(undefined);
+    const [email, setEmail] = useState(undefined);
     const [phoneNumber, setPhoneNumber] = useState({
-        first: "",
-        middle: "",
-        last: ""
+        first: undefined,
+        middle: undefined,
+        last: undefined
     });
-    const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(false);
+    const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(undefined);
     const [address, setAddress] = useState({
-        street: "",
-        aptNum: "",
-        city: "",
-        province: "",
-        postalCode: ""
+        street: undefined,
+        aptNum: undefined,
+        city: undefined,
+        province: undefined,
+        postalCode: undefined
     });
     const [mailingAddress, setMailingAddress] = useState({
-        street: "",
-        aptNum: "",
-        city: "",
-        province: "",
-        postalCode: ""
+        street: undefined,
+        aptNum: undefined,
+        city: undefined,
+        province: undefined,
+        postalCode: undefined
     });
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [passwordCheck, setPasswordCheck] = useState("");
-
+    const [username, setUsername] = useState(undefined);
+    const [password, setPassword] = useState(undefined);
+    const [passwordCheck, setPasswordCheck] = useState(undefined);
     const [gender, setGender] = useState("");
     const [genderDescription, setGenderDescription] = useState("");
 
@@ -94,24 +101,141 @@ function MemberRegistrationForm(props) {
     const [interestInBuyingHome, setInterestInBuyingHome] = useState("");
     const [interestDescription, setInterestDescription] = useState("");
 
-    const [minRent, setMinRent] = useState("00.00");
-    const [maxRent, setMaxRent] = useState("00.00");
-
-    const [aboutSelf, setAboutSelf] = useState("");
-
-    const [selectedLimit, setsSelectedLimit] = useState(null);
-
-    const [selectedFamilyStatus, setsSelectedFamilyStatus] = useState();
-    const [selectedWorkStatus, setsSelectedWorkStatus] = useState();
-
-    const [partner, setPartner] = useState("");
-    const [groupMembers, setGroupMembers] = useState("");
+    const [minRent, setMinRent] = useState(undefined);
+    const [maxRent, setMaxRent] = useState(undefined);
 
     const [areasOfInterest, setAreasOfInterest] = useState([{
         province: "",
         city: "",
         radius: ""
     }]);
+
+    const [aboutSelf, setAboutSelf] = useState("");
+
+    const [selectedLimit, setsSelectedLimit] = useState("");
+
+    const [selectedFamilyStatus, setsSelectedFamilyStatus] = useState();
+    const [partner, setPartner] = useState("");
+    const [groupMembers, setGroupMembers] = useState("");
+
+    const [selectedWorkStatus, setsSelectedWorkStatus] = useState();
+
+    // Error state variables 
+    // Personal Information Start  
+    const [firstNameError, setFirstNameError] = useState(undefined);
+    const [lastNameError, setLastNameError] = useState(undefined);
+    const [emailError, setEmailError] = useState(undefined);
+    const [yearOfBirthError, setYearOfBirthError] = useState(undefined);
+    const [phoneNumberError, setPhoneNumberError] = useState(undefined);
+
+    //Address
+    const [streetAddressError, setStreetAddressError] = useState(undefined);
+    const [cityAddressError, setCityAddressError] = useState(undefined);
+    const [provinceAddressError, setProvinceAddressError] = useState(undefined);
+    const [postalCodeError, setPostalCodeError] = useState(undefined);
+
+    // Mailing Address
+    const [streetMailingAddressError, setStreetMailingAddressError] = useState(undefined);
+    const [cityMailingAddressError, setCityMailingAddressError] = useState(undefined);
+    const [provinceMailingAddressError, setProvinceMailingAddressError] = useState(undefined);
+    const [postalCodeMailingError, setPostalCodeMailingError] = useState(undefined);
+    // Personal Information End
+
+
+    // Profile Details Start
+    const [genderError, setGenderError] = useState(undefined);
+    const [familyStatusError, setFamilyStatusError] = useState(undefined);
+    const [workStatusError, setWorkStatusError] = useState(undefined);
+    const [limitError, setLimitError] = useState(undefined);
+    const [minRentError, setMinRentError] = useState(undefined);
+    const [maxRentError, setMaxRentError] = useState(undefined);
+    const [areasOfInterestError, setAreasOfInterestError] = useState(undefined);
+    const [petFriendlyError, setPetFriendlyError] = useState(undefined);
+    const [smokingError, setSmokingError] = useState(undefined);
+    const [mobilityIssuesError, setMobilityIssuesError] = useState(undefined);
+    const [allergiesError, setAllergiesError] = useState(undefined);
+    const [religionError, setReligionError] = useState(undefined);
+    const [dietError, setDietError] = useState(undefined);
+    const [homeError, setHomeError] = useState(undefined);
+    const [interestInBuyingError, setInterestInBuyingError] = useState(undefined);
+    // Profile Details End
+
+    // Account Details Start
+    const [usernameError, setUsernameError] = useState(undefined);
+    const [passwordError, setPasswordError] = useState(undefined);
+    const [passwordConfirmError, setPasswordConfirmError] = useState(undefined);
+    // Account Details End
+
+    // useEffects
+    useEffect(() => {
+        firstName !== undefined && validateInput(firstName, setFirstNameError);
+    }, [firstName]);
+    useEffect(() => {
+        lastName !== undefined && validateInput(lastName, setLastNameError);
+    }, [lastName]);
+    useEffect(() => {
+        email !== undefined && validateEmail(email, setEmailError);
+    }, [email]);
+    useEffect(() => {
+        if (phoneNumber.first !== undefined || phoneNumber.middle !== undefined || phoneNumber.last !== undefined) {
+            validatePhoneNumber(phoneNumber, setPhoneNumberError);
+        }
+    }, [phoneNumber]);
+
+    // Address
+    useEffect(() => {
+        address.street !== undefined && validateInput(address.street, setStreetAddressError);
+    }, [address.street]);
+    useEffect(() => {
+        address.city !== undefined && validateInput(address.city, setCityAddressError);
+    }, [address.city]);
+    useEffect(() => {
+        address.postalCode !== undefined && validateInput(address.postalCode, setPostalCodeError);
+    }, [address.postalCode]);
+
+    // Mailing Address
+    useEffect(() => {
+        if (useDifferentMailingAddress) {
+            mailingAddress.street !== undefined && validateInput(mailingAddress.street, setStreetMailingAddressError);
+        }
+    }, [mailingAddress.street, useDifferentMailingAddress]);
+    useEffect(() => {
+        if (useDifferentMailingAddress) {
+            mailingAddress.city !== undefined && validateInput(mailingAddress.city, setCityMailingAddressError);
+        }
+    }, [mailingAddress.city, useDifferentMailingAddress]);
+    useEffect(() => {
+        if (useDifferentMailingAddress) {
+            mailingAddress.postalCode !== undefined && validateInput(mailingAddress.postalCode, setPostalCodeMailingError);
+        }
+    }, [mailingAddress.postalCode, useDifferentMailingAddress]);
+
+
+    // Profile
+    useEffect(() => {
+        minRent !== undefined && validateInput(minRent, setMinRentError);
+    }, [minRent]);
+    useEffect(() => {
+        maxRent !== undefined && validateInput(maxRent, setMaxRentError);
+    }, [maxRent]);
+
+
+    // Account Details
+    useEffect(() => {
+        username !== undefined && validateInput(username, setUsernameError);
+    }, [username]);
+    useEffect(() => {
+        password !== undefined && validateInput(password, setPasswordError);
+    }, [password]);
+    useEffect(() => {
+        passwordCheck !== undefined && validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
+    }, [passwordCheck]);
+    useEffect(() => {
+        if (password !== undefined && passwordCheck !== undefined) {
+            validatePasswordConfirmationMismatch(password, passwordCheck, setPasswordConfirmError);
+        }
+    }, [password, passwordCheck]);
+
 
     function checkStatus(selectedFamilyStatus) {
         if (selectedFamilyStatus === "Couple") {
@@ -130,6 +254,7 @@ function MemberRegistrationForm(props) {
                 onChange={(e) => setPartner(e.target.value)}
                 value={partner}
             />
+
         } else if (selectedFamilyStatus === "Existing Group") {
             return <TextArea
                 className={"input"}
@@ -166,89 +291,123 @@ function MemberRegistrationForm(props) {
         setYearOfBirth(e.value);
     }
 
-    // TODO: convert this into an array of errors
+
     const isFormValid = () => {
-        if (isStringEmpty(firstName)) {
-            alert("First Name Required");
-            return false;
-        }
-        if (isStringEmpty(lastName)) {
-            alert("Last Name Required");
-            return false;
-        }
-        if (isStringEmpty(yearOfBirth)) {
-            alert("Year of Birth not set");
-            return false;
-        }
-        if (isStringEmpty(phoneNumber.first) || isStringEmpty(phoneNumber.middle) || isStringEmpty(phoneNumber.last)) {
-            alert("Phone Number missing parts");
-            return false;
-        } else {
-            if (!isStringNumeralsOnly(phoneNumber.first) || !isStringNumeralsOnly(phoneNumber.middle) || !isStringNumeralsOnly(phoneNumber.last)) {
-                alert("Phone Number has invalid characters");
-                return false;
-            }
-            if (!(phoneNumber.first.length === 3) || !(phoneNumber.middle.length === 3) || !(phoneNumber.last.length === 4)) {
-                alert("Phone Number has invalid number of characters");
-                return false;
-            }
-        }
-        if (isStringEmpty(address.street)) {
-            alert("Street Address missing");
-            return false;
-        }
-        if (isStringEmpty(address.city)) {
-            alert("City missing");
-            return false;
-        }
-        if (isStringEmpty(address.province)) {
-            alert("Province not selected");
-            return false
-        }
-        if (isStringEmpty(address.postalCode)) {
-            alert("Postal Code missing");
-            return false;
-        }
-        if (useDifferentMailingAddress) {
-            if (isStringEmpty(mailingAddress.street)) {
-                alert("Mailing Address Street missing");
-                return false;
-            }
-            if (isStringEmpty(mailingAddress.city)) {
-                alert("Mailing Address City missing");
-                return false;
-            }
-            if (isStringEmpty(mailingAddress.province)) {
-                alert("Business Mailing Address Province not selected");
-                return false;
-            }
-            if (isStringEmpty(mailingAddress.postalCode)) {
-                alert("Mailing Address Postal Code missing");
-                return false;
+
+        const personalInfoErrors = {
+            errorFirstName: false,
+            errorLastName: false,
+            errorEmail: false,
+            errorPhoneNumber: false,
+            errorAddress: {
+                street: false,
+                city: false,
+                province: false,
+                postalCode: false,
+            },
+            errorMailingAddress: {
+                street: false,
+                city: false,
+                province: false,
+                postalCode: false,
             }
         }
 
-        // TODO: when client-side validation to an array, abstract the validation of the username and
-        //  password to a function so that it can be use here and in business registration
-        if (isStringEmpty(username)) {
-            alert("username Required");
-            return false;
+        const profileInfoErrors = {
+            errorGender: false,
+            errorYearOfBirth: false,
+            errorFamilyStatus: false,
+            errorWorkStatus: false,
+            errorLimit: false,
+            errorRent: {
+                min: false,
+                max: false,
+            },
+            errorInterestedArea: false,
+            errorPet: false,
+            errorSmoking: false,
+            errorHealth: false,
+            errorAllergies: false,
+            errorReligion: false,
+            errorDiet: false,
+            errorHomeToShare: false,
+            errorBuyingHome: false,
         }
-        if (isStringEmpty(password)) {
-            alert("Password Required");
-            return false;
+
+        const accountDetailsErrors = {
+            errorUsername: false,
+            errorPassword: {
+                password: false,
+                passwordConfirmationEmpty: false,
+                passwordConfirmationMismatch: false,
+            }
+
         }
-        if (isStringEmpty(passwordCheck)) {
-            alert("Password confirmation Required");
-            return false;
+
+        // Personal Information Validation
+        personalInfoErrors.errorFirstName = validateInput(firstName, setFirstNameError);
+        personalInfoErrors.errorLastName = validateInput(lastName, setLastNameError);
+        personalInfoErrors.errorEmail = validateEmail(email, setEmailError);
+        personalInfoErrors.errorPhoneNumber = validatePhoneNumber(phoneNumber, setPhoneNumberError);
+        personalInfoErrors.errorAddress.street = validateInput(address.street, setStreetAddressError);
+        personalInfoErrors.errorAddress.city = validateInput(address.city, setCityAddressError);
+        personalInfoErrors.errorAddress.province = validateInput(address.province, setProvinceAddressError);
+        personalInfoErrors.errorAddress.postalCode = validateInput(address.postalCode, setPostalCodeError);
+        if (useDifferentMailingAddress) {
+            personalInfoErrors.errorMailingAddress.street = validateInput(mailingAddress.street, setStreetMailingAddressError);
+            personalInfoErrors.errorMailingAddress.city = validateInput(mailingAddress.city, setCityMailingAddressError);
+            personalInfoErrors.errorMailingAddress.province = validateInput(mailingAddress.province, setProvinceMailingAddressError);
+            personalInfoErrors.errorMailingAddress.postalCode = validateInput(mailingAddress.postalCode, setPostalCodeMailingError);
         }
-        if (!isStringEmpty(password) && !isStringEmpty(passwordCheck)) {
-            if (!isStringSame(password, passwordCheck)) {
-                alert("Passwords do NOT match");
-                return false;
+        // Profile Validation
+        profileInfoErrors.errorGender = validateInput(gender, setGenderError);
+        profileInfoErrors.errorYearOfBirth = validateInput(yearOfBirth, setYearOfBirthError);
+        profileInfoErrors.errorFamilyStatus = validateInput(selectedFamilyStatus, setFamilyStatusError);
+        profileInfoErrors.errorWorkStatus = validateInput(selectedWorkStatus, setWorkStatusError);
+        profileInfoErrors.errorLimit = validateInput(selectedLimit, setLimitError);
+        profileInfoErrors.errorRent.min = validateInput(minRent, setMinRentError);
+        profileInfoErrors.errorRent.max = validateInput(maxRent, setMaxRentError);
+
+        for (let i = 0; i <= areasOfInterest.length - 1; i++) {
+            if (!areasOfInterest[i].province || !areasOfInterest[i].city || !areasOfInterest[i].radius) {
+                setAreasOfInterestError(true);
+                profileInfoErrors.errorInterestedArea = true;
+                break;
+            } else {
+                setAreasOfInterestError(false);
+                profileInfoErrors.errorInterestedArea = false;
             }
         }
-        return true;
+        // Yes/No Validation
+        profileInfoErrors.errorPet = validateInput(petFriendly, setPetFriendlyError);
+        profileInfoErrors.errorSmoking = validateInput(smoking, setSmokingError);
+        profileInfoErrors.errorHealth = validateInput(mobilityIssues, setMobilityIssuesError);
+        profileInfoErrors.errorAllergies = validateInput(hasAllergies, setAllergiesError);
+        profileInfoErrors.errorReligion = validateInput(religious, setReligionError);
+        profileInfoErrors.errorDiet = validateInput(hasDiet, setDietError);
+        profileInfoErrors.errorHomeToShare = validateInput(hasHome, setHomeError);
+        profileInfoErrors.errorBuyingHome = validateInput(interestInBuyingHome, setInterestInBuyingError);
+
+        // Account Details Validation
+        accountDetailsErrors.errorUsername = validateInput(username, setUsernameError);
+        accountDetailsErrors.errorPassword.password = validateInput(password, setPasswordError);
+        accountDetailsErrors.errorPassword.passwordConfirmationEmpty = validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
+        accountDetailsErrors.errorPassword.passwordConfirmationMismatch = validatePasswordConfirmationMismatch(password, passwordCheck, setPasswordConfirmError);
+
+        // check personal information for errors
+        if (checkIfErrorsExistInMapping(personalInfoErrors)) {
+            return false;
+            // check profile for errors
+        } else if (checkIfErrorsExistInMapping(profileInfoErrors)) {
+            return false;
+            // check account details for errors
+        } else if (checkIfErrorsExistInMapping(accountDetailsErrors)) {
+            return false;
+            // return true if no errors
+        } else {
+            return true;
+        }
+
     }
 
     const INFO_TEXT = {
@@ -269,10 +428,13 @@ function MemberRegistrationForm(props) {
 
     //function for input checks on submit
     function onSubmit(event) {
+
         if (!isFormValid()) {
+            // form is invalid
             event.preventDefault();
             return;
         }
+        // else form is valid and proceed to make request
         const registrationData = {
             // abstract user
             username: username,
@@ -376,15 +538,17 @@ function MemberRegistrationForm(props) {
                     <div className="grid grid-cols-2 gap-6">
                         <div className="col-span-3 sm:col-span-2">
                             <TextArea
-                                className={"input"}
+                                className={`${firstNameError && "border-red-500"} input`}
                                 labelClassName={"label"}
                                 label="First Name"
                                 autoComplete={"given-name"}
                                 required={true}
-                                onChange={(e) => setFirstName(e.target.value)}
+                                onChange={(e) => {
+                                    setFirstName(e.target.value)
+                                }}
                             />
                             <TextArea
-                                className={"input"}
+                                className={`${lastNameError && "border-red-500"} input`}
                                 labelClassName={"label"}
                                 label="Last Name"
                                 autoComplete={"family-name"}
@@ -392,7 +556,7 @@ function MemberRegistrationForm(props) {
                                 onChange={(e) => setLastName(e.target.value)}
                             />
                             <TextArea
-                                className="input"
+                                className={`${emailError && "border-red-500"} input`}
                                 placeholder="personal@email.ca"
                                 label="Email"
                                 autoComplete={"email"}
@@ -401,15 +565,19 @@ function MemberRegistrationForm(props) {
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                             <PhoneNumInput
-                                className="phone"
+                                className={`${phoneNumberError && "border-red-500"} phone`}
                                 labelClassName={"label"}
                                 required={true}
                                 label="Phone Number" onChange={handlePhoneChange}/>
+
                             <Address
                                 label="Address"
-                                cityClassName="city-postal"
                                 required={true}
                                 onChange={setAddress}
+                                streetAddressError={streetAddressError}
+                                cityAddressError={cityAddressError}
+                                provinceAddressError={provinceAddressError}
+                                postalCodeError={postalCodeError}
                             />
                             <Checkbox
                                 label="Different Mailing Address"
@@ -420,6 +588,10 @@ function MemberRegistrationForm(props) {
                             {useDifferentMailingAddress &&
                             <Address
                                 label="Mailing Address"
+                                streetClassName={`${streetMailingAddressError && "border-red-500"} input`}
+                                cityClassName={`${cityMailingAddressError && "border-red-500"} input`}
+                                provinceClassName={provinceMailingAddressError ? dropdownErrorCSS : dropdownDefaultCSS}
+                                postalCodeClassName={`${postalCodeMailingError && "border-red-500"} input`}
                                 required={true}
                                 onChange={setMailingAddress}
                             />}
@@ -438,7 +610,8 @@ function MemberRegistrationForm(props) {
                         <div className="px-4 sm:px-0">
                             <h3 className="info-header">Profile Details</h3>
                             <p className="info-text">
-                                This information is about your home-sharing preferences and will be accessible by other
+                                This information is about your home-sharing preferences and will be accessible by
+                                other
                                 members on the website.
                             </p>
                         </div>
@@ -448,60 +621,64 @@ function MemberRegistrationForm(props) {
                             <div className="px-4 py-6 bg-white sm:p-5">
                                 <div className="grid grid-cols-2 gap-6 ">
                                     <div className="col-span-3 sm:col-span-2">
-                                        <LabelAsterisk label={"Gender"}/>
-                                        <div className={"my-2"}>
-                                            <RadioButton
-                                                label="Male"
-                                                name="gender" value="Male"
-                                                checked={gender === "Male"}
-                                                onChange={(e) => setGender(e.target.value)}
-                                            />
-                                            <RadioButton
-                                                label="Female"
-                                                name="gender"
-                                                value="Female"
-                                                checked={gender === "Female"}
-                                                onChange={(e) => setGender(e.target.value)}
-                                            />
-                                            <RadioButton
-                                                label="Other "
-                                                name="gender"
-                                                value="Other"
-                                                checked={gender === "Other"}
-                                                onChange={(e) => setGender(e.target.value)}
-                                            />
-                                            {(gender === "Other") &&
-                                            <TextArea
-                                                className="input mt-0"
-                                                labelClassName={"label mt-5"}
-                                                placeholder="What gender do you identify as? (optional)"
-                                                value={genderDescription}
-                                                required={true}
-                                                onChange={(e) => setGenderDescription(e.target.value)}
-                                            />}
-                                        </div>
-
+                                        <section
+                                            className={`${genderError && "pl-1 border rounded-lg border-red-500 mr-52"}`}>
+                                            <LabelAsterisk label={"Gender"}/>
+                                            <div className={"my-2"}>
+                                                <RadioButton
+                                                    label="Male"
+                                                    name="gender" value="Male"
+                                                    checked={gender === "Male"}
+                                                    onChange={(e) => setGender(e.target.value)}
+                                                />
+                                                <RadioButton
+                                                    label="Female"
+                                                    name="gender"
+                                                    value="Female"
+                                                    checked={gender === "Female"}
+                                                    onChange={(e) => setGender(e.target.value)}
+                                                />
+                                                <RadioButton
+                                                    label="Other "
+                                                    name="gender"
+                                                    value="Other"
+                                                    checked={gender === "Other"}
+                                                    onChange={(e) => setGender(e.target.value)}
+                                                />
+                                            </div>
+                                        </section>
+                                        {(gender === "Other") &&
+                                        <TextArea
+                                            className="input mt-0"
+                                            labelClassName={"label mt-5"}
+                                            placeholder="What gender do you identify as? (optional)"
+                                            value={genderDescription}
+                                            onChange={(e) => setGenderDescription(e.target.value)}
+                                        />}
                                         <LabelAsterisk label={"Year of Birth"}/>
                                         <Tooltip text={INFO_TEXT.YEAR_OF_BIRTH} toolTipID="yearOfBirth"/>
-                                        <BirthYear label={"Year of Birth"} onChange={handleYearChange}/>
-
+                                        <BirthYear label={"Year of Birth"} onChange={handleYearChange}
+                                                   dropdownCSS={yearOfBirthError ? dropdownErrorCSS : dropdownDefaultCSS}/>
                                         <LabelAsterisk label={"Family Status"}/>
                                         <Tooltip text={INFO_TEXT.FAMILY_STATUS} toolTipID="familyStatus"/>
-                                        <Status onChange={handleFamilyStatusChange}/>
+                                        <Status onChange={handleFamilyStatusChange}
+                                                dropdownCSS={familyStatusError ? dropdownErrorCSS : dropdownDefaultCSS}
+                                        />
                                         {checkStatus(selectedFamilyStatus)}
-
                                         <LabelAsterisk label={"Work Status"}/>
-                                        <WorkStatus onChange={handleWorkStatusChange}/>
-
+                                        <WorkStatus onChange={handleWorkStatusChange}
+                                                    dropdownCSS={workStatusError ? dropdownErrorCSS : dropdownDefaultCSS}/>
                                         <LabelAsterisk label={"Open to Sharing With"}/>
                                         <Tooltip text={INFO_TEXT.NUM_PEOPLE_SHARE} toolTipID="numPeopleToShare"/>
-                                        <ShareLimit onChange={handleLimitChange}/>
+                                        <ShareLimit onChange={handleLimitChange}
+                                                    dropdownCSS={limitError ? dropdownErrorCSS : dropdownDefaultCSS}/>
+
                                         <LabelAsterisk label={"Monthly Rent"}/>
                                         <Tooltip text={INFO_TEXT.RENT} toolTipID="rent"/>
                                         <div className="grid grid-cols-6 gap-x-6">
                                             <div className="column-span-6-layout">
                                                 <input
-                                                    className={"input label font-normal "}
+                                                    className={`${minRentError && "border-red-500"} input`}
                                                     type="number"
                                                     min="0"
                                                     step="1"
@@ -511,156 +688,182 @@ function MemberRegistrationForm(props) {
                                             </div>
                                             <div className="column-span-6-layout">
                                                 <input
-                                                    className={"input label font-normal "}
+                                                    className={`${maxRentError && "border-red-500"} input`}
                                                     type="number"
                                                     min={minRent}
                                                     step="1"
                                                     placeholder=" MAX $ CAD"
                                                     onChange={(e) => setMaxRent(e.target.value)}
                                                 />
+
                                             </div>
                                         </div>
                                         <LabelAsterisk label={"Preferred Living Location(s)"}/>
                                         <Tooltip text={INFO_TEXT.INTERESTED_AREA} toolTipID="interestedArea"/>
-                                        <InterestedArea onChange={setAreasOfInterest}/>
-                                        <div className="grid grid-cols-6 gap-x-6">
+                                        <InterestedArea onChange={setAreasOfInterest}
+                                                        areasOfInterestError={areasOfInterestError}
+                                        />
+                                        <div className="grid grid-cols-6 gap-x-6 mt-5">
                                             <div className="column-span-6-layout">
-                                                <YNButton
-                                                    label={"Pet friendly?"}
-                                                    toolTipText={INFO_TEXT.PET}
-                                                    toolTipID="pet"
-                                                    name="petFriendly"
-                                                    required={true}
-                                                    onChange={(e) => setPetFriendly(e.target.value)}
-                                                />
-                                                {(petFriendly === "yes") &&
-                                                <TextArea
-                                                    className={"input"}
-                                                    placeholder="Elaborate (optional)"
-                                                    onChange={e => setPetDescription(e.target.value)}
-                                                    value={petDescription}
-                                                />}
+                                                <section
+                                                    className={`${petFriendlyError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                                    <YNButton
+                                                        label={"Pet friendly?"}
+                                                        toolTipText={INFO_TEXT.PET}
+                                                        toolTipID="pet"
+                                                        name="petFriendly"
+                                                        required={true}
+                                                        onChange={(e) => setPetFriendly(e.target.value)}
+                                                    />
+                                                    {(petFriendly === "yes") &&
+                                                    <TextArea
+                                                        className={"input"}
+                                                        placeholder="Elaborate (optional)"
+                                                        onChange={e => setPetDescription(e.target.value)}
+                                                        value={petDescription}
+                                                    />}
+                                                </section>
                                             </div>
                                             <div className="column-span-6-layout">
-                                                <YNButton
-                                                    label={"Smoke friendly?"}
-                                                    toolTipText={INFO_TEXT.SMOKE}
-                                                    toolTipID="smoke"
-                                                    name="smoking"
-                                                    required={true}
-                                                    onChange={(e) => setSmoking(e.target.value)}
-                                                />
-                                                {(smoking === "yes") &&
-                                                <TextArea
-                                                    className={"input"}
-                                                    placeholder="Elaborate (optional)"
-                                                    onChange={e => setSmokingDescription(e.target.value)}
-                                                    value={smokingDescription}
-                                                />}
+                                                <section
+                                                    className={`${smokingError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                                    <YNButton
+                                                        label={"Smoke friendly?"}
+                                                        toolTipText={INFO_TEXT.SMOKE}
+                                                        toolTipID="smoke"
+                                                        name="smoking"
+                                                        required={true}
+                                                        onChange={(e) => setSmoking(e.target.value)}
+                                                    />
+                                                    {(smoking === "yes") &&
+                                                    <TextArea
+                                                        className={"input"}
+                                                        placeholder="Elaborate (optional)"
+                                                        onChange={e => setSmokingDescription(e.target.value)}
+                                                        value={smokingDescription}
+                                                    />}
+                                                </section>
                                             </div>
                                             <div className="column-span-6-layout">
-                                                <YNButton
-                                                    label={"Health / mobility issues?"}
-                                                    toolTipText={INFO_TEXT.HEALTH}
-                                                    toolTipID="health"
-                                                    name="mobile"
-                                                    required={true}
-                                                    onChange={(e) => setMobilityIssues(e.target.value)}
-                                                />
-                                                {(mobilityIssues === "yes") &&
-                                                <TextArea
-                                                    className={"input"}
-                                                    placeholder="Elaborate (optional)"
-                                                    onChange={e => setMobilityIssuesDescription(e.target.value)}
-                                                    value={mobilityIssuesDescription}
-                                                />}
+                                                <section
+                                                    className={`${mobilityIssuesError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                                    <YNButton
+                                                        label={"Health / mobility issues?"}
+                                                        toolTipText={INFO_TEXT.HEALTH}
+                                                        toolTipID="health"
+                                                        name="mobile"
+                                                        required={true}
+                                                        onChange={(e) => setMobilityIssues(e.target.value)}
+                                                    />
+                                                    {(mobilityIssues === "yes") &&
+                                                    <TextArea
+                                                        className={"input"}
+                                                        placeholder="Elaborate (optional)"
+                                                        onChange={e => setMobilityIssuesDescription(e.target.value)}
+                                                        value={mobilityIssuesDescription}
+                                                    />}
+                                                </section>
                                             </div>
                                             <div className="column-span-6-layout">
-                                                <YNButton
-                                                    label={"Allergies?"}
-                                                    name="allergies"
-                                                    required={true}
-                                                    checked={hasAllergies === "no"}
-                                                    onChange={(e) => setHasAllergies(e.target.value)}
-                                                />
-                                                {(hasAllergies === "yes") &&
-                                                <TextArea
-                                                    className={"input"}
-                                                    placeholder="Elaborate (optional)"
-                                                    onChange={e => setAllergiesDescription(e.target.value)}
-                                                    value={allergiesDescription}
-                                                />}
+                                                <section
+                                                    className={`${allergiesError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                                    <YNButton
+                                                        label={"Allergies?"}
+                                                        name="allergies"
+                                                        required={true}
+                                                        checked={hasAllergies === "no"}
+                                                        onChange={(e) => setHasAllergies(e.target.value)}
+                                                    />
+                                                    {(hasAllergies === "yes") &&
+                                                    <TextArea
+                                                        className={"input"}
+                                                        placeholder="Elaborate (optional)"
+                                                        onChange={e => setAllergiesDescription(e.target.value)}
+                                                        value={allergiesDescription}
+                                                    />}
+                                                </section>
                                             </div>
                                             <div className="column-span-6-layout">
-                                                <YNButton
-                                                    label={"Is religion important?"}
-                                                    toolTipText={INFO_TEXT.RELIGION}
-                                                    toolTipID="religion"
-                                                    name="religion"
-                                                    required={true}
-                                                    checked={religious === "no"}
-                                                    onChange={(e) => setReligious(e.target.value)}
-                                                />
-                                                {(religious === "yes") &&
-                                                <TextArea
-                                                    className={"input"}
-                                                    placeholder="Elaborate (optional)"
-                                                    onChange={e => setReligionDescription(e.target.value)}
-                                                    value={religionDescription}
-                                                />}
+                                                <section
+                                                    className={`${religionError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                                    <YNButton
+                                                        label={"Is religion important?"}
+                                                        toolTipText={INFO_TEXT.RELIGION}
+                                                        toolTipID="religion"
+                                                        name="religion"
+                                                        required={true}
+                                                        checked={religious === "no"}
+                                                        onChange={(e) => setReligious(e.target.value)}
+                                                    />
+                                                    {(religious === "yes") &&
+                                                    <TextArea
+                                                        className={"input"}
+                                                        placeholder="Elaborate (optional)"
+                                                        onChange={e => setReligionDescription(e.target.value)}
+                                                        value={religionDescription}
+                                                    />}
+                                                </section>
                                             </div>
                                             <div className="column-span-6-layout">
-                                                <YNButton
-                                                    label={"Is diet of others important?"}
-                                                    toolTipText={INFO_TEXT.DIET}
-                                                    toolTipID="diet"
-                                                    name="diet"
-                                                    required={true}
-                                                    checked={hasDiet === "no"}
-                                                    onChange={(e) => setHasDiet(e.target.value)}
-                                                />
-                                                {(hasDiet === "yes") &&
-                                                <TextArea
-                                                    className={"input"}
-                                                    placeholder="Elaborate (optional)"
-                                                    onChange={e => setDietDescription(e.target.value)}
-                                                    value={dietDescription}
-                                                />}
+                                                <section
+                                                    className={`${dietError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                                    <YNButton
+                                                        label={"Is diet of others important?"}
+                                                        toolTipText={INFO_TEXT.DIET}
+                                                        toolTipID="diet"
+                                                        name="diet"
+                                                        required={true}
+                                                        checked={hasDiet === "no"}
+                                                        onChange={(e) => setHasDiet(e.target.value)}
+                                                    />
+                                                    {(hasDiet === "yes") &&
+                                                    <TextArea
+                                                        className={"input"}
+                                                        placeholder="Elaborate (optional)"
+                                                        onChange={e => setDietDescription(e.target.value)}
+                                                        value={dietDescription}
+                                                    />}
+                                                </section>
                                             </div>
                                             <div className="column-span-6-layout">
-                                                <YNButton
-                                                    label={"Have a home to share?"}
-                                                    toolTipText={INFO_TEXT.HOME_TO_SHARE}
-                                                    toolTipID="homeToShare"
-                                                    name="hasHome"
-                                                    required={true}
-                                                    checked={hasHome === "no"}
-                                                    onChange={(e) => setHasHome(e.target.value)}
-                                                />
-                                                {(hasHome === "yes")
-                                                && <TextArea
-                                                    className={"input inline w-11/12 "}
-                                                    placeholder="Elaborate (optional)"
-                                                    onChange={e => setHomeDescription(e.target.value)}
-                                                    value={homeDescription}
-                                                />
-                                                }
+                                                <section
+                                                    className={`${homeError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                                    <YNButton
+                                                        label={"Have a home to share?"}
+                                                        toolTipText={INFO_TEXT.HOME_TO_SHARE}
+                                                        toolTipID="homeToShare"
+                                                        name="hasHome"
+                                                        required={true}
+                                                        checked={hasHome === "no"}
+                                                        onChange={(e) => setHasHome(e.target.value)}
+                                                    />
+                                                    {(hasHome === "yes")
+                                                    && <TextArea
+                                                        className={"input inline w-11/12 "}
+                                                        placeholder="Elaborate (optional)"
+                                                        onChange={e => setHomeDescription(e.target.value)}
+                                                        value={homeDescription}
+                                                    />}
+                                                </section>
                                             </div>
                                             <div className="column-span-6-layout">
-                                                <YNButton
-                                                    label="Interested in buying a home with others?"
-                                                    name="interestInBuyingHome"
-                                                    required={true}
-                                                    checked={interestInBuyingHome === "no"}
-                                                    onChange={(e) => setInterestInBuyingHome(e.target.value)}
-                                                />
-                                                {(interestInBuyingHome === "yes") &&
-                                                <TextArea
-                                                    className={"input"}
-                                                    placeholder="Elaborate (optional)"
-                                                    onChange={e => setInterestDescription(e.target.value)}
-                                                    value={interestDescription}
-                                                />}
+                                                <section
+                                                    className={`${interestInBuyingError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                                    <YNButton
+                                                        label="Interested in buying a home with others?"
+                                                        name="interestInBuyingHome"
+                                                        required={true}
+                                                        checked={interestInBuyingHome === "no"}
+                                                        onChange={(e) => setInterestInBuyingHome(e.target.value)}
+                                                    />
+                                                    {(interestInBuyingHome === "yes") &&
+                                                    <TextArea
+                                                        className={"input"}
+                                                        placeholder="Elaborate (optional)"
+                                                        onChange={e => setInterestDescription(e.target.value)}
+                                                        value={interestDescription}
+                                                    />}
+                                                </section>
                                             </div>
                                         </div>
                                         <div className={"mt-4"}>
@@ -712,6 +915,10 @@ function MemberRegistrationForm(props) {
                                             onChangeUsername={(e) => setUsername(e.target.value)}
                                             onChangePassword={(e) => setPassword(e.target.value)}
                                             onChangePasswordCheck={(e) => setPasswordCheck(e.target.value)}
+                                            usernameError={usernameError}
+                                            passwordError={passwordError}
+                                            passwordConfirmError={passwordConfirmError}
+                                            passwordConfirmErrorMsg={(passwordConfirmError === "empty") ? "empty" : (passwordConfirmError === "mismatch" ? "mismatch" : "")}
                                         />
                                     </div>
                                 </div>

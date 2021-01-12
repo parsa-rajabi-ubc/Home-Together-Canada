@@ -13,15 +13,25 @@ import Dropdown from "./Dropdown";
 import {getProvinces} from "../utils/locationUtils"
 import Asterisk from "./Asterisk";
 import Tooltip from "./Tooltip";
-
+import {dropdownErrorCSS, dropdownDefaultCSS} from "../../css/dropdownCSSUtil"
 
 function Address(props) {
-    const {label, onChange, required, toolTipID, toolTipText} = props;
-    const [street, setStreet] = useState("");
+    const {
+        label,
+        onChange,
+        required,
+        toolTipID,
+        toolTipText,
+        streetAddressError,
+        cityAddressError,
+        provinceAddressError,
+        postalCodeError,
+    } = props;
+    const [street, setStreet] = useState(undefined);
     const [aptNum, setApt] = useState("");
-    const [city, setCity] = useState("");
-    const [province, setProvince] = useState('');
-    const [postalCode, setPostalCode] = useState('');
+    const [city, setCity] = useState(undefined);
+    const [province, setProvince] = useState("");
+    const [postalCode, setPostalCode] = useState(undefined);
 
     const handleInputChange = (e) => {
         switch (e.target.name) {
@@ -64,7 +74,7 @@ function Address(props) {
                 </label>
                 {(required ? <Asterisk/> : '')}
                 {toolTipID && <Tooltip text={toolTipText} toolTipID={toolTipID}/>}
-                <input className="input" type="text" name="street" placeholder="Address Line 1"
+                <input className={`${streetAddressError && "border-red-500"} input`} type="text" name="street" placeholder="Address Line 1"
                        autoComplete="address-line1"
                        onChange={handleInputChange}/>
             </div>
@@ -75,18 +85,20 @@ function Address(props) {
             </div>
             <div className="col-start-1 col-end-4">
                 <input
-                    className="input"
+                    className={`${cityAddressError && "border-red-500"} input`}
                     type="text" autoComplete="address-level2" name="city" placeholder="City"
                     onChange={handleInputChange}/>
             </div>
             <div className="col-start-4 col-end-8">
                 <Dropdown isSearchable={true} placeholder={"Province"}
                           options={getProvinces()} autoComplete="address-level1"
-                          onChange={address => setProvince(address.value)}/>
+                          onChange={address => setProvince(address.value)}
+                          dropdownCSS={provinceAddressError ? dropdownErrorCSS : dropdownDefaultCSS}
+                />
             </div>
             <div className="col-start-1 col-end-4">
                 <input
-                    className="input"
+                    className={`${postalCodeError && "border-red-500"} input`}
                     type="text" autoComplete="postal-code" name="postalCode" placeholder="Postal Code"
                     onChange={handleInputChange}/>
             </div>
@@ -99,7 +111,11 @@ Address.propTypes = {
     onChange: PropTypes.func.isRequired,
     toolTipText: PropTypes.string,
     toolTipID: PropTypes.string,
-    required: PropTypes.bool
+    required: PropTypes.bool,
+    streetAddressError: PropTypes.bool,
+    cityAddressError: PropTypes.bool,
+    provinceAddressError: PropTypes.bool,
+    postalCodeError: PropTypes.bool,
 };
 
 export default Address;

@@ -13,9 +13,11 @@ import Dropdown from "./Dropdown";
 import PropTypes from "prop-types";
 import Button from "./Button";
 import {MdDeleteForever} from 'react-icons/md';
+import {dropdownDefaultCSS} from "../../css/dropdownCSSUtil"
+
 
 function InterestedArea(props) {
-    const {onChange} = props;
+    const {onChange, areasOfInterestError} = props;
     const [extraAreas, setExtraAreas] = useState([{province: "", city: "", radius: ""}]);
 
     const handleRemoveClick = index => {
@@ -54,51 +56,62 @@ function InterestedArea(props) {
             extraAreas
         )
     }, [extraAreas]);
+
     return (
         <div>
-            {extraAreas.map((currentAreaValues, index) => {
-                return (
-                    <div key={index} className="grid grid-cols-9 gap-x-2">
-                        <div className="col-start-1 col-end-4">
-                            <Dropdown isSearchable={true} placeholder={"Province"}
-                                      name="province"
-                                      options={getProvinces()}
-                                      onChange={e => handleAreaProvinceChange(e, index)}/>
-                            <span>{currentAreaValues[index]}</span>
+            <section className={`${areasOfInterestError && "border rounded-lg p-1 border-red-500"}`}>
+                {extraAreas.map((currentAreaValues, index) => {
+                    return (
+                        <div key={index} className="grid grid-cols-9 gap-x-2">
+                            <div className="col-start-1 col-end-4">
+                                <Dropdown isSearchable={true} placeholder={"Province"}
+                                          name="province"
+                                          options={getProvinces()}
+                                          onChange={e => handleAreaProvinceChange(e, index)}
+                                          dropdownCSS={dropdownDefaultCSS}
+                                />
+                                <span>{currentAreaValues[index]}</span>
+                            </div>
+                            <div className="col-start-4 col-end-8">
+                                {currentAreaValues.province &&
+                                <Dropdown isSearchable={true} placeholder={"City"}
+                                          name="city"
+                                          options={getCities(currentAreaValues.province)}
+                                          onChange={e => handleAreaCityChange(e, index)}
+                                          dropdownCSS={dropdownDefaultCSS}
+                                />}
+                            </div>
+                            <div className="col-start-8 col-end-10">
+                                {currentAreaValues.city && <Dropdown isSearchable={true} placeholder={"Within Radius"}
+                                                                     name="radius"
+                                                                     options={radii}
+                                                                     onChange={e => handleAreaRadiusChange(e, index)}
+                                                                     dropdownCSS={dropdownDefaultCSS}
+                                />}
+                            </div>
+                            <div className="col-start-10 col-end-auto">
+                                {extraAreas.length !== 1 &&
+                                <MdDeleteForever color="#DB4437" size="40" onClick={() => handleRemoveClick(index)}/>}
+                            </div>
+                            <div className="col-start-1 col-end-4">
+                                {extraAreas.length - 1 === index &&
+                                <Button className="btn btn-green text-sm py-2 " value="Add Another Location"
+                                        onClick={() => {
+                                            handleAddClick()
+                                        }}/>}
+                            </div>
                         </div>
-                        <div className="col-start-4 col-end-8">
-                            {currentAreaValues.province &&
-                            <Dropdown isSearchable={true} placeholder={"City"}
-                                      name="city"
-                                      options={getCities(currentAreaValues.province)}
-                                      onChange={e => handleAreaCityChange(e, index)}/>}
-                        </div>
-                        <div className="col-start-8 col-end-10">
-                            {currentAreaValues.city && <Dropdown isSearchable={true} placeholder={"Within Radius"}
-                                                    name="radius"
-                                                    options={radii}
-                                                    onChange={e => handleAreaRadiusChange(e, index)}/>}
-                        </div>
-                        <div className="col-start-10 col-end-auto">
-                            {extraAreas.length !== 1 &&
-                            <MdDeleteForever color="#DB4437" size="40" onClick={() => handleRemoveClick(index)}/>}
-                        </div>
-                        <div className="col-start-1 col-end-4">
-                            {extraAreas.length - 1 === index &&
-                            <Button className="btn btn-green text-sm py-2 mb-4" value="Add Another Location"
-                                    onClick={() => {
-                                        handleAddClick()
-                                    }}/>}
-                        </div>
-                    </div>
-                );
-            })}
+                    );
+                })}
+            </section>
         </div>
+
     );
 }
 
 InterestedArea.propTypes = {
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    areasOfInterestError: PropTypes.bool,
 }
 
 export default InterestedArea;

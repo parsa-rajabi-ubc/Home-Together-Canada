@@ -423,7 +423,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 </svg>
                 <input
                   autoComplete="address-line1"
-                  className="input"
+                  className="undefined input"
                   name="street"
                   onChange={[Function]}
                   placeholder="Address Line 1"
@@ -447,7 +447,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
               >
                 <input
                   autoComplete="address-level2"
-                  className="input"
+                  className="undefined input"
                   name="city"
                   onChange={[Function]}
                   placeholder="City"
@@ -568,7 +568,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
               >
                 <input
                   autoComplete="postal-code"
-                  className="input"
+                  className="undefined input"
                   name="postalCode"
                   onChange={[Function]}
                   placeholder="Postal Code"
@@ -982,7 +982,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                   </span>
                   <input
                     autoComplete="address-line1"
-                    className="input"
+                    className="undefined input"
                     name="street"
                     onChange={[Function]}
                     placeholder="Address Line 1"
@@ -1006,7 +1006,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 >
                   <input
                     autoComplete="address-level2"
-                    className="input"
+                    className="undefined input"
                     name="city"
                     onChange={[Function]}
                     placeholder="City"
@@ -1127,7 +1127,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 >
                   <input
                     autoComplete="postal-code"
-                    className="input"
+                    className="undefined input"
                     name="postalCode"
                     onChange={[Function]}
                     placeholder="Postal Code"
@@ -1657,9 +1657,8 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                       </div>
                     </span>
                     <input
-                      className="input"
+                      className="undefined input"
                       onChange={[Function]}
-                      placeholder=""
                       type="text"
                     />
                   </label>
@@ -1807,9 +1806,8 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                       </div>
                     </span>
                     <input
-                      className="input"
+                      className="undefined input"
                       onChange={[Function]}
-                      placeholder=""
                       type="password"
                     />
                   </label>
@@ -1841,9 +1839,8 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                       </svg>
                     </label>
                     <input
-                      className="input"
+                      className="undefined input"
                       onChange={[Function]}
-                      placeholder=""
                       type="password"
                     />
                   </label>

@@ -46,18 +46,21 @@ const workStatuses = [
 ]
 
 function WorkStatus(props) {
-    const {onChange} = props;
+    const {onChange, dropdownCSS} = props;
 
     return (
         <div>
             <Dropdown isSearchable={true} placeholder={"Work Status"}
                       options={workStatuses}
-                      onChange={onChange}/>
+                      onChange={onChange}
+                      dropdownCSS={dropdownCSS}
+            />
         </div>
     )
 }
 
 WorkStatus.propTypes = {
-    onChange: propTypes.func
+    onChange: propTypes.func,
+    dropdownCSS: propTypes.object
 };
 export default WorkStatus;
