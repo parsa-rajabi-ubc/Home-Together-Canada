@@ -53,10 +53,7 @@ function LoginForm(props) {
         loginErrors.password = validateInput(password, setPasswordError);
 
         // check personal information for errors
-        if (checkIfErrorsExistInMapping(loginErrors)) {
-            return false;
-        } else
-            return true
+        return !checkIfErrorsExistInMapping(loginErrors);
     }
 
     const onSubmit = (event) => {
