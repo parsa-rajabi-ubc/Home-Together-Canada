@@ -160,6 +160,21 @@ function MemberRegistrationForm(props) {
     const [interestInBuyingError, setInterestInBuyingError] = useState(undefined);
     // Profile Details End
 
+    // Search Criteria
+    const [minAgePreference, setMinAgePreference] = useState("");
+    const [maxAgePreference, setMaxAgePreference] = useState("");
+    const [genderPreference, setGenderPreference] = useState("");
+    const [familyStatusPreference, setFamilyStatusPreference] = useState("");
+    const [limitPreference, setLimitPreference] = useState("");
+    const [religionPreference, setReligionPreference] = useState("");
+    const [dietPreference, setDietPreference] = useState("");
+    const [homeToSharePreference, setHomeToSharePreference] = useState("");
+    const [minBudgetPreference, setMinBudgetPreference] = useState("");
+    const [maxBudgetPreference, setMaxBudgetPreference] = useState("");
+    const [petPreference, setPetPreference] = useState("");
+    const [smokingPreference, setSmokingPreference] = useState("");
+
+
     // Account Details Start
     const [usernameError, setUsernameError] = useState(undefined);
     const [passwordError, setPasswordError] = useState(undefined);
@@ -265,6 +280,13 @@ function MemberRegistrationForm(props) {
             />
         }
 
+    }
+    const handleFamilyStatusPreferenceChange = e => {
+        setFamilyStatusPreference(e.value);
+    }
+
+    const handleLimitPreferenceChange = e => {
+        setLimitPreference(parseInt(e.value));
     }
 
     const handleFamilyStatusChange = e => {
@@ -424,6 +446,9 @@ function MemberRegistrationForm(props) {
         DIET: "The diet of your roommate(s) is important to you",
         HOME_TO_SHARE: "If you have a home to share, we recommend that you also create a free listing in addition to providing a short description below",
         ABOUT: "Do not disclose any personal information as your profile is publicly viewable by all members on Home Together",
+        PREF: {
+            AGE: "Both min and max numbers are inclusive"
+        }
     };
 
     //function for input checks on submit
@@ -886,6 +911,166 @@ function MemberRegistrationForm(props) {
             </div>
 
 
+            {/*Divided*/}
+            <div className="border-divider"/>
+            {/*Search Criteria*/}
+            <div className="mt-10 sm:mt-0">
+                <div className="m-10 md:grid md:grid-cols-4 md:gap-6">
+                    <div className="md:col-span-1">
+                        <div className="px-4 sm:px-0">
+                            <h3 className="info-header">Search Criteria</h3>
+                            <p className="info-text">
+                                This information be used to find other compatible members on Home Together Canada
+                                <Link to={'/faq'} className={"label"}> FAQs</Link>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="mt-5 md:mt-0 md:col-span-2">
+                        <div className="overflow-hidden shadow sm:rounded-md">
+                            <div className="px-4 py-6 bg-white sm:p-5">
+                                <div className="grid grid-cols-2 gap-6">
+                                    <div className="col-span-3 sm:col-span-2">
+                                        <LabelAsterisk label={"I am open to sharing with"}/>
+                                        <div className={"my-2"}>
+                                            <RadioButton
+                                                label="Male"
+                                                name="gender" value="Male"
+                                                checked={genderPreference === "Male"}
+                                                onChange={(e) => setGenderPreference(e.target.value)}
+                                            />
+                                            <RadioButton
+                                                label="Female"
+                                                name="gender"
+                                                value="Female"
+                                                checked={genderPreference === "Female"}
+                                                onChange={(e) => setGenderPreference(e.target.value)}
+                                            />
+                                            <RadioButton
+                                                label="Other "
+                                                name="gender"
+                                                value="Other"
+                                                checked={genderPreference === "Other"}
+                                                onChange={(e) => setGenderPreference(e.target.value)}
+                                            />
+                                        </div>
+                                        <LabelAsterisk label={"Age range of person(s) I would like to share with"}/>
+                                        <Tooltip text={INFO_TEXT.PREF.AGE} toolTipID="agePref"/>
+                                        <div className="grid grid-cols-6 gap-x-6">
+                                            <div className="column-span-6-layout">
+                                                <input
+                                                    className={"input label font-normal "}
+                                                    type="number"
+                                                    min="16"
+                                                    step="1"
+                                                    placeholder="Min Age"
+                                                    onChange={(e) => setMinAgePreference(e.target.value)}
+                                                />
+                                            </div>
+                                            <div className="column-span-6-layout">
+                                                <input
+                                                    className={"input label font-normal "}
+                                                    type="number"
+                                                    min={minAgePreference}
+                                                    step="1"
+                                                    placeholder="Max Age"
+                                                    onChange={(e) => setMaxAgePreference(e.target.value)}
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <LabelAsterisk label={"I am open to sharing with"}/>
+                                        {/*<Tooltip text={INFO_TEXT.FAMILY_STATUS} toolTipID="familyStatusPreference"/>*/}
+                                        <Status onChange={handleFamilyStatusPreferenceChange}/>
+
+                                        <LabelAsterisk label={"I would like to share with"}/>
+                                        {/*<Tooltip text={INFO_TEXT.NUM_PEOPLE_SHARE} toolTipID="numPeopleToShare"/>*/}
+                                        <ShareLimit onChange={handleLimitPreferenceChange}/>
+
+                                        <LabelAsterisk label={"Monthly budget"}/>
+                                        <Tooltip text={INFO_TEXT.RENT} toolTipID="rentPref"/>
+                                        <div className="grid grid-cols-6 gap-x-6">
+                                            <div className="column-span-6-layout">
+                                                <input
+                                                    className={"input label font-normal "}
+                                                    type="number"
+                                                    min="0"
+                                                    step="1"
+                                                    placeholder="Min $ CAD"
+                                                    onChange={(e) => setMinBudgetPreference(e.target.value)}
+                                                />
+                                            </div>
+                                            <div className="column-span-6-layout">
+                                                <input
+                                                    className={"input label font-normal "}
+                                                    type="number"
+                                                    min={minRent}
+                                                    step="1"
+                                                    placeholder=" Max $ CAD"
+                                                    onChange={(e) => setMaxBudgetPreference(e.target.value)}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="grid grid-cols-6 gap-x-6">
+                                            <div className="column-span-6-layout">
+                                                <YNButton
+                                                    label={"Pet friendly?"}
+                                                    toolTipText={INFO_TEXT.PET}
+                                                    toolTipID="pet"
+                                                    name="petFriendlyPref"
+                                                    required={true}
+                                                    onChange={(e) => setPetPreference(e.target.value)}
+                                                />
+                                            </div>
+                                            <div className="column-span-6-layout">
+                                                <YNButton
+                                                    label={"Smoke friendly?"}
+                                                    toolTipText={INFO_TEXT.SMOKE}
+                                                    toolTipID="smoke"
+                                                    name="smokingPref"
+                                                    required={true}
+                                                    onChange={(e) => setSmokingPreference(e.target.value)}
+                                                />
+                                            </div>
+                                            <div className="column-span-6-layout">
+                                                <YNButton
+                                                    label={"Is religion important?"}
+                                                    toolTipText={INFO_TEXT.RELIGION}
+                                                    toolTipID="religion"
+                                                    name="religion"
+                                                    required={true}
+                                                    onChange={(e) => setReligionPreference(e.target.value)}
+                                                />
+                                            </div>
+                                            <div className="column-span-6-layout">
+                                                <YNButton
+                                                    label={"Is diet of others important?"}
+                                                    toolTipText={INFO_TEXT.DIET}
+                                                    toolTipID="diet"
+                                                    name="diet"
+                                                    required={true}
+                                                    onChange={(e) => setDietPreference(e.target.value)}
+                                                />
+                                            </div>
+                                            <div className="column-span-6-layout">
+                                                <YNButton
+                                                    label={"Others with a home to share?"}
+                                                    toolTipText={INFO_TEXT.HOME_TO_SHARE}
+                                                    toolTipID="homeToShare"
+                                                    name="homeToSharePref"
+                                                    required={true}
+                                                    onChange={(e) => setHomeToSharePreference(e.target.value)}
+                                                />
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             {/*Divided*/}
             <div className="border-divider"/>
 
