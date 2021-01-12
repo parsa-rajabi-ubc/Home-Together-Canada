@@ -30,33 +30,32 @@ const Home = () => {
                         {/* Start - Top Portion of Home */}
                         <section className="pt-6">
                             <main
-                                className="relative max-w-screen-xl pr-4 mt-10 mr-10 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+                                className="relative max-w-screen-xl px-4 mt-10 mx-10 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
                                 <div className="sm:text-center lg:text-left">
                                     <h2 className="font-extrabold tracking-tight header-home">
                                         Home Together Canada
                                     </h2>
                                     <p className="text-home">
-                                        A volunteer-run, non-profit Association to facilitate the growth and success of
-                                        shared living in Canada.
+                                        Our mandate is to facilitate the growth and success of shared living in Canada.
                                     </p>
                                     <p className="text-home">
                                         We do this by providing the two fundamental needs necessary to the success of
-                                        both
-                                        the individuals, wishing to share homes, and the service providers and
-                                        businesses
-                                        wishing to serve this burgeoning and diverse group.
+                                        both the individuals, wishing to share a home with others, and the service
+                                        providers and businesses wishing to provide services to this burgeoning and
+                                        diverse group.
                                     </p>
+
                                     <div className="mt-5 ml-auto sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                                         <div>
-                                            <Link to={'/registration'}
+                                            <Link to={'/about'}
                                                   className=" rounded-md shadow flex btn btn-green">
-                                                Join Us
+                                                Learn More
                                             </Link>
                                         </div>
                                         <div className="mt-3 sm:mt-0 sm:ml-3">
-                                            <Link to={'/about'}
+                                            <Link to={'/faq'}
                                                   className="flex text-green-700 bg-green-200 btn hover:bg-green-300 hover:text-green-800">
-                                                Learn More
+                                                FAQ
                                             </Link>
                                         </div>
                                     </div>
@@ -80,8 +79,35 @@ const Home = () => {
             <section className="py-8 border-t bg-off_white">
                 <div className="container max-w-5xl m-8 mx-auto">
 
-                    <h1 className="w-full my-2 my-6 text-5xl font-bold leading-tight text-center text-gray-800">Explore
-                        Around You </h1>
+                    <h1 className="w-full mt-6 text-5xl font-bold leading-tight text-center text-gray-800"> How It
+                        Works </h1>
+                    <div className="flex flex-wrap">
+                        <div className="w-5/6 p-6 sm:w-1/2">
+                            <div className="w-full  mt-none">
+                                <div className="w-1/2 h-1 py-0 mx-10 my-0 rounded-t bg-iyellow-normal">
+                                </div>
+                            </div>
+
+                            {/*TODO: fill out text with actual content*/}
+                            <p className="text-home">
+                                We accomplish the first need to ensure the - maximum number of individuals are available to each
+                                other - by providing this <b>free</b> non-competitive, non-profit site with the basic preliminary tools
+                                individuals require to find others of similar mind.
+                            </p>
+                        </div>
+                        <div className="w-full p-6 sm:w-1/2">
+                            <p className="text-home">
+                                We accomplish the second need to ensure - individuals can find and access sharing and matching
+                                services, businesses, housing and organizations - by providing free and equal descriptive
+                                listings with website links to all Canadian sharing providers. This provides individuals
+                                immediate information and access to the services they are in search of, and in turn, provides
+                                the businesses and services maximum and immediate exposure to this large and diverse group.
+                            </p>
+                        </div>
+                    </div>
+
+                    <h1 className="w-full my-2 my-6 text-5xl font-bold leading-tight text-center text-gray-800">Why Home
+                        Together </h1>
 
                     {/* Start - Search for new Members */}
                     <div className="flex flex-wrap">
