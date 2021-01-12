@@ -106,28 +106,60 @@ module.exports = (DataTypes, sequelize) => {
 
         // PREFERENCES
         minAgePreference: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         maxAgePreference: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         statusPreference: {
-            type: DataTypes.STRING // JSON of status preferences
+            type: DataTypes.STRING, // stringified array
+            allowNull: false
         },
-        numRoommatesPreference: {   // -1 means any number
-            type: DataTypes.INTEGER
+        minNumRoommatesPreference: {   // -1 means any number
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        maxNumRoommatesPreference: {   // -1 means any number
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        minBudgetPreference: {
+          type: DataTypes.INTEGER,
+          allowNull: false
+        },
+        maxBudgetPreference: {
+          type: DataTypes.INTEGER,
+          allowNull: false
         },
         dietPreference: {
-            type: DataTypes.BOOLEAN
+            type: DataTypes.BOOLEAN,
+            allowNull: false
         },
         petsPreference: {
-            type: DataTypes.BOOLEAN
+            type: DataTypes.BOOLEAN,
+            allowNull: false
         },
         smokingPreference: {
-            type: DataTypes.BOOLEAN
+            type: DataTypes.BOOLEAN,
+            allowNull: false
         },
         healthAndMobilityPreference: {
-            type: DataTypes.BOOLEAN
+            type: DataTypes.BOOLEAN,
+            allowNull: false
+        },
+        genderPreference: {
+            type: DataTypes.STRING,     // stringified array
+            allowNull: false
+        },
+        religionPreference: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
+        },
+        othersWithHomeToSharePreference: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
         }
     });
 }

@@ -56,18 +56,23 @@ export function isPhoneNumberValid(phoneNumber) {
 // check if phone number is valid, if not, set state variable to true
 export function validatePhoneNumber(phoneNumber, setStateVar) {
     if (!isPhoneNumberValid(phoneNumber)) {
-        return setStateVar(true);
+        setStateVar(true);
+        return true;
     } else {
-        return setStateVar(false);
+        setStateVar(false);
+        return false;
     }
 }
 
 // check if email string is empty or if it is an email format, if not, set state variable to true
 export function validateEmail(email, setStateVar) {
     if (isStringEmpty(email) || !isStringEmail(email)) {
-        return setStateVar(true);
-    } else
-        return setStateVar(false);
+        setStateVar(true);
+        return true;
+    } else {
+        setStateVar(false);
+        return false;
+    }
 }
 
 // check if password and password confirmation are empty and if not, check if they're the same string, if not, set
@@ -75,9 +80,11 @@ export function validateEmail(email, setStateVar) {
 export function validatePasswordConfirmationMismatch(password, passwordConfirmation, setStateVar) {
     if (!isStringEmpty(password) && !isStringEmpty(passwordConfirmation)) {
         if (!isStringSame(password, passwordConfirmation)) {
-            return setStateVar("mismatch");
+            setStateVar("mismatch");
+            return true;
         } else {
-            return setStateVar(false)
+            setStateVar(false)
+            return false;
         }
     }
 }
@@ -85,19 +92,16 @@ export function validatePasswordConfirmationMismatch(password, passwordConfirmat
 // check if password confirmation is empty, if so, set state variable to "empty"
 export function validatePasswordConfirmationEmpty(passwordConfirmation, setStateVar) {
     if (isStringEmpty(passwordConfirmation)) {
-        return setStateVar("empty");
-    } else
-        return setStateVar(false);
+        setStateVar("empty");
+        return true;
+    } else {
+        setStateVar(false);
+        return false;
+    }
+
 }
 
 // checks object for true and returns true if there is one
-export function validateObject(obj){
+export function checkIfErrorsExistInMapping(obj) {
     return Object.values(obj).includes(true);
-}
-
-// default values for phone number object
-export const DEFAULT_PHONE_NUMBER = {
-    first: undefined,
-    middle: undefined,
-    last: undefined
 }
