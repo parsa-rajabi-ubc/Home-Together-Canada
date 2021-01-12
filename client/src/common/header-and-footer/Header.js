@@ -2,7 +2,7 @@
  * @Author:     Parsa Rajabi
  * @Created:    2020.11.09
  *
- * @Description: header for the website which contains links to Connect with Members, Services, Classifieds, About Us and Account Page
+ * @Description: header for the website which contains links to Search Member Profiles, Services, Classifieds, About Us and Account Page
  *
  */
 
@@ -73,7 +73,7 @@ const Header = (props) => {
                             {accountType !== USER_TYPES.BUSINESS &&
                             <Link to={'/members'}
                                   className="inline-block px-4 py-2 mr-3 transition duration-200 ease-in-out border-transparent rounded-md hover:bg-white hover:text-black hover:opacity-50">
-                                Connect with Members
+                                Search Member Profiles
                             </Link>
                             }
                             <Link to={'/services'}
