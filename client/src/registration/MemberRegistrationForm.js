@@ -41,6 +41,11 @@ import Tooltip from "../common/forms/Tooltip";
 import {USER_TYPES} from "../common/constants/users";
 import {dropdownDefaultCSS, dropdownErrorCSS} from "../css/dropdownCSSUtil"
 import {Link} from "react-router-dom";
+import includes from 'lodash/includes';
+import remove from 'lodash/remove';
+
+const _ = require('lodash');
+
 
 const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
 
@@ -56,7 +61,7 @@ function MemberRegistrationForm(props) {
         middle: undefined,
         last: undefined
     });
-    const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(undefined);
+    const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(false);
     const [address, setAddress] = useState({
         street: undefined,
         aptNum: undefined,
@@ -325,6 +330,19 @@ function MemberRegistrationForm(props) {
         setYearOfBirth(e.value);
     }
 
+    function handleGenderPrefChange(e) {
+        const list = [...genderPreference];
+        const value = e.target.id;
+        // check if the value select already exists in the list
+        if (!_.includes(list, value)) {
+            // if not, add the value
+            list.push(e.target.id);
+        } else {
+            // if it does, remove it from the array
+            list.splice(list.indexOf(value), 1);
+        }
+        setGenderPreference(list);
+    }
 
     const isFormValid = () => {
 
@@ -466,6 +484,22 @@ function MemberRegistrationForm(props) {
         accountDetailsErrors.errorPassword.passwordConfirmationEmpty = validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
         accountDetailsErrors.errorPassword.passwordConfirmationMismatch = validatePasswordConfirmationMismatch(password, passwordCheck, setPasswordConfirmError);
 
+        console.log("genderPreference ", genderPreference);
+        console.log("minAgePreference ", minAgePreference);
+        console.log("maxAgePreference ", maxAgePreference);
+        console.log("familyStatusPreference ", familyStatusPreference);
+        console.log("minNumRoommatePreference ", minNumRoommatePreference);
+        console.log("maxNumRoommatePreference ", maxNumRoommatePreference);
+        console.log("minBudgetPreference ", minBudgetPreference);
+        console.log("maxBudgetPreference ", maxBudgetPreference);
+        console.log("dietPreference ", dietPreference);
+        console.log("petPreference ", petPreference);
+        console.log("smokingPreference ", smokingPreference);
+        console.log("genderPreference ", genderPreference);
+        console.log("religionPreference ", religionPreference);
+        console.log("homeToSharePreference ", homeToSharePreference);
+
+
         // check personal information for errors
         if (checkIfErrorsExistInMapping(personalInfoErrors)) {
             return false;
@@ -494,6 +528,7 @@ function MemberRegistrationForm(props) {
         HOME_TO_SHARE: "If you have a home to share, we recommend that you also create a free listing in addition to providing a short description below",
         ABOUT: "Do not disclose any personal information as your profile is publicly viewable by all members on Home Together",
         PREF: {
+            GENDER: "Choose as many options as you wish, however you must select at least one",
             AGE: "Both min and max numbers are inclusive"
         }
     };
@@ -995,27 +1030,29 @@ function MemberRegistrationForm(props) {
                                     <div className="col-span-3 sm:col-span-2">
                                         <section
                                             className={`${genderPreferenceError && "pl-1 border rounded-lg border-red-500 mr-52"}`}>
-                                            <LabelAsterisk label={"I am open to sharing with"}/>
+                                            <LabelAsterisk label={"I am open to sharing with "}/>
+                                            <Tooltip text={INFO_TEXT.PREF.GENDER} toolTipID="genderPref"/>
                                             <div className={"my-2"}>
-                                                <RadioButton
+                                                <Checkbox
                                                     label="Male"
-                                                    name="gender" value="Male"
-                                                    checked={genderPreference === "Male"}
-                                                    onChange={(e) => setGenderPreference(e.target.value)}
+                                                    id="Male"
+                                                    className={"align-middle mt-0 mr-1 mb-0 h-4 w-4 border-gray-300 rounded-lg"}
+                                                    fontNormal={true}
+                                                    onChange={handleGenderPrefChange}
                                                 />
-                                                <RadioButton
+                                                <Checkbox
                                                     label="Female"
-                                                    name="gender"
-                                                    value="Female"
-                                                    checked={genderPreference === "Female"}
-                                                    onChange={(e) => setGenderPreference(e.target.value)}
+                                                    id={"Female"}
+                                                    className={"align-middle mt-0 mr-1 mb-0 text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"}
+                                                    fontNormal={true}
+                                                    onChange={handleGenderPrefChange}
                                                 />
-                                                <RadioButton
-                                                    label="Other "
-                                                    name="gender"
-                                                    value="Other"
-                                                    checked={genderPreference === "Other"}
-                                                    onChange={(e) => setGenderPreference(e.target.value)}
+                                                <Checkbox
+                                                    label="Other"
+                                                    id={"Other"}
+                                                    className={"align-middle mt-0 mr-1 mb-0 text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"}
+                                                    fontNormal={true}
+                                                    onChange={handleGenderPrefChange}
                                                 />
                                             </div>
                                         </section>
@@ -1203,7 +1240,7 @@ function MemberRegistrationForm(props) {
                                             onChangePasswordCheck={(e) => setPasswordCheck(e.target.value)}
                                             usernameError={usernameError}
                                             passwordError={passwordError}
-                                            passwordConfirmError={passwordConfirmError}
+                                            passwordConfirmError={passwordConfirmError ? "error" : null}
                                             passwordConfirmErrorMsg={(passwordConfirmError === "empty") ? "empty" : (passwordConfirmError === "mismatch" ? "mismatch" : "")}
                                         />
                                     </div>
