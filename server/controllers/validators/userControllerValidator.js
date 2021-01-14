@@ -13,6 +13,7 @@ const {
     GENDERS,
     STATUSES,
     WORK_STATUSES,
+    isValidPassword,
     isValidPhoneNumber,
     isValidCanadianPostalCode,
     shouldMailingAddressBeDefined,
@@ -29,8 +30,9 @@ const {
     usernameShouldExist,
     usernameShouldExistAndBeAMember,
     linkedMemberShouldHaveSameStatus,
-    providedOldPasswordShouldMatchExistingPassword,
-    providedNewPasswordShouldNotMatchExistingPassword
+    providedPasswordShouldMatchExistingPassword,
+    providedNewPasswordShouldNotMatchExistingPassword,
+    correctPasswordForUsername
 } = require('./userControllerValidatorUtils');
 const { removeAllWhiteSpace } = require('../utils/stringUtils');
 
@@ -43,7 +45,8 @@ const abstractUserValidation = [
     body('password', "A password must be provided")
         .exists()
         .trim()
-        .stripLow(),
+        .stripLow()
+        .custom(password => isValidPassword(password)),
     body('email', "A valid email must be provided")
         .exists()
         .isEmail()
@@ -187,6 +190,7 @@ exports.validate = (method) => {
                     .exists()
                     .trim()
                     .stripLow()
+                    .custom((password, { req }) => correctPasswordForUsername(req.body.username, password))
             ]
         }
         case 'createMemberUser': {
@@ -378,13 +382,14 @@ exports.validate = (method) => {
                     .exists()
                     .trim()
                     .stripLow()
-                    .custom((oldPassword, {req}) => providedOldPasswordShouldMatchExistingPassword(oldPassword, req.user.uid)),
+                    .custom((oldPassword, {req}) => providedPasswordShouldMatchExistingPassword(oldPassword, req.user.uid)),
                 // new password should not match the current password
                 body('newPassword')
                     .exists()
                     .trim()
                     .stripLow()
                     .custom((newPassword, {req}) => providedNewPasswordShouldNotMatchExistingPassword(newPassword, req.user.uid))
+                    .custom(newPassword => isValidPassword(newPassword))
             ]
         }
     }
