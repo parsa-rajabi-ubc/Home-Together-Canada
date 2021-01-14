@@ -18,6 +18,8 @@ const ChangePasswordContainer = () => {
     const [confirmedPassword, setConfirmedPassword] = useState('');
     const [showError, setShowError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
+    const [showSuccess, setShowSuccess] = useState(false);
+    const [successMessage, setSuccessMessage] = useState('');
 
     const changePassword = ()  => {
         const passwordData = {
@@ -35,7 +37,9 @@ const ChangePasswordContainer = () => {
                 .then(data => {
                     if (!!data && data.success) {
                         setShowError(false);
+                        setShowSuccess(true);
                         setErrorMessage('');
+                        setSuccessMessage('Password successfully changed!')
                         setOldPassword('');
                         setNewPassword('');
                         setConfirmedPassword('');
@@ -65,6 +69,8 @@ const ChangePasswordContainer = () => {
             confirmedPassword={confirmedPassword}
             showError={showError}
             errorMessage={errorMessage}
+            showSuccess={showSuccess}
+            successMessage={successMessage}
         />
     );
 }
