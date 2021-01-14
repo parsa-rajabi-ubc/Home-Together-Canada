@@ -21,7 +21,11 @@ import {
     getConcatenatedErrorMessage,
     getPhoneNumberFromStrings,
     validateEmail,
-    validateInput, validatePasswordConfirmationEmpty, validatePasswordConfirmationMismatch, validatePhoneNumber
+    validateInput,
+    validatePassword,
+    validatePasswordConfirmationEmpty,
+    validatePasswordConfirmationMismatch,
+    validatePhoneNumber
 } from "./registrationUtils";
 import Asterisk from "../common/forms/Asterisk";
 import {connect} from 'react-redux';
@@ -205,7 +209,7 @@ const BusinessRegistrationForm = (props) => {
         username !== undefined && validateInput(username, setUsernameError);
     }, [username]);
     useEffect(() => {
-        password !== undefined && validateInput(password, setPasswordError);
+        password !== undefined && validatePassword(password, setPasswordError);
     }, [password]);
     useEffect(() => {
         passwordCheck !== undefined && validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
@@ -291,7 +295,7 @@ const BusinessRegistrationForm = (props) => {
 
         // Account Details Validation
         accountDetailsErrors.errorUsername = validateInput(username, setUsernameError);
-        accountDetailsErrors.errorPassword.password = validateInput(password, setPasswordError);
+        accountDetailsErrors.errorPassword.password = validatePassword(password, setPasswordError);
         accountDetailsErrors.errorPassword.passwordConfirmationEmpty = validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
         accountDetailsErrors.errorPassword.passwordConfirmationMismatch = validatePasswordConfirmationMismatch(password, passwordCheck, setPasswordConfirmError);
 
@@ -635,7 +639,8 @@ const BusinessRegistrationForm = (props) => {
                                             usernameError={usernameError}
                                             passwordError={passwordError}
                                             passwordConfirmError={passwordConfirmError}
-                                            passwordConfirmErrorMsg={(passwordConfirmError === "empty") ? "empty" : (passwordConfirmError === "mismatch" ? "mismatch" : "")}
+                                            passwordConfirmErrorMsg={(passwordConfirmError === "empty") ? "empty" :
+                                                (passwordConfirmError === "mismatch" ? "mismatch" : "")}
                                         />
                                     </div>
                                 </div>

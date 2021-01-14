@@ -1,4 +1,9 @@
-import {getConcatenatedErrorMessage, getPhoneNumberFromStrings, getFirstErrorMessage} from "../registrationUtils";
+import {
+    getConcatenatedErrorMessage,
+    getPhoneNumberFromStrings,
+    getFirstErrorMessage,
+    validatePassword
+} from "../registrationUtils";
 
 describe('registrationUtils', () => {
 
@@ -153,4 +158,49 @@ describe('registrationUtils', () => {
             expect(errorMessage).toBe(expectedErrorMessage);
         });
     });
+
+    describe('validatePassword', () => {
+        it('should return true if password does not contain a number', () => {
+            // given
+            const password = 'Password';
+            const setter = jest.fn();
+
+            // then
+            expect(validatePassword(password, setter)).toBe(true);
+        });
+        it('should return true if password does not contain a lowercase letter', () => {
+            // given
+            const password = 'PASSWORD123';
+            const setter = jest.fn();
+
+            // then
+            expect(validatePassword(password, setter)).toBe(true);
+        });
+        it('should return true if password does not contain an uppercase letter', () => {
+            // given
+            const password = 'password123';
+            const setter = jest.fn();
+
+            // then
+            expect(validatePassword(password, setter)).toBe(true);
+        });
+        it('should throw an error if password contains less than 8 characters', () => {
+            // given
+            const password = 'AbC123';
+            const setter = jest.fn();
+
+            // then
+            expect(validatePassword(password, setter)).toBe(true);
+        });
+        it('should return false if password is at least characters long and contains a number, lowercase and ' +
+            'upper case letter', () => {
+            // given
+            const password = 'Password123';
+            const setter = jest.fn();
+
+            // then
+            expect(validatePassword(password, setter)).toBe(false);
+        });
+    })
+
 });
