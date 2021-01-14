@@ -41,7 +41,6 @@ import Tooltip from "../common/forms/Tooltip";
 import {USER_TYPES} from "../common/constants/users";
 import {dropdownDefaultCSS, dropdownErrorCSS} from "../css/dropdownCSSUtil"
 import {Link} from "react-router-dom";
-import StatusPreference from "../common/forms/StatusPreference";
 
 const _ = require('lodash');
 
@@ -1041,7 +1040,7 @@ function MemberRegistrationForm(props) {
                                         </section>
                                         <LabelAsterisk label={"I am open to sharing with"}/>
                                         <Tooltip text={INFO_TEXT.FAMILY_STATUS} toolTipID="familyStatusPref"/>
-                                        <StatusPreference onChange={setFamilyStatusPreference}
+                                        <Status onChange={setFamilyStatusPreference}
                                                 dropdownCSS={familyStatusPreferenceError ? dropdownErrorCSS : dropdownDefaultCSS}
                                                 isDropdownMulti={true}
                                         />

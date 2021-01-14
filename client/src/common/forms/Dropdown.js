@@ -12,7 +12,7 @@ import propTypes from "prop-types";
 import {dropdownDefaultTheme} from "../../css/dropdownCSSUtil";
 
 function Dropdown(props) {
-    const {isSearchable, name, placeholder, options, onChange, intialSelection, dropdownCSS, dropdownTheme = dropdownDefaultTheme} = props;
+    const {isSearchable, name, placeholder, options, onChange, intialSelection, isMulti, dropdownCSS, dropdownTheme = dropdownDefaultTheme} = props;
 
     const [selected, setSelected] = useState(intialSelection || "");
 
@@ -27,6 +27,8 @@ function Dropdown(props) {
         <div>
             <Select
                 isSearchable={isSearchable}
+                isClearable={false}
+                isMulti={isMulti}
                 placeholder={placeholder}
                 options={options}
                 value={options.find(obj => obj.label === selected)}
@@ -48,7 +50,8 @@ Dropdown.propTypes = {
     onChange: propTypes.func,
     intialSelection: propTypes.string,
     dropdownCSS: propTypes.object,
-    dropdownTheme: propTypes.func
+    dropdownTheme: propTypes.func,
+    isMulti: propTypes.bool
 };
 
 export default Dropdown;
