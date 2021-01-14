@@ -10,7 +10,7 @@ import React from 'react';
 import propTypes from "prop-types";
 import Dropdown from "./Dropdown";
 
-const statuses = [
+export const statuses = [
     {
         label: "Single",
         value: "Single"
