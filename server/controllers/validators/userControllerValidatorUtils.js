@@ -53,6 +53,18 @@ const WORK_STATUSES = [
     'Other'
 ];
 
+const isValidPassword = password => {
+    const numbersRegex = /\d+/;         // checks for numbers
+    const lowerCaseRegex = /[a-z]/;     // checks for lowercase letters
+    const upperCaseRegex = /[A-Z]/;     // checks for uppercase letters
+
+    if (!numbersRegex.test(password) || !lowerCaseRegex.test(password) || !upperCaseRegex.test(password)
+        || password.length < 8) {
+            throw new Error('Password must contain 8 characters, and at least one number, lower and upper case letter');
+    }
+    return true;
+}
+
 const isValidPhoneNumber = (phoneNum) => {
     if (phoneNum.toString().length !== 10) {
         throw new Error('Phone number must be 10 digits long')
@@ -200,7 +212,7 @@ const linkedMemberShouldHaveSameStatus = (username, req) => {
         });
 }
 
-const providedOldPasswordShouldMatchExistingPassword = (password, uid) => {
+const providedPasswordShouldMatchExistingPassword = (password, uid) => {
     return abstractUserController.findAbstractUser(uid)
         .then(userObject => {
             if (!userObject) {
@@ -232,11 +244,27 @@ const providedNewPasswordShouldNotMatchExistingPassword = (password, uid) => {
         });
 }
 
+const correctPasswordForUsername = (username, password) =>
+    abstractUserController.findUserByUsername(username)
+        .then(users => {
+            if (users.length) {
+                const user = users[0].dataValues;
+                const hashedPassword = PasswordService.getHashedPassword(password, user.salt);
+
+                if (hashedPassword !== user.password) {
+                    return Promise.reject('Incorrect password');
+                }
+            } else {
+                return Promise.reject('Incorrect username');
+            }
+    });
+
 module.exports = {
     PROVINCES,
     GENDERS,
     STATUSES,
     WORK_STATUSES,
+    isValidPassword,
     isValidPhoneNumber,
     isValidCanadianPostalCode,
     shouldMailingAddressBeDefined,
@@ -253,6 +281,7 @@ module.exports = {
     usernameShouldExist,
     usernameShouldExistAndBeAMember,
     linkedMemberShouldHaveSameStatus,
-    providedOldPasswordShouldMatchExistingPassword,
-    providedNewPasswordShouldNotMatchExistingPassword
+    providedPasswordShouldMatchExistingPassword,
+    providedNewPasswordShouldNotMatchExistingPassword,
+    correctPasswordForUsername
 }
