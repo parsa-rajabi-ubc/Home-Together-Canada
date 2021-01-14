@@ -22,7 +22,10 @@ import {
     checkIfErrorsExistInMapping,
     validatePhoneNumber,
     validatePasswordConfirmationMismatch,
-    validatePasswordConfirmationEmpty, validateEmail, validateMinMax
+    validatePasswordConfirmationEmpty,
+    validateEmail,
+    validatePassword,
+    validateMinMax
 } from "./registrationUtils";
 import RegistrationService from "../services/RegistrationService";
 import RadioButton from "../common/forms/RadioButton";
@@ -256,7 +259,7 @@ function MemberRegistrationForm(props) {
         username !== undefined && validateInput(username, setUsernameError);
     }, [username]);
     useEffect(() => {
-        password !== undefined && validateInput(password, setPasswordError);
+        password !== undefined && validatePassword(password, setPasswordError);
     }, [password]);
     useEffect(() => {
         passwordCheck !== undefined && validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
@@ -473,7 +476,7 @@ function MemberRegistrationForm(props) {
 
         // Account Details Validation
         accountDetailsErrors.errorUsername = validateInput(username, setUsernameError);
-        accountDetailsErrors.errorPassword.password = validateInput(password, setPasswordError);
+        accountDetailsErrors.errorPassword.password = validatePassword(password, setPasswordError);
         accountDetailsErrors.errorPassword.passwordConfirmationEmpty = validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
         accountDetailsErrors.errorPassword.passwordConfirmationMismatch = validatePasswordConfirmationMismatch(password, passwordCheck, setPasswordConfirmError);
 
@@ -793,7 +796,7 @@ function MemberRegistrationForm(props) {
                                                     type="number"
                                                     min={minRent}
                                                     step="1"
-                                                    placeholder=" Max $ CAD"
+                                                    placeholder="Max $ CAD"
                                                     onChange={(e) => setMaxRent(e.target.value)}
                                                 />
 
