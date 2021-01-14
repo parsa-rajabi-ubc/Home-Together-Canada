@@ -30,7 +30,7 @@ exports[`Header Header structure should match snapshot test 1`] = `
             href="/members"
             onClick={[Function]}
           >
-            Connect with Members
+            Search Member Profiles
           </a>
           <a
             className="inline-block px-4 py-2 mr-3 transition duration-200 ease-in-out border-transparent rounded-md hover:bg-white hover:text-black hover:opacity-50"

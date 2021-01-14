@@ -19,6 +19,16 @@ export const dropdownDefaultCSS = {
     menuPortal: base => ({...base, zIndex: 9999}),
 }
 
+export const dropdownDefaultTheme = theme => ({
+    ...theme,
+    borderRadius: 8,
+    colors: {
+        ...theme.colors,
+        neutral50: '#A0AEBF',  // Placeholder color
+    }
+})
+
+
 export const dropdownErrorCSS = {
     control: base => ({
             ...base,
@@ -34,3 +44,39 @@ export const dropdownErrorCSS = {
     ),
     menuPortal: base => ({...base, zIndex: 9999}),
 }
+
+export const dropdownAccountCSS = {
+    control: base => ({
+            ...base,
+            height: 40,
+            width: 125,
+            marginTop: 8,
+            borderColor: "white",
+            backgroundColor: "white",
+            boxShadow: 'none',
+            border: 0,
+            ':hover': {
+                backgroundColor: '#D6B765',
+                borderColor: 'white',
+            }
+        }
+    ),
+    menuPortal: base => ({...base, zIndex: 9999}),
+    // removes the "stick"
+    indicatorSeparator: () => {
+    },
+    dropdownIndicator: defaultStyles => ({
+        ...defaultStyles,
+        // changes arrow color
+        color: 'black'
+    })
+}
+
+export const dropdownAccountTheme = theme => ({
+    ...theme,
+    borderRadius: 10,
+    colors: {
+        ...theme.colors,
+        neutral50: 'black'
+    }
+})

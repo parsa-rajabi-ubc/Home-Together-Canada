@@ -35,8 +35,8 @@ describe('Header', () => {
         });
     });
 
-    describe('Connect with Members button', () => {
-        it('should show Connect with Members button when the user is unregistered', () => {
+    describe('Search Member Profiles button', () => {
+        it('should show Search Member Profiles button when the user is unregistered', () => {
             // given
             const props = {
                 setAccountType,
@@ -50,12 +50,12 @@ describe('Header', () => {
             // when
             const testInstance = renderer.create(<BrowserRouter><Header {...props}/></BrowserRouter>).root;
             const connectWithMembersButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'Connect with Members');
+                .find(element => element.props.children === 'Search Member Profiles');
 
             // then
             expect(connectWithMembersButton).toBeDefined();
         });
-        it('should show Connect with Members button when the user is a member', () => {
+        it('should show Search Member Profiles button when the user is a member', () => {
             // given
             const props = {
                 setAccountType,
@@ -69,12 +69,12 @@ describe('Header', () => {
             // when
             const testInstance = renderer.create(<BrowserRouter><Header {...props}/></BrowserRouter>).root;
             const connectWithMembersButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'Connect with Members');
+                .find(element => element.props.children === 'Search Member Profiles');
 
             // then
             expect(connectWithMembersButton).toBeDefined();
         });
-        it('should not show Connect with Members button when the user is a business', () => {
+        it('should not show Search Member Profiles button when the user is a business', () => {
             // given
             const props = {
                 setAccountType,
@@ -88,7 +88,7 @@ describe('Header', () => {
             // when
             const testInstance = renderer.create(<BrowserRouter><Header {...props}/></BrowserRouter>).root;
             const connectWithMembersButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'Connect with Members');
+                .find(element => element.props.children === 'Search Member Profiles');
 
             // then
             expect(connectWithMembersButton).toBeUndefined();

@@ -6,7 +6,7 @@
  *
  */
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import TextArea from '../common/forms/TextArea';
 import Checkbox from "../common/forms/Checkbox";
@@ -15,9 +15,14 @@ import SubmitButton from "../common/forms/SubmitButton";
 import Address from "../common/forms/Address";
 import SignInInfo from "../common/forms/SignInInfo";
 import PhoneNumInput from "../common/forms/PhoneNumInput";
-import {isStringEmail, isStringEmpty, isStringSame, isStringNumeralsOnly} from "../common/utils/stringUtils";
 import RegistrationService from '../services/RegistrationService';
-import {getConcatenatedErrorMessage, getPhoneNumberFromStrings} from "./registrationUtils";
+import {
+    checkIfErrorsExistInMapping,
+    getConcatenatedErrorMessage,
+    getPhoneNumberFromStrings,
+    validateEmail,
+    validateInput, validatePasswordConfirmationEmpty, validatePasswordConfirmationMismatch, validatePhoneNumber
+} from "./registrationUtils";
 import Asterisk from "../common/forms/Asterisk";
 import {connect} from 'react-redux';
 import {setAccountType, setAuthenticated} from '../redux/slices/userPrivileges';
@@ -27,7 +32,6 @@ import {USER_TYPES} from "../common/constants/users";
 const mapDispatch = {setAccountType, setAuthenticated};
 
 
-// TODO: separate this into container and presentational components (see https://css-tricks.com/learning-react-container-components/)
 const BusinessRegistrationForm = (props) => {
     const {history, setAccountType, setAuthenticated} = props;
 
@@ -36,185 +40,274 @@ const BusinessRegistrationForm = (props) => {
     const [isIncorporated, setIsIncorporated] = useState(false);
 
     //Validation state variables
-    const [bName, setBName] = useState("");
-    const [bEmail, setBEmail] = useState("");
+    const [bName, setBName] = useState(undefined);
+    const [bEmail, setBEmail] = useState(undefined);
     const [incorporatedOwnersNames, setIncorporatedOwnersNames] = useState("");
     const [bPhoneNumber, setBPhoneNumber] = useState({
-        first: "",
-        middle: "",
-        last: ""
+        first: undefined,
+        middle: undefined,
+        last: undefined,
     });
     const [bCellNumber, setBCellNumber] = useState({
-        first: "",
-        middle: "",
-        last: ""
+        first: undefined,
+        middle: undefined,
+        last: undefined,
     });
     const [bAddress, setBAddress] = useState({
-        street: "",
-        aptNum: "",
-        city: "",
-        province: "",
-        postalCode: ""
+        street: undefined,
+        aptNum: undefined,
+        city: undefined,
+        province: undefined,
+        postalCode: undefined,
     });
     const [bMailingAddress, setBMailingAddress] = useState({
-        street: "",
-        aptNum: "",
-        city: "",
-        province: "",
-        postalCode: ""
+        street: undefined,
+        aptNum: undefined,
+        city: undefined,
+        province: undefined,
+        postalCode: undefined,
     });
     const [bMapAddress, setBMapAddress] = useState({
-        street: "",
-        aptNum: "",
-        city: "",
-        province: "",
-        postalCode: ""
+        street: undefined,
+        aptNum: undefined,
+        city: undefined,
+        province: undefined,
+        postalCode: undefined,
     });
-    const [website, setWebsite] = useState("");
-    const [contactFName, setContactFName] = useState("");
-    const [contactLName, setContactLName] = useState("");
+    const [website, setWebsite] = useState(undefined);
+    const [contactFName, setContactFName] = useState(undefined);
+    const [contactLName, setContactLName] = useState(undefined);
     const [contactPhoneNumber, setContactPhoneNumber] = useState({
-        first: "",
-        middle: "",
-        last: ""
+        first: undefined,
+        middle: undefined,
+        last: undefined,
     });
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [passwordCheck, setPasswordCheck] = useState("");
+    const [username, setUsername] = useState(undefined);
+    const [password, setPassword] = useState(undefined);
+    const [passwordCheck, setPasswordCheck] = useState(undefined);
 
-    // TODO: convert this into an array of errors
-    const isFormValid = () => {
-        if (isStringEmpty(bName)) {
-            alert("Business Name Required");
-            return false;
+    // Business Details
+    const [businessNameError, setBusinessNameError] = useState(undefined);
+    const [bEmailError, setBEmailError] = useState(undefined);
+    const [bPhoneNumberError, setBPhoneNumberError] = useState(undefined);
+    const [bCellNumberError, setBCellNumberError] = useState(undefined);
+
+    // Business Address
+    const [streetAddressError, setStreetAddressError] = useState(undefined);
+    const [cityAddressError, setCityAddressError] = useState(undefined);
+    const [provinceAddressError, setProvinceAddressError] = useState(undefined);
+    const [postalCodeError, setPostalCodeError] = useState(undefined);
+
+    // Mailing Address
+    const [streetMailingAddressError, setStreetMailingAddressError] = useState(undefined);
+    const [cityMailingAddressError, setCityMailingAddressError] = useState(undefined);
+    const [provinceMailingAddressError, setProvinceMailingAddressError] = useState(undefined);
+    const [postalCodeMailingError, setPostalCodeMailingError] = useState(undefined);
+
+    // Map Address
+    const [streetMapAddressError, setStreetMapAddressError] = useState(undefined);
+    const [cityMapAddressError, setCityMapAddressError] = useState(undefined);
+    const [provinceMapAddressError, setProvinceMapAddressError] = useState(undefined);
+    const [postalCodeMapError, setPostalCodeMapError] = useState(undefined);
+
+    // Contact Person Start
+    const [contactFirstNameError, setContactFirstNameError] = useState(undefined);
+    const [contactLastNameError, setContactLastNameError] = useState(undefined);
+    const [contactPhoneNumberError, setContactPhoneNumberError] = useState(undefined);
+    // Contact Person End
+
+    // Account Details Start
+    const [usernameError, setUsernameError] = useState(undefined);
+    const [passwordError, setPasswordError] = useState(undefined);
+    const [passwordConfirmError, setPasswordConfirmError] = useState(undefined);
+    // Account Details End
+
+
+    // business details
+    useEffect(() => {
+        bName !== undefined && validateInput(bName, setBusinessNameError);
+    }, [bName]);
+    useEffect(() => {
+        bEmail !== undefined && validateEmail(bEmail, setBEmailError);
+    }, [bEmail]);
+    useEffect(() => {
+        if (bPhoneNumber.first !== undefined || bPhoneNumber.middle !== undefined || bPhoneNumber.last !== undefined) {
+            validatePhoneNumber(bPhoneNumber, setBPhoneNumberError);
         }
-        if (isStringEmpty(bEmail)) {
-            alert("Business Email Required");
-            return false;
-        } else {
-            if (!isStringEmail(bEmail)) {
-                alert("Business email is invalid");
-                return false;
-            }
+    }, [bPhoneNumber]);
+    useEffect(() => {
+        if (bCellNumber.first !== undefined || bCellNumber.middle !== undefined || bCellNumber.last !== undefined) {
+            validatePhoneNumber(bCellNumber, setBCellNumberError);
         }
-        if (isStringEmpty(bPhoneNumber.first) || isStringEmpty(bPhoneNumber.middle) || isStringEmpty(bPhoneNumber.last)) {
-            alert("Business Phone Number missing parts");
-            return false;
-        } else {
-            if (!isStringNumeralsOnly(bPhoneNumber.first) || !isStringNumeralsOnly(bPhoneNumber.middle) || !isStringNumeralsOnly(bPhoneNumber.last)) {
-                alert("Business Phone Number has invalid characters");
-                return false;
-            }
-            if (!(bPhoneNumber.first.length === 3) || !(bPhoneNumber.middle.length === 3) || !(bPhoneNumber.last.length === 4)) {
-                alert("Business Phone Number has invalid number of characters");
-                return false;
-            }
-        }
-        if (isStringEmpty(bCellNumber.first) || isStringEmpty(bCellNumber.middle) || isStringEmpty(bCellNumber.last)) {
-            alert("Business Cell Phone Number missing parts");
-            return false;
-        } else {
-            if (!isStringNumeralsOnly(bCellNumber.first) || !isStringNumeralsOnly(bCellNumber.middle) || !isStringNumeralsOnly(bCellNumber.last)) {
-                alert("Business Cell Phone Number has invalid characters");
-                return false;
-            }
-            if (!(bCellNumber.first.length === 3) || !(bCellNumber.middle.length === 3) || !(bCellNumber.last.length === 4)) {
-                alert("Business Cell Phone Number has invalid number of characters");
-                return false;
-            }
-        }
-        if (isStringEmpty(bAddress.street)) {
-            alert("Business Street Address missing");
-            return false;
-        }
-        if (isStringEmpty(bAddress.city)) {
-            alert("Business Address City missing");
-            return false;
-        }
-        if (isStringEmpty(bAddress.province)) {
-            alert("Business Address Province not selected");
-            return false
-        }
-        if (isStringEmpty(bAddress.postalCode)) {
-            alert("Business Address Postal Code missing");
-            return false;
-        }
+    }, [bCellNumber]);
+
+    // Address
+    useEffect(() => {
+        bAddress.street !== undefined && validateInput(bAddress.street, setStreetAddressError);
+    }, [bAddress.street]);
+    useEffect(() => {
+        bAddress.city !== undefined && validateInput(bAddress.city, setCityAddressError);
+    }, [bAddress.city]);
+    useEffect(() => {
+        bAddress.postalCode !== undefined && validateInput(bAddress.postalCode, setPostalCodeError);
+    }, [bAddress.postalCode]);
+
+    // Mailing Address
+    useEffect(() => {
         if (useDifferentMailingAddress) {
-            if (isStringEmpty(bMailingAddress.street)) {
-                alert("Business Mailing Address Street missing");
-                return false;
+            bMailingAddress.street !== undefined && validateInput(bMailingAddress.street, setStreetMailingAddressError);
+        }
+    }, [bMailingAddress.street, useDifferentMailingAddress]);
+    useEffect(() => {
+        if (useDifferentMailingAddress) {
+            bMailingAddress.city !== undefined && validateInput(bMailingAddress.city, setCityMailingAddressError);
+        }
+    }, [bMailingAddress.city, useDifferentMailingAddress]);
+    useEffect(() => {
+        if (useDifferentMailingAddress) {
+            bMailingAddress.postalCode !== undefined && validateInput(bMailingAddress.postalCode, setPostalCodeMailingError);
+        }
+    }, [bMailingAddress.postalCode, useDifferentMailingAddress]);
+
+    // Map Address
+    useEffect(() => {
+        if (!isNationWide) {
+            bMapAddress.street !== undefined && validateInput(bMapAddress.street, setStreetMapAddressError);
+        }
+    }, [bMapAddress.street, isNationWide]);
+    useEffect(() => {
+        if (!isNationWide) {
+            bMapAddress.city !== undefined && validateInput(bMapAddress.city, setCityMapAddressError);
+        }
+    }, [bMapAddress.city, isNationWide]);
+    useEffect(() => {
+        if (!isNationWide) {
+            bMapAddress.postalCode !== undefined && validateInput(bMapAddress.postalCode, setPostalCodeMapError);
+        }
+    }, [bMapAddress.postalCode, isNationWide]);
+
+
+    // contact person useEffect
+    useEffect(() => {
+        contactFName !== undefined && validateInput(contactFName, setContactFirstNameError);
+    }, [contactFName]);
+    useEffect(() => {
+        contactLName !== undefined && validateInput(contactLName, setContactLastNameError);
+    }, [contactLName]);
+    useEffect(() => {
+        if (contactPhoneNumber.first !== undefined || contactPhoneNumber.middle !== undefined || contactPhoneNumber.last !== undefined) {
+            validatePhoneNumber(contactPhoneNumber, setContactPhoneNumberError);
+        }
+    }, [contactPhoneNumber]);
+
+    // Account Details
+    useEffect(() => {
+        username !== undefined && validateInput(username, setUsernameError);
+    }, [username]);
+    useEffect(() => {
+        password !== undefined && validateInput(password, setPasswordError);
+    }, [password]);
+    useEffect(() => {
+        passwordCheck !== undefined && validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
+    }, [passwordCheck]);
+    useEffect(() => {
+        if (password !== undefined && passwordCheck !== undefined) {
+            validatePasswordConfirmationMismatch(password, passwordCheck, setPasswordConfirmError);
+        }
+    }, [password, passwordCheck]);
+
+    const isFormValid = () => {
+
+        const businessDetailsErrors = {
+            errorBusinessName: false,
+            errorBusinessEmail: false,
+            errorPhoneNumber: {
+                regular: false,
+                cell: false,
+            },
+            errorAddress: {
+                street: false,
+                city: false,
+                province: false,
+                postalCode: false,
+            },
+            errorMailingAddress: {
+                street: false,
+                city: false,
+                province: false,
+                postalCode: false,
+            },
+            errorMapAddress: {
+                street: false,
+                city: false,
+                province: false,
+                postalCode: false,
             }
-            if (isStringEmpty(bMailingAddress.city)) {
-                alert("Business Mailing Address City missing");
-                return false;
+        }
+
+        const contactPersonErrors = {
+            errorFirstName: false,
+            errorLastName: false,
+            errorPhoneNumber: false,
+        }
+
+        const accountDetailsErrors = {
+            errorUsername: false,
+            errorPassword: {
+                password: false,
+                passwordConfirmationEmpty: false,
+                passwordConfirmationMismatch: false,
             }
-            if (isStringEmpty(bMailingAddress.province)) {
-                alert("Business Mailing Address Province not selected");
-                return false;
-            }
-            if (isStringEmpty(bMailingAddress.postalCode)) {
-                alert("Business Mailing Address Postal Code missing");
-                return false;
-            }
+        }
+
+        // Business Details
+        businessDetailsErrors.errorBusinessName = validateInput(bName, setBusinessNameError);
+        businessDetailsErrors.errorBusinessEmail = validateEmail(bEmail, setBEmailError);
+        businessDetailsErrors.errorPhoneNumber.regular = validatePhoneNumber(bPhoneNumber, setBPhoneNumberError);
+        businessDetailsErrors.errorPhoneNumber.cell = validatePhoneNumber(bCellNumber, setBCellNumberError);
+
+        businessDetailsErrors.errorAddress.street = validateInput(bAddress.street, setStreetAddressError);
+        businessDetailsErrors.errorAddress.city = validateInput(bAddress.city, setCityAddressError);
+        businessDetailsErrors.errorAddress.province = validateInput(bAddress.province, setProvinceAddressError);
+        businessDetailsErrors.errorAddress.postalCode = validateInput(bAddress.postalCode, setPostalCodeError);
+
+        if (useDifferentMailingAddress) {
+            businessDetailsErrors.errorMailingAddress.street = validateInput(bMailingAddress.street, setStreetMailingAddressError);
+            businessDetailsErrors.errorMailingAddress.city = validateInput(bMailingAddress.city, setCityMailingAddressError);
+            businessDetailsErrors.errorMailingAddress.province = validateInput(bMailingAddress.province, setProvinceMailingAddressError);
+            businessDetailsErrors.errorMailingAddress.postalCode = validateInput(bMailingAddress.postalCode, setPostalCodeMailingError);
         }
         if (!isNationWide) {
-            if (isStringEmpty(bMapAddress.street)) {
-                alert("Searchable Address Street missing");
-                return false;
-            }
-            if (isStringEmpty(bMapAddress.city)) {
-                alert("Searchable Address City missing");
-                return false;
-            }
-            if (isStringEmpty(bMapAddress.province)) {
-                alert("Searchable Address Province not selected");
-                return false;
-            }
-            if (isStringEmpty(bMapAddress.postalCode)) {
-                alert("Searchable Address Postal Code missing");
-                return false;
-            }
+            businessDetailsErrors.errorMapAddress.street = validateInput(bMapAddress.street, setStreetMapAddressError);
+            businessDetailsErrors.errorMapAddress.city = validateInput(bMapAddress.city, setCityMapAddressError);
+            businessDetailsErrors.errorMapAddress.province = validateInput(bMapAddress.province, setProvinceMapAddressError);
+            businessDetailsErrors.errorMapAddress.postalCode = validateInput(bMapAddress.postalCode, setPostalCodeMapError);
         }
-        if (isStringEmpty(contactFName)) {
-            alert("Contact First Name Required");
+
+        // Contact Person Validation
+        contactPersonErrors.errorFirstName = validateInput(contactFName, setContactFirstNameError);
+        contactPersonErrors.errorLastName = validateInput(contactLName, setContactLastNameError);
+        contactPersonErrors.errorPhoneNumber = validatePhoneNumber(contactPhoneNumber, setContactPhoneNumberError);
+
+        // Account Details Validation
+        accountDetailsErrors.errorUsername = validateInput(username, setUsernameError);
+        accountDetailsErrors.errorPassword.password = validateInput(password, setPasswordError);
+        accountDetailsErrors.errorPassword.passwordConfirmationEmpty = validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
+        accountDetailsErrors.errorPassword.passwordConfirmationMismatch = validatePasswordConfirmationMismatch(password, passwordCheck, setPasswordConfirmError);
+
+        // check business details for errors
+        if (checkIfErrorsExistInMapping(businessDetailsErrors)) {
             return false;
-        }
-        if (isStringEmpty(contactLName)) {
-            alert("Contact Last Name Required");
+            // check contact person for errors
+        } else if (checkIfErrorsExistInMapping(contactPersonErrors)) {
             return false;
-        }
-        if (isStringEmpty(contactPhoneNumber.first) || isStringEmpty(contactPhoneNumber.middle) || isStringEmpty(contactPhoneNumber.last)) {
-            alert("Contact Phone Number missing parts");
+            // check account details for errors
+        } else if (checkIfErrorsExistInMapping(accountDetailsErrors)) {
             return false;
+            // return true if no errors
         } else {
-            if (!isStringNumeralsOnly(contactPhoneNumber.first) || !isStringNumeralsOnly(contactPhoneNumber.middle) || !isStringNumeralsOnly(contactPhoneNumber.last)) {
-                alert("Contact Phone Number has invalid characters");
-                return false;
-            }
-            if (!(contactPhoneNumber.first.length === 3) || !(contactPhoneNumber.middle.length === 3) || !(contactPhoneNumber.last.length === 4)) {
-                alert("Contact Phone Number has invalid number of characters");
-                return false;
-            }
+            return true;
         }
-        if (isStringEmpty(username)) {
-            alert("username Required");
-            return false;
-        }
-        if (isStringEmpty(password)) {
-            alert("Password Required");
-            return false;
-        }
-        if (isStringEmpty(passwordCheck)) {
-            alert("Password confirmation Required");
-            return false;
-        }
-        if (!isStringEmpty(password) && !isStringEmpty(passwordCheck)) {
-            if (!isStringSame(password, passwordCheck)) {
-                alert("Passwords do NOT match");
-                return false;
-            }
-        }
-        return true;
     }
 
     const INFO_TEXT = {
@@ -226,7 +319,7 @@ const BusinessRegistrationForm = (props) => {
         MAP_ADDRESS: "Address that users use to search for the business"
     };
 
-    //function for input checks on submit
+//function for input checks on submit
     function onSubmit(event) {
         if (!isFormValid()) {
             event.preventDefault();
@@ -347,12 +440,13 @@ const BusinessRegistrationForm = (props) => {
                             </p>
                         </div>
                     </div>
-                    <div className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
+                    <div
+                        className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
                         <div className="grid grid-cols-2 gap-6">
                             <div className="col-span-3 sm:col-span-2">
                                 <TextArea
-                                    className="mb-0 input"
-                                    placeholder="" label="Business Name"
+                                    className={`${businessNameError && "border-red-500"} mb-0 input`}
+                                    label="Business Name"
                                     autoComplete={"organization"}
                                     labelClassName={"label"}
                                     required={true}
@@ -369,7 +463,7 @@ const BusinessRegistrationForm = (props) => {
                                                                  labelClassName={"label"}
                                                                  onChange={(e) => setIncorporatedOwnersNames(e.target.value)}/>}
                                 </div>
-                                <TextArea className="input"
+                                <TextArea className={`${bEmailError && "border-red-500"} input`}
                                           placeholder="business@email.ca"
                                           autoComplete={"email"}
                                           label="Business Email"
@@ -386,13 +480,13 @@ const BusinessRegistrationForm = (props) => {
                                           labelClassName={"label"}
                                           onChange={e => setWebsite(e.target.value)}/>
                                 <PhoneNumInput
-                                    className="phone"
+                                    className={`${bPhoneNumberError && "border-red-500"} phone`}
                                     required={true}
                                     labelClassName={"label "}
                                     label="Business Phone Number"
                                     onChange={handleBPhoneChange}/>
                                 <PhoneNumInput
-                                    className="phone"
+                                    className={`${bCellNumberError && "border-red-500"} phone`}
                                     required={true}
                                     label="Business Cell Number"
                                     labelClassName={"label"}
@@ -400,6 +494,10 @@ const BusinessRegistrationForm = (props) => {
                                 <Address label="Business Address"
                                          cityClassName="city-postal"
                                          required={true}
+                                         streetAddressError={streetAddressError}
+                                         cityAddressError={cityAddressError}
+                                         provinceAddressError={provinceAddressError}
+                                         postalCodeError={postalCodeError}
                                          onChange={handleBAddressChange}/>
                                 <Checkbox label={"Different Mailing Address"}
                                           toolTipText={INFO_TEXT.DIFF_MAILING_ADDRESS}
@@ -408,6 +506,10 @@ const BusinessRegistrationForm = (props) => {
                                 {useDifferentMailingAddress &&
                                 <Address label="Business Mailing Address"
                                          required={true}
+                                         streetAddressError={streetMailingAddressError}
+                                         cityAddressError={cityMailingAddressError}
+                                         provinceAddressError={provinceMailingAddressError}
+                                         postalCodeError={postalCodeMailingError}
                                          onChange={handleBMailingAddress}/>}
                                 <div>
                                     <Checkbox label={"Canada-wide Business"}
@@ -421,6 +523,10 @@ const BusinessRegistrationForm = (props) => {
                                              toolTipText={INFO_TEXT.MAP_ADDRESS}
                                              toolTipID={"mapAddress"}
                                              required={true}
+                                             streetAddressError={streetMapAddressError}
+                                             cityAddressError={cityMapAddressError}
+                                             provinceAddressError={provinceMapAddressError}
+                                             postalCodeError={postalCodeMapError}
                                              onChange={handleBMapAddress}/>}
                                 </div>
                             </div>
@@ -470,7 +576,7 @@ const BusinessRegistrationForm = (props) => {
                     className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
                     <div className="grid grid-cols-6 gap-x-6">
                         <div className="column-span-6-layout">
-                            <TextArea className={"input"}
+                            <TextArea className={`${contactFirstNameError && "border-red-500"} input`}
                                       labelClassName={"label"}
                                       label="First Name"
                                       autoComplete={"given-name"}
@@ -481,7 +587,7 @@ const BusinessRegistrationForm = (props) => {
                         </div>
 
                         <div className="column-span-6-layout">
-                            <TextArea className={"input"}
+                            <TextArea className={`${contactLastNameError && "border-red-500"} input`}
                                       labelClassName={"label"}
                                       label="Last Name"
                                       required={true}
@@ -493,8 +599,8 @@ const BusinessRegistrationForm = (props) => {
 
                         <div className="column-span-6-layout">
                             <PhoneNumInput
+                                className={`${contactPhoneNumberError && "border-red-500"} phone`}
                                 required={true}
-                                className="w-1/4 phone"
                                 labelClassName={"label"}
                                 label="Personal Phone Number" onChange={handleContactPhoneChange}/>
                         </div>
@@ -522,14 +628,15 @@ const BusinessRegistrationForm = (props) => {
                             <div className="px-4 py-6 bg-white sm:p-5">
                                 <div className="grid grid-cols-2 gap-6">
                                     <div className="col-span-3 sm:col-span-2">
-
-                                        <SignInInfo onChangeUsername={(e) => {
-                                            setUsername(e.target.value)
-                                        }} onChangePassword={(e) => {
-                                            setPassword(e.target.value)
-                                        }} onChangePasswordCheck={(e) => {
-                                            setPasswordCheck(e.target.value)
-                                        }}/>
+                                        <SignInInfo
+                                            onChangeUsername={(e) => setUsername(e.target.value)}
+                                            onChangePassword={(e) => setPassword(e.target.value)}
+                                            onChangePasswordCheck={(e) => setPasswordCheck(e.target.value)}
+                                            usernameError={usernameError}
+                                            passwordError={passwordError}
+                                            passwordConfirmError={passwordConfirmError}
+                                            passwordConfirmErrorMsg={(passwordConfirmError === "empty") ? "empty" : (passwordConfirmError === "mismatch" ? "mismatch" : "")}
+                                        />
                                     </div>
                                 </div>
                             </div>
