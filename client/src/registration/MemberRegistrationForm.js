@@ -896,8 +896,9 @@ function MemberRegistrationForm(props) {
                         <div className="px-4 sm:px-0">
                             <h3 className="info-header">Sign In Details</h3>
                             <p className="info-text">
-                                This information is to set up and access your account. Usernames are permanent and
-                                cannot be changed at a later time! The user name you choose is how you will be
+                                This information is to set up and access your account.
+                                <b> Usernames are permanent and cannot be changed at a later time!</b> <br/>
+                                    The user name you choose is how you will be
                                 identified by others on the site. Do NOT use your real name! We recommend you choose
                                 something you will remember and not tire of. User names are extremely important and are
                                 for the protection of you and all of the users of this site. Please read
