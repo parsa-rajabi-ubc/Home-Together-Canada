@@ -41,8 +41,7 @@ import Tooltip from "../common/forms/Tooltip";
 import {USER_TYPES} from "../common/constants/users";
 import {dropdownDefaultCSS, dropdownErrorCSS} from "../css/dropdownCSSUtil"
 import {Link} from "react-router-dom";
-import includes from 'lodash/includes';
-import remove from 'lodash/remove';
+import StatusPreference from "../common/forms/StatusPreference";
 
 const _ = require('lodash');
 
@@ -302,9 +301,6 @@ function MemberRegistrationForm(props) {
 
     }
 
-    const handleFamilyStatusPreferenceChange = e => {
-        setFamilyStatusPreference(e.value);
-    }
 
     const handleFamilyStatusChange = e => {
         setsSelectedFamilyStatus(e.value);
@@ -336,7 +332,7 @@ function MemberRegistrationForm(props) {
         // check if the value select already exists in the list
         if (!_.includes(list, value)) {
             // if not, add the value
-            list.push(e.target.id);
+            list.push(value);
         } else {
             // if it does, remove it from the array
             list.splice(list.indexOf(value), 1);
@@ -484,20 +480,6 @@ function MemberRegistrationForm(props) {
         accountDetailsErrors.errorPassword.passwordConfirmationEmpty = validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
         accountDetailsErrors.errorPassword.passwordConfirmationMismatch = validatePasswordConfirmationMismatch(password, passwordCheck, setPasswordConfirmError);
 
-        console.log("genderPreference ", genderPreference);
-        console.log("minAgePreference ", minAgePreference);
-        console.log("maxAgePreference ", maxAgePreference);
-        console.log("familyStatusPreference ", familyStatusPreference);
-        console.log("minNumRoommatePreference ", minNumRoommatePreference);
-        console.log("maxNumRoommatePreference ", maxNumRoommatePreference);
-        console.log("minBudgetPreference ", minBudgetPreference);
-        console.log("maxBudgetPreference ", maxBudgetPreference);
-        console.log("dietPreference ", dietPreference);
-        console.log("petPreference ", petPreference);
-        console.log("smokingPreference ", smokingPreference);
-        console.log("genderPreference ", genderPreference);
-        console.log("religionPreference ", religionPreference);
-        console.log("homeToSharePreference ", homeToSharePreference);
 
 
         // check personal information for errors
@@ -572,8 +554,8 @@ function MemberRegistrationForm(props) {
             ...(selectedFamilyStatus === 'Existing Group' && !isStringEmpty(groupMembers))
             && {existingGroupUsernames: groupMembers.split(',').map(item => item.trim())},
             workStatus: selectedWorkStatus,
-            minMonthlyBudget: minRent,
-            maxMonthlyBudget: maxRent,
+            minMonthlyBudget: Number(minRent),
+            maxMonthlyBudget: Number(maxRent),
             hasHomeToShare: (hasHome === 'yes'),
             ...(hasHome === 'yes') && {hasHomeToShareDescription: homeDescription},
             isReligionImportant: (religious === 'yes'),
@@ -592,20 +574,21 @@ function MemberRegistrationForm(props) {
             bio: aboutSelf,
             areasOfInterest: areasOfInterest,
 
-            //Search Criteria
-            minAgePreference: minAgePreference,
-            maxAgePreference: maxAgePreference,
-            statusPreference: familyStatusPreference,
-            minNumRoommatesPreference: minNumRoommatePreference,
-            maxNumRoommatesPreference: maxNumRoommatePreference,
-            minBudgetPreference: minBudgetPreference,
-            maxBudgetPreference: maxBudgetPreference,
-            dietPreference: dietPreference,
-            petsPreference: petPreference,
-            smokingPreference: smokingPreference,
-            genderPreference: genderPreference,
-            religionPreference: religionPreference,
-            othersWithHomeToSharePreference: homeToSharePreference,
+            //TODO: Add Request for Search Criteria
+
+            // minAgePreference: minAgePreference,
+            // maxAgePreference: maxAgePreference,
+            // statusPreference: familyStatusPreference,
+            // minNumRoommatesPreference: minNumRoommatePreference,
+            // maxNumRoommatesPreference: maxNumRoommatePreference,
+            // minBudgetPreference: minBudgetPreference,
+            // maxBudgetPreference: maxBudgetPreference,
+            // dietPreference: dietPreference,
+            // petsPreference: petPreference,
+            // smokingPreference: smokingPreference,
+            // genderPreference: genderPreference,
+            // religionPreference: religionPreference,
+            // othersWithHomeToSharePreference: homeToSharePreference,
         }
 
         RegistrationService.registerMemberUser(registrationData)
@@ -1058,8 +1041,9 @@ function MemberRegistrationForm(props) {
                                         </section>
                                         <LabelAsterisk label={"I am open to sharing with"}/>
                                         <Tooltip text={INFO_TEXT.FAMILY_STATUS} toolTipID="familyStatusPref"/>
-                                        <Status onChange={handleFamilyStatusPreferenceChange}
+                                        <StatusPreference onChange={setFamilyStatusPreference}
                                                 dropdownCSS={familyStatusPreferenceError ? dropdownErrorCSS : dropdownDefaultCSS}
+                                                isDropdownMulti={true}
                                         />
                                         <LabelAsterisk label={"Age range of person(s) I would like to share with"}/>
                                         <Tooltip text={INFO_TEXT.PREF.AGE} toolTipID="agePref"/>
@@ -1127,7 +1111,7 @@ function MemberRegistrationForm(props) {
                                                 <input
                                                     className={`${maxBudgetPreferenceError && "border-red-500"} input`}
                                                     type="number"
-                                                    min={minRent}
+                                                    min={minBudgetPreference}
                                                     step="1"
                                                     placeholder=" Max $ CAD"
                                                     onChange={(e) => setMaxBudgetPreference(e.target.value)}
