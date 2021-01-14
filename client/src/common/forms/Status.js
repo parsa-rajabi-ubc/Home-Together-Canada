@@ -6,7 +6,7 @@
  *
  */
 
-import {React,useEffect, useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import propTypes from "prop-types";
 import Dropdown from "./Dropdown";
 

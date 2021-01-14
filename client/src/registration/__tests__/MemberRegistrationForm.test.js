@@ -5,7 +5,7 @@
  * @Description: Member profile form Component snapshot test. Returns a snapshot.
  *
  */
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import renderer from  'react-test-renderer'
 import MemberRegistrationForm from "../MemberRegistrationForm";
 import { BrowserRouter as Router } from 'react-router-dom';
