@@ -23,7 +23,7 @@ const changePassword = (passwordData) => {
         body: JSON.stringify(passwordData)
     }
 
-    return fetch(`${DEV_URL}/changePassword/`, request);
+    return fetch(`${DEV_URL}/user/changePassword/`, request);
 }
 
 module.exports = {
