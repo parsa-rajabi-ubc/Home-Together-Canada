@@ -5,9 +5,8 @@
  * @Description: Member account summary editable component Form
  *
  */
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from "prop-types";
-import MemberAccountSummary from "./MemberAccountSummary";
 import TextArea from "../common/forms/TextArea";
 import LabelAsterisk from "../common/forms/LabelAsterisk";
 import RadioButton from "../common/forms/RadioButton";
@@ -19,6 +18,12 @@ import InterestedArea from "../common/forms/InterestedArea";
 import YNButton from "../common/forms/YNButtons";
 import LargeTextArea from "../common/forms/LargeTextArea";
 import SubmitButton from "../common/forms/SubmitButton";
+import {dropdownDefaultCSS, dropdownErrorCSS} from "../css/dropdownCSSUtil";
+import BirthYear from "../common/forms/BirthYear";
+import {
+    checkIfErrorsExistInMapping,
+    validateInput,
+} from "../registration/registrationUtils";
 
 
 
@@ -27,7 +32,7 @@ function MemberProfileSummary(props) {
     const { history } = props;
     const [gender, setGender] = useState(history && history.gender || "");
     const [genderDescription, setGenderDescription] = useState(history && history.genderDescription || "");
-
+    const [yearOfBirth, setYearOfBirth] = useState(history && history.yearOfBirth || undefined);
     const [petFriendly, setPetFriendly] = useState(history && history.petFriendly || "");
     const [petDescription, setPetDescription] = useState(history && history.petDescription || "");
 
@@ -52,15 +57,15 @@ function MemberProfileSummary(props) {
     const [interestInBuyingHome, setInterestInBuyingHome] = useState(history && history.interestInBuyingHome || "");
     const [interestDescription, setInterestDescription] = useState(history && history.interestDescription || "");
 
-    const [minRent, setMinRent] = useState(history && history.minRent || "00.00");
-    const [maxRent, setMaxRent] = useState(history && history.maxRent || "00.00");
+    const [minRent, setMinRent] = useState(history && history.minRent || undefined);
+    const [maxRent, setMaxRent] = useState(history && history.maxRent || undefined);
 
     const [aboutSelf, setAboutSelf] = useState(history && history.aboutSelf || "");
 
-    const [selectedLimit, setsSelectedLimit] = useState(history && history.selectedLimit || null);
+    const [selectedLimit, setsSelectedLimit] = useState(history && history.selectedLimit || "");
 
-    const [selectedFamilyStatus, setsSelectedFamilyStatus] = useState(history && history.selectedFamilyStatus || null);
-    const [selectedWorkStatus, setsSelectedWorkStatus] = useState(history && history.selectedWorkStatus || null);
+    const [selectedFamilyStatus, setsSelectedFamilyStatus] = useState(history && history.selectedFamilyStatus || "");
+    const [selectedWorkStatus, setsSelectedWorkStatus] = useState(history && history.selectedWorkStatus || "");
 
     const [partner, setPartner] = useState(history && history.partner || "");
     const [groupMembers, setGroupMembers] = useState(history && history.groupMembers || "");
@@ -71,6 +76,36 @@ function MemberProfileSummary(props) {
         radius: ""
     }]);
 
+    // Profile Details Start
+    const [genderError, setGenderError] = useState(undefined);
+    const [yearOfBirthError, setYearOfBirthError] = useState(undefined);
+    const [familyStatusError, setFamilyStatusError] = useState(undefined);
+    const [workStatusError, setWorkStatusError] = useState(undefined);
+    const [limitError, setLimitError] = useState(undefined);
+    const [minRentError, setMinRentError] = useState(undefined);
+    const [maxRentError, setMaxRentError] = useState(undefined);
+    const [areasOfInterestError, setAreasOfInterestError] = useState(undefined);
+    const [petFriendlyError, setPetFriendlyError] = useState(undefined);
+    const [smokingError, setSmokingError] = useState(undefined);
+    const [mobilityIssuesError, setMobilityIssuesError] = useState(undefined);
+    const [allergiesError, setAllergiesError] = useState(undefined);
+    const [religionError, setReligionError] = useState(undefined);
+    const [dietError, setDietError] = useState(undefined);
+    const [homeError, setHomeError] = useState(undefined);
+    const [interestInBuyingError, setInterestInBuyingError] = useState(undefined);
+    // Profile Details End
+
+    // Profile
+    useEffect(() => {
+        minRent !== undefined && validateInput(minRent, setMinRentError);
+    }, [minRent]);
+    useEffect(() => {
+        maxRent !== undefined && validateInput(maxRent, setMaxRentError);
+    }, [maxRent]);
+
+    const handleYearChange = e => {
+        setYearOfBirth(e.value);
+    }
     function checkStatus(selectedFamilyStatus) {
         if (selectedFamilyStatus === "Couple") {
             return <TextArea
@@ -113,6 +148,63 @@ function MemberProfileSummary(props) {
     }
 
     const isFormValid = () => {
+
+        const profileInfoErrors = {
+            errorGender: false,
+            errorYearOfBirth: false,
+            errorFamilyStatus: false,
+            errorWorkStatus: false,
+            errorLimit: false,
+            errorRent: {
+                min: false,
+                max: false,
+            },
+            errorInterestedArea: false,
+            errorPet: false,
+            errorSmoking: false,
+            errorHealth: false,
+            errorAllergies: false,
+            errorReligion: false,
+            errorDiet: false,
+            errorHomeToShare: false,
+            errorBuyingHome: false,
+        }
+
+        // Profile Validation
+        profileInfoErrors.errorGender = validateInput(gender, setGenderError);
+        profileInfoErrors.errorYearOfBirth = validateInput(yearOfBirth, setYearOfBirthError);
+        profileInfoErrors.errorFamilyStatus = validateInput(selectedFamilyStatus, setFamilyStatusError);
+        profileInfoErrors.errorWorkStatus = validateInput(selectedWorkStatus, setWorkStatusError);
+        profileInfoErrors.errorLimit = validateInput(selectedLimit, setLimitError);
+        profileInfoErrors.errorRent.min = validateInput(minRent, setMinRentError);
+        profileInfoErrors.errorRent.max = validateInput(maxRent, setMaxRentError);
+
+        for (let i = 0; i <= areasOfInterest.length - 1; i++) {
+            if (!areasOfInterest[i].province || !areasOfInterest[i].city || !areasOfInterest[i].radius) {
+                setAreasOfInterestError(true);
+                profileInfoErrors.errorInterestedArea = true;
+                break;
+            } else {
+                setAreasOfInterestError(false);
+                profileInfoErrors.errorInterestedArea = false;
+            }
+        }
+        // Yes/No Validation
+        profileInfoErrors.errorPet = validateInput(petFriendly, setPetFriendlyError);
+        profileInfoErrors.errorSmoking = validateInput(smoking, setSmokingError);
+        profileInfoErrors.errorHealth = validateInput(mobilityIssues, setMobilityIssuesError);
+        profileInfoErrors.errorAllergies = validateInput(hasAllergies, setAllergiesError);
+        profileInfoErrors.errorReligion = validateInput(religious, setReligionError);
+        profileInfoErrors.errorDiet = validateInput(hasDiet, setDietError);
+        profileInfoErrors.errorHomeToShare = validateInput(hasHome, setHomeError);
+        profileInfoErrors.errorBuyingHome = validateInput(interestInBuyingHome, setInterestInBuyingError);
+
+        // check personal information for errors
+        if (checkIfErrorsExistInMapping(profileInfoErrors)) {
+            return false;
+        } else {
+            return true;
+        }
 
     }
     function onSubmit(event) {
@@ -157,214 +249,254 @@ function MemberProfileSummary(props) {
                         <div className="px-4 py-6 bg-white sm:p-5">
                             <div className="grid grid-cols-2 gap-6 ">
                                 <div className="col-span-3 sm:col-span-2">
+                                    <section
+                                    className={`${genderError && "pl-1 border rounded-lg border-red-500 mr-52"}`}>
                                     <LabelAsterisk label={"Gender"}/>
-                                    <div className={"my-2"}>
-                                        <RadioButton
-                                            label="Male"
-                                            name="gender" value="Male"
-                                            checked={gender === "Male"}
-                                            onChange={(e) => setGender(e.target.value)}
-                                        />
-                                        <RadioButton
-                                            label="Female"
-                                            name="gender"
-                                            value="Female"
-                                            checked={gender === "Female"}
-                                            onChange={(e) => setGender(e.target.value)}
-                                        />
-                                        <RadioButton
-                                            label="Other "
-                                            name="gender"
-                                            value="Other"
-                                            checked={gender === "Other"}
-                                            onChange={(e) => setGender(e.target.value)}
-                                        />
-                                        {(gender === "Other") &&
-                                        <TextArea
-                                            className="input mt-0"
-                                            labelClassName={"label mt-5"}
-                                            placeholder="What gender do you identify as? (optional)"
-                                            value={genderDescription}
-                                            required={true}
-                                            onChange={(e) => setGenderDescription(e.target.value)}
-                                        />}
-                                    </div>
+                                        <div className={"my-2"}>
+                                            <RadioButton
+                                                label="Male"
+                                                name="gender" value="Male"
+                                                checked={gender === "Male"}
+                                                onChange={(e) => setGender(e.target.value)}
+                                            />
+                                            <RadioButton
+                                                label="Female"
+                                                name="gender"
+                                                value="Female"
+                                                checked={gender === "Female"}
+                                                onChange={(e) => setGender(e.target.value)}
+                                            />
+                                            <RadioButton
+                                                label="Other "
+                                                name="gender"
+                                                value="Other"
+                                                checked={gender === "Other"}
+                                                onChange={(e) => setGender(e.target.value)}
+                                            />
+                                            {(gender === "Other") &&
+                                            <TextArea
+                                                className="input mt-0"
+                                                labelClassName={"label mt-5"}
+                                                placeholder="What gender do you identify as? (optional)"
+                                                value={genderDescription}
+                                                required={true}
+                                                onChange={(e) => setGenderDescription(e.target.value)}
+                                            />}
+                                        </div>
+                                    </section>
+                                    <LabelAsterisk label={"Year of Birth"}/>
+                                    <Tooltip text={INFO_TEXT.YEAR_OF_BIRTH} toolTipID="yearOfBirth"/>
+                                    <BirthYear label={"Year of Birth"} givenYear={yearOfBirth} onChange={handleYearChange}
+                                               dropdownCSS={yearOfBirthError ? dropdownErrorCSS : dropdownDefaultCSS}/>
                                     <LabelAsterisk label={"Family Status"}/>
                                     <Tooltip text={INFO_TEXT.FAMILY_STATUS} toolTipID="familyStatus"/>
-                                    <Status givenSelection={selectedFamilyStatus} onChange={handleFamilyStatusChange}/>
+                                    <Status givenSelection={selectedFamilyStatus} onChange={handleFamilyStatusChange}
+                                            dropdownCSS={familyStatusError ? dropdownErrorCSS : dropdownDefaultCSS}/>
                                     {checkStatus(selectedFamilyStatus)}
 
                                     <LabelAsterisk label={"Work Status"}/>
-                                    <WorkStatus givenSelection={selectedWorkStatus} onChange={handleWorkStatusChange}/>
+                                    <WorkStatus givenSelection={selectedWorkStatus} onChange={handleWorkStatusChange}
+                                                dropdownCSS={workStatusError ? dropdownErrorCSS : dropdownDefaultCSS}/>
 
                                     <LabelAsterisk label={"Open to Sharing With"}/>
                                     <Tooltip text={INFO_TEXT.NUM_PEOPLE_SHARE} toolTipID="numPeopleToShare"/>
-                                    <ShareLimit onChange={handleLimitChange}/>
+                                    <ShareLimit givenSelection={selectedLimit} onChange={handleLimitChange}
+                                                dropdownCSS={limitError ? dropdownErrorCSS : dropdownDefaultCSS}/>
                                     <LabelAsterisk label={"Monthly Rent"}/>
                                     <Tooltip text={INFO_TEXT.RENT} toolTipID="rent"/>
                                     <div className="grid grid-cols-6 gap-x-6">
                                         <div className="column-span-6-layout">
                                             <input
-                                                className={"input label font-normal "}
+                                                className={`${minRentError && "border-red-500"} input`}
                                                 type="number"
                                                 min="0"
                                                 step="1"
                                                 placeholder="MIN $ CAD"
+                                                value={minRent}
                                                 onChange={(e) => setMinRent(e.target.value)}
                                             />
                                         </div>
                                         <div className="column-span-6-layout">
                                             <input
-                                                className={"input label font-normal "}
+                                                className={`${maxRentError && "border-red-500"} input`}
                                                 type="number"
                                                 min={minRent}
                                                 step="1"
                                                 placeholder=" MAX $ CAD"
+                                                value={maxRent}
                                                 onChange={(e) => setMaxRent(e.target.value)}
                                             />
                                         </div>
                                     </div>
                                     <LabelAsterisk label={"Preferred Living Location(s)"}/>
                                     <Tooltip text={INFO_TEXT.INTERESTED_AREA} toolTipID="interestedArea"/>
-                                    <InterestedArea onChange={setAreasOfInterest}/>
+                                    {console.log(areasOfInterest)}
+                                    <InterestedArea givenAreasOfInterest={areasOfInterest} onChange={setAreasOfInterest}
+                                                    areasOfInterestError={areasOfInterestError}/>
                                     <div className="grid grid-cols-6 gap-x-6">
                                         <div className="column-span-6-layout">
-                                            <YNButton
-                                                label={"Pet friendly?"}
-                                                toolTipText={INFO_TEXT.PET}
-                                                toolTipID="pet"
-                                                name="petFriendly"
-                                                required={true}
-                                                onChange={(e) => setPetFriendly(e.target.value)}
-                                            />
-                                            {(petFriendly === "yes") &&
-                                            <TextArea
-                                                className={"input"}
-                                                placeholder="Elaborate (optional)"
-                                                onChange={e => setPetDescription(e.target.value)}
-                                                value={petDescription}
-                                            />}
+                                            <section
+                                                className={`${petFriendlyError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                                <YNButton
+                                                    label={"Pet friendly?"}
+                                                    toolTipText={INFO_TEXT.PET}
+                                                    toolTipID="pet"
+                                                    name="petFriendly"
+                                                    required={true}
+                                                    checked={petFriendly === "yes"}
+                                                    onChange={(e) => setPetFriendly(e.target.value)}
+                                                />
+                                                {(petFriendly === "yes") &&
+                                                <TextArea
+                                                    className={"input"}
+                                                    placeholder="Elaborate (optional)"
+                                                    onChange={e => setPetDescription(e.target.value)}
+                                                    value={petDescription}
+                                                />}
+                                            </section>
                                         </div>
                                         <div className="column-span-6-layout">
-                                            <YNButton
-                                                label={"Smoke friendly?"}
-                                                toolTipText={INFO_TEXT.SMOKE}
-                                                toolTipID="smoke"
-                                                name="smoking"
-                                                required={true}
-                                                onChange={(e) => setSmoking(e.target.value)}
-                                            />
-                                            {(smoking === "yes") &&
-                                            <TextArea
-                                                className={"input"}
-                                                placeholder="Elaborate (optional)"
-                                                onChange={e => setSmokingDescription(e.target.value)}
-                                                value={smokingDescription}
-                                            />}
+                                            <section
+                                                className={`${smokingError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                                <YNButton
+                                                    label={"Smoke friendly?"}
+                                                    toolTipText={INFO_TEXT.SMOKE}
+                                                    toolTipID="smoke"
+                                                    name="smoking"
+                                                    required={true}
+                                                    checked={smoking === "yes"}
+                                                    onChange={(e) => setSmoking(e.target.value)}
+                                                />
+                                                {(smoking === "yes") &&
+                                                <TextArea
+                                                    className={"input"}
+                                                    placeholder="Elaborate (optional)"
+                                                    onChange={e => setSmokingDescription(e.target.value)}
+                                                    value={smokingDescription}
+                                                />}
+                                            </section>
                                         </div>
                                         <div className="column-span-6-layout">
-                                            <YNButton
-                                                label={"Health / mobility issues?"}
-                                                toolTipText={INFO_TEXT.HEALTH}
-                                                toolTipID="health"
-                                                name="mobile"
-                                                required={true}
-                                                onChange={(e) => setMobilityIssues(e.target.value)}
-                                            />
-                                            {(mobilityIssues === "yes") &&
-                                            <TextArea
-                                                className={"input"}
-                                                placeholder="Elaborate (optional)"
-                                                onChange={e => setMobilityIssuesDescription(e.target.value)}
-                                                value={mobilityIssuesDescription}
-                                            />}
+                                            <section
+                                                className={`${mobilityIssuesError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                                <YNButton
+                                                    label={"Health / mobility issues?"}
+                                                    toolTipText={INFO_TEXT.HEALTH}
+                                                    toolTipID="health"
+                                                    name="mobile"
+                                                    required={true}
+                                                    checked={mobilityIssues === "yes"}
+                                                    onChange={(e) => setMobilityIssues(e.target.value)}
+                                                />
+                                                {(mobilityIssues === "yes") &&
+                                                <TextArea
+                                                    className={"input"}
+                                                    placeholder="Elaborate (optional)"
+                                                    onChange={e => setMobilityIssuesDescription(e.target.value)}
+                                                    value={mobilityIssuesDescription}
+                                                />}
+                                            </section>
                                         </div>
                                         <div className="column-span-6-layout">
-                                            <YNButton
-                                                label={"Allergies?"}
-                                                name="allergies"
-                                                required={true}
-                                                checked={hasAllergies === "no"}
-                                                onChange={(e) => setHasAllergies(e.target.value)}
-                                            />
-                                            {(hasAllergies === "yes") &&
-                                            <TextArea
-                                                className={"input"}
-                                                placeholder="Elaborate (optional)"
-                                                onChange={e => setAllergiesDescription(e.target.value)}
-                                                value={allergiesDescription}
-                                            />}
+                                            <section
+                                                className={`${allergiesError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                                <YNButton
+                                                    label={"Allergies?"}
+                                                    name="allergies"
+                                                    required={true}
+                                                    checked={hasAllergies === "yes"}
+                                                    onChange={(e) => setHasAllergies(e.target.value)}
+                                                />
+                                                {(hasAllergies === "yes") &&
+                                                <TextArea
+                                                    className={"input"}
+                                                    placeholder="Elaborate (optional)"
+                                                    onChange={e => setAllergiesDescription(e.target.value)}
+                                                    value={allergiesDescription}
+                                                />}
+                                            </section>
                                         </div>
                                         <div className="column-span-6-layout">
-                                            <YNButton
-                                                label={"Is religion important?"}
-                                                toolTipText={INFO_TEXT.RELIGION}
-                                                toolTipID="religion"
-                                                name="religion"
-                                                required={true}
-                                                checked={religious === "no"}
-                                                onChange={(e) => setReligious(e.target.value)}
-                                            />
-                                            {(religious === "yes") &&
-                                            <TextArea
-                                                className={"input"}
-                                                placeholder="Elaborate (optional)"
-                                                onChange={e => setReligionDescription(e.target.value)}
-                                                value={religionDescription}
-                                            />}
+                                            <section
+                                                className={`${religionError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                                <YNButton
+                                                    label={"Is religion important?"}
+                                                    toolTipText={INFO_TEXT.RELIGION}
+                                                    toolTipID="religion"
+                                                    name="religion"
+                                                    required={true}
+                                                    checked={religious === "yes"}
+                                                    onChange={(e) => setReligious(e.target.value)}
+                                                />
+                                                {(religious === "yes") &&
+                                                <TextArea
+                                                    className={"input"}
+                                                    placeholder="Elaborate (optional)"
+                                                    onChange={e => setReligionDescription(e.target.value)}
+                                                    value={religionDescription}
+                                                />}
+                                            </section>
                                         </div>
                                         <div className="column-span-6-layout">
-                                            <YNButton
-                                                label={"Is diet of others important?"}
-                                                toolTipText={INFO_TEXT.DIET}
-                                                toolTipID="diet"
-                                                name="diet"
-                                                required={true}
-                                                checked={hasDiet === "no"}
-                                                onChange={(e) => setHasDiet(e.target.value)}
-                                            />
-                                            {(hasDiet === "yes") &&
-                                            <TextArea
-                                                className={"input"}
-                                                placeholder="Elaborate (optional)"
-                                                onChange={e => setDietDescription(e.target.value)}
-                                                value={dietDescription}
-                                            />}
+                                            <section
+                                                className={`${dietError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                                <YNButton
+                                                    label={"Is diet of others important?"}
+                                                    toolTipText={INFO_TEXT.DIET}
+                                                    toolTipID="diet"
+                                                    name="diet"
+                                                    required={true}
+                                                    checked={hasDiet === "yes"}
+                                                    onChange={(e) => setHasDiet(e.target.value)}
+                                                />
+                                                {(hasDiet === "yes") &&
+                                                <TextArea
+                                                    className={"input"}
+                                                    placeholder="Elaborate (optional)"
+                                                    onChange={e => setDietDescription(e.target.value)}
+                                                    value={dietDescription}
+                                                />}
+                                            </section>
                                         </div>
                                         <div className="column-span-6-layout">
-                                            <YNButton
-                                                label={"Have a home to share?"}
-                                                toolTipText={INFO_TEXT.HOME_TO_SHARE}
-                                                toolTipID="homeToShare"
-                                                name="hasHome"
-                                                required={true}
-                                                checked={hasHome === "no"}
-                                                onChange={(e) => setHasHome(e.target.value)}
-                                            />
-                                            {(hasHome === "yes")
-                                            && <TextArea
-                                                className={"input inline w-11/12 "}
-                                                placeholder="Elaborate (optional)"
-                                                onChange={e => setHomeDescription(e.target.value)}
-                                                value={homeDescription}
-                                            />
-                                            }
+                                            <section
+                                                className={`${homeError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                                <YNButton
+                                                    label={"Have a home to share?"}
+                                                    toolTipText={INFO_TEXT.HOME_TO_SHARE}
+                                                    toolTipID="homeToShare"
+                                                    name="hasHome"
+                                                    required={true}
+                                                    checked={hasHome === "yes"}
+                                                    onChange={(e) => setHasHome(e.target.value)}
+                                                />
+                                                {(hasHome === "yes")
+                                                && <TextArea
+                                                    className={"input inline w-11/12 "}
+                                                    placeholder="Elaborate (optional)"
+                                                    onChange={e => setHomeDescription(e.target.value)}
+                                                    value={homeDescription}
+                                                />}
+                                            </section>
                                         </div>
                                         <div className="column-span-6-layout">
-                                            <YNButton
-                                                label="Interested in buying a home with others?"
-                                                name="interestInBuyingHome"
-                                                required={true}
-                                                checked={interestInBuyingHome === "no"}
-                                                onChange={(e) => setInterestInBuyingHome(e.target.value)}
-                                            />
-                                            {(interestInBuyingHome === "yes") &&
-                                            <TextArea
-                                                className={"input"}
-                                                placeholder="Elaborate (optional)"
-                                                onChange={e => setInterestDescription(e.target.value)}
-                                                value={interestDescription}
-                                            />}
+                                            <section
+                                                className={`${interestInBuyingError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                                <YNButton
+                                                    label="Interested in buying a home with others?"
+                                                    name="interestInBuyingHome"
+                                                    required={true}
+                                                    checked={interestInBuyingHome === "yes"}
+                                                    onChange={(e) => setInterestInBuyingHome(e.target.value)}
+                                                />
+                                                {(interestInBuyingHome === "yes") &&
+                                                <TextArea
+                                                    className={"input"}
+                                                    placeholder="Elaborate (optional)"
+                                                    onChange={e => setInterestDescription(e.target.value)}
+                                                    value={interestDescription}
+                                                />}
+                                            </section>
                                         </div>
                                     </div>
                                     <div className={"mt-4"}>

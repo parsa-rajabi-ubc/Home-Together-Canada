@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 import Asterisk from "./Asterisk";
 
 function PhoneNumInput(props){
-    const { label, labelClassName, className,value, required, onChange } = props;
+    const { label, labelClassName, className, value, required, onChange } = props;
     // Updated autoComplete based on: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
     return(
         <div>
@@ -19,15 +19,15 @@ function PhoneNumInput(props){
                 {label}  {(required ? <Asterisk/> : '')}
                 <br/>
                 <input className={className} type="text" autoComplete="tel-area-code"
-                       name="first" placeholder="222" value={value.first} onChange= {onChange} maxLength="3"/>
+                       name="first" placeholder="222" value={value && value.first || undefined} onChange= {onChange} maxLength="3"/>
             </label>
             <label>
                 <input className={className} type="text" autoComplete="tel-local-prefix"
-                       name="middle" placeholder="333" value={value.middle} onChange= {onChange} maxLength="3"/>
+                       name="middle" placeholder="333" value={value && value.middle || undefined} onChange= {onChange} maxLength="3"/>
             </label>
             <label>
                 <input className={className} type="text" autoComplete="tel-local-suffix"
-                       name="last" placeholder="4444" value={value.last} onChange= {onChange} maxLength="4"/>
+                       name="last" placeholder="4444" value={value && value.last || undefined} onChange= {onChange} maxLength="4"/>
             </label>
         </div>
     );
