@@ -12,7 +12,7 @@ import Tooltip from "./Tooltip";
 
 function Checkbox(props) {
     const {onChange, checked, label, toolTipText, toolTipID, id, fontNormal,
-        className = "align-middle mt-3 mr-1 my-4 h-4 w-4 border-gray-300 rounded-lg"} = props;
+        className = "defaultCheckboxCSS"} = props;
     return (
         <div>
             <input

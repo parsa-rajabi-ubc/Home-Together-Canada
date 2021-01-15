@@ -337,7 +337,6 @@ function MemberRegistrationForm(props) {
             // if it does, remove it from the array
             list.splice(list.indexOf(value), 1);
         }
-        console.log(list);
         setGenderPreference(list);
     }
 
