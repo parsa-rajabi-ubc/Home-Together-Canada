@@ -10,9 +10,9 @@ import React from 'react';
 import '../tailwind.output.css';
 import picture from '../images/move_in.jpg';
 import {Link} from "react-router-dom";
-import houseSearch from '../images/house_search.svg'
-import texting from '../images/texting.svg'
-import business from '../images/business.svg'
+import houseSearch from '../images/house_search.jpg'
+import texting from '../images/computer.jpg'
+import business from '../images/shop.jpg'
 
 const Home = () => {
     return (
@@ -125,8 +125,7 @@ const Home = () => {
                                 </div>
                             </div>
 
-                            {/*TODO: fill out text with actual content*/}
-                            <p className="mb-8 text-gray-600">
+                            <p className="mb-8 text-home">
                                 We freely give individuals across Canada the ability to create a basic profile. This
                                 allows all individuals with a profile to search the profiles of others that are
                                 interested in sharing a home. Without this free central listing site your ability to
@@ -137,7 +136,7 @@ const Home = () => {
                         </div>
                         <div className="w-full p-6 sm:w-1/2">
                             <img src={houseSearch}
-                                 alt="a house with a magnifying glass on top">
+                                 alt="3 girls sitting with flowers behind them">
                             </img>
                         </div>
                     </div>
@@ -146,7 +145,7 @@ const Home = () => {
                     <div className="flex flex-col-reverse flex-wrap sm:flex-row">
                         <div className="w-full p-6 mt-6 sm:w-1/2">
                             <img src={texting}
-                                 alt="a character standing beside 3 message bubbles">
+                                 alt="a man typing behind a computer">
                             </img>
                         </div>
                         <div className="w-full p-6 mt-6 sm:w-1/2">
@@ -158,7 +157,7 @@ const Home = () => {
                                     </div>
                                 </div>
 
-                                <p className="mb-8 text-gray-600">
+                                <p className="mb-8 text-home">
                                     When you find other members on the site, you can safely contact them through the
                                     site. This
                                     allows everyone time to take those first tentative steps and ask questions without
@@ -178,7 +177,7 @@ const Home = () => {
                                 </div>
                             </div>
 
-                            <p className="mb-8 text-gray-600">
+                            <p className="mb-8 text-home">
                                 No single Sharing Service or Business can possibly fill the sharing needs of all
                                 Canadians which are as diverse as the country we live in. Success depends upon finding
                                 the help you need so we freely list all Canadian Home Share Business and Service
@@ -187,9 +186,9 @@ const Home = () => {
                                 needs.
                             </p>
                         </div>
-                        <div className="w-full p-6 sm:w-1/2">
+                        <div className="w-full p-6 mt-16 sm:w-1/2">
                             <img src={business}
-                                 alt="a character standing to the right of a store">
+                                 alt="a sign that says open">
                             </img>
                         </div>
                     </div>
