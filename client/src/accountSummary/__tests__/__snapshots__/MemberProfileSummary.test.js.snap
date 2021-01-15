@@ -1,552 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MemberProfileForm should render correctly regardless of properties 1`] = `
+exports[`MemberProfileSummary should render correctly regardless of properties 1`] = `
 <div>
-  <div
-    className="m-10 md:grid md:grid-cols-4 md:gap-0"
-  >
-    <div
-      className="md:col-span-1"
-    >
-      <div
-        className="px-4 sm:px-0"
-      >
-        <h3
-          className="info-header"
-        >
-          Personal Information
-        </h3>
-        <p
-          className="mr-10 info-text"
-        >
-          This information is about you and is private. Home Together Canada will not share this information with anyone and will only be used for verification purposes. Please see
-          <a
-            className="label"
-            href="/faq"
-            onClick={[Function]}
-          >
-             FAQs
-          </a>
-           for more information.
-        </p>
-        <p
-          className="mr-10 info-text"
-        >
-          <svg
-            className="inline align-top text-red-600"
-            fill="none"
-            height="1em"
-            stroke="currentColor"
-            strokeWidth="0"
-            style={
-              Object {
-                "color": undefined,
-              }
-            }
-            viewBox="0 0 24 24"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-              fill="currentColor"
-            />
-          </svg>
-          Required Field
-        </p>
-      </div>
-    </div>
-    <div
-      className="py-5 px-4 mt-5 space-y-1 bg-white shadow md:mt-0 md:col-span-2 sm:rounded-md sm:overflow-hidden sm:p-6"
-    >
-      <div
-        className="grid grid-cols-2 gap-6"
-      >
-        <div
-          className="col-span-3 sm:col-span-2"
-        >
-          <label
-            className="label"
-          >
-            First Name
-            <svg
-              className="inline align-top text-red-600"
-              fill="none"
-              height="1em"
-              stroke="currentColor"
-              strokeWidth="0"
-              style={
-                Object {
-                  "color": undefined,
-                }
-              }
-              viewBox="0 0 24 24"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                fill="currentColor"
-              />
-            </svg>
-            <input
-              autoComplete="given-name"
-              className="undefined input"
-              disabled={false}
-              onChange={[Function]}
-              type="text"
-            />
-          </label>
-          <label
-            className="label"
-          >
-            Last Name
-            <svg
-              className="inline align-top text-red-600"
-              fill="none"
-              height="1em"
-              stroke="currentColor"
-              strokeWidth="0"
-              style={
-                Object {
-                  "color": undefined,
-                }
-              }
-              viewBox="0 0 24 24"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                fill="currentColor"
-              />
-            </svg>
-            <input
-              autoComplete="family-name"
-              className="undefined input"
-              disabled={false}
-              onChange={[Function]}
-              type="text"
-            />
-          </label>
-          <label
-            className="label"
-          >
-            Email
-            <svg
-              className="inline align-top text-red-600"
-              fill="none"
-              height="1em"
-              stroke="currentColor"
-              strokeWidth="0"
-              style={
-                Object {
-                  "color": undefined,
-                }
-              }
-              viewBox="0 0 24 24"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                fill="currentColor"
-              />
-            </svg>
-            <input
-              autoComplete="email"
-              className="undefined input"
-              disabled={false}
-              onChange={[Function]}
-              placeholder="personal@email.ca"
-              type="text"
-            />
-          </label>
-          <div>
-            <label
-              className="label"
-            >
-              Phone Number
-                
-              <svg
-                className="inline align-top text-red-600"
-                fill="none"
-                height="1em"
-                stroke="currentColor"
-                strokeWidth="0"
-                style={
-                  Object {
-                    "color": undefined,
-                  }
-                }
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                  fill="currentColor"
-                />
-              </svg>
-              <br />
-              <input
-                autoComplete="tel-area-code"
-                className="undefined phone"
-                maxLength="3"
-                name="first"
-                onChange={[Function]}
-                placeholder="222"
-                type="text"
-              />
-            </label>
-            <label>
-              <input
-                autoComplete="tel-local-prefix"
-                className="undefined phone"
-                maxLength="3"
-                name="middle"
-                onChange={[Function]}
-                placeholder="333"
-                type="text"
-              />
-            </label>
-            <label>
-              <input
-                autoComplete="tel-local-suffix"
-                className="undefined phone"
-                maxLength="4"
-                name="last"
-                onChange={[Function]}
-                placeholder="4444"
-                type="text"
-              />
-            </label>
-          </div>
-          <div
-            className="grid grid-cols-9 gap-x-2"
-          >
-            <div
-              className="col-start-1 col-end-8"
-            >
-              <label
-                className="label"
-              >
-                Address
-              </label>
-              <svg
-                className="inline align-top text-red-600"
-                fill="none"
-                height="1em"
-                stroke="currentColor"
-                strokeWidth="0"
-                style={
-                  Object {
-                    "color": undefined,
-                  }
-                }
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                  fill="currentColor"
-                />
-              </svg>
-              <input
-                autoComplete="address-line1"
-                className="undefined input"
-                name="street"
-                onChange={[Function]}
-                placeholder="Address Line 1"
-                type="text"
-                value=""
-              />
-            </div>
-            <div
-              className="col-start-1 col-end-8"
-            >
-              <input
-                autoComplete="address-line2"
-                className="input"
-                name="aptNum"
-                onChange={[Function]}
-                placeholder="Address Line 2: Apt, suite, etc. (optional)"
-                type="text"
-                value=""
-              />
-            </div>
-            <div
-              className="col-start-1 col-end-4"
-            >
-              <input
-                autoComplete="address-level2"
-                className="undefined input"
-                name="city"
-                onChange={[Function]}
-                placeholder="City"
-                type="text"
-                value=""
-              />
-            </div>
-            <div
-              className="col-start-4 col-end-8"
-            >
-              <div>
-                <div
-                  className=" css-2b097c-container"
-                  onKeyDown={[Function]}
-                >
-                  <div
-                    className=" css-1jumw1e-control"
-                    onMouseDown={[Function]}
-                    onTouchEnd={[Function]}
-                  >
-                    <div
-                      className=" css-g1d714-ValueContainer"
-                    >
-                      <div
-                        className=" css-1uccc91-singleValue"
-                      >
-                        
-                      </div>
-                      <div
-                        className="css-b8ldur-Input"
-                      >
-                        <div
-                          className=""
-                          style={
-                            Object {
-                              "display": "inline-block",
-                            }
-                          }
-                        >
-                          <input
-                            aria-autocomplete="list"
-                            autoCapitalize="none"
-                            autoComplete="off"
-                            autoCorrect="off"
-                            disabled={false}
-                            id="react-select-2-input"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            onFocus={[Function]}
-                            spellCheck="false"
-                            style={
-                              Object {
-                                "background": 0,
-                                "border": 0,
-                                "boxSizing": "content-box",
-                                "color": "inherit",
-                                "fontSize": "inherit",
-                                "label": "input",
-                                "opacity": 1,
-                                "outline": 0,
-                                "padding": 0,
-                                "width": "1px",
-                              }
-                            }
-                            tabIndex="0"
-                            type="text"
-                            value=""
-                          />
-                          <div
-                            style={
-                              Object {
-                                "height": 0,
-                                "left": 0,
-                                "overflow": "scroll",
-                                "position": "absolute",
-                                "top": 0,
-                                "visibility": "hidden",
-                                "whiteSpace": "pre",
-                              }
-                            }
-                          >
-                            
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className=" css-1hb7zxy-IndicatorsContainer"
-                    >
-                      <span
-                        className=" css-1okebmr-indicatorSeparator"
-                      />
-                      <div
-                        aria-hidden="true"
-                        className=" css-tlfecz-indicatorContainer"
-                        onMouseDown={[Function]}
-                        onTouchEnd={[Function]}
-                      >
-                        <svg
-                          aria-hidden="true"
-                          className="css-6q0nyr-Svg"
-                          focusable="false"
-                          height={20}
-                          viewBox="0 0 20 20"
-                          width={20}
-                        >
-                          <path
-                            d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-start-1 col-end-4"
-            >
-              <input
-                autoComplete="postal-code"
-                className="undefined input"
-                name="postalCode"
-                onChange={[Function]}
-                placeholder="Postal Code"
-                type="text"
-                value=""
-              />
-            </div>
-          </div>
-          <div>
-            <input
-              className="defaultCheckboxCSS"
-              onChange={[Function]}
-              type="checkbox"
-            />
-            <label
-              className="undefined label"
-            >
-              Different Mailing Address
-            </label>
-            <span>
-              <a
-                data-for="differentMailingAddress"
-                data-tip={true}
-              >
-                <svg
-                  className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
-                  fill="currentColor"
-                  height="1em"
-                  stroke="currentColor"
-                  strokeWidth="0"
-                  style={
-                    Object {
-                      "color": undefined,
-                    }
-                  }
-                  viewBox="0 0 16 16"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clipRule="evenodd"
-                    d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                    fillRule="evenodd"
-                  />
-                </svg>
-              </a>
-              <div
-                className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-                data-id="tooltip"
-                id="differentMailingAddress"
-              >
-                <style
-                  dangerouslySetInnerHTML={
-                    Object {
-                      "__html": "
-  	.t00000000-0000-0000-0000-000000000000 {
-	    color: #fff;
-	    background: #222;
-	    border: 1px solid transparent;
-  	}
-
-  	.t00000000-0000-0000-0000-000000000000.place-top {
-        margin-top: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
-        border-top: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        bottom: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
-        margin-top: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
-        border-bottom: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        top: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-left {
-        margin-left: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
-        border-left: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        right: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-right {
-        margin-left: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
-        border-right: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        left: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
-    }
-  ",
-                    }
-                  }
-                />
-                Select this checkbox if your mailing address differs from the address above
-              </div>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    className="border-divider"
-  />
   <div
     className="mt-10 sm:mt-0"
   >
@@ -578,10 +33,10 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
           className="overflow-hidden shadow sm:rounded-md"
         >
           <div
-            className="py-6 px-4 bg-white sm:p-5"
+            className="px-4 py-6 bg-white sm:p-5"
           >
             <div
-              className="grid grid-cols-2 gap-6"
+              className="grid grid-cols-2 gap-6 "
             >
               <div
                 className="col-span-3 sm:col-span-2"
@@ -635,7 +90,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                       className="text-base text-gray-700 pr-8"
                     >
                       <input
-                        checked={false}
+                        checked={true}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
                         name="gender"
                         onChange={[Function]}
@@ -817,7 +272,9 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                         >
                           <div
                             className=" css-1uccc91-singleValue"
-                          />
+                          >
+                            1984
+                          </div>
                           <div
                             className="css-b8ldur-Input"
                           >
@@ -835,7 +292,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                                 autoComplete="off"
                                 autoCorrect="off"
                                 disabled={false}
-                                id="react-select-3-input"
+                                id="react-select-2-input"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 onFocus={[Function]}
@@ -1064,7 +521,9 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                         >
                           <div
                             className=" css-1uccc91-singleValue"
-                          />
+                          >
+                            Couple
+                          </div>
                           <div
                             className="css-b8ldur-Input"
                           >
@@ -1082,7 +541,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                                 autoComplete="off"
                                 autoCorrect="off"
                                 disabled={false}
-                                id="react-select-4-input"
+                                id="react-select-3-input"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 onFocus={[Function]}
@@ -1156,6 +615,19 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                 <label
                   className="label"
                 >
+                  
+                  <input
+                    className="input"
+                    disabled={false}
+                    onChange={[Function]}
+                    placeholder="Partner's username"
+                    type="text"
+                    value="John123"
+                  />
+                </label>
+                <label
+                  className="label"
+                >
                   Work Status
                    
                   <svg
@@ -1195,7 +667,9 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                         >
                           <div
                             className=" css-1uccc91-singleValue"
-                          />
+                          >
+                            Retired
+                          </div>
                           <div
                             className="css-b8ldur-Input"
                           >
@@ -1213,7 +687,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                                 autoComplete="off"
                                 autoCorrect="off"
                                 disabled={false}
-                                id="react-select-5-input"
+                                id="react-select-4-input"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 onFocus={[Function]}
@@ -1442,7 +916,9 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                         >
                           <div
                             className=" css-1uccc91-singleValue"
-                          />
+                          >
+                            3
+                          </div>
                           <div
                             className="css-b8ldur-Input"
                           >
@@ -1460,7 +936,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                                 autoComplete="off"
                                 autoCorrect="off"
                                 disabled={false}
-                                id="react-select-6-input"
+                                id="react-select-5-input"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 onFocus={[Function]}
@@ -1683,9 +1159,10 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                       className="undefined input"
                       min="0"
                       onChange={[Function]}
-                      placeholder="Min $ CAD"
+                      placeholder="MIN $ CAD"
                       step="1"
                       type="number"
+                      value="800"
                     />
                   </div>
                   <div
@@ -1693,10 +1170,12 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                   >
                     <input
                       className="undefined input"
+                      min="800"
                       onChange={[Function]}
-                      placeholder="Max $ CAD"
+                      placeholder=" MAX $ CAD"
                       step="1"
                       type="number"
+                      value="1700"
                     />
                   </div>
                 </div>
@@ -1868,7 +1347,122 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                                 <div
                                   className=" css-1uccc91-singleValue"
                                 >
-                                  
+                                  AB
+                                </div>
+                                <div
+                                  className="css-b8ldur-Input"
+                                >
+                                  <div
+                                    className=""
+                                    style={
+                                      Object {
+                                        "display": "inline-block",
+                                      }
+                                    }
+                                  >
+                                    <input
+                                      aria-autocomplete="list"
+                                      autoCapitalize="none"
+                                      autoComplete="off"
+                                      autoCorrect="off"
+                                      disabled={false}
+                                      id="react-select-6-input"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      onFocus={[Function]}
+                                      spellCheck="false"
+                                      style={
+                                        Object {
+                                          "background": 0,
+                                          "border": 0,
+                                          "boxSizing": "content-box",
+                                          "color": "inherit",
+                                          "fontSize": "inherit",
+                                          "label": "input",
+                                          "opacity": 1,
+                                          "outline": 0,
+                                          "padding": 0,
+                                          "width": "1px",
+                                        }
+                                      }
+                                      tabIndex="0"
+                                      type="text"
+                                      value=""
+                                    />
+                                    <div
+                                      style={
+                                        Object {
+                                          "height": 0,
+                                          "left": 0,
+                                          "overflow": "scroll",
+                                          "position": "absolute",
+                                          "top": 0,
+                                          "visibility": "hidden",
+                                          "whiteSpace": "pre",
+                                        }
+                                      }
+                                    >
+                                      
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                className=" css-1hb7zxy-IndicatorsContainer"
+                              >
+                                <span
+                                  className=" css-1okebmr-indicatorSeparator"
+                                />
+                                <div
+                                  aria-hidden="true"
+                                  className=" css-tlfecz-indicatorContainer"
+                                  onMouseDown={[Function]}
+                                  onTouchEnd={[Function]}
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    className="css-6q0nyr-Svg"
+                                    focusable="false"
+                                    height={20}
+                                    viewBox="0 0 20 20"
+                                    width={20}
+                                  >
+                                    <path
+                                      d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                            <input
+                              name="province"
+                              type="hidden"
+                              value="AB"
+                            />
+                          </div>
+                        </div>
+                        <span />
+                      </div>
+                      <div
+                        className="col-start-4 col-end-8"
+                      >
+                        <div>
+                          <div
+                            className=" css-2b097c-container"
+                            onKeyDown={[Function]}
+                          >
+                            <div
+                              className=" css-1jumw1e-control"
+                              onMouseDown={[Function]}
+                              onTouchEnd={[Function]}
+                            >
+                              <div
+                                className=" css-g1d714-ValueContainer"
+                              >
+                                <div
+                                  className=" css-1uccc91-singleValue"
+                                >
+                                  Edmonton
                                 </div>
                                 <div
                                   className="css-b8ldur-Input"
@@ -1956,23 +1550,126 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                               </div>
                             </div>
                             <input
-                              name="province"
+                              name="city"
                               type="hidden"
-                              value=""
+                              value="Edmonton"
                             />
                           </div>
                         </div>
-                        <span />
-                      </div>
-                      <div
-                        className="col-start-4 col-end-8"
-                      >
-                        
                       </div>
                       <div
                         className="col-start-8 col-end-10"
                       >
-                        
+                        <div>
+                          <div
+                            className=" css-2b097c-container"
+                            onKeyDown={[Function]}
+                          >
+                            <div
+                              className=" css-1jumw1e-control"
+                              onMouseDown={[Function]}
+                              onTouchEnd={[Function]}
+                            >
+                              <div
+                                className=" css-g1d714-ValueContainer"
+                              >
+                                <div
+                                  className=" css-1uccc91-singleValue"
+                                >
+                                  50km
+                                </div>
+                                <div
+                                  className="css-b8ldur-Input"
+                                >
+                                  <div
+                                    className=""
+                                    style={
+                                      Object {
+                                        "display": "inline-block",
+                                      }
+                                    }
+                                  >
+                                    <input
+                                      aria-autocomplete="list"
+                                      autoCapitalize="none"
+                                      autoComplete="off"
+                                      autoCorrect="off"
+                                      disabled={false}
+                                      id="react-select-8-input"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      onFocus={[Function]}
+                                      spellCheck="false"
+                                      style={
+                                        Object {
+                                          "background": 0,
+                                          "border": 0,
+                                          "boxSizing": "content-box",
+                                          "color": "inherit",
+                                          "fontSize": "inherit",
+                                          "label": "input",
+                                          "opacity": 1,
+                                          "outline": 0,
+                                          "padding": 0,
+                                          "width": "1px",
+                                        }
+                                      }
+                                      tabIndex="0"
+                                      type="text"
+                                      value=""
+                                    />
+                                    <div
+                                      style={
+                                        Object {
+                                          "height": 0,
+                                          "left": 0,
+                                          "overflow": "scroll",
+                                          "position": "absolute",
+                                          "top": 0,
+                                          "visibility": "hidden",
+                                          "whiteSpace": "pre",
+                                        }
+                                      }
+                                    >
+                                      
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                className=" css-1hb7zxy-IndicatorsContainer"
+                              >
+                                <span
+                                  className=" css-1okebmr-indicatorSeparator"
+                                />
+                                <div
+                                  aria-hidden="true"
+                                  className=" css-tlfecz-indicatorContainer"
+                                  onMouseDown={[Function]}
+                                  onTouchEnd={[Function]}
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    className="css-6q0nyr-Svg"
+                                    focusable="false"
+                                    height={20}
+                                    viewBox="0 0 20 20"
+                                    width={20}
+                                  >
+                                    <path
+                                      d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                            <input
+                              name="radius"
+                              type="hidden"
+                              value="50km"
+                            />
+                          </div>
+                        </div>
                       </div>
                       <div
                         className="col-start-10 col-end-auto"
@@ -1993,7 +1690,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                   </section>
                 </div>
                 <div
-                  className="grid grid-cols-6 gap-x-6 mt-5"
+                  className="grid grid-cols-6 gap-x-6"
                 >
                   <div
                     className="column-span-6-layout"
@@ -2149,7 +1846,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={true}
+                            checked={false}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="petFriendly"
                             onChange={[Function]}
@@ -2162,6 +1859,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
+                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="petFriendly"
                             onChange={[Function]}
@@ -2171,6 +1869,17 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           Yes
                         </label>
                       </div>
+                      <label>
+                        
+                        <input
+                          className="input"
+                          disabled={false}
+                          onChange={[Function]}
+                          placeholder="Elaborate (optional)"
+                          type="text"
+                          value="have dogs"
+                        />
+                      </label>
                     </section>
                   </div>
                   <div
@@ -2327,7 +2036,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={true}
+                            checked={false}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="smoking"
                             onChange={[Function]}
@@ -2340,6 +2049,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
+                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="smoking"
                             onChange={[Function]}
@@ -2349,6 +2059,17 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           Yes
                         </label>
                       </div>
+                      <label>
+                        
+                        <input
+                          className="input"
+                          disabled={false}
+                          onChange={[Function]}
+                          placeholder="Elaborate (optional)"
+                          type="text"
+                          value="tobacco only"
+                        />
+                      </label>
                     </section>
                   </div>
                   <div
@@ -2518,6 +2239,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
+                            checked={false}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="mobile"
                             onChange={[Function]}
@@ -2567,7 +2289,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={true}
+                            checked={false}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="allergies"
                             onChange={[Function]}
@@ -2580,7 +2302,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={false}
+                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="allergies"
                             onChange={[Function]}
@@ -2590,6 +2312,17 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           Yes
                         </label>
                       </div>
+                      <label>
+                        
+                        <input
+                          className="input"
+                          disabled={false}
+                          onChange={[Function]}
+                          placeholder="Elaborate (optional)"
+                          type="text"
+                          value="peanuts"
+                        />
+                      </label>
                     </section>
                   </div>
                   <div
@@ -2746,7 +2479,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={true}
+                            checked={false}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="religion"
                             onChange={[Function]}
@@ -2759,7 +2492,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={false}
+                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="religion"
                             onChange={[Function]}
@@ -2769,6 +2502,17 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           Yes
                         </label>
                       </div>
+                      <label>
+                        
+                        <input
+                          className="input"
+                          disabled={false}
+                          onChange={[Function]}
+                          placeholder="Elaborate (optional)"
+                          type="text"
+                          value="Roman Catholic"
+                        />
+                      </label>
                     </section>
                   </div>
                   <div
@@ -3328,2302 +3072,25 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                       onChange={[Function]}
                       placeholder="Let others know more about your lifestyle, values and why you want to home share"
                       rows="5"
+                      value="I like to type as little as possible"
                     />
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    className="border-divider"
-  />
-  <div
-    className="mt-10 sm:mt-0"
-  >
-    <div
-      className="m-10 md:grid md:grid-cols-4 md:gap-6"
-    >
-      <div
-        className="px-4 md:col-span-1 sm:px-0"
-      >
-        <h3
-          className="info-header"
-        >
-          Search Criteria
-        </h3>
-        <p
-          className="info-text"
-        >
-          This information be used to find other compatible members on Home Together Canada
-          <a
-            className="label"
-            href="/faq"
-            onClick={[Function]}
-          >
-             FAQs
-          </a>
-          .
-        </p>
-      </div>
-      <div
-        className="overflow-hidden py-6 px-4 mt-5 bg-white shadow md:mt-0 md:col-span-2 sm:rounded-md sm:p-5"
-      >
-        <div
-          className="grid grid-cols-2 gap-6"
-        >
-          <div
-            className="col-span-3 sm:col-span-2"
-          >
-            <section
-              className="undefined"
-            >
-              <label
-                className="label"
-              >
-                I am open to sharing with 
-                 
-                <svg
-                  className="inline align-top text-red-600"
-                  fill="none"
-                  height="1em"
-                  stroke="currentColor"
-                  strokeWidth="0"
-                  style={
-                    Object {
-                      "color": undefined,
-                    }
-                  }
-                  viewBox="0 0 24 24"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </label>
-              <span>
-                <a
-                  data-for="genderPref"
-                  data-tip={true}
-                >
-                  <svg
-                    className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
-                    fill="currentColor"
-                    height="1em"
-                    stroke="currentColor"
-                    strokeWidth="0"
-                    style={
-                      Object {
-                        "color": undefined,
-                      }
-                    }
-                    viewBox="0 0 16 16"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                      fillRule="evenodd"
-                    />
-                  </svg>
-                </a>
                 <div
-                  className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-                  data-id="tooltip"
-                  id="genderPref"
+                  className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6"
                 >
-                  <style
-                    dangerouslySetInnerHTML={
-                      Object {
-                        "__html": "
-  	.t00000000-0000-0000-0000-000000000000 {
-	    color: #fff;
-	    background: #222;
-	    border: 1px solid transparent;
-  	}
-
-  	.t00000000-0000-0000-0000-000000000000.place-top {
-        margin-top: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
-        border-top: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        bottom: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
-        margin-top: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
-        border-bottom: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        top: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-left {
-        margin-left: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
-        border-left: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        right: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-right {
-        margin-left: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
-        border-right: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        left: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
-    }
-  ",
-                      }
-                    }
-                  />
-                  Choose as many options as you wish, however you must select at least one
-                </div>
-              </span>
-              <div
-                className="my-2"
-              >
-                <div>
-                  <input
-                    className="align-middle mt-0 mr-1 mb-0 h-4 w-4 border-gray-300 rounded-lg"
-                    id="Male"
-                    onChange={[Function]}
-                    type="checkbox"
-                  />
-                  <label
-                    className="label font-normal label"
-                  >
-                    Male
-                  </label>
-                </div>
-                <div>
-                  <input
-                    className="align-middle mt-0 mr-1 mb-0 text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
-                    id="Female"
-                    onChange={[Function]}
-                    type="checkbox"
-                  />
-                  <label
-                    className="label font-normal label"
-                  >
-                    Female
-                  </label>
-                </div>
-                <div>
-                  <input
-                    className="align-middle mt-0 mr-1 mb-0 text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
-                    id="Other"
-                    onChange={[Function]}
-                    type="checkbox"
-                  />
-                  <label
-                    className="label font-normal label"
-                  >
-                    Other
-                  </label>
-                </div>
-              </div>
-            </section>
-            <label
-              className="label"
-            >
-              I am open to sharing with
-               
-              <svg
-                className="inline align-top text-red-600"
-                fill="none"
-                height="1em"
-                stroke="currentColor"
-                strokeWidth="0"
-                style={
-                  Object {
-                    "color": undefined,
-                  }
-                }
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </label>
-            <span>
-              <a
-                data-for="familyStatusPref"
-                data-tip={true}
-              >
-                <svg
-                  className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
-                  fill="currentColor"
-                  height="1em"
-                  stroke="currentColor"
-                  strokeWidth="0"
-                  style={
-                    Object {
-                      "color": undefined,
-                    }
-                  }
-                  viewBox="0 0 16 16"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clipRule="evenodd"
-                    d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                    fillRule="evenodd"
-                  />
-                </svg>
-              </a>
-              <div
-                className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-                data-id="tooltip"
-                id="familyStatusPref"
-              >
-                <style
-                  dangerouslySetInnerHTML={
-                    Object {
-                      "__html": "
-  	.t00000000-0000-0000-0000-000000000000 {
-	    color: #fff;
-	    background: #222;
-	    border: 1px solid transparent;
-  	}
-
-  	.t00000000-0000-0000-0000-000000000000.place-top {
-        margin-top: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
-        border-top: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        bottom: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
-        margin-top: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
-        border-bottom: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        top: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-left {
-        margin-left: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
-        border-left: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        right: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-right {
-        margin-left: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
-        border-right: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        left: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
-    }
-  ",
-                    }
-                  }
-                />
-                Select the status that most accurately reflects your living arrangement that you would like to maintain while home-sharing
-              </div>
-            </span>
-            <div>
-              <div>
-                <div
-                  className=" css-2b097c-container"
-                  onKeyDown={[Function]}
-                >
-                  <div
-                    className=" css-1jumw1e-control"
-                    onMouseDown={[Function]}
-                    onTouchEnd={[Function]}
-                  >
-                    <div
-                      className=" css-g1d714-ValueContainer"
-                    >
-                      <div
-                        className=" css-1d6d5xl-placeholder"
-                      >
-                        Family Status
-                      </div>
-                      <div
-                        className="css-b8ldur-Input"
-                      >
-                        <div
-                          className=""
-                          style={
-                            Object {
-                              "display": "inline-block",
-                            }
-                          }
-                        >
-                          <input
-                            aria-autocomplete="list"
-                            autoCapitalize="none"
-                            autoComplete="off"
-                            autoCorrect="off"
-                            disabled={false}
-                            id="react-select-8-input"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            onFocus={[Function]}
-                            spellCheck="false"
-                            style={
-                              Object {
-                                "background": 0,
-                                "border": 0,
-                                "boxSizing": "content-box",
-                                "color": "inherit",
-                                "fontSize": "inherit",
-                                "label": "input",
-                                "opacity": 1,
-                                "outline": 0,
-                                "padding": 0,
-                                "width": "1px",
-                              }
-                            }
-                            tabIndex="0"
-                            type="text"
-                            value=""
-                          />
-                          <div
-                            style={
-                              Object {
-                                "height": 0,
-                                "left": 0,
-                                "overflow": "scroll",
-                                "position": "absolute",
-                                "top": 0,
-                                "visibility": "hidden",
-                                "whiteSpace": "pre",
-                              }
-                            }
-                          >
-                            
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className=" css-1hb7zxy-IndicatorsContainer"
-                    >
-                      <span
-                        className=" css-1okebmr-indicatorSeparator"
-                      />
-                      <div
-                        aria-hidden="true"
-                        className=" css-tlfecz-indicatorContainer"
-                        onMouseDown={[Function]}
-                        onTouchEnd={[Function]}
-                      >
-                        <svg
-                          aria-hidden="true"
-                          className="css-6q0nyr-Svg"
-                          focusable="false"
-                          height={20}
-                          viewBox="0 0 20 20"
-                          width={20}
-                        >
-                          <path
-                            d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <label
-              className="label"
-            >
-              Age range of person(s) I would like to share with
-               
-              <svg
-                className="inline align-top text-red-600"
-                fill="none"
-                height="1em"
-                stroke="currentColor"
-                strokeWidth="0"
-                style={
-                  Object {
-                    "color": undefined,
-                  }
-                }
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </label>
-            <span>
-              <a
-                data-for="agePref"
-                data-tip={true}
-              >
-                <svg
-                  className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
-                  fill="currentColor"
-                  height="1em"
-                  stroke="currentColor"
-                  strokeWidth="0"
-                  style={
-                    Object {
-                      "color": undefined,
-                    }
-                  }
-                  viewBox="0 0 16 16"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clipRule="evenodd"
-                    d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                    fillRule="evenodd"
-                  />
-                </svg>
-              </a>
-              <div
-                className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-                data-id="tooltip"
-                id="agePref"
-              >
-                <style
-                  dangerouslySetInnerHTML={
-                    Object {
-                      "__html": "
-  	.t00000000-0000-0000-0000-000000000000 {
-	    color: #fff;
-	    background: #222;
-	    border: 1px solid transparent;
-  	}
-
-  	.t00000000-0000-0000-0000-000000000000.place-top {
-        margin-top: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
-        border-top: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        bottom: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
-        margin-top: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
-        border-bottom: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        top: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-left {
-        margin-left: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
-        border-left: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        right: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-right {
-        margin-left: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
-        border-right: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        left: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
-    }
-  ",
-                    }
-                  }
-                />
-                Both min and max numbers are inclusive
-              </div>
-            </span>
-            <div
-              className="grid grid-cols-6 gap-x-6"
-            >
-              <div
-                className="column-span-6-layout"
-              >
-                <input
-                  className="undefined input"
-                  min="16"
-                  onChange={[Function]}
-                  placeholder="Min Age"
-                  step="1"
-                  type="number"
-                />
-              </div>
-              <div
-                className="column-span-6-layout"
-              >
-                <input
-                  className="undefined input"
-                  min=""
-                  onChange={[Function]}
-                  placeholder="Max Age"
-                  step="1"
-                  type="number"
-                />
-              </div>
-            </div>
-            <label
-              className="label"
-            >
-              I'm looking for roommates who have the following preference
-               
-              <svg
-                className="inline align-top text-red-600"
-                fill="none"
-                height="1em"
-                stroke="currentColor"
-                strokeWidth="0"
-                style={
-                  Object {
-                    "color": undefined,
-                  }
-                }
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </label>
-            <span>
-              <a
-                data-for="numPeopleToSharePref"
-                data-tip={true}
-              >
-                <svg
-                  className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
-                  fill="currentColor"
-                  height="1em"
-                  stroke="currentColor"
-                  strokeWidth="0"
-                  style={
-                    Object {
-                      "color": undefined,
-                    }
-                  }
-                  viewBox="0 0 16 16"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clipRule="evenodd"
-                    d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                    fillRule="evenodd"
-                  />
-                </svg>
-              </a>
-              <div
-                className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-                data-id="tooltip"
-                id="numPeopleToSharePref"
-              >
-                <style
-                  dangerouslySetInnerHTML={
-                    Object {
-                      "__html": "
-  	.t00000000-0000-0000-0000-000000000000 {
-	    color: #fff;
-	    background: #222;
-	    border: 1px solid transparent;
-  	}
-
-  	.t00000000-0000-0000-0000-000000000000.place-top {
-        margin-top: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
-        border-top: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        bottom: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
-        margin-top: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
-        border-bottom: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        top: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-left {
-        margin-left: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
-        border-left: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        right: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-right {
-        margin-left: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
-        border-right: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        left: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
-    }
-  ",
-                    }
-                  }
-                />
-                This number of people does not include yourself
-              </div>
-            </span>
-            <div
-              className="grid grid-cols-6 gap-x-6"
-            >
-              <div
-                className="column-span-6-layout"
-              >
-                <input
-                  className="undefined input"
-                  min="0"
-                  onChange={[Function]}
-                  placeholder="Min # Roommate(s)"
-                  step="1"
-                  type="number"
-                />
-              </div>
-              <div
-                className="column-span-6-layout"
-              >
-                <input
-                  className="undefined input"
-                  min=""
-                  onChange={[Function]}
-                  placeholder="Max # Roommate(s)"
-                  step="1"
-                  type="number"
-                />
-              </div>
-            </div>
-            <label
-              className="label"
-            >
-              I am looking for member(s) who have the following budget range
-               
-              <svg
-                className="inline align-top text-red-600"
-                fill="none"
-                height="1em"
-                stroke="currentColor"
-                strokeWidth="0"
-                style={
-                  Object {
-                    "color": undefined,
-                  }
-                }
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </label>
-            <span>
-              <a
-                data-for="rentPref"
-                data-tip={true}
-              >
-                <svg
-                  className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
-                  fill="currentColor"
-                  height="1em"
-                  stroke="currentColor"
-                  strokeWidth="0"
-                  style={
-                    Object {
-                      "color": undefined,
-                    }
-                  }
-                  viewBox="0 0 16 16"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clipRule="evenodd"
-                    d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                    fillRule="evenodd"
-                  />
-                </svg>
-              </a>
-              <div
-                className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-                data-id="tooltip"
-                id="rentPref"
-              >
-                <style
-                  dangerouslySetInnerHTML={
-                    Object {
-                      "__html": "
-  	.t00000000-0000-0000-0000-000000000000 {
-	    color: #fff;
-	    background: #222;
-	    border: 1px solid transparent;
-  	}
-
-  	.t00000000-0000-0000-0000-000000000000.place-top {
-        margin-top: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
-        border-top: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        bottom: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
-        margin-top: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
-        border-bottom: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        top: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-left {
-        margin-left: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
-        border-left: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        right: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-right {
-        margin-left: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
-        border-right: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        left: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
-    }
-  ",
-                    }
-                  }
-                />
-                This does NOT include utilities
-              </div>
-            </span>
-            <div
-              className="grid grid-cols-6 gap-x-6"
-            >
-              <div
-                className="column-span-6-layout"
-              >
-                <input
-                  className="undefined input"
-                  min="0"
-                  onChange={[Function]}
-                  placeholder="Min $ CAD"
-                  step="1"
-                  type="number"
-                />
-              </div>
-              <div
-                className="column-span-6-layout"
-              >
-                <input
-                  className="undefined input"
-                  min=""
-                  onChange={[Function]}
-                  placeholder=" Max $ CAD"
-                  step="1"
-                  type="number"
-                />
-              </div>
-            </div>
-            <label
-              className="label"
-            >
-              I am looking for others who are/find:
-            </label>
-            <div
-              className="grid grid-cols-6 gap-x-6"
-            >
-              <div
-                className="column-span-6-layout"
-              >
-                <section
-                  className="undefined my-2"
-                >
-                  <div>
-                    <div>
-                      <label
-                        className="label text-base"
-                      >
-                        Pet friendly?
-                      </label>
-                      <svg
-                        className="inline align-top text-red-600"
-                        fill="none"
-                        height="1em"
-                        stroke="currentColor"
-                        strokeWidth="0"
-                        style={
-                          Object {
-                            "color": undefined,
-                          }
-                        }
-                        viewBox="0 0 24 24"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                      <span>
-                        <a
-                          data-for="pet"
-                          data-tip={true}
-                        >
-                          <svg
-                            className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
-                            fill="currentColor"
-                            height="1em"
-                            stroke="currentColor"
-                            strokeWidth="0"
-                            style={
-                              Object {
-                                "color": undefined,
-                              }
-                            }
-                            viewBox="0 0 16 16"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              clipRule="evenodd"
-                              d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                              fillRule="evenodd"
-                            />
-                          </svg>
-                        </a>
-                        <div
-                          className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-                          data-id="tooltip"
-                          id="pet"
-                        >
-                          <style
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": "
-  	.t00000000-0000-0000-0000-000000000000 {
-	    color: #fff;
-	    background: #222;
-	    border: 1px solid transparent;
-  	}
-
-  	.t00000000-0000-0000-0000-000000000000.place-top {
-        margin-top: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
-        border-top: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        bottom: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
-        margin-top: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
-        border-bottom: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        top: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-left {
-        margin-left: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
-        border-left: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        right: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-right {
-        margin-left: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
-        border-right: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        left: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
-    }
-  ",
-                              }
-                            }
-                          />
-                          You either have a pet or are open to living with pets
-                        </div>
-                      </span>
-                    </div>
-                    <label
-                      className="text-base text-gray-700 pr-8"
-                    >
-                      <input
-                        className="form-radio mt-2 ml-2 mr-1 pb-4"
-                        name="petFriendlyPref"
-                        onChange={[Function]}
-                        type="radio"
-                        value="no"
-                      />
-                      No
-                    </label>
-                    <label
-                      className="text-base text-gray-700 pr-8"
-                    >
-                      <input
-                        className="form-radio mt-2 ml-2 mr-1 pb-4"
-                        name="petFriendlyPref"
-                        onChange={[Function]}
-                        type="radio"
-                        value="yes"
-                      />
-                      Yes
-                    </label>
-                  </div>
-                </section>
-              </div>
-              <div
-                className="column-span-6-layout"
-              >
-                <section
-                  className="undefined my-2"
-                >
-                  <div>
-                    <div>
-                      <label
-                        className="label text-base"
-                      >
-                        Smoke friendly?
-                      </label>
-                      <svg
-                        className="inline align-top text-red-600"
-                        fill="none"
-                        height="1em"
-                        stroke="currentColor"
-                        strokeWidth="0"
-                        style={
-                          Object {
-                            "color": undefined,
-                          }
-                        }
-                        viewBox="0 0 24 24"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                      <span>
-                        <a
-                          data-for="smoke"
-                          data-tip={true}
-                        >
-                          <svg
-                            className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
-                            fill="currentColor"
-                            height="1em"
-                            stroke="currentColor"
-                            strokeWidth="0"
-                            style={
-                              Object {
-                                "color": undefined,
-                              }
-                            }
-                            viewBox="0 0 16 16"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              clipRule="evenodd"
-                              d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                              fillRule="evenodd"
-                            />
-                          </svg>
-                        </a>
-                        <div
-                          className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-                          data-id="tooltip"
-                          id="smoke"
-                        >
-                          <style
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": "
-  	.t00000000-0000-0000-0000-000000000000 {
-	    color: #fff;
-	    background: #222;
-	    border: 1px solid transparent;
-  	}
-
-  	.t00000000-0000-0000-0000-000000000000.place-top {
-        margin-top: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
-        border-top: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        bottom: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
-        margin-top: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
-        border-bottom: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        top: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-left {
-        margin-left: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
-        border-left: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        right: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-right {
-        margin-left: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
-        border-right: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        left: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
-    }
-  ",
-                              }
-                            }
-                          />
-                          You either smoke yourself or are open to living with people who smoke
-                        </div>
-                      </span>
-                    </div>
-                    <label
-                      className="text-base text-gray-700 pr-8"
-                    >
-                      <input
-                        className="form-radio mt-2 ml-2 mr-1 pb-4"
-                        name="smokingPref"
-                        onChange={[Function]}
-                        type="radio"
-                        value="no"
-                      />
-                      No
-                    </label>
-                    <label
-                      className="text-base text-gray-700 pr-8"
-                    >
-                      <input
-                        className="form-radio mt-2 ml-2 mr-1 pb-4"
-                        name="smokingPref"
-                        onChange={[Function]}
-                        type="radio"
-                        value="yes"
-                      />
-                      Yes
-                    </label>
-                  </div>
-                </section>
-              </div>
-              <div
-                className="column-span-6-layout"
-              >
-                <section
-                  className="undefined my-2"
-                >
-                  <div>
-                    <div>
-                      <label
-                        className="label text-base"
-                      >
-                        Is religion important?
-                      </label>
-                      <svg
-                        className="inline align-top text-red-600"
-                        fill="none"
-                        height="1em"
-                        stroke="currentColor"
-                        strokeWidth="0"
-                        style={
-                          Object {
-                            "color": undefined,
-                          }
-                        }
-                        viewBox="0 0 24 24"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                      <span>
-                        <a
-                          data-for="religion"
-                          data-tip={true}
-                        >
-                          <svg
-                            className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
-                            fill="currentColor"
-                            height="1em"
-                            stroke="currentColor"
-                            strokeWidth="0"
-                            style={
-                              Object {
-                                "color": undefined,
-                              }
-                            }
-                            viewBox="0 0 16 16"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              clipRule="evenodd"
-                              d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                              fillRule="evenodd"
-                            />
-                          </svg>
-                        </a>
-                        <div
-                          className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-                          data-id="tooltip"
-                          id="religion"
-                        >
-                          <style
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": "
-  	.t00000000-0000-0000-0000-000000000000 {
-	    color: #fff;
-	    background: #222;
-	    border: 1px solid transparent;
-  	}
-
-  	.t00000000-0000-0000-0000-000000000000.place-top {
-        margin-top: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
-        border-top: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        bottom: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
-        margin-top: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
-        border-bottom: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        top: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-left {
-        margin-left: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
-        border-left: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        right: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-right {
-        margin-left: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
-        border-right: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        left: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
-    }
-  ",
-                              }
-                            }
-                          />
-                          Religious compatibility is important to you
-                        </div>
-                      </span>
-                    </div>
-                    <label
-                      className="text-base text-gray-700 pr-8"
-                    >
-                      <input
-                        className="form-radio mt-2 ml-2 mr-1 pb-4"
-                        name="religion"
-                        onChange={[Function]}
-                        type="radio"
-                        value="no"
-                      />
-                      No
-                    </label>
-                    <label
-                      className="text-base text-gray-700 pr-8"
-                    >
-                      <input
-                        className="form-radio mt-2 ml-2 mr-1 pb-4"
-                        name="religion"
-                        onChange={[Function]}
-                        type="radio"
-                        value="yes"
-                      />
-                      Yes
-                    </label>
-                  </div>
-                </section>
-              </div>
-              <div
-                className="column-span-6-layout"
-              >
-                <section
-                  className="undefined my-2"
-                >
-                  <div>
-                    <div>
-                      <label
-                        className="label text-base"
-                      >
-                        Is diet of others important?
-                      </label>
-                      <svg
-                        className="inline align-top text-red-600"
-                        fill="none"
-                        height="1em"
-                        stroke="currentColor"
-                        strokeWidth="0"
-                        style={
-                          Object {
-                            "color": undefined,
-                          }
-                        }
-                        viewBox="0 0 24 24"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                      <span>
-                        <a
-                          data-for="diet"
-                          data-tip={true}
-                        >
-                          <svg
-                            className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
-                            fill="currentColor"
-                            height="1em"
-                            stroke="currentColor"
-                            strokeWidth="0"
-                            style={
-                              Object {
-                                "color": undefined,
-                              }
-                            }
-                            viewBox="0 0 16 16"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              clipRule="evenodd"
-                              d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                              fillRule="evenodd"
-                            />
-                          </svg>
-                        </a>
-                        <div
-                          className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-                          data-id="tooltip"
-                          id="diet"
-                        >
-                          <style
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": "
-  	.t00000000-0000-0000-0000-000000000000 {
-	    color: #fff;
-	    background: #222;
-	    border: 1px solid transparent;
-  	}
-
-  	.t00000000-0000-0000-0000-000000000000.place-top {
-        margin-top: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
-        border-top: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        bottom: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
-        margin-top: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
-        border-bottom: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        top: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-left {
-        margin-left: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
-        border-left: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        right: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-right {
-        margin-left: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
-        border-right: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        left: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
-    }
-  ",
-                              }
-                            }
-                          />
-                          The diet of your roommate(s) is important to you
-                        </div>
-                      </span>
-                    </div>
-                    <label
-                      className="text-base text-gray-700 pr-8"
-                    >
-                      <input
-                        className="form-radio mt-2 ml-2 mr-1 pb-4"
-                        name="diet"
-                        onChange={[Function]}
-                        type="radio"
-                        value="no"
-                      />
-                      No
-                    </label>
-                    <label
-                      className="text-base text-gray-700 pr-8"
-                    >
-                      <input
-                        className="form-radio mt-2 ml-2 mr-1 pb-4"
-                        name="diet"
-                        onChange={[Function]}
-                        type="radio"
-                        value="yes"
-                      />
-                      Yes
-                    </label>
-                  </div>
-                </section>
-              </div>
-              <div
-                className="column-span-6-layout"
-              >
-                <section
-                  className="undefined my-2"
-                >
-                  <div>
-                    <div>
-                      <label
-                        className="label text-base"
-                      >
-                        Others with a home to share?
-                      </label>
-                      <svg
-                        className="inline align-top text-red-600"
-                        fill="none"
-                        height="1em"
-                        stroke="currentColor"
-                        strokeWidth="0"
-                        style={
-                          Object {
-                            "color": undefined,
-                          }
-                        }
-                        viewBox="0 0 24 24"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                      <span>
-                        <a
-                          data-for="homeToShare"
-                          data-tip={true}
-                        >
-                          <svg
-                            className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
-                            fill="currentColor"
-                            height="1em"
-                            stroke="currentColor"
-                            strokeWidth="0"
-                            style={
-                              Object {
-                                "color": undefined,
-                              }
-                            }
-                            viewBox="0 0 16 16"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              clipRule="evenodd"
-                              d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                              fillRule="evenodd"
-                            />
-                          </svg>
-                        </a>
-                        <div
-                          className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-                          data-id="tooltip"
-                          id="homeToShare"
-                        >
-                          <style
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": "
-  	.t00000000-0000-0000-0000-000000000000 {
-	    color: #fff;
-	    background: #222;
-	    border: 1px solid transparent;
-  	}
-
-  	.t00000000-0000-0000-0000-000000000000.place-top {
-        margin-top: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
-        border-top: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        bottom: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
-        margin-top: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
-        border-bottom: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        top: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-left {
-        margin-left: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
-        border-left: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        right: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-right {
-        margin-left: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
-        border-right: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        left: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
-    }
-  ",
-                              }
-                            }
-                          />
-                          If you have a home to share, we recommend that you also create a free listing in addition to providing a short description below
-                        </div>
-                      </span>
-                    </div>
-                    <label
-                      className="text-base text-gray-700 pr-8"
-                    >
-                      <input
-                        className="form-radio mt-2 ml-2 mr-1 pb-4"
-                        name="homeToSharePref"
-                        onChange={[Function]}
-                        type="radio"
-                        value="no"
-                      />
-                      No
-                    </label>
-                    <label
-                      className="text-base text-gray-700 pr-8"
-                    >
-                      <input
-                        className="form-radio mt-2 ml-2 mr-1 pb-4"
-                        name="homeToSharePref"
-                        onChange={[Function]}
-                        type="radio"
-                        value="yes"
-                      />
-                      Yes
-                    </label>
-                  </div>
-                </section>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    className="border-divider"
-  />
-  <div
-    className="mt-10 sm:mt-0"
-  >
-    <div
-      className="m-10 md:grid md:grid-cols-4 md:gap-6"
-    >
-      <div
-        className="md:col-span-1"
-      >
-        <div
-          className="px-4 sm:px-0"
-        >
-          <h3
-            className="info-header"
-          >
-            Sign In Details
-          </h3>
-          <p
-            className="info-text"
-          >
-            This information is to set up and access your account. Usernames are permanent and cannot be changed at a later time! The user name you choose is how you will be identified by others on the site. Do NOT use your real name! We recommend you choose something you will remember and not tire of. User names are extremely important and are for the protection of you and all of the users of this site. Please read
-            <a
-              className="label"
-              href="/faq"
-              onClick={[Function]}
-            >
-               FAQs
-            </a>
-            .
-          </p>
-        </div>
-      </div>
-      <div
-        className="mt-5 md:mt-0 md:col-span-2"
-      >
-        <div
-          className="overflow-hidden shadow sm:rounded-md"
-        >
-          <div
-            className="py-6 px-4 bg-white sm:p-5"
-          >
-            <div
-              className="grid grid-cols-2 gap-6"
-            >
-              <div
-                className="col-span-3 sm:col-span-2"
-              >
-                <div>
                   <label>
-                    <label
-                      className="label"
-                    >
-                      Username
-                       
-                      <svg
-                        className="inline align-top text-red-600"
-                        fill="none"
-                        height="1em"
-                        stroke="currentColor"
-                        strokeWidth="0"
-                        style={
-                          Object {
-                            "color": undefined,
-                          }
-                        }
-                        viewBox="0 0 24 24"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </label>
-                    <span>
-                      <a
-                        data-for="username"
-                        data-tip={true}
-                      >
-                        <svg
-                          className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
-                          fill="currentColor"
-                          height="1em"
-                          stroke="currentColor"
-                          strokeWidth="0"
-                          style={
-                            Object {
-                              "color": undefined,
-                            }
-                          }
-                          viewBox="0 0 16 16"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            clipRule="evenodd"
-                            d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                            fillRule="evenodd"
-                          />
-                        </svg>
-                      </a>
-                      <div
-                        className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-                        data-id="tooltip"
-                        id="username"
-                      >
-                        <style
-                          dangerouslySetInnerHTML={
-                            Object {
-                              "__html": "
-  	.t00000000-0000-0000-0000-000000000000 {
-	    color: #fff;
-	    background: #222;
-	    border: 1px solid transparent;
-  	}
-
-  	.t00000000-0000-0000-0000-000000000000.place-top {
-        margin-top: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
-        border-top: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        bottom: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
-        margin-top: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
-        border-bottom: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        top: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-left {
-        margin-left: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
-        border-left: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        right: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-right {
-        margin-left: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
-        border-right: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        left: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
-    }
-  ",
-                            }
-                          }
-                        />
-                        Your username should be unique and meaningful.
-                      </div>
-                    </span>
                     <input
-                      className="undefined input"
-                      onChange={[Function]}
-                      type="text"
+                      className="text-base btn btn-green"
+                      onClick={[Function]}
+                      type="submit"
+                      value="Save"
                     />
-                  </label>
-                  <label>
-                    <label
-                      className="label"
-                    >
-                      Password
-                       
-                      <svg
-                        className="inline align-top text-red-600"
-                        fill="none"
-                        height="1em"
-                        stroke="currentColor"
-                        strokeWidth="0"
-                        style={
-                          Object {
-                            "color": undefined,
-                          }
-                        }
-                        viewBox="0 0 24 24"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </label>
-                    <span>
-                      <a
-                        data-for="password"
-                        data-tip={true}
-                      >
-                        <svg
-                          className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
-                          fill="currentColor"
-                          height="1em"
-                          stroke="currentColor"
-                          strokeWidth="0"
-                          style={
-                            Object {
-                              "color": undefined,
-                            }
-                          }
-                          viewBox="0 0 16 16"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            clipRule="evenodd"
-                            d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                            fillRule="evenodd"
-                          />
-                        </svg>
-                      </a>
-                      <div
-                        className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-                        data-id="tooltip"
-                        id="password"
-                      >
-                        <style
-                          dangerouslySetInnerHTML={
-                            Object {
-                              "__html": "
-  	.t00000000-0000-0000-0000-000000000000 {
-	    color: #fff;
-	    background: #222;
-	    border: 1px solid transparent;
-  	}
-
-  	.t00000000-0000-0000-0000-000000000000.place-top {
-        margin-top: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
-        border-top: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        bottom: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
-        margin-top: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
-        border-bottom: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        top: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-left {
-        margin-left: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
-        border-left: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        right: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-right {
-        margin-left: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
-        border-right: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        left: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
-    }
-  ",
-                            }
-                          }
-                        />
-                        Your password must be at least 8 characters long and contain a mix of numeric digits, upper and lower case letters!
-                      </div>
-                    </span>
-                    <input
-                      className="undefined input"
-                      onChange={[Function]}
-                      type="password"
-                    />
-                  </label>
-                  <label>
-                    <label
-                      className="label"
-                    >
-                      Confirm Password
-                       
-                      <svg
-                        className="inline align-top text-red-600"
-                        fill="none"
-                        height="1em"
-                        stroke="currentColor"
-                        strokeWidth="0"
-                        style={
-                          Object {
-                            "color": undefined,
-                          }
-                        }
-                        viewBox="0 0 24 24"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </label>
-                    <input
-                      className="null input"
-                      onChange={[Function]}
-                      type="password"
-                    />
-                    
                   </label>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div
-          className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6"
-        >
-          <label>
-            <input
-              className="text-base btn btn-green"
-              onClick={[Function]}
-              type="submit"
-              value="Create Account"
-            />
-          </label>
         </div>
       </div>
     </div>
