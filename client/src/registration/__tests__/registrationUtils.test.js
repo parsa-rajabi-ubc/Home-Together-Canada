@@ -1,4 +1,5 @@
-import {getConcatenatedErrorMessage, getPhoneNumberFromStrings, getFirstErrorMessage} from "../registrationUtils";
+import {getConcatenatedErrorMessage, getPhoneNumberFromStrings, getFirstErrorMessage, isValueNegative, validateMinMax} from "../registrationUtils";
+import {useState} from "react";
 
 describe('registrationUtils', () => {
 
@@ -152,5 +153,77 @@ describe('registrationUtils', () => {
             // then
             expect(errorMessage).toBe(expectedErrorMessage);
         });
+    });
+});
+
+describe('isValueNegative', () => {
+    it('should return true when a negative value is passed in', () => {
+        // expect result
+        const expectedResult = true;
+
+        // given
+        const value = -3;
+
+        // when
+        const output = isValueNegative(value);
+
+        // then
+        expect(output).toBe(expectedResult);
+    });
+    it('should return false when a positive value is passed in', () => {
+        // expect result
+        const expectedResult = false;
+
+        // given
+        const value = 3;
+
+        // when
+        const output = isValueNegative(value);
+
+        // then
+        expect(output).toBe(expectedResult);
+    });
+});
+
+describe('validateMinMax', () => {
+    it('should return true when a negative value is passed in', () => {
+        // expect result
+        const expectedResult = true;
+
+        // given
+        const value = -3;
+        const setState = jest.fn();
+        // when
+        const output = validateMinMax(value, setState);
+
+        // then
+        expect(output).toBe(expectedResult);
+    });
+    it('should return false when a positive value is passed in ', () => {
+        // expect result
+        const expectedResult = false;
+
+        // given
+        const value = 5;
+        const setState = jest.fn();
+
+        // when
+        const output = validateMinMax(value, setState);
+
+        // then
+        expect(output).toBe(expectedResult);
+    });
+    it('should return true when an empty value is passed in', () => {
+        // expect result
+        const expectedResult = true;
+
+        // given
+        const value = "";
+        const setState = jest.fn();
+        // when
+        const output = validateMinMax(value, setState);
+
+        // then
+        expect(output).toBe(expectedResult);
     });
 });

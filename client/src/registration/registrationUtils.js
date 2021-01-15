@@ -107,7 +107,7 @@ export function checkIfErrorsExistInMapping(obj) {
     return Object.values(obj).includes(true);
 }
 
-function isValueNegative(val) {
+export function isValueNegative(val) {
     return val < 0;
 }
 

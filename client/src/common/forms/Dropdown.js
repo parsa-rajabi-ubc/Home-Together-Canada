@@ -12,7 +12,7 @@ import propTypes from "prop-types";
 import {dropdownDefaultTheme} from "../../css/dropdownCSSUtil";
 
 function Dropdown(props) {
-    const {isSearchable, name, placeholder, options, onChange, intialSelection, isMulti, dropdownCSS, dropdownTheme = dropdownDefaultTheme} = props;
+    const {isSearchable, name, placeholder, options, onChange, intialSelection, isMulti = false, dropdownCSS, dropdownTheme = dropdownDefaultTheme} = props;
 
     const [selected, setSelected] = useState(intialSelection || "");
 
