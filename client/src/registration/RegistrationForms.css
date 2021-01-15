@@ -31,7 +31,7 @@
 }
 
 .photo-upload-width {
-    width: 202px;
+    @apply w-48;
 }
 
 .photo-upload {
