@@ -368,7 +368,7 @@ const BusinessRegistrationForm = (props) => {
         RegistrationService.registerBusinessUser(registrationData)
             .then(res => res.json())
             .then(data => {
-                if (!!data && data.authenticated) {
+                if (data && data.authenticated) {
                     // dispatch action to set accountType
                     if (data.business) {
                         setAccountType({accountType: USER_TYPES.BUSINESS});
@@ -394,11 +394,11 @@ const BusinessRegistrationForm = (props) => {
 
                     // user is authenticated, redirect to home screen
                     return history.push('/');
-                } else if (!!data && data.errors && data.errors.length) {
+                } else if (data && data.errors && data.errors.length) {
                     const errorMessage = getConcatenatedErrorMessage(data.errors);
                     // show list of all errors
                     alert(errorMessage);
-                } else if (!!data && !data.authenticated) {
+                } else if (data && !data.authenticated) {
                     // something went wrong with the AUTHENTICATION (not the user creation)
                     alert('Registration failed');
                 }
