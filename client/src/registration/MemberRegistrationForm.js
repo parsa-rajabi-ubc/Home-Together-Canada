@@ -43,9 +43,6 @@ import {dropdownDefaultCSS, dropdownErrorCSS} from "../css/dropdownCSSUtil"
 import {Link} from "react-router-dom";
 import {includes} from "lodash/includes";
 
-const _ = require('lodash');
-
-
 const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
 
 //Returns a Form with fields
@@ -330,7 +327,7 @@ function MemberRegistrationForm(props) {
         const list = [...genderPreference];
         const value = e.target.id;
         // check if the value select already exists in the list
-        if (!_.includes(list, value)) {
+        if (!includes(list, value)) {
             // if not, add the value
             list.push(value);
         } else {
