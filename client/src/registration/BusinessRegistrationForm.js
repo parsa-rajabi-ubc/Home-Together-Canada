@@ -382,12 +382,12 @@ const BusinessRegistrationForm = (props) => {
                             .then(data => {
                                 if ((has(data, 'authenticated') && !data.authenticated) || data.err) {
                                     alert('An error occurred while uploading logo. Please try re-uploading in your ' +
-                                        'Account Info page. Remember files have a maximum size of 5 MB');
+                                        'Account Info page. Remember files have a maximum size of 2 MB');
                                 }
                             })
                             .catch(() => {
                                 alert('An error occurred while uploading logo. Please try re-uploading in your ' +
-                                    'Account Info page. Remember files have a maximum size of 5 MB');
+                                    'Account Info page. Remember files have a maximum size of 2 MB');
                             });
                     }
 
