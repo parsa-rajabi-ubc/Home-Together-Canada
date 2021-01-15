@@ -14,6 +14,7 @@ exports[`PhoneNumInput Snapshot test should render correctly regardless of prope
       onChange={[MockFunction]}
       placeholder="222"
       type="text"
+      value="123"
     />
   </label>
   <label>
@@ -24,6 +25,7 @@ exports[`PhoneNumInput Snapshot test should render correctly regardless of prope
       onChange={[MockFunction]}
       placeholder="333"
       type="text"
+      value="456"
     />
   </label>
   <label>
@@ -34,6 +36,7 @@ exports[`PhoneNumInput Snapshot test should render correctly regardless of prope
       onChange={[MockFunction]}
       placeholder="4444"
       type="text"
+      value="9999"
     />
   </label>
 </div>

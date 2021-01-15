@@ -427,6 +427,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                   onChange={[Function]}
                   placeholder="Address Line 1"
                   type="text"
+                  value=""
                 />
               </div>
               <div
@@ -439,6 +440,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                   onChange={[Function]}
                   placeholder="Address Line 2: Apt, suite, etc. (optional)"
                   type="text"
+                  value=""
                 />
               </div>
               <div
@@ -451,6 +453,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                   onChange={[Function]}
                   placeholder="City"
                   type="text"
+                  value=""
                 />
               </div>
               <div
@@ -470,9 +473,9 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                         className=" css-g1d714-ValueContainer"
                       >
                         <div
-                          className=" css-1d6d5xl-placeholder"
+                          className=" css-1uccc91-singleValue"
                         >
-                          Province
+                          
                         </div>
                         <div
                           className="css-b8ldur-Input"
@@ -572,6 +575,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                   onChange={[Function]}
                   placeholder="Postal Code"
                   type="text"
+                  value=""
                 />
               </div>
             </div>
@@ -986,6 +990,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                     onChange={[Function]}
                     placeholder="Address Line 1"
                     type="text"
+                    value=""
                   />
                 </div>
                 <div
@@ -998,6 +1003,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                     onChange={[Function]}
                     placeholder="Address Line 2: Apt, suite, etc. (optional)"
                     type="text"
+                    value=""
                   />
                 </div>
                 <div
@@ -1010,6 +1016,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                     onChange={[Function]}
                     placeholder="City"
                     type="text"
+                    value=""
                   />
                 </div>
                 <div
@@ -1029,9 +1036,9 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                           className=" css-g1d714-ValueContainer"
                         >
                           <div
-                            className=" css-1d6d5xl-placeholder"
+                            className=" css-1uccc91-singleValue"
                           >
-                            Province
+                            
                           </div>
                           <div
                             className="css-b8ldur-Input"
@@ -1131,6 +1138,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                     onChange={[Function]}
                     placeholder="Postal Code"
                     type="text"
+                    value=""
                   />
                 </div>
               </div>

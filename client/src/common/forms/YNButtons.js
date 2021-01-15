@@ -13,7 +13,8 @@ import Asterisk from "./Asterisk";
 import Tooltip from "./Tooltip";
 
 function YNButton(props) {
-    const {label, name, onChange, required, toolTipID, toolTipText} = props;
+    const {label, name, onChange, required, toolTipID, toolTipText, checked} = props;
+
     return (
         <div>
             <div>
@@ -21,8 +22,8 @@ function YNButton(props) {
                 {(required ? <Asterisk/> : '')}
                 {toolTipID && <Tooltip text={toolTipText} toolTipID={toolTipID}/>}
             </div>
-            <RadioButton label="No" name={name} value="no" onChange={onChange}/>
-            <RadioButton label="Yes" name={name} value="yes" onChange={onChange}/>
+            <RadioButton label="No" name={name} value="no" onChange={onChange} checked={!checked}/>
+            <RadioButton label="Yes" name={name} value="yes" onChange={onChange} checked={checked}/>
         </div>
     );
 }

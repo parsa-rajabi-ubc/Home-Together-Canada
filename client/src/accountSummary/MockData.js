@@ -50,18 +50,20 @@ const history = {
     dietDescription: "",
     hasHome: "no",
     homeDescription: "",
+    interestInBuyingHome: "false",
+    interestDescription: "",
     minRent: "800",
     maxRent: "1700",
     aboutSelf: "I like to type as little as possible",
-    selectedLimit: "3",
+    selectedLimit: 3,
     selectedFamilyStatus: "Couple",
     selectedWorkStatus: "Retired",
     partner: "John123",
     groupMembers: "",
-    areasOfInterest: {
+    areasOfInterest: [{
         province: "AB",
         city: "Edmonton",
         radius: "50km"
-    }
+    }]
 }
 export default history
