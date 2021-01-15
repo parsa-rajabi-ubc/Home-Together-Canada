@@ -3,7 +3,8 @@ import {
     getPhoneNumberFromStrings,
     getFirstErrorMessage,
     validatePassword,
-    isValueNegative
+    isValueNegative,
+    validateMinMax
 } from "../registrationUtils";
 
 describe('registrationUtils', () => {
