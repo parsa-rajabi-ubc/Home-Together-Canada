@@ -11,13 +11,14 @@ import PropTypes from "prop-types";
 import Tooltip from "./Tooltip";
 
 function Checkbox(props) {
-    const {onChange, checked, label, toolTipText, toolTipID} = props;
+    const {onChange, checked, label, toolTipText, toolTipID, id, fontNormal,
+        className = "defaultCheckboxCSS"} = props;
     return (
         <div>
             <input
-                className={"align-middle mt-3 mr-1 my-4 font-medium text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"}
+                className={className} id={id}
                 type="checkbox" onChange={onChange} checked={checked}/>
-            <label className={"label"}>{label}</label>
+            <label className={`${fontNormal && "label font-normal"} label`}>{label}</label>
             {toolTipID && <Tooltip text={toolTipText} toolTipID={toolTipID}/>}
         </div>
     );
@@ -29,6 +30,9 @@ Checkbox.propTypes = {
     toolTipID: PropTypes.string,
     checked: PropTypes.bool,
     onChange: PropTypes.func,
+    className: PropTypes.string,
+    id: PropTypes.string,
+    fontNormal: PropTypes.bool
 };
 
 export default Checkbox;

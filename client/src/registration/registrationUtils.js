@@ -106,3 +106,17 @@ export function validatePasswordConfirmationEmpty(passwordConfirmation, setState
 export function checkIfErrorsExistInMapping(obj) {
     return Object.values(obj).includes(true);
 }
+
+export function isValueNegative(val) {
+    return val < 0;
+}
+
+export function validateMinMax(val, setStateVar) {
+    if (isStringEmpty(val) || isValueNegative(val)) {
+        setStateVar(true);
+        return true;
+    } else {
+        setStateVar(false);
+        return false;
+    }
+}
