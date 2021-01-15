@@ -321,7 +321,7 @@ const BusinessRegistrationForm = (props) => {
         DIFF_MAILING_ADDRESS: "Select this checkbox if your mailing address differs from the address above",
         NATION_WIDE: "Select this checkbox if your business offers services across all of Canada",
         BUSINESS_LOGO: "This logo will be displayed on all of your listings and can be changed at any time. " +
-            "Max size of 5MB",
+            "Max size of 2MB",
         MAP_ADDRESS: "Address that users use to search for the business"
     };
 
@@ -589,7 +589,7 @@ const BusinessRegistrationForm = (props) => {
                                         accept={'image/png, image/jpg, image/jpeg, image/JPG'}
                                     />
                                 <p className="text-xs text-gray-500">
-                                    PNG or JPG up to 5MB
+                                    PNG or JPG up to 2MB
                                 </p>
                             </div>
                         </div>
