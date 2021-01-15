@@ -4,7 +4,7 @@ exports[`Checkbox Snapshot test should render correctly regardless of properties
 <div>
   <input
     checked={true}
-    className="align-middle mt-3 mr-1 my-4 h-4 w-4 border-gray-300 rounded-lg"
+    className="defaultCheckboxCSS"
     type="checkbox"
   />
   <label

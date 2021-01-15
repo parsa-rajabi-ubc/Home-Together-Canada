@@ -95,7 +95,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
             >
               <div>
                 <input
-                  className="align-middle mt-3 mr-1 my-4 h-4 w-4 border-gray-300 rounded-lg"
+                  className="defaultCheckboxCSS"
                   onChange={[Function]}
                   type="checkbox"
                 />
@@ -577,7 +577,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
             </div>
             <div>
               <input
-                className="align-middle mt-3 mr-1 my-4 h-4 w-4 border-gray-300 rounded-lg"
+                className="defaultCheckboxCSS"
                 onChange={[Function]}
                 type="checkbox"
               />
@@ -706,7 +706,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
             <div>
               <div>
                 <input
-                  className="align-middle mt-3 mr-1 my-4 h-4 w-4 border-gray-300 rounded-lg"
+                  className="defaultCheckboxCSS"
                   onChange={[Function]}
                   type="checkbox"
                 />
