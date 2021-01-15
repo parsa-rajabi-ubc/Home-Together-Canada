@@ -127,10 +127,6 @@ exports.validate = (method) => {
                     .exists()
                     .trim()
                     .stripLow(),
-                body('logo', 'A valid server address must be provided')
-                    .optional()
-                    .trim()
-                    .stripLow(),   // TODO: this will probably have to change depending on how we upload logos
                 body('isIncorporated', 'isIncorporated must be specified')
                     .exists()
                     .isBoolean(),

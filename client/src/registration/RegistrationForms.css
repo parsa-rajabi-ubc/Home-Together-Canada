@@ -26,8 +26,16 @@
     @apply py-5 border-dashed border-t-2 border-gray-200 mx-16;
 }
 
-.error-msg{
+.error-msg {
     @apply block mb-2 text-sm text-red-500;
+}
+
+.photo-upload-width {
+    @apply w-48;
+}
+
+.photo-upload {
+    @apply font-medium text-indigo-600 bg-white rounded-md;
 }
 
 @screen sm {

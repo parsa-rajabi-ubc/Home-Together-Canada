@@ -10,24 +10,29 @@ import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import TextArea from '../common/forms/TextArea';
 import Checkbox from "../common/forms/Checkbox";
-import Button from '../common/forms/Button';
 import SubmitButton from "../common/forms/SubmitButton";
 import Address from "../common/forms/Address";
 import SignInInfo from "../common/forms/SignInInfo";
 import PhoneNumInput from "../common/forms/PhoneNumInput";
 import RegistrationService from '../services/RegistrationService';
+import UploadService from '../services/UploadService';
 import {
     checkIfErrorsExistInMapping,
     getConcatenatedErrorMessage,
     getPhoneNumberFromStrings,
     validateEmail,
-    validateInput, validatePasswordConfirmationEmpty, validatePasswordConfirmationMismatch, validatePhoneNumber
+    validateInput,
+    validatePasswordConfirmationEmpty,
+    validatePasswordConfirmationMismatch,
+    validatePhoneNumber
 } from "./registrationUtils";
 import Asterisk from "../common/forms/Asterisk";
 import {connect} from 'react-redux';
 import {setAccountType, setAuthenticated} from '../redux/slices/userPrivileges';
 import Tooltip from "../common/forms/Tooltip";
 import {USER_TYPES} from "../common/constants/users";
+import FileUploadButton from "../common/forms/FileUploadButton";
+import has from 'lodash/has';
 
 const mapDispatch = {setAccountType, setAuthenticated};
 
@@ -39,7 +44,6 @@ const BusinessRegistrationForm = (props) => {
     const [isNationWide, setIfNationWide] = useState(false);
     const [isIncorporated, setIsIncorporated] = useState(false);
 
-    //Validation state variables
     const [bName, setBName] = useState(undefined);
     const [bEmail, setBEmail] = useState(undefined);
     const [incorporatedOwnersNames, setIncorporatedOwnersNames] = useState("");
@@ -85,7 +89,9 @@ const BusinessRegistrationForm = (props) => {
     const [username, setUsername] = useState(undefined);
     const [password, setPassword] = useState(undefined);
     const [passwordCheck, setPasswordCheck] = useState(undefined);
+    const [logo, setLogo] = useState('');
 
+    //Validation state variables
     // Business Details
     const [businessNameError, setBusinessNameError] = useState(undefined);
     const [bEmailError, setBEmailError] = useState(undefined);
@@ -314,8 +320,8 @@ const BusinessRegistrationForm = (props) => {
         INC_COMPANY: "Select this checkbox if your business in Incorporated",
         DIFF_MAILING_ADDRESS: "Select this checkbox if your mailing address differs from the address above",
         NATION_WIDE: "Select this checkbox if your business offers services across all of Canada",
-        //TODO: Add max file size to this tooltip
-        BUSINESS_LOGO: "This logo will be displayed on all of your listings and can be changed at any time",
+        BUSINESS_LOGO: "This logo will be displayed on all of your listings and can be changed at any time. " +
+            "Max size of 2MB",
         MAP_ADDRESS: "Address that users use to search for the business"
     };
 
@@ -345,7 +351,6 @@ const BusinessRegistrationForm = (props) => {
             ...(useDifferentMailingAddress) && {mailingProvince: bMailingAddress.province},
             ...(useDifferentMailingAddress) && {mailingPostalCode: bMailingAddress.postalCode},
             businessName: bName,
-            logo: undefined,
             isIncorporated: isIncorporated,
             ...(isIncorporated) && {incorporatedOwnersNames: incorporatedOwnersNames},
             businessPhoneNumber: getPhoneNumberFromStrings(bPhoneNumber.first, bPhoneNumber.middle, bPhoneNumber.last),
@@ -370,6 +375,21 @@ const BusinessRegistrationForm = (props) => {
 
                     // dispatch action to set authenticated
                     setAuthenticated({authenticated: data.authenticated});
+
+                    if (logo) {
+                        UploadService.uploadLogo(logo)
+                            .then(res => res.json())
+                            .then(data => {
+                                if ((has(data, 'authenticated') && !data.authenticated) || data.err) {
+                                    alert('An error occurred while uploading logo. Please try re-uploading in your ' +
+                                        'Account Info page. Remember files have a maximum size of 2 MB');
+                                }
+                            })
+                            .catch(() => {
+                                alert('An error occurred while uploading logo. Please try re-uploading in your ' +
+                                    'Account Info page. Remember files have a maximum size of 2 MB');
+                            });
+                    }
 
                     // user is authenticated, redirect to home screen
                     return history.push('/');
@@ -422,6 +442,10 @@ const BusinessRegistrationForm = (props) => {
 
     function handleBMailingAddress(address) {
         setBMailingAddress(address)
+    }
+
+    function handleImageUpload(e) {
+        setLogo(e.target.files[0]);
     }
 
     return (
@@ -533,25 +557,39 @@ const BusinessRegistrationForm = (props) => {
                         </div>
 
                         <label className="label"> Business Logo </label>
-                        <Tooltip text={INFO_TEXT.BUSINESS_LOGO} toolTipID="businessLogo"/>
+                        <Tooltip
+                            text={INFO_TEXT.BUSINESS_LOGO}
+                            toolTipID="businessLogo"
+                        />
                         <div
-                            className="flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                            className={"flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed " +
+                            "rounded-md"}
+                        >
                             <div className="space-y-1 text-center">
-                                <svg className="w-12 h-12 mx-auto text-gray-400" stroke="currentColor"
-                                     fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                                <svg
+                                    className="w-12 h-12 mx-auto text-gray-400"
+                                    stroke="currentColor"
+                                    fill="none"
+                                    viewBox="0 0 48 48"
+                                    aria-hidden="true"
+                                >
                                     <path
-                                        d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                                        strokeWidth="2" strokeLinecap="round"
-                                        strokeLinejoin="round"/>
+                                        d={"M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 " +
+                                        "01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 " +
+                                        "015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"}
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    />
                                 </svg>
-                                <p className="info-text">
-                                    <Button
-                                        className="font-medium text-indigo-600 bg-white rounded-md hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                                        label="" value="Upload a file"/>
-                                </p>
-                                {/*TODO: update file type and size after we have implemented this feature*/}
+                                    <FileUploadButton
+                                        className={"photo-upload-width photo-upload hover:text-indigo-500"}
+                                        name={'logo'}
+                                        uploadHandler={handleImageUpload}
+                                        accept={'image/png, image/jpg, image/jpeg, image/JPG'}
+                                    />
                                 <p className="text-xs text-gray-500">
-                                    PNG or JPG up to 10MB
+                                    PNG or JPG up to 2MB
                                 </p>
                             </div>
                         </div>
