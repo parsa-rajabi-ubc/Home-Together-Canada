@@ -6,22 +6,49 @@
  *
  */
 
-import React, {useEffect, useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Select from 'react-select';
 import propTypes from "prop-types";
 import {dropdownDefaultTheme} from "../../css/dropdownCSSUtil";
+import {
+    getSelectedOptionForSingleSelect,
+    getSelectedOptionsForMultiSelect
+} from "../utils/dropdownUtils";
 
 function Dropdown(props) {
-    const {isSearchable, name, placeholder, options, onChange, intialSelection, isMulti = false, dropdownCSS, dropdownTheme = dropdownDefaultTheme} = props;
+    const {
+        isSearchable,
+        name,
+        placeholder,
+        options,
+        onChange,
+        initialSelection,
+        isMulti = false,
+        dropdownCSS,
+        currentSelectedValue,
+        dropdownTheme = dropdownDefaultTheme
+    } = props;
 
-    const [selected, setSelected] = useState(intialSelection || "");
+    // currentSelectedValue and related functions/constants/hooks are used to update the
+    // values in the Dropdown from the parent component
+    const prefilledDropdownSelection = isMulti
+        ? getSelectedOptionsForMultiSelect(currentSelectedValue, options)
+        : getSelectedOptionForSingleSelect(currentSelectedValue, options);
 
-    // this code is run every time selected changes
+    const [selected, setSelected] = useState(prefilledDropdownSelection || "");
+
     useEffect(() => {
-        // this onChange function is the callback from the parent component
-        onChange(selected);
-        // that can be used to get the value that is inside the dropdown
-    }, [selected]);
+        if(isMulti) {
+            setSelected(getSelectedOptionsForMultiSelect(currentSelectedValue, options));
+        } else {
+            setSelected(getSelectedOptionForSingleSelect(currentSelectedValue, options));
+        }
+    }, [currentSelectedValue]);
+
+    const onDropdownChange = e => {
+        onChange(e);
+        setSelected(e);
+    }
 
     return (
         <div>
@@ -31,9 +58,9 @@ function Dropdown(props) {
                 isMulti={isMulti}
                 placeholder={placeholder}
                 options={options}
-                defaultValue={intialSelection}
-                value={options.find(obj => obj.label === selected)}
-                onChange={(e) => setSelected(e)}
+                defaultValue={initialSelection}
+                value={selected}
+                onChange={onDropdownChange}
                 name={name}
                 menuPortalTarget={document.body}
                 styles={dropdownCSS}
@@ -49,10 +76,11 @@ Dropdown.propTypes = {
     isSearchable: propTypes.bool,
     placeholder: propTypes.string,
     onChange: propTypes.func,
-    intialSelection: propTypes.shape({
+    initialSelection: propTypes.shape({
         label: propTypes.oneOfType([propTypes.string, propTypes.number]),
         value: propTypes.oneOfType([propTypes.string, propTypes.number])
     }),
+    currentSelectedValue: propTypes.any,
     dropdownCSS: propTypes.object,
     dropdownTheme: propTypes.func,
     isMulti: propTypes.bool

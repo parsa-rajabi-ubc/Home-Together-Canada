@@ -26,7 +26,8 @@ import {
     validateEmail,
     validateMinMax,
     validatePassword,
-    resolveYesNoToBoolean
+    resolveYesNoToBoolean,
+    validateArrayInput
 } from "./registrationUtils";
 import RegistrationService from "../services/RegistrationService";
 import RadioButton from "../common/forms/RadioButton";
@@ -47,6 +48,7 @@ import {MEMBER_PROFILE_INFO_TEXT} from "../common/constants/TooltipText";
 import {dropdownDefaultCSS, dropdownErrorCSS} from "../css/dropdownCSSUtil"
 import {Link} from "react-router-dom";
 import includes from "lodash/includes";
+import indexOf from 'lodash/indexOf';
 
 const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
 
@@ -118,7 +120,7 @@ function MemberRegistrationForm(props) {
 
     const [aboutSelf, setAboutSelf] = useState("");
 
-    const [selectedLimit, setsSelectedLimit] = useState("");
+    const [selectedLimit, setSelectedLimit] = useState("");
 
     const [selectedFamilyStatus, setsSelectedFamilyStatus] = useState();
     const [partner, setPartner] = useState("");
@@ -130,8 +132,7 @@ function MemberRegistrationForm(props) {
     const [maxAgePreference, setMaxAgePreference] = useState("");
     const [genderPreference, setGenderPreference] = useState([]);
     const [familyStatusPreference, setFamilyStatusPreference] = useState([]);
-    const [minNumRoommatePreference, setMinNumRoommate] = useState("");
-    const [maxNumRoommatePreference, setMaxNumRoommate] = useState("");
+    const [selectedLimitPreference, setSelectedLimitPreference] = useState([]);
     const [religionPreference, setReligionPreference] = useState("");
     const [dietPreference, setDietPreference] = useState("");
     const [homeToSharePreference, setHomeToSharePreference] = useState("");
@@ -185,8 +186,7 @@ function MemberRegistrationForm(props) {
     const [maxAgePreferenceError, setMaxAgePreferenceError] = useState(undefined);
     const [genderPreferenceError, setGenderPreferenceError] = useState(undefined);
     const [familyStatusPreferenceError, setFamilyStatusPreferenceError] = useState(undefined);
-    const [minNumRoommatePreferenceError, setMinNumRoommatePreferenceError] = useState(undefined);
-    const [maxNumRoommatePreferenceError, setMaxNumRoommatePreferenceError] = useState(undefined);
+    const [selectedLimitPreferenceError, setSelectedLimitPreferenceError] = useState(undefined);
     const [religionPreferenceError, setReligionPreferenceError] = useState(undefined);
     const [dietPreferenceError, setDietPreferenceError] = useState(undefined);
     const [homeToSharePreferenceError, setHomeToSharePreferenceError] = useState(undefined);
@@ -313,7 +313,7 @@ function MemberRegistrationForm(props) {
     }
 
     const handleLimitChange = e => {
-        setsSelectedLimit(parseInt(e.value));
+        setSelectedLimit(e.value);
     }
 
     function handlePhoneChange(e) {
@@ -340,6 +340,14 @@ function MemberRegistrationForm(props) {
             list.splice(list.indexOf(value), 1);
         }
         setGenderPreference(list);
+    }
+
+    function handleSelectedLimitPreferenceChange (selected) {
+        if (indexOf(selected, -1) !== -1) {
+            setSelectedLimitPreference([-1]);
+        } else {
+            setSelectedLimitPreference(selected);
+        }
     }
 
     const isFormValid = () => {
@@ -391,10 +399,7 @@ function MemberRegistrationForm(props) {
                 max: false,
             },
             errorFamilyStatusPref: false,
-            errorNumRoommate: {
-                min: false,
-                max: false,
-            },
+            errorNumRoommate: false,
             errorBudgetPref: {
                 min: false,
                 max: false,
@@ -462,12 +467,11 @@ function MemberRegistrationForm(props) {
         profileInfoErrors.errorBuyingHome = validateInput(interestInBuyingHome, setInterestInBuyingError);
 
         // Search Criteria Validation
-        searchErrors.errorGenderPref = validateInput(genderPreference, setGenderPreferenceError);
+        searchErrors.errorGenderPref = validateArrayInput(genderPreference, setGenderPreferenceError);
         searchErrors.errorAgePref.min = validateMinMax(minAgePreference, setMinAgePreferenceError);
         searchErrors.errorAgePref.max = validateMinMax(maxAgePreference, setMaxAgePreferenceError);
-        searchErrors.errorFamilyStatusPref = validateInput(familyStatusPreference, setFamilyStatusPreferenceError);
-        searchErrors.errorNumRoommate.min = validateMinMax(minNumRoommatePreference, setMinNumRoommatePreferenceError)
-        searchErrors.errorNumRoommate.max = validateMinMax(maxNumRoommatePreference, setMaxNumRoommatePreferenceError)
+        searchErrors.errorFamilyStatusPref = validateArrayInput(familyStatusPreference, setFamilyStatusPreferenceError);
+        searchErrors.errorNumRoommate = validateArrayInput(selectedLimitPreference, setSelectedLimitPreferenceError);
         searchErrors.errorBudgetPref.min = validateMinMax(minBudgetPreference, setMinBudgetPreferenceError);
         searchErrors.errorBudgetPref.max = validateMinMax(maxBudgetPreference, setMaxBudgetPreferenceError);
         searchErrors.errorPetPref = validateInput(petPreference, setPetPreferenceError);
@@ -559,8 +563,6 @@ function MemberRegistrationForm(props) {
             minAgePreference: parseInt(minAgePreference),
             maxAgePreference: parseInt(maxAgePreference),
             statusPreference: familyStatusPreference,
-            minNumRoommatesPreference: parseInt(minNumRoommatePreference),
-            maxNumRoommatesPreference: parseInt(maxNumRoommatePreference),
             minBudgetPreference: parseInt(minBudgetPreference),
             maxBudgetPreference: parseInt(maxBudgetPreference),
             dietPreference: resolveYesNoToBoolean(dietPreference),
@@ -568,7 +570,8 @@ function MemberRegistrationForm(props) {
             smokingPreference: resolveYesNoToBoolean(smokingPreference),
             genderPreference: genderPreference,
             religionPreference: resolveYesNoToBoolean(religionPreference),
-            othersWithHomeToSharePreference: resolveYesNoToBoolean(homeToSharePreference)
+            othersWithHomeToSharePreference: resolveYesNoToBoolean(homeToSharePreference),
+            numRoommatesPreference: selectedLimitPreference
         }
 
         RegistrationService.registerMemberUser(registrationData)
@@ -746,8 +749,9 @@ function MemberRegistrationForm(props) {
                                                    dropdownCSS={yearOfBirthError ? dropdownErrorCSS : dropdownDefaultCSS}/>
                                         <LabelAsterisk label={"Family Status"}/>
                                         <Tooltip text={MEMBER_PROFILE_INFO_TEXT.FAMILY_STATUS} toolTipID="familyStatus"/>
-                                        <Status onChange={handleFamilyStatusChange}
-                                                dropdownCSS={familyStatusError ? dropdownErrorCSS : dropdownDefaultCSS}
+                                        <Status
+                                            onChange={handleFamilyStatusChange}
+                                            dropdownCSS={familyStatusError ? dropdownErrorCSS : dropdownDefaultCSS}
                                         />
                                         {checkStatus(selectedFamilyStatus)}
                                         <LabelAsterisk label={"Work Status"}/>
@@ -755,8 +759,10 @@ function MemberRegistrationForm(props) {
                                                     dropdownCSS={workStatusError ? dropdownErrorCSS : dropdownDefaultCSS}/>
                                         <LabelAsterisk label={"Open to Sharing With"}/>
                                         <Tooltip text={MEMBER_PROFILE_INFO_TEXT.NUM_PEOPLE_SHARE} toolTipID="numPeopleToShare"/>
-                                        <ShareLimit onChange={handleLimitChange}
-                                                    dropdownCSS={limitError ? dropdownErrorCSS : dropdownDefaultCSS}/>
+                                        <ShareLimit
+                                            onChange={handleLimitChange}
+                                            dropdownCSS={limitError ? dropdownErrorCSS : dropdownDefaultCSS}
+                                        />
 
                                         <LabelAsterisk label={"Monthly Rent"}/>
                                         <Tooltip text={MEMBER_PROFILE_INFO_TEXT.RENT} toolTipID="rent"/>
@@ -1019,10 +1025,14 @@ function MemberRegistrationForm(props) {
                                     </div>
                                 </section>
                                 <LabelAsterisk label={"I am open to sharing with"}/>
-                                <Tooltip text={MEMBER_PROFILE_INFO_TEXT.FAMILY_STATUS} toolTipID="familyStatusPref"/>
-                                <Status onChange={setFamilyStatusPreference}
-                                        dropdownCSS={familyStatusPreferenceError ? dropdownErrorCSS : dropdownDefaultCSS}
-                                        isDropdownMulti={true}
+                                <Tooltip
+                                    text={MEMBER_PROFILE_INFO_TEXT.FAMILY_STATUS}
+                                    toolTipID="familyStatusPref"
+                                />
+                                <Status
+                                    onChange={setFamilyStatusPreference}
+                                    dropdownCSS={familyStatusPreferenceError ? dropdownErrorCSS : dropdownDefaultCSS}
+                                    isDropdownMulti={true}
                                 />
                                 <LabelAsterisk label={"Age range of person(s) I would like to share with"}/>
                                 <Tooltip text={MEMBER_PROFILE_INFO_TEXT.PREF.AGE} toolTipID="agePref"/>
@@ -1048,32 +1058,20 @@ function MemberRegistrationForm(props) {
                                         />
                                     </div>
                                 </div>
-                                <LabelAsterisk label={"I'm looking for roommates who have the following preference"}/>
+                                <LabelAsterisk label={"I'm looking for roommates who are looking to live with the following number of people"}/>
                                 <Tooltip text={MEMBER_PROFILE_INFO_TEXT.NUM_PEOPLE_SHARE} toolTipID="numPeopleToSharePref"/>
-                                <div className="grid grid-cols-6 gap-x-6">
+                                <div className="col-span-3 sm:col-span-2">
                                     <div className="column-span-6-layout">
-                                        <input
-                                            className={`${minNumRoommatePreferenceError && "border-red-500"} input`}
-                                            type="number"
-                                            min="0"
-                                            step="1"
-                                            placeholder="Min # Roommate(s)"
-                                            onChange={(e) => setMinNumRoommate(e.target.value)}
-                                        />
-                                    </div>
-                                    <div className="column-span-6-layout">
-                                        <input
-                                            className={`${maxNumRoommatePreferenceError && "border-red-500"} input`}
-                                            type="number"
-                                            min={minNumRoommatePreference}
-                                            step="1"
-                                            placeholder="Max # Roommate(s)"
-                                            onChange={(e) => setMaxNumRoommate(e.target.value)}
+                                        <ShareLimit
+                                            onChange={handleSelectedLimitPreferenceChange}
+                                            dropdownCSS={selectedLimitPreferenceError ? dropdownErrorCSS : dropdownDefaultCSS}
+                                            isMulti={true}
+                                            currentSelectedValue={selectedLimitPreference}
                                         />
                                     </div>
                                 </div>
 
-                                <LabelAsterisk label={"I am looking for member(s) who have the following budget range"}/>
+                                <LabelAsterisk label={"I am looking for member(s) whose budget range overlaps with the following"}/>
                                 <Tooltip text={MEMBER_PROFILE_INFO_TEXT.RENT} toolTipID="rentPref"/>
                                 <div className="grid grid-cols-6 gap-x-6">
                                     <div className="column-span-6-layout">
@@ -1148,7 +1146,7 @@ function MemberRegistrationForm(props) {
                                                 label={"Is diet of others important?"}
                                                 toolTipText={MEMBER_PROFILE_INFO_TEXT.DIET}
                                                 toolTipID="diet"
-                                                name="diet"
+                                                name="dietPref"
                                                 required={true}
                                                 value={dietPreference}
                                                 onChange={(e) => setDietPreference(e.target.value)}
