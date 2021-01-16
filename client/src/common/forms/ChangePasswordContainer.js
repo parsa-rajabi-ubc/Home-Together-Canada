@@ -35,7 +35,7 @@ const ChangePasswordContainer = () => {
             AccountService.changePassword(passwordData)
                 .then(res => res.json())
                 .then(data => {
-                    if (!!data && data.success) {
+                    if (data && data.success) {
                         setShowError(false);
                         setShowSuccess(true);
                         setErrorMessage('');
@@ -43,7 +43,7 @@ const ChangePasswordContainer = () => {
                         setOldPassword('');
                         setNewPassword('');
                         setConfirmedPassword('');
-                    } else if (!!data && (!data.success || data.message)) {
+                    } else if (data && (!data.success || data.message)) {
                         setErrorMessage('Error: ' + getFirstErrorMessage(data.errors));
                         setShowError(true);
                     } else {
