@@ -20,6 +20,7 @@ const ERROR_TEXT = {
     PASSWORD: {
         CONFIRM_EMPTY: "Password confirmation can not be empty",
         MIS_MATCH: "Passwords do not match",
+        INVALID: "Password must be at least 8 characters long and contain numbers, upper and lower case letters"
     }
 }
 
@@ -33,28 +34,45 @@ function SignInInfo(props) {
         passwordConfirmError,
         passwordConfirmErrorMsg
     } = props;
+    
+    const passwordErrorText = (passwordConfirmErrorMsg === "empty") ? ERROR_TEXT.PASSWORD.CONFIRM_EMPTY :
+        (passwordConfirmErrorMsg === "mismatch" ? ERROR_TEXT.PASSWORD.MIS_MATCH : "");
+
     return (
         <div>
             <label>
                 <LabelAsterisk label={"Username"}/>
-                <Tooltip text={INFO_TEXT.USERNAME} toolTipID="username"/>
-                <input className={`${usernameError && "border-red-500"} input`} type="text"
-                       onChange={onChangeUsername}/>
+                <Tooltip
+                    text={INFO_TEXT.USERNAME}
+                    toolTipID="username"
+                />
+                <input
+                    className={`${usernameError && "border-red-500"} input`}
+                    type="text"
+                    onChange={onChangeUsername}
+                />
             </label>
             <label>
                 <LabelAsterisk label={"Password"}/>
-                <Tooltip text={INFO_TEXT.PASSWORD} toolTipID="password"/>
-                <input className={`${(passwordError) && "border-red-500"} input`} type="password"
-                       onChange={onChangePassword}/>
+                <Tooltip
+                    text={INFO_TEXT.PASSWORD}
+                    toolTipID="password"
+                />
+                <input
+                    className={`${(passwordError) && "border-red-500"} input`}
+                    type={"password"}
+                    onChange={onChangePassword}
+                />
+                {passwordError && <label className={'error-msg'}>{ERROR_TEXT.PASSWORD.INVALID}</label>}
             </label>
             <label>
                 <LabelAsterisk label={"Confirm Password"}/>
-                <input className={`${passwordConfirmError && "border-red-500 mb-0"} input`} type="password"
-                       onChange={onChangePasswordCheck}/>
-                {passwordConfirmErrorMsg && <label className={"error-msg"}>
-                    {(passwordConfirmErrorMsg === "empty") ?
-                        ERROR_TEXT.PASSWORD.CONFIRM_EMPTY : (passwordConfirmErrorMsg === "mismatch" ?
-                            ERROR_TEXT.PASSWORD.MIS_MATCH : "")}</label>}
+                <input
+                    className={`${passwordConfirmError && "border-red-500 mb-0"} input`}
+                    type={"password"}
+                    onChange={onChangePasswordCheck}
+                />
+                {passwordConfirmErrorMsg && <label className={"error-msg"}>{passwordErrorText}</label>}
             </label>
         </div>
     );

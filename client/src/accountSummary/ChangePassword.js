@@ -19,7 +19,9 @@ function ChangePassword(props) {
         onConfirmedPasswordChange,
         onPasswordChangeSubmit,
         showError,
-        errorMessage
+        errorMessage,
+        showSuccess,
+        successMessage
     } = props;
 
     return (
@@ -50,7 +52,7 @@ function ChangePassword(props) {
                 onChange={(e)=>{onConfirmedPasswordChange(e.target.value)}}
             />
             {showError && <section className={"error-msg mb-4"}>{errorMessage}</section>}
-
+            {showSuccess && <section className={"success-msg mb-4"}>{successMessage}</section>}
             <button
                 className={"btn btn-green"}
                 onClick={onPasswordChangeSubmit}>
@@ -66,6 +68,8 @@ ChangePassword.propTypes = {
     onConfirmedPasswordChange: PropTypes.func.isRequired,
     showError: PropTypes.bool.isRequired,
     errorMessage: PropTypes.string,
+    showSuccess: PropTypes.bool,
+    successMessage: PropTypes.string,
     oldPassword: PropTypes.string,
     newPassword: PropTypes.string,
     confirmedPassword: PropTypes.string

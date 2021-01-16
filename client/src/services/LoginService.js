@@ -23,11 +23,11 @@ const loginUser = (loginData) => {
         body: JSON.stringify(loginData)
     }
 
-    return fetch(`${DEV_URL}/login/user/`, request);
+    return fetch(`${DEV_URL}/user/login/`, request);
 }
 
 const isLoggedIn = () =>
-    fetch(`${DEV_URL}/checkAuth/`, {
+    fetch(`${DEV_URL}/user/checkAuth/`, {
         method: 'GET',
         withCredentials: true,
         credentials: 'include'
@@ -35,7 +35,7 @@ const isLoggedIn = () =>
 
 
 const logoutUser = () =>
-    fetch(`${DEV_URL}/logout/`, {
+    fetch(`${DEV_URL}/user/logout/`, {
         method: 'GET',
         withCredentials: true,
         credentials: 'include'

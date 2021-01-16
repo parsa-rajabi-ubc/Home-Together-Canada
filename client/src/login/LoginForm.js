@@ -69,7 +69,7 @@ function LoginForm(props) {
         LoginService.loginUser(loginData)
             .then(res => res.json())
             .then(data => {
-                if (!!data && data.authenticated) {
+                if (data && data.authenticated) {
                     // dispatch action to set isAdmin
                     setIsAdmin({isAdmin: data.member ? data.member.isAdmin : false});
 
@@ -87,14 +87,13 @@ function LoginForm(props) {
 
                     // user is authenticated, redirect to home screen
                     return history.push('/');
-
-                } else if (!!data && !data.authenticated) {
-                    // something went wrong with authentication
-                    alert('Login failed. Please try again and contact Home Together if the issue persists.');
-                } else if (!!data && data.errors && data.errors.length) {
+                } else if (data && data.errors && data.errors.length) {
                     const errorMessage = getConcatenatedErrorMessage(data.errors);
                     // show list of all errors
                     alert(errorMessage);
+                } else if (data && !data.authenticated) {
+                    // something went wrong with authentication
+                    alert('Login failed. Please try again and contact Home Together if the issue persists.');
                 }
             })
             .catch((error) => {
