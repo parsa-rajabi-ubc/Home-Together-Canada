@@ -145,10 +145,6 @@ module.exports = (DataTypes, sequelize) => {
             type: DataTypes.BOOLEAN,
             allowNull: false
         },
-        healthAndMobilityPreference: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false
-        },
         genderPreference: {
             type: DataTypes.STRING,     // stringified array
             allowNull: false

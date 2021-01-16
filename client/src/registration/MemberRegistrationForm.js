@@ -24,8 +24,9 @@ import {
     validatePasswordConfirmationMismatch,
     validatePasswordConfirmationEmpty,
     validateEmail,
+    validateMinMax,
     validatePassword,
-    validateMinMax
+    resolveYesNoToBoolean
 } from "./registrationUtils";
 import RegistrationService from "../services/RegistrationService";
 import RadioButton from "../common/forms/RadioButton";
@@ -127,8 +128,8 @@ function MemberRegistrationForm(props) {
 
     const [minAgePreference, setMinAgePreference] = useState("");
     const [maxAgePreference, setMaxAgePreference] = useState("");
-    const [genderPreference, setGenderPreference] = useState("");
-    const [familyStatusPreference, setFamilyStatusPreference] = useState("");
+    const [genderPreference, setGenderPreference] = useState([]);
+    const [familyStatusPreference, setFamilyStatusPreference] = useState([]);
     const [minNumRoommatePreference, setMinNumRoommate] = useState("");
     const [maxNumRoommatePreference, setMaxNumRoommate] = useState("");
     const [religionPreference, setReligionPreference] = useState("");
@@ -499,6 +500,22 @@ function MemberRegistrationForm(props) {
     function onSubmit(event) {
 
         if (!isFormValid()) {
+            const preferences = {
+                minAgePreference: parseInt(minAgePreference),
+                maxAgePreference: parseInt(maxAgePreference),
+                statusPreference: familyStatusPreference,
+                minNumRoommatesPreference: parseInt(minNumRoommatePreference),
+                maxNumRoommatesPreference: parseInt(maxNumRoommatePreference),
+                minBudgetPreference: parseInt(minBudgetPreference),
+                maxBudgetPreference: parseInt(maxBudgetPreference),
+                dietPreference: resolveYesNoToBoolean(dietPreference),
+                petsPreference: resolveYesNoToBoolean(petPreference),
+                smokingPreference: resolveYesNoToBoolean(smokingPreference),
+                genderPreference: genderPreference,
+                religionPreference: resolveYesNoToBoolean(religionPreference),
+                othersWithHomeToSharePreference: resolveYesNoToBoolean(homeToSharePreference),
+            };
+            console.log('preferences: ', preferences);
             // form is invalid
             event.preventDefault();
             return;
@@ -554,21 +571,20 @@ function MemberRegistrationForm(props) {
             bio: aboutSelf,
             areasOfInterest: areasOfInterest,
 
-            //TODO: Add Request for Search Criteria
-
-            // minAgePreference: minAgePreference,
-            // maxAgePreference: maxAgePreference,
-            // statusPreference: familyStatusPreference,
-            // minNumRoommatesPreference: minNumRoommatePreference,
-            // maxNumRoommatesPreference: maxNumRoommatePreference,
-            // minBudgetPreference: minBudgetPreference,
-            // maxBudgetPreference: maxBudgetPreference,
-            // dietPreference: dietPreference,
-            // petsPreference: petPreference,
-            // smokingPreference: smokingPreference,
-            // genderPreference: genderPreference,
-            // religionPreference: religionPreference,
-            // othersWithHomeToSharePreference: homeToSharePreference,
+            // member search preferences
+            minAgePreference: parseInt(minAgePreference),
+            maxAgePreference: parseInt(maxAgePreference),
+            statusPreference: familyStatusPreference,
+            minNumRoommatesPreference: parseInt(minNumRoommatePreference),
+            maxNumRoommatesPreference: parseInt(maxNumRoommatePreference),
+            minBudgetPreference: parseInt(minBudgetPreference),
+            maxBudgetPreference: parseInt(maxBudgetPreference),
+            dietPreference: resolveYesNoToBoolean(dietPreference),
+            petsPreference: resolveYesNoToBoolean(petPreference),
+            smokingPreference: resolveYesNoToBoolean(smokingPreference),
+            genderPreference: genderPreference,
+            religionPreference: resolveYesNoToBoolean(religionPreference),
+            othersWithHomeToSharePreference: resolveYesNoToBoolean(homeToSharePreference)
         }
 
         RegistrationService.registerMemberUser(registrationData)
