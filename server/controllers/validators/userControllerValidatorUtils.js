@@ -152,6 +152,13 @@ const validGenderPreferences = (genders) => {
 
 const isValidShareLimit = (limit) => SHARE_LIMITS.includes(limit);
 
+const isValidShareLimitArray = limits => {
+    if (!!limits.find(limit => limit === -1) && limits.length !== 1) {
+        throw new Error('Share limits cannot include "Any number of people" and other values');
+    }
+    return true;
+}
+
 const isValidAreasOfInterest = (areasOfInterest) => {
     if (!!areasOfInterest && areasOfInterest.length > 0) {
         areasOfInterest.forEach(areaOfInterest => {
@@ -264,6 +271,7 @@ module.exports = {
     GENDERS,
     STATUSES,
     WORK_STATUSES,
+    SHARE_LIMITS,
     isValidPassword,
     isValidPhoneNumber,
     isValidCanadianPostalCode,
@@ -275,6 +283,7 @@ module.exports = {
     validStatusPreferences,
     validGenderPreferences,
     isValidShareLimit,
+    isValidShareLimitArray,
     isValidAreasOfInterest,
     usernameShouldNotAlreadyExist,
     emailShouldNotAlreadyBeInUse,
