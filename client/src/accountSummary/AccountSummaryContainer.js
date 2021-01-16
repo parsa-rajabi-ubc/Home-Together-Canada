@@ -10,7 +10,7 @@ import React, {useState} from 'react';
 import {useLocation} from 'react-router-dom';
 import SubPages from "./SubPages";
 import {ALL_SUBPAGES, BUSINESS_SUBPAGES, MEMBER_SUBPAGES, USER_TYPES} from "../common/constants/users";
-import ChangePasswordContainer from "../common/account/ChangePasswordContainer";
+import ChangePasswordContainer from "./ChangePasswordContainer";
 
 const AccountSummaryContainer = () => {
     const {accountType, selected} = useLocation().state;
@@ -36,8 +36,14 @@ const AccountSummaryContainer = () => {
 
     return (
         <div>
-            <SubPages options={options} selected={selectedSubpage} onClick={setSelectedSubpage}/>
-            {subpageComponent(selectedSubpage)}
+            <div className={"sideBar-container"}>
+                <div className={"sideBar"}>
+                    <SubPages options={options} selected={selectedSubpage} onClick={setSelectedSubpage}/>
+                </div>
+                <div className={"sideBar-selected-component"}>
+                    {subpageComponent(selectedSubpage)}
+                </div>
+            </div>
         </div>
     )
 }

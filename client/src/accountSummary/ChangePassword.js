@@ -7,11 +7,10 @@
  */
 import React from 'react';
 import PropTypes from "prop-types";
-import GenericInput from "../forms/GenericInput";
+import GenericInput from "../common/forms/GenericInput";
 
 function ChangePassword(props) {
     const {
-        className,
         oldPassword,
         onOldPasswordChange,
         newPassword,
@@ -25,35 +24,38 @@ function ChangePassword(props) {
 
     return (
         <div>
-            Change Password
+            <div className={"info-header mt-2 mb-6"}> Change Password </div>
             <GenericInput
-                className={className}
-                label={"Old Password: "}
+                className={"input"}
+                classNameLabel={"label"}
+                label={"Old Password "}
                 inputType={"password"}
                 value={oldPassword}
                 onChange={e => onOldPasswordChange(e.target.value)}
             />
             <GenericInput
-                className={className}
-                label={"New Password: "}
+                className={"input"}
+                classNameLabel={"label"}
+                label={"New Password "}
                 inputType={"password"}
                 value={newPassword}
                 onChange={(e)=>{onNewPasswordChange(e.target.value)}}
             />
             <GenericInput
-                className={className}
-                label={"Confirm New Password: "}
+                className={"input"}
+                classNameLabel={"label"}
+                label={"Confirm New Password "}
                 inputType={"password"}
                 value={confirmedPassword}
                 onChange={(e)=>{onConfirmedPasswordChange(e.target.value)}}
             />
-            <GenericInput
-                className={className}
-                label={"Update"}
-                inputType={"button"}
-                onClick={onPasswordChangeSubmit}
-            />
-            {showError && <p>{errorMessage}</p>}
+            {showError && <section className={"error-msg mb-4"}>{errorMessage}</section>}
+
+            <button
+                className={"btn btn-green"}
+                onClick={onPasswordChangeSubmit}>
+                Update
+            </button>
         </div>
     );
 }
@@ -66,7 +68,6 @@ ChangePassword.propTypes = {
     errorMessage: PropTypes.string,
     oldPassword: PropTypes.string,
     newPassword: PropTypes.string,
-    confirmedPassword: PropTypes.string,
-    className: PropTypes.string
+    confirmedPassword: PropTypes.string
 };
 export default ChangePassword;

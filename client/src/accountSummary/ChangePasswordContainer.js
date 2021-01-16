@@ -8,9 +8,9 @@
  */
 
 import React, {useState} from 'react';
-import AccountService from '../../services/AccountService';
+import AccountService from '../services/AccountService';
 import ChangePassword from "./ChangePassword";
-import {getFirstErrorMessage} from "../../registration/registrationUtils";
+import {getFirstErrorMessage} from "../registration/registrationUtils";
 
 const ChangePasswordContainer = () => {
     const [oldPassword, setOldPassword] = useState('');
