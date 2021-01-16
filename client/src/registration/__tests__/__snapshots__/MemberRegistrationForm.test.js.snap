@@ -3997,7 +3997,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
             <label
               className="label"
             >
-              I'm looking for roommates who have the following preference
+              I'm looking for roommates who are looking to live with the following number of people
                
               <svg
                 className="inline align-top text-red-600"
@@ -4254,7 +4254,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
             <label
               className="label"
             >
-              I am looking for member(s) who have the following budget range
+              I am looking for member(s) whose budget range overlaps with the following
                
               <svg
                 className="inline align-top text-red-600"
