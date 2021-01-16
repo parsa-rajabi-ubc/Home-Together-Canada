@@ -500,22 +500,6 @@ function MemberRegistrationForm(props) {
     function onSubmit(event) {
 
         if (!isFormValid()) {
-            const preferences = {
-                minAgePreference: parseInt(minAgePreference),
-                maxAgePreference: parseInt(maxAgePreference),
-                statusPreference: familyStatusPreference,
-                minNumRoommatesPreference: parseInt(minNumRoommatePreference),
-                maxNumRoommatesPreference: parseInt(maxNumRoommatePreference),
-                minBudgetPreference: parseInt(minBudgetPreference),
-                maxBudgetPreference: parseInt(maxBudgetPreference),
-                dietPreference: resolveYesNoToBoolean(dietPreference),
-                petsPreference: resolveYesNoToBoolean(petPreference),
-                smokingPreference: resolveYesNoToBoolean(smokingPreference),
-                genderPreference: genderPreference,
-                religionPreference: resolveYesNoToBoolean(religionPreference),
-                othersWithHomeToSharePreference: resolveYesNoToBoolean(homeToSharePreference),
-            };
-            console.log('preferences: ', preferences);
             // form is invalid
             event.preventDefault();
             return;
