@@ -4,7 +4,8 @@ import {
     getFirstErrorMessage,
     validatePassword,
     isValueNegative,
-    validateMinMax
+    validateMinMax,
+    resolveYesNoToBoolean
 } from "../registrationUtils";
 
 describe('registrationUtils', () => {
@@ -275,5 +276,24 @@ describe('registrationUtils', () => {
             // then
             expect(output).toBe(expectedResult);
         });
+    });
+
+    describe('resolveYesNoToBoolean', () => {
+        const yes = 'yes';
+        const no = 'no';
+        const nullValue = null;
+        const emptyString = '';
+        const undefinedValue = undefined;
+
+        it.each`
+            str                 | expected
+            ${yes}              | ${true}
+            ${no}               | ${false}
+            ${nullValue}        | ${false}
+            ${emptyString}      | ${false}
+            ${undefinedValue}   | ${false}
+        `('returns $expected when $str is provided', ({str, expected}) => {
+            expect(resolveYesNoToBoolean(str)).toBe(expected);
+        })
     });
 });

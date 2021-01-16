@@ -49,7 +49,6 @@ const createMemberAccount = (req, uid) => {
         dietPreference: req.body.dietPreference,
         petsPreference: req.body.petsPreference,
         smokingPreference: req.body.smokingPreference,
-        healthAndMobilityPreference: req.body.healthAndMobilityPreference,
         genderPreference: JSON.stringify(req.body.genderPreference),
         religionPreference: req.body.religionPreference,
         othersWithHomeToSharePreference: req.body.othersWithHomeToSharePreference
