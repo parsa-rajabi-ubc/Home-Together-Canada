@@ -5,7 +5,8 @@ import {
     validatePassword,
     isValueNegative,
     validateMinMax,
-    resolveYesNoToBoolean
+    resolveYesNoToBoolean,
+    validateArrayInput
 } from "../registrationUtils";
 
 describe('registrationUtils', () => {
@@ -294,6 +295,26 @@ describe('registrationUtils', () => {
             ${undefinedValue}   | ${false}
         `('returns $expected when $str is provided', ({str, expected}) => {
             expect(resolveYesNoToBoolean(str)).toBe(expected);
-        })
+        });
+    });
+
+    describe('validateArrayInput', () => {
+        const setStateVarMock = jest.fn();
+        const undefinedArray = undefined;
+        const nullArray = null;
+        const notArray = { objectName: 'Hello' };
+        const emptyArray = [];
+        const validArray = ['Hi', 'Hello', 'Hola', 'Bonjour'];
+        it.each`
+            array               | expectedResult
+            ${undefinedArray}   | ${true}
+            ${nullArray}        | ${true}
+            ${notArray}         | ${true}
+            ${emptyArray}       | ${true}
+            ${validArray}       | ${false}
+        `('returns $expectedResult when $array is provided',
+            ({array, expectedResult}) => {
+                    expect(validateArrayInput(array, setStateVarMock)).toBe(expectedResult);
+            });
     });
 });

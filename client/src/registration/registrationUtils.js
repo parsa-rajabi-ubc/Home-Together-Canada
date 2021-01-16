@@ -147,3 +147,13 @@ export function validateMinMax(val, setStateVar) {
 export function resolveYesNoToBoolean(str) {
     return !!str && str.toLowerCase() === 'yes';
 }
+
+export function validateArrayInput(arr, setStateVar) {
+    if (!arr || !Array.isArray(arr) || !arr.length) {
+        setStateVar(true);
+        return true;
+    } else {
+        setStateVar(false);
+        return false;
+    }
+}
