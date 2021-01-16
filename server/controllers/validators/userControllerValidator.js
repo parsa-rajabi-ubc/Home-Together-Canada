@@ -306,6 +306,7 @@ exports.validate = (method) => {
                 body('existingGroupUsernames')
                     .optional()
                     .isArray(),
+                // * allows us to test each username in array with custom function
                 body('existingGroupUsernames.*')
                     .optional()
                     .trim()
@@ -358,9 +359,6 @@ exports.validate = (method) => {
                     .exists()
                     .isBoolean(),
                 body('smokingPreference')
-                    .exists()
-                    .isBoolean(),
-                body('healthAndMobilityPreference')
                     .exists()
                     .isBoolean(),
                 body('genderPreference')

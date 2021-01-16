@@ -143,3 +143,7 @@ export function validateMinMax(val, setStateVar) {
         return false;
     }
 }
+
+export function resolveYesNoToBoolean(str) {
+    return !!str && str.toLowerCase() === 'yes';
+}
