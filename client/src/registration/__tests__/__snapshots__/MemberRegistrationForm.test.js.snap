@@ -1698,7 +1698,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                     <input
                       className="undefined input"
                       onChange={[Function]}
-                      placeholder=" Max $ CAD"
+                      placeholder="Max $ CAD"
                       step="1"
                       type="number"
                     />

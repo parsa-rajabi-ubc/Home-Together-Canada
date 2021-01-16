@@ -1,5 +1,11 @@
-import {getConcatenatedErrorMessage, getPhoneNumberFromStrings, getFirstErrorMessage, isValueNegative, validateMinMax} from "../registrationUtils";
-import {useState} from "react";
+import {
+    getConcatenatedErrorMessage,
+    getPhoneNumberFromStrings,
+    getFirstErrorMessage,
+    validatePassword,
+    isValueNegative,
+    validateMinMax
+} from "../registrationUtils";
 
 describe('registrationUtils', () => {
 
@@ -154,76 +160,120 @@ describe('registrationUtils', () => {
             expect(errorMessage).toBe(expectedErrorMessage);
         });
     });
-});
 
-describe('isValueNegative', () => {
-    it('should return true when a negative value is passed in', () => {
-        // expect result
-        const expectedResult = true;
+    describe('validatePassword', () => {
+        it('should return true if password does not contain a number', () => {
+            // given
+            const password = 'Password';
+            const setter = jest.fn();
 
-        // given
-        const value = -3;
+            // then
+            expect(validatePassword(password, setter)).toBe(true);
+        });
+        it('should return true if password does not contain a lowercase letter', () => {
+            // given
+            const password = 'PASSWORD123';
+            const setter = jest.fn();
 
-        // when
-        const output = isValueNegative(value);
+            // then
+            expect(validatePassword(password, setter)).toBe(true);
+        });
+        it('should return true if password does not contain an uppercase letter', () => {
+            // given
+            const password = 'password123';
+            const setter = jest.fn();
 
-        // then
-        expect(output).toBe(expectedResult);
+            // then
+            expect(validatePassword(password, setter)).toBe(true);
+        });
+        it('should throw an error if password contains less than 8 characters', () => {
+            // given
+            const password = 'AbC123';
+            const setter = jest.fn();
+
+            // then
+            expect(validatePassword(password, setter)).toBe(true);
+        });
+        it('should return false if password is at least characters long and contains a number, lowercase and ' +
+            'upper case letter', () => {
+            // given
+            const password = 'Password123';
+            const setter = jest.fn();
+
+            // then
+            expect(validatePassword(password, setter)).toBe(false);
+        });
     });
-    it('should return false when a positive value is passed in', () => {
-        // expect result
-        const expectedResult = false;
 
-        // given
-        const value = 3;
+    describe('isValueNegative', () => {
+        it('should return true when a negative value is passed in', () => {
+            // expect result
+            const expectedResult = true;
 
-        // when
-        const output = isValueNegative(value);
+            // given
+            const value = -3;
 
-        // then
-        expect(output).toBe(expectedResult);
+            // when
+            const output = isValueNegative(value);
+
+            // then
+            expect(output).toBe(expectedResult);
+        });
+        it('should return false when a positive value is passed in', () => {
+            // expect result
+            const expectedResult = false;
+
+            // given
+            const value = 3;
+
+            // when
+            const output = isValueNegative(value);
+
+            // then
+            expect(output).toBe(expectedResult);
+        });
     });
-});
 
-describe('validateMinMax', () => {
-    it('should return true when a negative value is passed in', () => {
-        // expect result
-        const expectedResult = true;
+    describe('validateMinMax', () => {
+        it('should return true when a negative value is passed in', () => {
+            // expect result
+            const expectedResult = true;
 
-        // given
-        const value = -3;
-        const setState = jest.fn();
-        // when
-        const output = validateMinMax(value, setState);
+            // given
+            const value = -3;
+            const setState = jest.fn();
+            // when
+            const output = validateMinMax(value, setState);
 
-        // then
-        expect(output).toBe(expectedResult);
-    });
-    it('should return false when a positive value is passed in ', () => {
-        // expect result
-        const expectedResult = false;
+            // then
+            expect(output).toBe(expectedResult);
+        });
+        it('should return false when a positive value is passed in ', () => {
+            // expect result
+            const expectedResult = false;
 
-        // given
-        const value = 5;
-        const setState = jest.fn();
+            // given
+            const value = 5;
+            const setState = jest.fn();
 
-        // when
-        const output = validateMinMax(value, setState);
+            // when
+            const output = validateMinMax(value, setState);
 
-        // then
-        expect(output).toBe(expectedResult);
-    });
-    it('should return true when an empty value is passed in', () => {
-        // expect result
-        const expectedResult = true;
+            // then
+            expect(output).toBe(expectedResult);
+        });
+        it('should return true when an empty value is passed in', () => {
+            // expect result
+            const expectedResult = true;
 
-        // given
-        const value = "";
-        const setState = jest.fn();
-        // when
-        const output = validateMinMax(value, setState);
+            // given
+            const value = "";
+            const setState = jest.fn();
+            // when
+            const output = validateMinMax(value, setState);
 
-        // then
-        expect(output).toBe(expectedResult);
+            // then
+            expect(output).toBe(expectedResult);
+        });
     });
 });

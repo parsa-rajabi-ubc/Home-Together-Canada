@@ -10,6 +10,53 @@ const userControllerValidatorUtils = require('../userControllerValidatorUtils');
 
 describe('userControllerValidatorUtils', () => {
 
+    describe('isValidPassword', () => {
+       it('should throw an error if password does not contain a number', () => {
+           // given
+           const password = 'Password';
+
+           // then
+           expect(() => userControllerValidatorUtils.isValidPassword(password))
+               .toThrowError('Password must contain 8 characters, and at least one number, lower and upper case ' +
+                   'letter');
+       });
+        it('should throw an error if password does not contain a lowercase letter', () => {
+            // given
+            const password = 'PASSWORD123';
+
+            // then
+            expect(() => userControllerValidatorUtils.isValidPassword(password))
+                .toThrowError('Password must contain 8 characters, and at least one number, lower and upper case ' +
+                    'letter');
+        });
+        it('should throw an error if password does not contain an uppercase letter', () => {
+            // given
+            const password = 'password123';
+
+            // then
+            expect(() => userControllerValidatorUtils.isValidPassword(password))
+                .toThrowError('Password must contain 8 characters, and at least one number, lower and upper case ' +
+                    'letter');
+        });
+        it('should throw an error if password contains less than 8 characters', () => {
+            // given
+            const password = 'AbC123';
+
+            // then
+            expect(() => userControllerValidatorUtils.isValidPassword(password))
+                .toThrowError('Password must contain 8 characters, and at least one number, lower and upper case ' +
+                    'letter');
+        });
+        it('should return true if password is at least characters long and contains a number, lowercase and ' +
+            'upper case letter', () => {
+                // given
+                const password = 'Password123';
+
+                // then
+                expect(userControllerValidatorUtils.isValidPassword(password)).toBe(true);
+        });
+    });
+
     describe('isValidPhoneNumber', () => {
         it('should throw an error if phoneNum is not 10 digits long', () => {
             // given

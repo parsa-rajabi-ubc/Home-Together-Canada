@@ -22,6 +22,7 @@ import {
     getPhoneNumberFromStrings,
     validateEmail,
     validateInput,
+    validatePassword,
     validatePasswordConfirmationEmpty,
     validatePasswordConfirmationMismatch,
     validatePhoneNumber
@@ -211,7 +212,7 @@ const BusinessRegistrationForm = (props) => {
         username !== undefined && validateInput(username, setUsernameError);
     }, [username]);
     useEffect(() => {
-        password !== undefined && validateInput(password, setPasswordError);
+        password !== undefined && validatePassword(password, setPasswordError);
     }, [password]);
     useEffect(() => {
         passwordCheck !== undefined && validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
@@ -297,7 +298,7 @@ const BusinessRegistrationForm = (props) => {
 
         // Account Details Validation
         accountDetailsErrors.errorUsername = validateInput(username, setUsernameError);
-        accountDetailsErrors.errorPassword.password = validateInput(password, setPasswordError);
+        accountDetailsErrors.errorPassword.password = validatePassword(password, setPasswordError);
         accountDetailsErrors.errorPassword.passwordConfirmationEmpty = validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
         accountDetailsErrors.errorPassword.passwordConfirmationMismatch = validatePasswordConfirmationMismatch(password, passwordCheck, setPasswordConfirmError);
 
@@ -367,7 +368,7 @@ const BusinessRegistrationForm = (props) => {
         RegistrationService.registerBusinessUser(registrationData)
             .then(res => res.json())
             .then(data => {
-                if (!!data && data.authenticated) {
+                if (data && data.authenticated) {
                     // dispatch action to set accountType
                     if (data.business) {
                         setAccountType({accountType: USER_TYPES.BUSINESS});
@@ -393,11 +394,11 @@ const BusinessRegistrationForm = (props) => {
 
                     // user is authenticated, redirect to home screen
                     return history.push('/');
-                } else if (!!data && data.errors && data.errors.length) {
+                } else if (data && data.errors && data.errors.length) {
                     const errorMessage = getConcatenatedErrorMessage(data.errors);
                     // show list of all errors
                     alert(errorMessage);
-                } else if (!!data && !data.authenticated) {
+                } else if (data && !data.authenticated) {
                     // something went wrong with the AUTHENTICATION (not the user creation)
                     alert('Registration failed');
                 }
@@ -673,7 +674,8 @@ const BusinessRegistrationForm = (props) => {
                                             usernameError={usernameError}
                                             passwordError={passwordError}
                                             passwordConfirmError={passwordConfirmError}
-                                            passwordConfirmErrorMsg={(passwordConfirmError === "empty") ? "empty" : (passwordConfirmError === "mismatch" ? "mismatch" : "")}
+                                            passwordConfirmErrorMsg={(passwordConfirmError === "empty") ? "empty" :
+                                                (passwordConfirmError === "mismatch" ? "mismatch" : "")}
                                         />
                                     </div>
                                 </div>

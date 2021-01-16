@@ -41,6 +41,29 @@ export function validateInput(st, setStateVar) {
     }
 }
 
+export function validatePassword(password, setStateVar) {
+    const numbersRegex = /\d+/;         // checks for numbers
+    const lowerCaseRegex = /[a-z]/;     // checks for lowercase letters
+    const upperCaseRegex = /[A-Z]/;     // checks for uppercase letters
+
+    if (!numbersRegex.test(password)) {
+        setStateVar(true);
+        return true;
+    } else if (!lowerCaseRegex.test(password)) {
+        setStateVar(true);
+        return true;
+    } else if (!upperCaseRegex.test(password)) {
+        setStateVar(true);
+        return true;
+    } else if(password.length < 8) {
+        setStateVar(true);
+        return true;
+    } else {
+        setStateVar(false);
+        return false;
+    }
+}
+
 // check if phone number is valid and contains all appropriate properties, if so,return true
 export function isPhoneNumberValid(phoneNumber) {
     if (isStringEmpty(phoneNumber.first) || isStringEmpty(phoneNumber.middle) || isStringEmpty(phoneNumber.last)) {
