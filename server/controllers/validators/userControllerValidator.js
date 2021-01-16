@@ -22,6 +22,7 @@ const {
     isPositiveInteger,
     validateMinAndMax,
     isValidShareLimit,
+    isValidShareLimitArray,
     validStatusPreferences,
     validGenderPreferences,
     isValidAreasOfInterest,
@@ -344,12 +345,11 @@ exports.validate = (method) => {
                     .exists()
                     .isArray()
                     .custom(statusPreference => validStatusPreferences(statusPreference)),
-                body('minNumRoommatesPreference')
+                body('numRoommatesPreference')
                     .exists()
-                    .isNumeric()
-                    .custom(limit => isValidShareLimit(limit)),
-                body('maxNumRoommatesPreference')
-                    .exists()
+                    .isArray()
+                    .custom(limits => isValidShareLimitArray(limits)),
+                body('numRoommatesPreference.*')
                     .isNumeric()
                     .custom(limit => isValidShareLimit(limit)),
                 body('dietPreference')

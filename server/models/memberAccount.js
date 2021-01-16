@@ -117,12 +117,8 @@ module.exports = (DataTypes, sequelize) => {
             type: DataTypes.STRING, // stringified array
             allowNull: false
         },
-        minNumRoommatesPreference: {   // -1 means any number
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
-        maxNumRoommatesPreference: {   // -1 means any number
-            type: DataTypes.INTEGER,
+        numRoommatesPreference: {
+            type: DataTypes.STRING, // stringified array, -1 means any number
             allowNull: false
         },
         minBudgetPreference: {
