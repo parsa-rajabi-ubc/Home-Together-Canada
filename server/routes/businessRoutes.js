@@ -48,8 +48,8 @@ router.post('/create/', usersValidator.validate('createBusinessUser'),
         } else {
             passport.authenticate('local-signup-business', {
                 // change these routes to ones that send actual response data
-                successRedirect: '/successfulLogin/',
-                failureRedirect: '/checkAuth',
+                successRedirect: '/user/successfulLogin/',
+                failureRedirect: '/user/checkAuth/',
                 failureFlash: false })(req, res, next);
         }
     });
