@@ -7,7 +7,7 @@
  */
 import React from 'react';
 import PropTypes from "prop-types";
-import GenericInput from "./GenericInput";
+import GenericInput from "../forms/GenericInput";
 
 function ChangePassword(props) {
     const {
