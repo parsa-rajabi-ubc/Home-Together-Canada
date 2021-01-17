@@ -1,14 +1,14 @@
 /**
- * @Author:     Jeff Hatton
+ * @Author:     Alex Qin
  * @Created:    2020.01.14
  *
- * @Description: Member Account Summary form Component snapshot test. Returns a snapshot.
+ * @Description: Business Account Summary form Component snapshot test. Returns a snapshot.
  *
  */
 import React from 'react';
 import renderer from  'react-test-renderer'
 import {BrowserRouter as Router} from "react-router-dom";
-import values from "../MockB";
+import {businessUser} from "../MockB";
 import BusinessAccountSummary from "../BusinessAccountSummary";
 
 jest.mock("react-tooltip/node_modules/uuid", () => ({
@@ -28,7 +28,7 @@ describe('BusinessAccountSummary', () => {
     it("should render correctly regardless of properties", () => {
         // given
         const props = {
-            values
+            businessUser
         };
         //when
         const component = renderer.create(<Router><BusinessAccountSummary {...props}/></Router>);

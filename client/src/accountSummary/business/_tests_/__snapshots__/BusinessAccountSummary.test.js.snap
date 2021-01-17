@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MemberAccountSummary should render correctly regardless of properties 1`] = `
+exports[`BusinessAccountSummary should render correctly regardless of properties 1`] = `
 <div>
   <div>
     <div
@@ -96,12 +96,12 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
               <div>
                 <input
                   checked={false}
-                  className="align-middle mt-3 mr-1 my-4 font-medium text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
+                  className="defaultCheckboxCSS"
                   onChange={[Function]}
                   type="checkbox"
                 />
                 <label
-                  className="label"
+                  className="undefined label"
                 >
                   Incorporated Business
                 </label>
@@ -580,12 +580,12 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
             <div>
               <input
                 checked={false}
-                className="align-middle mt-3 mr-1 my-4 font-medium text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
+                className="defaultCheckboxCSS"
                 onChange={[Function]}
                 type="checkbox"
               />
               <label
-                className="label"
+                className="undefined label"
               >
                 Different Mailing Address
               </label>
@@ -710,12 +710,12 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
               <div>
                 <input
                   checked={false}
-                  className="align-middle mt-3 mr-1 my-4 font-medium text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
+                  className="defaultCheckboxCSS"
                   onChange={[Function]}
                   type="checkbox"
                 />
                 <label
-                  className="label"
+                  className="undefined label"
                 >
                   Canada-wide Business
                 </label>
@@ -1260,7 +1260,7 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
                 }
               }
             />
-            This logo will be displayed on all of your listings and can be changed at any time
+            This logo will be displayed on all of your listings and can be changed at any time. Max size of 2MB
           </div>
         </span>
         <div

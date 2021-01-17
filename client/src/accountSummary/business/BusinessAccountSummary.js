@@ -38,14 +38,15 @@ const BusinessAccountSummary = (props) => {
     const [bEmail, setBEmail] = useState(get(businessAccountInfo, 'bEmail', undefined));
     const [incorporatedOwnersNames, setIncorporatedOwnersNames] = useState(get(businessAccountInfo, 'incorporatedOwnersNames', ""));
 
-    const unsplitBPhoneNumber = useState(get(businessAccountInfo,"bPhoneNumber",undefined))
+    const unsplitBPhoneNumber = get(businessAccountInfo,"bPhoneNumber",undefined)
+
     const [bPhoneNumber, setBPhoneNumber] = useState(splitPhoneNumber(unsplitBPhoneNumber) ||{
         first: undefined,
         middle: undefined,
         last: undefined
     });
 
-    const unsplitBCellNumber = useState(get(businessAccountInfo,"bCellNumber",undefined))
+    const unsplitBCellNumber = get(businessAccountInfo,"bCellNumber",undefined)
     const [bCellNumber, setBCellNumber] = useState(splitPhoneNumber(unsplitBCellNumber) ||{
         first: undefined,
         middle: undefined,
@@ -77,7 +78,7 @@ const BusinessAccountSummary = (props) => {
     const [contactFName, setContactFName] = useState(get(businessAccountInfo, 'contactFName', undefined));
     const [contactLName, setContactLName] = useState(get(businessAccountInfo, 'contactLName', undefined));
 
-    const unsplitContactPhoneNumber = useState(get(businessAccountInfo,"contactPhoneNumber",undefined))
+    const unsplitContactPhoneNumber = get(businessAccountInfo,"contactPhoneNumber",undefined);
     const [contactPhoneNumber, setContactPhoneNumber] = useState(splitPhoneNumber(unsplitContactPhoneNumber) ||{
         first: undefined,
         middle: undefined,
