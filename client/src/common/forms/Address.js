@@ -13,6 +13,7 @@ import Dropdown from "./Dropdown";
 import {getProvinces} from "../utils/locationUtils"
 import Asterisk from "./Asterisk";
 import Tooltip from "./Tooltip";
+import get from 'lodash/get';
 import {dropdownErrorCSS, dropdownDefaultCSS} from "../../css/dropdownCSSUtil"
 
 function Address(props) {
@@ -28,12 +29,12 @@ function Address(props) {
         provinceAddressError,
         postalCodeError,
     } = props;
-    const [street, setStreet] = useState(value && value.street || "");
-    const [aptNum, setApt] = useState(value && value.aptNum || "");
-    const [city, setCity] = useState(value && value.city || "");
-    const [province, setProvince] = useState(value && value.province || '');
+    const [street, setStreet] = useState(get(value, 'street', ""));
+    const [aptNum, setApt] = useState(get(value, 'aptNum', ""));
+    const [city, setCity] = useState(get(value, 'city', ""));
+    const [province, setProvince] = useState(get(value, 'province', ""));
     const [intialSelection, setIntialSelection] = useState({label: province, value: province});
-    const [postalCode, setPostalCode] = useState(value && value.postalCode || '');
+    const [postalCode, setPostalCode] = useState(get(value, 'postalCode', ""));
 
     const handleInputChange = (e) => {
         switch (e.target.name) {
@@ -113,7 +114,13 @@ Address.propTypes = {
     label: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     toolTipText: PropTypes.string,
-    value: PropTypes.object,
+    value: PropTypes.shape({
+        street: PropTypes.string,
+        aptNum: PropTypes.string,
+        city: PropTypes.string,
+        province: PropTypes.string,
+        postalCode: PropTypes.string
+    }),
     toolTipID: PropTypes.string,
     required: PropTypes.bool,
     streetAddressError: PropTypes.bool,

@@ -49,7 +49,10 @@ Dropdown.propTypes = {
     isSearchable: propTypes.bool,
     placeholder: propTypes.string,
     onChange: propTypes.func,
-    intialSelection: propTypes.object,
+    intialSelection: propTypes.shape({
+        label: propTypes.oneOfType([propTypes.string, propTypes.number]),
+        value: propTypes.oneOfType([propTypes.string, propTypes.number])
+    }),
     dropdownCSS: propTypes.object,
     dropdownTheme: propTypes.func,
     isMulti: propTypes.bool
