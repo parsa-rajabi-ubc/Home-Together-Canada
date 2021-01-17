@@ -6,7 +6,7 @@
  *
  */
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import propTypes from "prop-types";
 import Dropdown from "./Dropdown";
 
@@ -35,16 +35,33 @@ const statuses = [
 
 
 function Status(props) {
-    const {givenSelection, onChange, dropdownCSS} = props;
+
+    const {givenSelection, onChange, dropdownCSS, isDropdownMulti} = props;
     const [intialSelection, setIntialSelection] = useState({label: givenSelection, value: givenSelection});
+    const [selected, setSelected] = useState("");
+
+    const handleInputChange = (e) => {
+        let values = [];
+        for (let val in e) {
+            values.push(e[val].value);
+        }
+        setSelected(values);
+    }
+
+    {isDropdownMulti && useEffect(() => {
+        // this onChange function is the callback from the parent component
+        onChange(selected);
+        // that can be used to get the value that is inside the dropdown
+    }, [selected]);}
 
     return (
         <div>
             <Dropdown isSearchable={true} placeholder={"Family Status"}
                       options={statuses}
-                      onChange={onChange}
+                      onChange={isDropdownMulti ? handleInputChange : onChange}
                       dropdownCSS={dropdownCSS}
                       intialSelection={intialSelection}
+                      isMulti={isDropdownMulti}
             />
         </div>
     )
@@ -55,6 +72,7 @@ Status.propTypes = {
     onChange: propTypes.func,
     dropdownCSS: propTypes.object,
     givenSelection: propTypes.string
+    isDropdownMulti: propTypes.bool
 };
 
 

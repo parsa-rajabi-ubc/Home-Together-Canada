@@ -14,7 +14,6 @@ const createBusinessAccount = (req, uid) => {
     const businessAccount = {
         uid: uid,
         businessName: req.body.businessName,
-        logo: req.body.logo,
         isIncorporated: req.body.isIncorporated,
         incorporatedOwnersNames: req.body.incorporatedOwnersNames,
         businessPhoneNumber: formatPhoneNumber(req.body.businessPhoneNumber),
@@ -50,8 +49,24 @@ const findBusinessByUid = (uid) => {
     return BusinessAccount.findByPk(uid);
 }
 
+const updateLogo = (uid, logoAddress) =>
+    BusinessAccount.update({ logo: logoAddress }, {
+        where: {
+            uid: uid
+        }
+    });
+
+const removeLogo = (uid) =>
+    BusinessAccount.update({ logo: null }, {
+        where: {
+            uid: uid
+        }
+    });
+
 module.exports = {
     createBusinessAccount,
     findAllBusinessAccounts,
-    findBusinessByUid
+    findBusinessByUid,
+    updateLogo,
+    removeLogo
 }
