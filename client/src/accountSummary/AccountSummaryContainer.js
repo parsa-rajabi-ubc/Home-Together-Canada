@@ -11,6 +11,10 @@ import {useLocation} from 'react-router-dom';
 import SubPages from "./SubPages";
 import {ALL_SUBPAGES, BUSINESS_SUBPAGES, MEMBER_SUBPAGES, USER_TYPES} from "../common/constants/users";
 import ChangePasswordContainer from "../common/forms/ChangePasswordContainer";
+import {businessUser} from "./business/MockB";
+import BusinessAccountSummary from "./business/BusinessAccountSummary";
+import Error404 from "../common/error/Error404";
+
 
 const AccountSummaryContainer = () => {
     const {accountType, selected} = useLocation().state;
@@ -30,7 +34,7 @@ const AccountSummaryContainer = () => {
             case ALL_SUBPAGES.MANAGE_LISTINGS:
                 return <div>Manage Listings Component</div>
             default:
-                return <div>Account Info Component</div>
+                return accountType === USER_TYPES.BUSINESS ? <BusinessAccountSummary values={businessUser}/> : <Error404/>
         }
     }
 

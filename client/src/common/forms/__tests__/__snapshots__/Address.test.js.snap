@@ -32,6 +32,7 @@ exports[`Address Snapshot test should render correctly regardless of properties 
       onChange={[Function]}
       placeholder="Address Line 2: Apt, suite, etc. (optional)"
       type="text"
+      value=""
     />
   </div>
   <div
@@ -63,9 +64,9 @@ exports[`Address Snapshot test should render correctly regardless of properties 
             className=" css-g1d714-ValueContainer"
           >
             <div
-              className=" css-1d6d5xl-placeholder"
+              className=" css-1uccc91-singleValue"
             >
-              Province
+              
             </div>
             <div
               className="css-b8ldur-Input"
