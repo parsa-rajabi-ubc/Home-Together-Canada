@@ -1,8 +1,8 @@
 /**
- * @Author:     Jeff Hatton
- * @Created:    2020.11.02
+ * @Author:     Alex Qin
+ * @Created:    2020.01.17
  *
- * @Description: Form functional component file returning a business registration form with input validation.
+ * @Description: Business account summary
  *
  */
 
