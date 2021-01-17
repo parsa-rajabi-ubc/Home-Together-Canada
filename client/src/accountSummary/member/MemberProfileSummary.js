@@ -7,74 +7,76 @@
  */
 import React, {useState, useEffect} from 'react';
 import PropTypes from "prop-types";
-import TextArea from "../common/forms/TextArea";
-import LabelAsterisk from "../common/forms/LabelAsterisk";
-import RadioButton from "../common/forms/RadioButton";
-import Tooltip from "../common/forms/Tooltip";
-import Status from "../common/forms/Status";
-import WorkStatus from "../common/forms/WorkStatus";
-import ShareLimit from "../common/forms/ShareLimits";
-import InterestedArea from "../common/forms/InterestedArea";
-import YNButton from "../common/forms/YNButtons";
-import LargeTextArea from "../common/forms/LargeTextArea";
-import SubmitButton from "../common/forms/SubmitButton";
-import {dropdownDefaultCSS, dropdownErrorCSS} from "../css/dropdownCSSUtil";
-import BirthYear from "../common/forms/BirthYear";
+import TextArea from "../../common/forms/TextArea";
+import LabelAsterisk from "../../common/forms/LabelAsterisk";
+import RadioButton from "../../common/forms/RadioButton";
+import Tooltip from "../../common/forms/Tooltip";
+import Status from "../../common/forms/Status";
+import WorkStatus from "../../common/forms/WorkStatus";
+import ShareLimit from "../../common/forms/ShareLimits";
+import InterestedArea from "../../common/forms/InterestedArea";
+import YNButton from "../../common/forms/YNButtons";
+import LargeTextArea from "../../common/forms/LargeTextArea";
+import SubmitButton from "../../common/forms/SubmitButton";
+import {dropdownDefaultCSS, dropdownErrorCSS} from "../../css/dropdownCSSUtil";
+import BirthYear from "../../common/forms/BirthYear";
+import get from 'lodash/get';
+import {MEMBER_PROFILE_INFO_TEXT} from "../../common/constants/TooltipText";
 import {
     checkIfErrorsExistInMapping,
     validateInput,
-} from "../registration/registrationUtils";
+} from "../../registration/registrationUtils";
 
 
 
 //Returns a summary Form with fields filled
 function MemberProfileSummary(props) {
     const { history } = props;
-    const [gender, setGender] = useState(history && history.gender || "");
-    const [genderDescription, setGenderDescription] = useState(history && history.genderDescription || "");
-    const [yearOfBirth, setYearOfBirth] = useState(history && history.yearOfBirth || undefined);
-    const [petFriendly, setPetFriendly] = useState(history && history.petFriendly || "");
-    const [petDescription, setPetDescription] = useState(history && history.petDescription || "");
+    const [gender, setGender] = useState(get(history, 'gender', ""));
+    const [genderDescription, setGenderDescription] = useState(get(history, 'genderDescription', ""));
+    const [yearOfBirth, setYearOfBirth] = useState(get(history, 'birthYear', undefined));
+    const [petFriendly, setPetFriendly] = useState(get(history, 'petFriendly', ""));
+    const [petDescription, setPetDescription] = useState(get(history, 'petsDescription', ""));
 
-    const [smoking, setSmoking] = useState(history && history.smoking || "");
-    const [smokingDescription, setSmokingDescription] = useState(history && history.smokingDescription || "");
+    const [smoking, setSmoking] = useState(get(history, 'smoking', ""));
+    const [smokingDescription, setSmokingDescription] = useState(get(history, 'smokingDescription', ""));
 
-    const [mobilityIssues, setMobilityIssues] = useState(history && history.mobilityIssues || "");
-    const [mobilityIssuesDescription, setMobilityIssuesDescription] = useState(history && history.mobilityIssuesDescription || "");
+    const [mobilityIssues, setMobilityIssues] = useState(get(history, 'hasHealthMobilityIssues', ""));
+    const [mobilityIssuesDescription, setMobilityIssuesDescription] = useState(get(history, 'healthMobilityIssuesDescription', ""));
 
-    const [hasAllergies, setHasAllergies] = useState(history && history.hasAllergies || "");
-    const [allergiesDescription, setAllergiesDescription] = useState(history && history.allergiesDescription || "");
+    const [hasAllergies, setHasAllergies] = useState(get(history, 'hasAllergies', ""));
+    const [allergiesDescription, setAllergiesDescription] = useState(get(history, 'allergiesDescription', ""));
 
-    const [religious, setReligious] = useState(history && history.religious || "");
-    const [religionDescription, setReligionDescription] = useState(history && history.religionDescription || "");
+    const [religious, setReligious] = useState(get(history, 'isReligionImportant', ""));
+    const [religionDescription, setReligionDescription] = useState(get(history, 'religionDescription', ""));
 
-    const [hasDiet, setHasDiet] = useState(history && history.hasDiet || "");
-    const [dietDescription, setDietDescription] = useState(history && history.dietDescription || "");
+    const [hasDiet, setHasDiet] = useState(get(history, 'isDietImportant', ""));
+    const [dietDescription, setDietDescription] = useState(get(history, 'dietDescription', ""));
 
-    const [hasHome, setHasHome] = useState(history && history.hasHome || "");
-    const [homeDescription, setHomeDescription] = useState(history && history.homeDescription || "");
+    const [hasHome, setHasHome] = useState(get(history, 'hasHomeToShare', ""));
+    const [homeDescription, setHomeDescription] = useState(get(history, 'hasHomeToShareDescription', ""));
 
-    const [interestInBuyingHome, setInterestInBuyingHome] = useState(history && history.interestInBuyingHome || "");
-    const [interestDescription, setInterestDescription] = useState(history && history.interestDescription || "");
+    const [interestInBuyingHome, setInterestInBuyingHome] = useState(get(history, 'interestInBuyingHome', ""));
+    const [interestDescription, setInterestDescription] = useState(get(history, 'interestDescription', ""));
 
-    const [minRent, setMinRent] = useState(history && history.minRent || undefined);
-    const [maxRent, setMaxRent] = useState(history && history.maxRent || undefined);
+    const [minRent, setMinRent] = useState(get(history, 'minRent', undefined));
+    const [maxRent, setMaxRent] = useState(get(history, 'maxRent', undefined));
 
-    const [aboutSelf, setAboutSelf] = useState(history && history.aboutSelf || "");
+    const [aboutSelf, setAboutSelf] = useState(get(history, 'aboutSelf', ""));
 
-    const [selectedLimit, setsSelectedLimit] = useState(history && history.selectedLimit || "");
+    const [selectedLimit, setsSelectedLimit] = useState(get(history, 'selectedLimit', ""));
 
-    const [selectedFamilyStatus, setsSelectedFamilyStatus] = useState(history && history.selectedFamilyStatus || "");
-    const [selectedWorkStatus, setsSelectedWorkStatus] = useState(history && history.selectedWorkStatus || "");
+    const [selectedFamilyStatus, setsSelectedFamilyStatus] = useState(get(history, 'selectedFamilyStatus', ""));
+    const [selectedWorkStatus, setsSelectedWorkStatus] = useState(get(history, 'selectedWorkStatus', ""));
 
-    const [partner, setPartner] = useState(history && history.partner || "");
-    const [groupMembers, setGroupMembers] = useState(history && history.groupMembers || "");
+    const [partner, setPartner] = useState(get(history, 'partner', ""));
+    const [groupMembers, setGroupMembers] = useState(get(history, 'groupMembers', ""));
 
-    const [areasOfInterest, setAreasOfInterest] = useState(history && history.areasOfInterest || [{
+    const [areasOfInterest, setAreasOfInterest] = useState(get(history, 'areasOfInterest', [{
         province: "",
         city: "",
         radius: ""
-    }]);
+    }]));
 
     // Profile Details Start
     const [genderError, setGenderError] = useState(undefined);
@@ -214,21 +216,6 @@ function MemberProfileSummary(props) {
         }
         alert("Profile information saved");
     }
-    const INFO_TEXT = {
-        YEAR_OF_BIRTH: "Age is required in order to help members connect with others in their desired age range",
-        DIFF_MAILING_ADDRESS: "Select this checkbox if your mailing address differs from the address above",
-        FAMILY_STATUS: "Select the status that most accurately reflects your living arrangement that you would like to maintain while home-sharing",
-        NUM_PEOPLE_SHARE: "This number of people does not include yourself",
-        RENT: "This does NOT include utilities",
-        INTERESTED_AREA: "Preferred living location(s) across Canada",
-        PET: "You either have a pet or are open to living with pets",
-        SMOKE: "You either smoke yourself or are open to living with people who smoke",
-        HEALTH: "Health and mobility issues that are relevant to roommates",
-        RELIGION: "Religious compatibility is important to you",
-        DIET: "The diet of your roommate(s) is important to you",
-        HOME_TO_SHARE: "If you have a home to share, we recommend that you also create a free listing in addition to providing a short description below",
-        ABOUT: "Do not disclose any personal information as your profile is publicly viewable by all members on Home Together",
-    };
 
     return(
         <div>
@@ -285,11 +272,11 @@ function MemberProfileSummary(props) {
                                         </div>
                                     </section>
                                     <LabelAsterisk label={"Year of Birth"}/>
-                                    <Tooltip text={INFO_TEXT.YEAR_OF_BIRTH} toolTipID="yearOfBirth"/>
+                                    <Tooltip text={MEMBER_PROFILE_INFO_TEXT.YEAR_OF_BIRTH} toolTipID="yearOfBirth"/>
                                     <BirthYear label={"Year of Birth"} givenYear={yearOfBirth} onChange={handleYearChange}
                                                dropdownCSS={yearOfBirthError ? dropdownErrorCSS : dropdownDefaultCSS}/>
                                     <LabelAsterisk label={"Family Status"}/>
-                                    <Tooltip text={INFO_TEXT.FAMILY_STATUS} toolTipID="familyStatus"/>
+                                    <Tooltip text={MEMBER_PROFILE_INFO_TEXT.FAMILY_STATUS} toolTipID="familyStatus"/>
                                     <Status givenSelection={selectedFamilyStatus} onChange={handleFamilyStatusChange}
                                             dropdownCSS={familyStatusError ? dropdownErrorCSS : dropdownDefaultCSS}/>
                                     {checkStatus(selectedFamilyStatus)}
@@ -299,11 +286,11 @@ function MemberProfileSummary(props) {
                                                 dropdownCSS={workStatusError ? dropdownErrorCSS : dropdownDefaultCSS}/>
 
                                     <LabelAsterisk label={"Open to Sharing With"}/>
-                                    <Tooltip text={INFO_TEXT.NUM_PEOPLE_SHARE} toolTipID="numPeopleToShare"/>
+                                    <Tooltip text={MEMBER_PROFILE_INFO_TEXT.NUM_PEOPLE_SHARE} toolTipID="numPeopleToShare"/>
                                     <ShareLimit givenSelection={selectedLimit} onChange={handleLimitChange}
                                                 dropdownCSS={limitError ? dropdownErrorCSS : dropdownDefaultCSS}/>
                                     <LabelAsterisk label={"Monthly Rent"}/>
-                                    <Tooltip text={INFO_TEXT.RENT} toolTipID="rent"/>
+                                    <Tooltip text={MEMBER_PROFILE_INFO_TEXT.RENT} toolTipID="rent"/>
                                     <div className="grid grid-cols-6 gap-x-6">
                                         <div className="column-span-6-layout">
                                             <input
@@ -329,8 +316,7 @@ function MemberProfileSummary(props) {
                                         </div>
                                     </div>
                                     <LabelAsterisk label={"Preferred Living Location(s)"}/>
-                                    <Tooltip text={INFO_TEXT.INTERESTED_AREA} toolTipID="interestedArea"/>
-                                    {console.log(areasOfInterest)}
+                                    <Tooltip text={MEMBER_PROFILE_INFO_TEXT.INTERESTED_AREA} toolTipID="interestedArea"/>
                                     <InterestedArea givenAreasOfInterest={areasOfInterest} onChange={setAreasOfInterest}
                                                     areasOfInterestError={areasOfInterestError}/>
                                     <div className="grid grid-cols-6 gap-x-6">
@@ -339,7 +325,7 @@ function MemberProfileSummary(props) {
                                                 className={`${petFriendlyError && "pl-1 border rounded-lg border-red-500"} my-2`}>
                                                 <YNButton
                                                     label={"Pet friendly?"}
-                                                    toolTipText={INFO_TEXT.PET}
+                                                    toolTipText={MEMBER_PROFILE_INFO_TEXT.PET}
                                                     toolTipID="pet"
                                                     name="petFriendly"
                                                     required={true}
@@ -360,7 +346,7 @@ function MemberProfileSummary(props) {
                                                 className={`${smokingError && "pl-1 border rounded-lg border-red-500"} my-2`}>
                                                 <YNButton
                                                     label={"Smoke friendly?"}
-                                                    toolTipText={INFO_TEXT.SMOKE}
+                                                    toolTipText={MEMBER_PROFILE_INFO_TEXT.SMOKE}
                                                     toolTipID="smoke"
                                                     name="smoking"
                                                     required={true}
@@ -381,7 +367,7 @@ function MemberProfileSummary(props) {
                                                 className={`${mobilityIssuesError && "pl-1 border rounded-lg border-red-500"} my-2`}>
                                                 <YNButton
                                                     label={"Health / mobility issues?"}
-                                                    toolTipText={INFO_TEXT.HEALTH}
+                                                    toolTipText={MEMBER_PROFILE_INFO_TEXT.HEALTH}
                                                     toolTipID="health"
                                                     name="mobile"
                                                     required={true}
@@ -421,7 +407,7 @@ function MemberProfileSummary(props) {
                                                 className={`${religionError && "pl-1 border rounded-lg border-red-500"} my-2`}>
                                                 <YNButton
                                                     label={"Is religion important?"}
-                                                    toolTipText={INFO_TEXT.RELIGION}
+                                                    toolTipText={MEMBER_PROFILE_INFO_TEXT.RELIGION}
                                                     toolTipID="religion"
                                                     name="religion"
                                                     required={true}
@@ -442,7 +428,7 @@ function MemberProfileSummary(props) {
                                                 className={`${dietError && "pl-1 border rounded-lg border-red-500"} my-2`}>
                                                 <YNButton
                                                     label={"Is diet of others important?"}
-                                                    toolTipText={INFO_TEXT.DIET}
+                                                    toolTipText={MEMBER_PROFILE_INFO_TEXT.DIET}
                                                     toolTipID="diet"
                                                     name="diet"
                                                     required={true}
@@ -463,7 +449,7 @@ function MemberProfileSummary(props) {
                                                 className={`${homeError && "pl-1 border rounded-lg border-red-500"} my-2`}>
                                                 <YNButton
                                                     label={"Have a home to share?"}
-                                                    toolTipText={INFO_TEXT.HOME_TO_SHARE}
+                                                    toolTipText={MEMBER_PROFILE_INFO_TEXT.HOME_TO_SHARE}
                                                     toolTipID="homeToShare"
                                                     name="hasHome"
                                                     required={true}
@@ -502,7 +488,7 @@ function MemberProfileSummary(props) {
                                     <div className={"mt-4"}>
                                         <LargeTextArea
                                             label={"Tell others about yourself"}
-                                            toolTipText={INFO_TEXT.ABOUT}
+                                            toolTipText={MEMBER_PROFILE_INFO_TEXT.ABOUT}
                                             toolTipID="about"
                                             required={false}
                                             name="aboutSelf"

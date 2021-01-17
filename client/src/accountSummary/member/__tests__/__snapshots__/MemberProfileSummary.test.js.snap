@@ -1877,7 +1877,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           onChange={[Function]}
                           placeholder="Elaborate (optional)"
                           type="text"
-                          value="have dogs"
+                          value=""
                         />
                       </label>
                     </section>
