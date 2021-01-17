@@ -8,8 +8,8 @@
 
 import {splitPhoneNumber} from "../../accountSummaryUtils";
 
-describe('splitPhoneNumber function', () => {
-    describe('unit test', () => {
+describe('accountSummaryUtils', () => {
+    describe('splitPhoneNumber', () => {
         it("should return undefined when given an empty string", () => {
             //given
             const phoneNumber = "";

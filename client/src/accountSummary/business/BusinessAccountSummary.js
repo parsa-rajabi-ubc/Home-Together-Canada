@@ -27,64 +27,64 @@ import Tooltip from "../../common/forms/Tooltip";
 import get from 'lodash/get';
 
 const BusinessAccountSummary = (props) => {
-    const {values} = props;
+    const {businessAccountInfo} = props;
 
-    const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(get(values, 'useDifferentMailingAddress', false));
-    const [isNationWide, setIfNationWide] = useState(get(values, 'isNationWide', false));
-    const [isIncorporated, setIsIncorporated] = useState(get(values, 'isIncorporated', false));
+    const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(get(businessAccountInfo, 'useDifferentMailingAddress', false));
+    const [isNationWide, setIfNationWide] = useState(get(businessAccountInfo, 'isNationWide', false));
+    const [isIncorporated, setIsIncorporated] = useState(get(businessAccountInfo, 'isIncorporated', false));
 
     //Validation state variables
-    const [bName, setBName] = useState(get(values, 'bName', undefined));
-    const [bEmail, setBEmail] = useState(get(values, 'bEmail', undefined));
-    const [incorporatedOwnersNames, setIncorporatedOwnersNames] = useState(get(values, 'incorporatedOwnersNames', ""));
+    const [bName, setBName] = useState(get(businessAccountInfo, 'bName', undefined));
+    const [bEmail, setBEmail] = useState(get(businessAccountInfo, 'bEmail', undefined));
+    const [incorporatedOwnersNames, setIncorporatedOwnersNames] = useState(get(businessAccountInfo, 'incorporatedOwnersNames', ""));
 
-    const [unsplitBPhoneNumber,setUnsplitBPhoneNumber] = useState(get(values,"bPhoneNumber",undefined))
+    const unsplitBPhoneNumber = useState(get(businessAccountInfo,"bPhoneNumber",undefined))
     const [bPhoneNumber, setBPhoneNumber] = useState(splitPhoneNumber(unsplitBPhoneNumber) ||{
         first: undefined,
         middle: undefined,
         last: undefined
     });
 
-    const [unsplitBCellNumber,setUnsplitBCellNumber] = useState(get(values,"bCellNumber",undefined))
+    const unsplitBCellNumber = useState(get(businessAccountInfo,"bCellNumber",undefined))
     const [bCellNumber, setBCellNumber] = useState(splitPhoneNumber(unsplitBCellNumber) ||{
         first: undefined,
         middle: undefined,
         last: undefined
     });
 
-    const [bAddress, setBAddress] = useState(get(values,'bAddress',{
+    const [bAddress, setBAddress] = useState(get(businessAccountInfo,'bAddress',{
         street: undefined,
         aptNum: undefined,
         city: undefined,
         province: undefined,
         postalCode:undefined,
     }));
-    const [bMailingAddress, setBMailingAddress] = useState(get(values,'bMailingAddress',{
+    const [bMailingAddress, setBMailingAddress] = useState(get(businessAccountInfo,'bMailingAddress',{
         street: undefined,
         aptNum: undefined,
         city: undefined,
         province: undefined,
         postalCode:undefined,
     }));
-    const [bMapAddress, setBMapAddress] = useState(get(values,'bMapAddress',{
+    const [bMapAddress, setBMapAddress] = useState(get(businessAccountInfo,'bMapAddress',{
         street: undefined,
         aptNum: undefined,
         city: undefined,
         province: undefined,
         postalCode:undefined,
     }));
-    const [website, setWebsite] = useState(get(values, 'website', undefined));
-    const [contactFName, setContactFName] = useState(get(values, 'contactFName', undefined));
-    const [contactLName, setContactLName] = useState(get(values, 'contactLName', undefined));
+    const [website, setWebsite] = useState(get(businessAccountInfo, 'website', undefined));
+    const [contactFName, setContactFName] = useState(get(businessAccountInfo, 'contactFName', undefined));
+    const [contactLName, setContactLName] = useState(get(businessAccountInfo, 'contactLName', undefined));
 
-    const [unsplitContactPhoneNumber,setUnsplitContactPhoneNumber] = useState(get(values,"contactPhoneNumber",undefined))
+    const unsplitContactPhoneNumber = useState(get(businessAccountInfo,"contactPhoneNumber",undefined))
     const [contactPhoneNumber, setContactPhoneNumber] = useState(splitPhoneNumber(unsplitContactPhoneNumber) ||{
         first: undefined,
         middle: undefined,
         last: undefined
     });
 
-    const [username, setUsername] = useState(get(values, 'username', undefined));
+    const [username, setUsername] = useState(get(businessAccountInfo, 'username', undefined));
 
     // Business Details
     const [businessNameError, setBusinessNameError] = useState(undefined);
@@ -550,7 +550,7 @@ const BusinessAccountSummary = (props) => {
 }
 
 BusinessAccountSummary.propTypes = {
-    values: PropTypes.object.isRequired
+    businessAccountInfo: PropTypes.object.isRequired
 }
 
 export default BusinessAccountSummary;

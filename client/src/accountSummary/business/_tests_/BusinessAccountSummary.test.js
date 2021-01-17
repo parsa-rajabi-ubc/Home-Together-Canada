@@ -24,7 +24,7 @@ jest.mock('react-redux', () => ({
     }
 }));
 
-describe('MemberAccountSummary', () => {
+describe('BusinessAccountSummary', () => {
     it("should render correctly regardless of properties", () => {
         // given
         const props = {
