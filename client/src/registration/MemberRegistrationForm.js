@@ -39,6 +39,7 @@ import {connect} from 'react-redux';
 import {setIsAdmin, setAccountType, setAuthenticated} from '../redux/slices/userPrivileges';
 import Tooltip from "../common/forms/Tooltip";
 import {USER_TYPES} from "../common/constants/users";
+import {MEMBER_PROFILE_INFO_TEXT} from "../common/constants/TooltipText";
 import {dropdownDefaultCSS, dropdownErrorCSS} from "../css/dropdownCSSUtil"
 import {Link} from "react-router-dom";
 
@@ -410,22 +411,6 @@ function MemberRegistrationForm(props) {
 
     }
 
-    const INFO_TEXT = {
-        YEAR_OF_BIRTH: "Age is required in order to help members connect with others in their desired age range",
-        DIFF_MAILING_ADDRESS: "Select this checkbox if your mailing address differs from the address above",
-        FAMILY_STATUS: "Select the status that most accurately reflects your living arrangement that you would like to maintain while home-sharing",
-        NUM_PEOPLE_SHARE: "This number of people does not include yourself",
-        RENT: "This does NOT include utilities",
-        INTERESTED_AREA: "Preferred living location(s) across Canada",
-        PET: "You either have a pet or are open to living with pets",
-        SMOKE: "You either smoke yourself or are open to living with people who smoke",
-        HEALTH: "Health and mobility issues that are relevant to roommates",
-        RELIGION: "Religious compatibility is important to you",
-        DIET: "The diet of your roommate(s) is important to you",
-        HOME_TO_SHARE: "If you have a home to share, we recommend that you also create a free listing in addition to providing a short description below",
-        ABOUT: "Do not disclose any personal information as your profile is publicly viewable by all members on Home Together",
-    };
-
     //function for input checks on submit
     function onSubmit(event) {
 
@@ -581,7 +566,7 @@ function MemberRegistrationForm(props) {
                             />
                             <Checkbox
                                 label="Different Mailing Address"
-                                toolTipText={INFO_TEXT.DIFF_MAILING_ADDRESS}
+                                toolTipText={MEMBER_PROFILE_INFO_TEXT.DIFF_MAILING_ADDRESS}
                                 toolTipID="differentMailingAddress"
                                 onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}
                             />
@@ -656,11 +641,11 @@ function MemberRegistrationForm(props) {
                                             onChange={(e) => setGenderDescription(e.target.value)}
                                         />}
                                         <LabelAsterisk label={"Year of Birth"}/>
-                                        <Tooltip text={INFO_TEXT.YEAR_OF_BIRTH} toolTipID="yearOfBirth"/>
+                                        <Tooltip text={MEMBER_PROFILE_INFO_TEXT.YEAR_OF_BIRTH} toolTipID="yearOfBirth"/>
                                         <BirthYear label={"Year of Birth"} onChange={handleYearChange}
                                                    dropdownCSS={yearOfBirthError ? dropdownErrorCSS : dropdownDefaultCSS}/>
                                         <LabelAsterisk label={"Family Status"}/>
-                                        <Tooltip text={INFO_TEXT.FAMILY_STATUS} toolTipID="familyStatus"/>
+                                        <Tooltip text={MEMBER_PROFILE_INFO_TEXT.FAMILY_STATUS} toolTipID="familyStatus"/>
                                         <Status onChange={handleFamilyStatusChange}
                                                 dropdownCSS={familyStatusError ? dropdownErrorCSS : dropdownDefaultCSS}
                                         />
@@ -669,12 +654,12 @@ function MemberRegistrationForm(props) {
                                         <WorkStatus onChange={handleWorkStatusChange}
                                                     dropdownCSS={workStatusError ? dropdownErrorCSS : dropdownDefaultCSS}/>
                                         <LabelAsterisk label={"Open to Sharing With"}/>
-                                        <Tooltip text={INFO_TEXT.NUM_PEOPLE_SHARE} toolTipID="numPeopleToShare"/>
+                                        <Tooltip text={MEMBER_PROFILE_INFO_TEXT.NUM_PEOPLE_SHARE} toolTipID="numPeopleToShare"/>
                                         <ShareLimit onChange={handleLimitChange}
                                                     dropdownCSS={limitError ? dropdownErrorCSS : dropdownDefaultCSS}/>
 
                                         <LabelAsterisk label={"Monthly Rent"}/>
-                                        <Tooltip text={INFO_TEXT.RENT} toolTipID="rent"/>
+                                        <Tooltip text={MEMBER_PROFILE_INFO_TEXT.RENT} toolTipID="rent"/>
                                         <div className="grid grid-cols-6 gap-x-6">
                                             <div className="column-span-6-layout">
                                                 <input
@@ -699,7 +684,7 @@ function MemberRegistrationForm(props) {
                                             </div>
                                         </div>
                                         <LabelAsterisk label={"Preferred Living Location(s)"}/>
-                                        <Tooltip text={INFO_TEXT.INTERESTED_AREA} toolTipID="interestedArea"/>
+                                        <Tooltip text={MEMBER_PROFILE_INFO_TEXT.INTERESTED_AREA} toolTipID="interestedArea"/>
                                         <InterestedArea onChange={setAreasOfInterest}
                                                         areasOfInterestError={areasOfInterestError}
                                         />
@@ -709,7 +694,7 @@ function MemberRegistrationForm(props) {
                                                     className={`${petFriendlyError && "pl-1 border rounded-lg border-red-500"} my-2`}>
                                                     <YNButton
                                                         label={"Pet friendly?"}
-                                                        toolTipText={INFO_TEXT.PET}
+                                                        toolTipText={MEMBER_PROFILE_INFO_TEXT.PET}
                                                         toolTipID="pet"
                                                         name="petFriendly"
                                                         required={true}
@@ -729,7 +714,7 @@ function MemberRegistrationForm(props) {
                                                     className={`${smokingError && "pl-1 border rounded-lg border-red-500"} my-2`}>
                                                     <YNButton
                                                         label={"Smoke friendly?"}
-                                                        toolTipText={INFO_TEXT.SMOKE}
+                                                        toolTipText={MEMBER_PROFILE_INFO_TEXT.SMOKE}
                                                         toolTipID="smoke"
                                                         name="smoking"
                                                         required={true}
@@ -749,7 +734,7 @@ function MemberRegistrationForm(props) {
                                                     className={`${mobilityIssuesError && "pl-1 border rounded-lg border-red-500"} my-2`}>
                                                     <YNButton
                                                         label={"Health / mobility issues?"}
-                                                        toolTipText={INFO_TEXT.HEALTH}
+                                                        toolTipText={MEMBER_PROFILE_INFO_TEXT.HEALTH}
                                                         toolTipID="health"
                                                         name="mobile"
                                                         required={true}
@@ -788,7 +773,7 @@ function MemberRegistrationForm(props) {
                                                     className={`${religionError && "pl-1 border rounded-lg border-red-500"} my-2`}>
                                                     <YNButton
                                                         label={"Is religion important?"}
-                                                        toolTipText={INFO_TEXT.RELIGION}
+                                                        toolTipText={MEMBER_PROFILE_INFO_TEXT.RELIGION}
                                                         toolTipID="religion"
                                                         name="religion"
                                                         required={true}
@@ -809,7 +794,7 @@ function MemberRegistrationForm(props) {
                                                     className={`${dietError && "pl-1 border rounded-lg border-red-500"} my-2`}>
                                                     <YNButton
                                                         label={"Is diet of others important?"}
-                                                        toolTipText={INFO_TEXT.DIET}
+                                                        toolTipText={MEMBER_PROFILE_INFO_TEXT.DIET}
                                                         toolTipID="diet"
                                                         name="diet"
                                                         required={true}
@@ -830,7 +815,7 @@ function MemberRegistrationForm(props) {
                                                     className={`${homeError && "pl-1 border rounded-lg border-red-500"} my-2`}>
                                                     <YNButton
                                                         label={"Have a home to share?"}
-                                                        toolTipText={INFO_TEXT.HOME_TO_SHARE}
+                                                        toolTipText={MEMBER_PROFILE_INFO_TEXT.HOME_TO_SHARE}
                                                         toolTipID="homeToShare"
                                                         name="hasHome"
                                                         required={true}
@@ -869,7 +854,7 @@ function MemberRegistrationForm(props) {
                                         <div className={"mt-4"}>
                                             <LargeTextArea
                                                 label={"Tell others about yourself"}
-                                                toolTipText={INFO_TEXT.ABOUT}
+                                                toolTipText={MEMBER_PROFILE_INFO_TEXT.ABOUT}
                                                 toolTipID="about"
                                                 required={false}
                                                 name="aboutSelf"

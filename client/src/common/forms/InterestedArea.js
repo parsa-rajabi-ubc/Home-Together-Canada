@@ -18,7 +18,7 @@ import {dropdownDefaultCSS} from "../../css/dropdownCSSUtil"
 
 function InterestedArea(props) {
     const {onChange, givenAreasOfInterest, areasOfInterestError} = props;
-    const [extraAreas, setExtraAreas] = useState(givenAreasOfInterest || [{province: "", city: "", radius: ""}]);
+    const [extraAreas, setExtraAreas] = useState(givenAreasOfInterest || [{province: "", city: "", radius: 0}]);
 
     const handleRemoveClick = index => {
         const list = [...extraAreas];

@@ -7,47 +7,51 @@
  */
 import React, {useEffect, useState} from 'react';
 import PropTypes from "prop-types";
-import TextArea from "../common/forms/TextArea";
-import PhoneNumInput from "../common/forms/PhoneNumInput";
-import Address from "../common/forms/Address";
-import Checkbox from "../common/forms/Checkbox";
-import SubmitButton from "../common/forms/SubmitButton";
+import TextArea from "../../common/forms/TextArea";
+import PhoneNumInput from "../../common/forms/PhoneNumInput";
+import Address from "../../common/forms/Address";
+import Checkbox from "../../common/forms/Checkbox";
+import SubmitButton from "../../common/forms/SubmitButton";
+import get from 'lodash/get';
 import {
     validateInput,
     checkIfErrorsExistInMapping,
     validatePhoneNumber,
     validateEmail
-} from "../registration/registrationUtils";
-import {dropdownDefaultCSS, dropdownErrorCSS} from "../css/dropdownCSSUtil";
+} from "../../registration/registrationUtils";
+import {dropdownDefaultCSS, dropdownErrorCSS} from "../../css/dropdownCSSUtil";
+import {splitPhoneNumber} from "../accountSummaryUtils";
 
 //Returns a summary Form with fields filled
 function MemberAccountSummary(props) {
     const { history } = props;
 
     //Account variables
-    const [firstName, setFirstName] = useState(history && history.firstName || undefined);
-    const [lastName, setLastName] = useState(history && history.lastName || undefined);
-    const [email, setEmail] = useState(history && history.email || undefined);
-    const [phoneNumber, setPhoneNumber] = useState(history && history.phoneNumber || {
+    const [firstName, setFirstName] = useState(get(history, 'firstName', undefined));
+    const [lastName, setLastName] = useState(get(history, 'lastName', undefined));
+    const [email, setEmail] = useState(get(history, 'email', undefined));
+    const [unsplitPhoneNumber, setUnsplitPhoneNumber] = useState(get(history, 'phoneNumber', undefined));
+    const [phoneNumber, setPhoneNumber] = useState(splitPhoneNumber(unsplitPhoneNumber) ||
+    {
         first: undefined,
         middle: undefined,
         last: undefined
     });
-    const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(history && history.useDifferentMailingAddress || undefined);
-    const [address, setAddress] = useState(history && history.address || {
+    const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(get(history, 'useDifferentMailingAddress', undefined));
+    const [address, setAddress] = useState(get(history, 'address', {
         street: undefined,
         aptNum: undefined,
         city: undefined,
         province: undefined,
         postalCode: undefined
-    });
-    const [mailingAddress, setMailingAddress] = useState(history && history.mailingAddress || {
+    }));
+    const [mailingAddress, setMailingAddress] = useState(get(history, 'mailingAddress', {
         street: undefined,
         aptNum: undefined,
         city: undefined,
         province: undefined,
         postalCode: undefined
-    });
+    }));
 
     // Error state variables
     // Personal Information Start
