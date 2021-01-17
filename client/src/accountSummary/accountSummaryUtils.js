@@ -13,8 +13,6 @@ export function splitPhoneNumber(phoneNumber){
         return undefined;
     } else {
         const splitPhoneNumber = phoneNumber.split("-");
-        console.log(splitPhoneNumber);
-        console.log(splitPhoneNumber.length);
         if (splitPhoneNumber.length !== 3){
             //invalid phone structure
             return undefined;

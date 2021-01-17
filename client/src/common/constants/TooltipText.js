@@ -20,4 +20,8 @@ export const MEMBER_PROFILE_INFO_TEXT = {
     DIET: "The diet of your roommate(s) is important to you",
     HOME_TO_SHARE: "If you have a home to share, we recommend that you also create a free listing in addition to providing a short description below",
     ABOUT: "Do not disclose any personal information as your profile is publicly viewable by all members on Home Together",
+    PREF: {
+        GENDER: "Choose as many options as you wish, however you must select at least one",
+        AGE: "Both min and max numbers are inclusive"
+    }
 };
