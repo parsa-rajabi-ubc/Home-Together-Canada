@@ -24,28 +24,28 @@ import {splitPhoneNumber} from "../accountSummaryUtils";
 
 //Returns a summary Form with fields filled
 function MemberAccountSummary(props) {
-    const { history } = props;
+    const { memberAccountInfo  } = props;
 
     //Account variables
-    const [firstName, setFirstName] = useState(get(history, 'firstName', undefined));
-    const [lastName, setLastName] = useState(get(history, 'lastName', undefined));
-    const [email, setEmail] = useState(get(history, 'email', undefined));
-    const [unsplitPhoneNumber, setUnsplitPhoneNumber] = useState(get(history, 'phoneNumber', undefined));
+    const [firstName, setFirstName] = useState(get(memberAccountInfo , 'firstName', undefined));
+    const [lastName, setLastName] = useState(get(memberAccountInfo , 'lastName', undefined));
+    const [email, setEmail] = useState(get(memberAccountInfo , 'email', undefined));
+    const unsplitPhoneNumber = get(memberAccountInfo, 'phoneNumber', undefined);
     const [phoneNumber, setPhoneNumber] = useState(splitPhoneNumber(unsplitPhoneNumber) ||
     {
         first: undefined,
         middle: undefined,
         last: undefined
     });
-    const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(get(history, 'useDifferentMailingAddress', undefined));
-    const [address, setAddress] = useState(get(history, 'address', {
+    const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(get(memberAccountInfo , 'useDifferentMailingAddress', undefined));
+    const [address, setAddress] = useState(get(memberAccountInfo , 'address', {
         street: undefined,
         aptNum: undefined,
         city: undefined,
         province: undefined,
         postalCode: undefined
     }));
-    const [mailingAddress, setMailingAddress] = useState(get(history, 'mailingAddress', {
+    const [mailingAddress, setMailingAddress] = useState(get(memberAccountInfo , 'mailingAddress', {
         street: undefined,
         aptNum: undefined,
         city: undefined,
@@ -263,7 +263,7 @@ function MemberAccountSummary(props) {
 }
 
 MemberAccountSummary.propTypes = {
-    history: PropTypes.object.isRequired
+    memberAccountInfo: PropTypes.object.isRequired
 }
 
 export default MemberAccountSummary

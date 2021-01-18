@@ -31,52 +31,54 @@ import {
 
 //Returns a summary Form with fields filled
 function MemberProfileSummary(props) {
-    const { history } = props;
-    const [gender, setGender] = useState(get(history, 'gender', ""));
-    const [genderDescription, setGenderDescription] = useState(get(history, 'genderDescription', ""));
-    const [yearOfBirth, setYearOfBirth] = useState(get(history, 'birthYear', undefined));
-    const [petFriendly, setPetFriendly] = useState(get(history, 'petFriendly', ""));
-    const [petDescription, setPetDescription] = useState(get(history, 'petsDescription', ""));
+    const { memberAccountInfo  } = props;
+    const [gender, setGender] = useState(get(memberAccountInfo , 'gender', ""));
+    const [genderDescription, setGenderDescription] = useState(get(memberAccountInfo , 'genderDescription', ""));
+    const [yearOfBirth, setYearOfBirth] = useState(get(memberAccountInfo , 'birthYear', undefined));
+    const [petFriendly, setPetFriendly] = useState(get(memberAccountInfo , 'petFriendly', ""));
+    const [petDescription, setPetDescription] = useState(get(memberAccountInfo , 'petDescription', ""));
 
-    const [smoking, setSmoking] = useState(get(history, 'smoking', ""));
-    const [smokingDescription, setSmokingDescription] = useState(get(history, 'smokingDescription', ""));
+    const [smoking, setSmoking] = useState(get(memberAccountInfo , 'smoking', ""));
+    const [smokingDescription, setSmokingDescription] = useState(get(memberAccountInfo , 'smokingDescription', ""));
 
-    const [mobilityIssues, setMobilityIssues] = useState(get(history, 'hasHealthMobilityIssues', ""));
-    const [mobilityIssuesDescription, setMobilityIssuesDescription] = useState(get(history, 'healthMobilityIssuesDescription', ""));
+    const [mobilityIssues, setMobilityIssues] = useState(get(memberAccountInfo , 'hasHealthMobilityIssues', ""));
+    const [mobilityIssuesDescription, setMobilityIssuesDescription] = useState(get(memberAccountInfo , 'healthMobilityIssuesDescription', ""));
 
-    const [hasAllergies, setHasAllergies] = useState(get(history, 'hasAllergies', ""));
-    const [allergiesDescription, setAllergiesDescription] = useState(get(history, 'allergiesDescription', ""));
+    const [hasAllergies, setHasAllergies] = useState(get(memberAccountInfo , 'hasAllergies', ""));
+    const [allergiesDescription, setAllergiesDescription] = useState(get(memberAccountInfo , 'allergiesDescription', ""));
 
-    const [religious, setReligious] = useState(get(history, 'isReligionImportant', ""));
-    const [religionDescription, setReligionDescription] = useState(get(history, 'religionDescription', ""));
+    const [religious, setReligious] = useState(get(memberAccountInfo , 'isReligionImportant', ""));
+    const [religionDescription, setReligionDescription] = useState(get(memberAccountInfo , 'religionDescription', ""));
 
-    const [hasDiet, setHasDiet] = useState(get(history, 'isDietImportant', ""));
-    const [dietDescription, setDietDescription] = useState(get(history, 'dietDescription', ""));
+    const [hasDiet, setHasDiet] = useState(get(memberAccountInfo , 'isDietImportant', ""));
+    const [dietDescription, setDietDescription] = useState(get(memberAccountInfo , 'dietDescription', ""));
 
-    const [hasHome, setHasHome] = useState(get(history, 'hasHomeToShare', ""));
-    const [homeDescription, setHomeDescription] = useState(get(history, 'hasHomeToShareDescription', ""));
+    const [hasHome, setHasHome] = useState(get(memberAccountInfo , 'hasHomeToShare', ""));
+    const [homeDescription, setHomeDescription] = useState(get(memberAccountInfo , 'hasHomeToShareDescription', ""));
 
-    const [interestInBuyingHome, setInterestInBuyingHome] = useState(get(history, 'interestInBuyingHome', ""));
-    const [interestDescription, setInterestDescription] = useState(get(history, 'interestDescription', ""));
+    const [interestInBuyingHome, setInterestInBuyingHome] = useState(get(memberAccountInfo, 'interestInBuyingHome', ""));
+    const [interestDescription, setInterestDescription] = useState(get(memberAccountInfo, 'interestDescription', ""));
 
-    const [minRent, setMinRent] = useState(get(history, 'minRent', undefined));
-    const [maxRent, setMaxRent] = useState(get(history, 'maxRent', undefined));
+    const [minRent, setMinRent] = useState(get(memberAccountInfo, 'minRent', undefined));
+    const [maxRent, setMaxRent] = useState(get(memberAccountInfo, 'maxRent', undefined));
 
-    const [aboutSelf, setAboutSelf] = useState(get(history, 'aboutSelf', ""));
+    const [aboutSelf, setAboutSelf] = useState(get(memberAccountInfo, 'aboutSelf', ""));
 
-    const [selectedLimit, setsSelectedLimit] = useState(get(history, 'selectedLimit', ""));
+    const [selectedLimit, setsSelectedLimit] = useState(get(memberAccountInfo, 'selectedLimit', ""));
 
-    const [selectedFamilyStatus, setsSelectedFamilyStatus] = useState(get(history, 'selectedFamilyStatus', ""));
-    const [selectedWorkStatus, setsSelectedWorkStatus] = useState(get(history, 'selectedWorkStatus', ""));
+    const [selectedFamilyStatus, setsSelectedFamilyStatus] = useState(get(memberAccountInfo, 'selectedFamilyStatus', ""));
+    const [selectedWorkStatus, setsSelectedWorkStatus] = useState(get(memberAccountInfo, 'selectedWorkStatus', ""));
 
-    const [partner, setPartner] = useState(get(history, 'partner', ""));
-    const [groupMembers, setGroupMembers] = useState(get(history, 'groupMembers', ""));
+    const [partner, setPartner] = useState(get(memberAccountInfo, 'partner', ""));
+    const [groupMembers, setGroupMembers] = useState(get(memberAccountInfo, 'groupMembers', ""));
 
-    const [areasOfInterest, setAreasOfInterest] = useState(get(history, 'areasOfInterest', [{
+    const [areasOfInterest, setAreasOfInterest] = useState(get(memberAccountInfo, 'areasOfInterest', [{
         province: "",
         city: "",
         radius: ""
     }]));
+
+
 
     // Profile Details Start
     const [genderError, setGenderError] = useState(undefined);
@@ -329,10 +331,10 @@ function MemberProfileSummary(props) {
                                                     toolTipID="pet"
                                                     name="petFriendly"
                                                     required={true}
-                                                    checked={petFriendly === "yes"}
+                                                    value={petFriendly}
                                                     onChange={(e) => setPetFriendly(e.target.value)}
                                                 />
-                                                {(petFriendly === "yes") &&
+                                                {(petFriendly === "yes" || petFriendly===true) &&
                                                 <TextArea
                                                     className={"input"}
                                                     placeholder="Elaborate (optional)"
@@ -350,10 +352,10 @@ function MemberProfileSummary(props) {
                                                     toolTipID="smoke"
                                                     name="smoking"
                                                     required={true}
-                                                    checked={smoking === "yes"}
+                                                    value={smoking}
                                                     onChange={(e) => setSmoking(e.target.value)}
                                                 />
-                                                {(smoking === "yes") &&
+                                                {(smoking === "yes" || smoking===true) &&
                                                 <TextArea
                                                     className={"input"}
                                                     placeholder="Elaborate (optional)"
@@ -371,10 +373,10 @@ function MemberProfileSummary(props) {
                                                     toolTipID="health"
                                                     name="mobile"
                                                     required={true}
-                                                    checked={mobilityIssues === "yes"}
+                                                    value={mobilityIssues}
                                                     onChange={(e) => setMobilityIssues(e.target.value)}
                                                 />
-                                                {(mobilityIssues === "yes") &&
+                                                {(mobilityIssues === "yes" || mobilityIssues===true) &&
                                                 <TextArea
                                                     className={"input"}
                                                     placeholder="Elaborate (optional)"
@@ -390,10 +392,10 @@ function MemberProfileSummary(props) {
                                                     label={"Allergies?"}
                                                     name="allergies"
                                                     required={true}
-                                                    checked={hasAllergies === "yes"}
+                                                    value={hasAllergies}
                                                     onChange={(e) => setHasAllergies(e.target.value)}
                                                 />
-                                                {(hasAllergies === "yes") &&
+                                                {(hasAllergies === "yes" || hasAllergies===true) &&
                                                 <TextArea
                                                     className={"input"}
                                                     placeholder="Elaborate (optional)"
@@ -411,10 +413,10 @@ function MemberProfileSummary(props) {
                                                     toolTipID="religion"
                                                     name="religion"
                                                     required={true}
-                                                    checked={religious === "yes"}
+                                                    value={religious}
                                                     onChange={(e) => setReligious(e.target.value)}
                                                 />
-                                                {(religious === "yes") &&
+                                                {(religious === "yes" || religious===true) &&
                                                 <TextArea
                                                     className={"input"}
                                                     placeholder="Elaborate (optional)"
@@ -432,10 +434,10 @@ function MemberProfileSummary(props) {
                                                     toolTipID="diet"
                                                     name="diet"
                                                     required={true}
-                                                    checked={hasDiet === "yes"}
+                                                    value={hasDiet}
                                                     onChange={(e) => setHasDiet(e.target.value)}
                                                 />
-                                                {(hasDiet === "yes") &&
+                                                {(hasDiet === "yes" || hasDiet===true) &&
                                                 <TextArea
                                                     className={"input"}
                                                     placeholder="Elaborate (optional)"
@@ -453,10 +455,10 @@ function MemberProfileSummary(props) {
                                                     toolTipID="homeToShare"
                                                     name="hasHome"
                                                     required={true}
-                                                    checked={hasHome === "yes"}
+                                                    value={hasHome}
                                                     onChange={(e) => setHasHome(e.target.value)}
                                                 />
-                                                {(hasHome === "yes")
+                                                {(hasHome === "yes" || hasHome===true)
                                                 && <TextArea
                                                     className={"input inline w-11/12 "}
                                                     placeholder="Elaborate (optional)"
@@ -472,10 +474,10 @@ function MemberProfileSummary(props) {
                                                     label="Interested in buying a home with others?"
                                                     name="interestInBuyingHome"
                                                     required={true}
-                                                    checked={interestInBuyingHome === "yes"}
+                                                    value={interestInBuyingHome}
                                                     onChange={(e) => setInterestInBuyingHome(e.target.value)}
                                                 />
-                                                {(interestInBuyingHome === "yes") &&
+                                                {(interestInBuyingHome === "yes" || interestInBuyingHome===true) &&
                                                 <TextArea
                                                     className={"input"}
                                                     placeholder="Elaborate (optional)"
@@ -516,7 +518,7 @@ function MemberProfileSummary(props) {
 
 }
 MemberProfileSummary.propTypes = {
-    history: PropTypes.object.isRequired
+    memberAccountInfo: PropTypes.object.isRequired
 
 }
 

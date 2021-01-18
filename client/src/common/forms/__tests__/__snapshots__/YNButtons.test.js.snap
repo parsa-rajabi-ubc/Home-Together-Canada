@@ -14,7 +14,6 @@ exports[`YNButtons Snapshot test should render correctly regardless of propertie
     className="text-base text-gray-700 pr-8"
   >
     <input
-      checked={true}
       className="form-radio mt-2 ml-2 mr-1 pb-4"
       name="testName"
       type="radio"

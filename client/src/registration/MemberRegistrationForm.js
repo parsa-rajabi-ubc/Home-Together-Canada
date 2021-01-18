@@ -798,6 +798,7 @@ function MemberRegistrationForm(props) {
                                                         toolTipID="pet"
                                                         name="petFriendly"
                                                         required={true}
+                                                        checked={petFriendly!=="" && petFriendly === "no" || undefined}
                                                         onChange={(e) => setPetFriendly(e.target.value)}
                                                     />
                                                     {(petFriendly === "yes") &&
@@ -818,6 +819,7 @@ function MemberRegistrationForm(props) {
                                                         toolTipID="smoke"
                                                         name="smoking"
                                                         required={true}
+                                                        checked={smoking!=="" && smoking === "no" || undefined}
                                                         onChange={(e) => setSmoking(e.target.value)}
                                                     />
                                                     {(smoking === "yes") &&
@@ -838,6 +840,7 @@ function MemberRegistrationForm(props) {
                                                         toolTipID="health"
                                                         name="mobile"
                                                         required={true}
+                                                        checked={mobilityIssues!=="" && mobilityIssues === "no" || undefined}
                                                         onChange={(e) => setMobilityIssues(e.target.value)}
                                                     />
                                                     {(mobilityIssues === "yes") &&
@@ -856,7 +859,7 @@ function MemberRegistrationForm(props) {
                                                         label={"Allergies?"}
                                                         name="allergies"
                                                         required={true}
-                                                        checked={hasAllergies === "no"}
+                                                        checked={hasAllergies!=="" && hasAllergies === "no" || undefined}
                                                         onChange={(e) => setHasAllergies(e.target.value)}
                                                     />
                                                     {(hasAllergies === "yes") &&
@@ -877,7 +880,7 @@ function MemberRegistrationForm(props) {
                                                         toolTipID="religion"
                                                         name="religion"
                                                         required={true}
-                                                        checked={religious === "no"}
+                                                        checked={religious!=="" && religious === "no" || undefined}
                                                         onChange={(e) => setReligious(e.target.value)}
                                                     />
                                                     {(religious === "yes") &&
@@ -898,7 +901,7 @@ function MemberRegistrationForm(props) {
                                                         toolTipID="diet"
                                                         name="diet"
                                                         required={true}
-                                                        checked={hasDiet === "no"}
+                                                        checked={hasDiet!=="" && hasDiet === "no" || undefined}
                                                         onChange={(e) => setHasDiet(e.target.value)}
                                                     />
                                                     {(hasDiet === "yes") &&
@@ -919,7 +922,7 @@ function MemberRegistrationForm(props) {
                                                         toolTipID="homeToShare"
                                                         name="hasHome"
                                                         required={true}
-                                                        checked={hasHome === "no"}
+                                                        checked={hasHome!=="" && hasHome === "no" || undefined}
                                                         onChange={(e) => setHasHome(e.target.value)}
                                                     />
                                                     {(hasHome === "yes")
@@ -938,7 +941,7 @@ function MemberRegistrationForm(props) {
                                                         label="Interested in buying a home with others?"
                                                         name="interestInBuyingHome"
                                                         required={true}
-                                                        checked={interestInBuyingHome === "no"}
+                                                        checked={interestInBuyingHome!=="" && interestInBuyingHome === "no" || undefined}
                                                         onChange={(e) => setInterestInBuyingHome(e.target.value)}
                                                     />
                                                     {(interestInBuyingHome === "yes") &&

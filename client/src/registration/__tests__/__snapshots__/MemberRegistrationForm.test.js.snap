@@ -1063,8 +1063,10 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           className=" css-g1d714-ValueContainer"
                         >
                           <div
-                            className=" css-1uccc91-singleValue"
-                          />
+                            className=" css-1d6d5xl-placeholder"
+                          >
+                            Family Status
+                          </div>
                           <div
                             className="css-b8ldur-Input"
                           >
@@ -2149,7 +2151,6 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="petFriendly"
                             onChange={[Function]}
@@ -2327,7 +2328,6 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="smoking"
                             onChange={[Function]}
@@ -2505,7 +2505,6 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="mobile"
                             onChange={[Function]}
@@ -2567,7 +2566,6 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="allergies"
                             onChange={[Function]}
@@ -2580,7 +2578,6 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={false}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="allergies"
                             onChange={[Function]}
@@ -2746,7 +2743,6 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="religion"
                             onChange={[Function]}
@@ -2759,7 +2755,6 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={false}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="religion"
                             onChange={[Function]}
@@ -2925,7 +2920,6 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="diet"
                             onChange={[Function]}
@@ -2938,7 +2932,6 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={false}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="diet"
                             onChange={[Function]}
@@ -3104,7 +3097,6 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="hasHome"
                             onChange={[Function]}
@@ -3117,7 +3109,6 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={false}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="hasHome"
                             onChange={[Function]}
@@ -3167,7 +3158,6 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="interestInBuyingHome"
                             onChange={[Function]}
@@ -3180,7 +3170,6 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={false}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="interestInBuyingHome"
                             onChange={[Function]}
@@ -3724,30 +3713,9 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                       className=" css-g1d714-ValueContainer"
                     >
                       <div
-                        className="css-ubzcuo-multiValue"
+                        className=" css-1d6d5xl-placeholder"
                       >
-                        <div
-                          className="css-1p11jy3"
-                        />
-                        <div
-                          className="css-1gg44i6"
-                          onClick={[Function]}
-                          onMouseDown={[Function]}
-                          onTouchEnd={[Function]}
-                        >
-                          <svg
-                            aria-hidden="true"
-                            className="css-6q0nyr-Svg"
-                            focusable="false"
-                            height={14}
-                            viewBox="0 0 20 20"
-                            width={14}
-                          >
-                            <path
-                              d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
-                            />
-                          </svg>
-                        </div>
+                        Family Status
                       </div>
                       <div
                         className="css-b8ldur-Input"
@@ -4509,7 +4477,6 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                       className="text-base text-gray-700 pr-8"
                     >
                       <input
-                        checked={true}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
                         name="petFriendlyPref"
                         onChange={[Function]}
@@ -4687,7 +4654,6 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                       className="text-base text-gray-700 pr-8"
                     >
                       <input
-                        checked={true}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
                         name="smokingPref"
                         onChange={[Function]}
@@ -4865,7 +4831,6 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                       className="text-base text-gray-700 pr-8"
                     >
                       <input
-                        checked={true}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
                         name="religion"
                         onChange={[Function]}
@@ -5043,7 +5008,6 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                       className="text-base text-gray-700 pr-8"
                     >
                       <input
-                        checked={true}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
                         name="diet"
                         onChange={[Function]}
@@ -5221,7 +5185,6 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                       className="text-base text-gray-700 pr-8"
                     >
                       <input
-                        checked={true}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
                         name="homeToSharePref"
                         onChange={[Function]}

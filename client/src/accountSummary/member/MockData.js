@@ -6,7 +6,7 @@
  *
  */
 
-const history = {
+const memberAccountInfo  = {
     //account
     firstName: "mockFN",
     lastName: "mockLN",
@@ -32,21 +32,21 @@ const history = {
     //profile
     gender: "Female",
     genderDescription: "",
-    petFriendly: "yes",
+    petFriendly: true,
     petDescription: "have dogs",
-    smoking: "yes",
+    smoking: true,
     smokingDescription: "tobacco only",
-    hasHealthMobilityIssues: "no",
+    hasHealthMobilityIssues: false,
     healthMobilityIssuesDescription: "",
-    hasAllergies: "yes",
+    hasAllergies: true,
     allergiesDescription: "peanuts",
-    isReligionImportant: "yes",
+    isReligionImportant: true,
     religionDescription: "Roman Catholic",
-    isDietImportant: "no",
+    isDietImportant: false,
     dietDescription: "",
-    hasHomeToShare: "no",
+    hasHomeToShare: false,
     hasHomeToShareDescription: "",
-    interestInBuyingHome: "false",
+    interestInBuyingHome: false,
     interestDescription: "",
     minRent: "800",
     maxRent: "1700",
@@ -59,7 +59,7 @@ const history = {
     areasOfInterest: [{
         province: "AB",
         city: "Edmonton",
-        radius: "50km"
+        radius: 50
     }]
 }
-export default history
+export default memberAccountInfo
