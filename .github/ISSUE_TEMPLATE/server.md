@@ -1,8 +1,8 @@
 ---
-name: task
-about: tasks as per requirements document
+name: server
+about: server-side issue
 title: ''
-labels: task
+labels: server-side, task
 assignees: ''
 
 ---
