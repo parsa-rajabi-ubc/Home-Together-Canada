@@ -95,8 +95,8 @@ describe('Header', () => {
         });
     });
 
-    describe('Services button', () => {
-        it('should show Services button when the user is unregistered', () => {
+    describe('Home Sharing Services button', () => {
+        it('should show Home Sharing Services button when the user is unregistered', () => {
             // given
             const props = {
                 setAccountType,
@@ -110,12 +110,12 @@ describe('Header', () => {
             // when
             const testInstance = renderer.create(<BrowserRouter><Header {...props}/></BrowserRouter>).root;
             const servicesButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'Services');
+                .find(element => element.props.children === 'Home Sharing Services');
 
             // then
             expect(servicesButton).toBeDefined();
         });
-        it('should show Services button when the user is a member', () => {
+        it('should show Home Sharing Services button when the user is a member', () => {
             // given
             const props = {
                 setAccountType,
@@ -129,12 +129,12 @@ describe('Header', () => {
             // when
             const testInstance = renderer.create(<BrowserRouter><Header {...props}/></BrowserRouter>).root;
             const servicesButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'Services');
+                .find(element => element.props.children === 'Home Sharing Services');
 
             // then
             expect(servicesButton).toBeDefined();
         });
-        it('should show Services button when the user is a business', () => {
+        it('should show Home Sharing Services button when the user is a business', () => {
             // given
             const props = {
                 setAccountType,
@@ -148,14 +148,14 @@ describe('Header', () => {
             // when
             const testInstance = renderer.create(<BrowserRouter><Header {...props}/></BrowserRouter>).root;
             const servicesButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'Services');
+                .find(element => element.props.children === 'Home Sharing Services');
 
             expect(servicesButton).toBeDefined();
         });
     });
 
-    describe('Classifieds button', () => {
-        it('should show Classifieds button when the user is unregistered', () => {
+    describe('Local Classifieds button', () => {
+        it('should show Local Classifieds button when the user is unregistered', () => {
             // given
             const props = {
                 setAccountType,
@@ -169,12 +169,12 @@ describe('Header', () => {
             // when
             const testInstance = renderer.create(<BrowserRouter><Header {...props}/></BrowserRouter>).root;
             const classifiedsButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'Classifieds');
+                .find(element => element.props.children === 'Local Classifieds');
 
             // then
             expect(classifiedsButton).toBeDefined();
         });
-        it('should show Classifieds button when the user is a member', () => {
+        it('should show Local Classifieds button when the user is a member', () => {
             // given
             const props = {
                 setAccountType,
@@ -188,12 +188,12 @@ describe('Header', () => {
             // when
             const testInstance = renderer.create(<BrowserRouter><Header {...props}/></BrowserRouter>).root;
             const classifiedsButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'Classifieds');
+                .find(element => element.props.children === 'Local Classifieds');
 
             // then
             expect(classifiedsButton).toBeDefined();
         });
-        it('should show Classifieds button when the user is a business', () => {
+        it('should show Local Classifieds button when the user is a business', () => {
             // given
             const props = {
                 setAccountType,
@@ -207,7 +207,7 @@ describe('Header', () => {
             // when
             const testInstance = renderer.create(<BrowserRouter><Header {...props}/></BrowserRouter>).root;
             const classifiedsButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'Classifieds');
+                .find(element => element.props.children === 'Local Classifieds');
 
             // then
             expect(classifiedsButton).toBeDefined();
