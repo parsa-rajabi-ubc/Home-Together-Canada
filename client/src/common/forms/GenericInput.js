@@ -19,7 +19,8 @@ function GenericInput(props) {
         label,
         onClick,
         classNameLabel,
-        value
+        value,
+        onKeyDown
     } = props;
     return (
         <label>
@@ -34,6 +35,7 @@ function GenericInput(props) {
                 onChange={onChange}
                 onClick={onClick}
                 value={value}
+                onKeyDown={onKeyDown}
             />
         </label>
     );
@@ -48,6 +50,7 @@ GenericInput.propTypes = {
     autoComplete: PropTypes.string,
     onChange: PropTypes.func,
     onClick: PropTypes.func,
+    onKeyDown: PropTypes.func,
     value: PropTypes.any
 };
 
