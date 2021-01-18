@@ -35,14 +35,12 @@ const AccountSummaryContainer = () => {
     }
 
     return (
-        <div>
-            <div className={"sideBar-container"}>
-                <div className={"sideBar"}>
-                    <SubPages options={options} selected={selectedSubpage} onClick={setSelectedSubpage}/>
-                </div>
-                <div className={"sideBar-selected-component"}>
-                    {subpageComponent(selectedSubpage)}
-                </div>
+        <div className={"sideBar-container"}>
+            <div className={"sideBar"}>
+                <SubPages options={options} selected={selectedSubpage} onClick={setSelectedSubpage}/>
+            </div>
+            <div className={"sideBar-selected-component"}>
+                {subpageComponent(selectedSubpage)}
             </div>
         </div>
     )

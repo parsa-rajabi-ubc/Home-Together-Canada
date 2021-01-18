@@ -2,12 +2,16 @@
     @apply items-center justify-center w-full px-8 py-3 mb-2 text-lg text-black transition duration-150 ease-in-out border border-transparent rounded-md;
 }
 
+.selected{
+    @apply font-bold bg-green-200;
+}
+
 .sub-page-items:hover {
-    @apply bg-orange-400 cursor-pointer;;
+    @apply bg-green-400 cursor-pointer;;
 }
 
 .sub-page-items:active {
-    @apply bg-orange-500;
+    @apply bg-green-500;
 }
 
 .sideBar-container{
@@ -15,7 +19,7 @@
 }
 
 .sideBar{
-    @apply bg-yellow-300 mx-6 rounded-xl;
+    @apply mx-6 rounded-xl border-2 border-green-500;
 }
 
 .sideBar-selected-component{

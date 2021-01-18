@@ -54,7 +54,7 @@ function ChangePassword(props) {
             {showError && <section className={"error-msg mb-4"}>{errorMessage}</section>}
             {showSuccess && <section className={"success-msg mb-4"}>{successMessage}</section>}
             <button
-                className={"btn btn-green"}
+                className={"btn btn-green w-1/2 m-auto"}
                 onClick={onPasswordChangeSubmit}>
                 Update
             </button>
