@@ -1,0 +1,27 @@
+.sub-page-items{
+    @apply items-center justify-center w-full px-8 py-3 mb-2 text-lg text-black transition duration-150 ease-in-out border border-transparent rounded-md;
+}
+
+.selected{
+    @apply font-bold bg-green-200;
+}
+
+.sub-page-items:hover {
+    @apply bg-green-400 cursor-pointer;;
+}
+
+.sub-page-items:active {
+    @apply bg-green-500;
+}
+
+.sideBar-container{
+    @apply flex my-10;
+}
+
+.sideBar{
+    @apply mx-6 rounded-xl border-2 border-green-500;
+}
+
+.sideBar-selected-component{
+   @apply flex-grow mr-40 shadow pt-2 pb-6 px-5 bg-white;
+}

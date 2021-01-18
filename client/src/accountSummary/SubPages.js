@@ -15,7 +15,7 @@ const SubPages = (props) => {
     const subpagesList = options.map(option =>
         <div
             key={option.label}
-            className={option.label === selected ? "bold" : ""}
+            className={option.label === selected ? "sub-page-items selected" : "sub-page-items"}
             onClick={() => onClick(option.label)}
         >
             {option.label}
