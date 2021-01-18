@@ -30,6 +30,10 @@
     @apply block mb-2 text-sm text-red-500;
 }
 
+.success-msg {
+    @apply block mb-2 text-sm text-green-500;
+}
+
 .photo-upload-width {
     @apply w-48;
 }
