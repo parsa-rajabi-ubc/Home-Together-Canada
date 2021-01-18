@@ -10,7 +10,7 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 function GenericInput(props) {
-    const {className, inputType, placeholder, autoComplete, onChange, label, onClick, value} = props;
+    const {className, inputType, placeholder, autoComplete, onChange, label, onClick, value, onKeyDown} = props;
     return (
         <label>
             {label}
@@ -22,6 +22,7 @@ function GenericInput(props) {
                 onChange={onChange}
                 onClick={onClick}
                 value={value}
+                onKeyDown={onKeyDown}
             />
         </label>
     );
@@ -35,6 +36,7 @@ GenericInput.propTypes = {
     autoComplete: PropTypes.string,
     onChange: PropTypes.func,
     onClick: PropTypes.func,
+    onKeyDown: PropTypes.func,
     value: PropTypes.any
 };
 

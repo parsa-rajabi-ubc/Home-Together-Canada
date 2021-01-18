@@ -56,6 +56,13 @@ function LoginForm(props) {
         return !checkIfErrorsExistInMapping(loginErrors);
     }
 
+    const onKeyPress = (event) => {
+        // checking if they pressed enter (ASCII Code)
+        if (event.which === 13) {
+            onSubmit(event);
+        }
+    }
+
     const onSubmit = (event) => {
         if (!isFormValid()) {
             event.preventDefault();
@@ -120,19 +127,20 @@ function LoginForm(props) {
                                 </h1>
                                 <TextArea
                                     className={`${usernameError && "border-red-500"} input`}
-                                    inputType="text" placeholder="Username" onChange={(input) => {
-                                    setUsername(input.target.value)
-                                }}/>
+                                    inputType="text" placeholder="Username"
+                                    onKeyDown={onKeyPress}
+                                    onChange={(input) => {
+                                        setUsername(input.target.value)
+                                    }}/>
 
                                 <GenericInput
                                     className={`${passwordError && "border-red-500"} input`}
                                     label={''}
-                                    inputType="password" placeholder="Password" onChange={(input) => {
-                                    setPassword(input.target.value)
-                                }}/>
-
-                                {/* TODO: replace alerts with css warning i.e make the input box red and add a text:
-                                 "Please enter a password / Password is invalid*/}
+                                    inputType="password" placeholder="Password"
+                                    onKeyDown={onKeyPress}
+                                    onChange={(input) => {
+                                        setPassword(input.target.value)
+                                    }}/>
 
                                 <SubmitButton
                                     className="block px-4 py-2 mt-4 text-sm font-medium text-center btn btn-green"
