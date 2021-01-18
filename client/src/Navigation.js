@@ -20,6 +20,7 @@ import PropTypes from "prop-types";
 import {USER_TYPES} from "./common/constants/users";
 import Header from "./common/header-and-footer/Header";
 import Footer from "./common/header-and-footer/Footer";
+import MemberSearchContainer from "./memberSearch/MemberSearchContainer";
 
 const Navigation = (props) => {
     const {authenticated, accountType} = props;
@@ -36,6 +37,7 @@ const Navigation = (props) => {
                     <Route path={"/registration/business"} component={BusinessRegistration}/>
                     <Route path={"/registration/member"} component={MemberRegistrationForm}/>
                     <Route path={"/registration"} component={MainLandingPage}/>
+                    <Route path={"/members"} component={MemberSearchContainer}/>
                     {(authenticated && accountType !== USER_TYPES.UNREGISTERED) &&
                         <Route path={"/account"} component={AccountSummaryContainer}/>
                     }
