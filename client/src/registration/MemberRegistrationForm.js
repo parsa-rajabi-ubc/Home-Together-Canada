@@ -376,10 +376,7 @@ function MemberRegistrationForm(props) {
             errorFamilyStatus: false,
             errorWorkStatus: false,
             errorLimit: false,
-            errorRent: {
-                min: false,
-                max: false,
-            },
+            errorRent: false,
             errorInterestedArea: false,
             errorPet: false,
             errorSmoking: false,
@@ -393,16 +390,10 @@ function MemberRegistrationForm(props) {
 
         const searchErrors = {
             errorGenderPref: false,
-            errorAgePref: {
-                min: false,
-                max: false,
-            },
+            errorAgePref: false,
             errorFamilyStatusPref: false,
             errorNumRoommate: false,
-            errorBudgetPref: {
-                min: false,
-                max: false,
-            },
+            errorBudgetPref: false,
             errorPetPref: false,
             errorSmokingPref: false,
             errorReligionPref: false,
@@ -442,8 +433,7 @@ function MemberRegistrationForm(props) {
         profileInfoErrors.errorFamilyStatus = validateInput(selectedFamilyStatus, setFamilyStatusError);
         profileInfoErrors.errorWorkStatus = validateInput(selectedWorkStatus, setWorkStatusError);
         profileInfoErrors.errorLimit = validateInput(selectedLimit, setLimitError);
-        profileInfoErrors.errorRent.min = validateMinMax(minRent, setMinRentError);
-        profileInfoErrors.errorRent.max = validateMinMax(maxRent, setMaxRentError);
+        profileInfoErrors.errorRent = validateMinMax(minRent, maxRent, setMinRentError, setMaxRentError);
 
         for (let i = 0; i <= areasOfInterest.length - 1; i++) {
             if (!areasOfInterest[i].province || !areasOfInterest[i].city || !areasOfInterest[i].radius) {
@@ -467,12 +457,20 @@ function MemberRegistrationForm(props) {
 
         // Search Criteria Validation
         searchErrors.errorGenderPref = validateArrayInput(genderPreference, setGenderPreferenceError);
-        searchErrors.errorAgePref.min = validateMinMax(minAgePreference, setMinAgePreferenceError);
-        searchErrors.errorAgePref.max = validateMinMax(maxAgePreference, setMaxAgePreferenceError);
+        searchErrors.errorAgePref = validateMinMax(
+            minAgePreference,
+            maxAgePreference,
+            setMinAgePreferenceError,
+            setMaxAgePreferenceError
+        );
         searchErrors.errorFamilyStatusPref = validateArrayInput(familyStatusPreference, setFamilyStatusPreferenceError);
         searchErrors.errorNumRoommate = validateArrayInput(selectedLimitPreference, setSelectedLimitPreferenceError);
-        searchErrors.errorBudgetPref.min = validateMinMax(minBudgetPreference, setMinBudgetPreferenceError);
-        searchErrors.errorBudgetPref.max = validateMinMax(maxBudgetPreference, setMaxBudgetPreferenceError);
+        searchErrors.errorBudgetPref = validateMinMax(
+            minBudgetPreference,
+            maxBudgetPreference,
+            setMinBudgetPreferenceError,
+            setMaxBudgetPreferenceError
+        );
         searchErrors.errorPetPref = validateInput(petPreference, setPetPreferenceError);
         searchErrors.errorSmokingPref = validateInput(smokingPreference, setSmokingPreferenceError);
         searchErrors.errorReligionPref = validateInput(religionPreference, setReligionPreferenceError);
