@@ -16,8 +16,10 @@ exports[`Status Snapshot test should render correctly regardless of properties 1
           className=" css-g1d714-ValueContainer"
         >
           <div
-            className=" css-1uccc91-singleValue"
-          />
+            className=" css-1d6d5xl-placeholder"
+          >
+            Family Status
+          </div>
           <div
             className="css-b8ldur-Input"
           >

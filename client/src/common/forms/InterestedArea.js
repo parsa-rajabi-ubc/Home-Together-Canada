@@ -88,7 +88,7 @@ function InterestedArea(props) {
                                                                      name="radius"
                                                                      options={radii}
                                                                      onChange={e => handleAreaRadiusChange(e, index)}
-                                                                     intialSelection={{label: extraAreas[index].radius, value: extraAreas[index].radius}}
+                                                                     intialSelection={{label: extraAreas[index].radius + "km", value: extraAreas[index].radius + "km"}}
                                                                      dropdownCSS={dropdownDefaultCSS}
                                 />}
                             </div>
