@@ -22,7 +22,10 @@ import {
     checkIfErrorsExistInMapping,
     validatePhoneNumber,
     validatePasswordConfirmationMismatch,
-    validatePasswordConfirmationEmpty, validateEmail
+    validatePasswordConfirmationEmpty,
+    validateEmail,
+    validatePassword,
+    validateMinMax
 } from "./registrationUtils";
 import RegistrationService from "../services/RegistrationService";
 import RadioButton from "../common/forms/RadioButton";
@@ -41,6 +44,7 @@ import Tooltip from "../common/forms/Tooltip";
 import {USER_TYPES} from "../common/constants/users";
 import {dropdownDefaultCSS, dropdownErrorCSS} from "../css/dropdownCSSUtil"
 import {Link} from "react-router-dom";
+import {includes} from "lodash/includes";
 
 const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
 
@@ -56,7 +60,7 @@ function MemberRegistrationForm(props) {
         middle: undefined,
         last: undefined
     });
-    const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(undefined);
+    const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(false);
     const [address, setAddress] = useState({
         street: undefined,
         aptNum: undefined,
@@ -120,8 +124,22 @@ function MemberRegistrationForm(props) {
 
     const [selectedWorkStatus, setsSelectedWorkStatus] = useState();
 
-    // Error state variables 
-    // Personal Information Start  
+    const [minAgePreference, setMinAgePreference] = useState("");
+    const [maxAgePreference, setMaxAgePreference] = useState("");
+    const [genderPreference, setGenderPreference] = useState("");
+    const [familyStatusPreference, setFamilyStatusPreference] = useState("");
+    const [minNumRoommatePreference, setMinNumRoommate] = useState("");
+    const [maxNumRoommatePreference, setMaxNumRoommate] = useState("");
+    const [religionPreference, setReligionPreference] = useState("");
+    const [dietPreference, setDietPreference] = useState("");
+    const [homeToSharePreference, setHomeToSharePreference] = useState("");
+    const [minBudgetPreference, setMinBudgetPreference] = useState("");
+    const [maxBudgetPreference, setMaxBudgetPreference] = useState("");
+    const [petPreference, setPetPreference] = useState("");
+    const [smokingPreference, setSmokingPreference] = useState("");
+
+    // Error state variables
+    // Personal Information Start
     const [firstNameError, setFirstNameError] = useState(undefined);
     const [lastNameError, setLastNameError] = useState(undefined);
     const [emailError, setEmailError] = useState(undefined);
@@ -159,6 +177,22 @@ function MemberRegistrationForm(props) {
     const [homeError, setHomeError] = useState(undefined);
     const [interestInBuyingError, setInterestInBuyingError] = useState(undefined);
     // Profile Details End
+
+    // Search Criteria
+    const [minAgePreferenceError, setMinAgePreferenceError] = useState(undefined);
+    const [maxAgePreferenceError, setMaxAgePreferenceError] = useState(undefined);
+    const [genderPreferenceError, setGenderPreferenceError] = useState(undefined);
+    const [familyStatusPreferenceError, setFamilyStatusPreferenceError] = useState(undefined);
+    const [minNumRoommatePreferenceError, setMinNumRoommatePreferenceError] = useState(undefined);
+    const [maxNumRoommatePreferenceError, setMaxNumRoommatePreferenceError] = useState(undefined);
+    const [religionPreferenceError, setReligionPreferenceError] = useState(undefined);
+    const [dietPreferenceError, setDietPreferenceError] = useState(undefined);
+    const [homeToSharePreferenceError, setHomeToSharePreferenceError] = useState(undefined);
+    const [minBudgetPreferenceError, setMinBudgetPreferenceError] = useState(undefined);
+    const [maxBudgetPreferenceError, setMaxBudgetPreferenceError] = useState(undefined);
+    const [petPreferenceError, setPetPreferenceError] = useState(undefined);
+    const [smokingPreferenceError, setSmokingPreferenceError] = useState(undefined);
+
 
     // Account Details Start
     const [usernameError, setUsernameError] = useState(undefined);
@@ -225,7 +259,7 @@ function MemberRegistrationForm(props) {
         username !== undefined && validateInput(username, setUsernameError);
     }, [username]);
     useEffect(() => {
-        password !== undefined && validateInput(password, setPasswordError);
+        password !== undefined && validatePassword(password, setPasswordError);
     }, [password]);
     useEffect(() => {
         passwordCheck !== undefined && validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
@@ -267,6 +301,7 @@ function MemberRegistrationForm(props) {
 
     }
 
+
     const handleFamilyStatusChange = e => {
         setsSelectedFamilyStatus(e.value);
     }
@@ -291,6 +326,19 @@ function MemberRegistrationForm(props) {
         setYearOfBirth(e.value);
     }
 
+    function handleGenderPrefChange(e) {
+        const list = [...genderPreference];
+        const value = e.target.id;
+        // check if the value select already exists in the list
+        if (!includes(list, value)) {
+            // if not, add the value
+            list.push(value);
+        } else {
+            // if it does, remove it from the array
+            list.splice(list.indexOf(value), 1);
+        }
+        setGenderPreference(list);
+    }
 
     const isFormValid = () => {
 
@@ -334,6 +382,29 @@ function MemberRegistrationForm(props) {
             errorBuyingHome: false,
         }
 
+        const searchErrors = {
+            errorGenderPref: false,
+            errorAgePref: {
+                min: false,
+                max: false,
+            },
+            errorFamilyStatusPref: false,
+            errorNumRoommate: {
+                min: false,
+                max: false,
+            },
+            errorBudgetPref: {
+                min: false,
+                max: false,
+            },
+            errorPetPref: false,
+            errorSmokingPref: false,
+            errorReligionPref: false,
+            errorDietPref: false,
+            errorHomeToSharePref: false,
+
+        }
+
         const accountDetailsErrors = {
             errorUsername: false,
             errorPassword: {
@@ -365,8 +436,8 @@ function MemberRegistrationForm(props) {
         profileInfoErrors.errorFamilyStatus = validateInput(selectedFamilyStatus, setFamilyStatusError);
         profileInfoErrors.errorWorkStatus = validateInput(selectedWorkStatus, setWorkStatusError);
         profileInfoErrors.errorLimit = validateInput(selectedLimit, setLimitError);
-        profileInfoErrors.errorRent.min = validateInput(minRent, setMinRentError);
-        profileInfoErrors.errorRent.max = validateInput(maxRent, setMaxRentError);
+        profileInfoErrors.errorRent.min = validateMinMax(minRent, setMinRentError);
+        profileInfoErrors.errorRent.max = validateMinMax(maxRent, setMaxRentError);
 
         for (let i = 0; i <= areasOfInterest.length - 1; i++) {
             if (!areasOfInterest[i].province || !areasOfInterest[i].city || !areasOfInterest[i].radius) {
@@ -388,11 +459,27 @@ function MemberRegistrationForm(props) {
         profileInfoErrors.errorHomeToShare = validateInput(hasHome, setHomeError);
         profileInfoErrors.errorBuyingHome = validateInput(interestInBuyingHome, setInterestInBuyingError);
 
+        // Search Criteria Validation
+        searchErrors.errorGenderPref = validateInput(genderPreference, setGenderPreferenceError);
+        searchErrors.errorAgePref.min = validateMinMax(minAgePreference, setMinAgePreferenceError);
+        searchErrors.errorAgePref.max = validateMinMax(maxAgePreference, setMaxAgePreferenceError);
+        searchErrors.errorFamilyStatusPref = validateInput(familyStatusPreference, setFamilyStatusPreferenceError);
+        searchErrors.errorNumRoommate.min = validateMinMax(minNumRoommatePreference, setMinNumRoommatePreferenceError)
+        searchErrors.errorNumRoommate.max = validateMinMax(maxNumRoommatePreference, setMaxNumRoommatePreferenceError)
+        searchErrors.errorBudgetPref.min = validateMinMax(minBudgetPreference, setMinBudgetPreferenceError);
+        searchErrors.errorBudgetPref.max = validateMinMax(maxBudgetPreference, setMaxBudgetPreferenceError);
+        searchErrors.errorPetPref = validateInput(petPreference, setPetPreferenceError);
+        searchErrors.errorSmokingPref = validateInput(smokingPreference, setSmokingPreferenceError);
+        searchErrors.errorReligionPref = validateInput(religionPreference, setReligionPreferenceError);
+        searchErrors.errorDietPref = validateInput(dietPreference, setDietPreferenceError);
+        searchErrors.errorHomeToSharePref = validateInput(homeToSharePreference, setHomeToSharePreferenceError);
+
         // Account Details Validation
         accountDetailsErrors.errorUsername = validateInput(username, setUsernameError);
-        accountDetailsErrors.errorPassword.password = validateInput(password, setPasswordError);
+        accountDetailsErrors.errorPassword.password = validatePassword(password, setPasswordError);
         accountDetailsErrors.errorPassword.passwordConfirmationEmpty = validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
         accountDetailsErrors.errorPassword.passwordConfirmationMismatch = validatePasswordConfirmationMismatch(password, passwordCheck, setPasswordConfirmError);
+
 
         // check personal information for errors
         if (checkIfErrorsExistInMapping(personalInfoErrors)) {
@@ -400,13 +487,10 @@ function MemberRegistrationForm(props) {
             // check profile for errors
         } else if (checkIfErrorsExistInMapping(profileInfoErrors)) {
             return false;
-            // check account details for errors
-        } else if (checkIfErrorsExistInMapping(accountDetailsErrors)) {
+        } else if (checkIfErrorsExistInMapping(searchErrors)) {
             return false;
-            // return true if no errors
-        } else {
-            return true;
-        }
+            // check account details for errors
+        } else return !checkIfErrorsExistInMapping(accountDetailsErrors);
 
     }
 
@@ -424,9 +508,13 @@ function MemberRegistrationForm(props) {
         DIET: "The diet of your roommate(s) is important to you",
         HOME_TO_SHARE: "If you have a home to share, we recommend that you also create a free listing in addition to providing a short description below",
         ABOUT: "Do not disclose any personal information as your profile is publicly viewable by all members on Home Together",
+        PREF: {
+            GENDER: "Choose as many options as you wish, however you must select at least one",
+            AGE: "Both min and max numbers are inclusive"
+        }
     };
 
-    //function for input checks on submit
+//function for input checks on submit
     function onSubmit(event) {
 
         if (!isFormValid()) {
@@ -465,8 +553,8 @@ function MemberRegistrationForm(props) {
             ...(selectedFamilyStatus === 'Existing Group' && !isStringEmpty(groupMembers))
             && {existingGroupUsernames: groupMembers.split(',').map(item => item.trim())},
             workStatus: selectedWorkStatus,
-            minMonthlyBudget: minRent,
-            maxMonthlyBudget: maxRent,
+            minMonthlyBudget: Number(minRent),
+            maxMonthlyBudget: Number(maxRent),
             hasHomeToShare: (hasHome === 'yes'),
             ...(hasHome === 'yes') && {hasHomeToShareDescription: homeDescription},
             isReligionImportant: (religious === 'yes'),
@@ -484,12 +572,28 @@ function MemberRegistrationForm(props) {
             numRoommates: selectedLimit,
             bio: aboutSelf,
             areasOfInterest: areasOfInterest,
+
+            //TODO: Add Request for Search Criteria
+
+            // minAgePreference: minAgePreference,
+            // maxAgePreference: maxAgePreference,
+            // statusPreference: familyStatusPreference,
+            // minNumRoommatesPreference: minNumRoommatePreference,
+            // maxNumRoommatesPreference: maxNumRoommatePreference,
+            // minBudgetPreference: minBudgetPreference,
+            // maxBudgetPreference: maxBudgetPreference,
+            // dietPreference: dietPreference,
+            // petsPreference: petPreference,
+            // smokingPreference: smokingPreference,
+            // genderPreference: genderPreference,
+            // religionPreference: religionPreference,
+            // othersWithHomeToSharePreference: homeToSharePreference,
         }
 
         RegistrationService.registerMemberUser(registrationData)
             .then(res => res.json())
             .then(data => {
-                if (!!data && data.authenticated) {
+                if (data && data.authenticated) {
                     // dispatch action to set isAdmin
                     setIsAdmin({isAdmin: data.member ? data.member.isAdmin : false});
 
@@ -503,11 +607,11 @@ function MemberRegistrationForm(props) {
 
                     // user is authenticated, redirect to home screen
                     return history.push('/');
-                } else if (!!data && data.errors && data.errors.length) {
+                } else if (data && data.errors && data.errors.length) {
                     const errorMessage = getConcatenatedErrorMessage(data.errors);
                     // show list of all errors
                     alert(errorMessage);
-                } else if (!!data && !data.authenticated) {
+                } else if (data && !data.authenticated) {
                     // something went wrong with the AUTHENTICATION (not the user creation)
                     alert('Registration failed');
                 }
@@ -523,18 +627,18 @@ function MemberRegistrationForm(props) {
                 <div className="md:col-span-1">
                     <div className="px-4 sm:px-0">
                         <h3 className="info-header">Personal Information</h3>
-                        <p className="info-text mr-10">
+                        <p className="mr-10 info-text">
                             This information is about you and is private. Home Together Canada will not share this
                             information with anyone and will only be used for verification purposes. Please see
                             <Link to={'/faq'} className={"label"}> FAQs</Link> for more information.
                         </p>
-                        <p className="info-text mr-10">
+                        <p className="mr-10 info-text">
                             <Asterisk/>Required Field
                         </p>
                     </div>
                 </div>
                 <div
-                    className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
+                    className="py-5 px-4 mt-5 space-y-1 bg-white shadow md:mt-0 md:col-span-2 sm:rounded-md sm:overflow-hidden sm:p-6">
                     <div className="grid grid-cols-2 gap-6">
                         <div className="col-span-3 sm:col-span-2">
                             <TextArea
@@ -618,8 +722,8 @@ function MemberRegistrationForm(props) {
                     </div>
                     <div className="mt-5 md:mt-0 md:col-span-2">
                         <div className="overflow-hidden shadow sm:rounded-md">
-                            <div className="px-4 py-6 bg-white sm:p-5">
-                                <div className="grid grid-cols-2 gap-6 ">
+                            <div className="py-6 px-4 bg-white sm:p-5">
+                                <div className="grid grid-cols-2 gap-6">
                                     <div className="col-span-3 sm:col-span-2">
                                         <section
                                             className={`${genderError && "pl-1 border rounded-lg border-red-500 mr-52"}`}>
@@ -649,7 +753,7 @@ function MemberRegistrationForm(props) {
                                         </section>
                                         {(gender === "Other") &&
                                         <TextArea
-                                            className="input mt-0"
+                                            className="mt-0 input"
                                             labelClassName={"label mt-5"}
                                             placeholder="What gender do you identify as? (optional)"
                                             value={genderDescription}
@@ -682,7 +786,7 @@ function MemberRegistrationForm(props) {
                                                     type="number"
                                                     min="0"
                                                     step="1"
-                                                    placeholder="MIN $ CAD"
+                                                    placeholder="Min $ CAD"
                                                     onChange={(e) => setMinRent(e.target.value)}
                                                 />
                                             </div>
@@ -692,7 +796,7 @@ function MemberRegistrationForm(props) {
                                                     type="number"
                                                     min={minRent}
                                                     step="1"
-                                                    placeholder=" MAX $ CAD"
+                                                    placeholder="Max $ CAD"
                                                     onChange={(e) => setMaxRent(e.target.value)}
                                                 />
 
@@ -888,6 +992,203 @@ function MemberRegistrationForm(props) {
 
             {/*Divided*/}
             <div className="border-divider"/>
+            {/*Search Criteria*/}
+            <div className="mt-10 sm:mt-0">
+                <div className="m-10 md:grid md:grid-cols-4 md:gap-6">
+                    <div className="px-4 md:col-span-1 sm:px-0">
+                        <h3 className="info-header">Search Criteria</h3>
+                        <p className="info-text">
+                            This information be used to find other compatible members on Home Together Canada
+                            <Link to={'/faq'} className={"label"}> FAQs</Link>.
+                        </p>
+                    </div>
+
+                    <div className="overflow-hidden py-6 px-4 mt-5 bg-white shadow md:mt-0 md:col-span-2 sm:rounded-md sm:p-5">
+                        <div className="grid grid-cols-2 gap-6">
+                            <div className="col-span-3 sm:col-span-2">
+                                <section
+                                    className={`${genderPreferenceError && "pl-1 border rounded-lg border-red-500 mr-52"}`}>
+                                    <LabelAsterisk label={"I am open to sharing with "}/>
+                                    <Tooltip text={INFO_TEXT.PREF.GENDER} toolTipID="genderPref"/>
+                                    <div className={"my-2"}>
+                                        <Checkbox
+                                            label="Male"
+                                            id="Male"
+                                            className={"align-middle mt-0 mr-1 mb-0 h-4 w-4 border-gray-300 rounded-lg"}
+                                            fontNormal={true}
+                                            onChange={handleGenderPrefChange}
+                                        />
+                                        <Checkbox
+                                            label="Female"
+                                            id={"Female"}
+                                            className={"align-middle mt-0 mr-1 mb-0 text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"}
+                                            fontNormal={true}
+                                            onChange={handleGenderPrefChange}
+                                        />
+                                        <Checkbox
+                                            label="Other"
+                                            id={"Other"}
+                                            className={"align-middle mt-0 mr-1 mb-0 text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"}
+                                            fontNormal={true}
+                                            onChange={handleGenderPrefChange}
+                                        />
+                                    </div>
+                                </section>
+                                <LabelAsterisk label={"I am open to sharing with"}/>
+                                <Tooltip text={INFO_TEXT.FAMILY_STATUS} toolTipID="familyStatusPref"/>
+                                <Status onChange={setFamilyStatusPreference}
+                                        dropdownCSS={familyStatusPreferenceError ? dropdownErrorCSS : dropdownDefaultCSS}
+                                        isDropdownMulti={true}
+                                />
+                                <LabelAsterisk label={"Age range of person(s) I would like to share with"}/>
+                                <Tooltip text={INFO_TEXT.PREF.AGE} toolTipID="agePref"/>
+                                <div className="grid grid-cols-6 gap-x-6">
+                                    <div className="column-span-6-layout">
+                                        <input
+                                            className={`${minAgePreferenceError && "border-red-500"} input`}
+                                            type="number"
+                                            min="16"
+                                            step="1"
+                                            placeholder="Min Age"
+                                            onChange={(e) => setMinAgePreference(e.target.value)}
+                                        />
+                                    </div>
+                                    <div className="column-span-6-layout">
+                                        <input
+                                            className={`${maxAgePreferenceError && "border-red-500"} input`}
+                                            type="number"
+                                            min={minAgePreference}
+                                            step="1"
+                                            placeholder="Max Age"
+                                            onChange={(e) => setMaxAgePreference(e.target.value)}
+                                        />
+                                    </div>
+                                </div>
+                                <LabelAsterisk label={"I'm looking for roommates who have the following preference"}/>
+                                <Tooltip text={INFO_TEXT.NUM_PEOPLE_SHARE} toolTipID="numPeopleToSharePref"/>
+                                <div className="grid grid-cols-6 gap-x-6">
+                                    <div className="column-span-6-layout">
+                                        <input
+                                            className={`${minNumRoommatePreferenceError && "border-red-500"} input`}
+                                            type="number"
+                                            min="0"
+                                            step="1"
+                                            placeholder="Min # Roommate(s)"
+                                            onChange={(e) => setMinNumRoommate(e.target.value)}
+                                        />
+                                    </div>
+                                    <div className="column-span-6-layout">
+                                        <input
+                                            className={`${maxNumRoommatePreferenceError && "border-red-500"} input`}
+                                            type="number"
+                                            min={minNumRoommatePreference}
+                                            step="1"
+                                            placeholder="Max # Roommate(s)"
+                                            onChange={(e) => setMaxNumRoommate(e.target.value)}
+                                        />
+                                    </div>
+                                </div>
+
+                                <LabelAsterisk label={"I am looking for member(s) who have the following budget range"}/>
+                                <Tooltip text={INFO_TEXT.RENT} toolTipID="rentPref"/>
+                                <div className="grid grid-cols-6 gap-x-6">
+                                    <div className="column-span-6-layout">
+                                        <input
+                                            className={`${minBudgetPreferenceError && "border-red-500"} input`}
+                                            type="number"
+                                            min="0"
+                                            step="1"
+                                            placeholder="Min $ CAD"
+                                            onChange={(e) => setMinBudgetPreference(e.target.value)}
+                                        />
+                                    </div>
+                                    <div className="column-span-6-layout">
+                                        <input
+                                            className={`${maxBudgetPreferenceError && "border-red-500"} input`}
+                                            type="number"
+                                            min={minBudgetPreference}
+                                            step="1"
+                                            placeholder=" Max $ CAD"
+                                            onChange={(e) => setMaxBudgetPreference(e.target.value)}
+                                        />
+                                    </div>
+                                </div>
+                                <label className={"label"}>I am looking for others who are/find:</label>
+                                <div className="grid grid-cols-6 gap-x-6">
+                                    <div className="column-span-6-layout">
+                                        <section
+                                            className={`${petPreferenceError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                            <YNButton
+                                                label={"Pet friendly?"}
+                                                toolTipText={INFO_TEXT.PET}
+                                                toolTipID="pet"
+                                                name="petFriendlyPref"
+                                                required={true}
+                                                onChange={(e) => setPetPreference(e.target.value)}
+                                            />
+                                        </section>
+                                    </div>
+                                    <div className="column-span-6-layout">
+                                        <section
+                                            className={`${smokingPreferenceError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                            <YNButton
+                                                label={"Smoke friendly?"}
+                                                toolTipText={INFO_TEXT.SMOKE}
+                                                toolTipID="smoke"
+                                                name="smokingPref"
+                                                required={true}
+                                                onChange={(e) => setSmokingPreference(e.target.value)}
+                                            />
+                                        </section>
+                                    </div>
+                                    <div className="column-span-6-layout">
+                                        <section
+                                            className={`${religionPreferenceError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                            <YNButton
+                                                label={"Is religion important?"}
+                                                toolTipText={INFO_TEXT.RELIGION}
+                                                toolTipID="religion"
+                                                name="religion"
+                                                required={true}
+                                                onChange={(e) => setReligionPreference(e.target.value)}
+                                            />
+                                        </section>
+                                    </div>
+                                    <div className="column-span-6-layout">
+                                        <section
+                                            className={`${dietPreferenceError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                            <YNButton
+                                                label={"Is diet of others important?"}
+                                                toolTipText={INFO_TEXT.DIET}
+                                                toolTipID="diet"
+                                                name="diet"
+                                                required={true}
+                                                onChange={(e) => setDietPreference(e.target.value)}
+                                            />
+                                        </section>
+                                    </div>
+                                    <div className="column-span-6-layout">
+                                        <section
+                                            className={`${homeToSharePreferenceError && "pl-1 border rounded-lg border-red-500"} my-2`}>
+                                            <YNButton
+                                                label={"Others with a home to share?"}
+                                                toolTipText={INFO_TEXT.HOME_TO_SHARE}
+                                                toolTipID="homeToShare"
+                                                name="homeToSharePref"
+                                                required={true}
+                                                onChange={(e) => setHomeToSharePreference(e.target.value)}
+                                            />
+                                        </section>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/*Divided*/}
+            <div className="border-divider"/>
 
             {/*Account Details*/}
             <div className="mt-10 sm:mt-0">
@@ -909,7 +1210,7 @@ function MemberRegistrationForm(props) {
 
                     <div className="mt-5 md:mt-0 md:col-span-2">
                         <div className="overflow-hidden shadow sm:rounded-md">
-                            <div className="px-4 py-6 bg-white sm:p-5">
+                            <div className="py-6 px-4 bg-white sm:p-5">
                                 <div className="grid grid-cols-2 gap-6">
                                     <div className="col-span-3 sm:col-span-2">
                                         <SignInInfo
@@ -918,7 +1219,7 @@ function MemberRegistrationForm(props) {
                                             onChangePasswordCheck={(e) => setPasswordCheck(e.target.value)}
                                             usernameError={usernameError}
                                             passwordError={passwordError}
-                                            passwordConfirmError={passwordConfirmError}
+                                            passwordConfirmError={passwordConfirmError ? "error" : null}
                                             passwordConfirmErrorMsg={(passwordConfirmError === "empty") ? "empty" : (passwordConfirmError === "mismatch" ? "mismatch" : "")}
                                         />
                                     </div>

@@ -2,12 +2,15 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const routes = require('./routes');
-const db = require("./models");
 const cors = require('cors');
 const expressValidator = require('express-validator');
 const passport = require('passport');
 const session = require('express-session');
+
+const routes = require('./routes.js');
+const businessRoutes = require('./routes/businessRoutes');
+const userRoutes = require('./routes/userRoutes');
+const db = require("./models");
 
 const app = express();
 
@@ -34,6 +37,8 @@ app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true}))
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
+app.use('/user', userRoutes);
+app.use('/business', businessRoutes);
 app.use('/', routes);
 
 //load passport strategies
@@ -41,7 +46,7 @@ require("./config/passport.js")(passport);
 
 
 // force false will prevent the database from being cleared everytime the server starts up
-db.sequelize.sync({ force: true })
+db.sequelize.sync({ force: false })
     .then(() => {
       console.log("Drop and re-sync db.");
     })
