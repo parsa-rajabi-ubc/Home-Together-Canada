@@ -34,7 +34,7 @@ const AccountSummaryContainer = () => {
             case ALL_SUBPAGES.MANAGE_LISTINGS:
                 return <div>Manage Listings Component</div>
             default:
-                return accountType === USER_TYPES.BUSINESS ? <BusinessAccountSummary values={businessUser}/> : <Error404/>
+                return accountType === USER_TYPES.MEMBER ? <Error404/> : <BusinessAccountSummary businessAccountInfo={businessUser}/>
         }
     }
 

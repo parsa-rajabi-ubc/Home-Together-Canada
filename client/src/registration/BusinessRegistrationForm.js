@@ -27,7 +27,7 @@ import {
     validatePasswordConfirmationMismatch,
     validatePhoneNumber
 } from "./registrationUtils";
-import {Business_Info_Text} from "../common/constants/TooltipText.js";
+import {BUSINESS_INFO_TEXT} from "../common/constants/TooltipText.js";
 import Asterisk from "../common/forms/Asterisk";
 import {connect} from 'react-redux';
 import {setAccountType, setAuthenticated} from '../redux/slices/userPrivileges';
@@ -472,7 +472,7 @@ const BusinessRegistrationForm = (props) => {
                                     }}/>
                                 <div className={"my-2"}>
                                     <Checkbox label={"Incorporated Business"}
-                                              toolTipText={Business_Info_Text.INC_COMPANY}
+                                              toolTipText={BUSINESS_INFO_TEXT.INC_COMPANY}
                                               toolTipID="incorporated"
                                               onChange={() => setIsIncorporated(!isIncorporated)}/>
                                     {isIncorporated && <TextArea className="input"
@@ -517,7 +517,7 @@ const BusinessRegistrationForm = (props) => {
                                          postalCodeError={postalCodeError}
                                          onChange={handleBAddressChange}/>
                                 <Checkbox label={"Different Mailing Address"}
-                                          toolTipText={Business_Info_Text.DIFF_MAILING_ADDRESS}
+                                          toolTipText={BUSINESS_INFO_TEXT.DIFF_MAILING_ADDRESS}
                                           toolTipID="differentMailingAddress"
                                           onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}/>
                                 {useDifferentMailingAddress &&
@@ -530,14 +530,14 @@ const BusinessRegistrationForm = (props) => {
                                          onChange={handleBMailingAddress}/>}
                                 <div>
                                     <Checkbox label={"Canada-wide Business"}
-                                              toolTipText={Business_Info_Text.NATION_WIDE}
+                                              toolTipText={BUSINESS_INFO_TEXT.NATION_WIDE}
                                               toolTipID="nationWide"
                                               onChange={() => {
                                                   setIfNationWide(isNationWide => !isNationWide)
                                               }}/>
                                     {!isNationWide &&
                                     <Address label="Searchable Address"
-                                             toolTipText={Business_Info_Text.MAP_ADDRESS}
+                                             toolTipText={BUSINESS_INFO_TEXT.MAP_ADDRESS}
                                              toolTipID={"mapAddress"}
                                              required={true}
                                              streetAddressError={streetMapAddressError}
@@ -551,7 +551,7 @@ const BusinessRegistrationForm = (props) => {
 
                         <label className="label"> Business Logo </label>
                         <Tooltip
-                            text={Business_Info_Text.BUSINESS_LOGO}
+                            text={BUSINESS_INFO_TEXT.BUSINESS_LOGO}
                             toolTipID="businessLogo"
                         />
                         <div
