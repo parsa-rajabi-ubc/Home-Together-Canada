@@ -11,6 +11,10 @@ import {useLocation} from 'react-router-dom';
 import SubPages from "./SubPages";
 import {ALL_SUBPAGES, BUSINESS_SUBPAGES, MEMBER_SUBPAGES, USER_TYPES} from "../common/constants/users";
 import ChangePasswordContainer from "./ChangePasswordContainer";
+import MemberAccountSummary from "./member/MemberAccountSummary";
+import memberAccountInfo  from "./member/MockData";
+import MemberProfileSummary from "./member/MemberProfileSummary";
+import Error404 from "../common/error/Error404";
 
 const AccountSummaryContainer = () => {
     const {accountType, selected} = useLocation().state;
@@ -22,7 +26,7 @@ const AccountSummaryContainer = () => {
     const subpageComponent = (subpage) => {
         switch (subpage) {
             case ALL_SUBPAGES.PROFILE:
-                return <div>Profile Component</div>
+                return accountType === USER_TYPES.MEMBER ? <MemberProfileSummary memberAccountInfo ={memberAccountInfo }/> : <Error404/>
             case ALL_SUBPAGES.PASSWORD:
                 return <ChangePasswordContainer/>
             case ALL_SUBPAGES.MESSAGING:
@@ -30,7 +34,7 @@ const AccountSummaryContainer = () => {
             case ALL_SUBPAGES.MANAGE_LISTINGS:
                 return <div>Manage Listings Component</div>
             default:
-                return <div>Account Info Component</div>
+                return accountType === USER_TYPES.MEMBER ? <MemberAccountSummary memberAccountInfo ={memberAccountInfo }/> : <div/>
         }
     }
 

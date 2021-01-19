@@ -17,8 +17,8 @@ import {dropdownDefaultCSS} from "../../css/dropdownCSSUtil"
 
 
 function InterestedArea(props) {
-    const {onChange, areasOfInterestError} = props;
-    const [extraAreas, setExtraAreas] = useState([{province: "", city: "", radius: ""}]);
+    const {onChange, givenAreasOfInterest, areasOfInterestError} = props;
+    const [extraAreas, setExtraAreas] = useState(givenAreasOfInterest || [{province: "", city: "", radius: 0}]);
 
     const handleRemoveClick = index => {
         const list = [...extraAreas];
@@ -68,6 +68,7 @@ function InterestedArea(props) {
                                           name="province"
                                           options={getProvinces()}
                                           onChange={e => handleAreaProvinceChange(e, index)}
+                                          intialSelection={(extraAreas[index].province && {label: extraAreas[index].province, value: extraAreas[index].province}) || undefined}
                                           dropdownCSS={dropdownDefaultCSS}
                                 />
                                 <span>{currentAreaValues[index]}</span>
@@ -78,6 +79,7 @@ function InterestedArea(props) {
                                           name="city"
                                           options={getCities(currentAreaValues.province)}
                                           onChange={e => handleAreaCityChange(e, index)}
+                                          intialSelection={(extraAreas[index].city && {label: extraAreas[index].city, value: extraAreas[index].city}) || undefined}
                                           dropdownCSS={dropdownDefaultCSS}
                                 />}
                             </div>
@@ -86,6 +88,7 @@ function InterestedArea(props) {
                                                                      name="radius"
                                                                      options={radii}
                                                                      onChange={e => handleAreaRadiusChange(e, index)}
+                                                                     intialSelection={(extraAreas[index].radius && {label: extraAreas[index].radius + "km", value: extraAreas[index].radius + "km"}) || undefined}
                                                                      dropdownCSS={dropdownDefaultCSS}
                                 />}
                             </div>
@@ -111,6 +114,7 @@ function InterestedArea(props) {
 
 InterestedArea.propTypes = {
     onChange: PropTypes.func,
+    givenAreasOfInterest: PropTypes.array,
     areasOfInterestError: PropTypes.bool,
 }
 

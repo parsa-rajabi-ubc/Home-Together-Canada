@@ -439,6 +439,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                   onChange={[Function]}
                   placeholder="Address Line 2: Apt, suite, etc. (optional)"
                   type="text"
+                  value=""
                 />
               </div>
               <div
@@ -998,6 +999,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                     onChange={[Function]}
                     placeholder="Address Line 2: Apt, suite, etc. (optional)"
                     type="text"
+                    value=""
                   />
                 </div>
                 <div
