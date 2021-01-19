@@ -692,10 +692,10 @@ function MemberRegistrationForm(props) {
                             {useDifferentMailingAddress &&
                             <Address
                                 label="Mailing Address"
-                                streetClassName={`${streetMailingAddressError && "border-red-500"} input`}
-                                cityClassName={`${cityMailingAddressError && "border-red-500"} input`}
-                                provinceClassName={provinceMailingAddressError ? dropdownErrorCSS : dropdownDefaultCSS}
-                                postalCodeClassName={`${postalCodeMailingError && "border-red-500"} input`}
+                                streetAddressError={streetMailingAddressError}
+                                cityAddressError={cityMailingAddressError}
+                                provinceAddressError={provinceMailingAddressError}
+                                postalCodeError={postalCodeMailingError}
                                 required={true}
                                 onChange={setMailingAddress}
                             />}
