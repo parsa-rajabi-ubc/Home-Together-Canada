@@ -13,6 +13,7 @@ const { validationResult } = require('express-validator/check');
 const multer = require('multer');
 
 const businessAccounts = require('../controllers/businessAccountController');
+const abstractUsers = require('../controllers/abstractUserController');
 const usersValidator = require('../controllers/validators/userControllerValidator');
 const { isLoggedIn, userIsBusiness } = require('./routeUtils');
 
@@ -48,11 +49,28 @@ router.post('/create/', usersValidator.validate('createBusinessUser'),
         } else {
             passport.authenticate('local-signup-business', {
                 // change these routes to ones that send actual response data
-                successRedirect: '/successfulLogin/',
-                failureRedirect: '/checkAuth',
+                successRedirect: '/user/successfulLogin/',
+                failureRedirect: '/user/checkAuth/',
                 failureFlash: false })(req, res, next);
         }
     });
+
+router.get('/info/', isLoggedIn, userIsBusiness, function (req, res, next) {
+    let businessData = {};
+
+    abstractUsers.findAbstractUser(req.user.uid)
+        .then(abstractUser => {
+            businessData = { ...abstractUser.dataValues };
+            return businessAccounts.findBusinessByUid(req.user.uid);
+        })
+        .then(business => {
+            businessData = { ...businessData, ...business.dataValues };
+            res.status(200).json({ business: businessData });
+        })
+        .catch(err => {
+            res.status(400).json(err);
+        });
+});
 
 // Upload logo
 router.post('/upload/logo/',

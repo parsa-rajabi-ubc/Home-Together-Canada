@@ -29,22 +29,6 @@ router.get('/memberAccount/all/', function (req, res, next) {
     memberAccounts.findAllMemberAccounts(req, res);
 });
 
-// Create a business user
-router.post('/business/create/', usersValidator.validate('createBusinessUser'),
-    function (req, res, next) {
-        const errors = validationResult(req);
-
-        if (!errors.isEmpty()) {
-            res.status(202).json({ errors: errors.array()});
-        } else {
-            passport.authenticate('local-signup-business', {
-                // change these routes to ones that send actual response data
-                successRedirect: '/user/successfulLogin/',
-                failureRedirect: '/user/checkAuth/',
-                failureFlash: false })(req, res, next);
-        }
-});
-
 router.post('/member/create/', usersValidator.validate('createMemberUser'),
     function (req, res, next) {
         const errors = validationResult(req);
