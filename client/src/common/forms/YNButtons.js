@@ -11,7 +11,6 @@ import PropTypes from 'prop-types';
 import RadioButton from "./RadioButton";
 import Asterisk from "./Asterisk";
 import Tooltip from "./Tooltip";
-import propTypes from "prop-types";
 
 function YNButton(props) {
     const {label, name, onChange, required, toolTipID, toolTipText, value} = props;
@@ -35,7 +34,7 @@ YNButton.propTypes = {
     toolTipID: PropTypes.string,
     required: PropTypes.bool,
     onChange: PropTypes.func,
-    value: PropTypes.oneOfType([propTypes.string, propTypes.bool])
+    value: PropTypes.string
 };
 
 export default YNButton;

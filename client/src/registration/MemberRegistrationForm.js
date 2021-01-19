@@ -798,7 +798,7 @@ function MemberRegistrationForm(props) {
                                                         toolTipID="pet"
                                                         name="petFriendly"
                                                         required={true}
-                                                        value={petFriendly === "no"}
+                                                        value={petFriendly}
                                                         onChange={(e) => setPetFriendly(e.target.value)}
                                                     />
                                                     {(petFriendly === "yes") &&
@@ -819,7 +819,7 @@ function MemberRegistrationForm(props) {
                                                         toolTipID="smoke"
                                                         name="smoking"
                                                         required={true}
-                                                        value={smoking === "no"}
+                                                        value={smoking}
                                                         onChange={(e) => setSmoking(e.target.value)}
                                                     />
                                                     {(smoking === "yes") &&
@@ -840,7 +840,7 @@ function MemberRegistrationForm(props) {
                                                         toolTipID="health"
                                                         name="mobile"
                                                         required={true}
-                                                        value={mobilityIssues === "no"}
+                                                        value={mobilityIssues}
                                                         onChange={(e) => setMobilityIssues(e.target.value)}
                                                     />
                                                     {(mobilityIssues === "yes") &&
@@ -859,7 +859,7 @@ function MemberRegistrationForm(props) {
                                                         label={"Allergies?"}
                                                         name="allergies"
                                                         required={true}
-                                                        value={hasAllergies === "no"}
+                                                        value={hasAllergies}
                                                         onChange={(e) => setHasAllergies(e.target.value)}
                                                     />
                                                     {(hasAllergies === "yes") &&
@@ -880,7 +880,7 @@ function MemberRegistrationForm(props) {
                                                         toolTipID="religion"
                                                         name="religion"
                                                         required={true}
-                                                        value={religious === "no"}
+                                                        value={religious}
                                                         onChange={(e) => setReligious(e.target.value)}
                                                     />
                                                     {(religious === "yes") &&
@@ -901,7 +901,7 @@ function MemberRegistrationForm(props) {
                                                         toolTipID="diet"
                                                         name="diet"
                                                         required={true}
-                                                        value={hasDiet === "no"}
+                                                        value={hasDiet}
                                                         onChange={(e) => setHasDiet(e.target.value)}
                                                     />
                                                     {(hasDiet === "yes") &&
@@ -922,7 +922,7 @@ function MemberRegistrationForm(props) {
                                                         toolTipID="homeToShare"
                                                         name="hasHome"
                                                         required={true}
-                                                        value={hasHome === "no"}
+                                                        value={hasHome}
                                                         onChange={(e) => setHasHome(e.target.value)}
                                                     />
                                                     {(hasHome === "yes")
@@ -941,7 +941,7 @@ function MemberRegistrationForm(props) {
                                                         label="Interested in buying a home with others?"
                                                         name="interestInBuyingHome"
                                                         required={true}
-                                                        value={interestInBuyingHome === "no"}
+                                                        value={interestInBuyingHome}
                                                         onChange={(e) => setInterestInBuyingHome(e.target.value)}
                                                     />
                                                     {(interestInBuyingHome === "yes") &&
@@ -1108,6 +1108,7 @@ function MemberRegistrationForm(props) {
                                                 toolTipID="pet"
                                                 name="petFriendlyPref"
                                                 required={true}
+                                                value={petPreference}
                                                 onChange={(e) => setPetPreference(e.target.value)}
                                             />
                                         </section>
@@ -1121,6 +1122,7 @@ function MemberRegistrationForm(props) {
                                                 toolTipID="smoke"
                                                 name="smokingPref"
                                                 required={true}
+                                                value={smokingPreference}
                                                 onChange={(e) => setSmokingPreference(e.target.value)}
                                             />
                                         </section>
@@ -1134,6 +1136,7 @@ function MemberRegistrationForm(props) {
                                                 toolTipID="religion"
                                                 name="religion"
                                                 required={true}
+                                                value={religionPreference}
                                                 onChange={(e) => setReligionPreference(e.target.value)}
                                             />
                                         </section>
@@ -1147,6 +1150,7 @@ function MemberRegistrationForm(props) {
                                                 toolTipID="diet"
                                                 name="diet"
                                                 required={true}
+                                                value={dietPreference}
                                                 onChange={(e) => setDietPreference(e.target.value)}
                                             />
                                         </section>
@@ -1160,6 +1164,7 @@ function MemberRegistrationForm(props) {
                                                 toolTipID="homeToShare"
                                                 name="homeToSharePref"
                                                 required={true}
+                                                value={homeToSharePreference}
                                                 onChange={(e) => setHomeToSharePreference(e.target.value)}
                                             />
                                         </section>
