@@ -3980,7 +3980,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
             <label
               className="label"
             >
-              I'm looking for roommates who are looking to live with the following number of people
+              I'm looking for member(s) who are looking to live with the following number of people
                
               <svg
                 className="inline align-top text-red-600"
@@ -4921,7 +4921,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                     >
                       <input
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
-                        name="religion"
+                        name="religionPref"
                         onChange={[Function]}
                         type="radio"
                         value="no"
@@ -4933,7 +4933,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                     >
                       <input
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
-                        name="religion"
+                        name="religionPref"
                         onChange={[Function]}
                         type="radio"
                         value="yes"
@@ -5098,7 +5098,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                     >
                       <input
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
-                        name="diet"
+                        name="dietPref"
                         onChange={[Function]}
                         type="radio"
                         value="no"
@@ -5110,7 +5110,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                     >
                       <input
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
-                        name="diet"
+                        name="dietPref"
                         onChange={[Function]}
                         type="radio"
                         value="yes"
