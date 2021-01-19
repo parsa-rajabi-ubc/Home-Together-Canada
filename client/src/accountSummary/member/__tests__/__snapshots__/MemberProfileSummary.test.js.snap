@@ -1859,7 +1859,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={false}
+                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="petFriendly"
                             onChange={[Function]}
@@ -1869,6 +1869,17 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           Yes
                         </label>
                       </div>
+                      <label>
+                        
+                        <input
+                          className="input"
+                          disabled={false}
+                          onChange={[Function]}
+                          placeholder="Elaborate (optional)"
+                          type="text"
+                          value="have dogs"
+                        />
+                      </label>
                     </section>
                   </div>
                   <div
@@ -2038,7 +2049,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={false}
+                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="smoking"
                             onChange={[Function]}
@@ -2048,6 +2059,17 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           Yes
                         </label>
                       </div>
+                      <label>
+                        
+                        <input
+                          className="input"
+                          disabled={false}
+                          onChange={[Function]}
+                          placeholder="Elaborate (optional)"
+                          type="text"
+                          value="tobacco only"
+                        />
+                      </label>
                     </section>
                   </div>
                   <div
@@ -2204,7 +2226,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={false}
+                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="mobile"
                             onChange={[Function]}
@@ -2280,7 +2302,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={false}
+                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="allergies"
                             onChange={[Function]}
@@ -2290,6 +2312,17 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           Yes
                         </label>
                       </div>
+                      <label>
+                        
+                        <input
+                          className="input"
+                          disabled={false}
+                          onChange={[Function]}
+                          placeholder="Elaborate (optional)"
+                          type="text"
+                          value="peanuts"
+                        />
+                      </label>
                     </section>
                   </div>
                   <div
@@ -2459,7 +2492,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={false}
+                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="religion"
                             onChange={[Function]}
@@ -2469,6 +2502,17 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           Yes
                         </label>
                       </div>
+                      <label>
+                        
+                        <input
+                          className="input"
+                          disabled={false}
+                          onChange={[Function]}
+                          placeholder="Elaborate (optional)"
+                          type="text"
+                          value="Roman Catholic"
+                        />
+                      </label>
                     </section>
                   </div>
                   <div
@@ -2625,7 +2669,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={false}
+                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="diet"
                             onChange={[Function]}
@@ -2804,7 +2848,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={false}
+                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="hasHome"
                             onChange={[Function]}
@@ -2867,7 +2911,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
-                            checked={false}
+                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="interestInBuyingHome"
                             onChange={[Function]}
