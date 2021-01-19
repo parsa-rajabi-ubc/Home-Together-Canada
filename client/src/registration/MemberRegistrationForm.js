@@ -1072,7 +1072,7 @@ function MemberRegistrationForm(props) {
                                         />
                                     </div>
                                 </div>
-                                <LabelAsterisk label={"I'm looking for roommates who are looking to live with the following number of people"}/>
+                                <LabelAsterisk label={"I'm looking for member(s) who are looking to live with the following number of people"}/>
                                 <Tooltip text={INFO_TEXT.NUM_PEOPLE_SHARE} toolTipID="numPeopleToSharePref"/>
                                 <div className="col-span-3 sm:col-span-2">
                                     <div className="column-span-6-layout">
@@ -1144,7 +1144,7 @@ function MemberRegistrationForm(props) {
                                                 label={"Is religion important?"}
                                                 toolTipText={INFO_TEXT.RELIGION}
                                                 toolTipID="religion"
-                                                name="religion"
+                                                name="religionPref"
                                                 required={true}
                                                 onChange={(e) => setReligionPreference(e.target.value)}
                                             />
@@ -1157,7 +1157,7 @@ function MemberRegistrationForm(props) {
                                                 label={"Is diet of others important?"}
                                                 toolTipText={INFO_TEXT.DIET}
                                                 toolTipID="diet"
-                                                name="diet"
+                                                name="dietPref"
                                                 required={true}
                                                 onChange={(e) => setDietPreference(e.target.value)}
                                             />
