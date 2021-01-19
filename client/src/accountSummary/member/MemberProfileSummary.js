@@ -21,6 +21,7 @@ import SubmitButton from "../../common/forms/SubmitButton";
 import {dropdownDefaultCSS, dropdownErrorCSS} from "../../css/dropdownCSSUtil";
 import BirthYear from "../../common/forms/BirthYear";
 import get from 'lodash/get';
+import {resolveBooleanToYesNo} from "../../common/utils/stringUtils";
 import {MEMBER_PROFILE_INFO_TEXT} from "../../common/constants/TooltipText";
 import {
     checkIfErrorsExistInMapping,
@@ -35,28 +36,28 @@ function MemberProfileSummary(props) {
     const [gender, setGender] = useState(get(memberAccountInfo , 'gender', ""));
     const [genderDescription, setGenderDescription] = useState(get(memberAccountInfo , 'genderDescription', ""));
     const [yearOfBirth, setYearOfBirth] = useState(get(memberAccountInfo , 'birthYear', undefined));
-    const [petFriendly, setPetFriendly] = useState(get(memberAccountInfo , 'petFriendly', ""));
+    const [petFriendly, setPetFriendly] = useState(get(memberAccountInfo , resolveBooleanToYesNo('petFriendly'), ""));
     const [petDescription, setPetDescription] = useState(get(memberAccountInfo , 'petDescription', ""));
 
-    const [smoking, setSmoking] = useState(get(memberAccountInfo , 'smoking', ""));
+    const [smoking, setSmoking] = useState(get(memberAccountInfo , resolveBooleanToYesNo('smoking'), ""));
     const [smokingDescription, setSmokingDescription] = useState(get(memberAccountInfo , 'smokingDescription', ""));
 
-    const [mobilityIssues, setMobilityIssues] = useState(get(memberAccountInfo , 'hasHealthMobilityIssues', ""));
+    const [mobilityIssues, setMobilityIssues] = useState(get(memberAccountInfo , resolveBooleanToYesNo('hasHealthMobilityIssues'), ""));
     const [mobilityIssuesDescription, setMobilityIssuesDescription] = useState(get(memberAccountInfo , 'healthMobilityIssuesDescription', ""));
 
-    const [hasAllergies, setHasAllergies] = useState(get(memberAccountInfo , 'hasAllergies', ""));
+    const [hasAllergies, setHasAllergies] = useState(get(memberAccountInfo , resolveBooleanToYesNo('hasAllergies'), ""));
     const [allergiesDescription, setAllergiesDescription] = useState(get(memberAccountInfo , 'allergiesDescription', ""));
 
-    const [religious, setReligious] = useState(get(memberAccountInfo , 'isReligionImportant', ""));
+    const [religious, setReligious] = useState(get(memberAccountInfo , resolveBooleanToYesNo('isReligionImportant'), ""));
     const [religionDescription, setReligionDescription] = useState(get(memberAccountInfo , 'religionDescription', ""));
 
-    const [hasDiet, setHasDiet] = useState(get(memberAccountInfo , 'isDietImportant', ""));
+    const [hasDiet, setHasDiet] = useState(get(memberAccountInfo , resolveBooleanToYesNo('isDietImportant'), ""));
     const [dietDescription, setDietDescription] = useState(get(memberAccountInfo , 'dietDescription', ""));
 
-    const [hasHome, setHasHome] = useState(get(memberAccountInfo , 'hasHomeToShare', ""));
+    const [hasHome, setHasHome] = useState(get(memberAccountInfo , resolveBooleanToYesNo('hasHomeToShare'), ""));
     const [homeDescription, setHomeDescription] = useState(get(memberAccountInfo , 'hasHomeToShareDescription', ""));
 
-    const [interestInBuyingHome, setInterestInBuyingHome] = useState(get(memberAccountInfo, 'interestInBuyingHome', ""));
+    const [interestInBuyingHome, setInterestInBuyingHome] = useState(get(memberAccountInfo, resolveBooleanToYesNo('interestInBuyingHome'), ""));
     const [interestDescription, setInterestDescription] = useState(get(memberAccountInfo, 'interestDescription', ""));
 
     const [minRent, setMinRent] = useState(get(memberAccountInfo, 'minRent', undefined));

@@ -41,4 +41,8 @@ export function isStringSame(str1, str2) {
     }
     return false;
 }
+//TODO Write tests for this function - used currently in YNButton to resolve DB vs INPUT type mismatch
+export function resolveBooleanToYesNo(value) {
+    return value ? "yes" : "no";
+}
 

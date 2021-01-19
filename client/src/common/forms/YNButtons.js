@@ -22,8 +22,8 @@ function YNButton(props) {
                 {(required ? <Asterisk/> : '')}
                 {toolTipID && <Tooltip text={toolTipText} toolTipID={toolTipID}/>}
             </div>
-            <RadioButton label="No" name={name} value="no" onChange={onChange} checked={value===false || value==="no"}/>
-            <RadioButton label="Yes" name={name} value="yes" onChange={onChange} checked={value===true || value==="yes"}/>
+            <RadioButton label="No" name={name} value="no" onChange={onChange} checked={value==="no"}/>
+            <RadioButton label="Yes" name={name} value="yes" onChange={onChange} checked={value==="yes"}/>
         </div>
     );
 }

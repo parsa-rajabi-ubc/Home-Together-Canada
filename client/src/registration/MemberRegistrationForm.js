@@ -45,7 +45,7 @@ import {USER_TYPES} from "../common/constants/users";
 import {MEMBER_PROFILE_INFO_TEXT} from "../common/constants/TooltipText";
 import {dropdownDefaultCSS, dropdownErrorCSS} from "../css/dropdownCSSUtil"
 import {Link} from "react-router-dom";
-import {includes} from "lodash/includes";
+import includes from "lodash/includes";
 
 const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
 
@@ -798,7 +798,7 @@ function MemberRegistrationForm(props) {
                                                         toolTipID="pet"
                                                         name="petFriendly"
                                                         required={true}
-                                                        value={petFriendly!=="" && petFriendly === "no" || undefined}
+                                                        value={petFriendly === "no"}
                                                         onChange={(e) => setPetFriendly(e.target.value)}
                                                     />
                                                     {(petFriendly === "yes") &&
@@ -819,7 +819,7 @@ function MemberRegistrationForm(props) {
                                                         toolTipID="smoke"
                                                         name="smoking"
                                                         required={true}
-                                                        value={smoking!=="" && smoking === "no" || undefined}
+                                                        value={smoking === "no"}
                                                         onChange={(e) => setSmoking(e.target.value)}
                                                     />
                                                     {(smoking === "yes") &&
@@ -840,7 +840,7 @@ function MemberRegistrationForm(props) {
                                                         toolTipID="health"
                                                         name="mobile"
                                                         required={true}
-                                                        value={mobilityIssues!=="" && mobilityIssues === "no" || undefined}
+                                                        value={mobilityIssues === "no"}
                                                         onChange={(e) => setMobilityIssues(e.target.value)}
                                                     />
                                                     {(mobilityIssues === "yes") &&
@@ -859,7 +859,7 @@ function MemberRegistrationForm(props) {
                                                         label={"Allergies?"}
                                                         name="allergies"
                                                         required={true}
-                                                        value={hasAllergies!=="" && hasAllergies === "no" || undefined}
+                                                        value={hasAllergies === "no"}
                                                         onChange={(e) => setHasAllergies(e.target.value)}
                                                     />
                                                     {(hasAllergies === "yes") &&
@@ -880,7 +880,7 @@ function MemberRegistrationForm(props) {
                                                         toolTipID="religion"
                                                         name="religion"
                                                         required={true}
-                                                        value={religious!=="" && religious === "no" || undefined}
+                                                        value={religious === "no"}
                                                         onChange={(e) => setReligious(e.target.value)}
                                                     />
                                                     {(religious === "yes") &&
@@ -901,7 +901,7 @@ function MemberRegistrationForm(props) {
                                                         toolTipID="diet"
                                                         name="diet"
                                                         required={true}
-                                                        value={hasDiet!=="" && hasDiet === "no" || undefined}
+                                                        value={hasDiet === "no"}
                                                         onChange={(e) => setHasDiet(e.target.value)}
                                                     />
                                                     {(hasDiet === "yes") &&
@@ -922,7 +922,7 @@ function MemberRegistrationForm(props) {
                                                         toolTipID="homeToShare"
                                                         name="hasHome"
                                                         required={true}
-                                                        value={hasHome!=="" && hasHome === "no" || undefined}
+                                                        value={hasHome === "no"}
                                                         onChange={(e) => setHasHome(e.target.value)}
                                                     />
                                                     {(hasHome === "yes")
@@ -941,7 +941,7 @@ function MemberRegistrationForm(props) {
                                                         label="Interested in buying a home with others?"
                                                         name="interestInBuyingHome"
                                                         required={true}
-                                                        value={interestInBuyingHome!=="" && interestInBuyingHome === "no" || undefined}
+                                                        value={interestInBuyingHome === "no"}
                                                         onChange={(e) => setInterestInBuyingHome(e.target.value)}
                                                     />
                                                     {(interestInBuyingHome === "yes") &&
