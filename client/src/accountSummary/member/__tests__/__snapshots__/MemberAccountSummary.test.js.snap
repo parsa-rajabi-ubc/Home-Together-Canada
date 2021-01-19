@@ -42,6 +42,7 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
               disabled={false}
               onChange={[Function]}
               type="text"
+              value="mockFN"
             />
           </label>
           <label
@@ -54,6 +55,7 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
               disabled={false}
               onChange={[Function]}
               type="text"
+              value="mockLN"
             />
           </label>
           <label
@@ -67,6 +69,7 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
               onChange={[Function]}
               placeholder="personal@email.ca"
               type="text"
+              value="mock@email.com"
             />
           </label>
           <div>
@@ -85,6 +88,7 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
                 onChange={[Function]}
                 placeholder="222"
                 type="text"
+                value="123"
               />
             </label>
             <label>
@@ -96,6 +100,7 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
                 onChange={[Function]}
                 placeholder="333"
                 type="text"
+                value="456"
               />
             </label>
             <label>
@@ -107,6 +112,7 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
                 onChange={[Function]}
                 placeholder="4444"
                 type="text"
+                value="9999"
               />
             </label>
           </div>
@@ -129,7 +135,7 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
                 onChange={[Function]}
                 placeholder="Address Line 1"
                 type="text"
-                value=""
+                value="123 45 street"
               />
             </div>
             <div
@@ -155,7 +161,7 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
                 onChange={[Function]}
                 placeholder="City"
                 type="text"
-                value=""
+                value="Kelowna"
               />
             </div>
             <div
@@ -177,7 +183,7 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
                       <div
                         className=" css-1uccc91-singleValue"
                       >
-                        
+                        BC
                       </div>
                       <div
                         className="css-b8ldur-Input"
@@ -277,7 +283,7 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
                 onChange={[Function]}
                 placeholder="Postal Code"
                 type="text"
-                value=""
+                value="Y4K 2N5"
               />
             </div>
           </div>
@@ -288,6 +294,7 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
           </span>
           <div>
             <input
+              checked={false}
               className="defaultCheckboxCSS"
               onChange={[Function]}
               type="checkbox"

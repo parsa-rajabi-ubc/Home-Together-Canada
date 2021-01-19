@@ -47,7 +47,7 @@ const workStatuses = [
 
 function WorkStatus(props) {
     const {givenSelection, onChange, dropdownCSS} = props;
-    const [intialSelection, setIntialSelection] = useState({label: givenSelection, value: givenSelection});
+    const intialSelection= (givenSelection && {label: givenSelection, value: givenSelection}) || undefined;
 
     return (
         <div>

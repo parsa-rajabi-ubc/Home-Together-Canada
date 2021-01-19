@@ -29,12 +29,12 @@ function Address(props) {
         provinceAddressError,
         postalCodeError,
     } = props;
-    const [street, setStreet] = useState(get(value, 'street', ""));
+    const [street, setStreet] = useState(get(value, 'street', undefined));
     const [aptNum, setApt] = useState(get(value, 'aptNum', ""));
-    const [city, setCity] = useState(get(value, 'city', ""));
-    const [province, setProvince] = useState(get(value, 'province', ""));
-    const [intialSelection, setIntialSelection] = useState({label: province, value: province});
-    const [postalCode, setPostalCode] = useState(get(value, 'postalCode', ""));
+    const [city, setCity] = useState(get(value, 'city', undefined));
+    const [province, setProvince] = useState(get(value, 'province', undefined));
+    const intialSelection = (province && {label: province, value: province}) || undefined;
+    const [postalCode, setPostalCode] = useState(get(value, 'postalCode', undefined));
 
     const handleInputChange = (e) => {
         switch (e.target.name) {

@@ -9,7 +9,7 @@ import React from 'react';
 import renderer from  'react-test-renderer'
 import {BrowserRouter as Router} from "react-router-dom";
 import MemberProfileSummary from "../MemberProfileSummary";
-import history from "../MockData";
+import memberAccountInfo from "../MockData";
 jest.mock("react-tooltip/node_modules/uuid", () => ({
             v4: () => "00000000-0000-0000-0000-000000000000"}
     )
@@ -28,7 +28,7 @@ jest.mock('react-redux', () => ({
         it("should render correctly regardless of properties", () => {
             // given
             const props = {
-                history
+                memberAccountInfo
             };
             //when
             const component = renderer.create(<Router><MemberProfileSummary {...props}/></Router>);

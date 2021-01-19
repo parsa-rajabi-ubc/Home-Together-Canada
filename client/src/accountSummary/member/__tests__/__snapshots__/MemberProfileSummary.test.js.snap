@@ -90,7 +90,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       className="text-base text-gray-700 pr-8"
                     >
                       <input
-                        checked={false}
+                        checked={true}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
                         name="gender"
                         onChange={[Function]}
@@ -272,7 +272,9 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                         >
                           <div
                             className=" css-1uccc91-singleValue"
-                          />
+                          >
+                            1984
+                          </div>
                           <div
                             className="css-b8ldur-Input"
                           >
@@ -518,9 +520,9 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           className=" css-g1d714-ValueContainer"
                         >
                           <div
-                            className=" css-1d6d5xl-placeholder"
+                            className=" css-1uccc91-singleValue"
                           >
-                            Family Status
+                            Couple
                           </div>
                           <div
                             className="css-b8ldur-Input"
@@ -613,6 +615,19 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                 <label
                   className="label"
                 >
+                  
+                  <input
+                    className="input"
+                    disabled={false}
+                    onChange={[Function]}
+                    placeholder="Partner's username"
+                    type="text"
+                    value="John123"
+                  />
+                </label>
+                <label
+                  className="label"
+                >
                   Work Status
                    
                   <svg
@@ -653,7 +668,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           <div
                             className=" css-1uccc91-singleValue"
                           >
-                            
+                            Retired
                           </div>
                           <div
                             className="css-b8ldur-Input"
@@ -902,7 +917,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           <div
                             className=" css-1uccc91-singleValue"
                           >
-                            
+                            3
                           </div>
                           <div
                             className="css-b8ldur-Input"
@@ -1147,6 +1162,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       placeholder="MIN $ CAD"
                       step="1"
                       type="number"
+                      value="800"
                     />
                   </div>
                   <div
@@ -1154,10 +1170,12 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                   >
                     <input
                       className="undefined input"
+                      min="800"
                       onChange={[Function]}
                       placeholder=" MAX $ CAD"
                       step="1"
                       type="number"
+                      value="1700"
                     />
                   </div>
                 </div>
@@ -1329,7 +1347,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                                 <div
                                   className=" css-1uccc91-singleValue"
                                 >
-                                  
+                                  AB
                                 </div>
                                 <div
                                   className="css-b8ldur-Input"
@@ -1419,7 +1437,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                             <input
                               name="province"
                               type="hidden"
-                              value=""
+                              value="AB"
                             />
                           </div>
                         </div>
@@ -1428,12 +1446,230 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       <div
                         className="col-start-4 col-end-8"
                       >
-                        
+                        <div>
+                          <div
+                            className=" css-2b097c-container"
+                            onKeyDown={[Function]}
+                          >
+                            <div
+                              className=" css-1jumw1e-control"
+                              onMouseDown={[Function]}
+                              onTouchEnd={[Function]}
+                            >
+                              <div
+                                className=" css-g1d714-ValueContainer"
+                              >
+                                <div
+                                  className=" css-1uccc91-singleValue"
+                                >
+                                  Edmonton
+                                </div>
+                                <div
+                                  className="css-b8ldur-Input"
+                                >
+                                  <div
+                                    className=""
+                                    style={
+                                      Object {
+                                        "display": "inline-block",
+                                      }
+                                    }
+                                  >
+                                    <input
+                                      aria-autocomplete="list"
+                                      autoCapitalize="none"
+                                      autoComplete="off"
+                                      autoCorrect="off"
+                                      disabled={false}
+                                      id="react-select-7-input"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      onFocus={[Function]}
+                                      spellCheck="false"
+                                      style={
+                                        Object {
+                                          "background": 0,
+                                          "border": 0,
+                                          "boxSizing": "content-box",
+                                          "color": "inherit",
+                                          "fontSize": "inherit",
+                                          "label": "input",
+                                          "opacity": 1,
+                                          "outline": 0,
+                                          "padding": 0,
+                                          "width": "1px",
+                                        }
+                                      }
+                                      tabIndex="0"
+                                      type="text"
+                                      value=""
+                                    />
+                                    <div
+                                      style={
+                                        Object {
+                                          "height": 0,
+                                          "left": 0,
+                                          "overflow": "scroll",
+                                          "position": "absolute",
+                                          "top": 0,
+                                          "visibility": "hidden",
+                                          "whiteSpace": "pre",
+                                        }
+                                      }
+                                    >
+                                      
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                className=" css-1hb7zxy-IndicatorsContainer"
+                              >
+                                <span
+                                  className=" css-1okebmr-indicatorSeparator"
+                                />
+                                <div
+                                  aria-hidden="true"
+                                  className=" css-tlfecz-indicatorContainer"
+                                  onMouseDown={[Function]}
+                                  onTouchEnd={[Function]}
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    className="css-6q0nyr-Svg"
+                                    focusable="false"
+                                    height={20}
+                                    viewBox="0 0 20 20"
+                                    width={20}
+                                  >
+                                    <path
+                                      d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                            <input
+                              name="city"
+                              type="hidden"
+                              value="Edmonton"
+                            />
+                          </div>
+                        </div>
                       </div>
                       <div
                         className="col-start-8 col-end-10"
                       >
-                        
+                        <div>
+                          <div
+                            className=" css-2b097c-container"
+                            onKeyDown={[Function]}
+                          >
+                            <div
+                              className=" css-1jumw1e-control"
+                              onMouseDown={[Function]}
+                              onTouchEnd={[Function]}
+                            >
+                              <div
+                                className=" css-g1d714-ValueContainer"
+                              >
+                                <div
+                                  className=" css-1uccc91-singleValue"
+                                >
+                                  50km
+                                </div>
+                                <div
+                                  className="css-b8ldur-Input"
+                                >
+                                  <div
+                                    className=""
+                                    style={
+                                      Object {
+                                        "display": "inline-block",
+                                      }
+                                    }
+                                  >
+                                    <input
+                                      aria-autocomplete="list"
+                                      autoCapitalize="none"
+                                      autoComplete="off"
+                                      autoCorrect="off"
+                                      disabled={false}
+                                      id="react-select-8-input"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      onFocus={[Function]}
+                                      spellCheck="false"
+                                      style={
+                                        Object {
+                                          "background": 0,
+                                          "border": 0,
+                                          "boxSizing": "content-box",
+                                          "color": "inherit",
+                                          "fontSize": "inherit",
+                                          "label": "input",
+                                          "opacity": 1,
+                                          "outline": 0,
+                                          "padding": 0,
+                                          "width": "1px",
+                                        }
+                                      }
+                                      tabIndex="0"
+                                      type="text"
+                                      value=""
+                                    />
+                                    <div
+                                      style={
+                                        Object {
+                                          "height": 0,
+                                          "left": 0,
+                                          "overflow": "scroll",
+                                          "position": "absolute",
+                                          "top": 0,
+                                          "visibility": "hidden",
+                                          "whiteSpace": "pre",
+                                        }
+                                      }
+                                    >
+                                      
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                className=" css-1hb7zxy-IndicatorsContainer"
+                              >
+                                <span
+                                  className=" css-1okebmr-indicatorSeparator"
+                                />
+                                <div
+                                  aria-hidden="true"
+                                  className=" css-tlfecz-indicatorContainer"
+                                  onMouseDown={[Function]}
+                                  onTouchEnd={[Function]}
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    className="css-6q0nyr-Svg"
+                                    focusable="false"
+                                    height={20}
+                                    viewBox="0 0 20 20"
+                                    width={20}
+                                  >
+                                    <path
+                                      d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                            <input
+                              name="radius"
+                              type="hidden"
+                              value="50km"
+                            />
+                          </div>
+                        </div>
                       </div>
                       <div
                         className="col-start-10 col-end-auto"
@@ -1610,6 +1846,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
+                            checked={false}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="petFriendly"
                             onChange={[Function]}
@@ -1622,6 +1859,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
+                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="petFriendly"
                             onChange={[Function]}
@@ -1631,6 +1869,17 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           Yes
                         </label>
                       </div>
+                      <label>
+                        
+                        <input
+                          className="input"
+                          disabled={false}
+                          onChange={[Function]}
+                          placeholder="Elaborate (optional)"
+                          type="text"
+                          value="have dogs"
+                        />
+                      </label>
                     </section>
                   </div>
                   <div
@@ -1787,6 +2036,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
+                            checked={false}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="smoking"
                             onChange={[Function]}
@@ -1799,6 +2049,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
+                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="smoking"
                             onChange={[Function]}
@@ -1808,6 +2059,17 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           Yes
                         </label>
                       </div>
+                      <label>
+                        
+                        <input
+                          className="input"
+                          disabled={false}
+                          onChange={[Function]}
+                          placeholder="Elaborate (optional)"
+                          type="text"
+                          value="tobacco only"
+                        />
+                      </label>
                     </section>
                   </div>
                   <div
@@ -1964,6 +2226,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
+                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="mobile"
                             onChange={[Function]}
@@ -1976,6 +2239,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
+                            checked={false}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="mobile"
                             onChange={[Function]}
@@ -2025,6 +2289,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
+                            checked={false}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="allergies"
                             onChange={[Function]}
@@ -2037,6 +2302,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
+                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="allergies"
                             onChange={[Function]}
@@ -2046,6 +2312,17 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           Yes
                         </label>
                       </div>
+                      <label>
+                        
+                        <input
+                          className="input"
+                          disabled={false}
+                          onChange={[Function]}
+                          placeholder="Elaborate (optional)"
+                          type="text"
+                          value="peanuts"
+                        />
+                      </label>
                     </section>
                   </div>
                   <div
@@ -2202,6 +2479,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
+                            checked={false}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="religion"
                             onChange={[Function]}
@@ -2214,6 +2492,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
+                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="religion"
                             onChange={[Function]}
@@ -2223,6 +2502,17 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           Yes
                         </label>
                       </div>
+                      <label>
+                        
+                        <input
+                          className="input"
+                          disabled={false}
+                          onChange={[Function]}
+                          placeholder="Elaborate (optional)"
+                          type="text"
+                          value="Roman Catholic"
+                        />
+                      </label>
                     </section>
                   </div>
                   <div
@@ -2379,6 +2669,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
+                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="diet"
                             onChange={[Function]}
@@ -2391,6 +2682,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
+                            checked={false}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="diet"
                             onChange={[Function]}
@@ -2556,6 +2848,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
+                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="hasHome"
                             onChange={[Function]}
@@ -2568,6 +2861,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
+                            checked={false}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="hasHome"
                             onChange={[Function]}
@@ -2617,6 +2911,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
+                            checked={true}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="interestInBuyingHome"
                             onChange={[Function]}
@@ -2629,6 +2924,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                           className="text-base text-gray-700 pr-8"
                         >
                           <input
+                            checked={false}
                             className="form-radio mt-2 ml-2 mr-1 pb-4"
                             name="interestInBuyingHome"
                             onChange={[Function]}
@@ -2776,7 +3072,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       onChange={[Function]}
                       placeholder="Let others know more about your lifestyle, values and why you want to home share"
                       rows="5"
-                      value=""
+                      value="I like to type as little as possible"
                     />
                   </div>
                 </div>

@@ -68,7 +68,7 @@ function InterestedArea(props) {
                                           name="province"
                                           options={getProvinces()}
                                           onChange={e => handleAreaProvinceChange(e, index)}
-                                          intialSelection={{label: extraAreas[index].province, value: extraAreas[index].province}}
+                                          intialSelection={(extraAreas[index].province && {label: extraAreas[index].province, value: extraAreas[index].province}) || undefined}
                                           dropdownCSS={dropdownDefaultCSS}
                                 />
                                 <span>{currentAreaValues[index]}</span>
@@ -79,7 +79,7 @@ function InterestedArea(props) {
                                           name="city"
                                           options={getCities(currentAreaValues.province)}
                                           onChange={e => handleAreaCityChange(e, index)}
-                                          intialSelection={{label: extraAreas[index].city, value: extraAreas[index].city}}
+                                          intialSelection={(extraAreas[index].city && {label: extraAreas[index].city, value: extraAreas[index].city}) || undefined}
                                           dropdownCSS={dropdownDefaultCSS}
                                 />}
                             </div>
@@ -88,7 +88,7 @@ function InterestedArea(props) {
                                                                      name="radius"
                                                                      options={radii}
                                                                      onChange={e => handleAreaRadiusChange(e, index)}
-                                                                     intialSelection={{label: extraAreas[index].radius + "km", value: extraAreas[index].radius + "km"}}
+                                                                     intialSelection={(extraAreas[index].radius && {label: extraAreas[index].radius + "km", value: extraAreas[index].radius + "km"}) || undefined}
                                                                      dropdownCSS={dropdownDefaultCSS}
                                 />}
                             </div>

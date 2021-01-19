@@ -12,7 +12,7 @@ import propTypes from "prop-types";
 
 function BirthYear(props) {
     const {givenYear, onChange, dropdownCSS} = props;
-    const [intialSelection, setIntialSelection] = useState({label: givenYear, value: givenYear});
+    const intialSelection = (givenYear && {label: givenYear, value: givenYear}) || undefined;
     const currentYear = new Date().getFullYear();
     const YEARS = [];
     // Update these 2 const values to update the years being displayed on the age dropdown. 
