@@ -14,6 +14,8 @@ import ChangePasswordContainer from "./ChangePasswordContainer";
 import MemberAccountSummary from "./member/MemberAccountSummary";
 import memberAccountInfo  from "./member/MockData";
 import MemberProfileSummary from "./member/MemberProfileSummary";
+import {businessUser} from "./business/MockB";
+import BusinessAccountSummary from "./business/BusinessAccountSummary";
 import Error404 from "../common/error/Error404";
 
 const AccountSummaryContainer = () => {
@@ -34,7 +36,7 @@ const AccountSummaryContainer = () => {
             case ALL_SUBPAGES.MANAGE_LISTINGS:
                 return <div>Manage Listings Component</div>
             default:
-                return accountType === USER_TYPES.MEMBER ? <MemberAccountSummary memberAccountInfo ={memberAccountInfo }/> : <div/>
+                return accountType === USER_TYPES.MEMBER ? <MemberAccountSummary memberAccountInfo ={memberAccountInfo }/> : <BusinessAccountSummary businessAccountInfo={businessUser}/>
         }
     }
 
