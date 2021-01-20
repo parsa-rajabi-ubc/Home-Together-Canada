@@ -21,6 +21,8 @@ import {USER_TYPES} from "./common/constants/users";
 import Header from "./common/header-and-footer/Header";
 import Footer from "./common/header-and-footer/Footer";
 import MemberSearchContainer from "./memberSearch/MemberSearchContainer";
+import TermsOfService from "./termsOfService/TermsOfService";
+import PrivacyPolicy from "./termsOfService/PrivacyPolicy";
 
 const Navigation = (props) => {
     const {authenticated, accountType} = props;
@@ -41,6 +43,8 @@ const Navigation = (props) => {
                     {(authenticated && accountType !== USER_TYPES.UNREGISTERED) &&
                         <Route path={"/account"} component={AccountSummaryContainer}/>
                     }
+                    <Route path={"/tos"} component={TermsOfService}/>
+                    <Route path={"/privacy"} component={PrivacyPolicy}/>
                     <Route component={Error404}/>
                 </Switch>
                 <Footer/>
