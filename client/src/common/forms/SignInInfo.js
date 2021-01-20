@@ -84,7 +84,7 @@ SignInInfo.propTypes = {
     onChangePasswordCheck: PropTypes.func.isRequired,
     usernameError: PropTypes.bool,
     passwordError: PropTypes.bool,
-    passwordConfirmError: PropTypes.string,
+    passwordConfirmError: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
     passwordConfirmErrorMsg: PropTypes.string,
 };
 
