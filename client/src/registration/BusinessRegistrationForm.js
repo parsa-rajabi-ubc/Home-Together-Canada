@@ -303,13 +303,18 @@ const BusinessRegistrationForm = (props) => {
         accountDetailsErrors.errorPassword.passwordConfirmationMismatch = validatePasswordConfirmationMismatch(password, passwordCheck, setPasswordConfirmError);
 
         // check business details for errors
-        if (checkIfErrorsExistInMapping(businessDetailsErrors)) {
+        if (checkIfErrorsExistInMapping(businessDetailsErrors)
+            || checkIfErrorsExistInMapping(businessDetailsErrors.errorAddress)
+            || checkIfErrorsExistInMapping(businessDetailsErrors.errorMailingAddress)
+            || checkIfErrorsExistInMapping(businessDetailsErrors.errorMapAddress)
+        ) {
             return false;
             // check contact person for errors
         } else if (checkIfErrorsExistInMapping(contactPersonErrors)) {
             return false;
             // check account details for errors
-        } else if (checkIfErrorsExistInMapping(accountDetailsErrors)) {
+        } else if (checkIfErrorsExistInMapping(accountDetailsErrors)
+            || checkIfErrorsExistInMapping(accountDetailsErrors.errorPassword)) {
             return false;
             // return true if no errors
         } else {

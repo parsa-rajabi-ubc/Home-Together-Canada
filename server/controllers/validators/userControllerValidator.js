@@ -91,27 +91,22 @@ const abstractUserValidation = [
         .exists()
         .isBoolean(),
     body('mailingAddressLine1')
-        .optional()
         .trim()
         .stripLow()
         .custom((mailingAddressLine1, { req }) => shouldMailingAddressBeDefined(mailingAddressLine1, req)),
     body('mailingAddressLine2', 'Mailing address line 2 must be defined if hasDifferentMailingAddress is true')
-        .optional()
         .trim()
         .stripLow(),
     body('mailingCity')
-        .optional()
         .trim()
         .stripLow()
         .custom((mailingCity, { req }) => shouldMailingAddressBeDefined(mailingCity, req)),
     body('mailingProvince')
-        .optional()
         .trim()
         .stripLow()
         .isIn(PROVINCES)
         .custom((mailingProvince, {req}) => shouldMailingAddressBeDefined(mailingProvince, req)),
     body('mailingPostalCode', 'Mailing postal code must be defined if hasDifferentMailingAddress is true')
-        .optional()
         .trim()
         .stripLow()
         .customSanitizer(postalCode => removeAllWhiteSpace(postalCode))
@@ -149,7 +144,6 @@ exports.validate = (method) => {
                     .exists()
                     .isBoolean(),
                 body('mapAddressLine1')
-                    .optional()
                     .trim()
                     .stripLow()
                     .custom((mapAddressLine1, { req }) => shouldMapAddressBeDefined(mapAddressLine1, req)),
@@ -158,16 +152,13 @@ exports.validate = (method) => {
                     .trim()
                     .stripLow(),
                 body('mapCity')
-                    .optional()
                     .trim()
                     .stripLow()
                     .custom((mapCity, { req }) => shouldMapAddressBeDefined(mapCity, req)),
                 body('mapProvince')
-                    .optional()
                     .isIn(PROVINCES)
                     .custom((mapProvince, { req }) => shouldMapAddressBeDefined(mapProvince, req)),
                 body('mapPostalCode')
-                    .optional()
                     .trim()
                     .stripLow()
                     .customSanitizer(postalCode => removeAllWhiteSpace(postalCode))

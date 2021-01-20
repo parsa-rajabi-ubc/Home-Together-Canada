@@ -486,7 +486,10 @@ function MemberRegistrationForm(props) {
 
 
         // check personal information for errors
-        if (checkIfErrorsExistInMapping(personalInfoErrors)) {
+        if (checkIfErrorsExistInMapping(personalInfoErrors)
+            || checkIfErrorsExistInMapping(personalInfoErrors.errorAddress)
+            || checkIfErrorsExistInMapping(personalInfoErrors.errorMailingAddress)
+        ) {
             return false;
             // check profile for errors
         } else if (checkIfErrorsExistInMapping(profileInfoErrors)) {
@@ -494,7 +497,8 @@ function MemberRegistrationForm(props) {
         } else if (checkIfErrorsExistInMapping(searchErrors)) {
             return false;
             // check account details for errors
-        } else return !checkIfErrorsExistInMapping(accountDetailsErrors);
+        } else return !(checkIfErrorsExistInMapping(accountDetailsErrors)
+            || checkIfErrorsExistInMapping(accountDetailsErrors.errorPassword));
 
     }
 
