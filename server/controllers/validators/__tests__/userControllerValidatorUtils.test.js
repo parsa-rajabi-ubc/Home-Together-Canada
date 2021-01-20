@@ -170,6 +170,98 @@ describe('userControllerValidatorUtils', () => {
         });
     });
 
+    describe('validateMailingPostalCode', () => {
+        it('should return true if hasDifferentMailingAddress is true and a valid postal code is provided', () => {
+            // given
+            const req = {
+                body: {
+                    hasDifferentMailingAddress: true
+                }
+            };
+            const postalCode = "T1V1S4";
+
+            // when
+            const result = userControllerValidatorUtils.validateMailingPostalCode(postalCode, req);
+
+            // then
+            expect(result).toBe(true)
+        });
+        it('should return true if hasDifferentMailingAddress is false', () => {
+            // given
+            const req = {
+                body: {
+                    hasDifferentMailingAddress: false
+                }
+            };
+            const postalCode = "T1V1S4";
+
+            // when
+            const result = userControllerValidatorUtils.validateMailingPostalCode(postalCode, req);
+
+            // then
+            expect(result).toBe(true)
+        });
+        it('should throw an error if hasDifferentMailingAddress is true and an invalid postal code is provided', () => {
+            // given
+            const req = {
+                body: {
+                    hasDifferentMailingAddress: true
+                }
+            };
+            const postalCode = "1111";
+
+            // then
+            expect(() => userControllerValidatorUtils.validateMailingPostalCode(postalCode, req))
+                .toThrowError('A valid postal code for the mailing address must be provided')
+        });
+    });
+
+    describe('validateMailingProvince', () => {
+        it('should return true if hasDifferentMailingAddress is true and a valid province is provided', () => {
+            // given
+            const req = {
+                body: {
+                    hasDifferentMailingAddress: true
+                }
+            };
+            const province = "AB";
+
+            // when
+            const result = userControllerValidatorUtils.validateMailingProvince(province, req);
+
+            // then
+            expect(result).toBe(true)
+        });
+        it('should return true if hasDifferentMailingAddress is false', () => {
+            // given
+            const req = {
+                body: {
+                    hasDifferentMailingAddress: false
+                }
+            };
+            const province = "AB";
+
+            // when
+            const result = userControllerValidatorUtils.validateMailingProvince(province, req);
+
+            // then
+            expect(result).toBe(true)
+        });
+        it('should throw an error if hasDifferentMailingAddress is true and an invalid province is provided', () => {
+            // given
+            const req = {
+                body: {
+                    hasDifferentMailingAddress: true
+                }
+            };
+            const province = "ABA";
+
+            // then
+            expect(() => userControllerValidatorUtils.validateMailingProvince(province, req))
+                .toThrowError('Mailing province is incorrect')
+        });
+    });
+
     describe('shouldMapAddressBeDefined', () => {
         it('should throw an error if the address component is undefined and isNationWide is false', () => {
             // given
@@ -180,7 +272,8 @@ describe('userControllerValidatorUtils', () => {
             };
 
             // then
-            expect(() => userControllerValidatorUtils.shouldMapAddressBeDefined(undefined, mockRequest));
+            expect(() => userControllerValidatorUtils.shouldMapAddressBeDefined(undefined, mockRequest))
+                .toThrowError('Address must be defined');
         });
 
         it('should return true if the address component is defined and isNationWide is false', () => {
@@ -229,6 +322,98 @@ describe('userControllerValidatorUtils', () => {
 
             // then
             expect(result).toBe(true);
+        });
+    });
+
+    describe('validateMapPostalCode', () => {
+        it('should return true if isNationWide is true and a valid postal code is provided', () => {
+            // given
+            const req = {
+                body: {
+                    isNationWide: true
+                }
+            };
+            const postalCode = "T1V1S4";
+
+            // when
+            const result = userControllerValidatorUtils.validateMapPostalCode(postalCode, req);
+
+            // then
+            expect(result).toBe(true)
+        });
+        it('should return true if isNationWide is false and valid postal code is provided', () => {
+            // given
+            const req = {
+                body: {
+                    isNationWide: false
+                }
+            };
+            const postalCode = "T1V1S4";
+
+            // when
+            const result = userControllerValidatorUtils.validateMapPostalCode(postalCode, req);
+
+            // then
+            expect(result).toBe(true)
+        });
+        it('should throw an error if isNationWide is false and an invalid postal code is provided', () => {
+            // given
+            const req = {
+                body: {
+                    hasDifferentMailingAddress: true
+                }
+            };
+            const postalCode = "1111";
+
+            // then
+            expect(() => userControllerValidatorUtils.validateMapPostalCode(postalCode, req))
+                .toThrowError('A valid postal code for the searchable address must be provided')
+        });
+    });
+
+    describe('validateMapProvince', () => {
+        it('should return true if isNationWide is true and a valid province is provided', () => {
+            // given
+            const req = {
+                body: {
+                    isNationWide: true
+                }
+            };
+            const province = "AB";
+
+            // when
+            const result = userControllerValidatorUtils.validateMapProvince(province, req);
+
+            // then
+            expect(result).toBe(true)
+        });
+        it('should return true if isNationWide is false and valid province is provided', () => {
+            // given
+            const req = {
+                body: {
+                    isNationWide: false
+                }
+            };
+            const province = "AB";
+
+            // when
+            const result = userControllerValidatorUtils.validateMapProvince(province, req);
+
+            // then
+            expect(result).toBe(true)
+        });
+        it('should throw an error if isNationWide is false and an invalid province is provided', () => {
+            // given
+            const req = {
+                body: {
+                    isNationWide: false
+                }
+            };
+            const province = "ABA";
+
+            // then
+            expect(() => userControllerValidatorUtils.validateMapProvince(province, req))
+                .toThrowError('Searchable address province is incorrect')
         });
     });
 

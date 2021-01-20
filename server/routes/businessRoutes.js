@@ -55,6 +55,41 @@ router.post('/create/', usersValidator.validate('createBusinessUser'),
         }
     });
 
+// Update business account info
+router.post('/update/',
+    isLoggedIn,
+    userIsBusiness,
+    usersValidator.validate('updateBusinessInfo'),
+    function (req, res, next) {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            res.status(202).json({ errors: errors.array()});
+        } else {
+            abstractUsers.updateAbstractUser(req, res)
+                .then(abstractUser => {
+                    if (abstractUser.length) {
+                        return businessAccounts.updateBusiness(req, res);
+
+                    } else {
+                        res.status(500).json({ success: false });
+                    }
+                })
+                .then(business => {
+                    if (business.length) {
+                        res.status(200).json({ success: true });
+                    } else {
+                        res.status(500).json( { success: false });
+                    }
+                })
+                .catch(err => {
+                    res.status(500).json({ success: false, err: err.message });
+                });
+        }
+
+    }
+)
+
 router.get('/info/', isLoggedIn, userIsBusiness, function (req, res, next) {
     let businessData = {};
 

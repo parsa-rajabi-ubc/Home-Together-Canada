@@ -79,11 +79,32 @@ const changePassword = (req, res) => {
         .catch(err => res.status(500).send({ success: false, message: err.message }));
 }
 
+const updateAbstractUser = (req, res) => {
+    return AbstractUser.update({
+        email: req.body.email,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        phoneNumber: accountControllerUtils.formatPhoneNumber(req.body.phoneNumber),
+        addressLine1: req.body.addressLine1,
+        addressLine2: req.body.addressLine2 ? req.body.addressLine2 : null,
+        city: req.body.city,
+        province: req.body.province,
+        postalCode: req.body.postalCode,
+        hasDifferentMailingAddress: req.body.hasDifferentMailingAddress,
+        ...getMailingAddress(req.body)
+    }, {
+        where: {
+            uid: req.user.uid
+        }
+    });
+}
+
 module.exports = {
     createAbstractUser,
     findAllAbstractUsers,
     findAbstractUser,
     findUserByUsername,
     findUserByEmail,
-    changePassword
+    changePassword,
+    updateAbstractUser
 }
