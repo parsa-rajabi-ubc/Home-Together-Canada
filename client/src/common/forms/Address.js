@@ -33,7 +33,7 @@ function Address(props) {
     const [aptNum, setApt] = useState(get(value, 'aptNum', ""));
     const [city, setCity] = useState(get(value, 'city', undefined));
     const [province, setProvince] = useState(get(value, 'province', undefined));
-    const intialSelection = (province && {label: province, value: province}) || undefined;
+    const initialSelection = (province && {label: province, value: province}) || undefined;
     const [postalCode, setPostalCode] = useState(get(value, 'postalCode', undefined));
 
     const handleInputChange = (e) => {
@@ -93,10 +93,13 @@ function Address(props) {
                     onChange={handleInputChange}/>
             </div>
             <div className="col-start-4 col-end-8">
-                <Dropdown isSearchable={true} placeholder={"Province"} intialSelection={intialSelection}
-                          options={getProvinces()} autoComplete="address-level1"
-                          onChange={address => setProvince(address.value)}
-                          dropdownCSS={provinceAddressError ? dropdownErrorCSS : dropdownDefaultCSS}
+                <Dropdown
+                    isSearchable={true}
+                    placeholder={"Province"}
+                    initialSelection={initialSelection}
+                    options={getProvinces()} autoComplete="address-level1"
+                    onChange={address => setProvince(address.value)}
+                    dropdownCSS={provinceAddressError ? dropdownErrorCSS : dropdownDefaultCSS}
                 />
             </div>
             <div className="col-start-1 col-end-4">

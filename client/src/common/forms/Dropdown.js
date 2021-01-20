@@ -35,7 +35,7 @@ function Dropdown(props) {
         ? getSelectedOptionsForMultiSelect(currentSelectedValue, options)
         : getSelectedOptionForSingleSelect(currentSelectedValue, options);
 
-    const [selected, setSelected] = useState(prefilledDropdownSelection || "");
+    const [selected, setSelected] = useState(initialSelection || prefilledDropdownSelection || "");
 
     useEffect(() => {
         if(isMulti) {
@@ -58,7 +58,6 @@ function Dropdown(props) {
                 isMulti={isMulti}
                 placeholder={placeholder}
                 options={options}
-                defaultValue={initialSelection}
                 value={selected}
                 onChange={onDropdownChange}
                 name={name}
