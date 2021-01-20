@@ -17,7 +17,11 @@ const {
     isValidPhoneNumber,
     isValidCanadianPostalCode,
     shouldMailingAddressBeDefined,
+    validateMailingPostalCode,
+    validateMailingProvince,
     shouldMapAddressBeDefined,
+    validateMapPostalCode,
+    validateMapProvince,
     shouldIncorporatedOwnersNamesBeDefined,
     isPositiveInteger,
     validateMinAndMax,
@@ -102,16 +106,12 @@ const abstractUserValidation = [
         .stripLow()
         .custom((mailingCity, { req }) => shouldMailingAddressBeDefined(mailingCity, req)),
     body('mailingProvince')
-        .trim()
-        .stripLow()
-        .isIn(PROVINCES)
-        .custom((mailingProvince, {req}) => shouldMailingAddressBeDefined(mailingProvince, req)),
+        .custom((mailingProvince, {req}) => validateMailingProvince(mailingProvince, req)),
     body('mailingPostalCode', 'Mailing postal code must be defined if hasDifferentMailingAddress is true')
         .trim()
         .stripLow()
         .customSanitizer(postalCode => removeAllWhiteSpace(postalCode))
-        .custom(postalCode => isValidCanadianPostalCode(postalCode))
-        .custom((postalCode, { req }) => shouldMailingAddressBeDefined(postalCode, req)),
+        .custom((postalCode, { req }) => validateMailingPostalCode(postalCode, req)),
 ];
 
 
@@ -156,14 +156,12 @@ exports.validate = (method) => {
                     .stripLow()
                     .custom((mapCity, { req }) => shouldMapAddressBeDefined(mapCity, req)),
                 body('mapProvince')
-                    .isIn(PROVINCES)
-                    .custom((mapProvince, { req }) => shouldMapAddressBeDefined(mapProvince, req)),
+                    .custom((mapProvince, { req }) => validateMapProvince(mapProvince, req)),
                 body('mapPostalCode')
                     .trim()
                     .stripLow()
                     .customSanitizer(postalCode => removeAllWhiteSpace(postalCode))
-                    .custom(mapPostalCode => isValidCanadianPostalCode(mapPostalCode))
-                    .custom((mapPostalCode, { req }) => shouldMapAddressBeDefined(mapPostalCode, req)),
+                    .custom((mapPostalCode, { req }) => validateMapPostalCode(mapPostalCode, req)),
                 body('website', 'Invalid website')
                     .optional()
                     .isURL()

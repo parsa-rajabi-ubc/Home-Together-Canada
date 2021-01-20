@@ -524,7 +524,7 @@ function MemberRegistrationForm(props) {
             city: address.city,
             province: address.province,
             postalCode: address.postalCode,
-            hasDifferentMailingAddress: useDifferentMailingAddress,
+            hasDifferentMailingAddress: !!useDifferentMailingAddress,
             ...(useDifferentMailingAddress) && {mailingAddressLine1: mailingAddress.street},
             ...(useDifferentMailingAddress) && {mailingAddressLine2: mailingAddress.aptNum},
             ...(useDifferentMailingAddress) && {mailingCity: mailingAddress.city},

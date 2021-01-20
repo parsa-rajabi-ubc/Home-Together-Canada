@@ -350,7 +350,7 @@ const BusinessRegistrationForm = (props) => {
             city: bAddress.city,
             province: bAddress.province,
             postalCode: bAddress.postalCode,
-            hasDifferentMailingAddress: useDifferentMailingAddress,
+            hasDifferentMailingAddress: !!useDifferentMailingAddress,
             ...(useDifferentMailingAddress) && {mailingAddressLine1: bMailingAddress.street},
             ...(useDifferentMailingAddress) && {mailingAddressLine2: bMailingAddress.aptNum},
             ...(useDifferentMailingAddress) && {mailingCity: bMailingAddress.city},
