@@ -19,7 +19,7 @@ import UploadService from '../services/UploadService';
 import {
     checkIfErrorsExistInMapping,
     getConcatenatedErrorMessage,
-    getPhoneNumberFromStrings,
+    getPhoneNumberFromStrings, validateCheckbox,
     validateEmail,
     validateInput,
     validatePassword,
@@ -35,6 +35,10 @@ import {USER_TYPES} from "../common/constants/users";
 import FileUploadButton from "../common/forms/FileUploadButton";
 import {BUSINESS_INFO_TEXT} from "../common/constants/TooltipText.js";
 import has from 'lodash/has';
+import {Link} from "react-router-dom";
+import LargeTextArea from "../common/forms/LargeTextArea";
+import {TERMS_OF_SERVICE_TEXT} from "../common/constants/termsOfServiceText";
+import {PRIVACY_POLICY_TEXT} from "../common/constants/privacyPolicyText";
 
 const mapDispatch = {setAccountType, setAuthenticated};
 
@@ -93,14 +97,17 @@ const BusinessRegistrationForm = (props) => {
     const [passwordCheck, setPasswordCheck] = useState(undefined);
     const [logo, setLogo] = useState('');
 
+    const [termsOfServiceAgreed, setTermsOfServiceAgreed] = useState(false);
+    const [privacyPolicyAgreed, setPrivacyPolicyAgreed] = useState(false);
+
     //Validation state variables
-    // business Details
+    // Business Details
     const [businessNameError, setBusinessNameError] = useState(undefined);
     const [bEmailError, setBEmailError] = useState(undefined);
     const [bPhoneNumberError, setBPhoneNumberError] = useState(undefined);
     const [bCellNumberError, setBCellNumberError] = useState(undefined);
 
-    // business Address
+    // Business Address
     const [streetAddressError, setStreetAddressError] = useState(undefined);
     const [cityAddressError, setCityAddressError] = useState(undefined);
     const [provinceAddressError, setProvinceAddressError] = useState(undefined);
@@ -123,6 +130,10 @@ const BusinessRegistrationForm = (props) => {
     const [contactLastNameError, setContactLastNameError] = useState(undefined);
     const [contactPhoneNumberError, setContactPhoneNumberError] = useState(undefined);
     // Contact Person End
+
+    // TOS
+    const [termsOfServiceError, setTermsOfServiceError] = useState(undefined);
+    const [privacyPolicyError, setPrivacyPolicyError] = useState(undefined);
 
     // Account Details Start
     const [usernameError, setUsernameError] = useState(undefined);
@@ -253,6 +264,11 @@ const BusinessRegistrationForm = (props) => {
             }
         }
 
+        const tosErrors = {
+            errorTOS: false,
+            errorPrivacy: false
+        }
+
         const contactPersonErrors = {
             errorFirstName: false,
             errorLastName: false,
@@ -268,7 +284,7 @@ const BusinessRegistrationForm = (props) => {
             }
         }
 
-        // business Details
+        // Business Details
         businessDetailsErrors.errorBusinessName = validateInput(bName, setBusinessNameError);
         businessDetailsErrors.errorBusinessEmail = validateEmail(bEmail, setBEmailError);
         businessDetailsErrors.errorPhoneNumber.regular = validatePhoneNumber(bPhoneNumber, setBPhoneNumberError);
@@ -296,6 +312,10 @@ const BusinessRegistrationForm = (props) => {
         contactPersonErrors.errorFirstName = validateInput(contactFName, setContactFirstNameError);
         contactPersonErrors.errorLastName = validateInput(contactLName, setContactLastNameError);
         contactPersonErrors.errorPhoneNumber = validatePhoneNumber(contactPhoneNumber, setContactPhoneNumberError);
+
+        // TOS Validation
+        tosErrors.errorTOS = validateCheckbox(termsOfServiceAgreed, setTermsOfServiceError);
+        tosErrors.errorPrivacy = validateCheckbox(privacyPolicyAgreed, setPrivacyPolicyError);
 
         // Account Details Validation
         accountDetailsErrors.errorUsername = validateInput(username, setUsernameError);
@@ -449,7 +469,7 @@ const BusinessRegistrationForm = (props) => {
     return (
         <div>
             <div>
-                {/*business Details*/}
+                {/*Business Details*/}
                 <div className="m-10 md:grid md:grid-cols-4 md:gap-0">
                     <div className="md:col-span-1">
                         <div className="px-3 sm:px-0">
@@ -677,15 +697,82 @@ const BusinessRegistrationForm = (props) => {
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-                        <div className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6">
-                            <SubmitButton label={""} inputValue={"Create Account"}
-                                          className="text-base btn btn-green"
-                                          onClick={onSubmit}/>
+                    </div>
+                </div>
+            </div>
+
+            {/*Divided*/}
+            <div className="border-divider"/>
+
+            {/*Terms and Condition*/}
+            <div className="mt-10 sm:mt-0">
+                <div className="m-10 md:grid md:grid-cols-4 md:gap-6">
+                    <div className="md:col-span-1">
+                        <div className="px-4 sm:px-0">
+                            <h3 className="info-header">Terms and Condition</h3>
+                            <p className="info-text">
+                                All users must read and accept the Terms of Service and Privacy Policy of Home Together
+                                Canada. For more information please read
+                                <Link to={'/faq'} className={"label"}> FAQs</Link>.
+                            </p>
                         </div>
                     </div>
 
+                    <div className="mt-5 md:mt-0 md:col-span-2">
+                        <div className="overflow-hidden shadow sm:rounded-md">
+                            <div className="py-6 px-4 bg-white sm:p-5">
+                                <div className="grid grid-cols-2 gap-6">
+                                    <div className="col-span-3 sm:col-span-2">
+                                        <div
+                                            className={`${termsOfServiceError && "pl-1 border rounded-lg border-red-500"} mt-4`}>
+                                            <LargeTextArea
+                                                label={"Terms of Service"}
+                                                toolTipText={BUSINESS_INFO_TEXT.TOS.TERMS_OF_SERVICE}
+                                                toolTipID={"termsOfService"}
+                                                required={true}
+                                                rows={"7"}
+                                                name={"termsOfService"}
+                                                value={TERMS_OF_SERVICE_TEXT}
+                                                disabled={true}
+                                            />
+                                            <Checkbox
+                                                label={"I have read and agreed to the Terms of Service"}
+                                                checked={termsOfServiceAgreed}
+                                                onChange={setTermsOfServiceAgreed}
+                                            />
+                                        </div>
+                                        <div
+                                            className={`${privacyPolicyError && "pl-1 border rounded-lg border-red-500"} mt-4`}>
+
+                                            <LargeTextArea
+                                                label={"Privacy Policy"}
+                                                toolTipText={BUSINESS_INFO_TEXT.TOS.PRIVACY_POLICY}
+                                                toolTipID={"privacyPolicy"}
+                                                required={true}
+                                                rows={"7"}
+                                                name={"privacyPolicy"}
+                                                value={PRIVACY_POLICY_TEXT}
+                                                disabled={true}
+                                            />
+                                            <Checkbox
+                                                label={"I have read and agreed to the Privacy Policy"}
+                                                checked={privacyPolicyAgreed}
+                                                onChange={setPrivacyPolicyAgreed}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6">
+                            <SubmitButton
+                                inputValue={"Create Account"}
+                                className="text-base btn btn-green"
+                                onClick={onSubmit}
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
 
