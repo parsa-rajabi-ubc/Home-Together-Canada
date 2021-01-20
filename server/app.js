@@ -9,6 +9,7 @@ const session = require('express-session');
 
 const routes = require('./routes.js');
 const businessRoutes = require('./routes/businessRoutes');
+const memberRoutes = require('./routes/memberRoutes');
 const userRoutes = require('./routes/userRoutes');
 const db = require("./models");
 
@@ -39,6 +40,7 @@ app.use(passport.session()); // persistent login sessions
 
 app.use('/user', userRoutes);
 app.use('/business', businessRoutes);
+app.use('/member', memberRoutes);
 app.use('/', routes);
 
 //load passport strategies
@@ -46,7 +48,7 @@ require("./config/passport.js")(passport);
 
 
 // force false will prevent the database from being cleared everytime the server starts up
-db.sequelize.sync({ force: false })
+db.sequelize.sync({ force: true })
     .then(() => {
       console.log("Drop and re-sync db.");
     })

@@ -9,6 +9,7 @@ const isNumber = require('lodash/isNumber');
 const abstractUserController = require('../abstractUserController');
 const memberAccountController = require('../memberAccountController');
 const PasswordService = require('../../services/PasswordService');
+const {isCanadianPostalCode} = require('../utils/locationUtils');
 
 const PROVINCES = [
     'AB',
@@ -78,6 +79,7 @@ const isValidPhoneNumber = (phoneNum) => {
 const isValidCanadianPostalCode = (postalCode) => {
     const regex = RegExp('^([A-Za-z]\\d[A-Za-z][-]?\\d[A-Za-z]\\d)');
     if (!regex.test(postalCode)) {
+        console.log(postalCode, ' is an invalid postal code');``
         throw new Error('Invalid postal code');
     } else {
         return true;
@@ -92,6 +94,28 @@ const shouldMailingAddressBeDefined = (addressPart, req) => {
     }
 };
 
+const validateMailingPostalCode = (postalCode, req) => {
+    console.log('mailing postal code: ', postalCode);
+    console.log('req.body.hasDifferentMailingAddress', req.body.hasDifferentMailingAddress);
+    if (req.body.hasDifferentMailingAddress && !isCanadianPostalCode(postalCode)) {
+        throw new Error('A valid postal code for the mailing address must be provided');
+    } else {
+        return true;
+    }
+}
+
+const validateMailingProvince = (province, req) => {
+    if (req.body.hasDifferentMailingAddress) {
+        if (!PROVINCES.includes(province)) {
+            throw new Error('Mailing province is incorrect');
+        } else {
+            return true;
+        }
+    } else {
+        return true;
+    }
+}
+
 const shouldMapAddressBeDefined = (addressPart, req) => {
     if (!req.body.isNationWide && !addressPart) {
         throw new Error('Address must be defined');
@@ -99,6 +123,24 @@ const shouldMapAddressBeDefined = (addressPart, req) => {
         return true;
     }
 };
+
+const validateMapPostalCode = (postalCode, req) => {
+    if (req.body.isNationWide && !isCanadianPostalCode(postalCode)) {
+        throw new Error('A valid postal code for the searchable address must be provided');
+    } else {
+        return true;
+    }
+}
+
+const validateMapProvince = (province, req) => {
+    if (req.body.isNationWide) {
+        if (!PROVINCES.includes(province)) {
+            throw new Error('Map province is incorrect');
+        }
+    } else {
+        return true;
+    }
+}
 
 const shouldIncorporatedOwnersNamesBeDefined = (incorporatedOwnersNames, req) => {
     if (req.body.isIncorporated && !incorporatedOwnersNames) {
@@ -151,6 +193,13 @@ const validGenderPreferences = (genders) => {
 }
 
 const isValidShareLimit = (limit) => SHARE_LIMITS.includes(limit);
+
+const isValidShareLimitArray = limits => {
+    if (!!limits.find(limit => limit === -1) && limits.length !== 1) {
+        throw new Error('Share limits cannot include "Any number of people" and other values');
+    }
+    return true;
+}
 
 const isValidAreasOfInterest = (areasOfInterest) => {
     if (!!areasOfInterest && areasOfInterest.length > 0) {
@@ -264,17 +313,23 @@ module.exports = {
     GENDERS,
     STATUSES,
     WORK_STATUSES,
+    SHARE_LIMITS,
     isValidPassword,
     isValidPhoneNumber,
     isValidCanadianPostalCode,
     shouldMailingAddressBeDefined,
+    validateMailingPostalCode,
+    validateMailingProvince,
     shouldMapAddressBeDefined,
+    validateMapPostalCode,
+    validateMapProvince,
     shouldIncorporatedOwnersNamesBeDefined,
     isPositiveInteger,
     validateMinAndMax,
     validStatusPreferences,
     validGenderPreferences,
     isValidShareLimit,
+    isValidShareLimitArray,
     isValidAreasOfInterest,
     usernameShouldNotAlreadyExist,
     emailShouldNotAlreadyBeInUse,

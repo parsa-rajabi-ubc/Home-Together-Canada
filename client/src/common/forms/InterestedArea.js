@@ -68,7 +68,7 @@ function InterestedArea(props) {
                                           name="province"
                                           options={getProvinces()}
                                           onChange={e => handleAreaProvinceChange(e, index)}
-                                          intialSelection={(extraAreas[index].province && {label: extraAreas[index].province, value: extraAreas[index].province}) || undefined}
+                                          initialSelection={(extraAreas[index].province && {label: extraAreas[index].province, value: extraAreas[index].province}) || undefined}
                                           dropdownCSS={dropdownDefaultCSS}
                                 />
                                 <span>{currentAreaValues[index]}</span>
@@ -79,17 +79,20 @@ function InterestedArea(props) {
                                           name="city"
                                           options={getCities(currentAreaValues.province)}
                                           onChange={e => handleAreaCityChange(e, index)}
-                                          intialSelection={(extraAreas[index].city && {label: extraAreas[index].city, value: extraAreas[index].city}) || undefined}
+                                          initialSelection={(extraAreas[index].city && {label: extraAreas[index].city, value: extraAreas[index].city}) || undefined}
                                           dropdownCSS={dropdownDefaultCSS}
                                 />}
                             </div>
                             <div className="col-start-8 col-end-10">
-                                {currentAreaValues.city && <Dropdown isSearchable={true} placeholder={"Within Radius"}
-                                                                     name="radius"
-                                                                     options={radii}
-                                                                     onChange={e => handleAreaRadiusChange(e, index)}
-                                                                     intialSelection={(extraAreas[index].radius && {label: extraAreas[index].radius + "km", value: extraAreas[index].radius + "km"}) || undefined}
-                                                                     dropdownCSS={dropdownDefaultCSS}
+                                {currentAreaValues.city &&
+                                <Dropdown
+                                    isSearchable={true}
+                                    placeholder={"Within Radius"}
+                                    name="radius"
+                                    options={radii}
+                                    onChange={e => handleAreaRadiusChange(e, index)}
+                                    initialSelection={(extraAreas[index].radius && {label: extraAreas[index].radius + "km", value: extraAreas[index].radius + "km"}) || undefined}
+                                    dropdownCSS={dropdownDefaultCSS}
                                 />}
                             </div>
                             <div className="col-start-10 col-end-auto">

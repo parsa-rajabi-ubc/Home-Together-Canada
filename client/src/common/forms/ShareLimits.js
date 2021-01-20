@@ -8,51 +8,65 @@
 
 import React from 'react';
 import Dropdown from "./Dropdown";
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
 
 const shareLimits = [
     {
         label: "1 other person",
-        value: "1"
+        value: 1
     },
     {
         label: "2 other people",
-        value: "2"
+        value: 2
     },
     {
         label: "3 other people",
-        value: "3"
+        value: 3
     },
     {
         label: "4 other people",
-        value: "4"
+        value: 4
     },
     {
         label: "Any number of people",
-        value: "-1"
+        value: -1
     }
 ]
 
 function ShareLimit(props) {
-    const {givenSelection, onChange, dropdownCSS} = props;
-    const intialSelection = (givenSelection && {label: givenSelection, value: givenSelection}) || undefined;
+    const {givenSelection, onChange, dropdownCSS, isMulti = false, currentSelectedValue} = props;
+    const initialSelection = (givenSelection && {label: givenSelection, value: givenSelection}) || undefined;
+
+    const handleInputChange = (e) => {
+        let values = [];
+        for (let val in e) {
+            values.push(e[val].value);
+        }
+        onChange(values);
+    }
 
     return (
         <div>
-            <Dropdown isSearchable={true} placeholder={"Number of People to Share With"}
-                      options={shareLimits}
-                      intialSelection={intialSelection}
-                      onChange={onChange}
-                      dropdownCSS={dropdownCSS}
+            <Dropdown
+                isSearchable={true}
+                placeholder={"Number of People to Share With"}
+                options={shareLimits}
+                onChange={isMulti ? handleInputChange : onChange}
+                dropdownCSS={dropdownCSS}
+                isMulti={isMulti}
+                currentSelectedValue={currentSelectedValue}
+                initialSelection={initialSelection}
             />
         </div>
-    )
+    );
 }
 
 ShareLimit.propTypes = {
-    onChange: propTypes.func,
-    dropdownCSS: propTypes.object,
-    givenSelection: propTypes.oneOfType([propTypes.number, propTypes.string])
+    givenSelection: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    onChange: PropTypes.func,
+    dropdownCSS: PropTypes.object,
+    isMulti: PropTypes.bool,
+    currentSelectedValue: PropTypes.any
 };
 
 export default ShareLimit;

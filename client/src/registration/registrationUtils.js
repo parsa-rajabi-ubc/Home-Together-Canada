@@ -134,8 +134,31 @@ export function isValueNegative(val) {
     return val < 0;
 }
 
-export function validateMinMax(val, setStateVar) {
-    if (isStringEmpty(val) || isValueNegative(val)) {
+export function validateMinMax(min, max, setMinStateVar, setMaxStateVar) {
+    const invalidMin = isStringEmpty(min) || isValueNegative(min) || parseInt(min) > parseInt(max);
+    const invalidMax = isStringEmpty(max) || isValueNegative(max) || parseInt(max) < parseInt(min);
+
+    if (invalidMin || invalidMax) {
+        if (invalidMin) {
+            setMinStateVar(true);
+        }
+        if (invalidMax) {
+            setMaxStateVar(true);
+        }
+        return true;
+    } else {
+        setMinStateVar(false);
+        setMaxStateVar(false);
+        return false;
+    }
+}
+
+export function resolveYesNoToBoolean(str) {
+    return !!str && str.toLowerCase() === 'yes';
+}
+
+export function validateArrayInput(arr, setStateVar) {
+    if (!arr || !Array.isArray(arr) || !arr.length) {
         setStateVar(true);
         return true;
     } else {

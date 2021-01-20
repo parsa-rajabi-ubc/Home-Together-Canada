@@ -44,12 +44,10 @@ const createMemberAccount = (req, uid) => {
         minBudgetPreference: req.body.minBudgetPreference,
         maxBudgetPreference: req.body.maxBudgetPreference,
         statusPreference: JSON.stringify(req.body.statusPreference),
-        minNumRoommatesPreference: req.body.minNumRoommatesPreference,
-        maxNumRoommatesPreference: req.body.maxNumRoommatesPreference,
+        numRoommatesPreference: JSON.stringify(req.body.numRoommatesPreference),
         dietPreference: req.body.dietPreference,
         petsPreference: req.body.petsPreference,
         smokingPreference: req.body.smokingPreference,
-        healthAndMobilityPreference: req.body.healthAndMobilityPreference,
         genderPreference: JSON.stringify(req.body.genderPreference),
         religionPreference: req.body.religionPreference,
         othersWithHomeToSharePreference: req.body.othersWithHomeToSharePreference

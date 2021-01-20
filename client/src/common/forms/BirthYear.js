@@ -6,13 +6,13 @@
  *
  */
 
-import React, {useState} from 'react';
+import React from 'react';
 import Dropdown from "./Dropdown";
 import propTypes from "prop-types";
 
 function BirthYear(props) {
     const {givenYear, onChange, dropdownCSS} = props;
-    const intialSelection = (givenYear && {label: givenYear, value: givenYear}) || undefined;
+    const initialSelection = (givenYear && {label: givenYear, value: givenYear}) || undefined;
     const currentYear = new Date().getFullYear();
     const YEARS = [];
     // Update these 2 const values to update the years being displayed on the age dropdown. 
@@ -29,11 +29,13 @@ function BirthYear(props) {
     return (
         // Updated autoComplete based on: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
         <div>
-            <Dropdown isSearchable={true} placeholder={"Select the Year You Were Born"}
-                      options={YEARS} autoComplete="bday-year"
-                      onChange={onChange}
-                      intialSelection={intialSelection}
-                      dropdownCSS={dropdownCSS}
+            <Dropdown
+                isSearchable={true}
+                placeholder={"Select the Year You Were Born"}
+                options={YEARS} autoComplete="bday-year"
+                onChange={onChange}
+                initialSelection={initialSelection}
+                dropdownCSS={dropdownCSS}
             />
         </div>
 

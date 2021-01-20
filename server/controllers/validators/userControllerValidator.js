@@ -17,11 +17,16 @@ const {
     isValidPhoneNumber,
     isValidCanadianPostalCode,
     shouldMailingAddressBeDefined,
+    validateMailingPostalCode,
+    validateMailingProvince,
     shouldMapAddressBeDefined,
+    validateMapPostalCode,
+    validateMapProvince,
     shouldIncorporatedOwnersNamesBeDefined,
     isPositiveInteger,
     validateMinAndMax,
     isValidShareLimit,
+    isValidShareLimitArray,
     validStatusPreferences,
     validGenderPreferences,
     isValidAreasOfInterest,
@@ -90,32 +95,23 @@ const abstractUserValidation = [
         .exists()
         .isBoolean(),
     body('mailingAddressLine1')
-        .optional()
         .trim()
         .stripLow()
         .custom((mailingAddressLine1, { req }) => shouldMailingAddressBeDefined(mailingAddressLine1, req)),
     body('mailingAddressLine2', 'Mailing address line 2 must be defined if hasDifferentMailingAddress is true')
-        .optional()
         .trim()
         .stripLow(),
     body('mailingCity')
-        .optional()
         .trim()
         .stripLow()
         .custom((mailingCity, { req }) => shouldMailingAddressBeDefined(mailingCity, req)),
     body('mailingProvince')
-        .optional()
-        .trim()
-        .stripLow()
-        .isIn(PROVINCES)
-        .custom((mailingProvince, {req}) => shouldMailingAddressBeDefined(mailingProvince, req)),
+        .custom((mailingProvince, {req}) => validateMailingProvince(mailingProvince, req)),
     body('mailingPostalCode', 'Mailing postal code must be defined if hasDifferentMailingAddress is true')
-        .optional()
         .trim()
         .stripLow()
         .customSanitizer(postalCode => removeAllWhiteSpace(postalCode))
-        .custom(postalCode => isValidCanadianPostalCode(postalCode))
-        .custom((postalCode, { req }) => shouldMailingAddressBeDefined(postalCode, req)),
+        .custom((postalCode, { req }) => validateMailingPostalCode(postalCode, req)),
 ];
 
 
@@ -148,7 +144,6 @@ exports.validate = (method) => {
                     .exists()
                     .isBoolean(),
                 body('mapAddressLine1')
-                    .optional()
                     .trim()
                     .stripLow()
                     .custom((mapAddressLine1, { req }) => shouldMapAddressBeDefined(mapAddressLine1, req)),
@@ -157,21 +152,16 @@ exports.validate = (method) => {
                     .trim()
                     .stripLow(),
                 body('mapCity')
-                    .optional()
                     .trim()
                     .stripLow()
                     .custom((mapCity, { req }) => shouldMapAddressBeDefined(mapCity, req)),
                 body('mapProvince')
-                    .optional()
-                    .isIn(PROVINCES)
-                    .custom((mapProvince, { req }) => shouldMapAddressBeDefined(mapProvince, req)),
+                    .custom((mapProvince, { req }) => validateMapProvince(mapProvince, req)),
                 body('mapPostalCode')
-                    .optional()
                     .trim()
                     .stripLow()
                     .customSanitizer(postalCode => removeAllWhiteSpace(postalCode))
-                    .custom(mapPostalCode => isValidCanadianPostalCode(mapPostalCode))
-                    .custom((mapPostalCode, { req }) => shouldMapAddressBeDefined(mapPostalCode, req)),
+                    .custom((mapPostalCode, { req }) => validateMapPostalCode(mapPostalCode, req)),
                 body('website', 'Invalid website')
                     .optional()
                     .isURL()
@@ -306,6 +296,7 @@ exports.validate = (method) => {
                 body('existingGroupUsernames')
                     .optional()
                     .isArray(),
+                // * allows us to test each username in array with custom function
                 body('existingGroupUsernames.*')
                     .optional()
                     .trim()
@@ -343,12 +334,11 @@ exports.validate = (method) => {
                     .exists()
                     .isArray()
                     .custom(statusPreference => validStatusPreferences(statusPreference)),
-                body('minNumRoommatesPreference')
+                body('numRoommatesPreference')
                     .exists()
-                    .isNumeric()
-                    .custom(limit => isValidShareLimit(limit)),
-                body('maxNumRoommatesPreference')
-                    .exists()
+                    .isArray()
+                    .custom(limits => isValidShareLimitArray(limits)),
+                body('numRoommatesPreference.*')
                     .isNumeric()
                     .custom(limit => isValidShareLimit(limit)),
                 body('dietPreference')
@@ -358,9 +348,6 @@ exports.validate = (method) => {
                     .exists()
                     .isBoolean(),
                 body('smokingPreference')
-                    .exists()
-                    .isBoolean(),
-                body('healthAndMobilityPreference')
                     .exists()
                     .isBoolean(),
                 body('genderPreference')

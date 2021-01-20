@@ -117,12 +117,8 @@ module.exports = (DataTypes, sequelize) => {
             type: DataTypes.STRING, // stringified array
             allowNull: false
         },
-        minNumRoommatesPreference: {   // -1 means any number
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
-        maxNumRoommatesPreference: {   // -1 means any number
-            type: DataTypes.INTEGER,
+        numRoommatesPreference: {
+            type: DataTypes.STRING, // stringified array, -1 means any number
             allowNull: false
         },
         minBudgetPreference: {
@@ -142,10 +138,6 @@ module.exports = (DataTypes, sequelize) => {
             allowNull: false
         },
         smokingPreference: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false
-        },
-        healthAndMobilityPreference: {
             type: DataTypes.BOOLEAN,
             allowNull: false
         },

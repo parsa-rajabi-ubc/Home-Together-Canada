@@ -4,7 +4,9 @@ import {
     getFirstErrorMessage,
     validatePassword,
     isValueNegative,
-    validateMinMax
+    validateMinMax,
+    resolveYesNoToBoolean,
+    validateArrayInput
 } from "../registrationUtils";
 
 describe('registrationUtils', () => {
@@ -235,45 +237,83 @@ describe('registrationUtils', () => {
     });
 
     describe('validateMinMax', () => {
-        it('should return true when a negative value is passed in', () => {
-            // expect result
-            const expectedResult = true;
+        const setMinStateMock = jest.fn();
+        const setMaxStateMock = jest.fn();
 
-            // given
-            const value = -3;
-            const setState = jest.fn();
-            // when
-            const output = validateMinMax(value, setState);
+        const emptyString = "";
+        const undefinedValue = undefined;
+        const nullValue = null;
+        const negativeValue = -1;
+        const positiveValue = 100;
+        it.each`
+            min                 | max               | expected
+            ${emptyString}      | ${emptyString}    | ${true}
+            ${emptyString}      | ${undefinedValue} | ${true}
+            ${emptyString}      | ${nullValue}      | ${true}
+            ${emptyString}      | ${negativeValue}  | ${true}
+            ${emptyString}      | ${positiveValue}  | ${true}
+            ${undefinedValue}   | ${emptyString}    | ${true}
+            ${undefinedValue}   | ${undefinedValue} | ${true}
+            ${undefinedValue}   | ${nullValue}      | ${true}
+            ${undefinedValue}   | ${negativeValue}  | ${true}
+            ${undefinedValue}   | ${positiveValue}  | ${true}
+            ${nullValue}        | ${emptyString}    | ${true}
+            ${nullValue}        | ${undefinedValue} | ${true}
+            ${nullValue}        | ${nullValue}      | ${true}
+            ${nullValue}        | ${negativeValue}  | ${true}
+            ${nullValue}        | ${positiveValue}  | ${true}
+            ${negativeValue}    | ${emptyString}    | ${true}
+            ${negativeValue}    | ${undefinedValue} | ${true}
+            ${negativeValue}    | ${nullValue}      | ${true}
+            ${negativeValue}    | ${negativeValue}  | ${true}
+            ${negativeValue}    | ${positiveValue}  | ${true}
+            ${positiveValue}    | ${emptyString}    | ${true}
+            ${positiveValue}    | ${undefinedValue} | ${true}
+            ${positiveValue}    | ${nullValue}      | ${true}
+            ${positiveValue}    | ${negativeValue}  | ${true}
+            ${1000}             | ${500}            | ${true}
+            ${500}              | ${1000}           | ${false}
+        `('returns $expected when $min and $max are provided', ({ min, max, expected }) => {
+            expect(validateMinMax(min, max, setMinStateMock, setMaxStateMock)).toBe(expected);
+        })
+    });
 
-            // then
-            expect(output).toBe(expectedResult);
+    describe('resolveYesNoToBoolean', () => {
+        const yes = 'yes';
+        const no = 'no';
+        const nullValue = null;
+        const emptyString = '';
+        const undefinedValue = undefined;
+
+        it.each`
+            str                 | expected
+            ${yes}              | ${true}
+            ${no}               | ${false}
+            ${nullValue}        | ${false}
+            ${emptyString}      | ${false}
+            ${undefinedValue}   | ${false}
+        `('returns $expected when $str is provided', ({str, expected}) => {
+            expect(resolveYesNoToBoolean(str)).toBe(expected);
         });
-        it('should return false when a positive value is passed in ', () => {
-            // expect result
-            const expectedResult = false;
+    });
 
-            // given
-            const value = 5;
-            const setState = jest.fn();
-
-            // when
-            const output = validateMinMax(value, setState);
-
-            // then
-            expect(output).toBe(expectedResult);
-        });
-        it('should return true when an empty value is passed in', () => {
-            // expect result
-            const expectedResult = true;
-
-            // given
-            const value = "";
-            const setState = jest.fn();
-            // when
-            const output = validateMinMax(value, setState);
-
-            // then
-            expect(output).toBe(expectedResult);
-        });
+    describe('validateArrayInput', () => {
+        const setStateVarMock = jest.fn();
+        const undefinedArray = undefined;
+        const nullArray = null;
+        const notArray = { objectName: 'Hello' };
+        const emptyArray = [];
+        const validArray = ['Hi', 'Hello', 'Hola', 'Bonjour'];
+        it.each`
+            array               | expectedResult
+            ${undefinedArray}   | ${true}
+            ${nullArray}        | ${true}
+            ${notArray}         | ${true}
+            ${emptyArray}       | ${true}
+            ${validArray}       | ${false}
+        `('returns $expectedResult when $array is provided',
+            ({array, expectedResult}) => {
+                    expect(validateArrayInput(array, setStateVarMock)).toBe(expectedResult);
+            });
     });
 });

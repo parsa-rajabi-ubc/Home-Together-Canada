@@ -6,7 +6,7 @@
  *
  */
 
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import propTypes from "prop-types";
 import Dropdown from "./Dropdown";
 
@@ -35,36 +35,30 @@ const statuses = [
 
 
 function Status(props) {
-    const {givenSelection, onChange, dropdownCSS, isDropdownMulti} = props;
-    const intialSelection = (givenSelection && {label: givenSelection, value: givenSelection}) || undefined;
-    const [selected, setSelected] = useState("");
+    const {givenSelection, onChange, dropdownCSS, isDropdownMulti = false} = props;
+    const initialSelection = (givenSelection && {label: givenSelection, value: givenSelection}) || undefined;
 
     const handleInputChange = (e) => {
         let values = [];
         for (let val in e) {
             values.push(e[val].value);
         }
-        setSelected(values);
+        onChange(values);
     }
-
-    {isDropdownMulti && useEffect(() => {
-        // this onChange function is the callback from the parent component
-        onChange(selected);
-        // that can be used to get the value that is inside the dropdown
-    }, [selected]);}
 
     return (
         <div>
-            <Dropdown isSearchable={true} placeholder={"Family Status"}
-                      options={statuses}
-                      onChange={isDropdownMulti ? handleInputChange : onChange}
-                      dropdownCSS={dropdownCSS}
-                      intialSelection={intialSelection}
-                      isMulti={isDropdownMulti}
+            <Dropdown
+                isSearchable={true}
+                placeholder={"Family Status"}
+                options={statuses}
+                onChange={isDropdownMulti ? handleInputChange : onChange}
+                dropdownCSS={dropdownCSS}
+                initialSelection={initialSelection}
+                isMulti={isDropdownMulti}
             />
         </div>
-    )
-
+    );
 }
 
 Status.propTypes = {
