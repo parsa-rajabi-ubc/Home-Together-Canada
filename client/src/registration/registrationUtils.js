@@ -64,6 +64,17 @@ export function validatePassword(password, setStateVar) {
     }
 }
 
+// check if Checkbox is checked, if so, set stateError to false, if not checked, return true and set stateError to true
+export function validateCheckbox(checked, setStateVar) {
+    if (checked) {
+        setStateVar(false);
+        return false;
+    } else {
+        setStateVar(true);
+        return true;
+    }
+}
+
 // check if phone number is valid and contains all appropriate properties, if so,return true
 export function isPhoneNumberValid(phoneNumber) {
     if (isStringEmpty(phoneNumber.first) || isStringEmpty(phoneNumber.middle) || isStringEmpty(phoneNumber.last)) {
