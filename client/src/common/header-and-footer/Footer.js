@@ -51,7 +51,7 @@ const Footer = () => {
                                           className="text-gray-800 hover:text-orange-500">Terms</Link>
                                 </li>
                                 <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                                    <Link to={'/tos'}
+                                    <Link to={'/privacy'}
                                           className="text-gray-800 hover:text-orange-500">Privacy</Link>
                                 </li>
                             </ul>
