@@ -5,18 +5,15 @@ exports[`LargeTextArea Snapshot test should render correctly regardless of prope
   <label
     className="label"
   >
-     
     testLabelString1
-     
   </label>
   
   <textarea
-    className="input "
+    className="undefined input"
     cols="50"
     name="testLabelString2"
     onChange={[MockFunction]}
     placeholder="testLabelString3"
-    rows="5"
   />
 </div>
 `;
