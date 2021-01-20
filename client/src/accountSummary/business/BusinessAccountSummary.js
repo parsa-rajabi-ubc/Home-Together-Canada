@@ -1,99 +1,93 @@
 /**
- * @Author:     Jeff Hatton
- * @Created:    2020.11.02
+ * @Author:     Alex Qin
+ * @Created:    2020.01.17
  *
- * @Description: Form functional component file returning a business registration form with input validation.
+ * @Description: business account summary
  *
  */
 
 import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
-import TextArea from '../common/forms/TextArea';
-import Checkbox from "../common/forms/Checkbox";
-import SubmitButton from "../common/forms/SubmitButton";
-import Address from "../common/forms/Address";
-import SignInInfo from "../common/forms/SignInInfo";
-import PhoneNumInput from "../common/forms/PhoneNumInput";
-import RegistrationService from '../services/RegistrationService';
-import UploadService from '../services/UploadService';
+import TextArea from '../../common/forms/TextArea';
+import Checkbox from "../../common/forms/Checkbox";
+import SubmitButton from "../../common/forms/SubmitButton";
+import Address from "../../common/forms/Address";
+import PhoneNumInput from "../../common/forms/PhoneNumInput";
 import {
     checkIfErrorsExistInMapping,
-    getConcatenatedErrorMessage,
-    getPhoneNumberFromStrings,
     validateEmail,
     validateInput,
-    validatePassword,
-    validatePasswordConfirmationEmpty,
-    validatePasswordConfirmationMismatch,
     validatePhoneNumber
-} from "./registrationUtils";
-import Asterisk from "../common/forms/Asterisk";
-import {connect} from 'react-redux';
-import {setAccountType, setAuthenticated} from '../redux/slices/userPrivileges';
-import Tooltip from "../common/forms/Tooltip";
-import {USER_TYPES} from "../common/constants/users";
-import FileUploadButton from "../common/forms/FileUploadButton";
-import {BUSINESS_INFO_TEXT} from "../common/constants/TooltipText.js";
-import has from 'lodash/has';
+} from "../../registration/registrationUtils";
+import {splitPhoneNumber} from "../accountSummaryUtils";
+import {BUSINESS_INFO_TEXT} from "../../common/constants/TooltipText.js";
+import Asterisk from "../../common/forms/Asterisk";
+import Tooltip from "../../common/forms/Tooltip";
+import get from 'lodash/get';
+import FileUploadButton from "../../common/forms/FileUploadButton";
 
-const mapDispatch = {setAccountType, setAuthenticated};
+const BusinessAccountSummary = (props) => {
+    const {businessAccountInfo} = props;
 
-
-const BusinessRegistrationForm = (props) => {
-    const {history, setAccountType, setAuthenticated} = props;
-
-    const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(false);
-    const [isNationWide, setIfNationWide] = useState(false);
-    const [isIncorporated, setIsIncorporated] = useState(false);
-
-    const [bName, setBName] = useState(undefined);
-    const [bEmail, setBEmail] = useState(undefined);
-    const [incorporatedOwnersNames, setIncorporatedOwnersNames] = useState("");
-    const [bPhoneNumber, setBPhoneNumber] = useState({
-        first: undefined,
-        middle: undefined,
-        last: undefined,
-    });
-    const [bCellNumber, setBCellNumber] = useState({
-        first: undefined,
-        middle: undefined,
-        last: undefined,
-    });
-    const [bAddress, setBAddress] = useState({
-        street: undefined,
-        aptNum: undefined,
-        city: undefined,
-        province: undefined,
-        postalCode: undefined,
-    });
-    const [bMailingAddress, setBMailingAddress] = useState({
-        street: undefined,
-        aptNum: undefined,
-        city: undefined,
-        province: undefined,
-        postalCode: undefined,
-    });
-    const [bMapAddress, setBMapAddress] = useState({
-        street: undefined,
-        aptNum: undefined,
-        city: undefined,
-        province: undefined,
-        postalCode: undefined,
-    });
-    const [website, setWebsite] = useState(undefined);
-    const [contactFName, setContactFName] = useState(undefined);
-    const [contactLName, setContactLName] = useState(undefined);
-    const [contactPhoneNumber, setContactPhoneNumber] = useState({
-        first: undefined,
-        middle: undefined,
-        last: undefined,
-    });
-    const [username, setUsername] = useState(undefined);
-    const [password, setPassword] = useState(undefined);
-    const [passwordCheck, setPasswordCheck] = useState(undefined);
-    const [logo, setLogo] = useState('');
+    const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(get(businessAccountInfo, 'useDifferentMailingAddress', false));
+    const [isNationWide, setIfNationWide] = useState(get(businessAccountInfo, 'isNationWide', false));
+    const [isIncorporated, setIsIncorporated] = useState(get(businessAccountInfo, 'isIncorporated', false));
 
     //Validation state variables
+    const [bName, setBName] = useState(get(businessAccountInfo, 'bName', undefined));
+    const [bEmail, setBEmail] = useState(get(businessAccountInfo, 'bEmail', undefined));
+    const [incorporatedOwnersNames, setIncorporatedOwnersNames] = useState(get(businessAccountInfo, 'incorporatedOwnersNames', ""));
+
+    const unsplitBPhoneNumber = get(businessAccountInfo,"bPhoneNumber",undefined)
+
+    const [bPhoneNumber, setBPhoneNumber] = useState(splitPhoneNumber(unsplitBPhoneNumber) ||{
+        first: undefined,
+        middle: undefined,
+        last: undefined
+    });
+
+    const unsplitBCellNumber = get(businessAccountInfo,"bCellNumber",undefined)
+    const [bCellNumber, setBCellNumber] = useState(splitPhoneNumber(unsplitBCellNumber) ||{
+        first: undefined,
+        middle: undefined,
+        last: undefined
+    });
+
+    const [bAddress, setBAddress] = useState(get(businessAccountInfo,'bAddress',{
+        street: undefined,
+        aptNum: undefined,
+        city: undefined,
+        province: undefined,
+        postalCode:undefined,
+    }));
+    const [bMailingAddress, setBMailingAddress] = useState(get(businessAccountInfo,'bMailingAddress',{
+        street: undefined,
+        aptNum: undefined,
+        city: undefined,
+        province: undefined,
+        postalCode:undefined,
+    }));
+    const [bMapAddress, setBMapAddress] = useState(get(businessAccountInfo,'bMapAddress',{
+        street: undefined,
+        aptNum: undefined,
+        city: undefined,
+        province: undefined,
+        postalCode:undefined,
+    }));
+    const [website, setWebsite] = useState(get(businessAccountInfo, 'website', undefined));
+    const [contactFName, setContactFName] = useState(get(businessAccountInfo, 'contactFName', undefined));
+    const [contactLName, setContactLName] = useState(get(businessAccountInfo, 'contactLName', undefined));
+
+    const unsplitContactPhoneNumber = get(businessAccountInfo,"contactPhoneNumber",undefined);
+    const [contactPhoneNumber, setContactPhoneNumber] = useState(splitPhoneNumber(unsplitContactPhoneNumber) ||{
+        first: undefined,
+        middle: undefined,
+        last: undefined
+    });
+
+    const [logo, setLogo] = useState(get(businessAccountInfo,'logo',''));
+
+
     // business Details
     const [businessNameError, setBusinessNameError] = useState(undefined);
     const [bEmailError, setBEmailError] = useState(undefined);
@@ -122,14 +116,6 @@ const BusinessRegistrationForm = (props) => {
     const [contactFirstNameError, setContactFirstNameError] = useState(undefined);
     const [contactLastNameError, setContactLastNameError] = useState(undefined);
     const [contactPhoneNumberError, setContactPhoneNumberError] = useState(undefined);
-    // Contact Person End
-
-    // Account Details Start
-    const [usernameError, setUsernameError] = useState(undefined);
-    const [passwordError, setPasswordError] = useState(undefined);
-    const [passwordConfirmError, setPasswordConfirmError] = useState(undefined);
-    // Account Details End
-
 
     // business details
     useEffect(() => {
@@ -208,22 +194,6 @@ const BusinessRegistrationForm = (props) => {
         }
     }, [contactPhoneNumber]);
 
-    // Account Details
-    useEffect(() => {
-        username !== undefined && validateInput(username, setUsernameError);
-    }, [username]);
-    useEffect(() => {
-        password !== undefined && validatePassword(password, setPasswordError);
-    }, [password]);
-    useEffect(() => {
-        passwordCheck !== undefined && validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
-    }, [passwordCheck]);
-    useEffect(() => {
-        if (password !== undefined && passwordCheck !== undefined) {
-            validatePasswordConfirmationMismatch(password, passwordCheck, setPasswordConfirmError);
-        }
-    }, [password, passwordCheck]);
-
     const isFormValid = () => {
 
         const businessDetailsErrors = {
@@ -259,17 +229,7 @@ const BusinessRegistrationForm = (props) => {
             errorPhoneNumber: false,
         }
 
-        const accountDetailsErrors = {
-            errorUsername: false,
-            errorPassword: {
-                password: false,
-                passwordConfirmationEmpty: false,
-                passwordConfirmationMismatch: false,
-            }
-        }
-
         // business Details
-        businessDetailsErrors.errorBusinessName = validateInput(bName, setBusinessNameError);
         businessDetailsErrors.errorBusinessEmail = validateEmail(bEmail, setBEmailError);
         businessDetailsErrors.errorPhoneNumber.regular = validatePhoneNumber(bPhoneNumber, setBPhoneNumberError);
         businessDetailsErrors.errorPhoneNumber.cell = validatePhoneNumber(bCellNumber, setBCellNumberError);
@@ -297,27 +257,12 @@ const BusinessRegistrationForm = (props) => {
         contactPersonErrors.errorLastName = validateInput(contactLName, setContactLastNameError);
         contactPersonErrors.errorPhoneNumber = validatePhoneNumber(contactPhoneNumber, setContactPhoneNumberError);
 
-        // Account Details Validation
-        accountDetailsErrors.errorUsername = validateInput(username, setUsernameError);
-        accountDetailsErrors.errorPassword.password = validatePassword(password, setPasswordError);
-        accountDetailsErrors.errorPassword.passwordConfirmationEmpty = validatePasswordConfirmationEmpty(passwordCheck, setPasswordConfirmError);
-        accountDetailsErrors.errorPassword.passwordConfirmationMismatch = validatePasswordConfirmationMismatch(password, passwordCheck, setPasswordConfirmError);
-
         // check business details for errors
-        if (checkIfErrorsExistInMapping(businessDetailsErrors)
-            || checkIfErrorsExistInMapping(businessDetailsErrors.errorAddress)
-            || checkIfErrorsExistInMapping(businessDetailsErrors.errorMailingAddress)
-            || checkIfErrorsExistInMapping(businessDetailsErrors.errorMapAddress)
-        ) {
+        if (checkIfErrorsExistInMapping(businessDetailsErrors)) {
             return false;
             // check contact person for errors
         } else if (checkIfErrorsExistInMapping(contactPersonErrors)) {
             return false;
-            // check account details for errors
-        } else if (checkIfErrorsExistInMapping(accountDetailsErrors)
-            || checkIfErrorsExistInMapping(accountDetailsErrors.errorPassword)) {
-            return false;
-            // return true if no errors
         } else {
             return true;
         }
@@ -327,83 +272,9 @@ const BusinessRegistrationForm = (props) => {
     function onSubmit(event) {
         if (!isFormValid()) {
             event.preventDefault();
-            return;
+            return
         }
-
-        const registrationData = {
-            username: username,
-            password: password,
-            email: bEmail,
-            firstName: contactFName,
-            lastName: contactLName,
-            phoneNumber: getPhoneNumberFromStrings(contactPhoneNumber.first, contactPhoneNumber.middle, contactPhoneNumber.last),
-            addressLine1: bAddress.street,
-            addressLine2: bAddress.aptNum,
-            city: bAddress.city,
-            province: bAddress.province,
-            postalCode: bAddress.postalCode,
-            hasDifferentMailingAddress: !!useDifferentMailingAddress,
-            ...(useDifferentMailingAddress) && {mailingAddressLine1: bMailingAddress.street},
-            ...(useDifferentMailingAddress) && {mailingAddressLine2: bMailingAddress.aptNum},
-            ...(useDifferentMailingAddress) && {mailingCity: bMailingAddress.city},
-            ...(useDifferentMailingAddress) && {mailingProvince: bMailingAddress.province},
-            ...(useDifferentMailingAddress) && {mailingPostalCode: bMailingAddress.postalCode},
-            businessName: bName,
-            isIncorporated: isIncorporated,
-            ...(isIncorporated) && {incorporatedOwnersNames: incorporatedOwnersNames},
-            businessPhoneNumber: getPhoneNumberFromStrings(bPhoneNumber.first, bPhoneNumber.middle, bPhoneNumber.last),
-            businessCellPhoneNumber: getPhoneNumberFromStrings(bCellNumber.first, bCellNumber.middle, bCellNumber.last),
-            isNationWide: isNationWide,
-            ...(!isNationWide) && {mapAddressLine1: bMapAddress.street},
-            ...(!isNationWide) && {mapAddressLine2: bMapAddress.aptNum},
-            ...(!isNationWide) && {mapCity: bMapAddress.city},
-            ...(!isNationWide) && {mapProvince: bMapAddress.province},
-            ...(!isNationWide) && {mapPostalCode: bMapAddress.postalCode},
-            website: website
-        }
-
-        RegistrationService.registerBusinessUser(registrationData)
-            .then(res => res.json())
-            .then(data => {
-                if (data && data.authenticated) {
-                    // dispatch action to set accountType
-                    if (data.business) {
-                        setAccountType({accountType: USER_TYPES.BUSINESS});
-                    }
-
-                    // dispatch action to set authenticated
-                    setAuthenticated({authenticated: data.authenticated});
-
-                    if (logo) {
-                        UploadService.uploadLogo(logo)
-                            .then(res => res.json())
-                            .then(data => {
-                                if ((has(data, 'authenticated') && !data.authenticated) || data.err) {
-                                    alert('An error occurred while uploading logo. Please try re-uploading in your ' +
-                                        'Account Info page. Remember files have a maximum size of 2 MB');
-                                }
-                            })
-                            .catch(() => {
-                                alert('An error occurred while uploading logo. Please try re-uploading in your ' +
-                                    'Account Info page. Remember files have a maximum size of 2 MB');
-                            });
-                    }
-
-                    // user is authenticated, redirect to home screen
-                    return history.push('/');
-                } else if (data && data.errors && data.errors.length) {
-                    const errorMessage = getConcatenatedErrorMessage(data.errors);
-                    // show list of all errors
-                    alert(errorMessage);
-                } else if (data && !data.authenticated) {
-                    // something went wrong with the AUTHENTICATION (not the user creation)
-                    alert('Registration failed');
-                }
-            })
-            .catch((error) => {
-                alert('Something went wrong creating your user. Please try again. Error: ' + error);
-            });
-
+        alert("Account information saved");
     }
 
     function handleBPhoneChange(e) {
@@ -469,6 +340,7 @@ const BusinessRegistrationForm = (props) => {
                                 <TextArea
                                     className={`${businessNameError && "border-red-500"} mb-0 input`}
                                     label="Business Name"
+                                    value={bName}
                                     autoComplete={"organization"}
                                     labelClassName={"label"}
                                     required={true}
@@ -477,18 +349,21 @@ const BusinessRegistrationForm = (props) => {
                                     }}/>
                                 <div className={"my-2"}>
                                     <Checkbox label={"Incorporated business"}
+                                              checked={isIncorporated}
                                               toolTipText={BUSINESS_INFO_TEXT.INC_COMPANY}
                                               toolTipID="incorporated"
                                               onChange={() => setIsIncorporated(!isIncorporated)}/>
                                     {isIncorporated && <TextArea className="input"
                                                                  placeholder={"Names of Inc. Owners (separated by comma)"}
                                                                  labelClassName={"label"}
+                                                                 value={incorporatedOwnersNames}
                                                                  onChange={(e) => setIncorporatedOwnersNames(e.target.value)}/>}
                                 </div>
                                 <TextArea className={`${bEmailError && "border-red-500"} input`}
                                           placeholder="business@email.ca"
                                           autoComplete={"email"}
                                           label="Business Email"
+                                          value={bEmail}
                                           labelClassName={"label"}
                                           required={true}
                                           onChange={(e) => {
@@ -496,6 +371,7 @@ const BusinessRegistrationForm = (props) => {
                                           }}/>
                                 <TextArea className="input"
                                           placeholder="http://www.your-website.com"
+                                          value={website}
                                           optional={true}
                                           autoComplete={"url"}
                                           label="Business Website"
@@ -504,29 +380,34 @@ const BusinessRegistrationForm = (props) => {
                                 <PhoneNumInput
                                     className={`${bPhoneNumberError && "border-red-500"} phone`}
                                     required={true}
+                                    value={bPhoneNumber}
                                     labelClassName={"label "}
                                     label="Business Phone Number"
                                     onChange={handleBPhoneChange}/>
                                 <PhoneNumInput
                                     className={`${bCellNumberError && "border-red-500"} phone`}
                                     required={true}
+                                    value={bCellNumber}
                                     label="Business Cell Number"
                                     labelClassName={"label"}
                                     onChange={handleCellPhoneChange}/>
                                 <Address label="Business Address"
                                          cityClassName="city-postal"
                                          required={true}
+                                         value={bAddress}
                                          streetAddressError={streetAddressError}
                                          cityAddressError={cityAddressError}
                                          provinceAddressError={provinceAddressError}
                                          postalCodeError={postalCodeError}
                                          onChange={handleBAddressChange}/>
                                 <Checkbox label={"Different Mailing Address"}
+                                          checked={useDifferentMailingAddress}
                                           toolTipText={BUSINESS_INFO_TEXT.DIFF_MAILING_ADDRESS}
                                           toolTipID="differentMailingAddress"
                                           onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}/>
                                 {useDifferentMailingAddress &&
                                 <Address label="Business Mailing Address"
+                                         value={bMailingAddress}
                                          required={true}
                                          streetAddressError={streetMailingAddressError}
                                          cityAddressError={cityMailingAddressError}
@@ -535,6 +416,7 @@ const BusinessRegistrationForm = (props) => {
                                          onChange={handleBMailingAddress}/>}
                                 <div>
                                     <Checkbox label={"Canada-wide business"}
+                                              checked={isNationWide}
                                               toolTipText={BUSINESS_INFO_TEXT.NATION_WIDE}
                                               toolTipID="nationWide"
                                               onChange={() => {
@@ -542,6 +424,7 @@ const BusinessRegistrationForm = (props) => {
                                               }}/>
                                     {!isNationWide &&
                                     <Address label="Searchable Address"
+                                             value={bMapAddress}
                                              toolTipText={BUSINESS_INFO_TEXT.MAP_ADDRESS}
                                              toolTipID={"mapAddress"}
                                              required={true}
@@ -555,10 +438,7 @@ const BusinessRegistrationForm = (props) => {
                         </div>
 
                         <label className="label"> Business Logo </label>
-                        <Tooltip
-                            text={BUSINESS_INFO_TEXT.BUSINESS_LOGO}
-                            toolTipID="businessLogo"
-                        />
+                        <Tooltip text={BUSINESS_INFO_TEXT.BUSINESS_LOGO} toolTipID="businessLogo"/>
                         <div
                             className={"flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed " +
                             "rounded-md"}
@@ -580,12 +460,12 @@ const BusinessRegistrationForm = (props) => {
                                         strokeLinejoin="round"
                                     />
                                 </svg>
-                                    <FileUploadButton
-                                        className={"photo-upload-width photo-upload hover:text-indigo-500"}
-                                        name={'logo'}
-                                        uploadHandler={handleImageUpload}
-                                        accept={'image/png, image/jpg, image/jpeg, image/JPG'}
-                                    />
+                                <FileUploadButton
+                                    className={"photo-upload-width photo-upload hover:text-indigo-500"}
+                                    name={'logo'}
+                                    uploadHandler={handleImageUpload}
+                                    accept={'image/png, image/jpg, image/jpeg, image/JPG'}
+                                />
                                 <p className="text-xs text-gray-500">
                                     PNG or JPG up to 2MB
                                 </p>
@@ -615,6 +495,7 @@ const BusinessRegistrationForm = (props) => {
                             <TextArea className={`${contactFirstNameError && "border-red-500"} input`}
                                       labelClassName={"label"}
                                       label="First Name"
+                                      value={contactFName}
                                       autoComplete={"given-name"}
                                       required={true}
                                       onChange={(e) => {
@@ -626,6 +507,7 @@ const BusinessRegistrationForm = (props) => {
                             <TextArea className={`${contactLastNameError && "border-red-500"} input`}
                                       labelClassName={"label"}
                                       label="Last Name"
+                                      value={contactLName}
                                       required={true}
                                       autoComplete={"family-name"}
                                       onChange={(e) => {
@@ -637,6 +519,7 @@ const BusinessRegistrationForm = (props) => {
                             <PhoneNumInput
                                 className={`${contactPhoneNumberError && "border-red-500"} phone`}
                                 required={true}
+                                value={contactPhoneNumber}
                                 labelClassName={"label"}
                                 label="Personal Phone Number" onChange={handleContactPhoneChange}/>
                         </div>
@@ -647,58 +530,21 @@ const BusinessRegistrationForm = (props) => {
             {/*Divided*/}
             <div className="border-divider"/>
 
-            {/*Account Details*/}
-            <div className="mt-10 sm:mt-0">
-                <div className="m-10 md:grid md:grid-cols-4 md:gap-6">
-                    <div className="md:col-span-1">
-                        <div className="px-4 sm:px-0">
-                            <h3 className="info-header">Sign In Details</h3>
-                            <p className="info-text">
-                                This information is to set up and access your account. Usernames are permanent.
-                                They cannot be changed at a later time.
-                            </p>
-                        </div>
-                    </div>
-                    <div className="mt-5 md:mt-0 md:col-span-2">
-                        <div className="overflow-hidden shadow sm:rounded-md">
-                            <div className="px-4 py-6 bg-white sm:p-5">
-                                <div className="grid grid-cols-2 gap-6">
-                                    <div className="col-span-3 sm:col-span-2">
-                                        <SignInInfo
-                                            onChangeUsername={(e) => setUsername(e.target.value)}
-                                            onChangePassword={(e) => setPassword(e.target.value)}
-                                            onChangePasswordCheck={(e) => setPasswordCheck(e.target.value)}
-                                            usernameError={usernameError}
-                                            passwordError={passwordError}
-                                            passwordConfirmError={passwordConfirmError}
-                                            passwordConfirmErrorMsg={(passwordConfirmError === "empty") ? "empty" :
-                                                (passwordConfirmError === "mismatch" ? "mismatch" : "")}
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6">
-                            <SubmitButton label={""} inputValue={"Create Account"}
-                                          className="text-base btn btn-green"
-                                          onClick={onSubmit}/>
-                        </div>
-                    </div>
-
-                </div>
+            {/*SubmitButton*/}
+            <div className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6">
+                <SubmitButton
+                    inputValue={"Save"}
+                    className="text-base btn btn-green"
+                    onClick={onSubmit}
+                />
             </div>
 
         </div>
     );
 }
 
-BusinessRegistrationForm.propTypes = {
-    setAccountType: PropTypes.func.isRequired,
-    setAuthenticated: PropTypes.func.isRequired,
-    history: PropTypes.shape({
-        push: PropTypes.func
-    })
+BusinessAccountSummary.propTypes = {
+    businessAccountInfo: PropTypes.object.isRequired
 }
 
-export default connect(null, mapDispatch)(BusinessRegistrationForm);
+export default BusinessAccountSummary;
