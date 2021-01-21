@@ -1014,7 +1014,8 @@ function MemberRegistrationForm(props) {
                         </p>
                     </div>
 
-                    <div className="overflow-hidden py-6 px-4 mt-5 bg-white shadow md:mt-0 md:col-span-2 sm:rounded-md sm:p-5">
+                    <div
+                        className="overflow-hidden py-6 px-4 mt-5 bg-white shadow md:mt-0 md:col-span-2 sm:rounded-md sm:p-5">
                         <div className="grid grid-cols-2 gap-6">
                             <div className="col-span-3 sm:col-span-2">
                                 <section
@@ -1091,7 +1092,6 @@ function MemberRegistrationForm(props) {
                                         />
                                     </div>
                                 </div>
-
                                 <LabelAsterisk label={"I am looking for member(s) whose budget range overlaps with the following"}/>
                                 <Tooltip text={MEMBER_PROFILE_INFO_TEXT.RENT} toolTipID="rentPref"/>
                                 <div className="grid grid-cols-6 gap-x-6">
