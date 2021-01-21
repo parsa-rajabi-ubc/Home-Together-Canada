@@ -63,10 +63,34 @@ const removeLogo = (uid) =>
         }
     });
 
+const updateBusiness = (req, res) => {
+    return BusinessAccount.update({
+        businessName: req.body.businessName,
+        isIncorporated: req.body.isIncorporated,
+        incorporatedOwnersNames: req.body.incorporatedOwnersNames,
+        businessPhoneNumber: formatPhoneNumber(req.body.businessPhoneNumber),
+        businessCellPhoneNumber: formatPhoneNumber(req.body.businessCellPhoneNumber),
+        isNationWide: req.body.isNationWide,
+        mapAddressLine1: req.body.mapAddressLine1,
+        mapAddressLine2: req.body.mapAddressLine2,
+        mapCity: req.body.mapCity,
+        mapProvince: req.body.mapProvince,
+        mapPostalCode: req.body.mapPostalCode,
+        mapLatitude: req.body.mapLatitude,
+        mapLongitude: req.body.mapLongitude,
+        website: req.body.website
+    }, {
+        where: {
+            uid: req.user.uid
+        }
+    })
+}
+
 module.exports = {
     createBusinessAccount,
     findAllBusinessAccounts,
     findBusinessByUid,
     updateLogo,
-    removeLogo
+    removeLogo,
+    updateBusiness
 }

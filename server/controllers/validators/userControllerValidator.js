@@ -32,6 +32,7 @@ const {
     isValidAreasOfInterest,
     usernameShouldNotAlreadyExist,
     emailShouldNotAlreadyBeInUse,
+    updatedEmailShouldNotAlreadyBeInUse,
     usernameShouldExist,
     usernameShouldExistAndBeAMember,
     linkedMemberShouldHaveSameStatus,
@@ -41,7 +42,7 @@ const {
 } = require('./userControllerValidatorUtils');
 const { removeAllWhiteSpace } = require('../utils/stringUtils');
 
-const abstractUserValidation = [
+const registrationSigninDetailsValidation = [
     body('username')
         .exists()
         .trim()
@@ -52,12 +53,26 @@ const abstractUserValidation = [
         .trim()
         .stripLow()
         .custom(password => isValidPassword(password)),
+];
+
+const emailUponUpdateValidation = [
+    body('email')
+        .exists()
+        .trim()
+        .stripLow()
+        .custom((email, { req })=> updatedEmailShouldNotAlreadyBeInUse(email, req))
+];
+
+const emailUponRegistrationValidation = [
     body('email', "A valid email must be provided")
         .exists()
         .isEmail()
         .trim()
         .stripLow()
-        .custom((email) => emailShouldNotAlreadyBeInUse(email)),
+        .custom((email) => emailShouldNotAlreadyBeInUse(email))
+];
+
+const abstractUserValidation = [
     body('firstName', 'A valid first name must be provided')
         .exists()
         .trim()
@@ -114,59 +129,63 @@ const abstractUserValidation = [
         .custom((postalCode, { req }) => validateMailingPostalCode(postalCode, req)),
 ];
 
+const businessAccountValidation = [
+    body('businessName', 'A valid business name is required')
+        .exists()
+        .trim()
+        .stripLow(),
+    body('isIncorporated', 'isIncorporated must be specified')
+        .exists()
+        .isBoolean(),
+    body('incorporatedOwnersNames')
+        .custom((incorporatedOwnersNames, { req }) => shouldIncorporatedOwnersNamesBeDefined(incorporatedOwnersNames, req)),     // TODO: add a custom validator here
+    body('businessPhoneNumber')
+        .exists()
+        .custom(phoneNum => isValidPhoneNumber(phoneNum))
+        .isNumeric(),
+    body('businessCellPhoneNumber')
+        .exists()
+        .isNumeric()
+        .custom(phoneNum => isValidPhoneNumber(phoneNum)),
+    body('isNationWide', 'A boolean value for isNationWide')
+        .exists()
+        .isBoolean(),
+    body('mapAddressLine1')
+        .trim()
+        .stripLow()
+        .custom((mapAddressLine1, { req }) => shouldMapAddressBeDefined(mapAddressLine1, req)),
+    body('mapAddressLine2')
+        .optional()
+        .trim()
+        .stripLow(),
+    body('mapCity')
+        .trim()
+        .stripLow()
+        .custom((mapCity, { req }) => shouldMapAddressBeDefined(mapCity, req)),
+    body('mapProvince')
+        .custom((mapProvince, { req }) => validateMapProvince(mapProvince, req)),
+    body('mapPostalCode')
+        .trim()
+        .stripLow()
+        .customSanitizer(postalCode => removeAllWhiteSpace(postalCode))
+        .custom((mapPostalCode, { req }) => validateMapPostalCode(mapPostalCode, req)),
+    body('website', 'Invalid website')
+        .optional()
+        .isURL()
+        .trim()
+        .stripLow()
+]
+
 
 exports.validate = (method) => {
     switch (method) {
         case 'createBusinessUser': {
             return [
                 ...abstractUserValidation,
+                ...registrationSigninDetailsValidation,
+                ...emailUponRegistrationValidation,
+                ...businessAccountValidation
 
-                // business account
-                body('businessName', 'A valid business name is required')
-                    .exists()
-                    .trim()
-                    .stripLow(),
-                body('isIncorporated', 'isIncorporated must be specified')
-                    .exists()
-                    .isBoolean(),
-                body('incorporatedOwnersNames')
-                    .optional()
-                    .custom((incorporatedOwnersNames, { req }) => shouldIncorporatedOwnersNamesBeDefined(incorporatedOwnersNames, req)),     // TODO: add a custom validator here
-                body('businessPhoneNumber')
-                    .exists()
-                    .custom(phoneNum => isValidPhoneNumber(phoneNum))
-                    .isNumeric(),
-                body('businessCellPhoneNumber')
-                    .exists()
-                    .isNumeric()
-                    .custom(phoneNum => isValidPhoneNumber(phoneNum)),
-                body('isNationWide', 'A boolean value for isNationWide')
-                    .exists()
-                    .isBoolean(),
-                body('mapAddressLine1')
-                    .trim()
-                    .stripLow()
-                    .custom((mapAddressLine1, { req }) => shouldMapAddressBeDefined(mapAddressLine1, req)),
-                body('mapAddressLine2')
-                    .optional()
-                    .trim()
-                    .stripLow(),
-                body('mapCity')
-                    .trim()
-                    .stripLow()
-                    .custom((mapCity, { req }) => shouldMapAddressBeDefined(mapCity, req)),
-                body('mapProvince')
-                    .custom((mapProvince, { req }) => validateMapProvince(mapProvince, req)),
-                body('mapPostalCode')
-                    .trim()
-                    .stripLow()
-                    .customSanitizer(postalCode => removeAllWhiteSpace(postalCode))
-                    .custom((mapPostalCode, { req }) => validateMapPostalCode(mapPostalCode, req)),
-                body('website', 'Invalid website')
-                    .optional()
-                    .isURL()
-                    .trim()
-                    .stripLow()
             ]
         }
         case 'loginUser': {
@@ -186,6 +205,8 @@ exports.validate = (method) => {
         case 'createMemberUser': {
             return [
                 ...abstractUserValidation,
+                ...registrationSigninDetailsValidation,
+                ...emailUponRegistrationValidation,
 
                 // member account and profile
                 body('gender', 'One of Female, Male, Other must be provided as gender')
@@ -377,6 +398,15 @@ exports.validate = (method) => {
                     .stripLow()
                     .custom((newPassword, {req}) => providedNewPasswordShouldNotMatchExistingPassword(newPassword, req.user.uid))
                     .custom(newPassword => isValidPassword(newPassword))
+            ]
+        }
+        case 'updateBusinessInfo': {
+            return [
+                ...emailUponUpdateValidation,
+                ...abstractUserValidation,
+                ...businessAccountValidation,
+
+
             ]
         }
     }

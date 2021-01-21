@@ -95,8 +95,6 @@ const shouldMailingAddressBeDefined = (addressPart, req) => {
 };
 
 const validateMailingPostalCode = (postalCode, req) => {
-    console.log('mailing postal code: ', postalCode);
-    console.log('req.body.hasDifferentMailingAddress', req.body.hasDifferentMailingAddress);
     if (req.body.hasDifferentMailingAddress && !isCanadianPostalCode(postalCode)) {
         throw new Error('A valid postal code for the mailing address must be provided');
     } else {
@@ -125,7 +123,7 @@ const shouldMapAddressBeDefined = (addressPart, req) => {
 };
 
 const validateMapPostalCode = (postalCode, req) => {
-    if (req.body.isNationWide && !isCanadianPostalCode(postalCode)) {
+    if (!req.body.isNationWide && !isCanadianPostalCode(postalCode)) {
         throw new Error('A valid postal code for the searchable address must be provided');
     } else {
         return true;
@@ -133,9 +131,11 @@ const validateMapPostalCode = (postalCode, req) => {
 }
 
 const validateMapProvince = (province, req) => {
-    if (req.body.isNationWide) {
+    if (!req.body.isNationWide) {
         if (!PROVINCES.includes(province)) {
-            throw new Error('Map province is incorrect');
+            throw new Error('Searchable address province is incorrect');
+        } else {
+            return true;
         }
     } else {
         return true;
@@ -230,10 +230,20 @@ const usernameShouldNotAlreadyExist = (username) =>
 const emailShouldNotAlreadyBeInUse = (email) =>
     abstractUserController.findUserByEmail(email)
         .then(user => {
+            console.log('user: ', user);
             if (user.length) {
                 return Promise.reject('Email already in use');
             }
         });
+
+const updatedEmailShouldNotAlreadyBeInUse = (email, req) => {
+    return abstractUserController.findUserByEmail(email)
+        .then(user => {
+            if (user.length && user[0].dataValues.uid !== req.user.uid) {
+                return Promise.reject('Email already in use');
+            }
+        });
+}
 
 const usernameShouldExist = (username) =>
     abstractUserController.findUserByUsername(username)
@@ -333,6 +343,7 @@ module.exports = {
     isValidAreasOfInterest,
     usernameShouldNotAlreadyExist,
     emailShouldNotAlreadyBeInUse,
+    updatedEmailShouldNotAlreadyBeInUse,
     usernameShouldExist,
     usernameShouldExistAndBeAMember,
     linkedMemberShouldHaveSameStatus,

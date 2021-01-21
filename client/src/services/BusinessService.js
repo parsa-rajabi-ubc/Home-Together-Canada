@@ -17,3 +17,18 @@ const getBusinessAccountInfo = () =>
         withCredentials: true,
         credentials: 'include'
     });
+
+const updateBusinessAccountInfo = (businessAccountInfo) => {
+    const request = {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        withCredentials: true,
+        body: JSON.stringify(businessAccountInfo)
+    }
+
+    return fetch(`${DEV_URL}/business/update/`);
+}
