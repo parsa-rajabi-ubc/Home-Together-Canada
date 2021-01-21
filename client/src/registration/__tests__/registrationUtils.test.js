@@ -6,7 +6,7 @@ import {
     isValueNegative,
     validateMinMax,
     resolveYesNoToBoolean,
-    validateArrayInput
+    validateArrayInput, validateCheckbox
 } from "../registrationUtils";
 
 describe('registrationUtils', () => {
@@ -326,7 +326,7 @@ describe('registrationUtils', () => {
             const checked = true;
             const setState = jest.fn();
             // when
-            const output = validateMinMax(checked, setState);
+            const output = validateCheckbox(checked, setState);
 
             // then
             expect(output).toBe(expectedResult);
@@ -339,7 +339,7 @@ describe('registrationUtils', () => {
             const checked = false;
             const setState = jest.fn();
             // when
-            const output = validateMinMax(checked, setState);
+            const output = validateCheckbox(checked, setState);
 
             // then
             expect(output).toBe(expectedResult);
