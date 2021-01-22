@@ -6,7 +6,7 @@ import {
     isValueNegative,
     validateMinMax,
     resolveYesNoToBoolean,
-    validateArrayInput
+    validateArrayInput, validateCheckbox
 } from "../registrationUtils";
 
 describe('registrationUtils', () => {
@@ -315,5 +315,63 @@ describe('registrationUtils', () => {
             ({array, expectedResult}) => {
                     expect(validateArrayInput(array, setStateVarMock)).toBe(expectedResult);
             });
+    });
+
+    describe('validateCheckbox', () => {
+        it('should return false when checkbox is checked', () => {
+            // expect result
+            const expectedResult = false;
+
+            // given
+            const checked = true;
+            const setState = jest.fn();
+            // when
+            const output = validateCheckbox(checked, setState);
+
+            // then
+            expect(output).toBe(expectedResult);
+        });
+        it('should return true when checkbox is not checked', () => {
+            // expect result
+            const expectedResult = true;
+
+            // given
+            const checked = false;
+            const setState = jest.fn();
+            // when
+            const output = validateCheckbox(checked, setState);
+
+            // then
+            expect(output).toBe(expectedResult);
+        });
+    });
+
+    describe('validateCheckbox', () => {
+        it('should return false when checkbox is checked', () => {
+            // expect result
+            const expectedResult = false;
+
+            // given
+            const checked = true;
+            const setState = jest.fn();
+            // when
+            const output = validateCheckbox(checked, setState);
+
+            // then
+            expect(output).toBe(expectedResult);
+        });
+        it('should return true when checkbox is not checked', () => {
+            // expect result
+            const expectedResult = true;
+
+            // given
+            const checked = false;
+            const setState = jest.fn();
+            // when
+            const output = validateCheckbox(checked, setState);
+
+            // then
+            expect(output).toBe(expectedResult);
+        });
     });
 });

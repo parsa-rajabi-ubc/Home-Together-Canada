@@ -2944,9 +2944,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                     <label
                       className="label"
                     >
-                       
                       Tell others about yourself
-                       
                     </label>
                     
                     <span>
@@ -3066,12 +3064,11 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       </div>
                     </span>
                     <textarea
-                      className="input "
+                      className="undefined input"
                       cols="50"
                       name="aboutSelf"
                       onChange={[Function]}
                       placeholder="Let others know more about your lifestyle, values and why you want to home share"
-                      rows="5"
                       value="I like to type as little as possible"
                     />
                   </div>

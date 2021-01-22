@@ -292,7 +292,9 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
           >
             Select checkbox below if your mailing address differs from the address above
           </span>
-          <div>
+          <div
+            className="mb-4"
+          >
             <input
               checked={false}
               className="defaultCheckboxCSS"

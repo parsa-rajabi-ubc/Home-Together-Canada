@@ -23,6 +23,10 @@ export const MEMBER_PROFILE_INFO_TEXT = {
     PREF: {
         GENDER: "Choose as many options as you wish, however you must select at least one",
         AGE: "Both min and max numbers are inclusive"
+    },
+    TOS: {
+        TERMS_OF_SERVICE: "All users must agree to the Terms of Service in order use Home Together Canada",
+        PRIVACY_POLICY: "All users must agree to the Privacy Policy in order to use Home Together Canada",
     }
 };
 
@@ -32,5 +36,9 @@ export const BUSINESS_INFO_TEXT = {
     NATION_WIDE: "Select this checkbox if your business offers services across all of Canada",
     BUSINESS_LOGO: "This logo will be displayed on all of your listings and can be changed at any time. " +
         "Max size of 2MB",
-    MAP_ADDRESS: "Address that users use to search for the business"
+    MAP_ADDRESS: "Address that users use to search for the business",
+    TOS: {
+        TERMS_OF_SERVICE: "All users must agree to the Terms of Service in order use Home Together Canada",
+        PRIVACY_POLICY: "All users must agree to the Privacy Policy in order to use Home Together Canada",
+    }
 };

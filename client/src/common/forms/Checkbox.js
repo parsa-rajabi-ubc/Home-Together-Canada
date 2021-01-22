@@ -14,7 +14,7 @@ function Checkbox(props) {
     const {onChange, checked, label, toolTipText, toolTipID, id, fontNormal,
         className = "defaultCheckboxCSS"} = props;
     return (
-        <div>
+        <div className={fontNormal ? " " : "mb-4"}>
             <input
                 className={className} id={id}
                 type="checkbox" onChange={onChange} checked={checked}/>

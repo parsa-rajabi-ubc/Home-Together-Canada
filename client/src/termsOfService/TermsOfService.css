@@ -1,0 +1,19 @@
+.tos-page-layout {
+    @apply p-2 p-8 m-20 bg-white rounded-xl shadow-xl;
+}
+
+.page-title {
+    @apply mb-4 text-2xl font-bold;
+}
+
+.point-title {
+    @apply text-lg font-semibold;
+}
+
+.sub-point {
+    @apply ml-16;
+}
+
+.text {
+    @apply font-light;
+}

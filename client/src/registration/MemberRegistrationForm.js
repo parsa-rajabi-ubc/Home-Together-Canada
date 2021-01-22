@@ -24,10 +24,11 @@ import {
     validatePasswordConfirmationMismatch,
     validatePasswordConfirmationEmpty,
     validateEmail,
-    validateMinMax,
     validatePassword,
     resolveYesNoToBoolean,
-    validateArrayInput
+    validateArrayInput,
+    validateMinMax,
+    validateCheckbox
 } from "./registrationUtils";
 import RegistrationService from "../services/RegistrationService";
 import RadioButton from "../common/forms/RadioButton";
@@ -49,6 +50,8 @@ import {dropdownDefaultCSS, dropdownErrorCSS} from "../css/dropdownCSSUtil"
 import {Link} from "react-router-dom";
 import includes from "lodash/includes";
 import indexOf from 'lodash/indexOf';
+import {TERMS_OF_SERVICE_TEXT} from "../common/constants/termsOfServiceText";
+import {PRIVACY_POLICY_TEXT} from "../common/constants/privacyPolicyText";
 
 const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
 
@@ -141,6 +144,9 @@ function MemberRegistrationForm(props) {
     const [petPreference, setPetPreference] = useState("");
     const [smokingPreference, setSmokingPreference] = useState("");
 
+    const [termsOfServiceAgreed, setTermsOfServiceAgreed] = useState(false);
+    const [privacyPolicyAgreed, setPrivacyPolicyAgreed] = useState(false);
+
     // Error state variables
     // Personal Information Start
     const [firstNameError, setFirstNameError] = useState(undefined);
@@ -195,6 +201,9 @@ function MemberRegistrationForm(props) {
     const [petPreferenceError, setPetPreferenceError] = useState(undefined);
     const [smokingPreferenceError, setSmokingPreferenceError] = useState(undefined);
 
+    // TOS
+    const [termsOfServiceError, setTermsOfServiceError] = useState(undefined);
+    const [privacyPolicyError, setPrivacyPolicyError] = useState(undefined);
 
     // Account Details Start
     const [usernameError, setUsernameError] = useState(undefined);
@@ -403,6 +412,11 @@ function MemberRegistrationForm(props) {
 
         }
 
+        const tosErrors = {
+            errorTOS: false,
+            errorPrivacy: false
+        }
+
         const accountDetailsErrors = {
             errorUsername: false,
             errorPassword: {
@@ -478,6 +492,10 @@ function MemberRegistrationForm(props) {
         searchErrors.errorDietPref = validateInput(dietPreference, setDietPreferenceError);
         searchErrors.errorHomeToSharePref = validateInput(homeToSharePreference, setHomeToSharePreferenceError);
 
+        // TOS Validation
+        tosErrors.errorTOS = validateCheckbox(termsOfServiceAgreed, setTermsOfServiceError);
+        tosErrors.errorPrivacy = validateCheckbox(privacyPolicyAgreed, setPrivacyPolicyError);
+
         // Account Details Validation
         accountDetailsErrors.errorUsername = validateInput(username, setUsernameError);
         accountDetailsErrors.errorPassword.password = validatePassword(password, setPasswordError);
@@ -494,7 +512,11 @@ function MemberRegistrationForm(props) {
             // check profile for errors
         } else if (checkIfErrorsExistInMapping(profileInfoErrors)) {
             return false;
+        //    check search criteria for errors
         } else if (checkIfErrorsExistInMapping(searchErrors)) {
+            return false;
+            //    check TOS for errors
+        } else if (checkIfErrorsExistInMapping(tosErrors)) {
             return false;
             // check account details for errors
         } else return !(checkIfErrorsExistInMapping(accountDetailsErrors)
@@ -967,6 +989,7 @@ function MemberRegistrationForm(props) {
                                                 label={"Tell others about yourself"}
                                                 toolTipText={MEMBER_PROFILE_INFO_TEXT.ABOUT}
                                                 toolTipID="about"
+                                                rows={"5"}
                                                 required={false}
                                                 name="aboutSelf"
                                                 placeholder="Let others know more about your lifestyle, values and why you want to home share"
@@ -995,7 +1018,8 @@ function MemberRegistrationForm(props) {
                         </p>
                     </div>
 
-                    <div className="overflow-hidden py-6 px-4 mt-5 bg-white shadow md:mt-0 md:col-span-2 sm:rounded-md sm:p-5">
+                    <div
+                        className="overflow-hidden py-6 px-4 mt-5 bg-white shadow md:mt-0 md:col-span-2 sm:rounded-md sm:p-5">
                         <div className="grid grid-cols-2 gap-6">
                             <div className="col-span-3 sm:col-span-2">
                                 <section
@@ -1072,7 +1096,6 @@ function MemberRegistrationForm(props) {
                                         />
                                     </div>
                                 </div>
-
                                 <LabelAsterisk label={"I am looking for member(s) whose budget range overlaps with the following"}/>
                                 <Tooltip text={MEMBER_PROFILE_INFO_TEXT.RENT} toolTipID="rentPref"/>
                                 <div className="grid grid-cols-6 gap-x-6">
@@ -1176,6 +1199,7 @@ function MemberRegistrationForm(props) {
                     </div>
                 </div>
             </div>
+
             {/*Divided*/}
             <div className="border-divider"/>
 
@@ -1188,7 +1212,7 @@ function MemberRegistrationForm(props) {
                             <p className="info-text">
                                 This information is to set up and access your account.
                                 <b> Usernames are permanent and cannot be changed at a later time!</b> <br/>
-                                    The user name you choose is how you will be
+                                The user name you choose is how you will be
                                 identified by others on the site. Do NOT use your real name! We recommend you choose
                                 something you will remember and not tire of. User names are extremely important and are
                                 for the protection of you and all of the users of this site. Please read
@@ -1215,6 +1239,73 @@ function MemberRegistrationForm(props) {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            {/*Divided*/}
+            <div className="border-divider"/>
+
+            {/*Terms and Condition*/}
+            <div className="mt-10 sm:mt-0">
+                <div className="m-10 md:grid md:grid-cols-4 md:gap-6">
+                    <div className="md:col-span-1">
+                        <div className="px-4 sm:px-0">
+                            <h3 className="info-header">Terms and Condition</h3>
+                            <p className="info-text">
+                                All users must read and accept the Terms of Service and Privacy Policy of Home Together
+                                Canada. For more information please read
+                                <Link to={'/faq'} className={"label"}> FAQs</Link>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="mt-5 md:mt-0 md:col-span-2">
+                        <div className="overflow-hidden shadow sm:rounded-md">
+                            <div className="py-6 px-4 bg-white sm:p-5">
+                                <div className="grid grid-cols-2 gap-6">
+                                    <div className="col-span-3 sm:col-span-2">
+                                        <div
+                                            className={`${termsOfServiceError && "pl-1 border rounded-lg border-red-500"} mt-4`}>
+                                            <LargeTextArea
+                                                label={"Terms of Service"}
+                                                toolTipText={MEMBER_PROFILE_INFO_TEXT.TOS.TERMS_OF_SERVICE}
+                                                toolTipID={"termsOfService"}
+                                                required={true}
+                                                rows={"7"}
+                                                name={"termsOfService"}
+                                                value={TERMS_OF_SERVICE_TEXT}
+                                                disabled={true}
+                                            />
+                                            <Checkbox
+                                                label={"I have read and agreed to the Terms of Service"}
+                                                checked={termsOfServiceAgreed}
+                                                onChange={setTermsOfServiceAgreed}
+                                            />
+                                        </div>
+                                        <div
+                                            className={`${privacyPolicyError && "pl-1 border rounded-lg border-red-500"} mt-4`}>
+
+                                            <LargeTextArea
+                                                label={"Privacy Policy"}
+                                                toolTipText={MEMBER_PROFILE_INFO_TEXT.TOS.PRIVACY_POLICY}
+                                                toolTipID={"privacyPolicy"}
+                                                required={true}
+                                                rows={"7"}
+                                                name={"privacyPolicy"}
+                                                value={PRIVACY_POLICY_TEXT}
+                                                disabled={true}
+                                            />
+                                            <Checkbox
+                                                label={"I have read and agreed to the Privacy Policy"}
+                                                checked={privacyPolicyAgreed}
+                                                onChange={setPrivacyPolicyAgreed}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6">
                             <SubmitButton
                                 inputValue={"Create Account"}
@@ -1224,7 +1315,6 @@ function MemberRegistrationForm(props) {
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     );
