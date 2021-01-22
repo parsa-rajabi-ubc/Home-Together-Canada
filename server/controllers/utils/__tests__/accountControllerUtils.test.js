@@ -115,9 +115,7 @@ describe('accountControllerUtils', () => {
         });
     });
 
-    describe('getProfileInformation', () => {
-
-
+    describe('getFilteredProfilesInformation', () => {
         it('should return an empty array if results is an empty array', () => {
             // expected results
             const expected = [];
@@ -126,7 +124,7 @@ describe('accountControllerUtils', () => {
             const results = [];
 
             // when
-            const profiles = accountControllerUtils.getProfileInformation(results);
+            const profiles = accountControllerUtils.getFilteredProfilesInformation(results);
 
             // then
             expect(profiles).toEqual(expected);
@@ -139,7 +137,7 @@ describe('accountControllerUtils', () => {
             const results = undefined;
 
             // when
-            const profiles = accountControllerUtils.getProfileInformation(results);
+            const profiles = accountControllerUtils.getFilteredProfilesInformation(results);
 
             // then
             expect(profiles).toEqual(expected);
@@ -152,7 +150,7 @@ describe('accountControllerUtils', () => {
             const results = null;
 
             // when
-            const profiles = accountControllerUtils.getProfileInformation(results);
+            const profiles = accountControllerUtils.getFilteredProfilesInformation(results);
 
             // then
             expect(profiles).toEqual(expected);
@@ -313,7 +311,7 @@ describe('accountControllerUtils', () => {
             ];
 
             // when
-            const profilesList = accountControllerUtils.getProfileInformation(results);
+            const profilesList = accountControllerUtils.getFilteredProfilesInformation(results);
 
             // then
             expect(profilesList).toEqual(expectedResult);

@@ -33,7 +33,7 @@ const formatPhoneNumber = (phoneNum) => {
     return phoneNumStr.substring(0,3) + '-' + phoneNumStr.substring(3, 6) + '-' + phoneNumStr.substring(6, 10);
 }
 // Takes results from a query of memberAccount and extracts profile information
-const getProfileInformation = results => {
+const getFilteredProfilesInformation = results => {
     if (!results || !results.length) {
         return [];
     }
@@ -41,31 +41,8 @@ const getProfileInformation = results => {
     return results.map(result => {
         const values = result.dataValues;
         return {
-            uid: values.uid,
-            username: getUsernameFromAbstractUser(values.AbstractUser),
-            gender: values.gender,
-            genderDescription: values.genderDescription,
-            birthYear: values.birthYear,
-            status: values.status,
-            minMonthlyBudget: values.minMonthlyBudget,
-            maxMonthlyBudget: values.maxMonthlyBudget,
-            numRoommates: values.numRoommates,
-            workStatus: values.workStatus,
-            bio: values.bio,
-            hasHomeToShare: values.hasHomeToShare,
-            hasHomeToShareDescription: values.hasHomeToShareDescription,
-            isReligionImportant: values.isReligionImportant,
-            religionDescription: values.religionDescription,
-            isDietImportant: values.isDietImportant,
-            dietDescription: values.dietDescription,
-            hasHealthMobilityIssues: values.hasHealthMobilityIssues,
-            healthMobilityIssuesDescription: values.healthMobilityIssuesDescription,
-            hasAllergies: values.hasAllergies,
-            allergiesDescription: values.allergiesDescription,
-            hasPets: values.hasPets,
-            petsDescription: values.petsDescription,
-            isSmoker: values.isSmoker,
-            smokingDescription: values.smokingDescription
+            ...getProfile(values),
+            username: getUsernameFromAbstractUser(values.AbstractUser)
         }
     });
 }
@@ -74,8 +51,37 @@ const getUsernameFromAbstractUser = abstractUser => {
     return get(abstractUser, 'dataValues.username', null);
 }
 
+const getProfile = member => {
+    return {
+        uid: member.uid,
+        gender: member.gender,
+        genderDescription: member.genderDescription,
+        birthYear: member.birthYear,
+        status: member.status,
+        minMonthlyBudget: member.minMonthlyBudget,
+        maxMonthlyBudget: member.maxMonthlyBudget,
+        numRoommates: member.numRoommates,
+        workStatus: member.workStatus,
+        bio: member.bio,
+        hasHomeToShare: member.hasHomeToShare,
+        hasHomeToShareDescription: member.hasHomeToShareDescription,
+        isReligionImportant: member.isReligionImportant,
+        religionDescription: member.religionDescription,
+        isDietImportant: member.isDietImportant,
+        dietDescription: member.dietDescription,
+        hasHealthMobilityIssues: member.hasHealthMobilityIssues,
+        healthMobilityIssuesDescription: member.healthMobilityIssuesDescription,
+        hasAllergies: member.hasAllergies,
+        allergiesDescription: member.allergiesDescription,
+        hasPets: member.hasPets,
+        petsDescription: member.petsDescription,
+        isSmoker: member.isSmoker,
+        smokingDescription: member.smokingDescription
+    }
+}
+
 module.exports = {
     getMailingAddress,
     formatPhoneNumber,
-    getProfileInformation
+    getFilteredProfilesInformation
 }

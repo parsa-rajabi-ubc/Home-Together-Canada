@@ -49,7 +49,7 @@ router.post('/search/profiles/',
         } else {
             memberAccounts.getMemberProfilesMatchingSearchFilters(req.user.uid,{ searchFilters: req.body })
                 .then(results => {
-                    const profiles = accountUtils.getProfileInformation(results);
+                    const profiles = accountUtils.getFilteredProfilesInformation(results);
 
                     res.status(200).json({ profiles });
                 })
