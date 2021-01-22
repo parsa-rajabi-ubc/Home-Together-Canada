@@ -13,6 +13,9 @@ const { validationResult } = require('express-validator/check');
 
 const usersValidator = require('../controllers/validators/userControllerValidator');
 const memberAccounts = require('../controllers/memberAccountController');
+const accountUtils = require('../controllers/utils/accountControllerUtils');
+const { isLoggedIn, userIsMember } = require('./routeUtils');
+
 
 // Get all member accounts
 router.get('/all/', function (req, res, next) {
@@ -33,6 +36,28 @@ router.post('/create/', usersValidator.validate('createMemberUser'),
                 failureFlash: false })(req, res, next);
         }
     });
+
+router.post('/search/profiles/',
+    isLoggedIn,
+    userIsMember,
+    usersValidator.validate('memberSearchFilters'),
+    function (req, res, next) {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            res.status(202).json({ errors: errors.array()});
+        } else {
+            memberAccounts.getMemberProfilesMatchingSearchFilters(req.user.uid,{ searchFilters: req.body })
+                .then(results => {
+                    const profiles = accountUtils.getProfileInformation(results);
+
+                    res.status(200).json({ profiles });
+                })
+                .catch(err => {
+                    res.status(500).json({ msg: 'Something went wrong while fitlering'});
+                })
+        }
+    })
 
 module.exports = router;
 

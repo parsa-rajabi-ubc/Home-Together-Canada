@@ -114,4 +114,209 @@ describe('accountControllerUtils', () => {
             expect(formattedPhoneNum).toBe(expectedPhoneNum);
         });
     });
+
+    describe('getProfileInformation', () => {
+
+
+        it('should return an empty array if results is an empty array', () => {
+            // expected results
+            const expected = [];
+
+            // given
+            const results = [];
+
+            // when
+            const profiles = accountControllerUtils.getProfileInformation(results);
+
+            // then
+            expect(profiles).toEqual(expected);
+        });
+        it('should return an empty array if results is undefined', () => {
+            // expected results
+            const expected = [];
+
+            // given
+            const results = undefined;
+
+            // when
+            const profiles = accountControllerUtils.getProfileInformation(results);
+
+            // then
+            expect(profiles).toEqual(expected);
+        });
+        it('should return an empty array if results is null', () => {
+            // expected results
+            const expected = [];
+
+            // given
+            const results = null;
+
+            // when
+            const profiles = accountControllerUtils.getProfileInformation(results);
+
+            // then
+            expect(profiles).toEqual(expected);
+        });
+        it('should return a list of profiles', () => {
+            // expected results
+            const expectedResult = [
+                {
+                    uid: 2,
+                    username: 'member2',
+                    gender: 'Male',
+                    genderDescription: null,
+                    birthYear: 2000,
+                    status: 'Single',
+                    minMonthlyBudget: 400,
+                    maxMonthlyBudget: 700,
+                    numRoommates: 2,
+                    workStatus: 'Student',
+                    bio: null,
+                    hasHomeToShare: false,
+                    hasHomeToShareDescription: undefined,
+                    isReligionImportant: true,
+                    religionDescription: null,
+                    isDietImportant: false,
+                    dietDescription: null,
+                    hasHealthMobilityIssues: false,
+                    healthMobilityIssuesDescription: null,
+                    hasAllergies: false,
+                    allergiesDescription: null,
+                    hasPets: true,
+                    petsDescription: null,
+                    isSmoker: false,
+                    smokingDescription: null
+                },
+                {
+                    uid: 3,
+                    username: 'member3',
+                    gender: 'Female',
+                    genderDescription: null,
+                    birthYear: 1999,
+                    status: 'Couple',
+                    minMonthlyBudget: 200,
+                    maxMonthlyBudget: 800,
+                    numRoommates: 1,
+                    workStatus: 'Student',
+                    bio: null,
+                    hasHomeToShare: false,
+                    hasHomeToShareDescription: undefined,
+                    isReligionImportant: true,
+                    religionDescription: null,
+                    isDietImportant: false,
+                    dietDescription: null,
+                    hasHealthMobilityIssues: false,
+                    healthMobilityIssuesDescription: null,
+                    hasAllergies: false,
+                    allergiesDescription: null,
+                    hasPets: true,
+                    petsDescription: null,
+                    isSmoker: false,
+                    smokingDescription: null
+                }
+            ];
+
+            // given
+            const results = [
+                    {
+                        dataValues: {
+                            uid: 2,
+                            isAdmin: false,
+                            gender: 'Male',
+                            genderDescription: null,
+                            birthYear: 2000,
+                            status: 'Single',
+                            minMonthlyBudget: 400,
+                            maxMonthlyBudget: 700,
+                            hasHomeToShare: false,
+                            homeToShareDescription: null,
+                            isReligionImportant: true,
+                            religionDescription: null,
+                            isDietImportant: false,
+                            dietDescription: null,
+                            hasHealthMobilityIssues: false,
+                            healthMobilityIssuesDescription: null,
+                            hasAllergies: false,
+                            allergiesDescription: null,
+                            hasPets: true,
+                            petsDescription: null,
+                            isSmoker: false,
+                            smokingDescription: null,
+                            numRoommates: 2,
+                            workStatus: 'Student',
+                            bio: null,
+                            minAgePreference: 18,
+                            maxAgePreference: 25,
+                            statusPreference: '["Single","Couple"]',
+                            numRoommatesPreference: '[1,3]',
+                            minBudgetPreference: 500,
+                            maxBudgetPreference: 1000,
+                            dietPreference: false,
+                            petsPreference: true,
+                            smokingPreference: false,
+                            genderPreference: '["Female","Male"]',
+                            religionPreference: true,
+                            othersWithHomeToSharePreference: false,
+                            createdAt: '2021-01-21T20:58:31.000Z',
+                            updatedAt: '2021-01-21T20:58:31.000Z',
+                            AbstractUser: {
+                                dataValues: { username: 'member2' },
+                            },
+                        },
+                    },
+                    {
+                        dataValues: {
+                            uid: 3,
+                            isAdmin: false,
+                            gender: 'Female',
+                            genderDescription: null,
+                            birthYear: 1999,
+                            status: 'Couple',
+                            minMonthlyBudget: 200,
+                            maxMonthlyBudget: 800,
+                            hasHomeToShare: false,
+                            homeToShareDescription: null,
+                            isReligionImportant: true,
+                            religionDescription: null,
+                            isDietImportant: false,
+                            dietDescription: null,
+                            hasHealthMobilityIssues: false,
+                            healthMobilityIssuesDescription: null,
+                            hasAllergies: false,
+                            allergiesDescription: null,
+                            hasPets: true,
+                            petsDescription: null,
+                            isSmoker: false,
+                            smokingDescription: null,
+                            numRoommates: 1,
+                            workStatus: 'Student',
+                            bio: null,
+                            minAgePreference: 18,
+                            maxAgePreference: 25,
+                            statusPreference: '["Single","Couple"]',
+                            numRoommatesPreference: '[1,3]',
+                            minBudgetPreference: 500,
+                            maxBudgetPreference: 1000,
+                            dietPreference: false,
+                            petsPreference: true,
+                            smokingPreference: false,
+                            genderPreference: '["Female","Male"]',
+                            religionPreference: true,
+                            othersWithHomeToSharePreference: false,
+                            createdAt: '2021-01-21T20:58:41.000Z',
+                            updatedAt: '2021-01-21T20:58:41.000Z',
+                            AbstractUser: {
+                                dataValues: { username: 'member3' },
+                            }
+                    }
+                }
+            ];
+
+            // when
+            const profilesList = accountControllerUtils.getProfileInformation(results);
+
+            // then
+            expect(profilesList).toEqual(expectedResult);
+        });
+    });
 });

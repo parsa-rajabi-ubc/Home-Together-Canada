@@ -5,6 +5,8 @@
  * @Description: controller functions for MemberAccount model
  *
  */
+const { Op } = require("sequelize");
+const has = require('lodash/has');
 
 const db = require('../models');
 const MemberAccount = db.memberAccount;
@@ -86,9 +88,105 @@ const findMemberAccountByUid = uid => {
     return MemberAccount.findByPk(uid);
 }
 
+const getMemberProfilesMatchingSearchFilters = (uid, searchFilters) => {
+    let query = {
+        where: {
+            // do not include user doing the search in the results
+            uid: {
+                [Op.not]: uid
+            },
+            // admins will not be shown in search results
+            isAdmin: {
+                [Op.eq]: false
+            }
+        }
+    }
+
+    /*
+    Filters are optional, so we only add them if they are present
+     */
+
+    if (has(searchFilters, 'maxAgePreference') && has(searchFilters, 'minAgePreference')) {
+        query.where.birthYear = {
+            // Note: this is INCLUSIVE
+            [Op.between]: [
+                // get year of birth
+                new Date().getFullYear() - searchFilters.maxAgePreference,
+                new Date().getFullYear() - searchFilters.minAgePreference
+            ]
+        }
+    }
+
+    if(has(searchFilters, 'maxBudgetPreference') && has(searchFilters, 'minBudgetPreference')) {
+        // determine if profile's budget range overlaps with preference budget range.
+        // See https://stackoverflow.com/questions/3269434/whats-the-most-efficient-way-to-test-two-integer-ranges-for-overlap
+        query.where = {
+            ...query.where,
+            [Op.and]: [{
+                minMonthlyBudget: {
+                    [Op.lte]: searchFilters.maxBudgetPreference
+                },
+                maxMonthlyBudget: {
+                    [Op.gte]: searchFilters.minBudgetPreference
+                }
+            }]
+        }
+    }
+
+    if(has(searchFilters, 'statusPreference')) {
+        // status is in array of statusPreference
+        query.where.status = searchFilters.statusPreference;
+    }
+
+    if(has(searchFilters, 'genderPreference')) {
+        // gender is in array of genderPreference
+        query.where.gender = searchFilters.genderPreference;
+    }
+
+    if (has(searchFilters, 'petsPreference')) {
+        query.where.hasPets = searchFilters.petsPreference;
+    }
+
+    if (has(searchFilters, 'smokingPreference')) {
+        query.where.isSmoker = searchFilters.smokingPreference;
+    }
+
+    if (has(searchFilters, 'religionPreference')) {
+        query.where.isReligionImportant = searchFilters.religionPreference;
+    }
+
+    if (has(searchFilters, 'dietPreference')) {
+        query.where.isDietImportant = searchFilters.dietPreference;
+    }
+
+    if (has(searchFilters, 'othersWithHomeToSharePreference')) {
+        query.where.hasHomeToShare = searchFilters.othersWithHomeToSharePreference;
+    }
+
+    // if numRoommatesPreference contains -1, it will ONLY contain -1 (ie. [-1])
+    if(has(searchFilters, 'numRoommatesPreference') && searchFilters.numRoommatesPreference[0] !== -1){
+        query.where.numRoommates = {
+            [Op.or]: {
+                [Op.eq]: -1,
+                [Op.in]: searchFilters.numRoommatesPreference,
+            }
+        }
+    }
+
+
+    return MemberAccount.findAll({
+        where: {...query.where},
+        include: {
+            model: AbstractUser,
+            attributes: ['username']
+        }
+    });
+}
+
 module.exports = {
     createMemberAccount,
     findAllMemberAccounts,
     findMemberAccountByUsername,
-    findMemberAccountByUid
+    findMemberAccountByUid,
+    getMemberProfilesMatchingSearchFilters
 }
