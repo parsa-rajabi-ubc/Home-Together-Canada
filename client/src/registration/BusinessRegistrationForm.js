@@ -337,10 +337,11 @@ const BusinessRegistrationForm = (props) => {
         } else if (checkIfErrorsExistInMapping(accountDetailsErrors)
             || checkIfErrorsExistInMapping(accountDetailsErrors.errorPassword)) {
             return false;
-            // return true if no errors
-        } else {
-            return true;
-        }
+            //    check TOS for errors
+        } else if (checkIfErrorsExistInMapping(tosErrors)) {
+            return false;
+            // check account details for errors
+        } else return !checkIfErrorsExistInMapping(accountDetailsErrors);
     }
 
 //function for input checks on submit

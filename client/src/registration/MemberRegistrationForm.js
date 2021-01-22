@@ -512,7 +512,11 @@ function MemberRegistrationForm(props) {
             // check profile for errors
         } else if (checkIfErrorsExistInMapping(profileInfoErrors)) {
             return false;
+        //    check search criteria for errors
         } else if (checkIfErrorsExistInMapping(searchErrors)) {
+            return false;
+            //    check TOS for errors
+        } else if (checkIfErrorsExistInMapping(tosErrors)) {
             return false;
             // check account details for errors
         } else return !(checkIfErrorsExistInMapping(accountDetailsErrors)
