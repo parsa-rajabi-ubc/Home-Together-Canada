@@ -65,10 +65,12 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
         <div
           className="col-span-3 sm:col-span-2"
         >
-          <label
-            className="label"
-          >
-            First Name
+          <section>
+            <label
+              className="label"
+            >
+              First Name
+            </label>
             <svg
               className="inline align-top text-red-600"
               fill="none"
@@ -96,11 +98,13 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
               onChange={[Function]}
               type="text"
             />
-          </label>
-          <label
-            className="label"
-          >
-            Last Name
+          </section>
+          <section>
+            <label
+              className="label"
+            >
+              Last Name
+            </label>
             <svg
               className="inline align-top text-red-600"
               fill="none"
@@ -128,11 +132,13 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
               onChange={[Function]}
               type="text"
             />
-          </label>
-          <label
-            className="label"
-          >
-            Email
+          </section>
+          <section>
+            <label
+              className="label"
+            >
+              Email
+            </label>
             <svg
               className="inline align-top text-red-600"
               fill="none"
@@ -161,7 +167,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
               placeholder="personal@email.ca"
               type="text"
             />
-          </label>
+          </section>
           <div>
             <label
               className="label"
@@ -6296,18 +6302,14 @@ If you have any questions or concerns about our Privacy Policy, or how we have h
             </div>
           </div>
         </div>
-        <div
-          className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6"
-        >
-          <label>
-            <input
-              className="text-base btn btn-green"
-              onClick={[Function]}
-              type="submit"
-              value="Create Account"
-            />
-          </label>
-        </div>
+        <label>
+          <input
+            className="btn btn-green form-btn w-3/4"
+            onClick={[Function]}
+            type="submit"
+            value="Create Account"
+          />
+        </label>
       </div>
     </div>
   </div>

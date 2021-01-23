@@ -58,10 +58,12 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
           <div
             className="col-span-3 sm:col-span-2"
           >
-            <label
-              className="label"
-            >
-              Business Name
+            <section>
+              <label
+                className="label"
+              >
+                Business Name
+              </label>
               <svg
                 className="inline align-top text-red-600"
                 fill="none"
@@ -89,7 +91,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 onChange={[Function]}
                 type="text"
               />
-            </label>
+            </section>
             <div
               className="my-2"
             >
@@ -224,10 +226,12 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 </span>
               </div>
             </div>
-            <label
-              className="label"
-            >
-              Business Email
+            <section>
+              <label
+                className="label"
+              >
+                Business Email
+              </label>
               <svg
                 className="inline align-top text-red-600"
                 fill="none"
@@ -256,11 +260,13 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 placeholder="business@email.ca"
                 type="text"
               />
-            </label>
-            <label
-              className="label"
-            >
-              Business Website
+            </section>
+            <section>
+              <label
+                className="label"
+              >
+                Business Website
+              </label>
               
               <input
                 autoComplete="url"
@@ -270,7 +276,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 placeholder="http://www.your-website.com"
                 type="text"
               />
-            </label>
+            </section>
             <div>
               <label
                 className="label "
@@ -1336,10 +1342,12 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
         <div
           className="column-span-6-layout"
         >
-          <label
-            className="label"
-          >
-            First Name
+          <section>
+            <label
+              className="label"
+            >
+              First Name
+            </label>
             <svg
               className="inline align-top text-red-600"
               fill="none"
@@ -1367,15 +1375,17 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
               onChange={[Function]}
               type="text"
             />
-          </label>
+          </section>
         </div>
         <div
           className="column-span-6-layout"
         >
-          <label
-            className="label"
-          >
-            Last Name
+          <section>
+            <label
+              className="label"
+            >
+              Last Name
+            </label>
             <svg
               className="inline align-top text-red-600"
               fill="none"
@@ -1403,7 +1413,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
               onChange={[Function]}
               type="text"
             />
-          </label>
+          </section>
         </div>
         <div
           className="column-span-6-layout"
@@ -2418,18 +2428,14 @@ If you have any questions or concerns about our Privacy Policy, or how we have h
             </div>
           </div>
         </div>
-        <div
-          className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6"
-        >
-          <label>
-            <input
-              className="text-base btn btn-green"
-              onClick={[Function]}
-              type="submit"
-              value="Create Account"
-            />
-          </label>
-        </div>
+        <label>
+          <input
+            className="btn btn-green form-btn w-3/4"
+            onClick={[Function]}
+            type="submit"
+            value="Create Account"
+          />
+        </label>
       </div>
     </div>
   </div>

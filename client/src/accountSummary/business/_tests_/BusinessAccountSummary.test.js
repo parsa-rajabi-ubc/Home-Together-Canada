@@ -28,7 +28,9 @@ describe('BusinessAccountSummary', () => {
     it("should render correctly regardless of properties", () => {
         // given
         const props = {
-            businessUser
+            businessAccountInfo: {
+                test: ""
+            }
         };
         //when
         const component = renderer.create(<Router><BusinessAccountSummary {...props}/></Router>);

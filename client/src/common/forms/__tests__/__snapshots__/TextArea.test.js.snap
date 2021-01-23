@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TextArea Snapshot test should render correctly regardless of properties 1`] = `
-<label>
-  testLabelString1
+<section>
+  <label>
+    testLabelString1
+  </label>
   
   <input
     className="testClassNameString"
@@ -10,5 +12,5 @@ exports[`TextArea Snapshot test should render correctly regardless of properties
     placeholder="testPlaceholderString2"
     type="text"
   />
-</label>
+</section>
 `;
