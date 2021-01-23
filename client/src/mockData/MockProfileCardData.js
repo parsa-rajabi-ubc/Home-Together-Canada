@@ -7,7 +7,6 @@
  */
 
 import React from 'react';
-import WorkStatus from "../common/forms/WorkStatus";
 
 const mockProfiles = [
     {
@@ -16,7 +15,11 @@ const mockProfiles = [
         age: 13,
         status: "Single",
         minRent: 200,
-        maxRent: 550
+        maxRent: 550,
+        pet: false,
+        smoke: false,
+        religion: false,
+        diet: false,
     },
     {
         username: "Babar",
@@ -24,7 +27,11 @@ const mockProfiles = [
         age: 30,
         status: "Couple With Children",
         minRent: 2000,
-        maxRent: 5500
+        maxRent: 5500,
+        pet: true,
+        smoke: true,
+        religion: true,
+        diet: true,
     },
     {
         username: "CREATINE",
@@ -32,7 +39,11 @@ const mockProfiles = [
         age: 20,
         status: "Single",
         minRent: 800,
-        maxRent: 1200
+        maxRent: 1200,
+        pet: false,
+        smoke: true,
+        religion: true,
+        diet: true,
     },
     {
         username: "DonaldDuck",
@@ -40,7 +51,11 @@ const mockProfiles = [
         age: 35,
         status: "Single Parent",
         minRent: 500,
-        maxRent: 600
+        maxRent: 600,
+        pet: false,
+        smoke: false,
+        religion: true,
+        diet: true,
     },
     {
         username: "EusticeOfNarnia",
@@ -48,7 +63,11 @@ const mockProfiles = [
         age: 70,
         status: "Single",
         minRent: 1300,
-        maxRent: 2300
+        maxRent: 2300,
+        pet: false,
+        smoke: false,
+        religion: false,
+        diet: true,
     },
     {
         username: "Foxtrot",
@@ -56,7 +75,11 @@ const mockProfiles = [
         age: 65,
         status: "Couple",
         minRent: 1400,
-        maxRent: 1600
+        maxRent: 1600,
+        pet: false,
+        smoke: false,
+        religion: true,
+        diet: false,
     },
     {
         username: "Grinch",
@@ -64,7 +87,11 @@ const mockProfiles = [
         age: 85,
         status: "Single",
         minRent: 2500,
-        maxRent: 3700
+        maxRent: 3700,
+        pet: false,
+        smoke: true,
+        religion: false,
+        diet: false,
     },
     {
         username: "Hydra",
@@ -72,7 +99,11 @@ const mockProfiles = [
         age: 45,
         status: "Couple With Children",
         minRent: 1200,
-        maxRent: 2550
+        maxRent: 2550,
+        pet: true,
+        smoke: false,
+        religion: false,
+        diet: false,
     },
     {
         username: "InnigoMontoya",
