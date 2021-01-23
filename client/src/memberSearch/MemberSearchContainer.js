@@ -9,7 +9,6 @@
 import React from 'react';
 import ProfileCard from "./ProfileCard";
 import MockProfileCardData from "../mockData/MockProfileCardData";
-import GoogleMapsPlaceholder from "../mockData/GoogleMapsPlaceholder.png";
 
 const MemberSearchContainer = () => {
 
@@ -41,7 +40,9 @@ const MemberSearchContainer = () => {
 
             {/*Map*/}
             <div className={"flex-1"}>
-                <img src={GoogleMapsPlaceholder} alt={"placeholder"}/>
+                <p>
+                    Google Maps Placeholder
+                </p>
             </div>
         </div>
     )

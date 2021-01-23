@@ -2899,10 +2899,9 @@ exports[`MemberSearchContainer Container test should match snapshot test 1`] = `
   <div
     className="flex-1"
   >
-    <img
-      alt="placeholder"
-      src="GoogleMapsPlaceholder.png"
-    />
+    <p>
+      Google Maps Placeholder
+    </p>
   </div>
 </div>
 `;

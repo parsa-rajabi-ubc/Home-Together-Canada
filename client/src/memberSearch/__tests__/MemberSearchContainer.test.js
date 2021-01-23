@@ -12,9 +12,6 @@ describe('MemberSearchContainer', () => {
         it('should match snapshot test', () => {
             // given
             const props = {
-                src:{
-                   test: "GoogleMapsPlaceholder"
-                }
             };
             //when
             const component = renderer.create(<MemberSearchContainer {...props}/>);
