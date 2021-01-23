@@ -111,7 +111,11 @@ const mockProfiles = [
         age: 50,
         status: "Single Parent",
         minRent: 300,
-        maxRent: 575
+        maxRent: 575,
+        pet: false,
+        smoke: true,
+        religion: false,
+        diet: false,
     },
     {
         username: "JamesBond",
@@ -119,7 +123,11 @@ const mockProfiles = [
         age: 70,
         status: "Single",
         minRent: 200,
-        maxRent: 550
+        maxRent: 550,
+        pet: false,
+        smoke: true,
+        religion: false,
+        diet: true,
     },
     {
         username: "Kirby",
@@ -127,7 +135,11 @@ const mockProfiles = [
         age: 44,
         status: "Existing Group",
         minRent: 200,
-        maxRent: 2550
+        maxRent: 2550,
+        pet: false,
+        smoke: false,
+        religion: false,
+        diet: false,
     },
     {
         username: "Link",
@@ -135,7 +147,11 @@ const mockProfiles = [
         age: 20,
         status: "Couple",
         minRent: 500,
-        maxRent: 700
+        maxRent: 700,
+        pet: true,
+        smoke: true,
+        religion: false,
+        diet: false,
     },
     {
         username: "Mario",
@@ -143,7 +159,11 @@ const mockProfiles = [
         age: 70,
         status: "Single",
         minRent: 900,
-        maxRent: 2600
+        maxRent: 2600,
+        pet: false,
+        smoke: true,
+        religion: true,
+        diet: false,
     },
     {
         username: "Nero",
@@ -151,7 +171,11 @@ const mockProfiles = [
         age: 53,
         status: "Existing Group",
         minRent: 3300,
-        maxRent: 6650
+        maxRent: 6650,
+        pet: false,
+        smoke: true,
+        religion: false,
+        diet: false,
     },
     {
         username: "OddDuck",
@@ -159,7 +183,11 @@ const mockProfiles = [
         age: 23,
         status: "Single",
         minRent: 400,
-        maxRent: 1950
+        maxRent: 1950,
+        pet: false,
+        smoke: true,
+        religion: true,
+        diet: true,
     },
     {
         username: "PlatoInPerson",
@@ -167,7 +195,11 @@ const mockProfiles = [
         age: 70,
         status: "Single Parent",
         minRent: 100,
-        maxRent: 650
+        maxRent: 650,
+        pet: true,
+        smoke: false,
+        religion: false,
+        diet: true,
     },
     {
         username: "QWERTYworker",
@@ -175,7 +207,11 @@ const mockProfiles = [
         age: 47,
         status: "Single",
         minRent: 2200,
-        maxRent: 3550
+        maxRent: 3550,
+        pet: false,
+        smoke: true,
+        religion: false,
+        diet: false,
     },
     {
         username: "Rattata",
@@ -183,7 +219,11 @@ const mockProfiles = [
         age: 34,
         status: "Single",
         minRent: 700,
-        maxRent: 1250
+        maxRent: 1250,
+        pet: false,
+        smoke: true,
+        religion: false,
+        diet: false,
     },
     {
         username: "Sierra",
@@ -191,7 +231,11 @@ const mockProfiles = [
         age: 85,
         status: "Single",
         minRent: 800,
-        maxRent: 1150
+        maxRent: 1150,
+        pet: false,
+        smoke: true,
+        religion: false,
+        diet: false,
     },
     {
         username: "TooFriendly",
@@ -199,7 +243,11 @@ const mockProfiles = [
         age: 51,
         status: "Single",
         minRent: 700,
-        maxRent: 1050
+        maxRent: 1050,
+        pet: false,
+        smoke: true,
+        religion: false,
+        diet: false,
     },
     {
         username: "UltimateRoomie123",
@@ -207,7 +255,11 @@ const mockProfiles = [
         age: 25,
         status: "Single",
         minRent: 2400,
-        maxRent: 2550
+        maxRent: 2550,
+        pet: false,
+        smoke: true,
+        religion: false,
+        diet: false,
     },
     {
         username: "Ventriloquist45",
@@ -215,7 +267,11 @@ const mockProfiles = [
         age: 63,
         status: "Existing Group",
         minRent: 900,
-        maxRent: 2050
+        maxRent: 2050,
+        pet: false,
+        smoke: true,
+        religion: false,
+        diet: false,
     },
     {
         username: "Wario",
@@ -223,7 +279,11 @@ const mockProfiles = [
         age: 32,
         status: "Single",
         minRent: 700,
-        maxRent: 1350
+        maxRent: 1350,
+        pet: false,
+        smoke: true,
+        religion: false,
+        diet: false,
     },
     {
         username: "XenaThePrincess",
@@ -239,7 +299,11 @@ const mockProfiles = [
         age: 32,
         status: "Couple With Children",
         minRent: 1450,
-        maxRent: 1550
+        maxRent: 1550,
+        pet: false,
+        smoke: true,
+        religion: false,
+        diet: false,
     },
     {
         username: "Zelda995",
@@ -247,7 +311,11 @@ const mockProfiles = [
         age: 28,
         status: "Couple",
         minRent: 700,
-        maxRent: 980
+        maxRent: 980,
+        pet: false,
+        smoke: true,
+        religion: false,
+        diet: false,
     }
 ]
 
