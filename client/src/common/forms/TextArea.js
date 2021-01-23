@@ -23,8 +23,10 @@ function TextArea(props) {
         value
     } = props;
     return (
-        <label className={labelClassName}>
-            {label}
+        <section>
+            <label className={labelClassName}>
+                {label}
+            </label>
             {(required ? <Asterisk/> : '')}
             <input
                 className={className}
@@ -35,7 +37,7 @@ function TextArea(props) {
                 disabled={disabled}
                 value={value}
             />
-        </label>
+        </section>
     );
 }
 
