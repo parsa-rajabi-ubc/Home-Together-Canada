@@ -11,7 +11,11 @@ describe('MemberSearchContainer', () => {
     describe('Container test', () => {
         it('should match snapshot test', () => {
             // given
-            const props = {};
+            const props = {
+                src:{
+                   test: "GoogleMapsPlaceholder"
+                }
+            };
             //when
             const component = renderer.create(<MemberSearchContainer {...props}/>);
             const tree = component.toJSON();
