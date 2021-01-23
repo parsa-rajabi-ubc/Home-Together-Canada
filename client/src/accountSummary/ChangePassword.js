@@ -8,7 +8,6 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import GenericInput from "../common/forms/GenericInput";
-import SubmitButton from "../common/forms/SubmitButton";
 
 function ChangePassword(props) {
     const {
