@@ -1,8 +1,2908 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MemberSearchContainer Container test should match snapshot test 1`] = `
-<div>
-  <div />
-  <div />
+<div
+  className="flex flex-nowrap my-10 "
+>
+  <div
+    className="w-1/3 "
+  >
+    <section
+      className="card-container mt-0"
+    >
+      <div
+        className="ml-6 flex"
+      >
+        <label
+          className="font-semibold"
+        >
+           
+          AliceinWonderLand
+           
+        </label>
+        ,
+        <label
+          className="px-1"
+        >
+           
+          13
+           
+        </label>
+        <section
+          className="flex w-full pr-6 justify-end"
+        >
+          
+          <span>
+            <a
+              data-for="NotSmokeFriendly"
+              data-tip={true}
+            >
+              <svg
+                className="text-red-500 ml-1"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2 6l6.99 7H2v3h9.99l7 7 1.26-1.25-17-17zm18.5 7H22v3h-1.5zM18 13h1.5v3H18zm.85-8.12c.62-.61 1-1.45 1-2.38h-1.5c0 1.02-.83 1.85-1.85 1.85v1.5c2.24 0 4 1.83 4 4.07V12H22V9.92c0-2.23-1.28-4.15-3.15-5.04zM14.5 8.7h1.53c1.05 0 1.97.74 1.97 2.05V12h1.5v-1.59c0-1.8-1.6-3.16-3.47-3.16H14.5c-1.02 0-1.85-.98-1.85-2s.83-1.75 1.85-1.75V2c-1.85 0-3.35 1.5-3.35 3.35s1.5 3.35 3.35 3.35zm2.5 7.23V13h-2.93z"
+                />
+              </svg>
+            </a>
+            <div
+              className="__react_component_tooltip tc5876655-4ad5-4daf-bb34-69323ab15d96 place-top type-dark"
+              data-id="tooltip"
+              id="NotSmokeFriendly"
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "
+  	.tc5876655-4ad5-4daf-bb34-69323ab15d96 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.tc5876655-4ad5-4daf-bb34-69323ab15d96.place-top {
+        margin-top: -10px;
+    }
+    .tc5876655-4ad5-4daf-bb34-69323ab15d96.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .tc5876655-4ad5-4daf-bb34-69323ab15d96.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .tc5876655-4ad5-4daf-bb34-69323ab15d96.place-bottom {
+        margin-top: 10px;
+    }
+    .tc5876655-4ad5-4daf-bb34-69323ab15d96.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .tc5876655-4ad5-4daf-bb34-69323ab15d96.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .tc5876655-4ad5-4daf-bb34-69323ab15d96.place-left {
+        margin-left: -10px;
+    }
+    .tc5876655-4ad5-4daf-bb34-69323ab15d96.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .tc5876655-4ad5-4daf-bb34-69323ab15d96.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .tc5876655-4ad5-4daf-bb34-69323ab15d96.place-right {
+        margin-left: 10px;
+    }
+    .tc5876655-4ad5-4daf-bb34-69323ab15d96.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .tc5876655-4ad5-4daf-bb34-69323ab15d96.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                  }
+                }
+              />
+              Not Smoke Friendly
+            </div>
+          </span>
+          
+          
+        </section>
+      </div>
+      <div
+        className="mx-6 flex items-center justify-between leading-tight font-light"
+      >
+        <section
+          className=""
+        >
+           
+          Single
+           
+        </section>
+        <section
+          className=""
+        >
+           $
+          200
+           - 
+          550
+           
+        </section>
+      </div>
+    </section>
+    <section
+      className="card-container mt-0"
+    >
+      <div
+        className="ml-6 flex"
+      >
+        <label
+          className="font-semibold"
+        >
+           
+          Babar
+           
+        </label>
+        ,
+        <label
+          className="px-1"
+        >
+           
+          30
+           
+        </label>
+        <section
+          className="flex w-full pr-6 justify-end"
+        >
+          <span>
+            <a
+              data-for="PetFriendly"
+              data-tip={true}
+            >
+              <svg
+                className="text-blue-400 ml-1"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 576 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M298.06,224,448,277.55V496a16,16,0,0,1-16,16H368a16,16,0,0,1-16-16V384H192V496a16,16,0,0,1-16,16H112a16,16,0,0,1-16-16V282.09C58.84,268.84,32,233.66,32,192a32,32,0,0,1,64,0,32.06,32.06,0,0,0,32,32ZM544,112v32a64,64,0,0,1-64,64H448v35.58L320,197.87V48c0-14.25,17.22-21.39,27.31-11.31L374.59,64h53.63c10.91,0,23.75,7.92,28.62,17.69L464,96h64A16,16,0,0,1,544,112Zm-112,0a16,16,0,1,0-16,16A16,16,0,0,0,432,112Z"
+                />
+              </svg>
+            </a>
+            <div
+              className="__react_component_tooltip t751bddd5-82c2-4a73-a046-1ad335d51146 place-top type-dark"
+              data-id="tooltip"
+              id="PetFriendly"
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "
+  	.t751bddd5-82c2-4a73-a046-1ad335d51146 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t751bddd5-82c2-4a73-a046-1ad335d51146.place-top {
+        margin-top: -10px;
+    }
+    .t751bddd5-82c2-4a73-a046-1ad335d51146.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t751bddd5-82c2-4a73-a046-1ad335d51146.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t751bddd5-82c2-4a73-a046-1ad335d51146.place-bottom {
+        margin-top: 10px;
+    }
+    .t751bddd5-82c2-4a73-a046-1ad335d51146.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t751bddd5-82c2-4a73-a046-1ad335d51146.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t751bddd5-82c2-4a73-a046-1ad335d51146.place-left {
+        margin-left: -10px;
+    }
+    .t751bddd5-82c2-4a73-a046-1ad335d51146.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t751bddd5-82c2-4a73-a046-1ad335d51146.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t751bddd5-82c2-4a73-a046-1ad335d51146.place-right {
+        margin-left: 10px;
+    }
+    .t751bddd5-82c2-4a73-a046-1ad335d51146.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t751bddd5-82c2-4a73-a046-1ad335d51146.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                  }
+                }
+              />
+              Pet Friendly
+            </div>
+          </span>
+          <span>
+            <a
+              data-for="SmokeFriendly"
+              data-tip={true}
+            >
+              <svg
+                className="text-red-500 ml-1"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 512 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M224 32c9.036 24.71 106.984 58.72 156.096 64-37.096 7.89-53.042 10.52-57.545 32-13.076 62.384 191.477 60.478 115.73 152.223 69.11-15.788 57.922-116.197 15.887-129.84-27.237-8.84-63.75-11.67-47.75-38.383C425.962 88.104 503.57 59.74 448 32zM28.096 292v64h87v-64zm105 0v64h274v-64zm292 0v64h16v-64zm34 0v64h17v-64z"
+                />
+              </svg>
+            </a>
+            <div
+              className="__react_component_tooltip t4ffa0632-fb6a-4e08-8f36-097d3b16876b place-top type-dark"
+              data-id="tooltip"
+              id="SmokeFriendly"
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "
+  	.t4ffa0632-fb6a-4e08-8f36-097d3b16876b {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t4ffa0632-fb6a-4e08-8f36-097d3b16876b.place-top {
+        margin-top: -10px;
+    }
+    .t4ffa0632-fb6a-4e08-8f36-097d3b16876b.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t4ffa0632-fb6a-4e08-8f36-097d3b16876b.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t4ffa0632-fb6a-4e08-8f36-097d3b16876b.place-bottom {
+        margin-top: 10px;
+    }
+    .t4ffa0632-fb6a-4e08-8f36-097d3b16876b.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t4ffa0632-fb6a-4e08-8f36-097d3b16876b.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t4ffa0632-fb6a-4e08-8f36-097d3b16876b.place-left {
+        margin-left: -10px;
+    }
+    .t4ffa0632-fb6a-4e08-8f36-097d3b16876b.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t4ffa0632-fb6a-4e08-8f36-097d3b16876b.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t4ffa0632-fb6a-4e08-8f36-097d3b16876b.place-right {
+        margin-left: 10px;
+    }
+    .t4ffa0632-fb6a-4e08-8f36-097d3b16876b.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t4ffa0632-fb6a-4e08-8f36-097d3b16876b.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                  }
+                }
+              />
+              Smoke Friendly
+            </div>
+          </span>
+          <span>
+            <a
+              data-for="dietImportant"
+              data-tip={true}
+            >
+              <svg
+                className="text-gray-600 ml-1"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                version="1.1"
+                viewBox="0 0 16 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.5 0c-1.657 0-3 1.567-3 3.5 0 1.655 0.985 3.042 2.308 3.406l-0.497 8.096c-0.034 0.549 0.389 0.998 0.939 0.998h0.5c0.55 0 0.972-0.449 0.939-0.998l-0.497-8.096c1.323-0.365 2.308-1.751 2.308-3.406 0-1.933-1.343-3.5-3-3.5zM13.583 0l-0.833 5h-0.625l-0.417-5h-0.417l-0.417 5h-0.625l-0.833-5h-0.417v6.5c0 0.276 0.224 0.5 0.5 0.5h1.302l-0.491 8.002c-0.034 0.549 0.389 0.998 0.939 0.998h0.5c0.55 0 0.972-0.449 0.939-0.998l-0.491-8.002h1.302c0.276 0 0.5-0.224 0.5-0.5v-6.5h-0.417z"
+                />
+              </svg>
+            </a>
+            <div
+              className="__react_component_tooltip t7d65fb6c-1b61-4b2b-8214-732a21848b1f place-top type-dark"
+              data-id="tooltip"
+              id="dietImportant"
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "
+  	.t7d65fb6c-1b61-4b2b-8214-732a21848b1f {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t7d65fb6c-1b61-4b2b-8214-732a21848b1f.place-top {
+        margin-top: -10px;
+    }
+    .t7d65fb6c-1b61-4b2b-8214-732a21848b1f.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t7d65fb6c-1b61-4b2b-8214-732a21848b1f.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t7d65fb6c-1b61-4b2b-8214-732a21848b1f.place-bottom {
+        margin-top: 10px;
+    }
+    .t7d65fb6c-1b61-4b2b-8214-732a21848b1f.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t7d65fb6c-1b61-4b2b-8214-732a21848b1f.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t7d65fb6c-1b61-4b2b-8214-732a21848b1f.place-left {
+        margin-left: -10px;
+    }
+    .t7d65fb6c-1b61-4b2b-8214-732a21848b1f.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t7d65fb6c-1b61-4b2b-8214-732a21848b1f.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t7d65fb6c-1b61-4b2b-8214-732a21848b1f.place-right {
+        margin-left: 10px;
+    }
+    .t7d65fb6c-1b61-4b2b-8214-732a21848b1f.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t7d65fb6c-1b61-4b2b-8214-732a21848b1f.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                  }
+                }
+              />
+              Diet is important
+            </div>
+          </span>
+          <span>
+            <a
+              data-for="religionImportant"
+              data-tip={true}
+            >
+              <svg
+                className="text-green-600 ml-1"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 512 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M261.78 18.063c-52.004 0-94.686 45.7-94.686 103.156 0 57.455 42.682 103.155 94.687 103.155 52.007 0 94.72-45.7 94.72-103.156 0-57.457-42.713-103.157-94.72-103.157zM203 159.655c13.276 3.67 26.394 6.046 39.375 7.22v18.75c-14.674-1.21-29.464-3.85-44.375-7.97l5-18zm117.375 0l4.906 18.03c-14.452 3.938-29.08 6.583-43.874 7.845v-18.718c13.085-1.223 26.055-3.638 38.97-7.156zM160.22 175.344c-75.308 50.797-110.604 125.208-116.282 220h.218c-.367 1.705-.562 3.466-.562 5.28 0 13.808 11.19 25 25 25 .22 0 .436-.025.656-.03v.22l179.438-.002V302.406c-25.58 4.82-45.22 28.49-45.22 62.594v9.344H103.096v-18.688h12.718c3.664-35.178 26.522-77.998 45.343-101.344l14.53 11.72c-15.618 19.373-36.603 61.664-40.905 89.624h50.47c4.04-42.08 35.168-72.875 73.22-72.875 34.98 0 68.653 28.958 73.905 72.876h55.75c-5.412-28.305-26.53-70.32-42.094-89.625l14.564-11.717c18.885 23.424 41.643 66.485 46.562 101.343h10.563v18.688H314.593l-.25-9.094c-1.02-35.656-23.57-58.234-46.97-62.875v123.438h180.657v-.22c.22.006.436.032.658.032 13.81 0 25-11.193 25-25 0-2.092-.266-4.12-.75-6.063-5.566-92.605-39.022-165.662-111.032-216.218-19.026 38.355-56.592 64.72-100.125 64.72-44.662 0-83.047-27.74-101.56-67.72zM140.374 444.5l9.188 47.5h220.562l8.47-47.5h-238.22z"
+                />
+              </svg>
+            </a>
+            <div
+              className="__react_component_tooltip ta972223e-286e-4fa9-a465-6b78b58f9a44 place-top type-dark"
+              data-id="tooltip"
+              id="religionImportant"
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "
+  	.ta972223e-286e-4fa9-a465-6b78b58f9a44 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.ta972223e-286e-4fa9-a465-6b78b58f9a44.place-top {
+        margin-top: -10px;
+    }
+    .ta972223e-286e-4fa9-a465-6b78b58f9a44.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .ta972223e-286e-4fa9-a465-6b78b58f9a44.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .ta972223e-286e-4fa9-a465-6b78b58f9a44.place-bottom {
+        margin-top: 10px;
+    }
+    .ta972223e-286e-4fa9-a465-6b78b58f9a44.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .ta972223e-286e-4fa9-a465-6b78b58f9a44.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .ta972223e-286e-4fa9-a465-6b78b58f9a44.place-left {
+        margin-left: -10px;
+    }
+    .ta972223e-286e-4fa9-a465-6b78b58f9a44.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .ta972223e-286e-4fa9-a465-6b78b58f9a44.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .ta972223e-286e-4fa9-a465-6b78b58f9a44.place-right {
+        margin-left: 10px;
+    }
+    .ta972223e-286e-4fa9-a465-6b78b58f9a44.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .ta972223e-286e-4fa9-a465-6b78b58f9a44.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                  }
+                }
+              />
+              Religion is import
+            </div>
+          </span>
+        </section>
+      </div>
+      <div
+        className="mx-6 flex items-center justify-between leading-tight font-light"
+      >
+        <section
+          className=""
+        >
+           
+          Couple With Children
+           
+        </section>
+        <section
+          className=""
+        >
+           $
+          2000
+           - 
+          5500
+           
+        </section>
+      </div>
+    </section>
+    <section
+      className="card-container mt-0"
+    >
+      <div
+        className="ml-6 flex"
+      >
+        <label
+          className="font-semibold"
+        >
+           
+          CREATINE
+           
+        </label>
+        ,
+        <label
+          className="px-1"
+        >
+           
+          20
+           
+        </label>
+        <section
+          className="flex w-full pr-6 justify-end"
+        >
+          
+          <span>
+            <a
+              data-for="SmokeFriendly"
+              data-tip={true}
+            >
+              <svg
+                className="text-red-500 ml-1"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 512 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M224 32c9.036 24.71 106.984 58.72 156.096 64-37.096 7.89-53.042 10.52-57.545 32-13.076 62.384 191.477 60.478 115.73 152.223 69.11-15.788 57.922-116.197 15.887-129.84-27.237-8.84-63.75-11.67-47.75-38.383C425.962 88.104 503.57 59.74 448 32zM28.096 292v64h87v-64zm105 0v64h274v-64zm292 0v64h16v-64zm34 0v64h17v-64z"
+                />
+              </svg>
+            </a>
+            <div
+              className="__react_component_tooltip t7accfeac-d86f-40a2-aa20-c141a5940953 place-top type-dark"
+              data-id="tooltip"
+              id="SmokeFriendly"
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "
+  	.t7accfeac-d86f-40a2-aa20-c141a5940953 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t7accfeac-d86f-40a2-aa20-c141a5940953.place-top {
+        margin-top: -10px;
+    }
+    .t7accfeac-d86f-40a2-aa20-c141a5940953.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t7accfeac-d86f-40a2-aa20-c141a5940953.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t7accfeac-d86f-40a2-aa20-c141a5940953.place-bottom {
+        margin-top: 10px;
+    }
+    .t7accfeac-d86f-40a2-aa20-c141a5940953.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t7accfeac-d86f-40a2-aa20-c141a5940953.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t7accfeac-d86f-40a2-aa20-c141a5940953.place-left {
+        margin-left: -10px;
+    }
+    .t7accfeac-d86f-40a2-aa20-c141a5940953.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t7accfeac-d86f-40a2-aa20-c141a5940953.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t7accfeac-d86f-40a2-aa20-c141a5940953.place-right {
+        margin-left: 10px;
+    }
+    .t7accfeac-d86f-40a2-aa20-c141a5940953.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t7accfeac-d86f-40a2-aa20-c141a5940953.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                  }
+                }
+              />
+              Smoke Friendly
+            </div>
+          </span>
+          <span>
+            <a
+              data-for="dietImportant"
+              data-tip={true}
+            >
+              <svg
+                className="text-gray-600 ml-1"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                version="1.1"
+                viewBox="0 0 16 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.5 0c-1.657 0-3 1.567-3 3.5 0 1.655 0.985 3.042 2.308 3.406l-0.497 8.096c-0.034 0.549 0.389 0.998 0.939 0.998h0.5c0.55 0 0.972-0.449 0.939-0.998l-0.497-8.096c1.323-0.365 2.308-1.751 2.308-3.406 0-1.933-1.343-3.5-3-3.5zM13.583 0l-0.833 5h-0.625l-0.417-5h-0.417l-0.417 5h-0.625l-0.833-5h-0.417v6.5c0 0.276 0.224 0.5 0.5 0.5h1.302l-0.491 8.002c-0.034 0.549 0.389 0.998 0.939 0.998h0.5c0.55 0 0.972-0.449 0.939-0.998l-0.491-8.002h1.302c0.276 0 0.5-0.224 0.5-0.5v-6.5h-0.417z"
+                />
+              </svg>
+            </a>
+            <div
+              className="__react_component_tooltip tffa70026-72e2-4b5b-bfc5-0eeec2f9af8f place-top type-dark"
+              data-id="tooltip"
+              id="dietImportant"
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "
+  	.tffa70026-72e2-4b5b-bfc5-0eeec2f9af8f {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.tffa70026-72e2-4b5b-bfc5-0eeec2f9af8f.place-top {
+        margin-top: -10px;
+    }
+    .tffa70026-72e2-4b5b-bfc5-0eeec2f9af8f.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .tffa70026-72e2-4b5b-bfc5-0eeec2f9af8f.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .tffa70026-72e2-4b5b-bfc5-0eeec2f9af8f.place-bottom {
+        margin-top: 10px;
+    }
+    .tffa70026-72e2-4b5b-bfc5-0eeec2f9af8f.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .tffa70026-72e2-4b5b-bfc5-0eeec2f9af8f.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .tffa70026-72e2-4b5b-bfc5-0eeec2f9af8f.place-left {
+        margin-left: -10px;
+    }
+    .tffa70026-72e2-4b5b-bfc5-0eeec2f9af8f.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .tffa70026-72e2-4b5b-bfc5-0eeec2f9af8f.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .tffa70026-72e2-4b5b-bfc5-0eeec2f9af8f.place-right {
+        margin-left: 10px;
+    }
+    .tffa70026-72e2-4b5b-bfc5-0eeec2f9af8f.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .tffa70026-72e2-4b5b-bfc5-0eeec2f9af8f.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                  }
+                }
+              />
+              Diet is important
+            </div>
+          </span>
+          <span>
+            <a
+              data-for="religionImportant"
+              data-tip={true}
+            >
+              <svg
+                className="text-green-600 ml-1"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 512 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M261.78 18.063c-52.004 0-94.686 45.7-94.686 103.156 0 57.455 42.682 103.155 94.687 103.155 52.007 0 94.72-45.7 94.72-103.156 0-57.457-42.713-103.157-94.72-103.157zM203 159.655c13.276 3.67 26.394 6.046 39.375 7.22v18.75c-14.674-1.21-29.464-3.85-44.375-7.97l5-18zm117.375 0l4.906 18.03c-14.452 3.938-29.08 6.583-43.874 7.845v-18.718c13.085-1.223 26.055-3.638 38.97-7.156zM160.22 175.344c-75.308 50.797-110.604 125.208-116.282 220h.218c-.367 1.705-.562 3.466-.562 5.28 0 13.808 11.19 25 25 25 .22 0 .436-.025.656-.03v.22l179.438-.002V302.406c-25.58 4.82-45.22 28.49-45.22 62.594v9.344H103.096v-18.688h12.718c3.664-35.178 26.522-77.998 45.343-101.344l14.53 11.72c-15.618 19.373-36.603 61.664-40.905 89.624h50.47c4.04-42.08 35.168-72.875 73.22-72.875 34.98 0 68.653 28.958 73.905 72.876h55.75c-5.412-28.305-26.53-70.32-42.094-89.625l14.564-11.717c18.885 23.424 41.643 66.485 46.562 101.343h10.563v18.688H314.593l-.25-9.094c-1.02-35.656-23.57-58.234-46.97-62.875v123.438h180.657v-.22c.22.006.436.032.658.032 13.81 0 25-11.193 25-25 0-2.092-.266-4.12-.75-6.063-5.566-92.605-39.022-165.662-111.032-216.218-19.026 38.355-56.592 64.72-100.125 64.72-44.662 0-83.047-27.74-101.56-67.72zM140.374 444.5l9.188 47.5h220.562l8.47-47.5h-238.22z"
+                />
+              </svg>
+            </a>
+            <div
+              className="__react_component_tooltip t30a63bcf-1fe5-4a1b-9bf3-424011da8b13 place-top type-dark"
+              data-id="tooltip"
+              id="religionImportant"
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "
+  	.t30a63bcf-1fe5-4a1b-9bf3-424011da8b13 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t30a63bcf-1fe5-4a1b-9bf3-424011da8b13.place-top {
+        margin-top: -10px;
+    }
+    .t30a63bcf-1fe5-4a1b-9bf3-424011da8b13.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t30a63bcf-1fe5-4a1b-9bf3-424011da8b13.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t30a63bcf-1fe5-4a1b-9bf3-424011da8b13.place-bottom {
+        margin-top: 10px;
+    }
+    .t30a63bcf-1fe5-4a1b-9bf3-424011da8b13.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t30a63bcf-1fe5-4a1b-9bf3-424011da8b13.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t30a63bcf-1fe5-4a1b-9bf3-424011da8b13.place-left {
+        margin-left: -10px;
+    }
+    .t30a63bcf-1fe5-4a1b-9bf3-424011da8b13.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t30a63bcf-1fe5-4a1b-9bf3-424011da8b13.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t30a63bcf-1fe5-4a1b-9bf3-424011da8b13.place-right {
+        margin-left: 10px;
+    }
+    .t30a63bcf-1fe5-4a1b-9bf3-424011da8b13.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t30a63bcf-1fe5-4a1b-9bf3-424011da8b13.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                  }
+                }
+              />
+              Religion is import
+            </div>
+          </span>
+        </section>
+      </div>
+      <div
+        className="mx-6 flex items-center justify-between leading-tight font-light"
+      >
+        <section
+          className=""
+        >
+           
+          Single
+           
+        </section>
+        <section
+          className=""
+        >
+           $
+          800
+           - 
+          1200
+           
+        </section>
+      </div>
+    </section>
+    <section
+      className="card-container mt-0"
+    >
+      <div
+        className="ml-6 flex"
+      >
+        <label
+          className="font-semibold"
+        >
+           
+          DonaldDuck
+           
+        </label>
+        ,
+        <label
+          className="px-1"
+        >
+           
+          35
+           
+        </label>
+        <section
+          className="flex w-full pr-6 justify-end"
+        >
+          
+          <span>
+            <a
+              data-for="NotSmokeFriendly"
+              data-tip={true}
+            >
+              <svg
+                className="text-red-500 ml-1"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2 6l6.99 7H2v3h9.99l7 7 1.26-1.25-17-17zm18.5 7H22v3h-1.5zM18 13h1.5v3H18zm.85-8.12c.62-.61 1-1.45 1-2.38h-1.5c0 1.02-.83 1.85-1.85 1.85v1.5c2.24 0 4 1.83 4 4.07V12H22V9.92c0-2.23-1.28-4.15-3.15-5.04zM14.5 8.7h1.53c1.05 0 1.97.74 1.97 2.05V12h1.5v-1.59c0-1.8-1.6-3.16-3.47-3.16H14.5c-1.02 0-1.85-.98-1.85-2s.83-1.75 1.85-1.75V2c-1.85 0-3.35 1.5-3.35 3.35s1.5 3.35 3.35 3.35zm2.5 7.23V13h-2.93z"
+                />
+              </svg>
+            </a>
+            <div
+              className="__react_component_tooltip tbe5233cf-6adf-4d90-ad29-250e0f52ac0b place-top type-dark"
+              data-id="tooltip"
+              id="NotSmokeFriendly"
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "
+  	.tbe5233cf-6adf-4d90-ad29-250e0f52ac0b {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.tbe5233cf-6adf-4d90-ad29-250e0f52ac0b.place-top {
+        margin-top: -10px;
+    }
+    .tbe5233cf-6adf-4d90-ad29-250e0f52ac0b.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .tbe5233cf-6adf-4d90-ad29-250e0f52ac0b.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .tbe5233cf-6adf-4d90-ad29-250e0f52ac0b.place-bottom {
+        margin-top: 10px;
+    }
+    .tbe5233cf-6adf-4d90-ad29-250e0f52ac0b.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .tbe5233cf-6adf-4d90-ad29-250e0f52ac0b.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .tbe5233cf-6adf-4d90-ad29-250e0f52ac0b.place-left {
+        margin-left: -10px;
+    }
+    .tbe5233cf-6adf-4d90-ad29-250e0f52ac0b.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .tbe5233cf-6adf-4d90-ad29-250e0f52ac0b.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .tbe5233cf-6adf-4d90-ad29-250e0f52ac0b.place-right {
+        margin-left: 10px;
+    }
+    .tbe5233cf-6adf-4d90-ad29-250e0f52ac0b.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .tbe5233cf-6adf-4d90-ad29-250e0f52ac0b.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                  }
+                }
+              />
+              Not Smoke Friendly
+            </div>
+          </span>
+          <span>
+            <a
+              data-for="dietImportant"
+              data-tip={true}
+            >
+              <svg
+                className="text-gray-600 ml-1"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                version="1.1"
+                viewBox="0 0 16 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.5 0c-1.657 0-3 1.567-3 3.5 0 1.655 0.985 3.042 2.308 3.406l-0.497 8.096c-0.034 0.549 0.389 0.998 0.939 0.998h0.5c0.55 0 0.972-0.449 0.939-0.998l-0.497-8.096c1.323-0.365 2.308-1.751 2.308-3.406 0-1.933-1.343-3.5-3-3.5zM13.583 0l-0.833 5h-0.625l-0.417-5h-0.417l-0.417 5h-0.625l-0.833-5h-0.417v6.5c0 0.276 0.224 0.5 0.5 0.5h1.302l-0.491 8.002c-0.034 0.549 0.389 0.998 0.939 0.998h0.5c0.55 0 0.972-0.449 0.939-0.998l-0.491-8.002h1.302c0.276 0 0.5-0.224 0.5-0.5v-6.5h-0.417z"
+                />
+              </svg>
+            </a>
+            <div
+              className="__react_component_tooltip tcf79c654-ce92-4f6d-a36f-dcd0e99a0d4f place-top type-dark"
+              data-id="tooltip"
+              id="dietImportant"
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "
+  	.tcf79c654-ce92-4f6d-a36f-dcd0e99a0d4f {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.tcf79c654-ce92-4f6d-a36f-dcd0e99a0d4f.place-top {
+        margin-top: -10px;
+    }
+    .tcf79c654-ce92-4f6d-a36f-dcd0e99a0d4f.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .tcf79c654-ce92-4f6d-a36f-dcd0e99a0d4f.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .tcf79c654-ce92-4f6d-a36f-dcd0e99a0d4f.place-bottom {
+        margin-top: 10px;
+    }
+    .tcf79c654-ce92-4f6d-a36f-dcd0e99a0d4f.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .tcf79c654-ce92-4f6d-a36f-dcd0e99a0d4f.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .tcf79c654-ce92-4f6d-a36f-dcd0e99a0d4f.place-left {
+        margin-left: -10px;
+    }
+    .tcf79c654-ce92-4f6d-a36f-dcd0e99a0d4f.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .tcf79c654-ce92-4f6d-a36f-dcd0e99a0d4f.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .tcf79c654-ce92-4f6d-a36f-dcd0e99a0d4f.place-right {
+        margin-left: 10px;
+    }
+    .tcf79c654-ce92-4f6d-a36f-dcd0e99a0d4f.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .tcf79c654-ce92-4f6d-a36f-dcd0e99a0d4f.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                  }
+                }
+              />
+              Diet is important
+            </div>
+          </span>
+          <span>
+            <a
+              data-for="religionImportant"
+              data-tip={true}
+            >
+              <svg
+                className="text-green-600 ml-1"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 512 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M261.78 18.063c-52.004 0-94.686 45.7-94.686 103.156 0 57.455 42.682 103.155 94.687 103.155 52.007 0 94.72-45.7 94.72-103.156 0-57.457-42.713-103.157-94.72-103.157zM203 159.655c13.276 3.67 26.394 6.046 39.375 7.22v18.75c-14.674-1.21-29.464-3.85-44.375-7.97l5-18zm117.375 0l4.906 18.03c-14.452 3.938-29.08 6.583-43.874 7.845v-18.718c13.085-1.223 26.055-3.638 38.97-7.156zM160.22 175.344c-75.308 50.797-110.604 125.208-116.282 220h.218c-.367 1.705-.562 3.466-.562 5.28 0 13.808 11.19 25 25 25 .22 0 .436-.025.656-.03v.22l179.438-.002V302.406c-25.58 4.82-45.22 28.49-45.22 62.594v9.344H103.096v-18.688h12.718c3.664-35.178 26.522-77.998 45.343-101.344l14.53 11.72c-15.618 19.373-36.603 61.664-40.905 89.624h50.47c4.04-42.08 35.168-72.875 73.22-72.875 34.98 0 68.653 28.958 73.905 72.876h55.75c-5.412-28.305-26.53-70.32-42.094-89.625l14.564-11.717c18.885 23.424 41.643 66.485 46.562 101.343h10.563v18.688H314.593l-.25-9.094c-1.02-35.656-23.57-58.234-46.97-62.875v123.438h180.657v-.22c.22.006.436.032.658.032 13.81 0 25-11.193 25-25 0-2.092-.266-4.12-.75-6.063-5.566-92.605-39.022-165.662-111.032-216.218-19.026 38.355-56.592 64.72-100.125 64.72-44.662 0-83.047-27.74-101.56-67.72zM140.374 444.5l9.188 47.5h220.562l8.47-47.5h-238.22z"
+                />
+              </svg>
+            </a>
+            <div
+              className="__react_component_tooltip t7eaa8235-030d-46a7-8edb-9b3231151d20 place-top type-dark"
+              data-id="tooltip"
+              id="religionImportant"
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "
+  	.t7eaa8235-030d-46a7-8edb-9b3231151d20 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t7eaa8235-030d-46a7-8edb-9b3231151d20.place-top {
+        margin-top: -10px;
+    }
+    .t7eaa8235-030d-46a7-8edb-9b3231151d20.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t7eaa8235-030d-46a7-8edb-9b3231151d20.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t7eaa8235-030d-46a7-8edb-9b3231151d20.place-bottom {
+        margin-top: 10px;
+    }
+    .t7eaa8235-030d-46a7-8edb-9b3231151d20.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t7eaa8235-030d-46a7-8edb-9b3231151d20.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t7eaa8235-030d-46a7-8edb-9b3231151d20.place-left {
+        margin-left: -10px;
+    }
+    .t7eaa8235-030d-46a7-8edb-9b3231151d20.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t7eaa8235-030d-46a7-8edb-9b3231151d20.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t7eaa8235-030d-46a7-8edb-9b3231151d20.place-right {
+        margin-left: 10px;
+    }
+    .t7eaa8235-030d-46a7-8edb-9b3231151d20.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t7eaa8235-030d-46a7-8edb-9b3231151d20.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                  }
+                }
+              />
+              Religion is import
+            </div>
+          </span>
+        </section>
+      </div>
+      <div
+        className="mx-6 flex items-center justify-between leading-tight font-light"
+      >
+        <section
+          className=""
+        >
+           
+          Single Parent
+           
+        </section>
+        <section
+          className=""
+        >
+           $
+          500
+           - 
+          600
+           
+        </section>
+      </div>
+    </section>
+    <section
+      className="card-container mt-0"
+    >
+      <div
+        className="ml-6 flex"
+      >
+        <label
+          className="font-semibold"
+        >
+           
+          EusticeOfNarnia
+           
+        </label>
+        ,
+        <label
+          className="px-1"
+        >
+           
+          70
+           
+        </label>
+        <section
+          className="flex w-full pr-6 justify-end"
+        >
+          
+          <span>
+            <a
+              data-for="NotSmokeFriendly"
+              data-tip={true}
+            >
+              <svg
+                className="text-red-500 ml-1"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2 6l6.99 7H2v3h9.99l7 7 1.26-1.25-17-17zm18.5 7H22v3h-1.5zM18 13h1.5v3H18zm.85-8.12c.62-.61 1-1.45 1-2.38h-1.5c0 1.02-.83 1.85-1.85 1.85v1.5c2.24 0 4 1.83 4 4.07V12H22V9.92c0-2.23-1.28-4.15-3.15-5.04zM14.5 8.7h1.53c1.05 0 1.97.74 1.97 2.05V12h1.5v-1.59c0-1.8-1.6-3.16-3.47-3.16H14.5c-1.02 0-1.85-.98-1.85-2s.83-1.75 1.85-1.75V2c-1.85 0-3.35 1.5-3.35 3.35s1.5 3.35 3.35 3.35zm2.5 7.23V13h-2.93z"
+                />
+              </svg>
+            </a>
+            <div
+              className="__react_component_tooltip td37942f0-aca7-453e-84d6-7f66eda16dec place-top type-dark"
+              data-id="tooltip"
+              id="NotSmokeFriendly"
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "
+  	.td37942f0-aca7-453e-84d6-7f66eda16dec {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.td37942f0-aca7-453e-84d6-7f66eda16dec.place-top {
+        margin-top: -10px;
+    }
+    .td37942f0-aca7-453e-84d6-7f66eda16dec.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .td37942f0-aca7-453e-84d6-7f66eda16dec.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .td37942f0-aca7-453e-84d6-7f66eda16dec.place-bottom {
+        margin-top: 10px;
+    }
+    .td37942f0-aca7-453e-84d6-7f66eda16dec.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .td37942f0-aca7-453e-84d6-7f66eda16dec.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .td37942f0-aca7-453e-84d6-7f66eda16dec.place-left {
+        margin-left: -10px;
+    }
+    .td37942f0-aca7-453e-84d6-7f66eda16dec.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .td37942f0-aca7-453e-84d6-7f66eda16dec.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .td37942f0-aca7-453e-84d6-7f66eda16dec.place-right {
+        margin-left: 10px;
+    }
+    .td37942f0-aca7-453e-84d6-7f66eda16dec.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .td37942f0-aca7-453e-84d6-7f66eda16dec.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                  }
+                }
+              />
+              Not Smoke Friendly
+            </div>
+          </span>
+          <span>
+            <a
+              data-for="dietImportant"
+              data-tip={true}
+            >
+              <svg
+                className="text-gray-600 ml-1"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                version="1.1"
+                viewBox="0 0 16 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.5 0c-1.657 0-3 1.567-3 3.5 0 1.655 0.985 3.042 2.308 3.406l-0.497 8.096c-0.034 0.549 0.389 0.998 0.939 0.998h0.5c0.55 0 0.972-0.449 0.939-0.998l-0.497-8.096c1.323-0.365 2.308-1.751 2.308-3.406 0-1.933-1.343-3.5-3-3.5zM13.583 0l-0.833 5h-0.625l-0.417-5h-0.417l-0.417 5h-0.625l-0.833-5h-0.417v6.5c0 0.276 0.224 0.5 0.5 0.5h1.302l-0.491 8.002c-0.034 0.549 0.389 0.998 0.939 0.998h0.5c0.55 0 0.972-0.449 0.939-0.998l-0.491-8.002h1.302c0.276 0 0.5-0.224 0.5-0.5v-6.5h-0.417z"
+                />
+              </svg>
+            </a>
+            <div
+              className="__react_component_tooltip t16a31396-d49f-4587-bba7-6f4eebd7165b place-top type-dark"
+              data-id="tooltip"
+              id="dietImportant"
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "
+  	.t16a31396-d49f-4587-bba7-6f4eebd7165b {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t16a31396-d49f-4587-bba7-6f4eebd7165b.place-top {
+        margin-top: -10px;
+    }
+    .t16a31396-d49f-4587-bba7-6f4eebd7165b.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t16a31396-d49f-4587-bba7-6f4eebd7165b.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t16a31396-d49f-4587-bba7-6f4eebd7165b.place-bottom {
+        margin-top: 10px;
+    }
+    .t16a31396-d49f-4587-bba7-6f4eebd7165b.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t16a31396-d49f-4587-bba7-6f4eebd7165b.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t16a31396-d49f-4587-bba7-6f4eebd7165b.place-left {
+        margin-left: -10px;
+    }
+    .t16a31396-d49f-4587-bba7-6f4eebd7165b.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t16a31396-d49f-4587-bba7-6f4eebd7165b.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t16a31396-d49f-4587-bba7-6f4eebd7165b.place-right {
+        margin-left: 10px;
+    }
+    .t16a31396-d49f-4587-bba7-6f4eebd7165b.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t16a31396-d49f-4587-bba7-6f4eebd7165b.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                  }
+                }
+              />
+              Diet is important
+            </div>
+          </span>
+          
+        </section>
+      </div>
+      <div
+        className="mx-6 flex items-center justify-between leading-tight font-light"
+      >
+        <section
+          className=""
+        >
+           
+          Single
+           
+        </section>
+        <section
+          className=""
+        >
+           $
+          1300
+           - 
+          2300
+           
+        </section>
+      </div>
+    </section>
+    <section
+      className="card-container mt-0"
+    >
+      <div
+        className="ml-6 flex"
+      >
+        <label
+          className="font-semibold"
+        >
+           
+          Foxtrot
+           
+        </label>
+        ,
+        <label
+          className="px-1"
+        >
+           
+          65
+           
+        </label>
+        <section
+          className="flex w-full pr-6 justify-end"
+        >
+          
+          <span>
+            <a
+              data-for="NotSmokeFriendly"
+              data-tip={true}
+            >
+              <svg
+                className="text-red-500 ml-1"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2 6l6.99 7H2v3h9.99l7 7 1.26-1.25-17-17zm18.5 7H22v3h-1.5zM18 13h1.5v3H18zm.85-8.12c.62-.61 1-1.45 1-2.38h-1.5c0 1.02-.83 1.85-1.85 1.85v1.5c2.24 0 4 1.83 4 4.07V12H22V9.92c0-2.23-1.28-4.15-3.15-5.04zM14.5 8.7h1.53c1.05 0 1.97.74 1.97 2.05V12h1.5v-1.59c0-1.8-1.6-3.16-3.47-3.16H14.5c-1.02 0-1.85-.98-1.85-2s.83-1.75 1.85-1.75V2c-1.85 0-3.35 1.5-3.35 3.35s1.5 3.35 3.35 3.35zm2.5 7.23V13h-2.93z"
+                />
+              </svg>
+            </a>
+            <div
+              className="__react_component_tooltip t9e9b8843-662f-4067-8f8a-896561dc0108 place-top type-dark"
+              data-id="tooltip"
+              id="NotSmokeFriendly"
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "
+  	.t9e9b8843-662f-4067-8f8a-896561dc0108 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t9e9b8843-662f-4067-8f8a-896561dc0108.place-top {
+        margin-top: -10px;
+    }
+    .t9e9b8843-662f-4067-8f8a-896561dc0108.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t9e9b8843-662f-4067-8f8a-896561dc0108.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t9e9b8843-662f-4067-8f8a-896561dc0108.place-bottom {
+        margin-top: 10px;
+    }
+    .t9e9b8843-662f-4067-8f8a-896561dc0108.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t9e9b8843-662f-4067-8f8a-896561dc0108.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t9e9b8843-662f-4067-8f8a-896561dc0108.place-left {
+        margin-left: -10px;
+    }
+    .t9e9b8843-662f-4067-8f8a-896561dc0108.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t9e9b8843-662f-4067-8f8a-896561dc0108.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t9e9b8843-662f-4067-8f8a-896561dc0108.place-right {
+        margin-left: 10px;
+    }
+    .t9e9b8843-662f-4067-8f8a-896561dc0108.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t9e9b8843-662f-4067-8f8a-896561dc0108.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                  }
+                }
+              />
+              Not Smoke Friendly
+            </div>
+          </span>
+          
+          <span>
+            <a
+              data-for="religionImportant"
+              data-tip={true}
+            >
+              <svg
+                className="text-green-600 ml-1"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 512 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M261.78 18.063c-52.004 0-94.686 45.7-94.686 103.156 0 57.455 42.682 103.155 94.687 103.155 52.007 0 94.72-45.7 94.72-103.156 0-57.457-42.713-103.157-94.72-103.157zM203 159.655c13.276 3.67 26.394 6.046 39.375 7.22v18.75c-14.674-1.21-29.464-3.85-44.375-7.97l5-18zm117.375 0l4.906 18.03c-14.452 3.938-29.08 6.583-43.874 7.845v-18.718c13.085-1.223 26.055-3.638 38.97-7.156zM160.22 175.344c-75.308 50.797-110.604 125.208-116.282 220h.218c-.367 1.705-.562 3.466-.562 5.28 0 13.808 11.19 25 25 25 .22 0 .436-.025.656-.03v.22l179.438-.002V302.406c-25.58 4.82-45.22 28.49-45.22 62.594v9.344H103.096v-18.688h12.718c3.664-35.178 26.522-77.998 45.343-101.344l14.53 11.72c-15.618 19.373-36.603 61.664-40.905 89.624h50.47c4.04-42.08 35.168-72.875 73.22-72.875 34.98 0 68.653 28.958 73.905 72.876h55.75c-5.412-28.305-26.53-70.32-42.094-89.625l14.564-11.717c18.885 23.424 41.643 66.485 46.562 101.343h10.563v18.688H314.593l-.25-9.094c-1.02-35.656-23.57-58.234-46.97-62.875v123.438h180.657v-.22c.22.006.436.032.658.032 13.81 0 25-11.193 25-25 0-2.092-.266-4.12-.75-6.063-5.566-92.605-39.022-165.662-111.032-216.218-19.026 38.355-56.592 64.72-100.125 64.72-44.662 0-83.047-27.74-101.56-67.72zM140.374 444.5l9.188 47.5h220.562l8.47-47.5h-238.22z"
+                />
+              </svg>
+            </a>
+            <div
+              className="__react_component_tooltip t9692e515-0ae2-4674-a463-6cd50ef5c9e8 place-top type-dark"
+              data-id="tooltip"
+              id="religionImportant"
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "
+  	.t9692e515-0ae2-4674-a463-6cd50ef5c9e8 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t9692e515-0ae2-4674-a463-6cd50ef5c9e8.place-top {
+        margin-top: -10px;
+    }
+    .t9692e515-0ae2-4674-a463-6cd50ef5c9e8.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t9692e515-0ae2-4674-a463-6cd50ef5c9e8.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t9692e515-0ae2-4674-a463-6cd50ef5c9e8.place-bottom {
+        margin-top: 10px;
+    }
+    .t9692e515-0ae2-4674-a463-6cd50ef5c9e8.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t9692e515-0ae2-4674-a463-6cd50ef5c9e8.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t9692e515-0ae2-4674-a463-6cd50ef5c9e8.place-left {
+        margin-left: -10px;
+    }
+    .t9692e515-0ae2-4674-a463-6cd50ef5c9e8.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t9692e515-0ae2-4674-a463-6cd50ef5c9e8.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t9692e515-0ae2-4674-a463-6cd50ef5c9e8.place-right {
+        margin-left: 10px;
+    }
+    .t9692e515-0ae2-4674-a463-6cd50ef5c9e8.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t9692e515-0ae2-4674-a463-6cd50ef5c9e8.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                  }
+                }
+              />
+              Religion is import
+            </div>
+          </span>
+        </section>
+      </div>
+      <div
+        className="mx-6 flex items-center justify-between leading-tight font-light"
+      >
+        <section
+          className=""
+        >
+           
+          Couple
+           
+        </section>
+        <section
+          className=""
+        >
+           $
+          1400
+           - 
+          1600
+           
+        </section>
+      </div>
+    </section>
+    <section
+      className="card-container mt-0"
+    >
+      <div
+        className="ml-6 flex"
+      >
+        <label
+          className="font-semibold"
+        >
+           
+          Grinch
+           
+        </label>
+        ,
+        <label
+          className="px-1"
+        >
+           
+          85
+           
+        </label>
+        <section
+          className="flex w-full pr-6 justify-end"
+        >
+          
+          <span>
+            <a
+              data-for="SmokeFriendly"
+              data-tip={true}
+            >
+              <svg
+                className="text-red-500 ml-1"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 512 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M224 32c9.036 24.71 106.984 58.72 156.096 64-37.096 7.89-53.042 10.52-57.545 32-13.076 62.384 191.477 60.478 115.73 152.223 69.11-15.788 57.922-116.197 15.887-129.84-27.237-8.84-63.75-11.67-47.75-38.383C425.962 88.104 503.57 59.74 448 32zM28.096 292v64h87v-64zm105 0v64h274v-64zm292 0v64h16v-64zm34 0v64h17v-64z"
+                />
+              </svg>
+            </a>
+            <div
+              className="__react_component_tooltip ta1940cca-ae6b-45c9-8b92-dd2f57d5ea6d place-top type-dark"
+              data-id="tooltip"
+              id="SmokeFriendly"
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "
+  	.ta1940cca-ae6b-45c9-8b92-dd2f57d5ea6d {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.ta1940cca-ae6b-45c9-8b92-dd2f57d5ea6d.place-top {
+        margin-top: -10px;
+    }
+    .ta1940cca-ae6b-45c9-8b92-dd2f57d5ea6d.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .ta1940cca-ae6b-45c9-8b92-dd2f57d5ea6d.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .ta1940cca-ae6b-45c9-8b92-dd2f57d5ea6d.place-bottom {
+        margin-top: 10px;
+    }
+    .ta1940cca-ae6b-45c9-8b92-dd2f57d5ea6d.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .ta1940cca-ae6b-45c9-8b92-dd2f57d5ea6d.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .ta1940cca-ae6b-45c9-8b92-dd2f57d5ea6d.place-left {
+        margin-left: -10px;
+    }
+    .ta1940cca-ae6b-45c9-8b92-dd2f57d5ea6d.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .ta1940cca-ae6b-45c9-8b92-dd2f57d5ea6d.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .ta1940cca-ae6b-45c9-8b92-dd2f57d5ea6d.place-right {
+        margin-left: 10px;
+    }
+    .ta1940cca-ae6b-45c9-8b92-dd2f57d5ea6d.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .ta1940cca-ae6b-45c9-8b92-dd2f57d5ea6d.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                  }
+                }
+              />
+              Smoke Friendly
+            </div>
+          </span>
+          
+          
+        </section>
+      </div>
+      <div
+        className="mx-6 flex items-center justify-between leading-tight font-light"
+      >
+        <section
+          className=""
+        >
+           
+          Single
+           
+        </section>
+        <section
+          className=""
+        >
+           $
+          2500
+           - 
+          3700
+           
+        </section>
+      </div>
+    </section>
+    <section
+      className="card-container mt-0"
+    >
+      <div
+        className="ml-6 flex"
+      >
+        <label
+          className="font-semibold"
+        >
+           
+          Hydra
+           
+        </label>
+        ,
+        <label
+          className="px-1"
+        >
+           
+          45
+           
+        </label>
+        <section
+          className="flex w-full pr-6 justify-end"
+        >
+          <span>
+            <a
+              data-for="PetFriendly"
+              data-tip={true}
+            >
+              <svg
+                className="text-blue-400 ml-1"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 576 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M298.06,224,448,277.55V496a16,16,0,0,1-16,16H368a16,16,0,0,1-16-16V384H192V496a16,16,0,0,1-16,16H112a16,16,0,0,1-16-16V282.09C58.84,268.84,32,233.66,32,192a32,32,0,0,1,64,0,32.06,32.06,0,0,0,32,32ZM544,112v32a64,64,0,0,1-64,64H448v35.58L320,197.87V48c0-14.25,17.22-21.39,27.31-11.31L374.59,64h53.63c10.91,0,23.75,7.92,28.62,17.69L464,96h64A16,16,0,0,1,544,112Zm-112,0a16,16,0,1,0-16,16A16,16,0,0,0,432,112Z"
+                />
+              </svg>
+            </a>
+            <div
+              className="__react_component_tooltip te78ae776-9ed0-4202-bcd1-ea43445a861f place-top type-dark"
+              data-id="tooltip"
+              id="PetFriendly"
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "
+  	.te78ae776-9ed0-4202-bcd1-ea43445a861f {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.te78ae776-9ed0-4202-bcd1-ea43445a861f.place-top {
+        margin-top: -10px;
+    }
+    .te78ae776-9ed0-4202-bcd1-ea43445a861f.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .te78ae776-9ed0-4202-bcd1-ea43445a861f.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .te78ae776-9ed0-4202-bcd1-ea43445a861f.place-bottom {
+        margin-top: 10px;
+    }
+    .te78ae776-9ed0-4202-bcd1-ea43445a861f.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .te78ae776-9ed0-4202-bcd1-ea43445a861f.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .te78ae776-9ed0-4202-bcd1-ea43445a861f.place-left {
+        margin-left: -10px;
+    }
+    .te78ae776-9ed0-4202-bcd1-ea43445a861f.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .te78ae776-9ed0-4202-bcd1-ea43445a861f.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .te78ae776-9ed0-4202-bcd1-ea43445a861f.place-right {
+        margin-left: 10px;
+    }
+    .te78ae776-9ed0-4202-bcd1-ea43445a861f.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .te78ae776-9ed0-4202-bcd1-ea43445a861f.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                  }
+                }
+              />
+              Pet Friendly
+            </div>
+          </span>
+          <span>
+            <a
+              data-for="NotSmokeFriendly"
+              data-tip={true}
+            >
+              <svg
+                className="text-red-500 ml-1"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2 6l6.99 7H2v3h9.99l7 7 1.26-1.25-17-17zm18.5 7H22v3h-1.5zM18 13h1.5v3H18zm.85-8.12c.62-.61 1-1.45 1-2.38h-1.5c0 1.02-.83 1.85-1.85 1.85v1.5c2.24 0 4 1.83 4 4.07V12H22V9.92c0-2.23-1.28-4.15-3.15-5.04zM14.5 8.7h1.53c1.05 0 1.97.74 1.97 2.05V12h1.5v-1.59c0-1.8-1.6-3.16-3.47-3.16H14.5c-1.02 0-1.85-.98-1.85-2s.83-1.75 1.85-1.75V2c-1.85 0-3.35 1.5-3.35 3.35s1.5 3.35 3.35 3.35zm2.5 7.23V13h-2.93z"
+                />
+              </svg>
+            </a>
+            <div
+              className="__react_component_tooltip t0de1019c-9ac8-4d59-9471-82f50ac9f8a0 place-top type-dark"
+              data-id="tooltip"
+              id="NotSmokeFriendly"
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "
+  	.t0de1019c-9ac8-4d59-9471-82f50ac9f8a0 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t0de1019c-9ac8-4d59-9471-82f50ac9f8a0.place-top {
+        margin-top: -10px;
+    }
+    .t0de1019c-9ac8-4d59-9471-82f50ac9f8a0.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t0de1019c-9ac8-4d59-9471-82f50ac9f8a0.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t0de1019c-9ac8-4d59-9471-82f50ac9f8a0.place-bottom {
+        margin-top: 10px;
+    }
+    .t0de1019c-9ac8-4d59-9471-82f50ac9f8a0.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t0de1019c-9ac8-4d59-9471-82f50ac9f8a0.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t0de1019c-9ac8-4d59-9471-82f50ac9f8a0.place-left {
+        margin-left: -10px;
+    }
+    .t0de1019c-9ac8-4d59-9471-82f50ac9f8a0.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t0de1019c-9ac8-4d59-9471-82f50ac9f8a0.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t0de1019c-9ac8-4d59-9471-82f50ac9f8a0.place-right {
+        margin-left: 10px;
+    }
+    .t0de1019c-9ac8-4d59-9471-82f50ac9f8a0.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t0de1019c-9ac8-4d59-9471-82f50ac9f8a0.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                  }
+                }
+              />
+              Not Smoke Friendly
+            </div>
+          </span>
+          
+          
+        </section>
+      </div>
+      <div
+        className="mx-6 flex items-center justify-between leading-tight font-light"
+      >
+        <section
+          className=""
+        >
+           
+          Couple With Children
+           
+        </section>
+        <section
+          className=""
+        >
+           $
+          1200
+           - 
+          2550
+           
+        </section>
+      </div>
+    </section>
+    <section
+      className="card-container mt-0"
+    >
+      <div
+        className="ml-6 flex"
+      >
+        <label
+          className="font-semibold"
+        >
+           
+          InnigoMontoya
+           
+        </label>
+        ,
+        <label
+          className="px-1"
+        >
+           
+          50
+           
+        </label>
+        <section
+          className="flex w-full pr-6 justify-end"
+        >
+          
+          <span>
+            <a
+              data-for="SmokeFriendly"
+              data-tip={true}
+            >
+              <svg
+                className="text-red-500 ml-1"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 512 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M224 32c9.036 24.71 106.984 58.72 156.096 64-37.096 7.89-53.042 10.52-57.545 32-13.076 62.384 191.477 60.478 115.73 152.223 69.11-15.788 57.922-116.197 15.887-129.84-27.237-8.84-63.75-11.67-47.75-38.383C425.962 88.104 503.57 59.74 448 32zM28.096 292v64h87v-64zm105 0v64h274v-64zm292 0v64h16v-64zm34 0v64h17v-64z"
+                />
+              </svg>
+            </a>
+            <div
+              className="__react_component_tooltip tec6b0750-fbb9-469e-9c28-b1d6c745821d place-top type-dark"
+              data-id="tooltip"
+              id="SmokeFriendly"
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "
+  	.tec6b0750-fbb9-469e-9c28-b1d6c745821d {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.tec6b0750-fbb9-469e-9c28-b1d6c745821d.place-top {
+        margin-top: -10px;
+    }
+    .tec6b0750-fbb9-469e-9c28-b1d6c745821d.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .tec6b0750-fbb9-469e-9c28-b1d6c745821d.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .tec6b0750-fbb9-469e-9c28-b1d6c745821d.place-bottom {
+        margin-top: 10px;
+    }
+    .tec6b0750-fbb9-469e-9c28-b1d6c745821d.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .tec6b0750-fbb9-469e-9c28-b1d6c745821d.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .tec6b0750-fbb9-469e-9c28-b1d6c745821d.place-left {
+        margin-left: -10px;
+    }
+    .tec6b0750-fbb9-469e-9c28-b1d6c745821d.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .tec6b0750-fbb9-469e-9c28-b1d6c745821d.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .tec6b0750-fbb9-469e-9c28-b1d6c745821d.place-right {
+        margin-left: 10px;
+    }
+    .tec6b0750-fbb9-469e-9c28-b1d6c745821d.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .tec6b0750-fbb9-469e-9c28-b1d6c745821d.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                  }
+                }
+              />
+              Smoke Friendly
+            </div>
+          </span>
+          
+          
+        </section>
+      </div>
+      <div
+        className="mx-6 flex items-center justify-between leading-tight font-light"
+      >
+        <section
+          className=""
+        >
+           
+          Single Parent
+           
+        </section>
+        <section
+          className=""
+        >
+           $
+          300
+           - 
+          575
+           
+        </section>
+      </div>
+    </section>
+    <section
+      className="card-container mt-0"
+    >
+      <div
+        className="ml-6 flex"
+      >
+        <label
+          className="font-semibold"
+        >
+           
+          JamesBond
+           
+        </label>
+        ,
+        <label
+          className="px-1"
+        >
+           
+          70
+           
+        </label>
+        <section
+          className="flex w-full pr-6 justify-end"
+        >
+          
+          <span>
+            <a
+              data-for="SmokeFriendly"
+              data-tip={true}
+            >
+              <svg
+                className="text-red-500 ml-1"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 512 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M224 32c9.036 24.71 106.984 58.72 156.096 64-37.096 7.89-53.042 10.52-57.545 32-13.076 62.384 191.477 60.478 115.73 152.223 69.11-15.788 57.922-116.197 15.887-129.84-27.237-8.84-63.75-11.67-47.75-38.383C425.962 88.104 503.57 59.74 448 32zM28.096 292v64h87v-64zm105 0v64h274v-64zm292 0v64h16v-64zm34 0v64h17v-64z"
+                />
+              </svg>
+            </a>
+            <div
+              className="__react_component_tooltip t9a258ee4-e42f-49cd-b551-5c929335b2c2 place-top type-dark"
+              data-id="tooltip"
+              id="SmokeFriendly"
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "
+  	.t9a258ee4-e42f-49cd-b551-5c929335b2c2 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t9a258ee4-e42f-49cd-b551-5c929335b2c2.place-top {
+        margin-top: -10px;
+    }
+    .t9a258ee4-e42f-49cd-b551-5c929335b2c2.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t9a258ee4-e42f-49cd-b551-5c929335b2c2.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t9a258ee4-e42f-49cd-b551-5c929335b2c2.place-bottom {
+        margin-top: 10px;
+    }
+    .t9a258ee4-e42f-49cd-b551-5c929335b2c2.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t9a258ee4-e42f-49cd-b551-5c929335b2c2.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t9a258ee4-e42f-49cd-b551-5c929335b2c2.place-left {
+        margin-left: -10px;
+    }
+    .t9a258ee4-e42f-49cd-b551-5c929335b2c2.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t9a258ee4-e42f-49cd-b551-5c929335b2c2.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t9a258ee4-e42f-49cd-b551-5c929335b2c2.place-right {
+        margin-left: 10px;
+    }
+    .t9a258ee4-e42f-49cd-b551-5c929335b2c2.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t9a258ee4-e42f-49cd-b551-5c929335b2c2.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                  }
+                }
+              />
+              Smoke Friendly
+            </div>
+          </span>
+          <span>
+            <a
+              data-for="dietImportant"
+              data-tip={true}
+            >
+              <svg
+                className="text-gray-600 ml-1"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                version="1.1"
+                viewBox="0 0 16 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.5 0c-1.657 0-3 1.567-3 3.5 0 1.655 0.985 3.042 2.308 3.406l-0.497 8.096c-0.034 0.549 0.389 0.998 0.939 0.998h0.5c0.55 0 0.972-0.449 0.939-0.998l-0.497-8.096c1.323-0.365 2.308-1.751 2.308-3.406 0-1.933-1.343-3.5-3-3.5zM13.583 0l-0.833 5h-0.625l-0.417-5h-0.417l-0.417 5h-0.625l-0.833-5h-0.417v6.5c0 0.276 0.224 0.5 0.5 0.5h1.302l-0.491 8.002c-0.034 0.549 0.389 0.998 0.939 0.998h0.5c0.55 0 0.972-0.449 0.939-0.998l-0.491-8.002h1.302c0.276 0 0.5-0.224 0.5-0.5v-6.5h-0.417z"
+                />
+              </svg>
+            </a>
+            <div
+              className="__react_component_tooltip t32276498-2dc5-488c-9293-3047a4993ace place-top type-dark"
+              data-id="tooltip"
+              id="dietImportant"
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "
+  	.t32276498-2dc5-488c-9293-3047a4993ace {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t32276498-2dc5-488c-9293-3047a4993ace.place-top {
+        margin-top: -10px;
+    }
+    .t32276498-2dc5-488c-9293-3047a4993ace.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t32276498-2dc5-488c-9293-3047a4993ace.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t32276498-2dc5-488c-9293-3047a4993ace.place-bottom {
+        margin-top: 10px;
+    }
+    .t32276498-2dc5-488c-9293-3047a4993ace.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t32276498-2dc5-488c-9293-3047a4993ace.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t32276498-2dc5-488c-9293-3047a4993ace.place-left {
+        margin-left: -10px;
+    }
+    .t32276498-2dc5-488c-9293-3047a4993ace.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t32276498-2dc5-488c-9293-3047a4993ace.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t32276498-2dc5-488c-9293-3047a4993ace.place-right {
+        margin-left: 10px;
+    }
+    .t32276498-2dc5-488c-9293-3047a4993ace.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t32276498-2dc5-488c-9293-3047a4993ace.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                  }
+                }
+              />
+              Diet is important
+            </div>
+          </span>
+          
+        </section>
+      </div>
+      <div
+        className="mx-6 flex items-center justify-between leading-tight font-light"
+      >
+        <section
+          className=""
+        >
+           
+          Single
+           
+        </section>
+        <section
+          className=""
+        >
+           $
+          200
+           - 
+          550
+           
+        </section>
+      </div>
+    </section>
+  </div>
+  <div
+    className="flex-1"
+  >
+    <img
+      alt="placeholder"
+      src="GoogleMapsPlaceholder.png"
+    />
+  </div>
 </div>
 `;
