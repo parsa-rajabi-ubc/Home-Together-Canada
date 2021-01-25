@@ -22,6 +22,10 @@ export const MEMBER_SUBPAGES = [
         value: 'Profile'
     },
     {
+        label: 'Search Criteria',
+        value: 'Search Criteria'
+    },
+    {
         label: 'Password',
         value: 'Password'
     },
@@ -51,9 +55,10 @@ export const BUSINESS_SUBPAGES = [
 ];
 
 export const ALL_SUBPAGES = {
-  ACCOUNT_INFO: 'Account Info',
-  PROFILE: 'Profile',
-  PASSWORD: 'Password',
-  MESSAGING: 'Messaging',
-  MANAGE_LISTINGS: 'Manage Listings'
+    ACCOUNT_INFO: 'Account Info',
+    PROFILE: 'Profile',
+    SEARCH_CRITERIA: 'Search Criteria',
+    PASSWORD: 'Password',
+    MESSAGING: 'Messaging',
+    MANAGE_LISTINGS: 'Manage Listings'
 };

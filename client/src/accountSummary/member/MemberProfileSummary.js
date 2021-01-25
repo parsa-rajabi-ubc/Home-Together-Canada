@@ -21,7 +21,7 @@ import SubmitButton from "../../common/forms/SubmitButton";
 import {dropdownDefaultCSS, dropdownErrorCSS} from "../../css/dropdownCSSUtil";
 import BirthYear from "../../common/forms/BirthYear";
 import get from 'lodash/get';
-import {resolveBooleanToYesNo} from "../../common/utils/stringUtils";
+import {resolveBooleanToYesNo} from "../../common/utils/generalUtils";
 import {MEMBER_PROFILE_INFO_TEXT} from "../../common/constants/TooltipText";
 import {
     checkIfErrorsExistInMapping,

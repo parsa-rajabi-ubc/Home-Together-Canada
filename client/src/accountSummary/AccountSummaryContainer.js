@@ -17,6 +17,7 @@ import MemberProfileSummary from "./member/MemberProfileSummary";
 import {businessUser} from "./business/MockB";
 import BusinessAccountSummary from "./business/BusinessAccountSummary";
 import Error404 from "../common/error/Error404";
+import SearchCriteriaContainer from "./member/SearchCriteriaContainer";
 
 const AccountSummaryContainer = () => {
     const {accountType, selected} = useLocation().state;
@@ -29,6 +30,8 @@ const AccountSummaryContainer = () => {
         switch (subpage) {
             case ALL_SUBPAGES.PROFILE:
                 return accountType === USER_TYPES.MEMBER ? <MemberProfileSummary memberAccountInfo ={memberAccountInfo }/> : <Error404/>
+            case ALL_SUBPAGES.SEARCH_CRITERIA:
+                return accountType === USER_TYPES.MEMBER ? <SearchCriteriaContainer/> : <Error404/>
             case ALL_SUBPAGES.PASSWORD:
                 return <ChangePasswordContainer/>
             case ALL_SUBPAGES.MESSAGING:
