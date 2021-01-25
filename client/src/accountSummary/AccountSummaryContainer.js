@@ -14,7 +14,6 @@ import ChangePasswordContainer from "./ChangePasswordContainer";
 import MemberAccountSummary from "./member/MemberAccountSummary";
 import memberAccountInfo  from "./member/MockData";
 import MemberProfileSummary from "./member/MemberProfileSummary";
-import {businessUser} from "./business/MockB";
 import BusinessAccountSummaryContainer from "./business/BusinessAccountSummaryContainer";
 import Error404 from "../common/error/Error404";
 
