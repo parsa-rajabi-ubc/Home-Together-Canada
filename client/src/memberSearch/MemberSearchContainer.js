@@ -16,6 +16,7 @@ import {compose} from "redux";
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {setAccountType, setAuthenticated} from "../redux/slices/userPrivileges";
+
 const mapDispatch = {setAccountType, setAuthenticated};
 
 const MemberSearchContainer = (props) => {
@@ -26,7 +27,7 @@ const MemberSearchContainer = (props) => {
     } = props;
 
 
-    // displays the mock data
+    // displays 10 mock data
     function profileCards() {
         let profiles = [];
         for (let i = 0; i < 10; i++) {
@@ -46,11 +47,12 @@ const MemberSearchContainer = (props) => {
     }
 
     return (
-        <div className={"flex flex-nowrap my-10 "}>
+        <div>
+            {/* Checking to Ensure User is Authenticated and is a Member to view this page*/}
             {(!authenticated || accountType !== USER_TYPES.MEMBER) ?
                 <InvalidUser/>
                 :
-                <div>
+                <div className={"flex flex-nowrap my-10"}>
                     {/*Results*/}
                     <div className={"w-1/3 "}>
                         {profileCards()}
