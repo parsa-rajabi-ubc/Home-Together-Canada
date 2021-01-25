@@ -47,7 +47,7 @@ router.post('/search/profiles/',
         if (!errors.isEmpty()) {
             res.status(202).json({ errors: errors.array()});
         } else {
-            memberAccounts.getMemberProfilesMatchingSearchFilters(req.user.uid,{ searchFilters: req.body })
+            memberAccounts.getMemberProfilesMatchingSearchFilters(req.user.uid,{ ...req.body })
                 .then(results => {
                     const profiles = accountUtils.getFilteredProfilesInformation(results);
 
