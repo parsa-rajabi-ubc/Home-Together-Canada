@@ -348,35 +348,41 @@ const BusinessAccountSummary = (props) => {
                                     setBName(e.target.value)
                                 }}/>
                             <div className={"my-2"}>
-                                <Checkbox label={"Incorporated business"}
-                                          checked={isIncorporated}
-                                          toolTipText={BUSINESS_INFO_TEXT.INC_COMPANY}
-                                          toolTipID="incorporated"
-                                          onChange={() => setIsIncorporatedBusiness(!isIncorporated)}/>
-                                {isIncorporatedBusiness && <TextArea className="input"
-                                                             placeholder={"Names of Inc. Owners (separated by comma)"}
-                                                             labelClassName={"label"}
-                                                             value={incorporatedOwners}
-                                                             onChange={(e) => setIncorporatedOwners(e.target.value)}/>}
+                                <Checkbox
+                                    label={"Incorporated business"}
+                                    checked={isIncorporated}
+                                    toolTipText={BUSINESS_INFO_TEXT.INC_COMPANY}
+                                    toolTipID="incorporated"
+                                    onChange={() => setIsIncorporatedBusiness(!isIncorporated)}/>
+                                {isIncorporatedBusiness &&
+                                    <TextArea
+                                        className="input"
+                                        placeholder={"Names of Inc. Owners (separated by comma)"}
+                                        labelClassName={"label"}
+                                        value={incorporatedOwners}
+                                        onChange={(e) => setIncorporatedOwners(e.target.value)}/>
+                                }
                             </div>
-                            <TextArea className={`${bEmailError && "border-red-500"} input`}
-                                      placeholder="business@email.ca"
-                                      autoComplete={"email"}
-                                      label="Business Email"
-                                      value={bEmail}
-                                      labelClassName={"label"}
-                                      required={true}
-                                      onChange={(e) => {
-                                          setBEmail(e.target.value)
-                                      }}/>
-                            <TextArea className="input"
-                                      placeholder="http://www.your-website.com"
-                                      value={businessWebsite}
-                                      optional={true}
-                                      autoComplete={"url"}
-                                      label="Business Website"
-                                      labelClassName={"label"}
-                                      onChange={e => setBusinessWebsite(e.target.value)}/>
+                            <TextArea
+                                className={`${bEmailError && "border-red-500"} input`}
+                                placeholder="business@email.ca"
+                                autoComplete={"email"}
+                                label="Business Email"
+                                value={bEmail}
+                                labelClassName={"label"}
+                                required={true}
+                                onChange={(e) => {
+                                    setBEmail(e.target.value)
+                                }}/>
+                            <TextArea
+                                className="input"
+                                placeholder="http://www.your-website.com"
+                                value={businessWebsite}
+                                optional={true}
+                                autoComplete={"url"}
+                                label="Business Website"
+                                labelClassName={"label"}
+                                onChange={e => setBusinessWebsite(e.target.value)}/>
                             <PhoneNumInput
                                 className={`${bPhoneNumberError && "border-red-500"} phone`}
                                 required={true}
@@ -391,48 +397,53 @@ const BusinessAccountSummary = (props) => {
                                 label="Business Cell Number"
                                 labelClassName={"label"}
                                 onChange={handleCellPhoneChange}/>
-                            <Address label="Business Address"
-                                     cityClassName="city-postal"
-                                     required={true}
-                                     value={bAddress}
-                                     streetAddressError={streetAddressError}
-                                     cityAddressError={cityAddressError}
-                                     provinceAddressError={provinceAddressError}
-                                     postalCodeError={postalCodeError}
-                                     onChange={handleBAddressChange}/>
-                            <Checkbox label={"Different Mailing Address"}
-                                      checked={useDifferentMailingAddress}
-                                      toolTipText={BUSINESS_INFO_TEXT.DIFF_MAILING_ADDRESS}
-                                      toolTipID="differentMailingAddress"
-                                      onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}/>
+                            <Address
+                                label="Business Address"
+                                cityClassName="city-postal"
+                                required={true}
+                                value={bAddress}
+                                streetAddressError={streetAddressError}
+                                cityAddressError={cityAddressError}
+                                provinceAddressError={provinceAddressError}
+                                postalCodeError={postalCodeError}
+                                onChange={handleBAddressChange}/>
+                            <Checkbox
+                                label={"Different Mailing Address"}
+                                checked={useDifferentMailingAddress}
+                                toolTipText={BUSINESS_INFO_TEXT.DIFF_MAILING_ADDRESS}
+                                toolTipID="differentMailingAddress"
+                                onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}/>
                             {useDifferentMailingAddress &&
-                            <Address label="Business Mailing Address"
-                                     value={bMailingAddress}
-                                     required={true}
-                                     streetAddressError={streetMailingAddressError}
-                                     cityAddressError={cityMailingAddressError}
-                                     provinceAddressError={provinceMailingAddressError}
-                                     postalCodeError={postalCodeMailingError}
-                                     onChange={handleBMailingAddress}/>}
-                            <div>
-                                <Checkbox label={"Canada-wide business"}
-                                          checked={isNationWide}
-                                          toolTipText={BUSINESS_INFO_TEXT.NATION_WIDE}
-                                          toolTipID="nationWide"
-                                          onChange={() => {
-                                              setIsNationWideBusiness(isNationWide => !isNationWide)
-                                          }}/>
-                                {!isNationWideBusiness &&
-                                <Address label="Searchable Address"
-                                         value={bMapAddress}
-                                         toolTipText={BUSINESS_INFO_TEXT.MAP_ADDRESS}
-                                         toolTipID={"mapAddress"}
+                                <Address label="Business Mailing Address"
+                                         value={bMailingAddress}
                                          required={true}
-                                         streetAddressError={streetMapAddressError}
-                                         cityAddressError={cityMapAddressError}
-                                         provinceAddressError={provinceMapAddressError}
-                                         postalCodeError={postalCodeMapError}
-                                         onChange={handleBMapAddress}/>}
+                                         streetAddressError={streetMailingAddressError}
+                                         cityAddressError={cityMailingAddressError}
+                                         provinceAddressError={provinceMailingAddressError}
+                                         postalCodeError={postalCodeMailingError}
+                                         onChange={handleBMailingAddress}/>}
+                            <div>
+                                <Checkbox
+                                    label={"Canada-wide business"}
+                                    checked={isNationWide}
+                                    toolTipText={BUSINESS_INFO_TEXT.NATION_WIDE}
+                                    toolTipID="nationWide"
+                                    onChange={() => {
+                                        setIsNationWideBusiness(isNationWide => !isNationWide)
+                                    }}/>
+                                {!isNationWideBusiness &&
+                                    <Address
+                                        label="Searchable Address"
+                                        value={bMapAddress}
+                                        toolTipText={BUSINESS_INFO_TEXT.MAP_ADDRESS}
+                                        toolTipID={"mapAddress"}
+                                        required={true}
+                                        streetAddressError={streetMapAddressError}
+                                        cityAddressError={cityMapAddressError}
+                                        provinceAddressError={provinceMapAddressError}
+                                        postalCodeError={postalCodeMapError}
+                                        onChange={handleBMapAddress}/>
+                                }
                             </div>
                         </div>
                     </div>
@@ -457,27 +468,29 @@ const BusinessAccountSummary = (props) => {
                 <div className="selected-component-grid-inner">
                     <div className="grid grid-cols-6 gap-x-6">
                         <div className="column-span-6-layout">
-                            <TextArea className={`${contactFirstNameError && "border-red-500"} input`}
-                                      labelClassName={"label"}
-                                      label="First Name"
-                                      value={contactFName}
-                                      autoComplete={"given-name"}
-                                      required={true}
-                                      onChange={(e) => {
-                                          setContactFName(e.target.value)
-                                      }}/>
+                            <TextArea
+                                className={`${contactFirstNameError && "border-red-500"} input`}
+                                labelClassName={"label"}
+                                label="First Name"
+                                value={contactFName}
+                                autoComplete={"given-name"}
+                                required={true}
+                                onChange={(e) => {
+                                    setContactFName(e.target.value)
+                                }}/>
                         </div>
 
                         <div className="column-span-6-layout">
-                            <TextArea className={`${contactLastNameError && "border-red-500"} input`}
-                                      labelClassName={"label"}
-                                      label="Last Name"
-                                      value={contactLName}
-                                      required={true}
-                                      autoComplete={"family-name"}
-                                      onChange={(e) => {
-                                          setContactLName(e.target.value)
-                                      }}/>
+                            <TextArea
+                                className={`${contactLastNameError && "border-red-500"} input`}
+                                labelClassName={"label"}
+                                label="Last Name"
+                                value={contactLName}
+                                required={true}
+                                autoComplete={"family-name"}
+                                onChange={(e) => {
+                                    setContactLName(e.target.value)
+                                }}/>
                         </div>
                         <div className="column-span-6-layout">
                             <PhoneNumInput

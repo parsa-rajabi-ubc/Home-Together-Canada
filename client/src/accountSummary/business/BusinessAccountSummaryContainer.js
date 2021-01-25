@@ -11,11 +11,6 @@ import BusinessAccountSummary from "./BusinessAccountSummary";
 import BusinessService from '../../services/BusinessService';
 import {prepareBusinessAccountInfo} from "../accountSummaryUtils";
 
-let DEV_URL = '';
-if (process.env.NODE_ENV === 'development') {
-    DEV_URL = 'http://localhost:3001';
-}
-
 const BusinessAccountSummaryContainer = () => {
     const [businessAccount, setBusinessAccountInfo] = useState(undefined);
     const [loading, setLoading] = useState(true);
