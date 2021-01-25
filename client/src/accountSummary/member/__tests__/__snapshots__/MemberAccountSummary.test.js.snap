@@ -534,15 +534,15 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
           </div>
         </div>
       </div>
-      <label>
-        <input
-          className="btn btn-green form-btn w-3/4"
-          onClick={[Function]}
-          type="submit"
-          value="Save"
-        />
-      </label>
     </div>
   </div>
+  <label>
+    <input
+      className="btn btn-green form-btn w-1/2"
+      onClick={[Function]}
+      type="submit"
+      value="Save"
+    />
+  </label>
 </div>
 `;
