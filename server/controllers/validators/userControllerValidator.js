@@ -174,7 +174,7 @@ const businessAccountValidation = [
         .isURL()
         .trim()
         .stripLow()
-]
+];
 
 
 exports.validate = (method) => {
@@ -404,9 +404,61 @@ exports.validate = (method) => {
             return [
                 ...emailUponUpdateValidation,
                 ...abstractUserValidation,
-                ...businessAccountValidation,
-
-
+                ...businessAccountValidation
+            ]
+        }
+        case 'memberSearchFilters': {
+            console.log('validating member search filters');
+            return [
+                body('minAgePreference')
+                    .optional()
+                    .isNumeric()
+                    .custom(age => isPositiveInteger(age)),
+                body('maxAgePreference')
+                    .optional()
+                    .isNumeric()
+                    .custom(age => isPositiveInteger(age))
+                    .custom((age, { req }) => validateMinAndMax(req.body.minAgePreference, age)),
+                body('minBudgetPreference')
+                    .optional()
+                    .isNumeric()
+                    .custom(budget => isPositiveInteger(budget)),
+                body('maxBudgetPreference')
+                    .optional()
+                    .isNumeric()
+                    .custom(budget => isPositiveInteger(budget))
+                    .custom((budget, {req}) => validateMinAndMax(req.body.minBudgetPreference, budget)),
+                body('statusPreference')
+                    .optional()
+                    .isArray()
+                    .custom(statusPreference => validStatusPreferences(statusPreference)),
+                body('numRoommatesPreference')
+                    .optional()
+                    .isArray()
+                    .custom(limits => isValidShareLimitArray(limits)),
+                body('numRoommatesPreference.*')
+                    .optional()
+                    .isNumeric()
+                    .custom(limit => isValidShareLimit(limit)),
+                body('dietPreference')
+                    .optional()
+                    .isBoolean(),
+                body('petsPreference')
+                    .optional()
+                    .isBoolean(),
+                body('smokingPreference')
+                    .optional()
+                    .isBoolean(),
+                body('genderPreference')
+                    .optional()
+                    .isArray()
+                    .custom(genderPreferences => validGenderPreferences(genderPreferences)),
+                body('religionPreference')
+                    .optional()
+                    .isBoolean(),
+                body('othersWithHomeToSharePreference')
+                    .optional()
+                    .isBoolean()
             ]
         }
     }

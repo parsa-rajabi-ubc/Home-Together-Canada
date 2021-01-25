@@ -48,7 +48,7 @@ require("./config/passport.js")(passport);
 
 
 // force false will prevent the database from being cleared everytime the server starts up
-db.sequelize.sync({ force: false })
+db.sequelize.sync({ force: true })
     .then(() => {
       console.log("Drop and re-sync db.");
     })

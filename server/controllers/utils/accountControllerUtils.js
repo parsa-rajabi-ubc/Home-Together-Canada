@@ -5,6 +5,8 @@
  * @Description: utility functions to abstract manipulation of data in accountControllers
  *
  */
+const get = require('lodash/get');
+
 const getMailingAddress = (body) => {
     return body.hasDifferentMailingAddress ?
         {
@@ -30,8 +32,56 @@ const formatPhoneNumber = (phoneNum) => {
     const phoneNumStr = phoneNum.toString();
     return phoneNumStr.substring(0,3) + '-' + phoneNumStr.substring(3, 6) + '-' + phoneNumStr.substring(6, 10);
 }
+// Takes results from a query of memberAccount and extracts profile information
+const getFilteredProfilesInformation = results => {
+    if (!results || !results.length) {
+        return [];
+    }
+
+    return results.map(result => {
+        const values = result.dataValues;
+        return {
+            ...getProfile(values),
+            username: getUsernameFromAbstractUser(values.AbstractUser)
+        }
+    });
+}
+
+const getUsernameFromAbstractUser = abstractUser => {
+    return get(abstractUser, 'dataValues.username', null);
+}
+
+const getProfile = member => {
+    return {
+        uid: member.uid,
+        gender: member.gender,
+        genderDescription: member.genderDescription,
+        birthYear: member.birthYear,
+        status: member.status,
+        minMonthlyBudget: member.minMonthlyBudget,
+        maxMonthlyBudget: member.maxMonthlyBudget,
+        numRoommates: member.numRoommates,
+        workStatus: member.workStatus,
+        bio: member.bio,
+        hasHomeToShare: member.hasHomeToShare,
+        hasHomeToShareDescription: member.hasHomeToShareDescription,
+        isReligionImportant: member.isReligionImportant,
+        religionDescription: member.religionDescription,
+        isDietImportant: member.isDietImportant,
+        dietDescription: member.dietDescription,
+        hasHealthMobilityIssues: member.hasHealthMobilityIssues,
+        healthMobilityIssuesDescription: member.healthMobilityIssuesDescription,
+        hasAllergies: member.hasAllergies,
+        allergiesDescription: member.allergiesDescription,
+        hasPets: member.hasPets,
+        petsDescription: member.petsDescription,
+        isSmoker: member.isSmoker,
+        smokingDescription: member.smokingDescription
+    }
+}
 
 module.exports = {
     getMailingAddress,
-    formatPhoneNumber
+    formatPhoneNumber,
+    getFilteredProfilesInformation
 }

@@ -51,14 +51,14 @@ module.exports = (DataTypes, sequelize) => {
             type: DataTypes.STRING
         },
         isReligionImportant: {
-            type: DataTypes.STRING,
+            type: DataTypes.BOOLEAN,
             allowNull: false
         },
         religionDescription: {
             type: DataTypes.STRING
         },
         isDietImportant: {
-            type: DataTypes.STRING,
+            type: DataTypes.BOOLEAN,
             allowNull: false
         },
         dietDescription: {
@@ -86,7 +86,7 @@ module.exports = (DataTypes, sequelize) => {
             type: DataTypes.STRING
         },
         isSmoker: {
-            type: DataTypes.STRING,
+            type: DataTypes.BOOLEAN,
             allowNull: false
         },
         smokingDescription: {

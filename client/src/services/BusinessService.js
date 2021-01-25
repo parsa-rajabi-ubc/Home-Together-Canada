@@ -30,5 +30,10 @@ const updateBusinessAccountInfo = (businessAccountInfo) => {
         body: JSON.stringify(businessAccountInfo)
     }
 
-    return fetch(`${DEV_URL}/business/update/`);
+    return fetch(`${DEV_URL}/business/update/`, request);
+}
+
+module.exports = {
+    getBusinessAccountInfo,
+    updateBusinessAccountInfo
 }
