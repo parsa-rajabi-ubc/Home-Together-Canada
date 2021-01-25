@@ -61,6 +61,7 @@ const MemberSearchContainer = (props) => {
                 :
                 <div className={"flex flex-nowrap"}>
                     {menuOpenState && <RemoveScroll/>}
+                    {/*TODO: This has to be moved into a SearchContainer During Next Ticket*/}
                     <BurgerMenu isOpen={menuOpenState} onClose={handleMenuOnClose}
                                 content={
                                     <div>
