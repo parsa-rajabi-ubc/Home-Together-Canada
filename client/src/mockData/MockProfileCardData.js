@@ -6,8 +6,6 @@
  *
  */
 
-import React from 'react';
-
 const mockProfiles = [
     {
         username: "AliceinWonderLand",
