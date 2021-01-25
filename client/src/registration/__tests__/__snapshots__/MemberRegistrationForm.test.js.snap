@@ -266,6 +266,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                 onChange={[Function]}
                 placeholder="Address Line 1"
                 type="text"
+                value=""
               />
             </div>
             <div
@@ -291,6 +292,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                 onChange={[Function]}
                 placeholder="City"
                 type="text"
+                value=""
               />
             </div>
             <div
@@ -412,6 +414,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                 onChange={[Function]}
                 placeholder="Postal Code"
                 type="text"
+                value=""
               />
             </div>
           </div>

@@ -11,6 +11,7 @@ const router = express.Router();
 const passport = require('passport');
 const { validationResult } = require('express-validator/check');
 const multer = require('multer');
+const path = require('path');
 
 const businessAccounts = require('../controllers/businessAccountController');
 const abstractUsers = require('../controllers/abstractUserController');
@@ -19,7 +20,7 @@ const { isLoggedIn, userIsBusiness } = require('./routeUtils');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'server/uploads');
+        cb(null, 'server/public/uploads');
     },
     filename: function (req, file, cb) {
         const ext = file.originalname.substring(file.originalname.lastIndexOf('.'), file.originalname.length);
@@ -108,7 +109,7 @@ router.get('/info/', isLoggedIn, userIsBusiness, function (req, res, next) {
 });
 
 // Upload logo
-router.post('/upload/logo/',
+router.post('/logo/upload/',
     isLoggedIn,
     userIsBusiness,
     (req, res) => {
@@ -120,13 +121,16 @@ router.post('/upload/logo/',
             } else if (!req.file) {
                 res.status(403).json({ err: 'No file to upload' });
             } else {
-                const image = req.file.path;
+                const imageAddress = req.file.path.substring(
+                    req.file.path.indexOf('uploads'),
+                    req.file.path.length
+                );
 
                 // save address of image to DB
-                businessAccounts.updateLogo(req.user.uid, image)
+                businessAccounts.updateLogo(req.user.uid, imageAddress)
                     .then((data) => {
                         if (data.length) {
-                            res.status(202).json({ image });
+                            res.status(202).json({ image: imageAddress });
                         } else {
                             res.status(403).json({ err: 'Failed to upload image'})
                         }
@@ -140,7 +144,7 @@ router.post('/upload/logo/',
 );
 
 // Remove logo
-router.get('/remove/logo/',
+router.get('/logo/remove/',
     isLoggedIn,
     userIsBusiness,
     function (req, res, next) {
@@ -156,5 +160,23 @@ router.get('/remove/logo/',
             res.status(403).json({ err: 'Failed to remove logo' });
         });
 });
+
+router.get('/logo/',
+    isLoggedIn,
+    function(req, res, next) {
+        businessAccounts.getLogo(req.user.uid)
+            .then(logoAddress => {
+                if (logoAddress.length) {
+                    const photoAddress = logoAddress[0].dataValues.logo;
+                    res.json({imageAddress: photoAddress});
+                } else {
+                    res.json({ err: 'Failed to fetch image' });
+                }
+            })
+            .catch(err => {
+                res.json({ err: err.message });
+            })
+    }
+);
 
 module.exports = router;
