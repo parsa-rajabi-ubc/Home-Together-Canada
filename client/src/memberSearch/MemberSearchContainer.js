@@ -15,9 +15,6 @@ import PropTypes from "prop-types";
 import {compose} from "redux";
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
-import {setAccountType, setAuthenticated} from "../redux/slices/userPrivileges";
-
-const mapDispatch = {setAccountType, setAuthenticated};
 
 const MemberSearchContainer = (props) => {
 
@@ -55,6 +52,7 @@ const MemberSearchContainer = (props) => {
                 <div className={"flex flex-nowrap my-10"}>
                     {/*Results*/}
                     <div className={"w-1/3 "}>
+                        <button className={"btn btn-green w-1/5 py-2 ml-6 mb-6 text-base"}>Filter</button>
                         {profileCards()}
                     </div>
 
@@ -82,5 +80,5 @@ MemberSearchContainer.propTypes = {
 
 export default compose(
     withRouter,
-    connect(mapStateToProps, mapDispatch)
+    connect(mapStateToProps, null)
 )(MemberSearchContainer);
