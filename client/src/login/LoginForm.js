@@ -143,8 +143,10 @@ function LoginForm(props) {
                                 }}/>
 
                                 <SubmitButton
-                                    className="block px-4 py-2 mt-4 text-sm font-medium text-center btn btn-green"
-                                    inputValue='Login' onClick={onSubmit}/>
+                                    inputValue={"Login"}
+                                    className="btn btn-green form-btn py-2 w-3/4 mt-6"
+                                    onClick={onSubmit}
+                                />
 
                                 {/* TODO: remember me feature, using the checkbox function*/}
                                 {/*<Checkbox label="Remember me "/>*/}

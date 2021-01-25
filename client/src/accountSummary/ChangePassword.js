@@ -26,41 +26,54 @@ function ChangePassword(props) {
 
     return (
         <div>
-            <div className={"info-header mt-2 mb-6"}> Change Password </div>
-            <GenericInput
-                className={"input"}
-                classNameLabel={"label"}
-                label={"Old Password "}
-                inputType={"password"}
-                value={oldPassword}
-                onChange={e => onOldPasswordChange(e.target.value)}
-            />
-            <GenericInput
-                className={"input"}
-                classNameLabel={"label"}
-                label={"New Password "}
-                inputType={"password"}
-                value={newPassword}
-                onChange={(e)=>{onNewPasswordChange(e.target.value)}}
-            />
-            <GenericInput
-                className={"input"}
-                classNameLabel={"label"}
-                label={"Confirm New Password "}
-                inputType={"password"}
-                value={confirmedPassword}
-                onChange={(e)=>{onConfirmedPasswordChange(e.target.value)}}
-            />
-            {showError && <section className={"error-msg mb-4"}>{errorMessage}</section>}
-            {showSuccess && <section className={"success-msg mb-4"}>{successMessage}</section>}
+            <h3 className={"account-summary-info-header"}> Change Password</h3>
+            <p className="account-summary-info-text">
+                Remember, your password must be at least 8 characters long and contain a mix of numeric digits, upper
+                and lower case letters!
+            </p>
+            <div className="selected-component-grid-outer">
+                <div className="selected-component-grid-inner">
+                    <GenericInput
+                        className={"input"}
+                        classNameLabel={"label"}
+                        label={"Old Password "}
+                        inputType={"password"}
+                        value={oldPassword}
+                        onChange={e => onOldPasswordChange(e.target.value)}
+                    />
+                    <GenericInput
+                        className={"input"}
+                        classNameLabel={"label"}
+                        label={"New Password "}
+                        inputType={"password"}
+                        value={newPassword}
+                        onChange={(e) => {
+                            onNewPasswordChange(e.target.value)
+                        }}
+                    />
+                    <GenericInput
+                        className={"input"}
+                        classNameLabel={"label"}
+                        label={"Confirm New Password "}
+                        inputType={"password"}
+                        value={confirmedPassword}
+                        onChange={(e) => {
+                            onConfirmedPasswordChange(e.target.value)
+                        }}
+                    />
+                    {showError && <section className={"error-msg mb-4"}>{errorMessage}</section>}
+                    {showSuccess && <section className={"success-msg mb-4"}>{successMessage}</section>}
+                </div>
+            </div>
             <button
-                className={"btn btn-green w-1/2 m-auto"}
+                className="btn btn-green form-btn w-1/2"
                 onClick={onPasswordChangeSubmit}>
                 Update
             </button>
         </div>
     );
 }
+
 ChangePassword.propTypes = {
     onPasswordChangeSubmit: PropTypes.func.isRequired,
     onOldPasswordChange: PropTypes.func.isRequired,

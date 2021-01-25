@@ -63,3 +63,7 @@
 .input {
     @apply block w-full px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;
 }
+
+.form-btn {
+    @apply m-auto mt-8 mb-6 text-base;
+}

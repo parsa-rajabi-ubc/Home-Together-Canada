@@ -351,7 +351,7 @@ function MemberRegistrationForm(props) {
         setGenderPreference(list);
     }
 
-    function handleSelectedLimitPreferenceChange (selected) {
+    function handleSelectedLimitPreferenceChange(selected) {
         if (indexOf(selected, -1) !== -1) {
             setSelectedLimitPreference([-1]);
         } else {
@@ -761,7 +761,7 @@ function MemberRegistrationForm(props) {
                                         </section>
                                         {(gender === "Other") &&
                                         <TextArea
-                                            className="mt-0 input"
+                                            className="input"
                                             labelClassName={"label mt-5"}
                                             placeholder="What gender do you identify as? (optional)"
                                             value={genderDescription}
@@ -772,7 +772,8 @@ function MemberRegistrationForm(props) {
                                         <BirthYear label={"Year of Birth"} onChange={handleYearChange}
                                                    dropdownCSS={yearOfBirthError ? dropdownErrorCSS : dropdownDefaultCSS}/>
                                         <LabelAsterisk label={"Family Status"}/>
-                                        <Tooltip text={MEMBER_PROFILE_INFO_TEXT.FAMILY_STATUS} toolTipID="familyStatus"/>
+                                        <Tooltip text={MEMBER_PROFILE_INFO_TEXT.FAMILY_STATUS}
+                                                 toolTipID="familyStatus"/>
                                         <Status
                                             onChange={handleFamilyStatusChange}
                                             dropdownCSS={familyStatusError ? dropdownErrorCSS : dropdownDefaultCSS}
@@ -782,7 +783,8 @@ function MemberRegistrationForm(props) {
                                         <WorkStatus onChange={handleWorkStatusChange}
                                                     dropdownCSS={workStatusError ? dropdownErrorCSS : dropdownDefaultCSS}/>
                                         <LabelAsterisk label={"Open to Sharing With"}/>
-                                        <Tooltip text={MEMBER_PROFILE_INFO_TEXT.NUM_PEOPLE_SHARE} toolTipID="numPeopleToShare"/>
+                                        <Tooltip text={MEMBER_PROFILE_INFO_TEXT.NUM_PEOPLE_SHARE}
+                                                 toolTipID="numPeopleToShare"/>
                                         <ShareLimit
                                             onChange={handleLimitChange}
                                             dropdownCSS={limitError ? dropdownErrorCSS : dropdownDefaultCSS}
@@ -814,7 +816,8 @@ function MemberRegistrationForm(props) {
                                             </div>
                                         </div>
                                         <LabelAsterisk label={"Preferred Living Location(s)"}/>
-                                        <Tooltip text={MEMBER_PROFILE_INFO_TEXT.INTERESTED_AREA} toolTipID="interestedArea"/>
+                                        <Tooltip text={MEMBER_PROFILE_INFO_TEXT.INTERESTED_AREA}
+                                                 toolTipID="interestedArea"/>
                                         <InterestedArea onChange={setAreasOfInterest}
                                                         areasOfInterestError={areasOfInterestError}
                                         />
@@ -1084,8 +1087,10 @@ function MemberRegistrationForm(props) {
                                         />
                                     </div>
                                 </div>
-                                <LabelAsterisk label={"I'm looking for member(s) who are looking to live with the following number of people"}/>
-                                <Tooltip text={MEMBER_PROFILE_INFO_TEXT.NUM_PEOPLE_SHARE} toolTipID="numPeopleToSharePref"/>
+                                <LabelAsterisk
+                                    label={"I'm looking for member(s) who are looking to live with the following number of people"}/>
+                                <Tooltip text={MEMBER_PROFILE_INFO_TEXT.NUM_PEOPLE_SHARE}
+                                         toolTipID="numPeopleToSharePref"/>
                                 <div className="col-span-3 sm:col-span-2">
                                     <div className="column-span-6-layout">
                                         <ShareLimit
@@ -1096,7 +1101,8 @@ function MemberRegistrationForm(props) {
                                         />
                                     </div>
                                 </div>
-                                <LabelAsterisk label={"I am looking for member(s) whose budget range overlaps with the following"}/>
+                                <LabelAsterisk
+                                    label={"I am looking for member(s) whose budget range overlaps with the following"}/>
                                 <Tooltip text={MEMBER_PROFILE_INFO_TEXT.RENT} toolTipID="rentPref"/>
                                 <div className="grid grid-cols-6 gap-x-6">
                                     <div className="column-span-6-layout">
@@ -1306,13 +1312,11 @@ function MemberRegistrationForm(props) {
                                 </div>
                             </div>
                         </div>
-                        <div className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6">
-                            <SubmitButton
-                                inputValue={"Create Account"}
-                                className="text-base btn btn-green"
-                                onClick={onSubmit}
-                            />
-                        </div>
+                        <SubmitButton
+                            inputValue={"Create Account"}
+                            className="btn btn-green form-btn w-3/4"
+                            onClick={onSubmit}
+                        />
                     </div>
                 </div>
             </div>

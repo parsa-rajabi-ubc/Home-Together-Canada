@@ -21,31 +21,33 @@ import {
 } from "../../registration/registrationUtils";
 import {dropdownDefaultCSS, dropdownErrorCSS} from "../../css/dropdownCSSUtil";
 import {splitPhoneNumber} from "../accountSummaryUtils";
+import {MEMBER_PROFILE_INFO_TEXT} from "../../common/constants/TooltipText";
+import Asterisk from "../../common/forms/Asterisk";
 
 //Returns a summary Form with fields filled
 function MemberAccountSummary(props) {
-    const { memberAccountInfo  } = props;
+    const {memberAccountInfo} = props;
 
     //Account variables
-    const [firstName, setFirstName] = useState(get(memberAccountInfo , 'firstName', undefined));
-    const [lastName, setLastName] = useState(get(memberAccountInfo , 'lastName', undefined));
-    const [email, setEmail] = useState(get(memberAccountInfo , 'email', undefined));
+    const [firstName, setFirstName] = useState(get(memberAccountInfo, 'firstName', undefined));
+    const [lastName, setLastName] = useState(get(memberAccountInfo, 'lastName', undefined));
+    const [email, setEmail] = useState(get(memberAccountInfo, 'email', undefined));
     const unsplitPhoneNumber = get(memberAccountInfo, 'phoneNumber', undefined);
     const [phoneNumber, setPhoneNumber] = useState(splitPhoneNumber(unsplitPhoneNumber) ||
-    {
-        first: undefined,
-        middle: undefined,
-        last: undefined
-    });
-    const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(get(memberAccountInfo , 'useDifferentMailingAddress', undefined));
-    const [address, setAddress] = useState(get(memberAccountInfo , 'address', {
+        {
+            first: undefined,
+            middle: undefined,
+            last: undefined
+        });
+    const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(get(memberAccountInfo, 'useDifferentMailingAddress', undefined));
+    const [address, setAddress] = useState(get(memberAccountInfo, 'address', {
         street: undefined,
         aptNum: undefined,
         city: undefined,
         province: undefined,
         postalCode: undefined
     }));
-    const [mailingAddress, setMailingAddress] = useState(get(memberAccountInfo , 'mailingAddress', {
+    const [mailingAddress, setMailingAddress] = useState(get(memberAccountInfo, 'mailingAddress', {
         street: undefined,
         aptNum: undefined,
         city: undefined,
@@ -125,6 +127,7 @@ function MemberAccountSummary(props) {
             [e.target.name]: value
         });
     }
+
     const isFormValid = () => {
 
         const personalInfoErrors = {
@@ -170,6 +173,7 @@ function MemberAccountSummary(props) {
         }
 
     }
+
     function onSubmit(event) {
         if (!isFormValid()) {
             event.preventDefault();
@@ -177,18 +181,15 @@ function MemberAccountSummary(props) {
         }
         alert("Account information saved");
     }
+
     return (
         <div>
-            <div className="m-10 md:grid md:grid-cols-4 md:gap-0">
-                <div className="md:col-span-1">
-                    <div className="px-4 sm:px-0">
-                        <h3 className="info-header">Personal Information</h3>
-                        <p className="info-text">
-                            This information is about you!
-                        </p>
-                    </div>
-                </div>
-                <div className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
+            <h3 className="account-summary-info-header">Personal Information</h3>
+            <p className="account-summary-info-text">
+                This information is about you. All fields with a <Asterisk/> are required!
+            </p>
+            <div className="selected-component-grid-outer">
+                <div className="selected-component-grid-inner">
                     <div className="grid grid-cols-2 gap-6">
                         <div className="col-span-3 sm:col-span-2">
                             <TextArea
@@ -196,6 +197,7 @@ function MemberAccountSummary(props) {
                                 labelClassName={"label"}
                                 label="First Name"
                                 value={firstName}
+                                required={true}
                                 onChange={(e) => setFirstName(e.target.value)}
                             />
                             <TextArea
@@ -203,6 +205,7 @@ function MemberAccountSummary(props) {
                                 labelClassName={"label"}
                                 label="Last Name"
                                 value={lastName}
+                                required={true}
                                 onChange={(e) => setLastName(e.target.value)}
                             />
                             <TextArea
@@ -211,6 +214,7 @@ function MemberAccountSummary(props) {
                                 label="Email"
                                 value={email}
                                 labelClassName={"label"}
+                                required={true}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                             <PhoneNumInput
@@ -218,21 +222,24 @@ function MemberAccountSummary(props) {
                                 labelClassName={"label"}
                                 label="Phone Number"
                                 value={phoneNumber}
+                                required={true}
                                 onChange={handlePhoneChange}/>
                             <Address
                                 label="Address"
                                 cityClassName="city-postal"
                                 value={address}
                                 onChange={setAddress}
+                                required={true}
                                 streetAddressError={streetAddressError}
                                 cityAddressError={cityAddressError}
                                 provinceAddressError={provinceAddressError}
                                 postalCodeError={postalCodeError}
                             />
 
-                            <span className="info-detail">Select checkbox below if your mailing address differs from the address above</span>
                             <Checkbox
                                 label="Different Mailing Address"
+                                toolTipText={MEMBER_PROFILE_INFO_TEXT.DIFF_MAILING_ADDRESS}
+                                toolTipID={"accountSummaryDifferentMailingAddress"}
                                 checked={useDifferentMailingAddress}
                                 onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}
                             />
@@ -245,19 +252,18 @@ function MemberAccountSummary(props) {
                                 provinceClassName={provinceMailingAddressError ? dropdownErrorCSS : dropdownDefaultCSS}
                                 postalCodeClassName={`${postalCodeMailingError && "border-red-500"} input`}
                                 value={mailingAddress}
+                                required={true}
                                 onChange={setMailingAddress}
                             />}
                         </div>
                     </div>
                 </div>
-                <div className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6">
-                    <SubmitButton
-                        inputValue={"Save"}
-                        className="text-base btn btn-green"
-                        onClick={onSubmit}
-                    />
-                </div>
             </div>
+            <SubmitButton
+                inputValue={"Save"}
+                className="btn btn-green form-btn w-1/2"
+                onClick={onSubmit}
+            />
         </div>
     );
 }

@@ -38,54 +38,54 @@ const BusinessAccountSummary = (props) => {
     const [bEmail, setBEmail] = useState(get(businessAccountInfo, 'bEmail', undefined));
     const [incorporatedOwnersNames, setIncorporatedOwnersNames] = useState(get(businessAccountInfo, 'incorporatedOwnersNames', ""));
 
-    const unsplitBPhoneNumber = get(businessAccountInfo,"bPhoneNumber",undefined)
+    const unsplitBPhoneNumber = get(businessAccountInfo, "bPhoneNumber", undefined)
 
-    const [bPhoneNumber, setBPhoneNumber] = useState(splitPhoneNumber(unsplitBPhoneNumber) ||{
+    const [bPhoneNumber, setBPhoneNumber] = useState(splitPhoneNumber(unsplitBPhoneNumber) || {
         first: undefined,
         middle: undefined,
         last: undefined
     });
 
-    const unsplitBCellNumber = get(businessAccountInfo,"bCellNumber",undefined)
-    const [bCellNumber, setBCellNumber] = useState(splitPhoneNumber(unsplitBCellNumber) ||{
+    const unsplitBCellNumber = get(businessAccountInfo, "bCellNumber", undefined)
+    const [bCellNumber, setBCellNumber] = useState(splitPhoneNumber(unsplitBCellNumber) || {
         first: undefined,
         middle: undefined,
         last: undefined
     });
 
-    const [bAddress, setBAddress] = useState(get(businessAccountInfo,'bAddress',{
+    const [bAddress, setBAddress] = useState(get(businessAccountInfo, 'bAddress', {
         street: undefined,
         aptNum: undefined,
         city: undefined,
         province: undefined,
-        postalCode:undefined,
+        postalCode: undefined,
     }));
-    const [bMailingAddress, setBMailingAddress] = useState(get(businessAccountInfo,'bMailingAddress',{
+    const [bMailingAddress, setBMailingAddress] = useState(get(businessAccountInfo, 'bMailingAddress', {
         street: undefined,
         aptNum: undefined,
         city: undefined,
         province: undefined,
-        postalCode:undefined,
+        postalCode: undefined,
     }));
-    const [bMapAddress, setBMapAddress] = useState(get(businessAccountInfo,'bMapAddress',{
+    const [bMapAddress, setBMapAddress] = useState(get(businessAccountInfo, 'bMapAddress', {
         street: undefined,
         aptNum: undefined,
         city: undefined,
         province: undefined,
-        postalCode:undefined,
+        postalCode: undefined,
     }));
     const [website, setWebsite] = useState(get(businessAccountInfo, 'website', undefined));
     const [contactFName, setContactFName] = useState(get(businessAccountInfo, 'contactFName', undefined));
     const [contactLName, setContactLName] = useState(get(businessAccountInfo, 'contactLName', undefined));
 
-    const unsplitContactPhoneNumber = get(businessAccountInfo,"contactPhoneNumber",undefined);
-    const [contactPhoneNumber, setContactPhoneNumber] = useState(splitPhoneNumber(unsplitContactPhoneNumber) ||{
+    const unsplitContactPhoneNumber = get(businessAccountInfo, "contactPhoneNumber", undefined);
+    const [contactPhoneNumber, setContactPhoneNumber] = useState(splitPhoneNumber(unsplitContactPhoneNumber) || {
         first: undefined,
         middle: undefined,
         last: undefined
     });
 
-    const [logo, setLogo] = useState(get(businessAccountInfo,'logo',''));
+    const [logo, setLogo] = useState(get(businessAccountInfo, 'logo', ''));
 
 
     // business Details
@@ -261,11 +261,7 @@ const BusinessAccountSummary = (props) => {
         if (checkIfErrorsExistInMapping(businessDetailsErrors)) {
             return false;
             // check contact person for errors
-        } else if (checkIfErrorsExistInMapping(contactPersonErrors)) {
-            return false;
-        } else {
-            return true;
-        }
+        } else return !checkIfErrorsExistInMapping(contactPersonErrors);
     }
 
 //function for input checks on submit
@@ -319,177 +315,160 @@ const BusinessAccountSummary = (props) => {
 
     return (
         <div>
-            <div>
-                {/*business Details*/}
-                <div className="m-10 md:grid md:grid-cols-4 md:gap-0">
-                    <div className="md:col-span-1">
-                        <div className="px-3 sm:px-0">
-                            <h3 className="info-header">Business Details</h3>
-                            <p className="info-text">
-                                This information is about your business.
-                            </p>
-                            <p className="info-text mr-10">
-                                <Asterisk/> = Required Field
-                            </p>
+            <h3 className="account-summary-info-header">Business Details</h3>
+            <p className="account-summary-info-text">
+                This information is about your business. All fields with a <Asterisk/> are required!
+            </p>
+            {/*business Details*/}
+            <div className="selected-component-grid-outer">
+                <div className="selected-component-grid-inner">
+                    <div className="grid grid-cols-2 gap-6">
+                        <div className="col-span-3 sm:col-span-2">
+                            <TextArea
+                                className={`${businessNameError && "border-red-500"} mb-0 input`}
+                                label="Business Name"
+                                value={bName}
+                                autoComplete={"organization"}
+                                labelClassName={"label"}
+                                required={true}
+                                onChange={(e) => {
+                                    setBName(e.target.value)
+                                }}/>
+                            <div className={"my-2"}>
+                                <Checkbox label={"Incorporated business"}
+                                          checked={isIncorporated}
+                                          toolTipText={BUSINESS_INFO_TEXT.INC_COMPANY}
+                                          toolTipID="incorporated"
+                                          onChange={() => setIsIncorporated(!isIncorporated)}/>
+                                {isIncorporated && <TextArea className="input"
+                                                             placeholder={"Names of Inc. Owners (separated by comma)"}
+                                                             labelClassName={"label"}
+                                                             value={incorporatedOwnersNames}
+                                                             onChange={(e) => setIncorporatedOwnersNames(e.target.value)}/>}
+                            </div>
+                            <TextArea className={`${bEmailError && "border-red-500"} input`}
+                                      placeholder="business@email.ca"
+                                      autoComplete={"email"}
+                                      label="Business Email"
+                                      value={bEmail}
+                                      labelClassName={"label"}
+                                      required={true}
+                                      onChange={(e) => {
+                                          setBEmail(e.target.value)
+                                      }}/>
+                            <TextArea className="input"
+                                      placeholder="http://www.your-website.com"
+                                      value={website}
+                                      optional={true}
+                                      autoComplete={"url"}
+                                      label="Business Website"
+                                      labelClassName={"label"}
+                                      onChange={e => setWebsite(e.target.value)}/>
+                            <PhoneNumInput
+                                className={`${bPhoneNumberError && "border-red-500"} phone`}
+                                required={true}
+                                value={bPhoneNumber}
+                                labelClassName={"label "}
+                                label="Business Phone Number"
+                                onChange={handleBPhoneChange}/>
+                            <PhoneNumInput
+                                className={`${bCellNumberError && "border-red-500"} phone`}
+                                required={true}
+                                value={bCellNumber}
+                                label="Business Cell Number"
+                                labelClassName={"label"}
+                                onChange={handleCellPhoneChange}/>
+                            <Address label="Business Address"
+                                     cityClassName="city-postal"
+                                     required={true}
+                                     value={bAddress}
+                                     streetAddressError={streetAddressError}
+                                     cityAddressError={cityAddressError}
+                                     provinceAddressError={provinceAddressError}
+                                     postalCodeError={postalCodeError}
+                                     onChange={handleBAddressChange}/>
+                            <Checkbox label={"Different Mailing Address"}
+                                      checked={useDifferentMailingAddress}
+                                      toolTipText={BUSINESS_INFO_TEXT.DIFF_MAILING_ADDRESS}
+                                      toolTipID="differentMailingAddress"
+                                      onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}/>
+                            {useDifferentMailingAddress &&
+                            <Address label="Business Mailing Address"
+                                     value={bMailingAddress}
+                                     required={true}
+                                     streetAddressError={streetMailingAddressError}
+                                     cityAddressError={cityMailingAddressError}
+                                     provinceAddressError={provinceMailingAddressError}
+                                     postalCodeError={postalCodeMailingError}
+                                     onChange={handleBMailingAddress}/>}
+                            <div>
+                                <Checkbox label={"Canada-wide business"}
+                                          checked={isNationWide}
+                                          toolTipText={BUSINESS_INFO_TEXT.NATION_WIDE}
+                                          toolTipID="nationWide"
+                                          onChange={() => {
+                                              setIfNationWide(isNationWide => !isNationWide)
+                                          }}/>
+                                {!isNationWide &&
+                                <Address label="Searchable Address"
+                                         value={bMapAddress}
+                                         toolTipText={BUSINESS_INFO_TEXT.MAP_ADDRESS}
+                                         toolTipID={"mapAddress"}
+                                         required={true}
+                                         streetAddressError={streetMapAddressError}
+                                         cityAddressError={cityMapAddressError}
+                                         provinceAddressError={provinceMapAddressError}
+                                         postalCodeError={postalCodeMapError}
+                                         onChange={handleBMapAddress}/>}
+                            </div>
                         </div>
                     </div>
-                    <div
-                        className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
-                        <div className="grid grid-cols-2 gap-6">
-                            <div className="col-span-3 sm:col-span-2">
-                                <TextArea
-                                    className={`${businessNameError && "border-red-500"} mb-0 input`}
-                                    label="Business Name"
-                                    value={bName}
-                                    autoComplete={"organization"}
-                                    labelClassName={"label"}
-                                    required={true}
-                                    onChange={(e) => {
-                                        setBName(e.target.value)
-                                    }}/>
-                                <div className={"my-2"}>
-                                    <Checkbox label={"Incorporated business"}
-                                              checked={isIncorporated}
-                                              toolTipText={BUSINESS_INFO_TEXT.INC_COMPANY}
-                                              toolTipID="incorporated"
-                                              onChange={() => setIsIncorporated(!isIncorporated)}/>
-                                    {isIncorporated && <TextArea className="input"
-                                                                 placeholder={"Names of Inc. Owners (separated by comma)"}
-                                                                 labelClassName={"label"}
-                                                                 value={incorporatedOwnersNames}
-                                                                 onChange={(e) => setIncorporatedOwnersNames(e.target.value)}/>}
-                                </div>
-                                <TextArea className={`${bEmailError && "border-red-500"} input`}
-                                          placeholder="business@email.ca"
-                                          autoComplete={"email"}
-                                          label="Business Email"
-                                          value={bEmail}
-                                          labelClassName={"label"}
-                                          required={true}
-                                          onChange={(e) => {
-                                              setBEmail(e.target.value)
-                                          }}/>
-                                <TextArea className="input"
-                                          placeholder="http://www.your-website.com"
-                                          value={website}
-                                          optional={true}
-                                          autoComplete={"url"}
-                                          label="Business Website"
-                                          labelClassName={"label"}
-                                          onChange={e => setWebsite(e.target.value)}/>
-                                <PhoneNumInput
-                                    className={`${bPhoneNumberError && "border-red-500"} phone`}
-                                    required={true}
-                                    value={bPhoneNumber}
-                                    labelClassName={"label "}
-                                    label="Business Phone Number"
-                                    onChange={handleBPhoneChange}/>
-                                <PhoneNumInput
-                                    className={`${bCellNumberError && "border-red-500"} phone`}
-                                    required={true}
-                                    value={bCellNumber}
-                                    label="Business Cell Number"
-                                    labelClassName={"label"}
-                                    onChange={handleCellPhoneChange}/>
-                                <Address label="Business Address"
-                                         cityClassName="city-postal"
-                                         required={true}
-                                         value={bAddress}
-                                         streetAddressError={streetAddressError}
-                                         cityAddressError={cityAddressError}
-                                         provinceAddressError={provinceAddressError}
-                                         postalCodeError={postalCodeError}
-                                         onChange={handleBAddressChange}/>
-                                <Checkbox label={"Different Mailing Address"}
-                                          checked={useDifferentMailingAddress}
-                                          toolTipText={BUSINESS_INFO_TEXT.DIFF_MAILING_ADDRESS}
-                                          toolTipID="differentMailingAddress"
-                                          onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}/>
-                                {useDifferentMailingAddress &&
-                                <Address label="Business Mailing Address"
-                                         value={bMailingAddress}
-                                         required={true}
-                                         streetAddressError={streetMailingAddressError}
-                                         cityAddressError={cityMailingAddressError}
-                                         provinceAddressError={provinceMailingAddressError}
-                                         postalCodeError={postalCodeMailingError}
-                                         onChange={handleBMailingAddress}/>}
-                                <div>
-                                    <Checkbox label={"Canada-wide business"}
-                                              checked={isNationWide}
-                                              toolTipText={BUSINESS_INFO_TEXT.NATION_WIDE}
-                                              toolTipID="nationWide"
-                                              onChange={() => {
-                                                  setIfNationWide(isNationWide => !isNationWide)
-                                              }}/>
-                                    {!isNationWide &&
-                                    <Address label="Searchable Address"
-                                             value={bMapAddress}
-                                             toolTipText={BUSINESS_INFO_TEXT.MAP_ADDRESS}
-                                             toolTipID={"mapAddress"}
-                                             required={true}
-                                             streetAddressError={streetMapAddressError}
-                                             cityAddressError={cityMapAddressError}
-                                             provinceAddressError={provinceMapAddressError}
-                                             postalCodeError={postalCodeMapError}
-                                             onChange={handleBMapAddress}/>}
-                                </div>
-                            </div>
-                        </div>
 
-                        <label className="label"> Business Logo </label>
-                        <Tooltip text={BUSINESS_INFO_TEXT.BUSINESS_LOGO} toolTipID="businessLogo"/>
-                        <div
-                            className={"flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed " +
-                            "rounded-md"}
-                        >
-                            <div className="space-y-1 text-center">
-                                <svg
-                                    className="w-12 h-12 mx-auto text-gray-400"
-                                    stroke="currentColor"
-                                    fill="none"
-                                    viewBox="0 0 48 48"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        d={"M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 " +
-                                        "01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 " +
-                                        "015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"}
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    />
-                                </svg>
-                                <FileUploadButton
-                                    className={"photo-upload-width photo-upload hover:text-indigo-500"}
-                                    name={'logo'}
-                                    uploadHandler={handleImageUpload}
-                                    accept={'image/png, image/jpg, image/jpeg, image/JPG'}
+                    <label className="label"> Business Logo </label>
+                    <Tooltip text={BUSINESS_INFO_TEXT.BUSINESS_LOGO} toolTipID="businessLogo"/>
+                    <div
+                        className={"flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed " +
+                        "rounded-md"}
+                    >
+                        <div className="space-y-1 text-center">
+                            <svg
+                                className="mx-auto w-12 h-12 text-gray-400"
+                                stroke="currentColor"
+                                fill="none"
+                                viewBox="0 0 48 48"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d={"M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 " +
+                                    "01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 " +
+                                    "015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"}
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
                                 />
-                                <p className="text-xs text-gray-500">
-                                    PNG or JPG up to 2MB
-                                </p>
-                            </div>
+                            </svg>
+                            <FileUploadButton
+                                className={"photo-upload-width photo-upload hover:text-indigo-500"}
+                                name={'logo'}
+                                uploadHandler={handleImageUpload}
+                                accept={'image/png, image/jpg, image/jpeg, image/JPG'}
+                            />
+                            <p className="text-xs text-gray-500">
+                                PNG or JPG up to 2MB
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            {/*Dividers*/}
-            <div className="border-divider"/>
 
+            <h3 className="account-summary-info-header">Contact Person</h3>
+            <p className="account-summary-info-text">
+                This information is about the contact person for the business.
+            </p>
             {/*Contact Person*/}
-            <div className="mt-10 sm:mt-0 m-10 md:grid md:grid-cols-4 md:gap-6">
-                <div className="md:col-span-1">
-                    <div className="px-4 sm:px-0">
-                        <h3 className="info-header">Contact Person</h3>
-                        <p className="info-text">
-                            This information is about the contact person for the business.
-                        </p>
-                    </div>
-                </div>
-                <div
-                    className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
+            <div className="selected-component-grid-outer">
+                <div className="selected-component-grid-inner">
                     <div className="grid grid-cols-6 gap-x-6">
                         <div className="column-span-6-layout">
                             <TextArea className={`${contactFirstNameError && "border-red-500"} input`}
@@ -526,19 +505,11 @@ const BusinessAccountSummary = (props) => {
                     </div>
                 </div>
             </div>
-
-            {/*Divided*/}
-            <div className="border-divider"/>
-
-            {/*SubmitButton*/}
-            <div className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6">
-                <SubmitButton
-                    inputValue={"Save"}
-                    className="text-base btn btn-green"
-                    onClick={onSubmit}
-                />
-            </div>
-
+            <SubmitButton
+                inputValue={"Save"}
+                className="btn btn-green form-btn w-1/2"
+                onClick={onSubmit}
+            />
         </div>
     );
 }
