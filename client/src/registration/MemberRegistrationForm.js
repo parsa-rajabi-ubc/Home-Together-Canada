@@ -15,6 +15,7 @@ import SignInInfo from "../common/forms/SignInInfo";
 import PhoneNumInput from "../common/forms/PhoneNumInput";
 import BirthYear from "../common/forms/BirthYear";
 import {isStringEmpty} from "../common/utils/stringUtils";
+import {isValueInArray} from "../common/utils/generalUtils";
 import {
     getConcatenatedErrorMessage,
     getPhoneNumberFromStrings,
@@ -48,7 +49,6 @@ import {USER_TYPES} from "../common/constants/users";
 import {MEMBER_PROFILE_INFO_TEXT} from "../common/constants/TooltipText";
 import {dropdownDefaultCSS, dropdownErrorCSS} from "../css/dropdownCSSUtil"
 import {Link} from "react-router-dom";
-import includes from "lodash/includes";
 import indexOf from 'lodash/indexOf';
 import {TERMS_OF_SERVICE_TEXT} from "../common/constants/termsOfServiceText";
 import {PRIVACY_POLICY_TEXT} from "../common/constants/privacyPolicyText";
@@ -341,7 +341,7 @@ function MemberRegistrationForm(props) {
         const list = [...genderPreference];
         const value = e.target.id;
         // check if the value select already exists in the list
-        if (!includes(list, value)) {
+        if (!isValueInArray(list, value)) {
             // if not, add the value
             list.push(value);
         } else {
