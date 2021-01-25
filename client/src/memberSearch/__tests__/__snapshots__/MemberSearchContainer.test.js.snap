@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MemberSearchContainer Container test should match snapshot test 1`] = `
-<div>
+<div
+  className="flex flex-nowrap my-10 "
+>
   <div>
     <div>
       <p>
