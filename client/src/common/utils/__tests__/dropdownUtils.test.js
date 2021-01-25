@@ -8,7 +8,7 @@
 
 import {getSelectedOptionForSingleSelect, getSelectedOptionsForMultiSelect} from "../dropdownUtils";
 
-describe('dropDownUtils', () => {
+describe('dropdownUtils', () => {
     const options = [
         { label: 'one', value: 1 },
         { label: 'two', value: 2 },
