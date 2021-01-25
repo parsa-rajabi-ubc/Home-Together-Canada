@@ -25,25 +25,24 @@ function ProfileCard(props) {
                 <label className={"px-1"}> {age} </label>
 
                 <section className={"flex w-full pr-6 justify-end"}>
-                    {pet ? <Tooltip text={"Pet Friendly"} toolTipID={"PetFriendly"}
-                                    customIcon={<Dog className={"text-blue-400 ml-1"}/>}/> : ""}
+                    {pet && <Tooltip text={"Pet Friendly"} toolTipID={"PetFriendly"}
+                                    customIcon={<Dog className={"text-blue-400 ml-1"}/>}/>}
 
-                    {smoke ? <Tooltip text={"Smoke Friendly"} toolTipID={"SmokeFriendly"}
-                                      customIcon={<Cigarette className={"text-red-500 ml-1"}/>}/> :
-                        <Tooltip text={"Not Smoke Friendly"} toolTipID={"NotSmokeFriendly"}
-                                 customIcon={<NoSmoking className={"text-red-500 ml-1"}/>}/>}
+                    {smoke && <Tooltip text={"Smoke Friendly"} toolTipID={"SmokeFriendly"}
+                                      customIcon={<Cigarette className={"text-red-500 ml-1"}/>}/>}
 
-                    {diet ? <Tooltip text={"Diet is important"} toolTipID={"dietImportant"}
-                                     customIcon={<Food className={"text-gray-600 ml-1"}/>}/> : ""}
 
-                    {religion ? <Tooltip text={"Religion is import"} toolTipID={"religionImportant"}
-                                         customIcon={<Pray className={"text-green-600 ml-1"}/>}/> : ""}
+                    {diet && <Tooltip text={"Diet is important"} toolTipID={"dietImportant"}
+                                     customIcon={<Food className={"text-gray-600 ml-1"}/>}/>}
+
+                    {religion && <Tooltip text={"Religion is import"} toolTipID={"religionImportant"}
+                                         customIcon={<Pray className={"text-green-600 ml-1"}/>}/>}
                 </section>
             </div>
 
             <div className={"mx-6 flex items-center justify-between leading-tight font-light"}>
-                <section className={""}> {familyStatus} </section>
-                <section className={""}> ${minBudget} - {maxBudget} </section>
+                <section> {familyStatus} </section>
+                <section> ${minBudget} - {maxBudget} </section>
             </div>
 
         </section>
