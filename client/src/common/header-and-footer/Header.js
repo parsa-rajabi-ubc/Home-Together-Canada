@@ -86,7 +86,7 @@ const Header = (props) => {
                                 FAQ
                             </Link>
                             {(authenticated && accountType !== USER_TYPES.UNREGISTERED) &&
-                            < Link to={'/create/listing'} className="nav-icon">
+                            < Link to={'/create-listing'} className="nav-icon">
                                 Create Listing
                             </Link>
                             }

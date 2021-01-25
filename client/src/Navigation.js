@@ -21,6 +21,7 @@ import {USER_TYPES} from "./common/constants/users";
 import Header from "./common/header-and-footer/Header";
 import Footer from "./common/header-and-footer/Footer";
 import MemberSearchContainer from "./memberSearch/MemberSearchContainer";
+import CreateListingContainer from "./createListing/CreateListingContainer";
 import TermsOfService from "./termsOfService/TermsOfService";
 import PrivacyPolicy from "./termsOfService/PrivacyPolicy";
 
@@ -40,6 +41,7 @@ const Navigation = (props) => {
                     <Route path={"/registration/member"} component={MemberRegistrationForm}/>
                     <Route path={"/registration"} component={MainLandingPage}/>
                     <Route path={"/members"} component={MemberSearchContainer}/>
+                    <Route path={"/create-listing"} component={CreateListingContainer}/>
                     {(authenticated && accountType !== USER_TYPES.UNREGISTERED) &&
                         <Route path={"/account"} component={AccountSummaryContainer}/>
                     }
