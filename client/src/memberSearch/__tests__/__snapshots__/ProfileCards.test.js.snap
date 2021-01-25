@@ -487,16 +487,12 @@ exports[`ProfileCard Snapshot test should render correctly regardless of propert
   <div
     className="mx-6 flex items-center justify-between leading-tight font-light"
   >
-    <section
-      className=""
-    >
+    <section>
        
       Single
        
     </section>
-    <section
-      className=""
-    >
+    <section>
        $
       400
        - 

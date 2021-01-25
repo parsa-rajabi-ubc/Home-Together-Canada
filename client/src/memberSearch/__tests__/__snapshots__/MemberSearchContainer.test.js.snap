@@ -30,139 +30,17 @@ exports[`MemberSearchContainer Container test should match snapshot test 1`] = `
         </label>
         <section
           className="flex w-full pr-6 justify-end"
-        >
-          
-          <span>
-            <a
-              data-for="NotSmokeFriendly"
-              data-tip={true}
-            >
-              <svg
-                className="text-red-500 ml-1"
-                fill="currentColor"
-                height="1em"
-                stroke="currentColor"
-                strokeWidth="0"
-                style={
-                  Object {
-                    "color": undefined,
-                  }
-                }
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M2 6l6.99 7H2v3h9.99l7 7 1.26-1.25-17-17zm18.5 7H22v3h-1.5zM18 13h1.5v3H18zm.85-8.12c.62-.61 1-1.45 1-2.38h-1.5c0 1.02-.83 1.85-1.85 1.85v1.5c2.24 0 4 1.83 4 4.07V12H22V9.92c0-2.23-1.28-4.15-3.15-5.04zM14.5 8.7h1.53c1.05 0 1.97.74 1.97 2.05V12h1.5v-1.59c0-1.8-1.6-3.16-3.47-3.16H14.5c-1.02 0-1.85-.98-1.85-2s.83-1.75 1.85-1.75V2c-1.85 0-3.35 1.5-3.35 3.35s1.5 3.35 3.35 3.35zm2.5 7.23V13h-2.93z"
-                />
-              </svg>
-            </a>
-            <div
-              className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-              data-id="tooltip"
-              id="NotSmokeFriendly"
-            >
-              <style
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "
-  	.t00000000-0000-0000-0000-000000000000 {
-	    color: #fff;
-	    background: #222;
-	    border: 1px solid transparent;
-  	}
-
-  	.t00000000-0000-0000-0000-000000000000.place-top {
-        margin-top: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
-        border-top: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        bottom: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
-        margin-top: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
-        border-bottom: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        top: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-left {
-        margin-left: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
-        border-left: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        right: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-right {
-        margin-left: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
-        border-right: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        left: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
-    }
-  ",
-                  }
-                }
-              />
-              Not Smoke Friendly
-            </div>
-          </span>
-          
-          
-        </section>
+        />
       </div>
       <div
         className="mx-6 flex items-center justify-between leading-tight font-light"
       >
-        <section
-          className=""
-        >
+        <section>
            
           Single
            
         </section>
-        <section
-          className=""
-        >
+        <section>
            $
           200
            - 
@@ -657,16 +535,12 @@ exports[`MemberSearchContainer Container test should match snapshot test 1`] = `
       <div
         className="mx-6 flex items-center justify-between leading-tight font-light"
       >
-        <section
-          className=""
-        >
+        <section>
            
           Couple With Children
            
         </section>
-        <section
-          className=""
-        >
+        <section>
            $
           2000
            - 
@@ -699,7 +573,6 @@ exports[`MemberSearchContainer Container test should match snapshot test 1`] = `
         <section
           className="flex w-full pr-6 justify-end"
         >
-          
           <span>
             <a
               data-for="SmokeFriendly"
@@ -1048,16 +921,12 @@ exports[`MemberSearchContainer Container test should match snapshot test 1`] = `
       <div
         className="mx-6 flex items-center justify-between leading-tight font-light"
       >
-        <section
-          className=""
-        >
+        <section>
            
           Single
            
         </section>
-        <section
-          className=""
-        >
+        <section>
            $
           800
            - 
@@ -1090,121 +959,6 @@ exports[`MemberSearchContainer Container test should match snapshot test 1`] = `
         <section
           className="flex w-full pr-6 justify-end"
         >
-          
-          <span>
-            <a
-              data-for="NotSmokeFriendly"
-              data-tip={true}
-            >
-              <svg
-                className="text-red-500 ml-1"
-                fill="currentColor"
-                height="1em"
-                stroke="currentColor"
-                strokeWidth="0"
-                style={
-                  Object {
-                    "color": undefined,
-                  }
-                }
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M2 6l6.99 7H2v3h9.99l7 7 1.26-1.25-17-17zm18.5 7H22v3h-1.5zM18 13h1.5v3H18zm.85-8.12c.62-.61 1-1.45 1-2.38h-1.5c0 1.02-.83 1.85-1.85 1.85v1.5c2.24 0 4 1.83 4 4.07V12H22V9.92c0-2.23-1.28-4.15-3.15-5.04zM14.5 8.7h1.53c1.05 0 1.97.74 1.97 2.05V12h1.5v-1.59c0-1.8-1.6-3.16-3.47-3.16H14.5c-1.02 0-1.85-.98-1.85-2s.83-1.75 1.85-1.75V2c-1.85 0-3.35 1.5-3.35 3.35s1.5 3.35 3.35 3.35zm2.5 7.23V13h-2.93z"
-                />
-              </svg>
-            </a>
-            <div
-              className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-              data-id="tooltip"
-              id="NotSmokeFriendly"
-            >
-              <style
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "
-  	.t00000000-0000-0000-0000-000000000000 {
-	    color: #fff;
-	    background: #222;
-	    border: 1px solid transparent;
-  	}
-
-  	.t00000000-0000-0000-0000-000000000000.place-top {
-        margin-top: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
-        border-top: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        bottom: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
-        margin-top: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
-        border-bottom: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        top: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-left {
-        margin-left: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
-        border-left: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        right: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-right {
-        margin-left: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
-        border-right: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        left: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
-    }
-  ",
-                  }
-                }
-              />
-              Not Smoke Friendly
-            </div>
-          </span>
           <span>
             <a
               data-for="dietImportant"
@@ -1439,16 +1193,12 @@ exports[`MemberSearchContainer Container test should match snapshot test 1`] = `
       <div
         className="mx-6 flex items-center justify-between leading-tight font-light"
       >
-        <section
-          className=""
-        >
+        <section>
            
           Single Parent
            
         </section>
-        <section
-          className=""
-        >
+        <section>
            $
           500
            - 
@@ -1481,121 +1231,6 @@ exports[`MemberSearchContainer Container test should match snapshot test 1`] = `
         <section
           className="flex w-full pr-6 justify-end"
         >
-          
-          <span>
-            <a
-              data-for="NotSmokeFriendly"
-              data-tip={true}
-            >
-              <svg
-                className="text-red-500 ml-1"
-                fill="currentColor"
-                height="1em"
-                stroke="currentColor"
-                strokeWidth="0"
-                style={
-                  Object {
-                    "color": undefined,
-                  }
-                }
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M2 6l6.99 7H2v3h9.99l7 7 1.26-1.25-17-17zm18.5 7H22v3h-1.5zM18 13h1.5v3H18zm.85-8.12c.62-.61 1-1.45 1-2.38h-1.5c0 1.02-.83 1.85-1.85 1.85v1.5c2.24 0 4 1.83 4 4.07V12H22V9.92c0-2.23-1.28-4.15-3.15-5.04zM14.5 8.7h1.53c1.05 0 1.97.74 1.97 2.05V12h1.5v-1.59c0-1.8-1.6-3.16-3.47-3.16H14.5c-1.02 0-1.85-.98-1.85-2s.83-1.75 1.85-1.75V2c-1.85 0-3.35 1.5-3.35 3.35s1.5 3.35 3.35 3.35zm2.5 7.23V13h-2.93z"
-                />
-              </svg>
-            </a>
-            <div
-              className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-              data-id="tooltip"
-              id="NotSmokeFriendly"
-            >
-              <style
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "
-  	.t00000000-0000-0000-0000-000000000000 {
-	    color: #fff;
-	    background: #222;
-	    border: 1px solid transparent;
-  	}
-
-  	.t00000000-0000-0000-0000-000000000000.place-top {
-        margin-top: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
-        border-top: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        bottom: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
-        margin-top: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
-        border-bottom: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        top: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-left {
-        margin-left: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
-        border-left: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        right: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-right {
-        margin-left: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
-        border-right: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        left: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
-    }
-  ",
-                  }
-                }
-              />
-              Not Smoke Friendly
-            </div>
-          </span>
           <span>
             <a
               data-for="dietImportant"
@@ -1711,22 +1346,17 @@ exports[`MemberSearchContainer Container test should match snapshot test 1`] = `
               Diet is important
             </div>
           </span>
-          
         </section>
       </div>
       <div
         className="mx-6 flex items-center justify-between leading-tight font-light"
       >
-        <section
-          className=""
-        >
+        <section>
            
           Single
            
         </section>
-        <section
-          className=""
-        >
+        <section>
            $
           1300
            - 
@@ -1759,122 +1389,6 @@ exports[`MemberSearchContainer Container test should match snapshot test 1`] = `
         <section
           className="flex w-full pr-6 justify-end"
         >
-          
-          <span>
-            <a
-              data-for="NotSmokeFriendly"
-              data-tip={true}
-            >
-              <svg
-                className="text-red-500 ml-1"
-                fill="currentColor"
-                height="1em"
-                stroke="currentColor"
-                strokeWidth="0"
-                style={
-                  Object {
-                    "color": undefined,
-                  }
-                }
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M2 6l6.99 7H2v3h9.99l7 7 1.26-1.25-17-17zm18.5 7H22v3h-1.5zM18 13h1.5v3H18zm.85-8.12c.62-.61 1-1.45 1-2.38h-1.5c0 1.02-.83 1.85-1.85 1.85v1.5c2.24 0 4 1.83 4 4.07V12H22V9.92c0-2.23-1.28-4.15-3.15-5.04zM14.5 8.7h1.53c1.05 0 1.97.74 1.97 2.05V12h1.5v-1.59c0-1.8-1.6-3.16-3.47-3.16H14.5c-1.02 0-1.85-.98-1.85-2s.83-1.75 1.85-1.75V2c-1.85 0-3.35 1.5-3.35 3.35s1.5 3.35 3.35 3.35zm2.5 7.23V13h-2.93z"
-                />
-              </svg>
-            </a>
-            <div
-              className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-              data-id="tooltip"
-              id="NotSmokeFriendly"
-            >
-              <style
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "
-  	.t00000000-0000-0000-0000-000000000000 {
-	    color: #fff;
-	    background: #222;
-	    border: 1px solid transparent;
-  	}
-
-  	.t00000000-0000-0000-0000-000000000000.place-top {
-        margin-top: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
-        border-top: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        bottom: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
-        margin-top: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
-        border-bottom: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        top: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-left {
-        margin-left: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
-        border-left: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        right: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-right {
-        margin-left: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
-        border-right: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        left: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
-    }
-  ",
-                  }
-                }
-              />
-              Not Smoke Friendly
-            </div>
-          </span>
-          
           <span>
             <a
               data-for="religionImportant"
@@ -1994,16 +1508,12 @@ exports[`MemberSearchContainer Container test should match snapshot test 1`] = `
       <div
         className="mx-6 flex items-center justify-between leading-tight font-light"
       >
-        <section
-          className=""
-        >
+        <section>
            
           Couple
            
         </section>
-        <section
-          className=""
-        >
+        <section>
            $
           1400
            - 
@@ -2036,7 +1546,6 @@ exports[`MemberSearchContainer Container test should match snapshot test 1`] = `
         <section
           className="flex w-full pr-6 justify-end"
         >
-          
           <span>
             <a
               data-for="SmokeFriendly"
@@ -2151,23 +1660,17 @@ exports[`MemberSearchContainer Container test should match snapshot test 1`] = `
               Smoke Friendly
             </div>
           </span>
-          
-          
         </section>
       </div>
       <div
         className="mx-6 flex items-center justify-between leading-tight font-light"
       >
-        <section
-          className=""
-        >
+        <section>
            
           Single
            
         </section>
-        <section
-          className=""
-        >
+        <section>
            $
           2500
            - 
@@ -2314,137 +1817,17 @@ exports[`MemberSearchContainer Container test should match snapshot test 1`] = `
               Pet Friendly
             </div>
           </span>
-          <span>
-            <a
-              data-for="NotSmokeFriendly"
-              data-tip={true}
-            >
-              <svg
-                className="text-red-500 ml-1"
-                fill="currentColor"
-                height="1em"
-                stroke="currentColor"
-                strokeWidth="0"
-                style={
-                  Object {
-                    "color": undefined,
-                  }
-                }
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M2 6l6.99 7H2v3h9.99l7 7 1.26-1.25-17-17zm18.5 7H22v3h-1.5zM18 13h1.5v3H18zm.85-8.12c.62-.61 1-1.45 1-2.38h-1.5c0 1.02-.83 1.85-1.85 1.85v1.5c2.24 0 4 1.83 4 4.07V12H22V9.92c0-2.23-1.28-4.15-3.15-5.04zM14.5 8.7h1.53c1.05 0 1.97.74 1.97 2.05V12h1.5v-1.59c0-1.8-1.6-3.16-3.47-3.16H14.5c-1.02 0-1.85-.98-1.85-2s.83-1.75 1.85-1.75V2c-1.85 0-3.35 1.5-3.35 3.35s1.5 3.35 3.35 3.35zm2.5 7.23V13h-2.93z"
-                />
-              </svg>
-            </a>
-            <div
-              className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
-              data-id="tooltip"
-              id="NotSmokeFriendly"
-            >
-              <style
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "
-  	.t00000000-0000-0000-0000-000000000000 {
-	    color: #fff;
-	    background: #222;
-	    border: 1px solid transparent;
-  	}
-
-  	.t00000000-0000-0000-0000-000000000000.place-top {
-        margin-top: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
-        border-top: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        bottom: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
-        margin-top: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
-        border-bottom: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        top: -6px;
-        left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-left {
-        margin-left: -10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
-        border-left: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        right: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
-    }
-
-    .t00000000-0000-0000-0000-000000000000.place-right {
-        margin-left: 10px;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
-        border-right: 8px solid transparent;
-    }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        left: -6px;
-        top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
-    }
-  ",
-                  }
-                }
-              />
-              Not Smoke Friendly
-            </div>
-          </span>
-          
-          
         </section>
       </div>
       <div
         className="mx-6 flex items-center justify-between leading-tight font-light"
       >
-        <section
-          className=""
-        >
+        <section>
            
           Couple With Children
            
         </section>
-        <section
-          className=""
-        >
+        <section>
            $
           1200
            - 
@@ -2477,7 +1860,6 @@ exports[`MemberSearchContainer Container test should match snapshot test 1`] = `
         <section
           className="flex w-full pr-6 justify-end"
         >
-          
           <span>
             <a
               data-for="SmokeFriendly"
@@ -2592,23 +1974,17 @@ exports[`MemberSearchContainer Container test should match snapshot test 1`] = `
               Smoke Friendly
             </div>
           </span>
-          
-          
         </section>
       </div>
       <div
         className="mx-6 flex items-center justify-between leading-tight font-light"
       >
-        <section
-          className=""
-        >
+        <section>
            
           Single Parent
            
         </section>
-        <section
-          className=""
-        >
+        <section>
            $
           300
            - 
@@ -2641,7 +2017,6 @@ exports[`MemberSearchContainer Container test should match snapshot test 1`] = `
         <section
           className="flex w-full pr-6 justify-end"
         >
-          
           <span>
             <a
               data-for="SmokeFriendly"
@@ -2871,22 +2246,17 @@ exports[`MemberSearchContainer Container test should match snapshot test 1`] = `
               Diet is important
             </div>
           </span>
-          
         </section>
       </div>
       <div
         className="mx-6 flex items-center justify-between leading-tight font-light"
       >
-        <section
-          className=""
-        >
+        <section>
            
           Single
            
         </section>
-        <section
-          className=""
-        >
+        <section>
            $
           200
            - 
