@@ -14,8 +14,7 @@ import ChangePasswordContainer from "./ChangePasswordContainer";
 import MemberAccountSummary from "./member/MemberAccountSummary";
 import memberAccountInfo  from "./member/MockData";
 import MemberProfileSummary from "./member/MemberProfileSummary";
-import {businessUser} from "./business/MockB";
-import BusinessAccountSummary from "./business/BusinessAccountSummary";
+import BusinessAccountSummaryContainer from "./business/BusinessAccountSummaryContainer";
 import Error404 from "../common/error/Error404";
 import SearchCriteriaContainer from "./member/SearchCriteriaContainer";
 
@@ -29,7 +28,9 @@ const AccountSummaryContainer = () => {
     const subpageComponent = (subpage) => {
         switch (subpage) {
             case ALL_SUBPAGES.PROFILE:
-                return accountType === USER_TYPES.MEMBER ? <MemberProfileSummary memberAccountInfo ={memberAccountInfo }/> : <Error404/>
+                return accountType === USER_TYPES.MEMBER
+                    ? <MemberProfileSummary memberAccountInfo={memberAccountInfo }/>
+                    : <Error404/>
             case ALL_SUBPAGES.SEARCH_CRITERIA:
                 return accountType === USER_TYPES.MEMBER ? <SearchCriteriaContainer/> : <Error404/>
             case ALL_SUBPAGES.PASSWORD:
@@ -39,7 +40,9 @@ const AccountSummaryContainer = () => {
             case ALL_SUBPAGES.MANAGE_LISTINGS:
                 return <div>Manage Listings Component</div>
             default:
-                return accountType === USER_TYPES.MEMBER ? <MemberAccountSummary memberAccountInfo ={memberAccountInfo }/> : <BusinessAccountSummary businessAccountInfo={businessUser}/>
+                return accountType === USER_TYPES.MEMBER
+                    ? <MemberAccountSummary memberAccountInfo={memberAccountInfo }/>
+                    : <BusinessAccountSummaryContainer/>
         }
     }
 

@@ -5,6 +5,7 @@
  * @Description: controller functions for BusinessAccount model
  *
  */
+const {Op} = require('sequelize');
 
 const db = require("../models");
 const { formatPhoneNumber } = require('./utils/accountControllerUtils');
@@ -63,6 +64,15 @@ const removeLogo = (uid) =>
         }
     });
 
+const getLogo = (uid) =>
+    BusinessAccount.findAll({
+        attributes: ['logo'],
+        where: {
+            uid: uid
+        }
+    });
+
+
 const updateBusiness = (req, res) => {
     return BusinessAccount.update({
         businessName: req.body.businessName,
@@ -92,5 +102,6 @@ module.exports = {
     findBusinessByUid,
     updateLogo,
     removeLogo,
-    updateBusiness
+    updateBusiness,
+    getLogo
 }

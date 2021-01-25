@@ -435,6 +435,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                   onChange={[Function]}
                   placeholder="Address Line 1"
                   type="text"
+                  value=""
                 />
               </div>
               <div
@@ -460,6 +461,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                   onChange={[Function]}
                   placeholder="City"
                   type="text"
+                  value=""
                 />
               </div>
               <div
@@ -581,6 +583,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                   onChange={[Function]}
                   placeholder="Postal Code"
                   type="text"
+                  value=""
                 />
               </div>
             </div>
@@ -999,6 +1002,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                     onChange={[Function]}
                     placeholder="Address Line 1"
                     type="text"
+                    value=""
                   />
                 </div>
                 <div
@@ -1024,6 +1028,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                     onChange={[Function]}
                     placeholder="City"
                     type="text"
+                    value=""
                   />
                 </div>
                 <div
@@ -1145,6 +1150,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                     onChange={[Function]}
                     placeholder="Postal Code"
                     type="text"
+                    value=""
                   />
                 </div>
               </div>
