@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InvalidUser Component Snapshot test should render correctly regardless of properties 1`] = `
+<div>
+  <div>
+    <p>
+      You must be a registered member to view other member profiles.
+    </p>
+  </div>
+  <div>
+    <a
+      className="nav-btn"
+      href="/login"
+      onClick={[Function]}
+    >
+      Login
+    </a>
+  </div>
+  <div>
+    <a
+      className="nav-btn"
+      href="/registration"
+      onClick={[Function]}
+    >
+      Sign Up
+    </a>
+  </div>
+</div>
+`;

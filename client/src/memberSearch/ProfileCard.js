@@ -10,7 +10,6 @@ import React from 'react';
 import PropTypes from "prop-types";
 import {FaDog as Dog} from "react-icons/fa";
 import {GiCigarette as Cigarette} from "react-icons/gi";
-import {MdSmokeFree as NoSmoking} from "react-icons/md";
 import {ImSpoonKnife as Food} from "react-icons/im";
 import {GiPrayer as Pray} from "react-icons/gi";
 import Tooltip from "../common/forms/Tooltip";
