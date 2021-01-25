@@ -9,17 +9,23 @@ import React from 'react';
 import renderer from  'react-test-renderer'
 import PropTypes from "prop-types";
 import SearchCriteria from "../SearchCriteria";
+import { BrowserRouter as Router } from 'react-router-dom';
+
+jest.mock("react-tooltip/node_modules/uuid", () => ({
+            v4: () => "00000000-0000-0000-0000-000000000000"}
+    )
+);
 
 describe('SearchCriteria', () => {
     describe('Snapshot test', () => {
         it("should render correctly regardless of properties", () => {
             // given
             const props = {
-                genderPreference: PropTypes.array,
+                genderPreference: ["Male", "Female"],
                 handleGenderPrefChange: jest.fn(),
                 genderPreferenceError: true,
 
-                familyStatusPreference: PropTypes.array,
+                familyStatusPreference: ["Single", "Couple"],
                 setFamilyStatusPreference: jest.fn(),
                 familyStatusPreferenceError: false,
 
@@ -31,7 +37,7 @@ describe('SearchCriteria', () => {
                 setMaxAgePreference: jest.fn(),
                 maxAgePreferenceError: false,
 
-                selectedLimitPreference: PropTypes.array,
+                selectedLimitPreference: [1,3],
                 handleSelectedLimitPreferenceChange: jest.fn(),
                 selectedLimitPreferenceError: true,
 
@@ -67,7 +73,7 @@ describe('SearchCriteria', () => {
             }
 
             // when
-            const component = renderer.create(<SearchCriteria {...props} />).toJSON();
+            const component = renderer.create(<Router><SearchCriteria {...props} /></Router>).toJSON();
 
             // then
             expect(component).toMatchSnapshot();

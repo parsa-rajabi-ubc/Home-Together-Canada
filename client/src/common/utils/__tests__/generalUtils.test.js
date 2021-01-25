@@ -15,10 +15,10 @@ describe('generalUtils', () => {
             const value = true;
 
             // when
-            const result = resolveBooleanToYesNo("yes");
+            const result = resolveBooleanToYesNo(value);
 
             // then
-            expect(result).toBe(true);
+            expect(result).toBe("yes");
         });
         it('should return no when value is false', () => {
             // given
