@@ -64,5 +64,5 @@
 }
 
 .form-btn {
-    @apply m-auto mt-8 text-base;
+    @apply m-auto mt-8 mb-6 text-base;
 }

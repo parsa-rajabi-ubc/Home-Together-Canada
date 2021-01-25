@@ -257,13 +257,13 @@ function MemberAccountSummary(props) {
                             />}
                         </div>
                     </div>
-                    <SubmitButton
-                        inputValue={"Save"}
-                        className="btn btn-green form-btn w-3/4"
-                        onClick={onSubmit}
-                    />
                 </div>
             </div>
+            <SubmitButton
+                inputValue={"Save"}
+                className="btn btn-green form-btn w-1/2"
+                onClick={onSubmit}
+            />
         </div>
     );
 }
