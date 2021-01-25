@@ -9,8 +9,22 @@
 import React from 'react';
 import ProfileCard from "./ProfileCard";
 import MockProfileCardData from "../mockData/MockProfileCardData";
+import {USER_TYPES} from "../common/constants/users";
+import InvalidUser from "./InvalidUser";
+import PropTypes from "prop-types";
+import {compose} from "redux";
+import {withRouter} from "react-router-dom";
+import {connect} from "react-redux";
+import {setAccountType, setAuthenticated} from "../redux/slices/userPrivileges";
+const mapDispatch = {setAccountType, setAuthenticated};
 
-const MemberSearchContainer = () => {
+const MemberSearchContainer = (props) => {
+
+    const {
+        accountType,
+        authenticated
+    } = props;
+
 
     // displays the mock data
     function profileCards() {
@@ -33,19 +47,38 @@ const MemberSearchContainer = () => {
 
     return (
         <div className={"flex flex-nowrap my-10 "}>
-            {/*Results*/}
-            <div className={"w-1/3 "}>
-                {profileCards()}
-            </div>
+            {(!authenticated || accountType !== USER_TYPES.MEMBER) ?
+                <InvalidUser/>
+                :
+                <div>
+                    {/*Results*/}
+                    <div className={"w-1/3 "}>
+                        {profileCards()}
+                    </div>
 
-            {/*Map*/}
-            <div className={"flex-1"}>
-                <p>
-                    Google Maps Placeholder
-                </p>
-            </div>
+                    {/*Map*/}
+                    <div className={"flex-1"}>
+                        <p>
+                            Google Maps Placeholder
+                        </p>
+                    </div>
+                </div>
+            }
         </div>
     )
 }
 
-export default MemberSearchContainer;
+const mapStateToProps = (state) => ({
+    accountType: state.userPrivileges.accountType,
+    authenticated: state.userPrivileges.authenticated
+});
+
+MemberSearchContainer.propTypes = {
+    authenticated: PropTypes.bool.isRequired,
+    accountType: PropTypes.string
+}
+
+export default compose(
+    withRouter,
+    connect(mapStateToProps, mapDispatch)
+)(MemberSearchContainer);
