@@ -23,69 +23,82 @@ import {splitPhoneNumber} from "../accountSummaryUtils";
 import {BUSINESS_INFO_TEXT} from "../../common/constants/TooltipText.js";
 import Asterisk from "../../common/forms/Asterisk";
 import Tooltip from "../../common/forms/Tooltip";
-import get from 'lodash/get';
-import FileUploadButton from "../../common/forms/FileUploadButton";
+import UploadImage from "../../common/forms/UploadImage";
+import ChangeImage from "../../common/forms/ChangeImage";
 
 const BusinessAccountSummary = (props) => {
-    const {businessAccountInfo} = props;
+    const {
+        addressLine1,
+        addressLine2,
+        businessName,
+        businessCellPhoneNumber,
+        businessPhoneNumber,
+        city,
+        email,
+        firstName,
+        hasDifferentMailingAddress,
+        incorporatedOwnersNames,
+        isIncorporated,
+        isNationWide,
+        lastName,
+        logo,
+        mailingAddressLine1,
+        mailingAddressLine2,
+        mailingCity,
+        mailingPostalCode,
+        mailingProvince,
+        mapAddressLine1,
+        mapAddressLine2,
+        mapCity,
+        mapPostalCode,
+        mapProvince,
+        phoneNumber,
+        postalCode,
+        province,
+        website
+    } = props;
 
-    const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(get(businessAccountInfo, 'useDifferentMailingAddress', false));
-    const [isNationWide, setIfNationWide] = useState(get(businessAccountInfo, 'isNationWide', false));
-    const [isIncorporated, setIsIncorporated] = useState(get(businessAccountInfo, 'isIncorporated', false));
+    const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(hasDifferentMailingAddress);
+    const [isNationWideBusiness, setIsNationWideBusiness] = useState(isNationWide);
+    const [isIncorporatedBusiness, setIsIncorporatedBusiness] = useState(isIncorporated);
 
     //Validation state variables
-    const [bName, setBName] = useState(get(businessAccountInfo, 'bName', undefined));
-    const [bEmail, setBEmail] = useState(get(businessAccountInfo, 'bEmail', undefined));
-    const [incorporatedOwnersNames, setIncorporatedOwnersNames] = useState(get(businessAccountInfo, 'incorporatedOwnersNames', ""));
+    const [bName, setBName] = useState(businessName);
+    const [bEmail, setBEmail] = useState(email);
+    const [incorporatedOwners, setIncorporatedOwners] = useState(incorporatedOwnersNames);
 
-    const unsplitBPhoneNumber = get(businessAccountInfo,"bPhoneNumber",undefined)
 
-    const [bPhoneNumber, setBPhoneNumber] = useState(splitPhoneNumber(unsplitBPhoneNumber) ||{
-        first: undefined,
-        middle: undefined,
-        last: undefined
+    const [bPhoneNumber, setBPhoneNumber] = useState(splitPhoneNumber(businessPhoneNumber));
+    const [bCellNumber, setBCellNumber] = useState(splitPhoneNumber(businessCellPhoneNumber));
+
+    const [bAddress, setBAddress] = useState({
+        street: addressLine1,
+        aptNum: addressLine2,
+        city: city,
+        province: province,
+        postalCode:postalCode,
     });
-
-    const unsplitBCellNumber = get(businessAccountInfo,"bCellNumber",undefined)
-    const [bCellNumber, setBCellNumber] = useState(splitPhoneNumber(unsplitBCellNumber) ||{
-        first: undefined,
-        middle: undefined,
-        last: undefined
+    const [bMailingAddress, setBMailingAddress] = useState({
+        street: mailingAddressLine1,
+        aptNum: mailingAddressLine2,
+        city: mailingCity,
+        province: mailingPostalCode,
+        postalCode:mailingProvince,
     });
-
-    const [bAddress, setBAddress] = useState(get(businessAccountInfo,'bAddress',{
-        street: undefined,
-        aptNum: undefined,
-        city: undefined,
-        province: undefined,
-        postalCode:undefined,
-    }));
-    const [bMailingAddress, setBMailingAddress] = useState(get(businessAccountInfo,'bMailingAddress',{
-        street: undefined,
-        aptNum: undefined,
-        city: undefined,
-        province: undefined,
-        postalCode:undefined,
-    }));
-    const [bMapAddress, setBMapAddress] = useState(get(businessAccountInfo,'bMapAddress',{
-        street: undefined,
-        aptNum: undefined,
-        city: undefined,
-        province: undefined,
-        postalCode:undefined,
-    }));
-    const [website, setWebsite] = useState(get(businessAccountInfo, 'website', undefined));
-    const [contactFName, setContactFName] = useState(get(businessAccountInfo, 'contactFName', undefined));
-    const [contactLName, setContactLName] = useState(get(businessAccountInfo, 'contactLName', undefined));
-
-    const unsplitContactPhoneNumber = get(businessAccountInfo,"contactPhoneNumber",undefined);
-    const [contactPhoneNumber, setContactPhoneNumber] = useState(splitPhoneNumber(unsplitContactPhoneNumber) ||{
-        first: undefined,
-        middle: undefined,
-        last: undefined
+    const [bMapAddress, setBMapAddress] = useState({
+        street: mapAddressLine1,
+        aptNum: mapAddressLine2,
+        city: mapCity,
+        province: mapProvince,
+        postalCode:mapPostalCode
     });
+    const [businessWebsite, setBusinessWebsite] = useState(website);
+    const [contactFName, setContactFName] = useState(firstName);
+    const [contactLName, setContactLName] = useState(lastName);
 
-    const [logo, setLogo] = useState(get(businessAccountInfo,'logo',''));
+    const [contactPhoneNumber, setContactPhoneNumber] = useState(splitPhoneNumber(phoneNumber));
+
+    const [businessLogo, setBusinessLogo] = useState(logo);
 
 
     // business Details
@@ -165,20 +178,20 @@ const BusinessAccountSummary = (props) => {
 
     // Map Address
     useEffect(() => {
-        if (!isNationWide) {
+        if (!isNationWideBusiness) {
             bMapAddress.street !== undefined && validateInput(bMapAddress.street, setStreetMapAddressError);
         }
-    }, [bMapAddress.street, isNationWide]);
+    }, [bMapAddress.street, isNationWideBusiness]);
     useEffect(() => {
         if (!isNationWide) {
             bMapAddress.city !== undefined && validateInput(bMapAddress.city, setCityMapAddressError);
         }
-    }, [bMapAddress.city, isNationWide]);
+    }, [bMapAddress.city, isNationWideBusiness]);
     useEffect(() => {
         if (!isNationWide) {
             bMapAddress.postalCode !== undefined && validateInput(bMapAddress.postalCode, setPostalCodeMapError);
         }
-    }, [bMapAddress.postalCode, isNationWide]);
+    }, [bMapAddress.postalCode, isNationWideBusiness]);
 
 
     // contact person useEffect
@@ -245,7 +258,7 @@ const BusinessAccountSummary = (props) => {
             businessDetailsErrors.errorMailingAddress.province = validateInput(bMailingAddress.province, setProvinceMailingAddressError);
             businessDetailsErrors.errorMailingAddress.postalCode = validateInput(bMailingAddress.postalCode, setPostalCodeMailingError);
         }
-        if (!isNationWide) {
+        if (!isNationWideBusiness) {
             businessDetailsErrors.errorMapAddress.street = validateInput(bMapAddress.street, setStreetMapAddressError);
             businessDetailsErrors.errorMapAddress.city = validateInput(bMapAddress.city, setCityMapAddressError);
             businessDetailsErrors.errorMapAddress.province = validateInput(bMapAddress.province, setProvinceMapAddressError);
@@ -275,6 +288,7 @@ const BusinessAccountSummary = (props) => {
             return
         }
         alert("Account information saved");
+
     }
 
     function handleBPhoneChange(e) {
@@ -314,7 +328,7 @@ const BusinessAccountSummary = (props) => {
     }
 
     function handleImageUpload(e) {
-        setLogo(e.target.files[0]);
+        setBusinessLogo(e.target.files[0]);
     }
 
     return (
@@ -329,7 +343,7 @@ const BusinessAccountSummary = (props) => {
                                 This information is about your business.
                             </p>
                             <p className="info-text mr-10">
-                                <Asterisk/> = Required Field
+                                <Asterisk/> Required Field
                             </p>
                         </div>
                     </div>
@@ -349,15 +363,15 @@ const BusinessAccountSummary = (props) => {
                                     }}/>
                                 <div className={"my-2"}>
                                     <Checkbox label={"Incorporated business"}
-                                              checked={isIncorporated}
+                                              checked={isIncorporatedBusiness}
                                               toolTipText={BUSINESS_INFO_TEXT.INC_COMPANY}
                                               toolTipID="incorporated"
-                                              onChange={() => setIsIncorporated(!isIncorporated)}/>
-                                    {isIncorporated && <TextArea className="input"
+                                              onChange={() => setIsIncorporatedBusiness(!isIncorporatedBusiness)}/>
+                                    {isIncorporatedBusiness && <TextArea className="input"
                                                                  placeholder={"Names of Inc. Owners (separated by comma)"}
                                                                  labelClassName={"label"}
-                                                                 value={incorporatedOwnersNames}
-                                                                 onChange={(e) => setIncorporatedOwnersNames(e.target.value)}/>}
+                                                                 value={incorporatedOwners}
+                                                                 onChange={(e) => setIncorporatedOwners(e.target.value)}/>}
                                 </div>
                                 <TextArea className={`${bEmailError && "border-red-500"} input`}
                                           placeholder="business@email.ca"
@@ -371,12 +385,12 @@ const BusinessAccountSummary = (props) => {
                                           }}/>
                                 <TextArea className="input"
                                           placeholder="http://www.your-website.com"
-                                          value={website}
+                                          value={businessWebsite}
                                           optional={true}
                                           autoComplete={"url"}
                                           label="Business Website"
                                           labelClassName={"label"}
-                                          onChange={e => setWebsite(e.target.value)}/>
+                                          onChange={e => setBusinessWebsite(e.target.value)}/>
                                 <PhoneNumInput
                                     className={`${bPhoneNumberError && "border-red-500"} phone`}
                                     required={true}
@@ -416,13 +430,13 @@ const BusinessAccountSummary = (props) => {
                                          onChange={handleBMailingAddress}/>}
                                 <div>
                                     <Checkbox label={"Canada-wide business"}
-                                              checked={isNationWide}
+                                              checked={isNationWideBusiness}
                                               toolTipText={BUSINESS_INFO_TEXT.NATION_WIDE}
                                               toolTipID="nationWide"
                                               onChange={() => {
-                                                  setIfNationWide(isNationWide => !isNationWide)
+                                                  setIsNationWideBusiness(!isNationWideBusiness)
                                               }}/>
-                                    {!isNationWide &&
+                                    {!isNationWideBusiness &&
                                     <Address label="Searchable Address"
                                              value={bMapAddress}
                                              toolTipText={BUSINESS_INFO_TEXT.MAP_ADDRESS}
@@ -439,38 +453,14 @@ const BusinessAccountSummary = (props) => {
 
                         <label className="label"> Business Logo </label>
                         <Tooltip text={BUSINESS_INFO_TEXT.BUSINESS_LOGO} toolTipID="businessLogo"/>
-                        <div
-                            className={"flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed " +
-                            "rounded-md"}
-                        >
-                            <div className="space-y-1 text-center">
-                                <svg
-                                    className="w-12 h-12 mx-auto text-gray-400"
-                                    stroke="currentColor"
-                                    fill="none"
-                                    viewBox="0 0 48 48"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        d={"M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 " +
-                                        "01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 " +
-                                        "015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"}
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    />
-                                </svg>
-                                <FileUploadButton
-                                    className={"photo-upload-width photo-upload hover:text-indigo-500"}
-                                    name={'logo'}
-                                    uploadHandler={handleImageUpload}
-                                    accept={'image/png, image/jpg, image/jpeg, image/JPG'}
-                                />
-                                <p className="text-xs text-gray-500">
-                                    PNG or JPG up to 2MB
-                                </p>
-                            </div>
-                        </div>
+                        {logo
+                            ? <ChangeImage
+                                imageAddress={businessLogo}
+                                handleImageUpload={handleImageUpload}
+                            />
+                            : <UploadImage handleImageUpload={handleImageUpload}/>
+                        }
+
                     </div>
                 </div>
             </div>
@@ -544,7 +534,34 @@ const BusinessAccountSummary = (props) => {
 }
 
 BusinessAccountSummary.propTypes = {
-    businessAccountInfo: PropTypes.object.isRequired
+    addressLine1: PropTypes.string.isRequired,
+    addressLine2: PropTypes.string,
+    businessCellPhoneNumber: PropTypes.string.isRequired,
+    businessName: PropTypes.string.isRequired,
+    businessPhoneNumber: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    firstName: PropTypes.string.isRequired,
+    hasDifferentMailingAddress: PropTypes.bool.isRequired,
+    incorporatedOwnersNames: PropTypes.string,
+    isIncorporated: PropTypes.bool.isRequired,
+    isNationWide: PropTypes.bool.isRequired,
+    lastName: PropTypes.string.isRequired,
+    logo: PropTypes.string,
+    mailingAddressLine1: PropTypes.string,
+    mailingAddressLine2: PropTypes.string,
+    mailingCity: PropTypes.string,
+    mailingPostalCode: PropTypes.string,
+    mailingProvince: PropTypes.string,
+    mapAddressLine1: PropTypes.string,
+    mapAddressLine2: PropTypes.string,
+    mapCity: PropTypes.string,
+    mapPostalCode: PropTypes.string,
+    mapProvince: PropTypes.string,
+    phoneNumber: PropTypes.string,
+    postalCode: PropTypes.string.isRequired,
+    province: PropTypes.string.isRequired,
+    website: PropTypes.string
 }
 
 export default BusinessAccountSummary;

@@ -11,12 +11,14 @@ if (process.env.NODE_ENV === 'development') {
     DEV_URL = 'http://localhost:3001';
 }
 
-const getBusinessAccountInfo = () =>
-    fetch(`${DEV_URL}/business/info/`, {
+const getBusinessAccountInfo = () => {
+    return fetch(`${DEV_URL}/business/info/`, {
         method: 'GET',
         withCredentials: true,
         credentials: 'include'
     });
+}
+
 
 const updateBusinessAccountInfo = (businessAccountInfo) => {
     const request = {

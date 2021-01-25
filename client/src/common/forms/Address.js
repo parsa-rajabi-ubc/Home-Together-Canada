@@ -75,21 +75,33 @@ function Address(props) {
                 <label className="label">
                     {label}
                 </label>
-                {(required ? <Asterisk/> : '')}
+                {required && <Asterisk/>}
                 {toolTipID && <Tooltip text={toolTipText} toolTipID={toolTipID}/>}
-                <input className={`${streetAddressError && "border-red-500"} input`} type="text" value={street} name="street" placeholder="Address Line 1"
-                       autoComplete="address-line1"
-                       onChange={handleInputChange}/>
+                <input
+                    className={`${streetAddressError && "border-red-500"} input`}
+                    type="text" value={street || ''}
+                    name="street"
+                    placeholder="Address Line 1"
+                    autoComplete="address-line1"
+                    onChange={handleInputChange}/>
             </div>
             <div className="col-start-1 col-end-8">
-                <input className="input" type="text" value={aptNum} name="aptNum"
-                       placeholder="Address Line 2: Apt, suite, etc. (optional)"
-                       autoComplete="address-line2" onChange={handleInputChange}/>
+                <input
+                    className="input"
+                    type="text"
+                    value={aptNum}
+                    name="aptNum"
+                    placeholder="Address Line 2: Apt, suite, etc. (optional)"
+                    autoComplete="address-line2" onChange={handleInputChange}/>
             </div>
             <div className="col-start-1 col-end-4">
                 <input
                     className={`${cityAddressError && "border-red-500"} input`}
-                    type="text" autoComplete="address-level2" value={city} name="city" placeholder="City"
+                    type="text"
+                    autoComplete="address-level2"
+                    value={city || ''}
+                    name="city"
+                    placeholder="City"
                     onChange={handleInputChange}/>
             </div>
             <div className="col-start-4 col-end-8">
@@ -105,8 +117,10 @@ function Address(props) {
             <div className="col-start-1 col-end-4">
                 <input
                     className={`${postalCodeError && "border-red-500"} input`}
-                    type="text" autoComplete="postal-code" name="postalCode" placeholder="Postal Code"
-                    value={postalCode}
+                    type="text" autoComplete="postal-code"
+                    name="postalCode"
+                    placeholder="Postal Code"
+                    value={postalCode || ''}
                     onChange={handleInputChange}/>
             </div>
         </div>
