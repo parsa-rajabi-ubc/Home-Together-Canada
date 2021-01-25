@@ -26,10 +26,9 @@ const MemberSearchContainer = (props) => {
 
     return (
         <div>
-            {(!authenticated || accountType !== USER_TYPES.MEMBER) &&
-                <InvalidUser/>
-            }
-            {(authenticated && accountType === USER_TYPES.MEMBER) &&
+            {(!authenticated || accountType !== USER_TYPES.MEMBER)
+                ? <InvalidUser/>
+                :
                 <div>
                     {/*Results*/}
                     <div>
