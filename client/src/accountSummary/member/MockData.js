@@ -68,7 +68,6 @@
     minBudgetPreference: 700,
     maxBudgetPreference: 1200,
     statusPreference: ["Single", "Couple", "Single Parent"],
-    // statusPreference: [1,2],
     numRoommatesPreference: [1,2,3],
     dietPreference: true,
     petsPreference: false,
