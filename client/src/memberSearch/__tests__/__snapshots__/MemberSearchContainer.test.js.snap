@@ -2,7 +2,30 @@
 
 exports[`MemberSearchContainer Container test should match snapshot test 1`] = `
 <div>
-  <div />
-  <div />
+  <div>
+    <div>
+      <p>
+        You must be a registered member to view other member profiles.
+      </p>
+    </div>
+    <div>
+      <a
+        className="nav-btn"
+        href="/login"
+        onClick={[Function]}
+      >
+        Login
+      </a>
+    </div>
+    <div>
+      <a
+        className="nav-btn"
+        href="/registration"
+        onClick={[Function]}
+      >
+        Sign Up
+      </a>
+    </div>
+  </div>
 </div>
 `;
