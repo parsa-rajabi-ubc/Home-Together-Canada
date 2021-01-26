@@ -33,7 +33,7 @@ const BurgerMenu = (props) => {
 BurgerMenu.propTypes = {
     isOpen: PropTypes.bool,
     onClose: PropTypes.func,
-    content: PropTypes.any
+    content: PropTypes.element
 };
 
 export default BurgerMenu;
