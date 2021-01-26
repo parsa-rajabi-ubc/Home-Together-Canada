@@ -32,6 +32,7 @@ const formatPhoneNumber = (phoneNum) => {
     const phoneNumStr = phoneNum.toString();
     return phoneNumStr.substring(0,3) + '-' + phoneNumStr.substring(3, 6) + '-' + phoneNumStr.substring(6, 10);
 }
+
 // Takes results from a query of memberAccount and extracts profile information
 const getFilteredProfilesInformation = results => {
     if (!results || !results.length) {
@@ -80,8 +81,30 @@ const getProfile = member => {
     }
 }
 
+const getMemberAccountInfo = member => {
+    return {
+        firstName: member.firstName,
+        lastName: member.lastName,
+        email: member.email,
+        phoneNumber: member.phoneNumber,
+        addressLine1: member.addressLine1,
+        addressLine2: member.addressLine2,
+        city: member.city,
+        province: member.province,
+        postalCode: member.postalCode,
+        hasDifferentMailingAddress: member.hasDifferentMailingAddress,
+        mailingAddressLine1: member.mailingAddressLine1,
+        mailingAddressLine2: member.mailingAddressLine2,
+        mailingCity: member.mailingCity,
+        mailingProvince: member.mailingProvince,
+        mailingPostalCode: member.mailingPostalCode
+    }
+}
+
 module.exports = {
     getMailingAddress,
     formatPhoneNumber,
-    getFilteredProfilesInformation
+    getFilteredProfilesInformation,
+    getMemberAccountInfo,
+    getProfile
 }
