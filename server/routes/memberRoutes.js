@@ -13,6 +13,7 @@ const { validationResult } = require('express-validator/check');
 
 const usersValidator = require('../controllers/validators/userControllerValidator');
 const memberAccounts = require('../controllers/memberAccountController');
+const abstractUsers = require('../controllers/abstractUserController');
 const accountUtils = require('../controllers/utils/accountControllerUtils');
 const { isLoggedIn, userIsMember } = require('./routeUtils');
 
@@ -36,6 +37,47 @@ router.post('/create/', usersValidator.validate('createMemberUser'),
                 failureFlash: false })(req, res, next);
         }
     });
+
+router.get('/info/',
+    isLoggedIn,
+    userIsMember,
+    function (req, res, next) {
+        let memberData = {};
+
+        abstractUsers.findAbstractUser(req.user.uid)
+            .then(abstractUser => {
+                memberData = {
+                    ...abstractUser.dataValues
+                };
+                return memberAccounts.findMemberAccountByUid(req.user.uid)
+            })
+            .then(member => {
+                memberData = {
+                    ...memberData,
+                    ...member.dataValues
+                };
+
+                res.status(200).json({ member: accountUtils.getMemberAccountInfo(memberData)});
+            })
+            .catch(err => {
+                res.status(500).json({ err: err.message });
+            });
+    });
+
+router.get('/profile/',
+    isLoggedIn,
+    userIsMember,
+    function (req, res, next) {
+        memberAccounts.findMemberAccountByUid(req.user.uid)
+            .then(member => {
+                const profile = accountUtils.getProfile(member.dataValues);
+                res.status(200).json({ profile });
+            })
+            .catch(err => {
+                res.status(500).json({ err: err.message });
+            })
+    }
+    )
 
 router.post('/search/profiles/',
     isLoggedIn,
