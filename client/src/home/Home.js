@@ -24,7 +24,7 @@ const Home = () => {
                         <svg
                             className="absolute inset-y-0 right-0 hidden w-1/6 h-full text-white transform translate-x-1/2 lg:block"
                             fill="white" viewBox="0 0 100 100" preserveAspectRatio="none">
-                            <polygon points="50,0 100,0 50,100 0,100"/>
+                            <polygon points="0,0 50,0 100,100 50,100"/>
                         </svg>
 
                         {/* Start - Top Portion of Home */}
