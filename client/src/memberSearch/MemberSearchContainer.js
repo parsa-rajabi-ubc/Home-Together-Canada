@@ -15,9 +15,6 @@ import PropTypes from "prop-types";
 import {compose} from "redux";
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
-import {setAccountType, setAuthenticated} from "../redux/slices/userPrivileges";
-
-const mapDispatch = {setAccountType, setAuthenticated};
 
 const MemberSearchContainer = (props) => {
 
@@ -25,7 +22,6 @@ const MemberSearchContainer = (props) => {
         accountType,
         authenticated
     } = props;
-
 
     // displays 10 mock data
     function profileCards() {
@@ -82,5 +78,5 @@ MemberSearchContainer.propTypes = {
 
 export default compose(
     withRouter,
-    connect(mapStateToProps, mapDispatch)
+    connect(mapStateToProps, null)
 )(MemberSearchContainer);
