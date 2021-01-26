@@ -45,7 +45,7 @@ const Navigation = (props) => {
                     <Route path={"/members"} component={MemberSearchContainer}/>
                     <Route path={"/create-listing"} component={CreateListingContainer}/>
                     {(authenticated && accountType !== USER_TYPES.UNREGISTERED) &&
-                    <Route path={"/account"} component={AccountSummaryContainer}/>
+                        <Route path={"/account"} component={AccountSummaryContainer}/>
                     }
                     <Route path={"/tos"} component={TermsOfService}/>
                     <Route path={"/privacy"} component={PrivacyPolicy}/>
