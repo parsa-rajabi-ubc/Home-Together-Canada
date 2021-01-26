@@ -8,7 +8,7 @@
 
 import React from 'react';
 import '../tailwind.output.css';
-import picture from '../images/move_in.jpg';
+import picture from '../images/gardening.jpg';
 import {Link} from "react-router-dom";
 import houseSearch from '../images/house_search.jpg'
 import texting from '../images/computer.jpg'
@@ -22,7 +22,7 @@ const Home = () => {
                     <div
                         className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
                         <svg
-                            className="absolute inset-y-0 right-0 hidden w-48 h-full text-white transform translate-x-1/2 lg:block"
+                            className="absolute inset-y-0 right-0 hidden w-1/6 h-full text-white transform translate-x-1/2 lg:block"
                             fill="white" viewBox="0 0 100 100" preserveAspectRatio="none">
                             <polygon points="50,0 100,0 50,100 0,100"/>
                         </svg>
@@ -36,13 +36,10 @@ const Home = () => {
                                         Home Together Canada
                                     </h2>
                                     <p className="text-home">
-                                        Our mandate is to facilitate the growth and success of shared living in Canada.
+                                        A volunteer-run, non-profit association aimed to facilitate the growth and success of shared living in Canada.
                                     </p>
                                     <p className="text-home">
-                                        We do this by providing the two fundamental needs necessary to the success of
-                                        both the individuals, wishing to share a home with others, and the service
-                                        providers and businesses wishing to provide services to this burgeoning and
-                                        diverse group.
+                                        Use Home Together to find others to share a home with, safely contact other members via on-site messaging and find Canadian-based home sharing business and services within your community!
                                     </p>
 
                                     <div className="mt-5 ml-auto sm:mt-8 sm:flex sm:justify-center lg:justify-start">
@@ -79,28 +76,33 @@ const Home = () => {
             <section className="py-8 border-t bg-off_white">
                 <div className="container max-w-5xl m-8 mx-auto">
 
-                    <h1 className="w-full mt-6 text-5xl font-bold leading-tight text-center text-gray-800"> How It
-                        Works </h1>
+                    <h1 className="w-full mt-6 text-5xl font-bold leading-tight text-center text-gray-800"> Why Home Together is Free </h1>
+                    <p className={"w-full mt-6 text-lg font-semibold leading-tight text-center text-gray-800"}>Our mandate is to facilitate the growth and success of shared living in Canada.</p>
                     <div className="flex flex-wrap">
                         <div className="w-5/6 py-6 px-4 sm:w-1/2">
-                            <div className="w-full  mt-none">
-                                <div className="w-1/2 h-1 py-0 mx-10 my-0 rounded-t bg-iyellow-normal">
+                            <div className="w-full mt-none">
+                                <div className="w-1/2 h-1 py-0 mx-10 my-0 rounded-t">
                                 </div>
                             </div>
 
-                            <p className="text-home">
-                                We accomplish the first need to ensure the - maximum number of individuals are available
-                                to each
-                                other - by providing this <b>free</b> non-competitive, non-profit site with the basic
+                            <p className="text-home mt-2">
+                                We do this by providing the two fundamental needs necessary to the success of
+                                both the individuals, wishing to share a home with others, and the service
+                                providers and businesses wishing to provide services to this burgeoning and
+                                diverse group.
+
+                                We accomplish the first need to ensure the
+                                - <b>maximum number of individuals are available to each other </b> -
+                                 by providing this <b>free</b> non-competitive, non-profit site with the basic
                                 preliminary tools
                                 individuals require to find others of similar mind.
                             </p>
                         </div>
                         <div className="w-full p-6 sm:w-1/2">
-                            <p className="text-home">
-                                We accomplish the second need to ensure - individuals can find and access sharing and
-                                matching
-                                services, businesses, housing and organizations - by providing free and equal
+                            <p className="text-home mt-2">
+                                We accomplish the second need to ensure
+                                - <b> individuals can find and access sharing and matching services, businesses, housing and organizations </b> -
+                                by providing free and equal
                                 descriptive
                                 listings with website links to all Canadian sharing providers. This provides individuals
                                 immediate information and access to the services they are in search of, and in turn,
@@ -112,7 +114,7 @@ const Home = () => {
                     </div>
 
                     <h1 className="w-full my-2 my-6 text-5xl font-bold leading-tight text-center text-gray-800">On Home
-                        Together </h1>
+                        Together .ca</h1>
 
                     {/* Start - Search for new Members */}
                     <div className="flex flex-wrap">
