@@ -1,5 +1,5 @@
 .sub-page-items {
-    @apply justify-center items-center py-3 px-8 mb-2 w-full text-lg text-black rounded-md border border-transparent transition duration-150 ease-in-out;
+    @apply justify-center items-center py-3 px-4 mb-2 w-full text-lg text-black rounded-md border border-transparent transition duration-150 ease-in-out;
 }
 
 .selected {

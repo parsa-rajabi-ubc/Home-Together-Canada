@@ -74,18 +74,14 @@ function SearchCriteria(props) {
         onSubmit,
     } = props;
     return (
-        <div className="mt-10 sm:mt-0">
-            <div className="m-10 md:grid md:grid-cols-4 md:gap-6">
-                <div className="px-4 md:col-span-1 sm:px-0">
-                    <h3 className="info-header">Search Criteria</h3>
-                    <p className="info-text">
-                        This information be used to find other compatible members on Home Together Canada
-                        <Link to={'/faq'} className={"label"}> FAQs</Link>.
-                    </p>
-                </div>
-
-                <div
-                    className="overflow-hidden py-6 px-4 mt-5 bg-white shadow md:mt-0 md:col-span-2 sm:rounded-md sm:p-5">
+        <div>
+            <h3 className="account-summary-info-header">Search Criteria</h3>
+            <p className="account-summary-info-text">
+                This information be used to find other compatible members on Home Together Canada
+                <Link to={'/faq'} className={"label"}> FAQs</Link>.
+            </p>
+            <div className="selected-component-grid-outer">
+                <div className="selected-component-grid-inner">
                     <div className="grid grid-cols-2 gap-6">
                         <div className="col-span-3 sm:col-span-2">
                             <section
@@ -96,7 +92,6 @@ function SearchCriteria(props) {
                                     <Checkbox
                                         label="Male"
                                         id={"Male"}
-                                        className={"align-middle mt-0 mr-1 mb-0 h-4 w-4 border-gray-300 rounded-lg"}
                                         fontNormal={true}
                                         checked={isValueInArray(genderPreference, "Male")}
                                         onChange={handleGenderPrefChange}
@@ -105,7 +100,6 @@ function SearchCriteria(props) {
                                     <Checkbox
                                         label="Female"
                                         id={"Female"}
-                                        className={"align-middle mt-0 mr-1 mb-0 text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"}
                                         fontNormal={true}
                                         checked={isValueInArray(genderPreference, "Female")}
                                         onChange={handleGenderPrefChange}
@@ -113,7 +107,6 @@ function SearchCriteria(props) {
                                     <Checkbox
                                         label="Other"
                                         id={"Other"}
-                                        className={"align-middle mt-0 mr-1 mb-0 text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"}
                                         fontNormal={true}
                                         checked={isValueInArray(genderPreference, "Other")}
                                         onChange={handleGenderPrefChange}
@@ -272,15 +265,13 @@ function SearchCriteria(props) {
                             </div>
                         </div>
                     </div>
-                    <div className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6">
-                        <SubmitButton
-                            inputValue={"Save"}
-                            className="text-base btn btn-green"
-                            onClick={onSubmit}
-                        />
-                    </div>
                 </div>
             </div>
+            <SubmitButton
+                inputValue={"Save"}
+                className="btn btn-green form-btn w-1/2"
+                onClick={onSubmit}
+            />
         </div>
     );
 
