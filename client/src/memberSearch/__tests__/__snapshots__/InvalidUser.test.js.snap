@@ -1,29 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InvalidUser Component Snapshot test should render correctly regardless of properties 1`] = `
-<div>
-  <div>
-    <p>
-      You must be a registered member to view other member profiles.
-    </p>
-  </div>
-  <div>
-    <a
-      className="nav-btn"
-      href="/login"
-      onClick={[Function]}
+<div
+  className="flex justify-center items-center min-h-screen bg-white"
+>
+  <div
+    className="bg-white rounded-lg shadow-2xl"
+  >
+    <div
+      className="flex w-96 rounded-lg border-t-8 border-green-600"
     >
-      Login
-    </a>
-  </div>
-  <div>
-    <a
-      className="nav-btn"
-      href="/registration"
-      onClick={[Function]}
+      <div
+        className="p-10 mx-auto mt-10 w-full"
+      >
+        <h1
+          className="text-gray-800 h1"
+        >
+          You must be a registered member to view this page.
+        </h1>
+      </div>
+    </div>
+    <div
+      className="flex py-10 px-10 space-x-4"
     >
-      Sign Up
-    </a>
+      <a
+        className="flex rounded-md shadow btn btn-green"
+        href="/registration"
+        onClick={[Function]}
+      >
+        Create an account
+      </a>
+      <a
+        className="flex text-green-700 bg-green-200 btn hover:bg-green-300 hover:text-green-800"
+        href="/login"
+        onClick={[Function]}
+      >
+        Login
+      </a>
+    </div>
   </div>
 </div>
 `;
