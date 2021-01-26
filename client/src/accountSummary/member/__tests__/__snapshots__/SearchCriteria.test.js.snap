@@ -1,36 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SearchCriteria Snapshot test should render correctly regardless of properties 1`] = `
-<div
-  className="mt-10 sm:mt-0"
->
+<div>
+  <h3
+    className="account-summary-info-header"
+  >
+    Search Criteria
+  </h3>
+  <p
+    className="account-summary-info-text"
+  >
+    This information be used to find other compatible members on Home Together Canada
+    <a
+      className="label"
+      href="/faq"
+      onClick={[Function]}
+    >
+       FAQs
+    </a>
+    .
+  </p>
   <div
-    className="m-10 md:grid md:grid-cols-4 md:gap-6"
+    className="selected-component-grid-outer"
   >
     <div
-      className="px-4 md:col-span-1 sm:px-0"
-    >
-      <h3
-        className="info-header"
-      >
-        Search Criteria
-      </h3>
-      <p
-        className="info-text"
-      >
-        This information be used to find other compatible members on Home Together Canada
-        <a
-          className="label"
-          href="/faq"
-          onClick={[Function]}
-        >
-           FAQs
-        </a>
-        .
-      </p>
-    </div>
-    <div
-      className="overflow-hidden py-6 px-4 mt-5 bg-white shadow md:mt-0 md:col-span-2 sm:rounded-md sm:p-5"
+      className="selected-component-grid-inner"
     >
       <div
         className="grid grid-cols-2 gap-6"
@@ -191,7 +185,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
               >
                 <input
                   checked={true}
-                  className="align-middle mt-0 mr-1 mb-0 h-4 w-4 border-gray-300 rounded-lg"
+                  className="defaultCheckboxCSS"
                   id="Male"
                   onChange={[MockFunction]}
                   type="checkbox"
@@ -207,7 +201,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
               >
                 <input
                   checked={true}
-                  className="align-middle mt-0 mr-1 mb-0 text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
+                  className="defaultCheckboxCSS"
                   id="Female"
                   onChange={[MockFunction]}
                   type="checkbox"
@@ -223,7 +217,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
               >
                 <input
                   checked={false}
-                  className="align-middle mt-0 mr-1 mb-0 text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
+                  className="defaultCheckboxCSS"
                   id="Other"
                   onChange={[MockFunction]}
                   type="checkbox"
@@ -2094,19 +2088,15 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
           </div>
         </div>
       </div>
-      <div
-        className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6"
-      >
-        <label>
-          <input
-            className="text-base btn btn-green"
-            onClick={[MockFunction]}
-            type="submit"
-            value="Save"
-          />
-        </label>
-      </div>
     </div>
   </div>
+  <label>
+    <input
+      className="btn btn-green form-btn w-1/2"
+      onClick={[MockFunction]}
+      type="submit"
+      value="Save"
+    />
+  </label>
 </div>
 `;
