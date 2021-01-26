@@ -22,7 +22,7 @@ const uploadLogo = image => {
         body: fd
     };
 
-    return fetch(`${DEV_URL}/business/upload/logo/`, request);
+    return fetch(`${DEV_URL}/business/logo/upload/`, request);
 }
 
 module.exports = {

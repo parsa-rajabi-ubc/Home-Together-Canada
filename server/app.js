@@ -17,6 +17,8 @@ const app = express();
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, '../client/build')));
+// Serve static files that are in the public folder
+app.use(express.static(__dirname + '/public'));
 
 if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
     const corsOptions = {
