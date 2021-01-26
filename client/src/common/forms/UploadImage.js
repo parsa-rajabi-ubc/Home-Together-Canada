@@ -38,7 +38,7 @@ const UploadImage = (props) => {
                     className={"photo-upload-width photo-upload hover:text-indigo-500"}
                     name={'logo'}
                     uploadHandler={handleImageUpload}
-                    accept={'image/png, image/jpg, image/jpeg, image/JPG'}
+                    accept={'image/png, image/jpg, image/jpeg, image/JPG, image/JPEG'}
                 />
                 <p className="text-xs text-gray-500">
                     PNG or JPG up to 2MB

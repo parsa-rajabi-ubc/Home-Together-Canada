@@ -28,7 +28,12 @@ const ChangeImage = (props) => {
             <br/>
             <div>
                 <label><b>Upload a new logo: </b></label>
-                <FileUploadButton name={'fileUpload'} uploadHandler={onImageUpload}/>
+                <FileUploadButton
+                    className={"photo-upload-width photo-upload hover:text-indigo-500"}
+                    name={'fileUpload'}
+                    uploadHandler={onImageUpload}
+                    accept={'image/png, image/jpg, image/jpeg, image/JPG, image/JPEG'}
+                />
             </div>
 
         </div>

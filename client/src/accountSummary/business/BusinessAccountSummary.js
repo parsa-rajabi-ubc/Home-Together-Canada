@@ -8,6 +8,7 @@
 
 import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
+import {connect} from "react-redux";
 import TextArea from '../../common/forms/TextArea';
 import Checkbox from "../../common/forms/Checkbox";
 import SubmitButton from "../../common/forms/SubmitButton";
@@ -15,6 +16,8 @@ import Address from "../../common/forms/Address";
 import PhoneNumInput from "../../common/forms/PhoneNumInput";
 import {
     checkIfErrorsExistInMapping,
+    getConcatenatedErrorMessage,
+    getPhoneNumberFromStrings,
     validateEmail,
     validateInput,
     validatePhoneNumber
@@ -25,6 +28,14 @@ import Asterisk from "../../common/forms/Asterisk";
 import Tooltip from "../../common/forms/Tooltip";
 import UploadImage from "../../common/forms/UploadImage";
 import ChangeImage from "../../common/forms/ChangeImage";
+import BusinessService from '../../services/BusinessService';
+import UploadService from '../../services/UploadService';
+import {setAccountType, setAuthenticated} from "../../redux/slices/userPrivileges";
+import {USER_TYPES} from "../../common/constants/users";
+import has from "lodash/has";
+import { useHistory } from "react-router-dom";
+
+const mapDispatch = {setAccountType, setAuthenticated};
 
 const BusinessAccountSummary = (props) => {
     const {
@@ -55,8 +66,12 @@ const BusinessAccountSummary = (props) => {
         phoneNumber,
         postalCode,
         province,
-        website
+        website,
+        setAccountType,
+        setAuthenticated,
     } = props;
+
+    const history = useHistory();
 
     const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(hasDifferentMailingAddress);
     const [isNationWideBusiness, setIsNationWideBusiness] = useState(isNationWide);
@@ -76,21 +91,33 @@ const BusinessAccountSummary = (props) => {
         aptNum: addressLine2,
         city: city,
         province: province,
-        postalCode:postalCode,
+        postalCode: postalCode,
     });
-    const [bMailingAddress, setBMailingAddress] = useState({
+    const [bMailingAddress, setBMailingAddress] = useState(hasDifferentMailingAddress ? {
         street: mailingAddressLine1,
         aptNum: mailingAddressLine2,
         city: mailingCity,
-        province: mailingPostalCode,
-        postalCode:mailingProvince,
+        province: mailingProvince,
+        postalCode: mailingPostalCode,
+    } : {
+        street: undefined,
+        aptNum: undefined,
+        city: undefined,
+        province: undefined,
+        postalCode: undefined
     });
-    const [bMapAddress, setBMapAddress] = useState({
+    const [bMapAddress, setBMapAddress] = useState(!isNationWide ? {
         street: mapAddressLine1,
         aptNum: mapAddressLine2,
         city: mapCity,
         province: mapProvince,
-        postalCode:mapPostalCode
+        postalCode: mapPostalCode
+    } : {
+        street: undefined,
+        aptNum: undefined,
+        city: undefined,
+        province: undefined,
+        postalCode: undefined
     });
     const [businessWebsite, setBusinessWebsite] = useState(website);
     const [contactFName, setContactFName] = useState(firstName);
@@ -129,6 +156,8 @@ const BusinessAccountSummary = (props) => {
     const [contactFirstNameError, setContactFirstNameError] = useState(undefined);
     const [contactLastNameError, setContactLastNameError] = useState(undefined);
     const [contactPhoneNumberError, setContactPhoneNumberError] = useState(undefined);
+
+    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
     // business details
     useEffect(() => {
@@ -274,17 +303,94 @@ const BusinessAccountSummary = (props) => {
         if (checkIfErrorsExistInMapping(businessDetailsErrors)) {
             return false;
             // check contact person for errors
+        } else if (checkIfErrorsExistInMapping(businessDetailsErrors.errorPhoneNumber)) {
+            return false;
+        } else if (checkIfErrorsExistInMapping(businessDetailsErrors.errorAddress)) {
+            return false;
+        } else if (checkIfErrorsExistInMapping(businessDetailsErrors.errorMailingAddress)) {
+            return false;
+        } else if (checkIfErrorsExistInMapping(businessDetailsErrors.errorMapAddress)) {
+            return false;
         } else return !checkIfErrorsExistInMapping(contactPersonErrors);
     }
 
-//function for input checks on submit
-    function onSubmit(event) {
+    //function for input checks on submit
+    function onSave(event) {
         if (!isFormValid()) {
             event.preventDefault();
             return
         }
-        alert("Account information saved");
+
+        const updatedAccountInfo = {
+            email: bEmail,
+            firstName: contactFName,
+            lastName: contactLName,
+            phoneNumber: getPhoneNumberFromStrings(contactPhoneNumber.first, contactPhoneNumber.middle, contactPhoneNumber.last),
+            addressLine1: bAddress.street,
+            addressLine2: bAddress.aptNum,
+            city: bAddress.city,
+            province: bAddress.province,
+            postalCode: bAddress.postalCode,
+            hasDifferentMailingAddress: useDifferentMailingAddress,
+            mailingAddressLine1: useDifferentMailingAddress ? bMailingAddress.street : undefined,
+            mailingAddressLine2: useDifferentMailingAddress ? bMailingAddress.aptNum : undefined,
+            mailingCity: useDifferentMailingAddress ? bMailingAddress.city : undefined,
+            mailingProvince: useDifferentMailingAddress ? bMailingAddress.province : undefined,
+            mailingPostalCode: useDifferentMailingAddress ? bMailingAddress.postalCode : undefined,
+            businessName: bName,
+            isIncorporated: isIncorporatedBusiness,
+            incorporatedOwnersNames: incorporatedOwners,
+            businessPhoneNumber: getPhoneNumberFromStrings(bPhoneNumber.first, bPhoneNumber.middle, bPhoneNumber.last),
+            businessCellPhoneNumber: getPhoneNumberFromStrings(bCellNumber.first, bCellNumber.middle, bCellNumber.last),
+            isNationWide: isNationWideBusiness,
+            mapAddressLine1: bMapAddress.street,
+            mapAddressLine2: bMapAddress.aptNum,
+            mapCity: bMapAddress.city,
+            mapProvince: bMapAddress.province,
+            mapPostalCode: bMapAddress.postalCode,
+            website: businessWebsite
+        }
+
+        BusinessService.updateBusinessAccountInfo(updatedAccountInfo)
+            .then(res => res.json())
+            .then(data => {
+                if (data && data.errors && Array.isArray(data.errors)) {
+                    const errorMessage = getConcatenatedErrorMessage(data.errors);
+                    alert(errorMessage);
+                    setShowSuccessMessage(false);
+                } else if (data && !data.authenticated && !data.success) {
+                    setAccountType({accountType: USER_TYPES.UNREGISTERED});
+                    setAuthenticated({authenticated: false});
+
+                    alert('There was an error with your session. Please try to login again.');
+
+                    // redirect to home page
+                    history.push('/');
+                } else if (data || data.success) {
+                    if (businessLogo !== logo) {
+                        UploadService.uploadLogo(businessLogo)
+                            .then(res => res.json())
+                            .then(data => {
+                                if ((has(data, 'authenticated') && !data.authenticated) || data.err) {
+                                    alert('An error occurred while uploading logo. Please try re-uploading in your ' +
+                                        'Account Info page. Remember files have a maximum size of 2 MB');
+                                }
+                            })
+                            .catch(() => {
+                                alert('An error occurred while uploading logo. Please try re-uploading in your ' +
+                                    'Account Info page. Remember files have a maximum size of 2 MB');
+                            });
+                    }
+                    setShowSuccessMessage(true);
+                } else {
+                    alert('There was an error updating your account information. Please try again and report the ' +
+                        'issue to Home Together if it persists.');
+                    setShowSuccessMessage(false);
+                }
+            });
     }
+
+
 
     function handleBPhoneChange(e) {
         const value = e.target.value;
@@ -326,6 +432,43 @@ const BusinessAccountSummary = (props) => {
         setBusinessLogo(e.target.files[0]);
     }
 
+    function handleUseDifferentMailingAddressChange() {
+    // clears mailing address object (so that values aren't saved when the business does not use a
+    // different address)
+    if (useDifferentMailingAddress) {
+            setBMailingAddress({
+                street: undefined,
+                aptNum: undefined,
+                city: undefined,
+                province: undefined,
+                postalCode: undefined,
+            });
+        }
+        setUseDifferentMailingAddress(!useDifferentMailingAddress);
+    }
+
+    function handleIsNationWideBusinessChange() {
+        // clears the map address object (so that values aren't saved when the business is nationwide)
+        if (!isNationWideBusiness) {
+            setBMapAddress({
+                street: undefined,
+                aptNum: undefined,
+                city: undefined,
+                province: undefined,
+                postalCode: undefined,
+            });
+        }
+        setIsNationWideBusiness(!isNationWideBusiness);
+    }
+
+    function handleIsIncorporatedBusinessChange() {
+        // clears the map address object (so that values aren't saved when the business is nationwide)
+        if (isIncorporatedBusiness) {
+            setIncorporatedOwners('');
+        }
+        setIsIncorporatedBusiness(!isIncorporatedBusiness);
+    }
+
     return (
         <div>
             <h3 className="account-summary-info-header">Business Details</h3>
@@ -350,17 +493,17 @@ const BusinessAccountSummary = (props) => {
                             <div className={"my-2"}>
                                 <Checkbox
                                     label={"Incorporated business"}
-                                    checked={isIncorporated}
+                                    checked={isIncorporatedBusiness}
                                     toolTipText={BUSINESS_INFO_TEXT.INC_COMPANY}
                                     toolTipID="incorporated"
-                                    onChange={() => setIsIncorporatedBusiness(!isIncorporated)}/>
+                                    onChange={handleIsIncorporatedBusinessChange}/>
                                 {isIncorporatedBusiness &&
-                                    <TextArea
-                                        className="input"
-                                        placeholder={"Names of Inc. Owners (separated by comma)"}
-                                        labelClassName={"label"}
-                                        value={incorporatedOwners}
-                                        onChange={(e) => setIncorporatedOwners(e.target.value)}/>
+                                <TextArea
+                                    className="input"
+                                    placeholder={"Names of Inc. Owners (separated by comma)"}
+                                    labelClassName={"label"}
+                                    value={incorporatedOwners || ''}
+                                    onChange={(e) => setIncorporatedOwners(e.target.value)}/>
                                 }
                             </div>
                             <TextArea
@@ -412,25 +555,25 @@ const BusinessAccountSummary = (props) => {
                                 checked={useDifferentMailingAddress}
                                 toolTipText={BUSINESS_INFO_TEXT.DIFF_MAILING_ADDRESS}
                                 toolTipID="differentMailingAddress"
-                                onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}/>
+                                onChange={handleUseDifferentMailingAddressChange}/>
                             {useDifferentMailingAddress &&
-                                <Address label="Business Mailing Address"
-                                         value={bMailingAddress}
-                                         required={true}
-                                         streetAddressError={streetMailingAddressError}
-                                         cityAddressError={cityMailingAddressError}
-                                         provinceAddressError={provinceMailingAddressError}
-                                         postalCodeError={postalCodeMailingError}
-                                         onChange={handleBMailingAddress}/>}
+                                <Address
+                                    label="Business Mailing Address"
+                                    value={bMailingAddress}
+                                    required={true}
+                                    streetAddressError={streetMailingAddressError}
+                                    cityAddressError={cityMailingAddressError}
+                                    provinceAddressError={provinceMailingAddressError}
+                                    postalCodeError={postalCodeMailingError}
+                                    onChange={handleBMailingAddress}/>
+                            }
                             <div>
                                 <Checkbox
                                     label={"Canada-wide business"}
-                                    checked={isNationWide}
+                                    checked={isNationWideBusiness}
                                     toolTipText={BUSINESS_INFO_TEXT.NATION_WIDE}
                                     toolTipID="nationWide"
-                                    onChange={() => {
-                                        setIsNationWideBusiness(isNationWide => !isNationWide)
-                                    }}/>
+                                    onChange={handleIsNationWideBusinessChange}/>
                                 {!isNationWideBusiness &&
                                     <Address
                                         label="Searchable Address"
@@ -448,15 +591,15 @@ const BusinessAccountSummary = (props) => {
                         </div>
                     </div>
 
-                        <label className="label"> Business Logo </label>
-                        <Tooltip text={BUSINESS_INFO_TEXT.BUSINESS_LOGO} toolTipID="businessLogo"/>
-                        {logo
-                            ? <ChangeImage
-                                imageAddress={businessLogo}
-                                handleImageUpload={handleImageUpload}
-                            />
-                            : <UploadImage handleImageUpload={handleImageUpload}/>
-                        }
+                    <label className="label"> Business Logo </label>
+                    <Tooltip text={BUSINESS_INFO_TEXT.BUSINESS_LOGO} toolTipID="businessLogo"/>
+                    {logo
+                        ? <ChangeImage
+                            imageAddress={businessLogo}
+                            handleImageUpload={handleImageUpload}
+                        />
+                        : <UploadImage handleImageUpload={handleImageUpload}/>
+                    }
                 </div>
             </div>
             <h3 className="account-summary-info-header">Contact Person</h3>
@@ -503,16 +646,21 @@ const BusinessAccountSummary = (props) => {
                     </div>
                 </div>
             </div>
+            {showSuccessMessage &&
+            <section className={'success-msg mb-4 justify-center'}>Account info successfully updated!</section>
+            }
             <SubmitButton
                 inputValue={"Save"}
                 className="btn btn-green form-btn w-1/2"
-                onClick={onSubmit}
+                onClick={onSave}
             />
         </div>
     );
 }
 
 BusinessAccountSummary.propTypes = {
+    setAccountType: PropTypes.func.isRequired,
+    setAuthenticated: PropTypes.func.isRequired,
     addressLine1: PropTypes.string.isRequired,
     addressLine2: PropTypes.string,
     businessCellPhoneNumber: PropTypes.string.isRequired,
@@ -543,4 +691,4 @@ BusinessAccountSummary.propTypes = {
     website: PropTypes.string
 }
 
-export default BusinessAccountSummary;
+export default connect(null, mapDispatch)(BusinessAccountSummary);
