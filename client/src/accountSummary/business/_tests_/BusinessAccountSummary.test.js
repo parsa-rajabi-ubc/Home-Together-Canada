@@ -27,8 +27,12 @@ jest.mock('react-redux', () => ({
 describe('BusinessAccountSummary', () => {
     it("should render correctly regardless of properties", () => {
         // given
+        const setAccountType = jest.fn();
+        const setAuthenticated = jest.fn();
         const props = {
-            ...businessUser
+            ...businessUser,
+            setAuthenticated,
+            setAccountType
         };
         //when
         const component = renderer.create(<Router><BusinessAccountSummary {...props}/></Router>);

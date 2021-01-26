@@ -815,7 +815,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
                       <div
                         className=" css-1uccc91-singleValue"
                       >
-                        V1X 3B3
+                        BC
                       </div>
                       <div
                         className="css-b8ldur-Input"
@@ -915,7 +915,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
                 onChange={[Function]}
                 placeholder="Postal Code"
                 type="text"
-                value="BC"
+                value="V1X 3B3"
               />
             </div>
           </div>
