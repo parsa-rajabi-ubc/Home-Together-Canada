@@ -32,7 +32,7 @@ const ChangeImage = (props) => {
                     className={"photo-upload-width photo-upload hover:text-indigo-500"}
                     name={'fileUpload'}
                     uploadHandler={onImageUpload}
-                    accept={'image/png, image/jpg, image/jpeg, image/JPG'}
+                    accept={'image/png, image/jpg, image/jpeg, image/JPG, image/JPEG'}
                 />
             </div>
 

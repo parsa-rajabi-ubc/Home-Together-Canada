@@ -1299,7 +1299,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
               />
             </svg>
             <input
-              accept="image/png, image/jpg, image/jpeg, image/JPG"
+              accept="image/png, image/jpg, image/jpeg, image/JPG, image/JPEG"
               className="photo-upload-width photo-upload hover:text-indigo-500"
               name="logo"
               onChange={[Function]}
