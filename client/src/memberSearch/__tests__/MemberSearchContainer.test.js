@@ -67,7 +67,7 @@ describe('MemberSearchContainer', () => {
             // when
             const testInstance = renderer.create(<BrowserRouter><MemberSearchContainer {...props}/></BrowserRouter>).root;
             const connectWithMembersButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'Sign Up');
+                .find(element => element.props.children === 'Create an account');
 
             // then
             expect(connectWithMembersButton).toBeDefined();
@@ -101,7 +101,7 @@ describe('MemberSearchContainer', () => {
             // when
             const testInstance = renderer.create(<BrowserRouter><MemberSearchContainer {...props}/></BrowserRouter>).root;
             const connectWithMembersButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'Sign Up');
+                .find(element => element.props.children === 'Create an account');
 
             // then
             expect(connectWithMembersButton).toBeDefined();

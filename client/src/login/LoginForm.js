@@ -109,7 +109,6 @@ function LoginForm(props) {
     }
 
     return (
-        <div>
             <div className="flex items-center min-h-screen p-6 bg-off_white">
                 <div className="flex-1 h-full max-w-4xl mx-auto overflow-hidden rounded-lg shadow-2xl ">
                     <div className="flex flex-col overflow-y-auto md:flex-row">
@@ -162,7 +161,6 @@ function LoginForm(props) {
                     </div>
                 </div>
             </div>
-        </div>
 
     );
 }
