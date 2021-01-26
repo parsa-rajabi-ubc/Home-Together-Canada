@@ -70,7 +70,10 @@ router.get('/profile/',
     function (req, res, next) {
         memberAccounts.findMemberAccountByUid(req.user.uid)
             .then(member => {
-                const profile = accountUtils.getProfile(member.dataValues);
+                const profile = {
+                    ...accountUtils.getProfile(member.dataValues),
+                    username: req.user.username
+                };
                 res.status(200).json({ profile });
             })
             .catch(err => {
@@ -96,7 +99,7 @@ router.post('/search/profiles/',
                     res.status(200).json({ profiles });
                 })
                 .catch(err => {
-                    res.status(500).json({ msg: 'Something went wrong while fitlering'});
+                    res.status(500).json({ msg: 'Something went wrong while filtering' });
                 })
         }
     })
