@@ -6,7 +6,7 @@
  *
  */
 
-import {React, useState} from 'react';
+import React, { useState } from 'react';
 import ProfileCard from "./ProfileCard";
 import MockProfileCardData from "../mockData/MockProfileCardData";
 import {USER_TYPES} from "../common/constants/users";
