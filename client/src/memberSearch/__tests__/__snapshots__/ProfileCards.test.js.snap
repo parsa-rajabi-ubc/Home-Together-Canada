@@ -479,7 +479,7 @@ exports[`ProfileCard Snapshot test should render correctly regardless of propert
               }
             }
           />
-          Religion is import
+          Religion is important
         </div>
       </span>
     </section>

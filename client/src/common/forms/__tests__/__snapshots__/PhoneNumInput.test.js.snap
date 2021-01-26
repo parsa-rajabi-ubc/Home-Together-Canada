@@ -3,8 +3,9 @@
 exports[`PhoneNumInput Snapshot test should render correctly regardless of properties 1`] = `
 <div>
   <label>
-    testLabelString1
-      
+    <label>
+      testLabelString1
+    </label>
     
     <br />
     <input
