@@ -34,7 +34,7 @@ function ProfileCard(props) {
                     {diet && <Tooltip text={"Diet is important"} toolTipID={"dietImportant"}
                                      customIcon={<Food className={"text-gray-600 ml-1"}/>}/>}
 
-                    {religion && <Tooltip text={"Religion is import"} toolTipID={"religionImportant"}
+                    {religion && <Tooltip text={"Religion is important"} toolTipID={"religionImportant"}
                                          customIcon={<Pray className={"text-green-600 ml-1"}/>}/>}
                 </section>
             </div>
