@@ -36,6 +36,14 @@ export const MEMBER_SUBPAGES = [
     {
         label: 'Manage Listings',
         value: 'Manage Listings'
+    },
+    {
+        label: 'Activate/De-activate',
+        value: 'Activate/De-activate'
+    },
+    {
+        label: 'DeleteAccount',
+        value: 'DeleteAccount'
     }
 ];
 
@@ -51,6 +59,10 @@ export const BUSINESS_SUBPAGES = [
     {
         label: 'Manage Listings',
         value: 'Manage Listings'
+    },
+    {
+        label: 'DeleteAccount',
+        value: 'DeleteAccount'
     }
 ];
 
@@ -60,5 +72,7 @@ export const ALL_SUBPAGES = {
     SEARCH_CRITERIA: 'Search Criteria',
     PASSWORD: 'Password',
     MESSAGING: 'Messaging',
-    MANAGE_LISTINGS: 'Manage Listings'
+    MANAGE_LISTINGS: 'Manage Listings',
+    ACTIVATE_DEACTIVATE: 'Activate/De-activate',
+    DELETE: 'DeleteAccount'
 };
