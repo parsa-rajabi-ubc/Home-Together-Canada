@@ -8,6 +8,7 @@
 
  const memberAccountInfo  = {
     //account
+    activate: false,
     firstName: "mockFN",
     lastName: "mockLN",
     birthYear: 1984,
