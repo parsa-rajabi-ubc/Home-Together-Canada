@@ -2,8 +2,8 @@ module.exports = {
     development: {
         HOST: "127.0.0.1",
         USER: "root",
-        PASSWORD: "m/A38-m[hL?5eST^",
-        DB: "hometogethercanadadatabase",
+        PASSWORD: "qin1123.",
+        DB: "alex",
         DIALECT: "mysql",
         POOL: {
             max: 5,
@@ -16,7 +16,7 @@ module.exports = {
     test: {
         HOST: "127.0.0.1",
         USER: "root",
-        PASSWORD: "m/A38-m[hL?5eST^",
+        PASSWORD: "qin1123.",
         DB: "hometogethercanadadatabase_test",
         DIALECT: "mysql",
         POOL: {
