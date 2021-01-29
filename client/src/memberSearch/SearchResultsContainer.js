@@ -18,7 +18,7 @@ function SearchResultsContainer(props) {
     const numOfResults = 5;
 
     {/*Currently displays 5 result to mimic filtering*/}
-    if (ProfileData && ProfileData.length>0 && filteredResults.length < numOfResults && filteredResults.length < ProfileData.length) {
+    if (ProfileData!==undefined && ProfileData.length>0 && filteredResults.length < numOfResults && filteredResults.length < ProfileData.length) {
         (ProfileData.length>=numOfResults)
             ? setFilteredResults(LimitResults(ProfileData,numOfResults))
             : setFilteredResults(LimitResults(ProfileData,ProfileData.length))
