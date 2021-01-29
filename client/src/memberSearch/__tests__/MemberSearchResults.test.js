@@ -10,9 +10,22 @@ import React from 'react';
 import renderer from  'react-test-renderer'
 import MemberSearchResults from "../MemberSearchResults";
 
+jest.mock('react-redux', () => ({
+    connect: () => {
+        return (component) => {
+            return component
+        };
+    }
+}));
+
+jest.mock("react-tooltip/node_modules/uuid", () => ({
+            v4: () => "00000000-0000-0000-0000-000000000000"}
+    )
+);
+
 describe('MemberSearchResults', () => {
     describe('Container test', () => {
-        it('should match snapshot test with an array or profile cards', () => {
+        it('should match snapshot test with an array of profile cards', () => {
             //given
             const data = [
                 {
@@ -75,7 +88,7 @@ describe('MemberSearchResults', () => {
                     religion: false,
                     diet: true,
                 }
-                ]
+            ]
             //when
             const component = renderer.create(<MemberSearchResults ProfileData={data}/>);
             const tree = component.toJSON();

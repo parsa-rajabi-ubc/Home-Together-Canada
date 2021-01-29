@@ -11,6 +11,19 @@ import renderer from  'react-test-renderer'
 import SearchResultsContainer from "../SearchResultsContainer";
 import MockProfileCardData from "../../mockData/MockProfileCardData";
 
+jest.mock('react-redux', () => ({
+    connect: () => {
+        return (component) => {
+            return component
+        };
+    }
+}));
+
+jest.mock("react-tooltip/node_modules/uuid", () => ({
+            v4: () => "00000000-0000-0000-0000-000000000000"}
+    )
+);
+
 describe('SearchResultsContainer', () => {
     describe('Container test', () => {
         it('should match snapshot test for data greater than limit', () => {
@@ -63,7 +76,7 @@ describe('SearchResultsContainer', () => {
                     religion: true,
                     diet: true
                 }
-                ];
+            ];
             //when
             const component = renderer.create(<SearchResultsContainer ProfileData={data}/>);
             const tree = component.toJSON();

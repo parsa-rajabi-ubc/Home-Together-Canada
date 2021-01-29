@@ -28,9 +28,10 @@ function MemberSearchResults(props){
                                    diet={ProfileData[i].diet}
         />);
     }
+    const cardsToDisplay = profiles;
     return (
         <div>
-            {profiles}
+            {cardsToDisplay}
         </div>
     );
 }
