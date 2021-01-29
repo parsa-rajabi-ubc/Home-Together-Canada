@@ -7,8 +7,6 @@
  */
 
 import React, { useState } from 'react';
-import ProfileCard from "./ProfileCard";
-import MockProfileCardData from "../mockData/MockProfileCardData";
 import {USER_TYPES} from "../common/constants/users";
 import InvalidUser from "./InvalidUser";
 import PropTypes from "prop-types";
@@ -17,6 +15,8 @@ import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import BurgerMenu from "../common/listings/BurgerMenu";
 import {RemoveScroll} from 'react-remove-scroll';
+import SearchResultsContainer from "./SearchResultsContainer";
+import MockProfileCardData from "../mockData/MockProfileCardData";
 
 const MemberSearchContainer = (props) => {
     const [menuOpenState, setMenuOpenState] = useState(false)
@@ -33,25 +33,6 @@ const MemberSearchContainer = (props) => {
         accountType,
         authenticated
     } = props;
-
-    // displays 10 mock data
-    function profileCards() {
-        let profiles = [];
-        for (let i = 0; i < 10; i++) {
-            profiles.push(<ProfileCard key={i}
-                                       username={MockProfileCardData[i].username}
-                                       age={MockProfileCardData[i].age}
-                                       familyStatus={MockProfileCardData[i].status}
-                                       minBudget={MockProfileCardData[i].minRent}
-                                       maxBudget={MockProfileCardData[i].maxRent}
-                                       pet={MockProfileCardData[i].pet}
-                                       smoke={MockProfileCardData[i].smoke}
-                                       religion={MockProfileCardData[i].religion}
-                                       diet={MockProfileCardData[i].diet}
-            />);
-        }
-        return profiles;
-    }
 
     return (
         <div>
@@ -78,8 +59,9 @@ const MemberSearchContainer = (props) => {
                         <button className={"btn btn-green w-1/5 py-2 ml-6 mb-6 text-base my-10"}
                                 onClick={toggleMenu}>Filter
                         </button>
-                        {profileCards()}
+                        <SearchResultsContainer ProfileData={MockProfileCardData}/>
                     </div>
+
 
                     {/*Map*/}
                     <div className={"flex-1"}>
