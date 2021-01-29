@@ -176,6 +176,140 @@ const businessAccountValidation = [
         .stripLow()
 ];
 
+const memberProfileBasicFieldsValidation = [
+    body('gender', 'One of Female, Male, Other must be provided as gender')
+        .exists()
+        .trim()
+        .stripLow()
+        .isIn(GENDERS),
+    body('genderDescription')
+        .optional()
+        .trim()
+        .stripLow(),
+    body('birthYear', 'A valid integer must be provided as year of birth')
+        .exists()
+        .isNumeric(),
+    body('minMonthlyBudget', 'A valid positive integer must be provided for rent')
+        .exists()
+        .isNumeric()
+        .customSanitizer(rent => parseInt(rent))
+        .custom(rent => isPositiveInteger(rent)),
+    body('maxMonthlyBudget', 'A valid positive integer must be provided for rent')
+        .exists()
+        .isNumeric()
+        .customSanitizer(rent => parseInt(rent))
+        .custom(rent => isPositiveInteger(rent))
+        .custom((rent, {req}) => validateMinAndMax(req.body.minMonthlyBudget, rent)),
+    body('hasHomeToShare', 'A boolean value must be provided')
+        .exists()
+        .trim()
+        .stripLow()
+        .isBoolean(),
+    body('hasHomeToShareDescription', 'Invalid house description')
+        .optional()
+        .trim()
+        .stripLow(true),
+    body('isReligionImportant', 'A boolean value must be provided')
+        .exists()
+        .trim()
+        .stripLow()
+        .isBoolean(),
+    body('religionDescription', 'Invalid description for religion')
+        .optional()
+        .trim()
+        .stripLow(),
+    body('isDietImportant', 'A boolean value must be provided')
+        .exists()
+        .trim()
+        .stripLow()
+        .isBoolean(),
+    body('dietDescription', 'Invalid description for diet')
+        .optional()
+        .trim()
+        .stripLow(),
+    body('hasHealthMobilityIssues', 'A boolean value must be provided')
+        .exists()
+        .trim()
+        .stripLow()
+        .isBoolean(),
+    body('healthMobilityIssuesDescription', 'Invalid description for health and mobility')
+        .optional()
+        .trim()
+        .stripLow(),
+    body('hasAllergies', 'A boolean value must be provided')
+        .exists()
+        .trim()
+        .stripLow()
+        .isBoolean(),
+    body('allergiesDescription', 'Invalid description for allergies')
+        .optional()
+        .trim()
+        .stripLow(),
+    body('hasPets', 'A boolean value must be provided')
+        .exists()
+        .trim()
+        .stripLow()
+        .isBoolean(),
+    body('petsDescription', 'Invalid description for allergies')
+        .optional()
+        .trim()
+        .stripLow(),
+    body('isSmoker', 'A boolean value must be provided')
+        .exists()
+        .trim()
+        .stripLow()
+        .isBoolean(),
+    body('smokingDescription', 'Invalid description for allergies')
+        .optional()
+        .trim()
+        .stripLow(),
+    body('numRoommates', 'Must provide a valid value for numRoommates')
+        .exists()
+        .isNumeric()
+        .custom(limit => isValidShareLimit(limit)),
+    body('bio', 'Must provide a valid bio')
+        .optional()
+        .trim()
+        .stripLow(true),
+    body('workStatus')
+        .exists()
+        .trim()
+        .stripLow()
+        .isIn(WORK_STATUSES)
+];
+
+const memberStatusValidation = [
+    body('status', 'A valid status must be provided')
+        .exists()
+        .trim()
+        .stripLow()
+        .isIn(STATUSES),
+    body('partnerUsername', `A valid member's username must be provided for partners`)
+        .optional()
+        .trim()
+        .stripLow()
+        .custom(partnerUsername => usernameShouldExistAndBeAMember(partnerUsername))
+        .custom((partnerUsername, { req }) =>
+            linkedMemberShouldHaveSameStatus(partnerUsername, req)),
+    body('existingGroupUsernames')
+        .optional()
+        .isArray(),
+    // * allows us to test each username in array with custom function
+    body('existingGroupUsernames.*')
+        .optional()
+        .trim()
+        .stripLow()
+        .custom(username => usernameShouldExistAndBeAMember(username))
+        .custom((username, { req }) => linkedMemberShouldHaveSameStatus(username, req)),
+];
+
+const areasOfInterestValidation = [
+    body('areasOfInterest')
+        .exists()
+        .isArray()
+        .custom(areasOfInterest => isValidAreasOfInterest(areasOfInterest))
+];
+
 
 exports.validate = (method) => {
     switch (method) {
@@ -207,132 +341,10 @@ exports.validate = (method) => {
                 ...abstractUserValidation,
                 ...registrationSigninDetailsValidation,
                 ...emailUponRegistrationValidation,
+                ...memberProfileBasicFieldsValidation,
+                ...memberStatusValidation,
+                ...areasOfInterestValidation,
 
-                // member account and profile
-                body('gender', 'One of Female, Male, Other must be provided as gender')
-                    .exists()
-                    .trim()
-                    .stripLow()
-                    .isIn(GENDERS),
-                body('genderDescription')
-                    .optional()
-                    .trim()
-                    .stripLow(),
-                body('birthYear', 'A valid integer must be provided as year of birth')
-                    .exists()
-                    .isNumeric(),
-                body('status', 'A valid status must be provided')
-                    .exists()
-                    .trim()
-                    .stripLow()
-                    .isIn(STATUSES),
-                body('minMonthlyBudget', 'A valid positive integer must be provided for rent')
-                    .exists()
-                    .isNumeric()
-                    .customSanitizer(rent => parseInt(rent))
-                    .custom(rent => isPositiveInteger(rent)),
-                body('maxMonthlyBudget', 'A valid positive integer must be provided for rent')
-                    .exists()
-                    .isNumeric()
-                    .customSanitizer(rent => parseInt(rent))
-                    .custom(rent => isPositiveInteger(rent))
-                    .custom((rent, {req}) => validateMinAndMax(req.body.minMonthlyBudget, rent)),
-                body('hasHomeToShare', 'A boolean value must be provided')
-                    .exists()
-                    .trim()
-                    .stripLow()
-                    .isBoolean(),
-                body('hasHomeToShareDescription', 'Invalid house description')
-                    .optional()
-                    .trim()
-                    .stripLow(true),
-                body('isReligionImportant', 'A boolean value must be provided')
-                    .exists()
-                    .trim()
-                    .stripLow()
-                    .isBoolean(),
-                body('religionDescription', 'Invalid description for religion')
-                    .optional()
-                    .trim()
-                    .stripLow(),
-                body('isDietImportant', 'A boolean value must be provided')
-                    .exists()
-                    .trim()
-                    .stripLow()
-                    .isBoolean(),
-                body('dietDescription', 'Invalid description for diet')
-                    .optional()
-                    .trim()
-                    .stripLow(),
-                body('hasHealthMobilityIssues', 'A boolean value must be provided')
-                    .exists()
-                    .trim()
-                    .stripLow()
-                    .isBoolean(),
-                body('healthMobilityIssuesDescription', 'Invalid description for health and mobility')
-                    .optional()
-                    .trim()
-                    .stripLow(),
-                body('hasAllergies', 'A boolean value must be provided')
-                    .exists()
-                    .trim()
-                    .stripLow()
-                    .isBoolean(),
-                body('allergiesDescription', 'Invalid description for allergies')
-                    .optional()
-                    .trim()
-                    .stripLow(),
-                body('hasPets', 'A boolean value must be provided')
-                    .exists()
-                    .trim()
-                    .stripLow()
-                    .isBoolean(),
-                body('petsDescription', 'Invalid description for allergies')
-                    .optional()
-                    .trim()
-                    .stripLow(),
-                body('isSmoker', 'A boolean value must be provided')
-                    .exists()
-                    .trim()
-                    .stripLow()
-                    .isBoolean(),
-                body('smokingDescription', 'Invalid description for allergies')
-                    .optional()
-                    .trim()
-                    .stripLow(),
-                body('numRoommates', 'Must provide a valid value for numRoommates')
-                    .exists()
-                    .isNumeric()
-                    .custom(limit => isValidShareLimit(limit)),
-                body('bio', 'Must provide a valid bio')
-                    .optional()
-                    .trim()
-                    .stripLow(true),
-                body('partnerUsername', `A valid member's username must be provided for partners`)
-                    .optional()
-                    .trim()
-                    .stripLow()
-                    .custom(partnerUsername => usernameShouldExistAndBeAMember(partnerUsername))
-                    .custom((partnerUsername, { req }) => linkedMemberShouldHaveSameStatus(partnerUsername, req)),
-                body('existingGroupUsernames')
-                    .optional()
-                    .isArray(),
-                // * allows us to test each username in array with custom function
-                body('existingGroupUsernames.*')
-                    .optional()
-                    .trim()
-                    .stripLow()
-                    .custom(username => usernameShouldExistAndBeAMember(username))
-                    .custom((username, { req }) => linkedMemberShouldHaveSameStatus(username, req)),
-                body('areasOfInterest')
-                    .exists()
-                    .isArray()
-                    .custom(areasOfInterest => isValidAreasOfInterest(areasOfInterest)),
-                body('workStatus')
-                    .exists()
-                    .trim()
-                    .stripLow()
-                    .isIn(WORK_STATUSES),
                 body('minAgePreference')
                     .exists()
                     .isNumeric()
@@ -407,8 +419,27 @@ exports.validate = (method) => {
                 ...businessAccountValidation
             ]
         }
+        case 'updateMemberAccountInfo': {
+            return [
+                ...emailUponUpdateValidation,
+                ...abstractUserValidation
+            ]
+        }
+        case 'updateMemberProfile': {
+            return [
+                ...memberProfileBasicFieldsValidation
+            ]
+        }
+        case 'updateMemberStatus' : {
+            return [
+                ...memberStatusValidation
+            ]
+        }
+        case 'updateMemberAreasOfInterest':
+            return [
+                ...areasOfInterestValidation
+            ]
         case 'memberSearchFilters': {
-            console.log('validating member search filters');
             return [
                 body('minAgePreference')
                     .optional()

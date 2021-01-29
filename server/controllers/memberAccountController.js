@@ -7,14 +7,27 @@
  */
 const { Op } = require("sequelize");
 const has = require('lodash/has');
+const differenceWith = require('lodash/differenceWith');
+const isEqual = require('lodash/isEqual');
 
 const db = require('../models');
+const {getValueOfOptionalField} = require("./utils/accountControllerUtils");
 const MemberAccount = db.memberAccount;
 const AbstractUser = db.abstractUser;
+const livesWith = require('../controllers/livesWithController');
+const abstractUsers = require('../controllers/abstractUserController');
+const areasOfInterest = require('../controllers/areaOfInterestController');
+const {
+    isStatusWithRoommates,
+    hasPartnerChanged,
+    memberHasCoupleStatus,
+    memberHasExistingGroupStatus,
+    haveGroupMembersChanged
+} = require('./utils/statusUtils');
+const { areasOfInterestHaveChanged, getListOfAreaOfInterestObjects } = require('./utils/areaOfInterestUtils');
 
 const createMemberAccount = (req, uid) => {
 
-    // TODO: add preference fields when implementing search filters
     const memberAccount = {
         uid: uid,
         isAdmin: false, // an account should be given admin privileges after its creation
@@ -86,6 +99,182 @@ const findMemberAccountByUsername = (username) => {
 
 const findMemberAccountByUid = uid => {
     return MemberAccount.findByPk(uid);
+}
+
+const updateMemberProfile = (req, uid) => {
+    const memberProfile = {
+        gender: req.body.gender,
+        genderDescription: getValueOfOptionalField(req.body.gender, req.body.genderDescription),
+        birthYear: req.body.birthYear,
+        minMonthlyBudget: req.body.minMonthlyBudget,
+        maxMonthlyBudget: req.body.maxMonthlyBudget,
+        hasHomeToShare: req.body.hasHomeToShare,
+        hasHomeToShareDescription: getValueOfOptionalField(req.body.hasHomeToShare, req.body.hasHomeToShareDescription),
+        isReligionImportant: req.body.isReligionImportant,
+        religionDescription: getValueOfOptionalField(req.body.isReligionImportant, req.body.religionDescription),
+        isDietImportant: req.body.isDietImportant,
+        dietDescription: getValueOfOptionalField(req.body.isDietImportant, req.body.dietDescription),
+        hasHealthMobilityIssues: req.body.hasHealthMobilityIssues,
+        healthMobilityIssuesDescription: getValueOfOptionalField(req.body.hasHealthMobilityIssues, req.body.healthMobilityIssuesDescription),
+        hasAllergies: req.body.hasAllergies,
+        allergiesDescription: getValueOfOptionalField(req.body.hasAllergies, req.body.allergiesDescription),
+        hasPets: req.body.hasPets,
+        petsDescription: getValueOfOptionalField(req.body.hasPets, req.body.petsDescription),
+        isSmoker: req.body.isSmoker,
+        smokingDescription: getValueOfOptionalField(req.body.isSmoker, req.body.smokingDescription),
+        numRoommates: req.body.numRoommates,
+        workStatus: req.body.workStatus,
+        bio: req.body.bio
+    };
+
+    return MemberAccount.update(memberProfile, {
+        where: {
+            uid: uid
+        }
+    });
+}
+
+const updateMemberStatus = (uid, status) => {
+    return MemberAccount.update({
+        status: status
+    }, {
+        where: {
+            uid: uid
+        }
+    });
+}
+
+const updateMemberStatusAndRoommates = async (req) => {
+    try {
+        const uid = req.user.uid;
+        const newStatus = req.body.status;
+
+        const member = await findMemberAccountByUid(uid);
+        const memberRoommates = await livesWith.findMemberRoommatesInfo(uid);
+
+        const currentStatus = member.dataValues.status;
+
+        // the member's status has not changed and they do not have a status that has ability to link profiles
+        if (currentStatus === req.body.status && !isStatusWithRoommates(currentStatus)) {
+            return { success: true };
+        }
+        // member has couple status, status has not changed, and linked profile has not changed
+        else if (currentStatus === req.body.status && memberHasCoupleStatus(req.body.status) && !hasPartnerChanged(req.body.partnerUsername, memberRoommates)) {
+            return { success: true };
+        }
+        // member has existing group status, status has not changed, and the linked profiles have not changed
+        else if (currentStatus === req.body.status && memberHasExistingGroupStatus(req.body.status) && !haveGroupMembersChanged(req.body.existingGroupUsernames, memberRoommates)) {
+            return { success: true };
+        }
+
+
+        // old status was a couple or existing group and there has been a change in status or linked profiles
+        if (isStatusWithRoommates(currentStatus)) {
+
+            // delete entries of linked profile from the livesWiths table
+            await livesWith.deleteAllOfAMembersRoommate(uid);
+
+            /**
+             * There was a change that required an addition to the LivesWiths table
+             *      - status changed to couple and has a partner usernames
+             *      - status changed to existing group and has group members' usernames
+             *      - couple status has not changed, but the partner's username has changed
+             *      - existing group status has not changed, but the existing group members' usernames have changed
+             */
+            if (
+                (memberHasCoupleStatus(newStatus) && req.body.partnerUsername)
+                || (memberHasExistingGroupStatus(newStatus) && req.body.existingGroupUsernames)
+                || (memberHasCoupleStatus(currentStatus) && req.body.partnerUsername && hasPartnerChanged(req.body.partnerUsername, memberRoommates))
+                || (memberHasExistingGroupStatus(currentStatus) && req.body.existingGroupUsernames && haveGroupMembersChanged(req.body.existingGroupUsernames))
+            ) {
+                const roommateUsernames = memberHasExistingGroupStatus(newStatus)
+                    ? req.body.existingGroupUsernames
+                    : [req.body.partnerUsername];
+                const roommates = await abstractUsers.findUsersByUsernames(roommateUsernames);
+
+                roommates.forEach(roommate => {
+                    member.addRoommate(roommate.dataValues.uid,
+                        {
+                            through: {
+                                relationship: newStatus
+                            }
+                        }
+                    )
+                });
+            }
+        }
+        // member was a non couple/EG and is now a couple/EG
+        else {
+            if (isStatusWithRoommates(newStatus)) {
+                const roommateUsernames = memberHasExistingGroupStatus(newStatus)
+                    ? req.body.existingGroupUsernames
+                    : [req.body.partnerUsername];
+                const roommates = await abstractUsers.findUsersByUsernames(roommateUsernames);
+
+                roommates.forEach(roommate => {
+                    member.addRoommate(roommate.dataValues.uid,
+                        {
+                            through: {
+                                relationship: req.body.status
+                            }
+                        }
+                    )
+                });
+            }
+        }
+
+        await updateMemberStatus(uid, newStatus);
+
+        return { success: true, status: newStatus };
+    }
+    catch(error) {
+        return { success: false, error: error.message };
+    }
+}
+
+const updateMemberAreaOfInterest = async (req) => {
+    try {
+        const currentAreasOfInterestQueryObjects = await areasOfInterest.findAreasOfInterestForUser(req.user.uid);
+        const currentAreasOfInterest = getListOfAreaOfInterestObjects(currentAreasOfInterestQueryObjects)
+        const newAreasOfInterest = req.body.areasOfInterest;
+
+        if (!areasOfInterestHaveChanged(currentAreasOfInterest, newAreasOfInterest)) {
+            return { success: true };
+        }
+
+        // find AOI to remove
+        const areasOfInterestToRemove = differenceWith(currentAreasOfInterest, newAreasOfInterest, isEqual);
+
+        if (areasOfInterestToRemove) {
+            areasOfInterestToRemove.forEach(areaOfInterest => {
+                areasOfInterest.deleteAreaOfInterest(
+                    {
+                        ...areaOfInterest
+                    },
+                    req.user.uid
+                );
+            })
+        }
+
+        // identify AOI to add
+        const areasOfInterestToAdd = differenceWith(newAreasOfInterest, currentAreasOfInterest, isEqual);
+
+        if (areasOfInterestToAdd) {
+            areasOfInterestToAdd.forEach(areaOfInterest => {
+                areasOfInterest.createAreaOfInterest(areaOfInterest, req.user.uid);
+            });
+        }
+
+        return {
+            success: true,
+            areasOfInterestRemoved: areasOfInterestToRemove,
+            areasOfInterestAdded: areasOfInterestToAdd
+        };
+    }
+    catch (error) {
+        return { success: false, error: error.message };
+    }
+
 }
 
 const getMemberProfilesMatchingSearchFilters = (uid, searchFilters) => {
@@ -188,5 +377,9 @@ module.exports = {
     findAllMemberAccounts,
     findMemberAccountByUsername,
     findMemberAccountByUid,
+    updateMemberProfile,
+    updateMemberStatus,
+    updateMemberStatusAndRoommates,
+    updateMemberAreaOfInterest,
     getMemberProfilesMatchingSearchFilters
 }

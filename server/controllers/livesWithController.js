@@ -6,9 +6,9 @@
  *
  */
 
+const { QueryTypes } = require('sequelize');
 
 const db = require("../models");
-
 const LivesWith = db.livesWith;
 
 const findAllRoommates = (req, res) => {
@@ -19,6 +19,29 @@ const findAllRoommates = (req, res) => {
         }));
 }
 
+const findMemberRoommatesInfo = (uid) => {
+    // was unable to perform query using sequelize functions
+    return db.sequelize.query(
+        'SELECT MemberAccountUid, RoommateUid, username as ?' +
+        'FROM LivesWiths JOIN AbstractUsers ON LivesWiths.RoommateUid = AbstractUsers.uid ' +
+        'WHERE MemberAccountUid = ?',
+        {
+            replacements: ['roommateUsername', uid],
+            type: QueryTypes.SELECT
+        }
+    )
+}
+
+const deleteAllOfAMembersRoommate = uid => {
+    return LivesWith.destroy({
+        where: {
+            MemberAccountUid: uid
+        }
+    })
+}
+
 module.exports = {
-    findAllRoommates
+    findAllRoommates,
+    findMemberRoommatesInfo,
+    deleteAllOfAMembersRoommate
 }

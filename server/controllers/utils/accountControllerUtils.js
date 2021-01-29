@@ -25,6 +25,15 @@ const getMailingAddress = (body) => {
         }
 }
 
+/**
+ *
+ * @param flag: if this field is true, then the optional field can be defined
+ * @param optionalField
+ */
+const getValueOfOptionalField = (flag, optionalField) => {
+    return flag ? optionalField : null;
+}
+
 const formatPhoneNumber = (phoneNum) => {
     if (!phoneNum || phoneNum.toString().length !== 10 || typeof phoneNum !== 'number') {
         return '';
@@ -101,8 +110,11 @@ const getMemberAccountInfo = member => {
     }
 }
 
+
+
 module.exports = {
     getMailingAddress,
+    getValueOfOptionalField,
     formatPhoneNumber,
     getFilteredProfilesInformation,
     getMemberAccountInfo,

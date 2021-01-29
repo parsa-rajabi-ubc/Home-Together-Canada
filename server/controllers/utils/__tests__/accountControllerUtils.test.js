@@ -47,6 +47,19 @@ describe('accountControllerUtils', () => {
         });
     });
 
+    describe('getValueOfOptionalField', () => {
+        it.each`
+            flag    | optionalField | expected
+            ${true} | ${1}          | ${1}
+            ${true} | ${undefined}  | ${undefined}
+            ${false}| ${1}          | ${null}
+            ${false}| ${undefined}  | ${null}
+        `('returns $expected when $flag and optionalField are provided',
+            ({ flag, optionalField, expected }) => {
+                expect(accountControllerUtils.getValueOfOptionalField(flag, optionalField)).toEqual(expected)
+            });
+    });
+
     describe('formatPhoneNumber', () => {
         it('should return a formatted phone number given a valid phone number', () => {
             // expected result
