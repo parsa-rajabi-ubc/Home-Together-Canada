@@ -30,7 +30,7 @@ describe('SearchResultsContainer', () => {
             //given
             const data = MockProfileCardData;
             //when
-            const component = renderer.create(<SearchResultsContainer ProfileData={data}/>);
+            const component = renderer.create(<SearchResultsContainer profileData={data}/>);
             const tree = component.toJSON();
             //then
             expect(tree).toMatchSnapshot();
@@ -78,7 +78,7 @@ describe('SearchResultsContainer', () => {
                 }
             ];
             //when
-            const component = renderer.create(<SearchResultsContainer ProfileData={data}/>);
+            const component = renderer.create(<SearchResultsContainer profileData={data}/>);
             const tree = component.toJSON();
             //then
             expect(tree).toMatchSnapshot();
@@ -89,22 +89,10 @@ describe('SearchResultsContainer', () => {
             //given
             const data = [];
             //when
-            const component = renderer.create(<SearchResultsContainer ProfileData={data}/>);
+            const component = renderer.create(<SearchResultsContainer profileData={data}/>);
             const tree = component.toJSON();
             //then
             expect(tree).toMatchSnapshot();
         });
     });
-    describe('Container test', () => {
-        it('should match snapshot test with undefined data', () => {
-            //given
-            const data = undefined;
-            //when
-            const component = renderer.create(<SearchResultsContainer ProfileData={data}/>);
-            const tree = component.toJSON();
-            //then
-            expect(tree).toMatchSnapshot();
-        });
-    });
-
 });

@@ -59,7 +59,7 @@ const MemberSearchContainer = (props) => {
                         <button className={"btn btn-green w-1/5 py-2 ml-6 mb-6 text-base my-10"}
                                 onClick={toggleMenu}>Filter
                         </button>
-                        <SearchResultsContainer ProfileData={MockProfileCardData}/>
+                        <SearchResultsContainer profileData={MockProfileCardData}/>
                     </div>
 
 

@@ -90,7 +90,7 @@ describe('MemberSearchResults', () => {
                 }
             ]
             //when
-            const component = renderer.create(<MemberSearchResults ProfileData={data}/>);
+            const component = renderer.create(<MemberSearchResults profileData={data}/>);
             const tree = component.toJSON();
             //then
             expect(tree).toMatchSnapshot();
@@ -101,7 +101,7 @@ describe('MemberSearchResults', () => {
             //given
             const data = [];
             //when
-            const component = renderer.create(<MemberSearchResults ProfileData={data}/>);
+            const component = renderer.create(<MemberSearchResults profileData={data}/>);
             const tree = component.toJSON();
             //then
             expect(tree).toMatchSnapshot();

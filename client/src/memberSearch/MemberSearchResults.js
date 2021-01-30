@@ -13,31 +13,30 @@ import ProfileCard from "./ProfileCard";
 import PropTypes from "prop-types";
 
 function MemberSearchResults(props){
-    const {ProfileData} = props;
+    const {profileData} = props;
     const profiles = [];
-    for (let i = 0; i < ProfileData.length; i++) {
+    for (let i = 0; i < profileData.length; i++) {
         profiles.push(<ProfileCard key={i}
-                                   username={ProfileData[i].username}
-                                   age={ProfileData[i].age}
-                                   familyStatus={ProfileData[i].status}
-                                   minBudget={ProfileData[i].minRent}
-                                   maxBudget={ProfileData[i].maxRent}
-                                   pet={ProfileData[i].pet}
-                                   smoke={ProfileData[i].smoke}
-                                   religion={ProfileData[i].religion}
-                                   diet={ProfileData[i].diet}
+                                   username={profileData[i].username}
+                                   age={profileData[i].age}
+                                   familyStatus={profileData[i].status}
+                                   minBudget={profileData[i].minRent}
+                                   maxBudget={profileData[i].maxRent}
+                                   pet={profileData[i].pet}
+                                   smoke={profileData[i].smoke}
+                                   religion={profileData[i].religion}
+                                   diet={profileData[i].diet}
         />);
     }
-    const cardsToDisplay = profiles;
     return (
         <div>
-            {cardsToDisplay}
+            {profiles}
         </div>
     );
 }
 
 MemberSearchResults.propTypes = {
-    ProfileData: PropTypes.array
+    profileData: PropTypes.array.isRequired
 };
 
 export default MemberSearchResults;

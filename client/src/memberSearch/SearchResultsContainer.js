@@ -10,33 +10,31 @@ import React, {useState} from "react";
 import MemberSearchResults from "./MemberSearchResults";
 import NoResultsFound from "./NoResultsFound";
 import PropTypes from "prop-types";
-import {LimitResults} from "./memberSearchUtils/LimitResults";
+import {limitResults} from "./MemberSearchUtils";
+
+const NUM_RESULTS = 5;
+const START_INDEX = 0;
 
 function SearchResultsContainer(props) {
-    const {ProfileData} = props;
-    const [filteredResults,setFilteredResults] = useState([]);
-    const numOfResults = 5;
-
-    {/*Currently displays 5 result to mimic filtering*/}
-    if (ProfileData!==undefined && ProfileData.length>0 && filteredResults.length < numOfResults && filteredResults.length < ProfileData.length) {
-        (ProfileData.length>=numOfResults)
-            ? setFilteredResults(LimitResults(ProfileData,numOfResults))
-            : setFilteredResults(LimitResults(ProfileData,ProfileData.length))
-    }
+    const {profileData} = props;
+    //I left this as a state variable since it will inevitably be needed as one
+    const [filteredResults,setFilteredResults] = useState(profileData.length && profileData.length>=NUM_RESULTS
+        ? limitResults(profileData,NUM_RESULTS,START_INDEX)
+        : limitResults(profileData,profileData.length,START_INDEX));
 
     return (
         <div>
-            {(filteredResults.length<1)
+            {(!filteredResults.length)
                 //check for an empty list
                 ? <NoResultsFound/>
-                : <MemberSearchResults ProfileData={filteredResults}/>
+                : <MemberSearchResults profileData={filteredResults}/>
             }
         </div>
     );
 }
 
 SearchResultsContainer.propTypes = {
-    ProfileData: PropTypes.array
+    profileData: PropTypes.array.isRequired
 };
 
 export default SearchResultsContainer;

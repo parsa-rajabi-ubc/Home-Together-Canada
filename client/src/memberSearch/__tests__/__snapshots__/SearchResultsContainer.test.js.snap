@@ -2307,11 +2307,3 @@ exports[`SearchResultsContainer Container test should match snapshot test with a
   </div>
 </div>
 `;
-
-exports[`SearchResultsContainer Container test should match snapshot test with undefined data 1`] = `
-<div>
-  <div>
-    No Results found
-  </div>
-</div>
-`;
