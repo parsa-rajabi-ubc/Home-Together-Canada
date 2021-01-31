@@ -13,7 +13,7 @@ import Button from "../../common/forms/Button";
 
 function DeactivateAccount(props) {
 
-    const{memberAccountInfo, reasons, activate, isSelectReason,handleReasonsChange,activateAccount,deactivateActivatedAccount} = props;
+    const{activateStatus, reasons, activate, isSelectReason,handleReasonsChange,activateAccount,deactivateActivatedAccount} = props;
 
     return(
         <div>
@@ -28,7 +28,7 @@ function DeactivateAccount(props) {
     );
 }
 DeactivateAccount.propTypes = {
-    memberAccountInfo: PropTypes.object.isRequired,
+    activateStatus: PropTypes.bool.isRequired,
     reasons: PropTypes.string,
     activate: PropTypes.bool,
     isSelectReason: PropTypes.bool,

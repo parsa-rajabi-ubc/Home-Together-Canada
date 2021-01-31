@@ -10,19 +10,19 @@ import get from 'lodash/get';
 import DeactivateAccount from "./DeactivateAccount";
 import PropTypes from "prop-types";
 const DeactivateAccountContainer = (props)=>{
-    const {memberAccountInfo} = props;
+    const activateStatus = props;
     const [reasons, setReasons] = useState("");
-    const [activate, setActivate] = useState(get(memberAccountInfo,'activate',false));
-    const [isSelectReason, setisSelectReason] = useState(false);
+    const [activate, setActivate] = useState(activateStatus);
+    const [isSelectReason, setIsSelectReason] = useState(false);
 
     function handleReasonsChange(e) {
         setReasons(e.value);
-        setisSelectReason(true);
+        setIsSelectReason(true);
     }
 
     function activateAccount(){
         setActivate(true);
-        setisSelectReason(false);
+        setIsSelectReason(false);
         alert("Your account is activated!");
     }
 
@@ -45,7 +45,7 @@ const DeactivateAccountContainer = (props)=>{
 
     return(
         <DeactivateAccount
-            memberAccountInfo={memberAccountInfo}
+            activateStatus={activateStatus}
             activate={activate}
             isSelectReason ={isSelectReason}
             reasons = {reasons}
@@ -58,7 +58,7 @@ const DeactivateAccountContainer = (props)=>{
 
 }
 DeactivateAccountContainer.propTypes = {
-    memberAccountInfo: PropTypes.object.isRequired
+    activateStatus: PropTypes.bool.isRequired
 }
 
 export default DeactivateAccountContainer
