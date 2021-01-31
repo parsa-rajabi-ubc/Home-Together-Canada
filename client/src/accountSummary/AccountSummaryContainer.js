@@ -41,7 +41,7 @@ const AccountSummaryContainer = () => {
             case ALL_SUBPAGES.MANAGE_LISTINGS:
                 return <div>Manage Listings Component</div>
             case ALL_SUBPAGES.ACTIVATE_DEACTIVATE:
-                return accountType === USER_TYPES.MEMBER ? <DeactivateAccountContainer memberAccountInfo ={memberAccountInfo}/> : <Error404/>
+                return accountType === USER_TYPES.MEMBER ? <DeactivateAccountContainer activateStatus ={memberAccountInfo.activate}/> : <Error404/>
             case ALL_SUBPAGES.DELETE:
                 return <DeleteAccountContainer/>
             default:
