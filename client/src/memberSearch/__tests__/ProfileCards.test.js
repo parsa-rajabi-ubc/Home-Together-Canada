@@ -29,6 +29,7 @@ describe('ProfileCard', () => {
                 smoke: true,
                 religion: true,
                 diet: true,
+                hasHome: true
             };
             //when
             const component = renderer.create(<ProfileCard {...props}/>).toJSON();

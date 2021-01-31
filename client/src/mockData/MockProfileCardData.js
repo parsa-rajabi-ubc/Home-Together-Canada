@@ -18,6 +18,7 @@ const mockProfiles = [
         smoke: false,
         religion: false,
         diet: false,
+        hasHome: false
     },
     {
         username: "Babar",
@@ -30,6 +31,7 @@ const mockProfiles = [
         smoke: true,
         religion: true,
         diet: true,
+        hasHome: true
     },
     {
         username: "CREATINE",
@@ -42,6 +44,7 @@ const mockProfiles = [
         smoke: true,
         religion: true,
         diet: true,
+        hasHome: true
     },
     {
         username: "DonaldDuck",
@@ -54,6 +57,7 @@ const mockProfiles = [
         smoke: false,
         religion: true,
         diet: true,
+        hasHome: true
     },
     {
         username: "EusticeOfNarnia",
@@ -66,6 +70,7 @@ const mockProfiles = [
         smoke: false,
         religion: false,
         diet: true,
+        hasHome: false
     },
     {
         username: "Foxtrot",
@@ -78,6 +83,7 @@ const mockProfiles = [
         smoke: false,
         religion: true,
         diet: false,
+        hasHome: true
     },
     {
         username: "Grinch",
@@ -90,6 +96,7 @@ const mockProfiles = [
         smoke: true,
         religion: false,
         diet: false,
+        hasHome: false
     },
     {
         username: "Hydra",
@@ -102,6 +109,7 @@ const mockProfiles = [
         smoke: false,
         religion: false,
         diet: false,
+        hasHome: false
     },
     {
         username: "InnigoMontoya",
@@ -114,6 +122,7 @@ const mockProfiles = [
         smoke: true,
         religion: false,
         diet: false,
+        hasHome: false
     },
     {
         username: "JamesBond",
@@ -126,6 +135,7 @@ const mockProfiles = [
         smoke: true,
         religion: false,
         diet: true,
+        hasHome: false
     },
     {
         username: "Kirby",
@@ -138,6 +148,7 @@ const mockProfiles = [
         smoke: false,
         religion: false,
         diet: false,
+        hasHome: false
     },
     {
         username: "Link",
@@ -150,6 +161,7 @@ const mockProfiles = [
         smoke: true,
         religion: false,
         diet: false,
+        hasHome: true
     },
     {
         username: "Mario",
@@ -162,6 +174,7 @@ const mockProfiles = [
         smoke: true,
         religion: true,
         diet: false,
+        hasHome: true
     },
     {
         username: "Nero",
@@ -174,6 +187,7 @@ const mockProfiles = [
         smoke: true,
         religion: false,
         diet: false,
+        hasHome: true
     },
     {
         username: "OddDuck",
@@ -186,6 +200,7 @@ const mockProfiles = [
         smoke: true,
         religion: true,
         diet: true,
+        hasHome: true
     },
     {
         username: "PlatoInPerson",
@@ -198,6 +213,7 @@ const mockProfiles = [
         smoke: false,
         religion: false,
         diet: true,
+        hasHome: false
     },
     {
         username: "QWERTYworker",
@@ -210,6 +226,7 @@ const mockProfiles = [
         smoke: true,
         religion: false,
         diet: false,
+        hasHome: true
     },
     {
         username: "Rattata",
@@ -222,6 +239,7 @@ const mockProfiles = [
         smoke: true,
         religion: false,
         diet: false,
+        hasHome: false
     },
     {
         username: "Sierra",
@@ -234,6 +252,7 @@ const mockProfiles = [
         smoke: true,
         religion: false,
         diet: false,
+        hasHome: true
     },
     {
         username: "TooFriendly",
@@ -246,6 +265,7 @@ const mockProfiles = [
         smoke: true,
         religion: false,
         diet: false,
+        hasHome: false
     },
     {
         username: "UltimateRoomie123",
@@ -258,6 +278,7 @@ const mockProfiles = [
         smoke: true,
         religion: false,
         diet: false,
+        hasHome: true
     },
     {
         username: "Ventriloquist45",
@@ -270,6 +291,7 @@ const mockProfiles = [
         smoke: true,
         religion: false,
         diet: false,
+        hasHome: true
     },
     {
         username: "Wario",
@@ -282,6 +304,7 @@ const mockProfiles = [
         smoke: true,
         religion: false,
         diet: false,
+        hasHome: true
     },
     {
         username: "XenaThePrincess",
@@ -293,7 +316,8 @@ const mockProfiles = [
         pet: false,
         smoke: true,
         religion: false,
-        diet: false
+        diet: false,
+        hasHome: false
     },
     {
         username: "YogurtFanatic",
@@ -306,6 +330,7 @@ const mockProfiles = [
         smoke: true,
         religion: false,
         diet: false,
+        hasHome: true
     },
     {
         username: "Zelda995",
@@ -318,6 +343,7 @@ const mockProfiles = [
         smoke: true,
         religion: false,
         diet: false,
+        hasHome: false
     }
 ]
 
