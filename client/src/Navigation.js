@@ -24,6 +24,7 @@ import MemberSearchContainer from "./memberSearch/MemberSearchContainer";
 import CreateListingContainer from "./createListing/CreateListingContainer";
 import TermsOfService from "./termsOfService/TermsOfService";
 import PrivacyPolicy from "./termsOfService/PrivacyPolicy";
+import ScrollToTop from "./ScrollToTop";
 
 const Navigation = (props) => {
     const {authenticated, accountType} = props;
@@ -33,6 +34,7 @@ const Navigation = (props) => {
             <div>
                 <Header/>
                 {/* Matches the URL to the path and does not go through the rest of the routes*/}
+                <ScrollToTop/>
                 <Switch>
                     {/* Renders the correct component based on the URL*/}
                     <Route path={"/"} exact component={Home}/>
