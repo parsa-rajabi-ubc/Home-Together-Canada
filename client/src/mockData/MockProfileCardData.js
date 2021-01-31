@@ -289,7 +289,11 @@ const mockProfiles = [
         age: 40,
         status: "Single",
         minRent: 1100,
-        maxRent: 3550
+        maxRent: 3550,
+        pet: false,
+        smoke: true,
+        religion: false,
+        diet: false
     },
     {
         username: "YogurtFanatic",
