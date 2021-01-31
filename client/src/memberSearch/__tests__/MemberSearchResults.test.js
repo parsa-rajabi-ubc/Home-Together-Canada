@@ -39,6 +39,7 @@ describe('MemberSearchResults', () => {
                     smoke: false,
                     religion: false,
                     diet: false,
+                    hasHome: false
                 },
                 {
                     username: "Babar",
@@ -51,6 +52,7 @@ describe('MemberSearchResults', () => {
                     smoke: true,
                     religion: true,
                     diet: true,
+                    hasHome: true
                 },
                 {
                     username: "CREATINE",
@@ -63,6 +65,7 @@ describe('MemberSearchResults', () => {
                     smoke: true,
                     religion: true,
                     diet: true,
+                    hasHome: true
                 },
                 {
                     username: "DonaldDuck",
@@ -75,6 +78,7 @@ describe('MemberSearchResults', () => {
                     smoke: false,
                     religion: true,
                     diet: true,
+                    hasHome: true
                 },
                 {
                     username: "EusticeOfNarnia",
@@ -87,6 +91,7 @@ describe('MemberSearchResults', () => {
                     smoke: false,
                     religion: false,
                     diet: true,
+                    hasHome: false
                 }
             ]
             //when

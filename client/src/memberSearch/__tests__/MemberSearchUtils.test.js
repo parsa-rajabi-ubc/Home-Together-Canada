@@ -30,6 +30,7 @@ describe('isStringEmpty function', () => {
                     smoke: false,
                     religion: false,
                     diet: false,
+                    hasHome: false
                 },
                 {
                     username: "Babar",
@@ -42,6 +43,7 @@ describe('isStringEmpty function', () => {
                     smoke: true,
                     religion: true,
                     diet: true,
+                    hasHome: true
                 },
                 {
                     username: "CREATINE",
@@ -54,6 +56,7 @@ describe('isStringEmpty function', () => {
                     smoke: true,
                     religion: true,
                     diet: true,
+                    hasHome: true
                 },
                 {
                     username: "DonaldDuck",
@@ -66,6 +69,7 @@ describe('isStringEmpty function', () => {
                     smoke: false,
                     religion: true,
                     diet: true,
+                    hasHome: true
                 },
                 {
                     username: "EusticeOfNarnia",
@@ -78,6 +82,7 @@ describe('isStringEmpty function', () => {
                     smoke: false,
                     religion: false,
                     diet: true,
+                    hasHome: false
                 }
             ];
             //then
@@ -97,6 +102,7 @@ describe('isStringEmpty function', () => {
                     smoke: false,
                     religion: false,
                     diet: false,
+                    hasHome: false
                 },
                 {
                     username: "Babar",
@@ -109,6 +115,7 @@ describe('isStringEmpty function', () => {
                     smoke: true,
                     religion: true,
                     diet: true,
+                    hasHome: true
                 },
                 {
                     username: "CREATINE",
@@ -121,6 +128,7 @@ describe('isStringEmpty function', () => {
                     smoke: true,
                     religion: true,
                     diet: true,
+                    hasHome: true
                 }
             ];
             const limit = 3;
@@ -139,6 +147,7 @@ describe('isStringEmpty function', () => {
                     smoke: false,
                     religion: false,
                     diet: false,
+                    hasHome: false
                 },
                 {
                     username: "Babar",
@@ -151,6 +160,7 @@ describe('isStringEmpty function', () => {
                     smoke: true,
                     religion: true,
                     diet: true,
+                    hasHome: true
                 },
                 {
                     username: "CREATINE",
@@ -163,6 +173,7 @@ describe('isStringEmpty function', () => {
                     smoke: true,
                     religion: true,
                     diet: true,
+                    hasHome: true
                 }
             ];
             //then
@@ -182,6 +193,7 @@ describe('isStringEmpty function', () => {
                     smoke: false,
                     religion: false,
                     diet: false,
+                    hasHome: false
                 },
                 {
                     username: "Babar",
@@ -194,6 +206,7 @@ describe('isStringEmpty function', () => {
                     smoke: true,
                     religion: true,
                     diet: true,
+                    hasHome: true
                 },
                 {
                     username: "CREATINE",
@@ -206,6 +219,7 @@ describe('isStringEmpty function', () => {
                     smoke: true,
                     religion: true,
                     diet: true,
+                    hasHome: true
                 },
                 {
                     username: "DonaldDuck",
@@ -218,6 +232,7 @@ describe('isStringEmpty function', () => {
                     smoke: false,
                     religion: true,
                     diet: true,
+                    hasHome: true
                 },
                 {
                     username: "EusticeOfNarnia",
@@ -230,6 +245,7 @@ describe('isStringEmpty function', () => {
                     smoke: false,
                     religion: false,
                     diet: true,
+                    hasHome: false
                 },
                 {
                     username: "Foxtrot",
@@ -242,6 +258,7 @@ describe('isStringEmpty function', () => {
                     smoke: false,
                     religion: true,
                     diet: false,
+                    hasHome: true
                 },
                 {
                     username: "Grinch",
@@ -254,6 +271,7 @@ describe('isStringEmpty function', () => {
                     smoke: true,
                     religion: false,
                     diet: false,
+                    hasHome: false
                 }
             ];
             const limit = 4;
@@ -272,6 +290,7 @@ describe('isStringEmpty function', () => {
                     smoke: false,
                     religion: true,
                     diet: false,
+                    hasHome: true
                 },
                 {
                     username: "Grinch",
@@ -284,6 +303,7 @@ describe('isStringEmpty function', () => {
                     smoke: true,
                     religion: false,
                     diet: false,
+                    hasHome: false
                 }
             ];
             //then
