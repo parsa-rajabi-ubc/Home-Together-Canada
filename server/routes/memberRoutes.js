@@ -15,6 +15,10 @@ const usersValidator = require('../controllers/validators/userControllerValidato
 const memberAccounts = require('../controllers/memberAccountController');
 const abstractUsers = require('../controllers/abstractUserController');
 const accountUtils = require('../controllers/utils/accountControllerUtils');
+const livesWith = require('../controllers/livesWithController');
+const areasOfInterest = require('../controllers/areaOfInterestController');
+const { getRoommatesUsernames } = require('../controllers/utils/statusUtils');
+const { getListOfAreaOfInterestObjects } = require('../controllers/utils/areaOfInterestUtils');
 const { isLoggedIn, userIsMember } = require('./routeUtils');
 
 
@@ -64,23 +68,124 @@ router.get('/info/',
             });
     });
 
+
+router.post('/info/update/',
+    isLoggedIn,
+    userIsMember,
+    usersValidator.validate('updateMemberAccountInfo'),
+    function (req, res, next) {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            res.status(202).json({ errors: errors.array()});
+        } else {
+            abstractUsers.updateAbstractUser(req, res)
+                .then(abstractUser => {
+                    if (abstractUser.length) {
+                        res.status(200).json({ success: true });
+                    } else {
+                        res.status(500).json({ success: false });
+                    }
+                })
+                .catch(err => {
+                    res.status(500).json({ err: err.message });
+                })
+        }
+    }
+);
+
+router.post('/profile/status/update/',
+    isLoggedIn,
+    userIsMember,
+    usersValidator.validate('updateMemberStatus'),
+    function (req, res, next) {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            res.status(202).json({ errors: errors.array()});
+        } else {
+            memberAccounts.updateMemberStatusAndRoommates(req)
+                .then(response => res.json({...response}));
+        }
+    }
+);
+
+router.post('/profile/areasOfInterest/update/',
+    isLoggedIn,
+    userIsMember,
+    usersValidator.validate('updateMemberAreasOfInterest'),
+    function (req, res, next) {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            res.status(202).json({ errors: errors.array()});
+        } else {
+            memberAccounts.updateMemberAreaOfInterest(req)
+                .then(response => {
+                    res.json({...response});
+                })
+        }
+    }
+);
+
+router.post('/profile/update',
+    isLoggedIn,
+    userIsMember,
+    usersValidator.validate('updateMemberProfile'),
+    function (req, res, next) {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            res.status(202).json({ errors: errors.array()});
+        } else {
+            memberAccounts.updateMemberProfile(req, req.user.uid)
+                .then(data => {
+                    if (data.length) {
+                        res.status(200).json({ success: true });
+                    } else {
+                        res.status(200).json({ success: false });
+                    }
+                })
+        }
+    }
+);
+
 router.get('/profile/',
     isLoggedIn,
     userIsMember,
     function (req, res, next) {
+        let member = {};
         memberAccounts.findMemberAccountByUid(req.user.uid)
-            .then(member => {
-                const profile = {
-                    ...accountUtils.getProfile(member.dataValues),
-                    username: req.user.username
-                };
-                res.status(200).json({ profile });
+            .then(memberAccount => {
+                member = {
+                    profile: {
+                        ...accountUtils.getProfile(memberAccount.dataValues),
+                        username: req.user.username
+                    }
+                }
+                return livesWith.findMemberRoommatesInfo(req.user.uid)
+            })
+            .then(roommates => {
+                member = {
+                    ...member,
+                    roommates: getRoommatesUsernames(roommates)
+                }
+                return areasOfInterest.findAreasOfInterestForUser(req.user.uid);
+            })
+            .then(areasOfInterest => {
+                member = {
+                    ...member,
+                    areasOfInterest: getListOfAreaOfInterestObjects(areasOfInterest)
+                }
+
+                res.status(200).json({ member });
             })
             .catch(err => {
                 res.status(500).json({ err: err.message });
             })
     }
-    )
+);
+
 
 router.post('/search/profiles/',
     isLoggedIn,
@@ -102,7 +207,8 @@ router.post('/search/profiles/',
                     res.status(500).json({ msg: 'Something went wrong while filtering' });
                 })
         }
-    })
+    });
+
 
 module.exports = router;
 

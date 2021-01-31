@@ -40,12 +40,19 @@ const createAbstractUser = (req, res) => {
 
 const findAbstractUser = (id) => AbstractUser.findByPk(id);
 
-const findUserByUsername = (username) =>
+const findUsersByUsernames = (usernames) =>
     AbstractUser.findAll({
+        where: {
+            username: usernames
+        }
+    });
+
+const findUserByUsername = username =>
+    AbstractUser.findOne({
         where: {
             username: username
         }
-    });
+    })
 
 const findUserByEmail = (email) =>
     AbstractUser.findAll({
@@ -104,6 +111,7 @@ module.exports = {
     findAllAbstractUsers,
     findAbstractUser,
     findUserByUsername,
+    findUsersByUsernames,
     findUserByEmail,
     changePassword,
     updateAbstractUser

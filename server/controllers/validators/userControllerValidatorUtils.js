@@ -10,6 +10,7 @@ const abstractUserController = require('../abstractUserController');
 const memberAccountController = require('../memberAccountController');
 const PasswordService = require('../../services/PasswordService');
 const {isCanadianPostalCode} = require('../utils/locationUtils');
+const {STATUS} = require('../../constants/memberConstants');
 
 const PROVINCES = [
     'AB',
@@ -34,11 +35,11 @@ const GENDERS = [
 ];
 
 const STATUSES = [
-    'Single',
-    'Couple',
-    'Couple With Children',
-    'Single Parent',
-    'Existing Group'
+    STATUS.SINGLE,
+    STATUS.COUPLE,
+    STATUS.COUPLE_WITH_CHILDREN,
+    STATUS.SINGLE_PARENT,
+    STATUS.EXISTING_GROUP
 ];
 
 const SHARE_LIMITS = [1, 2, 3, 4, -1];  // -1 means any number of people
@@ -79,7 +80,6 @@ const isValidPhoneNumber = (phoneNum) => {
 const isValidCanadianPostalCode = (postalCode) => {
     const regex = RegExp('^([A-Za-z]\\d[A-Za-z][-]?\\d[A-Za-z]\\d)');
     if (!regex.test(postalCode)) {
-        console.log(postalCode, ' is an invalid postal code');``
         throw new Error('Invalid postal code');
     } else {
         return true;
@@ -222,7 +222,7 @@ const isValidAreasOfInterest = (areasOfInterest) => {
 const usernameShouldNotAlreadyExist = (username) =>
     abstractUserController.findUserByUsername(username)
         .then(user => {
-            if (user.length) {
+            if (user) {
                 return Promise.reject('User already exists');
             }
         });
@@ -230,7 +230,6 @@ const usernameShouldNotAlreadyExist = (username) =>
 const emailShouldNotAlreadyBeInUse = (email) =>
     abstractUserController.findUserByEmail(email)
         .then(user => {
-            console.log('user: ', user);
             if (user.length) {
                 return Promise.reject('Email already in use');
             }
@@ -248,7 +247,7 @@ const updatedEmailShouldNotAlreadyBeInUse = (email, req) => {
 const usernameShouldExist = (username) =>
     abstractUserController.findUserByUsername(username)
         .then(user => {
-            if (!user.length) {
+            if (!user) {
                 return Promise.reject('Username does not exist');
             }
         });
@@ -305,9 +304,8 @@ const providedNewPasswordShouldNotMatchExistingPassword = (password, uid) => {
 
 const correctPasswordForUsername = (username, password) =>
     abstractUserController.findUserByUsername(username)
-        .then(users => {
-            if (users.length) {
-                const user = users[0].dataValues;
+        .then(user => {
+            if (user) {
                 const hashedPassword = PasswordService.getHashedPassword(password, user.salt);
 
                 if (hashedPassword !== user.password) {

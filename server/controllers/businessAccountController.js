@@ -5,8 +5,6 @@
  * @Description: controller functions for BusinessAccount model
  *
  */
-const {Op} = require('sequelize');
-
 const db = require("../models");
 const { formatPhoneNumber } = require('./utils/accountControllerUtils');
 const BusinessAccount = db.businessAccount;

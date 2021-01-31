@@ -2,7 +2,6 @@ import React from 'react';
 import renderer from 'react-test-renderer'
 import BusinessRegistrationForm from "../BusinessRegistrationForm";
 import { BrowserRouter as Router } from 'react-router-dom';
-import MemberRegistrationForm from "../MemberRegistrationForm";
 
 
 jest.mock("react-tooltip/node_modules/uuid", () => ({

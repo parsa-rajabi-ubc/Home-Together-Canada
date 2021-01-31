@@ -12,14 +12,46 @@ const AreaOfInterest = db.areaOfInterest;
 const createAreaOfInterest = (areaOfInterest, uid) => {
 
     // TODO: add geocoding to determine lat. and long. coordinates
-    const areaOfInterstEntry = {
+    const areaOfInterestEntry = {
         uid: uid,
         province: areaOfInterest.province,
         city: areaOfInterest.city,
         radius: areaOfInterest.radius
     }
 
-    return AreaOfInterest.create(areaOfInterstEntry);
+    return AreaOfInterest.create(areaOfInterestEntry);
+}
+
+const updateAreaOfInterest = (areaOfInterest, uid) => {
+    return AreaOfInterest.update(
+        {
+            province: areaOfInterest.province,
+            city: areaOfInterest.city,
+            radius: areaOfInterest.radius
+        },
+        {
+            where: { uid: uid }
+        }
+    );
+}
+
+const deleteAreaOfInterest = (areaOfInterest, uid) => {
+    return AreaOfInterest.destroy({
+        where: {
+            uid: uid,
+            province: areaOfInterest.province,
+            city: areaOfInterest.city,
+            radius: areaOfInterest.radius
+        }
+    });
+}
+
+const findAreasOfInterestForUser = uid => {
+    return AreaOfInterest.findAll({
+        where: {
+            uid: uid
+        }
+    });
 }
 
 const findAllAreasOfInterestsForAllUsers = (req, res) => {
@@ -32,5 +64,8 @@ const findAllAreasOfInterestsForAllUsers = (req, res) => {
 
 module.exports = {
     createAreaOfInterest,
-    findAllAreasOfInterestsForAllUsers
+    findAllAreasOfInterestsForAllUsers,
+    updateAreaOfInterest,
+    deleteAreaOfInterest,
+    findAreasOfInterestForUser
 }

@@ -72,11 +72,11 @@ module.exports = function (passport) {
                     if (req.body.partnerUsername) {
                         abstractUserController.findUserByUsername(req.body.partnerUsername)
                             .then(partnerUser => {
-                                if (partnerUser.length) {
-                                    memberAccount.addRoommate(partnerUser[0].uid,
+                                if (partnerUser) {
+                                    memberAccount.addRoommate(partnerUser.uid,
                                         {
                                             through: {
-                                                relationship: 'partner'
+                                                relationship: req.body.status
                                             }
                                         });
                                 }
@@ -86,10 +86,10 @@ module.exports = function (passport) {
                         req.body.existingGroupUsernames.forEach(username => {
                             abstractUserController.findUserByUsername(username)
                                 .then(roommate => {
-                                    memberAccount.addRoommate(roommate[0].uid,
+                                    memberAccount.addRoommate(roommate.uid,
                                         {
                                             through: {
-                                                relationship: 'roommate'
+                                                relationship: req.body.status
                                             }
                                         });
                                 });
