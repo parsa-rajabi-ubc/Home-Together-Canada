@@ -11,8 +11,9 @@ import Menu from 'react-burger-menu/lib/menus/slide';
 
 
 const BurgerMenu = (props) => {
-    const {isOpen, onClose, content, disableExistOnClickAway} = props;
+    const {isOpen, onClose, content} = props;
 
+    // Code needed to change the background colour of the main body once they menu is visible
     const styles = {
         bmOverlay: {
             background: 'transparent'
@@ -23,7 +24,6 @@ const BurgerMenu = (props) => {
         //https://github.com/negomi/react-burger-menu
         <Menu
             styles={ styles }
-            // disableOverlayClick = {disableExistOnClickAway}
             width={"30%"}
             disableAutoFocus
             itemListElement="div"
@@ -40,7 +40,6 @@ const BurgerMenu = (props) => {
 
 BurgerMenu.propTypes = {
     isOpen: PropTypes.bool,
-    disableExistOnClickAway: PropTypes.bool,
     onClose: PropTypes.func,
     content: PropTypes.element
 };
