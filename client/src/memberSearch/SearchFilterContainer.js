@@ -11,10 +11,7 @@ import PropTypes from "prop-types";
 import SearchFilter from "./SearchFilter";
 import {isValueInArray} from "../common/utils/generalUtils";
 import get from "lodash/get";
-import {
-    checkIfErrorsExistInMapping,
-    validateMinMaxFilter
-} from "../registration/registrationUtils";
+import {checkIfErrorsExistInMapping, validateMinMaxFilter} from "../registration/registrationUtils";
 import memberAccountInfo from "../accountSummary/member/MockData";
 import indexOf from "lodash/indexOf";
 
@@ -51,10 +48,6 @@ const SearchFilterContainer = (props) => {
     // Budget
     const [minBudgetPreferenceError, setMinBudgetPreferenceError] = useState(undefined);
     const [maxBudgetPreferenceError, setMaxBudgetPreferenceError] = useState(undefined);
-
-
-    const [disableOverlayClick, setDisableOverlayClick] = useState(false);
-
 
 
     useEffect(() => {
@@ -122,10 +115,30 @@ const SearchFilterContainer = (props) => {
     }
 
     function onSubmit() {
-        if (isFormValid()){
+        if (isFormValid()) {
             toggleSidebar();
-        } else{
-            setDisableOverlayClick(true);
+        }
+        // else form is valid and proceed to make request
+
+        //TODO: Update Filter Based on Results
+        const filteringData = {
+            // member search preferences
+            minAgePreference: minAgePreference,
+            maxAgePreference: maxAgePreference,
+
+            minBudgetPreference: minBudgetPreference,
+            maxBudgetPreference: maxBudgetPreference,
+
+            statusPreference: familyStatusPreference,
+            numRoommatesPreference: selectedLimitPreference,
+
+            dietPreference: dietPreference,
+            petsPreference: petPreference,
+            smokingPreference: smokingPreference,
+            genderPreference: genderPreference,
+            religionPreference: religionPreference,
+            othersWithHomeToSharePreference: homeToSharePreference,
+
         }
     }
 
