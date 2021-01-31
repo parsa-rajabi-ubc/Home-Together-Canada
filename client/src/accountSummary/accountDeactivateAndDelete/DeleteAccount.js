@@ -5,31 +5,14 @@
  * @Description: Delete Account
  *
  */
-
 import React, {useState} from "react";
-import get from 'lodash/get';
 import Checkbox from "../../common/forms/Checkbox";
 import PropTypes from "prop-types";
 import Button from "../../common/forms/Button";
-import { useHistory } from "react-router-dom";
 
 function DeleteAccount(props) {
 
-    const {accountInfo} = props;
-    const history = useHistory();
-
-    const [deleteAccount, setDeleteAccount] = useState(get(accountInfo,'deleteAccount',false))
-    const [confirm, setConfirm] = useState(false)
-
-    function handleDeleteAccount(e){
-        if(confirm === true){
-            setDeleteAccount(e.value = true);
-            alert("Your Account is deleted");
-            return history.push('/');
-        }else{
-            alert("Please confirm the checkbox below!");
-        }
-    }
+    const{confirm, setConfirm, handleDeleteAccount} = props
 
     return(
         <div>
@@ -44,7 +27,9 @@ function DeleteAccount(props) {
     );
 }
 DeleteAccount.propTypes = {
-    accountInfo: PropTypes.object
+    confirm: PropTypes.bool,
+    setConfirm: PropTypes.bool,
+    handleDeleteAccount: PropTypes.func
 }
 
 export default DeleteAccount
