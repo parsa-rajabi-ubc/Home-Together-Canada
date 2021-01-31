@@ -169,11 +169,12 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
             />
           </section>
           <div>
-            <label
-              className="label"
-            >
-              Phone Number
-                
+            <label>
+              <label
+                className="label"
+              >
+                Phone Number
+              </label>
               <svg
                 className="inline align-top text-red-600"
                 fill="none"

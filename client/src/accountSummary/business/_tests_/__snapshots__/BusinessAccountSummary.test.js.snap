@@ -283,11 +283,12 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
             />
           </section>
           <div>
-            <label
-              className="label "
-            >
-              Business Phone Number
-                
+            <label>
+              <label
+                className="label "
+              >
+                Business Phone Number
+              </label>
               <svg
                 className="inline align-top text-red-600"
                 fill="none"
@@ -346,11 +347,12 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
             </label>
           </div>
           <div>
-            <label
-              className="label"
-            >
-              Business Cell Number
-                
+            <label>
+              <label
+                className="label"
+              >
+                Business Cell Number
+              </label>
               <svg
                 className="inline align-top text-red-600"
                 fill="none"
@@ -1618,11 +1620,12 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
           className="column-span-6-layout"
         >
           <div>
-            <label
-              className="label"
-            >
-              Personal Phone Number
-                
+            <label>
+              <label
+                className="label"
+              >
+                Personal Phone Number
+              </label>
               <svg
                 className="inline align-top text-red-600"
                 fill="none"

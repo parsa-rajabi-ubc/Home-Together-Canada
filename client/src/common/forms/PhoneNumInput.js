@@ -16,8 +16,11 @@ function PhoneNumInput(props){
     // Updated autoComplete based on: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
     return(
         <div>
-            <label className={labelClassName}>
-                {label}  {(required ? <Asterisk/> : '')}
+            <label>
+                <label className={labelClassName}>
+                    {label}
+                </label>
+                    {(required ? <Asterisk/> : '')}
                 <br/>
                 <input className={className} type="text" autoComplete="tel-area-code"
                        name="first" placeholder="222" value={get(value, 'first', undefined)} onChange= {onChange} maxLength="3"/>
