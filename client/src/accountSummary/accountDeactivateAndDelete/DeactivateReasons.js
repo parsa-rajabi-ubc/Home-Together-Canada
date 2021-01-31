@@ -17,22 +17,22 @@ function DeactivateReasons(props) {
 
     REASONS.push({
             label: "Have found people to share with, am not able to find people",
-            value: 1
+            value: "Have found people to share with, am not able to find people"
         }
     )
     REASONS.push({
             label: "Will be away for a while",
-            value: 2
+            value: "Will be away for a while"
         }
     )
     REASONS.push({
-            label: "Have changed my mind. I do not want to share, other",
-            value: 3
+            label: "Have changed my mind. I do not want to share",
+            value: "Have changed my mind. I do not want to share"
         }
     )
     REASONS.push({
             label: "Other",
-            value: 4
+            value: "Other"
         }
     )
 

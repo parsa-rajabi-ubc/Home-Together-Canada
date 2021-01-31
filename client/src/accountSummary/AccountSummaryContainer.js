@@ -17,8 +17,8 @@ import MemberProfileSummary from "./member/MemberProfileSummary";
 import BusinessAccountSummaryContainer from "./business/BusinessAccountSummaryContainer";
 import Error404 from "../common/error/Error404";
 import SearchCriteriaContainer from "./member/SearchCriteriaContainer";
-import DeactivateAccount from "./accountDeactivateAndDelete/DeactivateAccount";
-import DeleteAccount from "./accountDeactivateAndDelete/DeleteAccount"
+import DeactivateAccountContainer from './accountDeactivateAndDelete/DeactivateAccountContainer'
+import DeleteAccountContainer from "./accountDeactivateAndDelete/DeleteAccountContainer";
 
 const AccountSummaryContainer = () => {
     const {accountType, selected} = useLocation().state;
@@ -42,9 +42,9 @@ const AccountSummaryContainer = () => {
             case ALL_SUBPAGES.MANAGE_LISTINGS:
                 return <div>Manage Listings Component</div>
             case ALL_SUBPAGES.ACTIVATE_DEACTIVATE:
-                return accountType === USER_TYPES.MEMBER ? <DeactivateAccount memberAccountInfo ={memberAccountInfo}/> : <Error404/>
+                return accountType === USER_TYPES.MEMBER ? <DeactivateAccountContainer memberAccountInfo ={memberAccountInfo}/> : <Error404/>
             case ALL_SUBPAGES.DELETE:
-                return <DeleteAccount accountInfo = {memberAccountInfo}/>
+                return <DeleteAccountContainer/>
             default:
                 return accountType === USER_TYPES.MEMBER
                     ? <MemberAccountSummary memberAccountInfo={memberAccountInfo }/>

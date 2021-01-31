@@ -6,7 +6,7 @@
  *
  */
 
- const memberAccountInfo  = {
+ export const memberAccountInfo  = {
     //account
     activate: false,
     firstName: "mockFN",
