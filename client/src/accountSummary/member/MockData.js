@@ -6,7 +6,7 @@
  *
  */
 
- const memberAccountInfo  = {
+const memberAccountInfo = {
     //account
     firstName: "mockFN",
     lastName: "mockLN",
@@ -30,8 +30,8 @@
     },
 
     //profile
-    gender: "Female",
-    genderDescription: "",
+    gender: "Other",
+    genderDescription: "I am potato",
     petFriendly: true,
     petDescription: "have dogs",
     smoking: true,
@@ -45,22 +45,29 @@
     isDietImportant: false,
     dietDescription: "",
     hasHomeToShare: false,
-    hasHomeToShareDescription: "",
+    hasHomeToShareDescription: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
     interestInBuyingHome: false,
     interestDescription: "",
     minRent: "800",
     maxRent: "1700",
-    aboutSelf: "I like to type as little as possible",
+    aboutSelf: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
     selectedLimit: 3,
     selectedFamilyStatus: "Couple",
     selectedWorkStatus: "Retired",
-    partner: "John123",
-    groupMembers: "",
-    areasOfInterest: [{
-        province: "AB",
-        city: "Edmonton",
-        radius: 50
-    }],
+    partner: "Babar",
+    roommates: ["DonaldDuck", "EusticeOfNarnia"],
+    areasOfInterest: [
+        {
+            province: "AB",
+            city: "Edmonton",
+            radius: 50
+        },
+        {
+            province: "BC",
+            city: "Kelowna",
+            radius: 50
+        }
+    ],
 
     // Search Criteria
     minAgePreference: 20,
@@ -68,7 +75,7 @@
     minBudgetPreference: 700,
     maxBudgetPreference: 1200,
     statusPreference: ["Single", "Couple", "Single Parent"],
-    numRoommatesPreference: [1,2,3],
+    numRoommatesPreference: [1, 2, 3],
     dietPreference: true,
     petsPreference: false,
     smokingPreference: true,
