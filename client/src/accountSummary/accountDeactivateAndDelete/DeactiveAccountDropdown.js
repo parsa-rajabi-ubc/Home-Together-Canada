@@ -10,31 +10,27 @@ import React from 'react';
 import Dropdown from "../../common/forms/Dropdown";
 import propTypes from "prop-types";
 
-function DeactivateReasons(props) {
+function DeactiveAccountDropdown(props) {
     const {givenReason, onChange} = props;
     const initialSelection = (givenReason && {label: givenReason, value: givenReason}) || undefined;
-    const REASONS = [];
-
-    REASONS.push({
+    const REASONS = [
+        {
             label: "Have found people to share with, am not able to find people",
             value: "Have found people to share with, am not able to find people"
-        }
-    )
-    REASONS.push({
+        },
+        {
             label: "Will be away for a while",
             value: "Will be away for a while"
-        }
-    )
-    REASONS.push({
+        },
+        {
             label: "Have changed my mind. I do not want to share",
             value: "Have changed my mind. I do not want to share"
-        }
-    )
-    REASONS.push({
+        },
+        {
             label: "Other",
             value: "Other"
         }
-    )
+    ]
 
     return (
         // Updated autoComplete based on: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
@@ -52,9 +48,9 @@ function DeactivateReasons(props) {
     )
 }
 
-DeactivateReasons.propTypes = {
-    givenReason: propTypes.number,
-    onChange: propTypes.func,
+DeactiveAccountDropdown.propTypes = {
+    givenReason: propTypes.string.isRequired,
+    onChange: propTypes.func.isRequired,
 };
 
-export default DeactivateReasons;
+export default DeactiveAccountDropdown;

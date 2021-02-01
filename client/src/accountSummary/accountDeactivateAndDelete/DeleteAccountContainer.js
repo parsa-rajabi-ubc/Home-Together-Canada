@@ -45,11 +45,6 @@ const DeleteAccountContainer = (props)=>{
         }
     }
 
-    // this will be used to hook on DB in the future
-    const deleteAccount = ()  => {
-
-    }
-
     return(
         <DeleteAccount
             confirm = {confirm}
