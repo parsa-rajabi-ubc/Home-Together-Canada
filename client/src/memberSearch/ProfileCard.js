@@ -43,7 +43,6 @@ function ProfileCard(props) {
                 <section> {familyStatus} </section>
                 <section> ${minBudget} - {maxBudget} </section>
             </div>
-
         </section>
     );
 }
