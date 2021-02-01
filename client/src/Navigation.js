@@ -25,6 +25,7 @@ import CreateListingContainer from "./createListing/CreateListingContainer";
 import TermsOfService from "./termsOfService/TermsOfService";
 import PrivacyPolicy from "./termsOfService/PrivacyPolicy";
 import ScrollToTop from "./ScrollToTop";
+import ProfilePageContainer from "./memberSearch/profilePage/ProfilePageContainer";
 
 const Navigation = (props) => {
     const {authenticated, accountType} = props;
@@ -42,6 +43,9 @@ const Navigation = (props) => {
                     <Route path={"/registration/business"} component={BusinessRegistration}/>
                     <Route path={"/registration/member"} component={MemberRegistrationForm}/>
                     <Route path={"/registration"} component={MainLandingPage}/>
+                    <Route path={"/members/:username"}>
+                        <ProfilePageContainer/>
+                    </Route>
                     <Route path={"/members"} component={MemberSearchContainer}/>
                     <Route path={"/create-listing"} component={CreateListingContainer}/>
                     {(authenticated && accountType !== USER_TYPES.UNREGISTERED) &&
