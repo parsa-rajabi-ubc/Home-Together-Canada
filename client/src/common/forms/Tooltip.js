@@ -16,9 +16,9 @@ function Tooltip(props) {
     const {text, toolTipID, customIcon} = props;
     return (
         <span>
-        <a data-tip data-for={toolTipID}>
+        <span data-tip data-for={toolTipID}>
             {customIcon ? customIcon :  <BsFillQuestionSquareFill className={"inline ml-1 mb-1 text-blue-500 hover:text-blue-400"}/>}
-        </a>
+        </span>
         <ReactTooltip id={toolTipID} type={"dark"} effect="solid">
             {text}
         </ReactTooltip>
