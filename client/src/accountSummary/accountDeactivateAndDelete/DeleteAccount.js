@@ -5,7 +5,7 @@
  * @Description: Delete Account
  *
  */
-import React, {useState} from "react";
+import React from "react";
 import Checkbox from "../../common/forms/Checkbox";
 import PropTypes from "prop-types";
 import Button from "../../common/forms/Button";
@@ -27,9 +27,9 @@ function DeleteAccount(props) {
     );
 }
 DeleteAccount.propTypes = {
-    confirm: PropTypes.bool,
-    setConfirm: PropTypes.bool,
-    handleDeleteAccount: PropTypes.func
+    confirm: PropTypes.bool.isRequired,
+    setConfirm: PropTypes.bool.isRequired,
+    handleDeleteAccount: PropTypes.func.isRequired
 }
 
 export default DeleteAccount

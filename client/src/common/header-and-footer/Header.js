@@ -48,6 +48,8 @@ const Header = (props) => {
             })
     }
 
+    // TODO: save active status to redux store and conditionally show "Activate Account" and "Deactivate Account" based on the status
+
     const dropdownOptions = accountType === USER_TYPES.MEMBER
         ? [...MEMBER_SUBPAGES, {label: 'Logout', value: 'Logout'}]
         : [...BUSINESS_SUBPAGES, {label: 'Logout', value: 'Logout'}];
