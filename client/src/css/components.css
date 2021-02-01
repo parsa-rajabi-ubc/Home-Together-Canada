@@ -7,6 +7,7 @@
 @import "../accountSummary/accountSummary.css";
 @import "../termsOfService/TermsOfService.css";
 @import "../memberSearch/ProfileCard.css";
+@import "../memberSearch/profilePage/ProfilePage.css";
 
 .btn {
     @apply items-center justify-center w-full px-8 py-3 text-lg text-white transition duration-150 ease-in-out border border-transparent rounded-md;
@@ -37,11 +38,11 @@
 }
 
 .btn-red {
-    @apply bg-ired-normal;
+    @apply bg-red-600;
 }
 
 .btn-red:hover {
-    @apply bg-ired-dark;
+    @apply bg-red-700;
 }
 
 .btn-red:active {
