@@ -1,0 +1,19 @@
+.gray-border {
+    @apply border-b-2 border-gray-400;
+}
+
+.checkmark-icon {
+    @apply ml-2 text-2xl text-green-600;
+}
+
+.ex-icon {
+    @apply ml-2 text-2xl text-red-600;
+}
+
+.table-item {
+    @apply p-3 pl-2 text-left;
+}
+
+.table-item-description {
+    @apply pr-4 font-light;
+}
