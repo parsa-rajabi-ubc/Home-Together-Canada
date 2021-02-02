@@ -190,6 +190,6 @@ const SearchFilterContainer = (props) => {
 }
 
 SearchFilterContainer.propTypes = {
-    toggleSidebar: PropTypes.func,
+    toggleSidebar: PropTypes.func.isRequired,
 };
 export default SearchFilterContainer;
