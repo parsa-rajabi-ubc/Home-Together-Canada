@@ -11,7 +11,7 @@ exports[`BurgerMenu Snapshot test should render correctly regardless of properti
         "MsTransform": "translate3d(100%, 0, 0)",
         "OTransform": "translate3d(100%, 0, 0)",
         "WebkitTransform": "translate3d(100%, 0, 0)",
-        "background": "rgba(0, 0, 0, 0.3)",
+        "background": "transparent",
         "height": "100%",
         "opacity": 0,
         "position": "fixed",
@@ -43,7 +43,7 @@ exports[`BurgerMenu Snapshot test should render correctly regardless of properti
     }
   >
     <div
-      className="bm-menu bg-gray-700 p-5 rounded-xl"
+      className="bm-menu rounded-xl"
       style={
         Object {
           "boxSizing": "border-box",
@@ -53,7 +53,7 @@ exports[`BurgerMenu Snapshot test should render correctly regardless of properti
       }
     >
       <div
-        className="bm-item-list p-2 bg-gray-700"
+        className="bm-item-list bg-gray-700 overflow-auto"
         style={
           Object {
             "height": "100%",

@@ -164,6 +164,26 @@ export function validateMinMax(min, max, setMinStateVar, setMaxStateVar) {
     }
 }
 
+export function validateMinMaxFilter(min, max, setMinStateVar, setMaxStateVar) {
+    const invalidMin = isValueNegative(min) || parseInt(min) > parseInt(max);
+    const invalidMax = isValueNegative(max);
+
+    if (invalidMin || invalidMax) {
+        if (invalidMin) {
+            setMinStateVar(true);
+        }
+        if (invalidMax) {
+            setMaxStateVar(true);
+        }
+        return true;
+    } else {
+        setMinStateVar(false);
+        setMaxStateVar(false);
+        return false;
+    }
+
+}
+
 export function resolveYesNoToBoolean(str) {
     return !!str && str.toLowerCase() === 'yes';
 }
