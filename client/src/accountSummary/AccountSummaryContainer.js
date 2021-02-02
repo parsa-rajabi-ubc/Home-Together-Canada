@@ -11,9 +11,8 @@ import {useLocation} from 'react-router-dom';
 import SubPages from "./SubPages";
 import {ALL_SUBPAGES, BUSINESS_SUBPAGES, MEMBER_SUBPAGES, USER_TYPES} from "../common/constants/users";
 import ChangePasswordContainer from "./ChangePasswordContainer";
-import MemberAccountSummary from "./member/MemberAccountSummary";
-import memberAccountInfo  from "./member/MockData";
-import MemberProfileSummary from "./member/MemberProfileSummary";
+import MemberAccountSummaryContainer from "./member/MemberAccountSummaryContainer";
+import MemberProfileSummaryContainer from "./member/MemberProfileSummaryContainer";
 import BusinessAccountSummaryContainer from "./business/BusinessAccountSummaryContainer";
 import Error404 from "../common/error/Error404";
 import SearchCriteriaContainer from "./member/SearchCriteriaContainer";
@@ -29,7 +28,7 @@ const AccountSummaryContainer = () => {
         switch (subpage) {
             case ALL_SUBPAGES.PROFILE:
                 return accountType === USER_TYPES.MEMBER
-                    ? <MemberProfileSummary memberAccountInfo={memberAccountInfo }/>
+                    ? <MemberProfileSummaryContainer />
                     : <Error404/>
             case ALL_SUBPAGES.SEARCH_CRITERIA:
                 return accountType === USER_TYPES.MEMBER ? <SearchCriteriaContainer/> : <Error404/>
@@ -41,7 +40,7 @@ const AccountSummaryContainer = () => {
                 return <div>Manage Listings Component</div>
             default:
                 return accountType === USER_TYPES.MEMBER
-                    ? <MemberAccountSummary memberAccountInfo={memberAccountInfo }/>
+                    ? <MemberAccountSummaryContainer/>
                     : <BusinessAccountSummaryContainer/>
         }
     }

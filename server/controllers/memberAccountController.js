@@ -51,6 +51,8 @@ const createMemberAccount = (req, uid) => {
         petsDescription: req.body.petsDescription,
         isSmoker: req.body.isSmoker,
         smokingDescription: req.body.smokingDescription,
+        isInterestedInBuyingHome: req.body.isInterestedInBuyingHome,
+        interestInBuyingHomeDescription: req.body.interestInBuyingHomeDescription,
         numRoommates: req.body.numRoommates,
         workStatus: req.body.workStatus,
         bio: req.body.bio,

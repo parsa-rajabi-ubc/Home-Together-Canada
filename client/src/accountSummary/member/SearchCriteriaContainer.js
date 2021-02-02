@@ -16,40 +16,40 @@ import {
     validateInput,
     validateMinMax
 } from "../../registration/registrationUtils";
-import memberAccountInfo from "./MockData";
+import {memberSearchCriteriaMock} from "./MockData";
 import indexOf from "lodash/indexOf";
 
 
 const SearchCriteriaContainer = () => {
     // Gender and Family Status
-    const [genderPreference, setGenderPreference] = useState(get(memberAccountInfo, "genderPreference", ""));
-    const [familyStatusPreference, setFamilyStatusPreference] = useState(get(memberAccountInfo, "statusPreference", ""));
+    const [genderPreference, setGenderPreference] = useState(get(memberSearchCriteriaMock, "genderPreference", ""));
+    const [familyStatusPreference, setFamilyStatusPreference] = useState(get(memberSearchCriteriaMock, "statusPreference", ""));
 
     // Age
-    const [minAgePreference, setMinAgePreference] = useState(get(memberAccountInfo, "minAgePreference", ""));
-    const [maxAgePreference, setMaxAgePreference] = useState(get(memberAccountInfo, "maxAgePreference", ""));
+    const [minAgePreference, setMinAgePreference] = useState(get(memberSearchCriteriaMock, "minAgePreference", ""));
+    const [maxAgePreference, setMaxAgePreference] = useState(get(memberSearchCriteriaMock, "maxAgePreference", ""));
 
     // Number of Roommates
-    const [selectedLimitPreference, setSelectedLimitPreference] = useState(get(memberAccountInfo, "numRoommatesPreference", ""));
+    const [selectedLimitPreference, setSelectedLimitPreference] = useState(get(memberSearchCriteriaMock, "numRoommatesPreference", ""));
 
     // Budget
-    const [minBudgetPreference, setMinBudgetPreference] = useState(get(memberAccountInfo, "minBudgetPreference", ""));
-    const [maxBudgetPreference, setMaxBudgetPreference] = useState(get(memberAccountInfo, "maxBudgetPreference", ""));
+    const [minBudgetPreference, setMinBudgetPreference] = useState(get(memberSearchCriteriaMock, "minBudgetPreference", ""));
+    const [maxBudgetPreference, setMaxBudgetPreference] = useState(get(memberSearchCriteriaMock, "maxBudgetPreference", ""));
 
     // Yes/No Question
-    const hasReligionPreferenceBoolean = get(memberAccountInfo, "religionPreference", "");
+    const hasReligionPreferenceBoolean = get(memberSearchCriteriaMock, "religionPreference", "");
     const [religionPreference, setReligionPreference] = useState(resolveBooleanToYesNo(hasReligionPreferenceBoolean));
 
-    const hasDietPreferenceBoolean = get(memberAccountInfo, "dietPreference", "");
+    const hasDietPreferenceBoolean = get(memberSearchCriteriaMock, "dietPreference", "");
     const [dietPreference, setDietPreference] = useState(resolveBooleanToYesNo(hasDietPreferenceBoolean));
 
-    const hasPreferenceForOthersWithHome = get(memberAccountInfo, "othersWithHomeToSharePreference", "");
+    const hasPreferenceForOthersWithHome = get(memberSearchCriteriaMock, "othersWithHomeToSharePreference", "");
     const [homeToSharePreference, setHomeToSharePreference] = useState(resolveBooleanToYesNo(hasPreferenceForOthersWithHome));
 
-    const petFriendlyPreferenceBoolean = get(memberAccountInfo, "petsPreference", "");
+    const petFriendlyPreferenceBoolean = get(memberSearchCriteriaMock, "petsPreference", "");
     const [petPreference, setPetPreference] = useState(resolveBooleanToYesNo(petFriendlyPreferenceBoolean));
 
-    const smokeFriendlyPreferenceBoolean = get(memberAccountInfo, "smokingPreference", "");
+    const smokeFriendlyPreferenceBoolean = get(memberSearchCriteriaMock, "smokingPreference", "");
     const [smokingPreference, setSmokingPreference] = useState(resolveBooleanToYesNo(smokeFriendlyPreferenceBoolean));
 
 

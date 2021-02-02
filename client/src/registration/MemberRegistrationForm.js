@@ -555,7 +555,7 @@ function MemberRegistrationForm(props) {
 
             // member account
             gender: gender,
-            ...(gender === 'Other') && {genderDescription: gender},
+            ...(gender === 'Other') && {genderDescription: genderDescription},
             birthYear: yearOfBirth,
             status: selectedFamilyStatus,
             ...((selectedFamilyStatus === 'Couple' || selectedFamilyStatus === 'Couple With Children') && !isStringEmpty(partner))
@@ -579,6 +579,8 @@ function MemberRegistrationForm(props) {
             ...(petFriendly === 'yes') && {petsDescription: petDescription},
             isSmoker: (smoking === 'yes'),
             ...(smoking === 'yes') && {smokingDescription: smokingDescription},
+            isInterestedInBuyingHome: (interestInBuyingHome === 'yes'),
+            ...(interestInBuyingHome === 'yes') && {interestInBuyingHomeDescription: interestDescription},
             numRoommates: selectedLimit,
             bio: aboutSelf,
             areasOfInterest: areasOfInterest,
@@ -1286,7 +1288,7 @@ function MemberRegistrationForm(props) {
                                             <Checkbox
                                                 label={"I have read and agreed to the Terms of Service"}
                                                 checked={termsOfServiceAgreed}
-                                                onChange={setTermsOfServiceAgreed}
+                                                onChange={() => setTermsOfServiceAgreed(!termsOfServiceAgreed)}
                                             />
                                         </div>
                                         <div
@@ -1305,7 +1307,7 @@ function MemberRegistrationForm(props) {
                                             <Checkbox
                                                 label={"I have read and agreed to the Privacy Policy"}
                                                 checked={privacyPolicyAgreed}
-                                                onChange={setPrivacyPolicyAgreed}
+                                                onChange={() => setPrivacyPolicyAgreed(!privacyPolicyAgreed)}
                                             />
                                         </div>
                                     </div>

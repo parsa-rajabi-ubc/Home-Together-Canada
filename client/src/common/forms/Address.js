@@ -7,7 +7,6 @@
  */
 
 import React, {useState, useEffect} from 'react';
-import "canada"
 import PropTypes from "prop-types";
 import Dropdown from "./Dropdown";
 import {getProvinces} from "../utils/locationUtils"
@@ -89,7 +88,7 @@ function Address(props) {
                 <input
                     className="input"
                     type="text"
-                    value={aptNum}
+                    value={aptNum || ''}
                     name="aptNum"
                     placeholder="Address Line 2: Apt, suite, etc. (optional)"
                     autoComplete="address-line2" onChange={handleInputChange}/>

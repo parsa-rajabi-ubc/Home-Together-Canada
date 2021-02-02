@@ -28,66 +28,67 @@ import {
     validateInput,
 } from "../../registration/registrationUtils";
 import Asterisk from "../../common/forms/Asterisk";
+import {memberHasCoupleStatus, memberHasExistingGroupStatus} from "./memberAccountSummaryUtils";
+import {STATUSES} from "../../common/constants/memberConstants";
 
 
 //Returns a summary Form with fields filled
 function MemberProfileSummary(props) {
-    const {memberAccountInfo} = props;
-    const [gender, setGender] = useState(get(memberAccountInfo, 'gender', ""));
-    const [genderDescription, setGenderDescription] = useState(get(memberAccountInfo, 'genderDescription', ""));
-    const [yearOfBirth, setYearOfBirth] = useState(get(memberAccountInfo, 'birthYear', undefined));
+    const { profile, areasOfInterestList, roommates } = props;
 
-    const petFriendlyBoolean = get(memberAccountInfo, 'petFriendly', "");
-    const [petFriendly, setPetFriendly] = useState(resolveBooleanToYesNo(petFriendlyBoolean));
-    const [petDescription, setPetDescription] = useState(get(memberAccountInfo, 'petDescription', ""));
+    const [gender, setGender] = useState(profile.gender);
+    const [genderDescription, setGenderDescription] = useState(get(profile, 'genderDescription', ""));
 
-    const smokingBoolean = get(memberAccountInfo, 'smoking', "");
-    const [smoking, setSmoking] = useState(resolveBooleanToYesNo(smokingBoolean));
-    const [smokingDescription, setSmokingDescription] = useState(get(memberAccountInfo, 'smokingDescription', ""));
+    const [yearOfBirth, setYearOfBirth] = useState(profile.birthYear);
 
-    const mobilityIssuesBoolean = get(memberAccountInfo, 'hasHealthMobilityIssues', "");
-    const [mobilityIssues, setMobilityIssues] = useState(resolveBooleanToYesNo(mobilityIssuesBoolean));
-    const [mobilityIssuesDescription, setMobilityIssuesDescription] = useState(get(memberAccountInfo, 'healthMobilityIssuesDescription', ""));
+    const [petFriendly, setPetFriendly] = useState(resolveBooleanToYesNo(profile.hasPets));
+    const [petDescription, setPetDescription] = useState(get(profile, 'petsDescription', ""));
 
-    const hasAllergiesBoolean = get(memberAccountInfo, 'hasAllergies', "");
-    const [hasAllergies, setHasAllergies] = useState(resolveBooleanToYesNo(hasAllergiesBoolean));
-    const [allergiesDescription, setAllergiesDescription] = useState(get(memberAccountInfo, 'allergiesDescription', ""));
+    const [smoking, setSmoking] = useState(resolveBooleanToYesNo(profile.isSmoker));
+    const [smokingDescription, setSmokingDescription] = useState(get(profile, 'smokingDescription', ""));
 
-    const religiousBoolean = get(memberAccountInfo, 'isReligionImportant', "");
-    const [religious, setReligious] = useState(resolveBooleanToYesNo(religiousBoolean));
-    const [religionDescription, setReligionDescription] = useState(get(memberAccountInfo, 'religionDescription', ""));
+    const [mobilityIssues, setMobilityIssues] = useState(resolveBooleanToYesNo(profile.hasHealthMobilityIssues));
+    const [mobilityIssuesDescription, setMobilityIssuesDescription] = useState(
+        get(profile, 'healthMobilityIssuesDescription', "")
+    );
 
-    const hasDietBoolean = get(memberAccountInfo, 'isDietImportant', "");
-    const [hasDiet, setHasDiet] = useState(resolveBooleanToYesNo(hasDietBoolean));
-    const [dietDescription, setDietDescription] = useState(get(memberAccountInfo, 'dietDescription', ""));
+    const [hasAllergies, setHasAllergies] = useState(resolveBooleanToYesNo(profile.hasAllergies));
+    const [allergiesDescription, setAllergiesDescription] = useState(get(profile, 'allergiesDescription', ""));
 
-    const hasHomeBoolean = get(memberAccountInfo, 'hasHomeToShare', "");
-    const [hasHome, setHasHome] = useState(resolveBooleanToYesNo(hasHomeBoolean));
-    const [homeDescription, setHomeDescription] = useState(get(memberAccountInfo, 'hasHomeToShareDescription', ""));
+    const [religious, setReligious] = useState(resolveBooleanToYesNo(profile.isReligionImportant));
+    const [religionDescription, setReligionDescription] = useState(get(profile, 'religionDescription', ""));
 
-    const interestInBuyingHomeBoolean = get(memberAccountInfo, 'interestInBuyingHome', "")
-    const [interestInBuyingHome, setInterestInBuyingHome] = useState(resolveBooleanToYesNo(interestInBuyingHomeBoolean));
-    const [interestDescription, setInterestDescription] = useState(get(memberAccountInfo, 'interestDescription', ""));
+    const [hasDiet, setHasDiet] = useState(resolveBooleanToYesNo(profile.isDietImportant));
+    const [dietDescription, setDietDescription] = useState(get(profile, 'dietDescription', ""));
 
-    const [minRent, setMinRent] = useState(get(memberAccountInfo, 'minRent', undefined));
-    const [maxRent, setMaxRent] = useState(get(memberAccountInfo, 'maxRent', undefined));
+    const [hasHome, setHasHome] = useState(resolveBooleanToYesNo(profile.hasHomeToShare));
+    const [homeDescription, setHomeDescription] = useState(get(profile, 'hasHomeToShareDescription', ""));
 
-    const [aboutSelf, setAboutSelf] = useState(get(memberAccountInfo, 'aboutSelf', ""));
+    const [interestInBuyingHome, setInterestInBuyingHome] = useState(resolveBooleanToYesNo(profile.isInterestedInBuyingHome));
+    const [interestDescription, setInterestDescription] = useState(get(profile, 'interestInBuyingHomeDescription', ""));
 
-    const [selectedLimit, setsSelectedLimit] = useState(get(memberAccountInfo, 'selectedLimit', ""));
+    const [minRent, setMinRent] = useState(profile.minMonthlyBudget);
+    const [maxRent, setMaxRent] = useState(profile.maxMonthlyBudget);
 
-    const [selectedFamilyStatus, setsSelectedFamilyStatus] = useState(get(memberAccountInfo, 'selectedFamilyStatus', ""));
-    const [selectedWorkStatus, setsSelectedWorkStatus] = useState(get(memberAccountInfo, 'selectedWorkStatus', ""));
+    const [aboutSelf, setAboutSelf] = useState(profile.bio);
 
-    const [partner, setPartner] = useState(get(memberAccountInfo, 'partner', ""));
-    const [groupMembers, setGroupMembers] = useState(get(memberAccountInfo, 'groupMembers', ""));
+    const [selectedLimit, setsSelectedLimit] = useState(profile.numRoommates);
 
-    const [areasOfInterest, setAreasOfInterest] = useState(get(memberAccountInfo, 'areasOfInterest', [{
-        province: "",
-        city: "",
-        radius: ""
-    }]));
+    const [selectedFamilyStatus, setsSelectedFamilyStatus] = useState(profile.status);
+    const [selectedWorkStatus, setsSelectedWorkStatus] = useState(profile.workStatus);
 
+    const [partner, setPartner] = useState(
+        memberHasCoupleStatus(profile.status)
+            ? roommates.toString()
+            : ''
+    );
+    const [groupMembers, setGroupMembers] = useState(
+        memberHasExistingGroupStatus(profile.status)
+            ? roommates.toString()
+            : ''
+    );
+
+    const [areasOfInterest, setAreasOfInterest] = useState(areasOfInterestList);
 
     // Profile Details Start
     const [genderError, setGenderError] = useState(undefined);
@@ -121,7 +122,7 @@ function MemberProfileSummary(props) {
     }
 
     function checkStatus(selectedFamilyStatus) {
-        if (selectedFamilyStatus === "Couple") {
+        if (selectedFamilyStatus === STATUSES.COUPLE) {
             return <TextArea
                 className={"input"}
                 labelClassName={"label"}
@@ -129,7 +130,7 @@ function MemberProfileSummary(props) {
                 onChange={(e) => setPartner(e.target.value)}
                 value={partner}
             />
-        } else if (selectedFamilyStatus === "Couple With Children") {
+        } else if (selectedFamilyStatus === STATUSES.COUPLE_WITH_CHILDREN) {
             return <TextArea
                 className={"input"}
                 labelClassName={"label"}
@@ -137,7 +138,7 @@ function MemberProfileSummary(props) {
                 onChange={(e) => setPartner(e.target.value)}
                 value={partner}
             />
-        } else if (selectedFamilyStatus === "Existing Group") {
+        } else if (selectedFamilyStatus === STATUSES.EXISTING_GROUP) {
             return <TextArea
                 className={"input"}
                 labelClassName={"label"}
@@ -288,7 +289,7 @@ function MemberProfileSummary(props) {
 
                             <LabelAsterisk label={"Open to Sharing With"}/>
                             <Tooltip text={MEMBER_PROFILE_INFO_TEXT.NUM_PEOPLE_SHARE} toolTipID="numPeopleToShare"/>
-                            <ShareLimit givenSelection={selectedLimit} onChange={handleLimitChange}
+                            <ShareLimit currentSelectedValue={selectedLimit} onChange={handleLimitChange}
                                         dropdownCSS={limitError ? dropdownErrorCSS : dropdownDefaultCSS}/>
                             <LabelAsterisk label={"Monthly Rent"}/>
                             <Tooltip text={MEMBER_PROFILE_INFO_TEXT.RENT} toolTipID="rent"/>
@@ -513,7 +514,36 @@ function MemberProfileSummary(props) {
 }
 
 MemberProfileSummary.propTypes = {
-    memberAccountInfo: PropTypes.object.isRequired
+    profile: PropTypes.shape({
+        gender: PropTypes.string.isRequired,
+        genderDescription: PropTypes.string,
+        birthYear: PropTypes.number.isRequired,
+        status: PropTypes.string.isRequired,
+        workStatus: PropTypes.string.isRequired,
+        minMonthlyBudget: PropTypes.number.isRequired,
+        maxMonthlyBudget: PropTypes.number.isRequired,
+        numRoommates: PropTypes.number.isRequired,
+        bio: PropTypes.string,
+        isSmoker: PropTypes.bool.isRequired,
+        smokingDescription: PropTypes.string,
+        hasAllergies: PropTypes.bool.isRequired,
+        allergiesDescription: PropTypes.string,
+        hasHealthMobilityIssues: PropTypes.bool.isRequired,
+        healthMobilityIssuesDescription: PropTypes.string,
+        hasHomeToShare: PropTypes.bool.isRequired,
+        homeToShareDescription: PropTypes.string,
+        isReligionImportant: PropTypes.bool.isRequired,
+        religionDescription: PropTypes.string,
+        isInterestedInBuyingHome: PropTypes.bool.isRequired,
+        interestInBuyingHomeDescription: PropTypes.string,
+        hasPets: PropTypes.bool.isRequired,
+        petsDescription: PropTypes.string,
+        isDietImportant: PropTypes.bool.isRequired,
+        dietDescription: PropTypes.string
+
+    }).isRequired,
+    areasOfInterestList: PropTypes.array.isRequired,
+    roommates: PropTypes.array.isRequired
 
 }
 

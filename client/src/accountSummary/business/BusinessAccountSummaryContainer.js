@@ -2,7 +2,7 @@
  * @Author:     Rachelle Gelden
  * @Created:    2020.01.21
  *
- * @Description: business account summary
+ * @Description: business account summary container
  *
  */
 
@@ -12,14 +12,14 @@ import BusinessService from '../../services/BusinessService';
 import {prepareBusinessAccountInfo} from "../accountSummaryUtils";
 
 const BusinessAccountSummaryContainer = () => {
-    const [businessAccount, setBusinessAccountInfo] = useState(undefined);
+    const [businessAccount, setBusinessAccount] = useState(undefined);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         BusinessService.getBusinessAccountInfo()
             .then(res => res.json())
             .then(data => {
-                setBusinessAccountInfo(prepareBusinessAccountInfo(data.business));
+                setBusinessAccount(prepareBusinessAccountInfo(data.business));
                 setLoading(false);
 
             })
