@@ -518,8 +518,8 @@ MemberProfileSummary.propTypes = {
         gender: PropTypes.string.isRequired,
         genderDescription: PropTypes.string,
         birthYear: PropTypes.number.isRequired,
-        status: PropTypes.string.isRequired,    // is there a way to make this an enum?
-        workStatus: PropTypes.string.isRequired,    // is there a way to make this an enum?
+        status: PropTypes.string.isRequired,
+        workStatus: PropTypes.string.isRequired,
         minMonthlyBudget: PropTypes.number.isRequired,
         maxMonthlyBudget: PropTypes.number.isRequired,
         numRoommates: PropTypes.number.isRequired,

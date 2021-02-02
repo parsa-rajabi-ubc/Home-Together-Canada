@@ -12,7 +12,6 @@ import SubPages from "./SubPages";
 import {ALL_SUBPAGES, BUSINESS_SUBPAGES, MEMBER_SUBPAGES, USER_TYPES} from "../common/constants/users";
 import ChangePasswordContainer from "./ChangePasswordContainer";
 import MemberAccountSummaryContainer from "./member/MemberAccountSummaryContainer";
-import memberAccountInfo  from "./member/MockData";
 import MemberProfileSummaryContainer from "./member/MemberProfileSummaryContainer";
 import BusinessAccountSummaryContainer from "./business/BusinessAccountSummaryContainer";
 import Error404 from "../common/error/Error404";
