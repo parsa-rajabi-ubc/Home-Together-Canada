@@ -9,6 +9,7 @@
 import {limitResults} from "../MemberSearchUtils";
 import MockProfileCardData from "../../mockData/MockProfileCardData";
 
+
 describe('isStringEmpty function', () => {
     describe('unit test', () => {
         it("should return correct array for given large data and small limit", () => {

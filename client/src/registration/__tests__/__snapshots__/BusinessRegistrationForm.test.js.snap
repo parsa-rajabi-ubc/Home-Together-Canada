@@ -109,7 +109,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                   Incorporated business
                 </label>
                 <span>
-                  <a
+                  <span
                     data-for="incorporated"
                     data-tip={true}
                   >
@@ -134,7 +134,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                         fillRule="evenodd"
                       />
                     </svg>
-                  </a>
+                  </span>
                   <div
                     className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                     data-id="tooltip"
@@ -603,7 +603,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 Different Mailing Address
               </label>
               <span>
-                <a
+                <span
                   data-for="differentMailingAddress"
                   data-tip={true}
                 >
@@ -628,7 +628,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                       fillRule="evenodd"
                     />
                   </svg>
-                </a>
+                </span>
                 <div
                   className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                   data-id="tooltip"
@@ -734,7 +734,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                   Canada-wide business
                 </label>
                 <span>
-                  <a
+                  <span
                     data-for="nationWide"
                     data-tip={true}
                   >
@@ -759,7 +759,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                         fillRule="evenodd"
                       />
                     </svg>
-                  </a>
+                  </span>
                   <div
                     className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                     data-id="tooltip"
@@ -882,7 +882,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                     />
                   </svg>
                   <span>
-                    <a
+                    <span
                       data-for="mapAddress"
                       data-tip={true}
                     >
@@ -907,7 +907,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                           fillRule="evenodd"
                         />
                       </svg>
-                    </a>
+                    </span>
                     <div
                       className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                       data-id="tooltip"
@@ -1165,7 +1165,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
            Business Logo 
         </label>
         <span>
-          <a
+          <span
             data-for="businessLogo"
             data-tip={true}
           >
@@ -1190,7 +1190,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 fillRule="evenodd"
               />
             </svg>
-          </a>
+          </span>
           <div
             className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
             data-id="tooltip"
@@ -1562,7 +1562,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                       </svg>
                     </label>
                     <span>
-                      <a
+                      <span
                         data-for="username"
                         data-tip={true}
                       >
@@ -1587,7 +1587,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                             fillRule="evenodd"
                           />
                         </svg>
-                      </a>
+                      </span>
                       <div
                         className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                         data-id="tooltip"
@@ -1711,7 +1711,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                       </svg>
                     </label>
                     <span>
-                      <a
+                      <span
                         data-for="password"
                         data-tip={true}
                       >
@@ -1736,7 +1736,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                             fillRule="evenodd"
                           />
                         </svg>
-                      </a>
+                      </span>
                       <div
                         className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                         data-id="tooltip"
@@ -1954,7 +1954,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                       />
                     </svg>
                     <span>
-                      <a
+                      <span
                         data-for="termsOfService"
                         data-tip={true}
                       >
@@ -1979,7 +1979,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                             fillRule="evenodd"
                           />
                         </svg>
-                      </a>
+                      </span>
                       <div
                         className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                         data-id="tooltip"
@@ -2235,7 +2235,7 @@ If you have any questions or concerns about our Terms, please contact us by e-ma
                       />
                     </svg>
                     <span>
-                      <a
+                      <span
                         data-for="privacyPolicy"
                         data-tip={true}
                       >
@@ -2260,7 +2260,7 @@ If you have any questions or concerns about our Terms, please contact us by e-ma
                             fillRule="evenodd"
                           />
                         </svg>
-                      </a>
+                      </span>
                       <div
                         className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                         data-id="tooltip"
