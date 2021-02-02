@@ -524,8 +524,6 @@ exports[`SearchResultsContainer Container test should match snapshot test for da
                 }
               />
               Religion is important
-<<<<<<< HEAD
-=======
             </div>
           </span>
           <span>
@@ -643,7 +641,6 @@ exports[`SearchResultsContainer Container test should match snapshot test for da
                 }
               />
               Has a home
->>>>>>> 36a812dc5144b02b9434ad8ce5d92050d4ccca1d
             </div>
           </span>
         </section>
@@ -1030,8 +1027,6 @@ exports[`SearchResultsContainer Container test should match snapshot test for da
                 }
               />
               Religion is important
-<<<<<<< HEAD
-=======
             </div>
           </span>
           <span>
@@ -1149,7 +1144,6 @@ exports[`SearchResultsContainer Container test should match snapshot test for da
                 }
               />
               Has a home
->>>>>>> 36a812dc5144b02b9434ad8ce5d92050d4ccca1d
             </div>
           </span>
         </section>
@@ -1538,11 +1532,7 @@ exports[`SearchResultsContainer Container test should match snapshot test for da
                   }
                 }
               />
-<<<<<<< HEAD
-              Religion is important
-=======
               Has a home
->>>>>>> 36a812dc5144b02b9434ad8ce5d92050d4ccca1d
             </div>
           </span>
         </section>
@@ -2250,8 +2240,6 @@ exports[`SearchResultsContainer Container test should match snapshot test for ex
                 }
               />
               Religion is important
-<<<<<<< HEAD
-=======
             </div>
           </span>
           <span>
@@ -2369,7 +2357,6 @@ exports[`SearchResultsContainer Container test should match snapshot test for ex
                 }
               />
               Has a home
->>>>>>> 36a812dc5144b02b9434ad8ce5d92050d4ccca1d
             </div>
           </span>
         </section>
@@ -2756,8 +2743,6 @@ exports[`SearchResultsContainer Container test should match snapshot test for ex
                 }
               />
               Religion is important
-<<<<<<< HEAD
-=======
             </div>
           </span>
           <span>
@@ -2875,7 +2860,6 @@ exports[`SearchResultsContainer Container test should match snapshot test for ex
                 }
               />
               Has a home
->>>>>>> 36a812dc5144b02b9434ad8ce5d92050d4ccca1d
             </div>
           </span>
         </section>
