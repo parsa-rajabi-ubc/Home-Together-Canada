@@ -12,33 +12,33 @@ import SearchFilter from "./SearchFilter";
 import {isValueInArray} from "../common/utils/generalUtils";
 import get from "lodash/get";
 import {checkIfErrorsExistInMapping, validateMinMaxFilter} from "../registration/registrationUtils";
-import memberAccountInfo from "../accountSummary/member/MockData";
+import {memberSearchCriteriaMock} from "../accountSummary/member/MockData";
 import indexOf from "lodash/indexOf";
 
 
 const SearchFilterContainer = (props) => {
     const {toggleSidebar} = props;
     // Gender and Family Status
-    const [genderPreference, setGenderPreference] = useState(get(memberAccountInfo, "genderPreference", ""));
-    const [familyStatusPreference, setFamilyStatusPreference] = useState(get(memberAccountInfo, "statusPreference", ""));
+    const [genderPreference, setGenderPreference] = useState(get(memberSearchCriteriaMock, "genderPreference", ""));
+    const [familyStatusPreference, setFamilyStatusPreference] = useState(get(memberSearchCriteriaMock, "statusPreference", ""));
 
     // Age
-    const [minAgePreference, setMinAgePreference] = useState(get(memberAccountInfo, "minAgePreference", ""));
-    const [maxAgePreference, setMaxAgePreference] = useState(get(memberAccountInfo, "maxAgePreference", ""));
+    const [minAgePreference, setMinAgePreference] = useState(get(memberSearchCriteriaMock, "minAgePreference", ""));
+    const [maxAgePreference, setMaxAgePreference] = useState(get(memberSearchCriteriaMock, "maxAgePreference", ""));
 
     // Number of Roommates
-    const [selectedLimitPreference, setSelectedLimitPreference] = useState(get(memberAccountInfo, "numRoommatesPreference", ""));
+    const [selectedLimitPreference, setSelectedLimitPreference] = useState(get(memberSearchCriteriaMock, "numRoommatesPreference", ""));
 
     // Budget
-    const [minBudgetPreference, setMinBudgetPreference] = useState(get(memberAccountInfo, "minBudgetPreference", ""));
-    const [maxBudgetPreference, setMaxBudgetPreference] = useState(get(memberAccountInfo, "maxBudgetPreference", ""));
+    const [minBudgetPreference, setMinBudgetPreference] = useState(get(memberSearchCriteriaMock, "minBudgetPreference", ""));
+    const [maxBudgetPreference, setMaxBudgetPreference] = useState(get(memberSearchCriteriaMock, "maxBudgetPreference", ""));
 
     // Yes/No Question
-    const [religionPreference, setReligionPreference] = useState(get(memberAccountInfo, "religionPreference", ""));
-    const [dietPreference, setDietPreference] = useState(get(memberAccountInfo, "dietPreference", ""));
-    const [homeToSharePreference, setHomeToSharePreference] = useState(get(memberAccountInfo, "othersWithHomeToSharePreference", ""));
-    const [petPreference, setPetPreference] = useState(get(memberAccountInfo, "petsPreference", ""));
-    const [smokingPreference, setSmokingPreference] = useState(get(memberAccountInfo, "smokingPreference", ""));
+    const [religionPreference, setReligionPreference] = useState(get(memberSearchCriteriaMock, "religionPreference", ""));
+    const [dietPreference, setDietPreference] = useState(get(memberSearchCriteriaMock, "dietPreference", ""));
+    const [homeToSharePreference, setHomeToSharePreference] = useState(get(memberSearchCriteriaMock, "othersWithHomeToSharePreference", ""));
+    const [petPreference, setPetPreference] = useState(get(memberSearchCriteriaMock, "petsPreference", ""));
+    const [smokingPreference, setSmokingPreference] = useState(get(memberSearchCriteriaMock, "smokingPreference", ""));
 
 
     // Search Criteria Errors
