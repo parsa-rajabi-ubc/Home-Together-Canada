@@ -81,24 +81,26 @@ function ProfilePage(props) {
                                 with {shareLimit} people</span>
 
                             <section className={"my-6"}>
-                                <span className={"span mr-3"}>Work & Family Status</span>
                                 <span className={"block"}> {workStatus} </span>
+                            </section>
+
+                            <section className={"my-6"}>
                                 <span className={"block"}> {familyStatus} </span>
                                 {roommates &&
                                 <section>
-                                    <label>{partnerOrGroupMembers}:</label>
+                                    <label>{partnerOrGroupMembers}: </label>
                                     {roommateUsernames}
                                 </section>
                                 }
                             </section>
 
                             <section className={"my-6"}>
-                                <span className={"span mr-3"}>Budget</span>
+                                <span className={"label mr-3"}>Budget</span>
                                 <span className={"block"}> ${minRent} - ${maxRent} (CAD) </span>
                             </section>
 
                             <section className={"my-6"}>
-                                <span className={"span mr-3"}> {prefLocationText} </span>
+                                <span className={"label mr-3"}> {prefLocationText} </span>
                                 <div className={"whitespace-pre mt-1"}>{preferredLocations}</div>
                             </section>
                             <button className={"btn btn-green mb-6 w-1/2 text-base py-2"}>Send Message
@@ -106,12 +108,12 @@ function ProfilePage(props) {
                         </div>
                         <div className={"col-start-2"}>
 
-                            <div className={"border-2 border-dashed border-gray-200 mb-4 p-3"}>
+                            <div className={"mb-4 p-3 rounded-lg shadow-lg"}>
                                 {about}
                             </div>
-                            <table className={"table-auto mx-auto"}>
+                            <table className={"table-auto mx-auto shadow-lg"}>
                                 <tbody>
-                                <tr className={`${!petFriendly && "bg-gray-200"} gray-border`}>
+                                <tr className={`${petFriendly && "bg-gray-200"} gray-border`}>
                                     <td>
                                         {petFriendly ?
                                             <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
@@ -121,7 +123,7 @@ function ProfilePage(props) {
                                     <td className={"table-item-description"}>{petDescription}</td>
                                 </tr>
 
-                                <tr className={`${!smokeFriendly && "bg-gray-200"} gray-border`}>
+                                <tr className={`${smokeFriendly && "bg-gray-200"} gray-border`}>
                                     <td>
                                         {smokeFriendly ?
                                             <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
@@ -131,7 +133,7 @@ function ProfilePage(props) {
                                     <td className={"table-item-description"}>{smokingDescription}</td>
                                 </tr>
 
-                                <tr className={`${!hasHealthMobilityIssues && "bg-gray-200"} gray-border`}>
+                                <tr className={`${hasHealthMobilityIssues && "bg-gray-200"} gray-border`}>
                                     <td>
                                         {hasHealthMobilityIssues ?
                                             <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
@@ -141,7 +143,7 @@ function ProfilePage(props) {
                                     <td className={"table-item-description"}>{healthMobilityIssuesDescription}</td>
                                 </tr>
 
-                                <tr className={`${!hasAllergies && "bg-gray-200"} gray-border`}>
+                                <tr className={`${hasAllergies && "bg-gray-200"} gray-border`}>
                                     <td>
                                         {hasAllergies ?
                                             <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
@@ -151,7 +153,7 @@ function ProfilePage(props) {
                                     <td className={"table-item-description"}>{allergiesDescription}</td>
                                 </tr>
 
-                                <tr className={`${!isReligionImportant && "bg-gray-200"} gray-border`}>
+                                <tr className={`${isReligionImportant && "bg-gray-200"} gray-border`}>
                                     <td>
                                         {isReligionImportant ?
                                             <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
@@ -161,7 +163,7 @@ function ProfilePage(props) {
                                     <td className={"table-item-description"}>{religionDescription}</td>
                                 </tr>
 
-                                <tr className={`${!isDietImportant && "bg-gray-200"} gray-border`}>
+                                <tr className={`${isDietImportant && "bg-gray-200"} gray-border`}>
                                     <td>
                                         {isDietImportant ?
                                             <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
@@ -171,7 +173,7 @@ function ProfilePage(props) {
                                     <td className={"table-item-description"}>{dietDescription}</td>
                                 </tr>
 
-                                <tr className={`${!interestInBuyingHome && "bg-gray-200"} gray-border`}>
+                                <tr className={`${interestInBuyingHome && "bg-gray-200"} gray-border`}>
                                     <td>
                                         {interestInBuyingHome ?
                                             <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
@@ -181,7 +183,7 @@ function ProfilePage(props) {
                                     <td className={"table-item-description"}>{interestDescription}</td>
                                 </tr>
 
-                                <tr className={`${!hasHomeToShare && "bg-gray-200"} gray-border`}>
+                                <tr className={`${hasHomeToShare && "bg-gray-200"} gray-border`}>
                                     <td>
                                         {hasHomeToShare ?
                                             <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
