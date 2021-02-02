@@ -46,17 +46,16 @@ exports[`ProfilePage Snapshot test should render correctly regardless of propert
             className="my-6"
           >
             <span
-              className="span mr-3"
-            >
-              Work & Family Status
-            </span>
-            <span
               className="block"
             >
                
               Student
                
             </span>
+          </section>
+          <section
+            className="my-6"
+          >
             <span
               className="block"
             >
@@ -65,10 +64,10 @@ exports[`ProfilePage Snapshot test should render correctly regardless of propert
                
             </span>
             <section>
-              <lable>
+              <label>
                 Group: 
-                :
-              </lable>
+                : 
+              </label>
               jack
               potato
             </section>
@@ -77,7 +76,7 @@ exports[`ProfilePage Snapshot test should render correctly regardless of propert
             className="my-6"
           >
             <span
-              className="span mr-3"
+              className="label mr-3"
             >
               Budget
             </span>
@@ -95,7 +94,7 @@ exports[`ProfilePage Snapshot test should render correctly regardless of propert
             className="my-6"
           >
             <span
-              className="span mr-3"
+              className="label mr-3"
             >
                
               Preferred Locations
@@ -118,16 +117,16 @@ exports[`ProfilePage Snapshot test should render correctly regardless of propert
           className="col-start-2"
         >
           <div
-            className="border-2 border-dashed border-gray-200 mb-4 p-3"
+            className="mb-4 p-3 rounded-lg shadow-lg"
           >
             Sushi is a great food!
           </div>
           <table
-            className="table-auto mx-auto"
+            className="table-auto mx-auto shadow-lg"
           >
             <tbody>
               <tr
-                className="false gray-border"
+                className="bg-gray-200 gray-border"
               >
                 <td>
                   <svg
@@ -165,7 +164,7 @@ exports[`ProfilePage Snapshot test should render correctly regardless of propert
                 </td>
               </tr>
               <tr
-                className="false gray-border"
+                className="bg-gray-200 gray-border"
               >
                 <td>
                   <svg
@@ -203,7 +202,7 @@ exports[`ProfilePage Snapshot test should render correctly regardless of propert
                 </td>
               </tr>
               <tr
-                className="false gray-border"
+                className="bg-gray-200 gray-border"
               >
                 <td>
                   <svg
@@ -241,7 +240,7 @@ exports[`ProfilePage Snapshot test should render correctly regardless of propert
                 </td>
               </tr>
               <tr
-                className="false gray-border"
+                className="bg-gray-200 gray-border"
               >
                 <td>
                   <svg
@@ -279,7 +278,7 @@ exports[`ProfilePage Snapshot test should render correctly regardless of propert
                 </td>
               </tr>
               <tr
-                className="false gray-border"
+                className="bg-gray-200 gray-border"
               >
                 <td>
                   <svg
@@ -317,7 +316,7 @@ exports[`ProfilePage Snapshot test should render correctly regardless of propert
                 </td>
               </tr>
               <tr
-                className="false gray-border"
+                className="bg-gray-200 gray-border"
               >
                 <td>
                   <svg
@@ -355,7 +354,7 @@ exports[`ProfilePage Snapshot test should render correctly regardless of propert
                 </td>
               </tr>
               <tr
-                className="false gray-border"
+                className="bg-gray-200 gray-border"
               >
                 <td>
                   <svg
@@ -393,7 +392,7 @@ exports[`ProfilePage Snapshot test should render correctly regardless of propert
                 </td>
               </tr>
               <tr
-                className="false gray-border"
+                className="bg-gray-200 gray-border"
               >
                 <td>
                   <svg
