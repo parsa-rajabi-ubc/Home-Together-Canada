@@ -259,7 +259,16 @@ const memberProfileBasicFieldsValidation = [
         .trim()
         .stripLow()
         .isBoolean(),
-    body('smokingDescription', 'Invalid description for allergies')
+    body('smokingDescription', 'Invalid description for smoking')
+        .optional()
+        .trim()
+        .stripLow(),
+    body('isInterestedInBuyingHome', 'A boolean value must be provided')
+        .exists()
+        .trim()
+        .stripLow()
+        .isBoolean(),
+    body('interestInBuyingHomeDescription', 'Invalid description for interest in buying home')
         .optional()
         .trim()
         .stripLow(),

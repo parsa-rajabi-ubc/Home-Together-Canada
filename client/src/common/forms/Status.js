@@ -9,27 +9,28 @@
 import React from 'react';
 import propTypes from "prop-types";
 import Dropdown from "./Dropdown";
+import {STATUSES} from "../constants/memberConstants";
 
 const statuses = [
     {
-        label: "Single",
-        value: "Single"
+        label: STATUSES.SINGLE,
+        value: STATUSES.SINGLE
     },
     {
-        label: "Couple",
-        value: "Couple"
+        label: STATUSES.COUPLE,
+        value: STATUSES.COUPLE
     },
     {
-        label: "Couple With Children",
-        value: "Couple With Children"
+        label: STATUSES.COUPLE_WITH_CHILDREN,
+        value: STATUSES.COUPLE_WITH_CHILDREN
     },
     {
-        label: "Single Parent",
-        value: "Single Parent"
+        label: STATUSES.SINGLE_PARENT,
+        value: STATUSES.SINGLE_PARENT
     },
     {
-        label: "Existing Group",
-        value: "Existing Group"
+        label: STATUSES.EXISTING_GROUP,
+        value: STATUSES.EXISTING_GROUP
     }
 ]
 

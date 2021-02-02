@@ -27,6 +27,7 @@ router.get('/all/', function (req, res, next) {
     memberAccounts.findAllMemberAccounts(req, res);
 });
 
+// add validation to isInterestedInBuyingHome fields
 router.post('/create/', usersValidator.validate('createMemberUser'),
     function (req, res, next) {
         const errors = validationResult(req);

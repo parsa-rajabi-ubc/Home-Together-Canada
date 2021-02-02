@@ -74,7 +74,7 @@ const getProfile = member => {
         workStatus: member.workStatus,
         bio: member.bio,
         hasHomeToShare: member.hasHomeToShare,
-        hasHomeToShareDescription: member.hasHomeToShareDescription,
+        homeToShareDescription: member.homeToShareDescription,
         isReligionImportant: member.isReligionImportant,
         religionDescription: member.religionDescription,
         isDietImportant: member.isDietImportant,
@@ -86,7 +86,9 @@ const getProfile = member => {
         hasPets: member.hasPets,
         petsDescription: member.petsDescription,
         isSmoker: member.isSmoker,
-        smokingDescription: member.smokingDescription
+        smokingDescription: member.smokingDescription,
+        isInterestedInBuyingHome: member.isInterestedInBuyingHome,
+        interestInBuyingHomeDescription: member.interestInBuyingHomeDescription
     }
 }
 

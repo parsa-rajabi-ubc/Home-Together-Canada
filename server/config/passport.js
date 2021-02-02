@@ -113,6 +113,7 @@ module.exports = function (passport) {
                     return done(null, user);
                 })
                 .catch(error => {
+                    console.log('error: ', error.message);
                     return done(null, false, { message: error.message || "Error creating member"});
                 });
         }

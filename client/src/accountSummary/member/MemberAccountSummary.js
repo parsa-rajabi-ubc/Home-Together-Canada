@@ -12,7 +12,6 @@ import PhoneNumInput from "../../common/forms/PhoneNumInput";
 import Address from "../../common/forms/Address";
 import Checkbox from "../../common/forms/Checkbox";
 import SubmitButton from "../../common/forms/SubmitButton";
-import get from 'lodash/get';
 import {
     validateInput,
     checkIfErrorsExistInMapping,
@@ -26,34 +25,34 @@ import Asterisk from "../../common/forms/Asterisk";
 
 //Returns a summary Form with fields filled
 function MemberAccountSummary(props) {
-    const {memberAccountInfo} = props;
+    const { member } = props;
 
     //Account variables
-    const [firstName, setFirstName] = useState(get(memberAccountInfo, 'firstName', undefined));
-    const [lastName, setLastName] = useState(get(memberAccountInfo, 'lastName', undefined));
-    const [email, setEmail] = useState(get(memberAccountInfo, 'email', undefined));
-    const unsplitPhoneNumber = get(memberAccountInfo, 'phoneNumber', undefined);
-    const [phoneNumber, setPhoneNumber] = useState(splitPhoneNumber(unsplitPhoneNumber) ||
-        {
-            first: undefined,
-            middle: undefined,
-            last: undefined
-        });
-    const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(get(memberAccountInfo, 'useDifferentMailingAddress', undefined));
-    const [address, setAddress] = useState(get(memberAccountInfo, 'address', {
+    const [firstName, setFirstName] = useState(member.firstName);
+    const [lastName, setLastName] = useState(member.lastName);
+    const [email, setEmail] = useState(member.email);
+    const [phoneNumber, setPhoneNumber] = useState(splitPhoneNumber(member.phoneNumber));
+    const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(member.hasDifferentMailingAddress);
+    const [address, setAddress] = useState({
+        street: member.addressLine1,
+        aptNum: member.addressLine2,
+        city: member.city,
+        province: member.province,
+        postalCode: member.postalCode
+    });
+    const [mailingAddress, setMailingAddress] = useState(member.hasDifferentMailingAddress ? {
+        street: member.mailingAddressLine1,
+        aptNum: member.mailingAddressLine2,
+        city: member.mailingCity,
+        province: member.mailingProvince,
+        postalCode: member.mailingPostalCode
+    } : {
         street: undefined,
         aptNum: undefined,
         city: undefined,
         province: undefined,
         postalCode: undefined
-    }));
-    const [mailingAddress, setMailingAddress] = useState(get(memberAccountInfo, 'mailingAddress', {
-        street: undefined,
-        aptNum: undefined,
-        city: undefined,
-        province: undefined,
-        postalCode: undefined
-    }));
+    });
 
     // Error state variables
     // Personal Information Start
@@ -269,7 +268,23 @@ function MemberAccountSummary(props) {
 }
 
 MemberAccountSummary.propTypes = {
-    memberAccountInfo: PropTypes.object.isRequired
+    member: PropTypes.shape({
+        firstName: PropTypes.string.isRequired,
+        lastName: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+        phoneNumber: PropTypes.string.isRequired,
+        addressLine1: PropTypes.string.isRequired,
+        addressLine2: PropTypes.string,
+        city: PropTypes.string.isRequired,
+        province: PropTypes.string.isRequired,
+        postalCode: PropTypes.string.isRequired,
+        hasDifferentMailingAddress: PropTypes.bool.isRequired,
+        mailingAddressLine1: PropTypes.string,
+        mailingAddressLine2: PropTypes.string,
+        mailingCity: PropTypes.string,
+        mailingProvince: PropTypes.string,
+        mailingPostalCode: PropTypes.string
+    }).isRequired
 }
 
 export default MemberAccountSummary

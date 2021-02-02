@@ -8,7 +8,7 @@
 import React from 'react';
 import renderer from  'react-test-renderer'
 import {BrowserRouter as Router} from "react-router-dom";
-import memberAccountInfo from "../MockData";
+import memberAccountInfo, {memberAccountMock} from "../MockData";
 import MemberAccountSummary from "../MemberAccountSummary";
 
 jest.mock("react-tooltip/node_modules/uuid", () => ({
@@ -24,16 +24,16 @@ jest.mock('react-redux', () => ({
     }
 }));
 
-    describe('MemberAccountSummary', () => {
-        it("should render correctly regardless of properties", () => {
-            // given
-            const props = {
-                memberAccountInfo
-            };
-            //when
-            const component = renderer.create(<Router><MemberAccountSummary {...props}/></Router>);
-            const tree = component.toJSON();
-            //then
-            expect(tree).toMatchSnapshot();
-        });
+describe('MemberAccountSummary', () => {
+    it("should render correctly regardless of properties", () => {
+        // given
+        const props = {
+            member: memberAccountMock
+        };
+        //when
+        const component = renderer.create(<Router><MemberAccountSummary {...props}/></Router>);
+        const tree = component.toJSON();
+        //then
+        expect(tree).toMatchSnapshot();
     });
+});

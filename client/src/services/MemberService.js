@@ -26,6 +26,24 @@ const searchMemberProfiles = (searchFilters) => {
     return fetch(`${DEV_URL}/member/search/profiles/`, request);
 }
 
+const getMemberAccountInfo = () => {
+    return fetch(`${DEV_URL}/member/info/`, {
+        method: 'GET',
+        withCredentials: true,
+        credentials: 'include'
+    });
+}
+
+const getMemberProfileInfo = () => {
+    return fetch(`${DEV_URL}/member/profile/`, {
+        method: 'GET',
+        withCredentials: true,
+        credentials: 'include'
+    });
+}
+
 module.exports = {
-    searchMemberProfiles
+    searchMemberProfiles,
+    getMemberAccountInfo,
+    getMemberProfileInfo
 }

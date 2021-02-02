@@ -522,7 +522,7 @@ exports[`MemberSearchResults Container test should match snapshot test with an a
                 }
               }
             />
-            Religion is import
+            Religion is important
           </div>
         </span>
       </section>
@@ -908,7 +908,7 @@ exports[`MemberSearchResults Container test should match snapshot test with an a
                 }
               }
             />
-            Religion is import
+            Religion is important
           </div>
         </span>
       </section>
@@ -1180,7 +1180,7 @@ exports[`MemberSearchResults Container test should match snapshot test with an a
                 }
               }
             />
-            Religion is import
+            Religion is important
           </div>
         </span>
       </section>

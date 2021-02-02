@@ -25,7 +25,7 @@ module.exports = (DataTypes, sequelize) => {
             allowNull: false
         },
         genderDescription: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
         },
         birthYear: {
             type: DataTypes.INTEGER,
@@ -48,6 +48,13 @@ module.exports = (DataTypes, sequelize) => {
             allowNull: false
         },
         homeToShareDescription: {
+            type: DataTypes.STRING
+        },
+        isInterestedInBuyingHome: {
+          type: DataTypes.BOOLEAN,
+          allowNull: false
+        },
+        interestInBuyingHomeDescription: {
             type: DataTypes.STRING
         },
         isReligionImportant: {
