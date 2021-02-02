@@ -86,7 +86,7 @@ function ProfilePage(props) {
                                 <span className={"block"}> {familyStatus} </span>
                                 {roommates &&
                                 <section>
-                                    <lable>{partnerOrGroupMembers}:</lable>
+                                    <label>{partnerOrGroupMembers}:</label>
                                     {roommateUsernames}
                                 </section>
                                 }
@@ -218,9 +218,9 @@ ProfilePage.propTypes =
         workStatus: PropTypes.string.isRequired,
         familyStatus: PropTypes.string.isRequired,
 
-        roommates: PropTypes.array.isRequired,
+        roommates: PropTypes.array,
         partnerOrGroupMembers: PropTypes.string.isRequired,
-        roommateUsernames: PropTypes.array.isRequired,
+        roommateUsernames: PropTypes.array,
 
         minRent: PropTypes.string.isRequired,
         maxRent: PropTypes.string.isRequired,

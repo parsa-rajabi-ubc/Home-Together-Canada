@@ -16,3 +16,7 @@ export function isValueInArray(arr, value){
     return includes(arr, value);
 }
 
+export function getMemberAge(birthYear){
+    return new Date().getFullYear() - birthYear;
+}
+

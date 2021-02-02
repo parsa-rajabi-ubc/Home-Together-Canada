@@ -12,6 +12,7 @@ import mockProfiles from "../../mockData/MockProfileCardData";
 import get from "lodash/get";
 import memberAccountInfo from "../../accountSummary/member/MockData";
 import ProfilePage from "./ProfilePage";
+import {getMemberAge} from "../../common/utils/generalUtils";
 
 const ProfilePageContainer = () => {
     let {username} = useParams();
@@ -19,8 +20,7 @@ const ProfilePageContainer = () => {
     const gender = get(memberAccountInfo, 'gender', "");
     const genderDescription = get(memberAccountInfo, 'genderDescription', "");
 
-    const YEAR = new Date().getFullYear();
-    const age = YEAR - get(memberAccountInfo, 'birthYear', "");
+    const age = getMemberAge(get(memberAccountInfo, 'birthYear', ""));
 
     const familyStatus = get(memberAccountInfo, 'selectedFamilyStatus', "");
     const roommates = get(memberAccountInfo, 'roommates', "");
@@ -31,9 +31,9 @@ const ProfilePageContainer = () => {
         partnerOrGroupMembers = "Group"
     }
 
-    let roommateUsernames = [];
+    let roommateUsernamesHyperLinks = [];
     roommates.forEach(function (person) {
-        roommateUsernames.push(
+        roommateUsernamesHyperLinks.push(
             <Link to={`${person}`} key={person}>
                 <span className={"hover:underline text-blue-600"}>{person} </span>
             </Link>
@@ -95,7 +95,7 @@ const ProfilePageContainer = () => {
             <ProfilePage username={profile.username} age={age} gender={gender} genderDescription={genderDescription}
                          shareLimit={shareLimit} workStatus={workStatus} familyStatus={familyStatus}
                          roommates={roommates} partnerOrGroupMembers={partnerOrGroupMembers}
-                         roommateUsernames={roommateUsernames} minRent={rent.min} maxRent={rent.max}
+                         roommateUsernames={roommateUsernamesHyperLinks} minRent={rent.min.toString()} maxRent={rent.max.toString()}
                          prefLocationText={prefLocationText} preferredLocations={preferredLocations} about={about}
                          petFriendly={petFriendly} petDescription={petDescription}
                          smokeFriendly={smokeFriendly} smokingDescription={smokingDescription}
@@ -109,8 +109,5 @@ const ProfilePageContainer = () => {
         </div>
     )
 }
-
-
-ProfilePageContainer.propTypes = {}
 
 export default ProfilePageContainer;
