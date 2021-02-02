@@ -10,6 +10,7 @@ import React from 'react';
 import renderer from  'react-test-renderer'
 import SearchResultsContainer from "../SearchResultsContainer";
 import MockProfileCardData from "../../mockData/MockProfileCardData";
+import {BrowserRouter as Router} from "react-router-dom";
 
 jest.mock('react-redux', () => ({
     connect: () => {
@@ -30,7 +31,7 @@ describe('SearchResultsContainer', () => {
             //given
             const data = MockProfileCardData;
             //when
-            const component = renderer.create(<SearchResultsContainer profileData={data}/>);
+            const component = renderer.create(<Router><SearchResultsContainer profileData={data}/></Router>);
             const tree = component.toJSON();
             //then
             expect(tree).toMatchSnapshot();
@@ -78,7 +79,7 @@ describe('SearchResultsContainer', () => {
                 }
             ];
             //when
-            const component = renderer.create(<SearchResultsContainer profileData={data}/>);
+            const component = renderer.create(<Router><SearchResultsContainer profileData={data}/></Router>);
             const tree = component.toJSON();
             //then
             expect(tree).toMatchSnapshot();
@@ -89,7 +90,7 @@ describe('SearchResultsContainer', () => {
             //given
             const data = [];
             //when
-            const component = renderer.create(<SearchResultsContainer profileData={data}/>);
+            const component = renderer.create(<Router><SearchResultsContainer profileData={data}/></Router>);
             const tree = component.toJSON();
             //then
             expect(tree).toMatchSnapshot();

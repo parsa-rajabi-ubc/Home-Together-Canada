@@ -2,7 +2,7 @@
 
 exports[`Tooltip Snapshot test should render correctly regardless of properties 1`] = `
 <span>
-  <a
+  <span
     data-for="randomID"
     data-tip={true}
   >
@@ -27,7 +27,7 @@ exports[`Tooltip Snapshot test should render correctly regardless of properties 
         fillRule="evenodd"
       />
     </svg>
-  </a>
+  </span>
   <div
     className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
     data-id="tooltip"

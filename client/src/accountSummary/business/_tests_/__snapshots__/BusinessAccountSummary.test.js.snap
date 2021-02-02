@@ -98,7 +98,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
                 Incorporated business
               </label>
               <span>
-                <a
+                <span
                   data-for="incorporated"
                   data-tip={true}
                 >
@@ -123,7 +123,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
                       fillRule="evenodd"
                     />
                   </svg>
-                </a>
+                </span>
                 <div
                   className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                   data-id="tooltip"
@@ -615,7 +615,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
               Different Mailing Address
             </label>
             <span>
-              <a
+              <span
                 data-for="differentMailingAddress"
                 data-tip={true}
               >
@@ -640,7 +640,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
                     fillRule="evenodd"
                   />
                 </svg>
-              </a>
+              </span>
               <div
                 className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                 data-id="tooltip"
@@ -937,7 +937,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
                 Canada-wide business
               </label>
               <span>
-                <a
+                <span
                   data-for="nationWide"
                   data-tip={true}
                 >
@@ -962,7 +962,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
                       fillRule="evenodd"
                     />
                   </svg>
-                </a>
+                </span>
                 <div
                   className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                   data-id="tooltip"
@@ -1085,7 +1085,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
                   />
                 </svg>
                 <span>
-                  <a
+                  <span
                     data-for="mapAddress"
                     data-tip={true}
                   >
@@ -1110,7 +1110,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
                         fillRule="evenodd"
                       />
                     </svg>
-                  </a>
+                  </span>
                   <div
                     className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                     data-id="tooltip"
@@ -1368,7 +1368,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
          Business Logo 
       </label>
       <span>
-        <a
+        <span
           data-for="businessLogo"
           data-tip={true}
         >
@@ -1393,7 +1393,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
               fillRule="evenodd"
             />
           </svg>
-        </a>
+        </span>
         <div
           className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
           data-id="tooltip"

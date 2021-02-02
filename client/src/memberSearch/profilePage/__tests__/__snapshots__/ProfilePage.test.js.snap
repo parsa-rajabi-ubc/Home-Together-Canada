@@ -1,0 +1,445 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfilePage Snapshot test should render correctly regardless of properties 1`] = `
+<div>
+  <div
+    className="selected-component-grid-outer"
+  >
+    <div
+      className="selected-component-grid-inner"
+    >
+      <div
+        className="grid grid-cols-2 gap-y-4 my-6"
+      >
+        <div
+          className="col-start-1 col-end-1"
+        >
+          <span
+            className="mb-4 text-2xl font-bold"
+          >
+             
+            Babar
+            , 
+          </span>
+          <span
+            className="text-2xl font-medium"
+          >
+            40
+          </span>
+          <section
+            className="my-6"
+          >
+            <span
+              className="font-semibold"
+            >
+              Male
+            </span>
+          </section>
+          <span
+            className="block my-6 font-normal"
+          >
+            Open to sharing with 
+            2
+             people
+          </span>
+          <section
+            className="my-6"
+          >
+            <span
+              className="span mr-3"
+            >
+              Work & Family Status
+            </span>
+            <span
+              className="block"
+            >
+               
+              Student
+               
+            </span>
+            <span
+              className="block"
+            >
+               
+              Existing Group
+               
+            </span>
+            <section>
+              <lable>
+                Group: 
+                :
+              </lable>
+              jack
+              potato
+            </section>
+          </section>
+          <section
+            className="my-6"
+          >
+            <span
+              className="span mr-3"
+            >
+              Budget
+            </span>
+            <span
+              className="block"
+            >
+               $
+              400
+               - $
+              890
+               (CAD) 
+            </span>
+          </section>
+          <section
+            className="my-6"
+          >
+            <span
+              className="span mr-3"
+            >
+               
+              Preferred Locations
+               
+            </span>
+            <div
+              className="whitespace-pre mt-1"
+            >
+              Calgary, AB
+              Kelowna, BC
+            </div>
+          </section>
+          <button
+            className="btn btn-green mb-6 w-1/2 text-base py-2"
+          >
+            Send Message
+          </button>
+        </div>
+        <div
+          className="col-start-2"
+        >
+          <div
+            className="border-2 border-dashed border-gray-200 mb-4 p-3"
+          >
+            Sushi is a great food!
+          </div>
+          <table
+            className="table-auto mx-auto"
+          >
+            <tbody>
+              <tr
+                className="false gray-border"
+              >
+                <td>
+                  <svg
+                    className="checkmark-icon"
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    strokeWidth="0"
+                    style={
+                      Object {
+                        "color": undefined,
+                      }
+                    }
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0 0 51.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"
+                    />
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                    />
+                  </svg>
+                </td>
+                <td
+                  className="table-item"
+                >
+                  Pet friendly
+                </td>
+                <td
+                  className="table-item-description"
+                >
+                  
+                </td>
+              </tr>
+              <tr
+                className="false gray-border"
+              >
+                <td>
+                  <svg
+                    className="checkmark-icon"
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    strokeWidth="0"
+                    style={
+                      Object {
+                        "color": undefined,
+                      }
+                    }
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0 0 51.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"
+                    />
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                    />
+                  </svg>
+                </td>
+                <td
+                  className="table-item"
+                >
+                  Smoke friendly
+                </td>
+                <td
+                  className="table-item-description"
+                >
+                  
+                </td>
+              </tr>
+              <tr
+                className="false gray-border"
+              >
+                <td>
+                  <svg
+                    className="checkmark-icon"
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    strokeWidth="0"
+                    style={
+                      Object {
+                        "color": undefined,
+                      }
+                    }
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0 0 51.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"
+                    />
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                    />
+                  </svg>
+                </td>
+                <td
+                  className="table-item"
+                >
+                  Health / mobility issues
+                </td>
+                <td
+                  className="table-item-description"
+                >
+                  
+                </td>
+              </tr>
+              <tr
+                className="false gray-border"
+              >
+                <td>
+                  <svg
+                    className="checkmark-icon"
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    strokeWidth="0"
+                    style={
+                      Object {
+                        "color": undefined,
+                      }
+                    }
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0 0 51.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"
+                    />
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                    />
+                  </svg>
+                </td>
+                <td
+                  className="table-item"
+                >
+                  Allergies
+                </td>
+                <td
+                  className="table-item-description"
+                >
+                  
+                </td>
+              </tr>
+              <tr
+                className="false gray-border"
+              >
+                <td>
+                  <svg
+                    className="checkmark-icon"
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    strokeWidth="0"
+                    style={
+                      Object {
+                        "color": undefined,
+                      }
+                    }
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0 0 51.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"
+                    />
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                    />
+                  </svg>
+                </td>
+                <td
+                  className="table-item"
+                >
+                  Religion is important
+                </td>
+                <td
+                  className="table-item-description"
+                >
+                  
+                </td>
+              </tr>
+              <tr
+                className="false gray-border"
+              >
+                <td>
+                  <svg
+                    className="checkmark-icon"
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    strokeWidth="0"
+                    style={
+                      Object {
+                        "color": undefined,
+                      }
+                    }
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0 0 51.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"
+                    />
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                    />
+                  </svg>
+                </td>
+                <td
+                  className="table-item"
+                >
+                  Diet is important
+                </td>
+                <td
+                  className="table-item-description"
+                >
+                  
+                </td>
+              </tr>
+              <tr
+                className="false gray-border"
+              >
+                <td>
+                  <svg
+                    className="checkmark-icon"
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    strokeWidth="0"
+                    style={
+                      Object {
+                        "color": undefined,
+                      }
+                    }
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0 0 51.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"
+                    />
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                    />
+                  </svg>
+                </td>
+                <td
+                  className="table-item"
+                >
+                  Interested in buying a home
+                </td>
+                <td
+                  className="table-item-description"
+                >
+                  
+                </td>
+              </tr>
+              <tr
+                className="false gray-border"
+              >
+                <td>
+                  <svg
+                    className="checkmark-icon"
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    strokeWidth="0"
+                    style={
+                      Object {
+                        "color": undefined,
+                      }
+                    }
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0 0 51.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"
+                    />
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                    />
+                  </svg>
+                </td>
+                <td
+                  className="table-item"
+                >
+                  Has a home to share
+                </td>
+                <td
+                  className="table-item-description"
+                >
+                  
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button
+            className="btn btn-red mx-auto my-6 w-1/2 text-base py-2"
+          >
+            Report User
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
