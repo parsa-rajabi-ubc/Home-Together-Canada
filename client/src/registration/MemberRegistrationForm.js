@@ -638,8 +638,8 @@ function MemberRegistrationForm(props) {
                     <div className="px-4 sm:px-0">
                         <h3 className="info-header">Personal Information</h3>
                         <p className="mr-10 info-text">
-                            This information is about you and is private. Home Together Canada will not share this
-                            information with anyone and will only be used for verification purposes. Please see
+                            This information is about you and is private. Home Together Canada uses it for verification purposes only and does not not share this
+                            information. Please see
                             <Link to={'/faq'} className={"label"}> FAQs</Link> for more information.
                         </p>
                         <p className="mr-10 info-text">
@@ -725,8 +725,7 @@ function MemberRegistrationForm(props) {
                             <h3 className="info-header">Profile Details</h3>
                             <p className="info-text">
                                 This information is about your home-sharing preferences and will be accessible by
-                                other
-                                members on the website.
+                                other registered members with profiles on the website.
                             </p>
                         </div>
                     </div>
@@ -1018,7 +1017,7 @@ function MemberRegistrationForm(props) {
                     <div className="px-4 md:col-span-1 sm:px-0">
                         <h3 className="info-header">Search Criteria</h3>
                         <p className="info-text">
-                            This information be used to find other compatible members on Home Together Canada
+                            This information is used to search for other compatible members on Home Together Canada. Please read
                             <Link to={'/faq'} className={"label"}> FAQs</Link>.
                         </p>
                     </div>
@@ -1218,11 +1217,10 @@ function MemberRegistrationForm(props) {
                         <div className="px-4 sm:px-0">
                             <h3 className="info-header">Sign In Details</h3>
                             <p className="info-text">
-                                This information is to set up and access your account.
-                                <b> Usernames are permanent and cannot be changed at a later time!</b> <br/>
                                 The user name you choose is how you will be
-                                identified by others on the site. Do NOT use your real name! We recommend you choose
-                                something you will remember and not tire of. User names are extremely important and are
+                                identified by others on the site.
+                                <b>Do NOT use your real name. Usernames are permanent and cannot be changed at a later time!</b> <br/>
+                                 We recommend you take your time and choose something you will remember and not tire of. User names are extremely important and are
                                 for the protection of you and all of the users of this site. Please read
                                 <Link to={'/faq'} className={"label"}> FAQs</Link>.
                             </p>

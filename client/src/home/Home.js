@@ -36,10 +36,10 @@ const Home = () => {
                                         Home Together Canada
                                     </h2>
                                     <p className="text-home">
-                                        A volunteer-run, non-profit association aimed to facilitate the growth and success of shared living in Canada.
+                                        A Free Canadian Home Sharing Website
                                     </p>
                                     <p className="text-home">
-                                        Use Home Together to find others to share a home with, safely contact other members via on-site messaging and find Canadian-based home sharing business and services within your community!
+                                    Supporting the growth and success of shared living across the nation!
                                     </p>
 
                                     <div className="mt-5 ml-auto sm:mt-8 sm:flex sm:justify-center lg:justify-start">
