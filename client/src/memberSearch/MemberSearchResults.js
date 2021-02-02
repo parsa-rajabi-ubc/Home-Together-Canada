@@ -12,7 +12,7 @@ import React from 'react';
 import ProfileCard from "./ProfileCard";
 import PropTypes from "prop-types";
 
-function MemberSearchResults(props){
+function MemberSearchResults(props) {
     const {profileData} = props;
     const profiles = [];
     for (let i = 0; i < profileData.length; i++) {
@@ -26,6 +26,7 @@ function MemberSearchResults(props){
                                    smoke={profileData[i].smoke}
                                    religion={profileData[i].religion}
                                    diet={profileData[i].diet}
+                                   hasHome={profileData[i].hasHome}
         />);
     }
     return (

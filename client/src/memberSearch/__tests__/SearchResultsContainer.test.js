@@ -51,6 +51,7 @@ describe('SearchResultsContainer', () => {
                     smoke: false,
                     religion: false,
                     diet: false,
+                    hasHome: false
                 },
                 {
                     username: "Babar",
@@ -63,6 +64,7 @@ describe('SearchResultsContainer', () => {
                     smoke: true,
                     religion: true,
                     diet: true,
+                    hasHome: true
                 },
                 {
                     username: "CREATINE",
@@ -74,7 +76,8 @@ describe('SearchResultsContainer', () => {
                     pet: false,
                     smoke: true,
                     religion: true,
-                    diet: true
+                    diet: true,
+                    hasHome: true
                 }
             ];
             //when

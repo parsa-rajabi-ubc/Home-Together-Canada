@@ -12,11 +12,12 @@ import {FaDog as Dog} from "react-icons/fa";
 import {GiCigarette as Cigarette} from "react-icons/gi";
 import {ImSpoonKnife as Food} from "react-icons/im";
 import {GiPrayer as Pray} from "react-icons/gi";
+import {IoHome as Home} from "react-icons/io5";
 import Tooltip from "../common/forms/Tooltip";
 
 
 function ProfileCard(props) {
-    const {username, familyStatus, age, minBudget, maxBudget, pet, smoke, diet, religion} = props;
+    const {username, familyStatus, age, minBudget, maxBudget, pet, smoke, diet, religion, hasHome} = props;
     return (
         <section className={"card-container mt-0"}>
             <div className={"ml-6 flex"}>
@@ -25,17 +26,20 @@ function ProfileCard(props) {
 
                 <section className={"flex w-full pr-6 justify-end"}>
                     {pet && <Tooltip text={"Pet Friendly"} toolTipID={"PetFriendly"}
-                                    customIcon={<Dog className={"text-blue-400 ml-1"}/>}/>}
+                                     customIcon={<Dog className={"text-blue-400 ml-1"}/>}/>}
 
                     {smoke && <Tooltip text={"Smoke Friendly"} toolTipID={"SmokeFriendly"}
-                                      customIcon={<Cigarette className={"text-red-500 ml-1"}/>}/>}
+                                       customIcon={<Cigarette className={"text-red-500 ml-1"}/>}/>}
 
 
                     {diet && <Tooltip text={"Diet is important"} toolTipID={"dietImportant"}
-                                     customIcon={<Food className={"text-gray-600 ml-1"}/>}/>}
+                                      customIcon={<Food className={"text-gray-600 ml-1"}/>}/>}
 
                     {religion && <Tooltip text={"Religion is important"} toolTipID={"religionImportant"}
-                                         customIcon={<Pray className={"text-green-600 ml-1"}/>}/>}
+                                          customIcon={<Pray className={"text-green-600 ml-1"}/>}/>}
+
+                    {hasHome && <Tooltip text={"Has a home"} toolTipID={"hasHome"}
+                                         customIcon={<Home className={"text-indigo-600 ml-1"}/>}/>}
                 </section>
             </div>
 
@@ -58,6 +62,7 @@ ProfileCard.propTypes = {
     smoke: PropTypes.bool.isRequired,
     religion: PropTypes.bool.isRequired,
     diet: PropTypes.bool.isRequired,
+    hasHome: PropTypes.bool.isRequired
 }
 
 export default ProfileCard;
