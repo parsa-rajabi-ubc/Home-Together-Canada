@@ -13,17 +13,25 @@ import Menu from 'react-burger-menu/lib/menus/slide';
 const BurgerMenu = (props) => {
     const {isOpen, onClose, content} = props;
 
+    // Code needed to change the background colour of the main body once they menu is visible
+    const styles = {
+        bmOverlay: {
+            background: 'transparent'
+        }
+    };
+
     return (
         //https://github.com/negomi/react-burger-menu
         <Menu
+            styles={ styles }
             width={"30%"}
             disableAutoFocus
             itemListElement="div"
             customBurgerIcon={false}
             customCrossIcon={false}
             isOpen={isOpen} onClose={onClose}
-            menuClassName={"bg-gray-700 p-5 rounded-xl"}
-            itemListClassName={"p-2 bg-gray-700"}
+            menuClassName={"rounded-xl"}
+            itemListClassName={"bg-gray-700 overflow-auto"}
         >
             {content}
         </Menu>

@@ -29,7 +29,7 @@ function Tooltip(props) {
 Tooltip.propTypes = {
     text: PropTypes.string.isRequired,
     toolTipID: PropTypes.string.isRequired,
-    customIcon: PropTypes.any
+    customIcon: PropTypes.object
 };
 
 export default Tooltip;
