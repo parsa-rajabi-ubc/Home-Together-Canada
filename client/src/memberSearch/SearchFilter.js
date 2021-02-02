@@ -217,22 +217,22 @@ SearchFilter.propTypes = {
 
     minAgePreference: PropTypes.number.isRequired,
     setMinAgePreference: PropTypes.func.isRequired,
-    minAgePreferenceError: PropTypes.bool.isRequired,
+    minAgePreferenceError: PropTypes.bool,
 
     maxAgePreference: PropTypes.number.isRequired,
     setMaxAgePreference: PropTypes.func.isRequired,
-    maxAgePreferenceError: PropTypes.bool.isRequired,
+    maxAgePreferenceError: PropTypes.bool,
 
     selectedLimitPreference: PropTypes.array.isRequired,
     handleSelectedLimitPreferenceChange: PropTypes.func.isRequired,
 
     minBudgetPreference: PropTypes.number.isRequired,
     setMinBudgetPreference: PropTypes.func.isRequired,
-    minBudgetPreferenceError: PropTypes.bool.isRequired,
+    minBudgetPreferenceError: PropTypes.bool,
 
     maxBudgetPreference: PropTypes.number.isRequired,
     setMaxBudgetPreference: PropTypes.func.isRequired,
-    maxBudgetPreferenceError: PropTypes.bool.isRequired,
+    maxBudgetPreferenceError: PropTypes.bool,
 
     petPreference: PropTypes.bool.isRequired,
     setPetPreference: PropTypes.func.isRequired,
