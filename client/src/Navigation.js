@@ -43,9 +43,11 @@ const Navigation = (props) => {
                     <Route path={"/registration/business"} component={BusinessRegistration}/>
                     <Route path={"/registration/member"} component={MemberRegistrationForm}/>
                     <Route path={"/registration"} component={MainLandingPage}/>
+                    {(authenticated && accountType !== USER_TYPES.UNREGISTERED) &&
                     <Route path={"/members/:username"}>
                         <ProfilePageContainer/>
                     </Route>
+                    }
                     <Route path={"/members"} component={MemberSearchContainer}/>
                     <Route path={"/create-listing"} component={CreateListingContainer}/>
                     {(authenticated && accountType !== USER_TYPES.UNREGISTERED) &&
