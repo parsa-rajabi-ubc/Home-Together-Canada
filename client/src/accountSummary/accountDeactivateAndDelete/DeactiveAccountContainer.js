@@ -9,7 +9,7 @@ import React, {useState} from "react";
 import DeactiveAccount from "./DeactiveAccount";
 import PropTypes from "prop-types";
 const DeactiveAccountContainer = (props)=>{
-    const activeStatus = props;
+    const {activeStatus} = props;
     const [reasons, setReasons] = useState("");
     const [active, setActive] = useState(activeStatus);
     const [isSelectReason, setIsSelectReason] = useState(false);
@@ -36,16 +36,12 @@ const DeactiveAccountContainer = (props)=>{
 
     return(
         <DeactiveAccount
-            activeStatus={activeStatus}
             active={active}
-            isSelectReason ={isSelectReason}
-            reasons = {reasons}
             deactiveActivedAccount = {deactiveActivedAccount}
             activeAccount = {activeAccount}
             handleReasonsChange = {handleReasonsChange}
         />
     )
-
 
 }
 DeactiveAccountContainer.propTypes = {

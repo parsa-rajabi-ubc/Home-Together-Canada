@@ -28,7 +28,7 @@ function DeleteAccount(props) {
 }
 DeleteAccount.propTypes = {
     confirm: PropTypes.bool.isRequired,
-    setConfirm: PropTypes.bool.isRequired,
+    setConfirm: PropTypes.func.isRequired,
     handleDeleteAccount: PropTypes.func.isRequired
 }
 

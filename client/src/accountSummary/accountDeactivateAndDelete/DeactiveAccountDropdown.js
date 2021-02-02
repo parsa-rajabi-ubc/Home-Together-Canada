@@ -49,7 +49,7 @@ function DeactiveAccountDropdown(props) {
 }
 
 DeactiveAccountDropdown.propTypes = {
-    givenReason: propTypes.string.isRequired,
+    givenReason: propTypes.string,
     onChange: propTypes.func.isRequired,
 };
 
