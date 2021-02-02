@@ -6,7 +6,7 @@ import {
     isValueNegative,
     validateMinMax,
     resolveYesNoToBoolean,
-    validateArrayInput, validateCheckbox
+    validateArrayInput, validateCheckbox, validateMinMaxFilter
 } from "../registrationUtils";
 
 describe('registrationUtils', () => {
@@ -315,6 +315,25 @@ describe('registrationUtils', () => {
             ({array, expectedResult}) => {
                     expect(validateArrayInput(array, setStateVarMock)).toBe(expectedResult);
             });
+    });
+
+    describe('validateMinMaxFilter', () => {
+        const setMinStateMock = jest.fn();
+        const setMaxStateMock = jest.fn();
+
+        const negativeValue = -1;
+        const positiveValue = 100;
+        it.each`
+            min                 | max               | expected 
+            ${negativeValue}    | ${negativeValue}  | ${true} 
+            ${negativeValue}    | ${positiveValue}  | ${true}
+            ${positiveValue}    | ${negativeValue}  | ${true}
+            ${positiveValue}    | ${positiveValue}  | ${false}  //same value
+            ${1000}             | ${500}            | ${true}
+            ${500}              | ${1000}           | ${false}
+        `('returns $expected when $min and $max are provided', ({ min, max, expected }) => {
+            expect(validateMinMaxFilter(min, max, setMinStateMock, setMaxStateMock)).toBe(expected);
+        })
     });
 
     describe('validateCheckbox', () => {
