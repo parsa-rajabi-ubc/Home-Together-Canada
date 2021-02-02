@@ -211,47 +211,47 @@ function SearchFilter(props) {
 }
 
 SearchFilter.propTypes = {
-    genderPreference: PropTypes.array,
-    handleGenderPrefChange: PropTypes.func,
+    genderPreference: PropTypes.array.isRequired,
+    handleGenderPrefChange: PropTypes.func.isRequired,
 
-    familyStatusPreference: PropTypes.array,
-    setFamilyStatusPreference: PropTypes.func,
+    familyStatusPreference: PropTypes.array.isRequired,
+    setFamilyStatusPreference: PropTypes.func.isRequired,
 
-    minAgePreference: PropTypes.number,
-    setMinAgePreference: PropTypes.func,
-    minAgePreferenceError: PropTypes.bool,
+    minAgePreference: PropTypes.number.isRequired,
+    setMinAgePreference: PropTypes.func.isRequired,
+    minAgePreferenceError: PropTypes.bool.isRequired,
 
-    maxAgePreference: PropTypes.number,
-    setMaxAgePreference: PropTypes.func,
-    maxAgePreferenceError: PropTypes.bool,
+    maxAgePreference: PropTypes.number.isRequired,
+    setMaxAgePreference: PropTypes.func.isRequired,
+    maxAgePreferenceError: PropTypes.bool.isRequired,
 
-    selectedLimitPreference: PropTypes.array,
-    handleSelectedLimitPreferenceChange: PropTypes.func,
+    selectedLimitPreference: PropTypes.array.isRequired,
+    handleSelectedLimitPreferenceChange: PropTypes.func.isRequired,
 
-    minBudgetPreference: PropTypes.number,
-    setMinBudgetPreference: PropTypes.func,
-    minBudgetPreferenceError: PropTypes.bool,
+    minBudgetPreference: PropTypes.number.isRequired,
+    setMinBudgetPreference: PropTypes.func.isRequired,
+    minBudgetPreferenceError: PropTypes.bool.isRequired,
 
-    maxBudgetPreference: PropTypes.number,
-    setMaxBudgetPreference: PropTypes.func,
-    maxBudgetPreferenceError: PropTypes.bool,
+    maxBudgetPreference: PropTypes.number.isRequired,
+    setMaxBudgetPreference: PropTypes.func.isRequired,
+    maxBudgetPreferenceError: PropTypes.bool.isRequired,
 
-    petPreference: PropTypes.bool,
-    setPetPreference: PropTypes.func,
+    petPreference: PropTypes.bool.isRequired,
+    setPetPreference: PropTypes.func.isRequired,
 
-    smokingPreference: PropTypes.bool,
-    setSmokingPreference: PropTypes.func,
+    smokingPreference: PropTypes.bool.isRequired,
+    setSmokingPreference: PropTypes.func.isRequired,
 
-    religionPreference: PropTypes.bool,
-    setReligionPreference: PropTypes.func,
+    religionPreference: PropTypes.bool.isRequired,
+    setReligionPreference: PropTypes.func.isRequired,
 
-    dietPreference: PropTypes.bool,
-    setDietPreference: PropTypes.func,
+    dietPreference: PropTypes.bool.isRequired,
+    setDietPreference: PropTypes.func.isRequired,
 
-    homeToSharePreference: PropTypes.bool,
-    setHomeToSharePreference: PropTypes.func,
+    homeToSharePreference: PropTypes.bool.isRequired,
+    setHomeToSharePreference: PropTypes.func.isRequired,
 
-    onSubmit: PropTypes.func,
+    onSubmit: PropTypes.func.isRequired,
 };
 
 export default SearchFilter;
