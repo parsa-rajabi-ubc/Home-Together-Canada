@@ -18,6 +18,7 @@ import Error404 from "../common/error/Error404";
 import SearchCriteriaContainer from "./member/SearchCriteriaContainer";
 import DeactiveAccountContainer from './accountDeactivateAndDelete/DeactiveAccountContainer'
 import DeleteAccountContainer from "./accountDeactivateAndDelete/DeleteAccountContainer";
+import {memberAccountMock} from "./member/MockData"
 
 const AccountSummaryContainer = () => {
     const {accountType, selected} = useLocation().state;
@@ -41,7 +42,7 @@ const AccountSummaryContainer = () => {
             case ALL_SUBPAGES.MANAGE_LISTINGS:
                 return <div>Manage Listings Component</div>
             case ALL_SUBPAGES.ACTIVATE_DEACTIVATE:
-                return accountType === USER_TYPES.MEMBER ? <DeactiveAccountContainer activeStatus ={memberAccountInfo.activate}/> : <Error404/>
+                return accountType === USER_TYPES.MEMBER ? <DeactiveAccountContainer activeStatus ={memberAccountMock.activate}/> : <Error404/>
             case ALL_SUBPAGES.DELETE:
                 return <DeleteAccountContainer/>
             default:
