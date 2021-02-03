@@ -9,26 +9,25 @@ import React from 'react';
 import {Link, useParams} from "react-router-dom";
 import find from "lodash/find";
 import mockProfiles from "../../mockData/MockProfileCardData";
-import get from "lodash/get";
-import memberAccountInfo from "../../accountSummary/member/MockData";
+import {memberProfileMock, interestedAreasMock, roommatesMock} from "../../accountSummary/member/MockData";
 import ProfilePage from "./ProfilePage";
 import {getMemberAge} from "../../common/utils/generalUtils";
 
 const ProfilePageContainer = () => {
     let {username} = useParams();
     let profile = find(mockProfiles, {username: username})
-    const gender = get(memberAccountInfo, 'gender', "");
-    const genderDescription = get(memberAccountInfo, 'genderDescription', "");
+    const gender = memberProfileMock.gender;
+    const genderDescription = memberProfileMock.genderDescription;
 
-    const age = getMemberAge(get(memberAccountInfo, 'birthYear', ""));
+    const age = getMemberAge(memberProfileMock.birthYear);
 
-    const familyStatus = get(memberAccountInfo, 'selectedFamilyStatus', "");
-    const roommates = get(memberAccountInfo, 'roommates', "");
+    const familyStatus = memberProfileMock.status;
+    const roommates = roommatesMock;
     let partnerOrGroupMembers = "";
     if ((familyStatus === 'Couple' || familyStatus === 'Couple With Children')) {
         partnerOrGroupMembers = "Partner"
     } else if (familyStatus === 'Existing Group') {
-        partnerOrGroupMembers = "Group"
+        partnerOrGroupMembers = "Group Members"
     }
 
     let roommateUsernamesHyperLinks = [];
@@ -41,19 +40,15 @@ const ProfilePageContainer = () => {
     })
 
 
-    const shareLimit = get(memberAccountInfo, 'selectedLimit', "");
-    const workStatus = get(memberAccountInfo, 'selectedWorkStatus', "");
+    const shareLimit = memberProfileMock.numRoommates;
+    const workStatus = memberProfileMock.workStatus;
 
     const rent = {
-        min: get(memberAccountInfo, 'minRent', ""),
-        max: get(memberAccountInfo, 'maxRent', ""),
+        min: memberProfileMock.minMonthlyBudget,
+        max: memberProfileMock.maxMonthlyBudget,
     };
 
-    const areasOfInterest = get(memberAccountInfo, 'areasOfInterest', [{
-        province: "",
-        city: "",
-        radius: ""
-    }]);
+    const areasOfInterest = interestedAreasMock;
 
     let preferredLocations = [];
     areasOfInterest.forEach(function (location) {
@@ -63,32 +58,32 @@ const ProfilePageContainer = () => {
     // Check the length of the area of interest and if it has more than 1 entry, add an s to the end of the text
     const prefLocationText = areasOfInterest.length > 1 ? "Preferred Locations" : "Preferred Location";
 
-    const about = get(memberAccountInfo, 'aboutSelf', "");
+    const about = memberProfileMock.bio;
 
     // Yes/No
-    const petFriendly = get(memberAccountInfo, 'petFriendly', "");
-    const petDescription = get(memberAccountInfo, 'petDescription', "");
+    const petFriendly = memberProfileMock.petFriendly;
+    const petDescription = memberProfileMock.petDescription;
 
-    const smokeFriendly = get(memberAccountInfo, 'smoking', "");
-    const smokingDescription = get(memberAccountInfo, 'smokingDescription', "");
+    const smokeFriendly = memberProfileMock.isSmoker;
+    const smokingDescription = memberProfileMock.smokingDescription;
 
-    const hasHealthMobilityIssues = get(memberAccountInfo, 'hasHealthMobilityIssues', "");
-    const healthMobilityIssuesDescription = get(memberAccountInfo, 'healthMobilityIssuesDescription', "");
+    const hasHealthMobilityIssues = memberProfileMock.hasHealthMobilityIssues;
+    const healthMobilityIssuesDescription = memberProfileMock.healthMobilityIssuesDescription;
 
-    const hasAllergies = get(memberAccountInfo, 'hasAllergies', "");
-    const allergiesDescription = get(memberAccountInfo, 'allergiesDescription', "");
+    const hasAllergies = memberProfileMock.hasAllergies;
+    const allergiesDescription = memberProfileMock.allergiesDescription;
 
-    const isReligionImportant = get(memberAccountInfo, 'isReligionImportant', "");
-    const religionDescription = get(memberAccountInfo, 'religionDescription', "");
+    const isReligionImportant = memberProfileMock.isReligionImportant;
+    const religionDescription = memberProfileMock.religionDescription;
 
-    const isDietImportant = get(memberAccountInfo, 'isDietImportant', "");
-    const dietDescription = get(memberAccountInfo, 'dietDescription', "");
+    const isDietImportant = memberProfileMock.isDietImportant;
+    const dietDescription = memberProfileMock.dietDescription;
 
-    const hasHomeToShare = get(memberAccountInfo, 'hasHomeToShare', "");
-    const hasHomeToShareDescription = get(memberAccountInfo, 'hasHomeToShareDescription', "");
+    const hasHomeToShare = memberProfileMock.hasHomeToShare;
+    const hasHomeToShareDescription = memberProfileMock.hasHomeToShareDescription;
 
-    const interestInBuyingHome = get(memberAccountInfo, 'interestInBuyingHome', "");
-    const interestDescription = get(memberAccountInfo, 'interestDescription', "");
+    const interestInBuyingHome = memberProfileMock.interestInBuyingHome;
+    const interestDescription = memberProfileMock.interestDescription;
 
     return (
         <div>

@@ -65,141 +65,140 @@ function ProfilePage(props) {
 
 
     return (
-        <div>
-            <div className="selected-component-grid-outer">
-                <div className="selected-component-grid-inner">
-                    <div className="grid grid-cols-2 gap-y-4 my-6">
-                        <div className={"col-start-1 col-end-1"}>
-                            <span className={"mb-4 text-2xl font-bold"}> {username}, </span>
-                            <span className={"text-2xl font-medium"}>{age}</span>
-                            <section className={"my-6"}>
-                                <span className={"font-semibold"}>{gender}</span>
-                                {gender === "Other" && <span>: {genderDescription}</span>}
-                            </section>
+        <div className="selected-component-grid-outer">
+            <div className="selected-component-grid-inner">
+                <div className="grid grid-cols-2 gap-y-4 my-6">
+                    <div className={"col-start-1 col-end-1"}>
+                        <span className={"mb-4 text-2xl font-bold"}> {username}, </span>
+                        <span className={"text-2xl font-medium"}>{age}</span>
+                        <section className={"my-6"}>
+                            <span className={"font-semibold"}>{gender}</span>
+                            {/*Conditionally show the gender description*/}
+                            {gender === "Other" && <span>: {genderDescription}</span>}
+                        </section>
 
-                            <span className={"block my-6 font-normal"}>Open to sharing
+                        <span className={"block my-6 font-normal"}>Open to sharing
                                 with {shareLimit} people</span>
 
-                            <section className={"my-6"}>
-                                <span className={"block"}> {workStatus} </span>
+                        <section className={"my-6"}>
+                            <span className={"block"}> {workStatus} </span>
+                        </section>
+
+                        <section className={"my-6"}>
+                            <span className={"block"}> {familyStatus} </span>
+                            {roommates &&
+                            <section>
+                                <label>{partnerOrGroupMembers}: </label>
+                                {roommateUsernames}
                             </section>
+                            }
+                        </section>
 
-                            <section className={"my-6"}>
-                                <span className={"block"}> {familyStatus} </span>
-                                {roommates &&
-                                <section>
-                                    <label>{partnerOrGroupMembers}: </label>
-                                    {roommateUsernames}
-                                </section>
-                                }
-                            </section>
+                        <section className={"my-6"}>
+                            <span className={"label mr-3"}>Budget</span>
+                            <span className={"block"}> ${minRent} - ${maxRent} (CAD) </span>
+                        </section>
 
-                            <section className={"my-6"}>
-                                <span className={"label mr-3"}>Budget</span>
-                                <span className={"block"}> ${minRent} - ${maxRent} (CAD) </span>
-                            </section>
-
-                            <section className={"my-6"}>
-                                <span className={"label mr-3"}> {prefLocationText} </span>
-                                <div className={"whitespace-pre mt-1"}>{preferredLocations}</div>
-                            </section>
-                            <button className={"btn btn-green mb-6 w-1/2 text-base py-2"}>Send Message
-                            </button>
-                        </div>
-                        <div className={"col-start-2"}>
-
-                            <div className={"mb-4 p-3 rounded-lg shadow-lg"}>
-                                {about}
-                            </div>
-                            <table className={"table-auto mx-auto shadow-lg"}>
-                                <tbody>
-                                <tr className={`${petFriendly && "bg-gray-200"} gray-border`}>
-                                    <td>
-                                        {petFriendly ?
-                                            <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
-                                        }
-                                    </td>
-                                    <td className={"table-item"}>Pet friendly</td>
-                                    <td className={"table-item-description"}>{petDescription}</td>
-                                </tr>
-
-                                <tr className={`${smokeFriendly && "bg-gray-200"} gray-border`}>
-                                    <td>
-                                        {smokeFriendly ?
-                                            <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
-                                        }
-                                    </td>
-                                    <td className={"table-item"}>Smoke friendly</td>
-                                    <td className={"table-item-description"}>{smokingDescription}</td>
-                                </tr>
-
-                                <tr className={`${hasHealthMobilityIssues && "bg-gray-200"} gray-border`}>
-                                    <td>
-                                        {hasHealthMobilityIssues ?
-                                            <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
-                                        }
-                                    </td>
-                                    <td className={"table-item"}>Health / mobility issues</td>
-                                    <td className={"table-item-description"}>{healthMobilityIssuesDescription}</td>
-                                </tr>
-
-                                <tr className={`${hasAllergies && "bg-gray-200"} gray-border`}>
-                                    <td>
-                                        {hasAllergies ?
-                                            <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
-                                        }
-                                    </td>
-                                    <td className={"table-item"}>Allergies</td>
-                                    <td className={"table-item-description"}>{allergiesDescription}</td>
-                                </tr>
-
-                                <tr className={`${isReligionImportant && "bg-gray-200"} gray-border`}>
-                                    <td>
-                                        {isReligionImportant ?
-                                            <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
-                                        }
-                                    </td>
-                                    <td className={"table-item"}>Religion is important</td>
-                                    <td className={"table-item-description"}>{religionDescription}</td>
-                                </tr>
-
-                                <tr className={`${isDietImportant && "bg-gray-200"} gray-border`}>
-                                    <td>
-                                        {isDietImportant ?
-                                            <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
-                                        }
-                                    </td>
-                                    <td className={"table-item"}>Diet is important</td>
-                                    <td className={"table-item-description"}>{dietDescription}</td>
-                                </tr>
-
-                                <tr className={`${interestInBuyingHome && "bg-gray-200"} gray-border`}>
-                                    <td>
-                                        {interestInBuyingHome ?
-                                            <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
-                                        }
-                                    </td>
-                                    <td className={"table-item"}>Interested in buying a home</td>
-                                    <td className={"table-item-description"}>{interestDescription}</td>
-                                </tr>
-
-                                <tr className={`${hasHomeToShare && "bg-gray-200"} gray-border`}>
-                                    <td>
-                                        {hasHomeToShare ?
-                                            <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
-                                        }
-                                    </td>
-                                    <td className={"table-item"}>Has a home to share</td>
-                                    <td className={"table-item-description"}>{hasHomeToShareDescription}</td>
-                                </tr>
-                                </tbody>
-                            </table>
-
-                            <button className={"btn btn-red mx-auto my-6 w-1/2 text-base py-2"}>Report User
-                            </button>
-                        </div>
-
+                        <section className={"my-6"}>
+                            <span className={"label mr-3"}> {prefLocationText} </span>
+                            <div className={"whitespace-pre mt-1"}>{preferredLocations}</div>
+                        </section>
+                        <button className={"btn btn-green mb-6 w-1/2 text-base py-2"}>Send Message
+                        </button>
                     </div>
+                    <div className={"col-start-2"}>
+                        {/*Conditionally show the about section*/}
+                        {about && <div className={"mb-4 p-3 h-auto m-auto rounded-lg shadow-lg"}>
+                            {about}
+                        </div>}
+                        <table className={"table-auto mx-auto shadow-lg"}>
+                            <tbody>
+                            <tr className={`${petFriendly && "bg-gray-200"} gray-border`}>
+                                <td>
+                                    {petFriendly ?
+                                        <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
+                                    }
+                                </td>
+                                <td className={"table-item"}>Pet friendly</td>
+                                <td className={"table-item-description"}>{petDescription}</td>
+                            </tr>
+
+                            <tr className={`${smokeFriendly && "bg-gray-200"} gray-border`}>
+                                <td>
+                                    {smokeFriendly ?
+                                        <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
+                                    }
+                                </td>
+                                <td className={"table-item"}>Smoke friendly</td>
+                                <td className={"table-item-description"}>{smokingDescription}</td>
+                            </tr>
+
+                            <tr className={`${hasHealthMobilityIssues && "bg-gray-200"} gray-border`}>
+                                <td>
+                                    {hasHealthMobilityIssues ?
+                                        <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
+                                    }
+                                </td>
+                                <td className={"table-item"}>Health / mobility issues</td>
+                                <td className={"table-item-description"}>{healthMobilityIssuesDescription}</td>
+                            </tr>
+
+                            <tr className={`${hasAllergies && "bg-gray-200"} gray-border`}>
+                                <td>
+                                    {hasAllergies ?
+                                        <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
+                                    }
+                                </td>
+                                <td className={"table-item"}>Allergies</td>
+                                <td className={"table-item-description"}>{allergiesDescription}</td>
+                            </tr>
+
+                            <tr className={`${isReligionImportant && "bg-gray-200"} gray-border`}>
+                                <td>
+                                    {isReligionImportant ?
+                                        <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
+                                    }
+                                </td>
+                                <td className={"table-item"}>Religion is important</td>
+                                <td className={"table-item-description"}>{religionDescription}</td>
+                            </tr>
+
+                            <tr className={`${isDietImportant && "bg-gray-200"} gray-border`}>
+                                <td>
+                                    {isDietImportant ?
+                                        <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
+                                    }
+                                </td>
+                                <td className={"table-item"}>Diet is important</td>
+                                <td className={"table-item-description"}>{dietDescription}</td>
+                            </tr>
+
+                            <tr className={`${interestInBuyingHome && "bg-gray-200"} gray-border`}>
+                                <td>
+                                    {interestInBuyingHome ?
+                                        <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
+                                    }
+                                </td>
+                                <td className={"table-item"}>Interested in buying a home</td>
+                                <td className={"table-item-description"}>{interestDescription}</td>
+                            </tr>
+
+                            <tr className={`${hasHomeToShare && "bg-gray-200"} gray-border`}>
+                                <td>
+                                    {hasHomeToShare ?
+                                        <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
+                                    }
+                                </td>
+                                <td className={"table-item"}>Has a home to share</td>
+                                <td className={"table-item-description"}>{hasHomeToShareDescription}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <button className={"btn btn-red mx-auto my-6 w-1/2 text-base py-2"}>Report User
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </div>
