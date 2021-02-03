@@ -1219,7 +1219,7 @@ function MemberRegistrationForm(props) {
                             <p className="info-text">
                                 The user name you choose is how you will be
                                 identified by others on the site.
-                                <b>Do NOT use your real name. Usernames are permanent and cannot be changed at a later time!</b> <br/>
+                                <b> Do NOT use your real name. Usernames are permanent and cannot be changed at a later time!</b> <br/>
                                  We recommend you take your time and choose something you will remember and not tire of. User names are extremely important and are
                                 for the protection of you and all of the users of this site. Please read
                                 <Link to={'/faq'} className={"label"}> FAQs</Link>.
