@@ -22,6 +22,7 @@ export const memberSearchCriteriaMock = {
 
 export const memberAccountMock = {
     //account
+    activate: false,
     firstName: "mockFN",
     lastName: "mockLN",
     email: "mock@email.com",
