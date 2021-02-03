@@ -232,28 +232,28 @@ ProfilePage.propTypes =
         about: PropTypes.string.isRequired,
 
         petFriendly: PropTypes.bool.isRequired,
-        petDescription: PropTypes.string.isRequired,
+        petDescription: PropTypes.string,
 
         smokeFriendly: PropTypes.bool.isRequired,
-        smokingDescription: PropTypes.string.isRequired,
+        smokingDescription: PropTypes.string,
 
         hasHealthMobilityIssues: PropTypes.bool.isRequired,
-        healthMobilityIssuesDescription: PropTypes.string.isRequired,
+        healthMobilityIssuesDescription: PropTypes.string,
 
         hasAllergies: PropTypes.bool.isRequired,
-        allergiesDescription: PropTypes.string.isRequired,
+        allergiesDescription: PropTypes.string,
 
         isReligionImportant: PropTypes.bool.isRequired,
-        religionDescription: PropTypes.string.isRequired,
+        religionDescription: PropTypes.string,
 
         isDietImportant: PropTypes.bool.isRequired,
-        dietDescription: PropTypes.string.isRequired,
+        dietDescription: PropTypes.string,
 
         hasHomeToShare: PropTypes.bool.isRequired,
-        hasHomeToShareDescription: PropTypes.string.isRequired,
+        hasHomeToShareDescription: PropTypes.string,
 
         interestInBuyingHome: PropTypes.bool.isRequired,
-        interestDescription: PropTypes.string.isRequired,
+        interestDescription: PropTypes.string,
     }
 
 export default ProfilePage;

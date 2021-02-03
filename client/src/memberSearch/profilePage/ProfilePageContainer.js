@@ -12,6 +12,7 @@ import mockProfiles from "../../mockData/MockProfileCardData";
 import {memberProfileMock, interestedAreasMock, roommatesMock} from "../../accountSummary/member/MockData";
 import ProfilePage from "./ProfilePage";
 import {getMemberAge} from "../../common/utils/generalUtils";
+import get from "lodash/get";
 
 const ProfilePageContainer = () => {
     let {username} = useParams();
@@ -62,28 +63,28 @@ const ProfilePageContainer = () => {
 
     // Yes/No
     const petFriendly = memberProfileMock.petFriendly;
-    const petDescription = memberProfileMock.petDescription;
+    const petDescription = get(memberProfileMock, 'petsDescription', '')
 
     const smokeFriendly = memberProfileMock.isSmoker;
-    const smokingDescription = memberProfileMock.smokingDescription;
+    const smokingDescription = get(memberProfileMock, 'smokingDescription', '')
 
     const hasHealthMobilityIssues = memberProfileMock.hasHealthMobilityIssues;
-    const healthMobilityIssuesDescription = memberProfileMock.healthMobilityIssuesDescription;
+    const healthMobilityIssuesDescription = get(memberProfileMock, 'healthMobilityIssuesDescription', '')
 
     const hasAllergies = memberProfileMock.hasAllergies;
-    const allergiesDescription = memberProfileMock.allergiesDescription;
+    const allergiesDescription = get(memberProfileMock, 'allergiesDescription', '')
 
     const isReligionImportant = memberProfileMock.isReligionImportant;
-    const religionDescription = memberProfileMock.religionDescription;
+    const religionDescription = get(memberProfileMock, 'religionDescription', '')
 
     const isDietImportant = memberProfileMock.isDietImportant;
-    const dietDescription = memberProfileMock.dietDescription;
+    const dietDescription = get(memberProfileMock, 'dietDescription', '')
 
     const hasHomeToShare = memberProfileMock.hasHomeToShare;
-    const hasHomeToShareDescription = memberProfileMock.hasHomeToShareDescription;
+    const hasHomeToShareDescription = get(memberProfileMock, 'hasHomeToShareDescription', '')
 
     const interestInBuyingHome = memberProfileMock.interestInBuyingHome;
-    const interestDescription = memberProfileMock.interestDescription;
+    const interestDescription = get(memberProfileMock, 'interestDescription', '')
 
     return (
         <div>
