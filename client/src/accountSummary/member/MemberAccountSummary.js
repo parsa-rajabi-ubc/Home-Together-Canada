@@ -16,16 +16,25 @@ import {
     validateInput,
     checkIfErrorsExistInMapping,
     validatePhoneNumber,
-    validateEmail
+    validateEmail, getConcatenatedErrorMessage, getPhoneNumberFromStrings
 } from "../../registration/registrationUtils";
 import {dropdownDefaultCSS, dropdownErrorCSS} from "../../css/dropdownCSSUtil";
 import {splitPhoneNumber} from "../accountSummaryUtils";
 import {MEMBER_PROFILE_INFO_TEXT} from "../../common/constants/TooltipText";
 import Asterisk from "../../common/forms/Asterisk";
+import MemberService from '../../services/MemberService';
+import {USER_TYPES} from "../../common/constants/users";
+import {connect} from "react-redux";
+import {setAccountType, setAuthenticated, setIsAdmin} from "../../redux/slices/userPrivileges";
+import { useHistory } from "react-router-dom";
+
+const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
 
 //Returns a summary Form with fields filled
 function MemberAccountSummary(props) {
-    const { member } = props;
+    const { member, setIsAdmin, setAccountType, setAuthenticated } = props;
+
+    const history = useHistory();
 
     //Account variables
     const [firstName, setFirstName] = useState(member.firstName);
@@ -73,6 +82,8 @@ function MemberAccountSummary(props) {
     const [provinceMailingAddressError, setProvinceMailingAddressError] = useState(undefined);
     const [postalCodeMailingError, setPostalCodeMailingError] = useState(undefined);
     // Personal Information End
+
+    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
     // useEffects
     useEffect(() => {
@@ -167,10 +178,11 @@ function MemberAccountSummary(props) {
         // check personal information for errors
         if (checkIfErrorsExistInMapping(personalInfoErrors)) {
             return false;
+        } else if (checkIfErrorsExistInMapping(personalInfoErrors.errorAddress)){
+            return false;
         } else {
-            return true;
+            return !checkIfErrorsExistInMapping(personalInfoErrors.errorMailingAddress);
         }
-
     }
 
     function onSubmit(event) {
@@ -178,7 +190,52 @@ function MemberAccountSummary(props) {
             event.preventDefault();
             return;
         }
-        alert("Account information saved");
+
+        const memberAccount = {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            phoneNumber: getPhoneNumberFromStrings(phoneNumber.first, phoneNumber.middle, phoneNumber.last),
+            addressLine1: address.street,
+            addressLine2: address.aptNum,
+            city: address.city,
+            province: address.province,
+            postalCode: address.postalCode,
+            hasDifferentMailingAddress: useDifferentMailingAddress,
+            mailingAddressLine1: useDifferentMailingAddress ? mailingAddress.street : undefined,
+            mailingAddressLine2: useDifferentMailingAddress ? mailingAddress.aptNum : undefined,
+            mailingCity: useDifferentMailingAddress ? mailingAddress.city : undefined,
+            mailingProvince: useDifferentMailingAddress ? mailingAddress.province : undefined,
+            mailingPostalCode: useDifferentMailingAddress ? mailingAddress.postalCode : undefined
+        };
+
+        MemberService.updateMemberAccountInfo(memberAccount)
+            .then(res => res.json())
+            .then(data => {
+                if (data && data.success) {
+                    setShowSuccessMessage(true);
+                }
+                else if (data && data.errors && Array.isArray(data.errors)) {
+                    const errorMessage = getConcatenatedErrorMessage(data.errors);
+                    alert(errorMessage);
+                    setShowSuccessMessage(false);
+                }
+                else if (data && (!data.authenticated || !data.success)) {
+                    setIsAdmin({isAdmin: false});
+                    setAccountType({accountType: USER_TYPES.UNREGISTERED});
+                    setAuthenticated({authenticated: false});
+
+                    alert('There was an error with your session. Please try to login again.');
+
+                    // redirect to home page
+                    history.push('/');
+                } else {
+                    alert('There was an error when updating your profile. Please try again and contact Home Together ' +
+                        'if the issue persists');
+                    setShowSuccessMessage(false);
+                }
+            })
+
     }
 
     return (
@@ -258,6 +315,9 @@ function MemberAccountSummary(props) {
                     </div>
                 </div>
             </div>
+            {showSuccessMessage &&
+                <section className={'success-msg mb-4 justify-center'}>Account info successfully updated!</section>
+            }
             <SubmitButton
                 inputValue={"Save"}
                 className="btn btn-green form-btn w-1/2"
@@ -284,7 +344,10 @@ MemberAccountSummary.propTypes = {
         mailingCity: PropTypes.string,
         mailingProvince: PropTypes.string,
         mailingPostalCode: PropTypes.string
-    }).isRequired
+    }).isRequired,
+    setAccountType: PropTypes.func.isRequired,
+    setAuthenticated: PropTypes.func.isRequired,
+    setIsAdmin: PropTypes.func.isRequired
 }
 
-export default MemberAccountSummary
+export default connect(null, mapDispatch)(MemberAccountSummary);

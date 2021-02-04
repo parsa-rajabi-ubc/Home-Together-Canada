@@ -76,11 +76,13 @@ const abstractUserValidation = [
     body('firstName', 'A valid first name must be provided')
         .exists()
         .trim()
-        .stripLow(),
+        .stripLow()
+        .not().isEmpty(),
     body('lastName', 'A valid last name must be provided')
         .exists()
         .trim()
-        .stripLow(),
+        .stripLow()
+        .not().isEmpty(),
     body('phoneNumber')
         .exists()
         .isNumeric()
@@ -88,7 +90,8 @@ const abstractUserValidation = [
     body('addressLine1', 'A valid address line 1 must be provided')
         .exists()
         .trim()
-        .stripLow(),
+        .stripLow()
+        .not().isEmpty(),
     body('addressLine2', 'Address line 2 is invalid')
         .optional()
         .trim()
@@ -96,7 +99,8 @@ const abstractUserValidation = [
     body('city', 'A valid city must be provided')
         .exists()
         .trim()
-        .stripLow(),
+        .stripLow()
+        .not().isEmpty(),
     body('province', 'A valid province must be provided')
         .exists()
         .isIn(PROVINCES),
@@ -133,7 +137,8 @@ const businessAccountValidation = [
     body('businessName', 'A valid business name is required')
         .exists()
         .trim()
-        .stripLow(),
+        .stripLow()
+        .not().isEmpty(),
     body('isIncorporated', 'isIncorporated must be specified')
         .exists()
         .isBoolean(),
