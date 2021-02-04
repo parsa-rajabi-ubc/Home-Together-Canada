@@ -618,7 +618,7 @@ function MemberProfileSummary(props) {
                                     toolTipID="about"
                                     required={false}
                                     name="aboutSelf"
-                                    value={aboutSelf}
+                                    value={aboutSelf || ''}
                                     placeholder="Let others know more about your lifestyle, values and why you want to home share"
                                     onChange={(e) => setAboutSelf(e.target.value)}
                                 />
