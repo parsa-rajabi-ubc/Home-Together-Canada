@@ -26,7 +26,7 @@ exports[`ProfileCard Snapshot test should render correctly regardless of propert
       className="flex w-full pr-6 justify-end"
     >
       <span>
-        <a
+        <span
           data-for="PetFriendly"
           data-tip={true}
         >
@@ -49,7 +49,7 @@ exports[`ProfileCard Snapshot test should render correctly regardless of propert
               d="M298.06,224,448,277.55V496a16,16,0,0,1-16,16H368a16,16,0,0,1-16-16V384H192V496a16,16,0,0,1-16,16H112a16,16,0,0,1-16-16V282.09C58.84,268.84,32,233.66,32,192a32,32,0,0,1,64,0,32.06,32.06,0,0,0,32,32ZM544,112v32a64,64,0,0,1-64,64H448v35.58L320,197.87V48c0-14.25,17.22-21.39,27.31-11.31L374.59,64h53.63c10.91,0,23.75,7.92,28.62,17.69L464,96h64A16,16,0,0,1,544,112Zm-112,0a16,16,0,1,0-16,16A16,16,0,0,0,432,112Z"
             />
           </svg>
-        </a>
+        </span>
         <div
           className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
           data-id="tooltip"
@@ -140,7 +140,7 @@ exports[`ProfileCard Snapshot test should render correctly regardless of propert
         </div>
       </span>
       <span>
-        <a
+        <span
           data-for="SmokeFriendly"
           data-tip={true}
         >
@@ -163,7 +163,7 @@ exports[`ProfileCard Snapshot test should render correctly regardless of propert
               d="M224 32c9.036 24.71 106.984 58.72 156.096 64-37.096 7.89-53.042 10.52-57.545 32-13.076 62.384 191.477 60.478 115.73 152.223 69.11-15.788 57.922-116.197 15.887-129.84-27.237-8.84-63.75-11.67-47.75-38.383C425.962 88.104 503.57 59.74 448 32zM28.096 292v64h87v-64zm105 0v64h274v-64zm292 0v64h16v-64zm34 0v64h17v-64z"
             />
           </svg>
-        </a>
+        </span>
         <div
           className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
           data-id="tooltip"
@@ -254,7 +254,7 @@ exports[`ProfileCard Snapshot test should render correctly regardless of propert
         </div>
       </span>
       <span>
-        <a
+        <span
           data-for="dietImportant"
           data-tip={true}
         >
@@ -278,7 +278,7 @@ exports[`ProfileCard Snapshot test should render correctly regardless of propert
               d="M3.5 0c-1.657 0-3 1.567-3 3.5 0 1.655 0.985 3.042 2.308 3.406l-0.497 8.096c-0.034 0.549 0.389 0.998 0.939 0.998h0.5c0.55 0 0.972-0.449 0.939-0.998l-0.497-8.096c1.323-0.365 2.308-1.751 2.308-3.406 0-1.933-1.343-3.5-3-3.5zM13.583 0l-0.833 5h-0.625l-0.417-5h-0.417l-0.417 5h-0.625l-0.833-5h-0.417v6.5c0 0.276 0.224 0.5 0.5 0.5h1.302l-0.491 8.002c-0.034 0.549 0.389 0.998 0.939 0.998h0.5c0.55 0 0.972-0.449 0.939-0.998l-0.491-8.002h1.302c0.276 0 0.5-0.224 0.5-0.5v-6.5h-0.417z"
             />
           </svg>
-        </a>
+        </span>
         <div
           className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
           data-id="tooltip"
@@ -369,7 +369,7 @@ exports[`ProfileCard Snapshot test should render correctly regardless of propert
         </div>
       </span>
       <span>
-        <a
+        <span
           data-for="religionImportant"
           data-tip={true}
         >
@@ -392,7 +392,7 @@ exports[`ProfileCard Snapshot test should render correctly regardless of propert
               d="M261.78 18.063c-52.004 0-94.686 45.7-94.686 103.156 0 57.455 42.682 103.155 94.687 103.155 52.007 0 94.72-45.7 94.72-103.156 0-57.457-42.713-103.157-94.72-103.157zM203 159.655c13.276 3.67 26.394 6.046 39.375 7.22v18.75c-14.674-1.21-29.464-3.85-44.375-7.97l5-18zm117.375 0l4.906 18.03c-14.452 3.938-29.08 6.583-43.874 7.845v-18.718c13.085-1.223 26.055-3.638 38.97-7.156zM160.22 175.344c-75.308 50.797-110.604 125.208-116.282 220h.218c-.367 1.705-.562 3.466-.562 5.28 0 13.808 11.19 25 25 25 .22 0 .436-.025.656-.03v.22l179.438-.002V302.406c-25.58 4.82-45.22 28.49-45.22 62.594v9.344H103.096v-18.688h12.718c3.664-35.178 26.522-77.998 45.343-101.344l14.53 11.72c-15.618 19.373-36.603 61.664-40.905 89.624h50.47c4.04-42.08 35.168-72.875 73.22-72.875 34.98 0 68.653 28.958 73.905 72.876h55.75c-5.412-28.305-26.53-70.32-42.094-89.625l14.564-11.717c18.885 23.424 41.643 66.485 46.562 101.343h10.563v18.688H314.593l-.25-9.094c-1.02-35.656-23.57-58.234-46.97-62.875v123.438h180.657v-.22c.22.006.436.032.658.032 13.81 0 25-11.193 25-25 0-2.092-.266-4.12-.75-6.063-5.566-92.605-39.022-165.662-111.032-216.218-19.026 38.355-56.592 64.72-100.125 64.72-44.662 0-83.047-27.74-101.56-67.72zM140.374 444.5l9.188 47.5h220.562l8.47-47.5h-238.22z"
             />
           </svg>
-        </a>
+        </span>
         <div
           className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
           data-id="tooltip"
@@ -483,7 +483,7 @@ exports[`ProfileCard Snapshot test should render correctly regardless of propert
         </div>
       </span>
       <span>
-        <a
+        <span
           data-for="hasHome"
           data-tip={true}
         >
@@ -509,7 +509,7 @@ exports[`ProfileCard Snapshot test should render correctly regardless of propert
               d="M490.91 244.15l-74.8-71.56V64a16 16 0 00-16-16h-48a16 16 0 00-16 16v32l-57.92-55.38C272.77 35.14 264.71 32 256 32c-8.68 0-16.72 3.14-22.14 8.63l-212.7 203.5c-6.22 6-7 15.87-1.34 22.37A16 16 0 0043 267.56L250.5 69.28a8 8 0 0111.06 0l207.52 198.28a16 16 0 0022.59-.44c6.14-6.36 5.63-16.86-.76-22.97z"
             />
           </svg>
-        </a>
+        </span>
         <div
           className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
           data-id="tooltip"

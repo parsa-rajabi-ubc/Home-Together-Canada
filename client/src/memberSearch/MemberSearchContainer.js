@@ -29,10 +29,7 @@ const MemberSearchContainer = (props) => {
         setMenuOpenState(false);
     }
 
-    const {
-        accountType,
-        authenticated
-    } = props;
+    const {accountType, authenticated} = props;
 
     return (
         <div>

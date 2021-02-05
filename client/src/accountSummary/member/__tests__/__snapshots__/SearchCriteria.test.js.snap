@@ -62,7 +62,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
               </svg>
             </label>
             <span>
-              <a
+              <span
                 data-for="genderPref"
                 data-tip={true}
               >
@@ -87,7 +87,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                     fillRule="evenodd"
                   />
                 </svg>
-              </a>
+              </span>
               <div
                 className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                 data-id="tooltip"
@@ -257,7 +257,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
             </svg>
           </label>
           <span>
-            <a
+            <span
               data-for="familyStatusPref"
               data-tip={true}
             >
@@ -282,7 +282,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                   fillRule="evenodd"
                 />
               </svg>
-            </a>
+            </span>
             <div
               className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
               data-id="tooltip"
@@ -557,7 +557,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
             </svg>
           </label>
           <span>
-            <a
+            <span
               data-for="agePref"
               data-tip={true}
             >
@@ -582,7 +582,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                   fillRule="evenodd"
                 />
               </svg>
-            </a>
+            </span>
             <div
               className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
               data-id="tooltip"
@@ -729,7 +729,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
             </svg>
           </label>
           <span>
-            <a
+            <span
               data-for="numPeopleToSharePref"
               data-tip={true}
             >
@@ -754,7 +754,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                   fillRule="evenodd"
                 />
               </svg>
-            </a>
+            </span>
             <div
               className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
               data-id="tooltip"
@@ -1037,7 +1037,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
             </svg>
           </label>
           <span>
-            <a
+            <span
               data-for="rentPref"
               data-tip={true}
             >
@@ -1062,7 +1062,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                   fillRule="evenodd"
                 />
               </svg>
-            </a>
+            </span>
             <div
               className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
               data-id="tooltip"
@@ -1224,7 +1224,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                       />
                     </svg>
                     <span>
-                      <a
+                      <span
                         data-for="pet"
                         data-tip={true}
                       >
@@ -1249,7 +1249,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                             fillRule="evenodd"
                           />
                         </svg>
-                      </a>
+                      </span>
                       <div
                         className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                         data-id="tooltip"
@@ -1403,7 +1403,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                       />
                     </svg>
                     <span>
-                      <a
+                      <span
                         data-for="smoke"
                         data-tip={true}
                       >
@@ -1428,7 +1428,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                             fillRule="evenodd"
                           />
                         </svg>
-                      </a>
+                      </span>
                       <div
                         className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                         data-id="tooltip"
@@ -1582,7 +1582,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                       />
                     </svg>
                     <span>
-                      <a
+                      <span
                         data-for="religion"
                         data-tip={true}
                       >
@@ -1607,7 +1607,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                             fillRule="evenodd"
                           />
                         </svg>
-                      </a>
+                      </span>
                       <div
                         className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                         data-id="tooltip"
@@ -1761,7 +1761,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                       />
                     </svg>
                     <span>
-                      <a
+                      <span
                         data-for="diet"
                         data-tip={true}
                       >
@@ -1786,7 +1786,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                             fillRule="evenodd"
                           />
                         </svg>
-                      </a>
+                      </span>
                       <div
                         className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                         data-id="tooltip"
@@ -1940,7 +1940,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                       />
                     </svg>
                     <span>
-                      <a
+                      <span
                         data-for="homeToShare"
                         data-tip={true}
                       >
@@ -1965,7 +1965,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                             fillRule="evenodd"
                           />
                         </svg>
-                      </a>
+                      </span>
                       <div
                         className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                         data-id="tooltip"

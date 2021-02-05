@@ -145,7 +145,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
             </svg>
           </label>
           <span>
-            <a
+            <span
               data-for="yearOfBirth"
               data-tip={true}
             >
@@ -170,7 +170,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                   fillRule="evenodd"
                 />
               </svg>
-            </a>
+            </span>
             <div
               className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
               data-id="tooltip"
@@ -394,7 +394,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
             </svg>
           </label>
           <span>
-            <a
+            <span
               data-for="familyStatus"
               data-tip={true}
             >
@@ -419,7 +419,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                   fillRule="evenodd"
                 />
               </svg>
-            </a>
+            </span>
             <div
               className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
               data-id="tooltip"
@@ -627,7 +627,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
               onChange={[Function]}
               placeholder="Member's username(s) - divided by commas"
               type="text"
-              value="John123,Jane123"
+              value="Babar,DonaldDuck"
             />
           </section>
           <label
@@ -790,7 +790,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
             </svg>
           </label>
           <span>
-            <a
+            <span
               data-for="numPeopleToShare"
               data-tip={true}
             >
@@ -815,7 +815,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                   fillRule="evenodd"
                 />
               </svg>
-            </a>
+            </span>
             <div
               className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
               data-id="tooltip"
@@ -1039,7 +1039,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
             </svg>
           </label>
           <span>
-            <a
+            <span
               data-for="rent"
               data-tip={true}
             >
@@ -1064,7 +1064,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                   fillRule="evenodd"
                 />
               </svg>
-            </a>
+            </span>
             <div
               className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
               data-id="tooltip"
@@ -1211,7 +1211,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
             </svg>
           </label>
           <span>
-            <a
+            <span
               data-for="interestedArea"
               data-tip={true}
             >
@@ -1236,7 +1236,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                   fillRule="evenodd"
                 />
               </svg>
-            </a>
+            </span>
             <div
               className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
               data-id="tooltip"
@@ -2126,7 +2126,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       />
                     </svg>
                     <span>
-                      <a
+                      <span
                         data-for="pet"
                         data-tip={true}
                       >
@@ -2151,7 +2151,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                             fillRule="evenodd"
                           />
                         </svg>
-                      </a>
+                      </span>
                       <div
                         className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                         data-id="tooltip"
@@ -2317,7 +2317,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       />
                     </svg>
                     <span>
-                      <a
+                      <span
                         data-for="smoke"
                         data-tip={true}
                       >
@@ -2342,7 +2342,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                             fillRule="evenodd"
                           />
                         </svg>
-                      </a>
+                      </span>
                       <div
                         className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                         data-id="tooltip"
@@ -2508,7 +2508,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       />
                     </svg>
                     <span>
-                      <a
+                      <span
                         data-for="health"
                         data-tip={true}
                       >
@@ -2533,7 +2533,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                             fillRule="evenodd"
                           />
                         </svg>
-                      </a>
+                      </span>
                       <div
                         className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                         data-id="tooltip"
@@ -2762,7 +2762,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       />
                     </svg>
                     <span>
-                      <a
+                      <span
                         data-for="religion"
                         data-tip={true}
                       >
@@ -2787,7 +2787,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                             fillRule="evenodd"
                           />
                         </svg>
-                      </a>
+                      </span>
                       <div
                         className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                         data-id="tooltip"
@@ -2953,7 +2953,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       />
                     </svg>
                     <span>
-                      <a
+                      <span
                         data-for="diet"
                         data-tip={true}
                       >
@@ -2978,7 +2978,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                             fillRule="evenodd"
                           />
                         </svg>
-                      </a>
+                      </span>
                       <div
                         className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                         data-id="tooltip"
@@ -3132,7 +3132,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       />
                     </svg>
                     <span>
-                      <a
+                      <span
                         data-for="homeToShare"
                         data-tip={true}
                       >
@@ -3157,7 +3157,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                             fillRule="evenodd"
                           />
                         </svg>
-                      </a>
+                      </span>
                       <div
                         className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                         data-id="tooltip"
@@ -3352,7 +3352,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
               </label>
               
               <span>
-                <a
+                <span
                   data-for="about"
                   data-tip={true}
                 >
@@ -3377,7 +3377,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       fillRule="evenodd"
                     />
                   </svg>
-                </a>
+                </span>
                 <div
                   className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                   data-id="tooltip"

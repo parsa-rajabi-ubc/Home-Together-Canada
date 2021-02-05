@@ -68,7 +68,7 @@ export const memberProfileMock = {
     workStatus: "Retired",
 }
 
-export const roommatesMock = ["John123", "Jane123"];
+export const roommatesMock = ["Babar", "DonaldDuck"];
 
 export const interestedAreasMock = [{
     province: "AB",
