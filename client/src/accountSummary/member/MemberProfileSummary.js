@@ -619,6 +619,7 @@ function MemberProfileSummary(props) {
                                     required={false}
                                     name="aboutSelf"
                                     value={aboutSelf || ''}
+                                    rows={'5'}
                                     placeholder="Let others know more about your lifestyle, values and why you want to home share"
                                     onChange={(e) => setAboutSelf(e.target.value)}
                                 />
