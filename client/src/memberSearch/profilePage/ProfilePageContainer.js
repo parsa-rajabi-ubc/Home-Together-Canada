@@ -62,7 +62,7 @@ const ProfilePageContainer = () => {
     const about = memberProfileMock.bio;
 
     // Yes/No
-    const petFriendly = memberProfileMock.petFriendly;
+    const petFriendly = memberProfileMock.hasPets;
     const petDescription = get(memberProfileMock, 'petsDescription', '')
 
     const smokeFriendly = memberProfileMock.isSmoker;
@@ -83,7 +83,7 @@ const ProfilePageContainer = () => {
     const hasHomeToShare = memberProfileMock.hasHomeToShare;
     const hasHomeToShareDescription = get(memberProfileMock, 'hasHomeToShareDescription', '')
 
-    const interestInBuyingHome = memberProfileMock.interestInBuyingHome;
+    const interestInBuyingHome = memberProfileMock.isInterestedInBuyingHome;
     const interestDescription = get(memberProfileMock, 'interestDescription', '')
 
     return (
