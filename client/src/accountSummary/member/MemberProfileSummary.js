@@ -24,17 +24,39 @@ import get from 'lodash/get';
 import {resolveBooleanToYesNo} from "../../common/utils/generalUtils";
 import {MEMBER_PROFILE_INFO_TEXT} from "../../common/constants/TooltipText";
 import {
-    checkIfErrorsExistInMapping,
+    checkIfErrorsExistInMapping, getConcatenatedErrorMessage,
     validateInput,
 } from "../../registration/registrationUtils";
 import Asterisk from "../../common/forms/Asterisk";
 import {memberHasCoupleStatus, memberHasExistingGroupStatus} from "./memberAccountSummaryUtils";
 import {STATUSES} from "../../common/constants/memberConstants";
+import MemberService from '../../services/MemberService';
+import {setAccountType, setAuthenticated, setIsAdmin} from "../../redux/slices/userPrivileges";
+import {USER_TYPES} from "../../common/constants/users";
+import { useHistory } from "react-router-dom";
+import {connect} from "react-redux";
 
+const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
+
+const UPDATE_STATES = {
+    SUCCESS: 'SUCCESS',
+    VALIDATION_ERROR: 'VALIDATION_ERROR',
+    UNAUTHENTICATED: 'UNAUTHENTICATED',
+    ERROR: 'ERROR'
+};
 
 //Returns a summary Form with fields filled
 function MemberProfileSummary(props) {
-    const { profile, areasOfInterestList, roommates } = props;
+    const {
+        profile,
+        areasOfInterestList,
+        roommates,
+        setAccountType,
+        setAuthenticated,
+        setIsAdmin
+    } = props;
+
+    const history = useHistory();
 
     const [gender, setGender] = useState(profile.gender);
     const [genderDescription, setGenderDescription] = useState(get(profile, 'genderDescription', ""));
@@ -108,6 +130,9 @@ function MemberProfileSummary(props) {
     const [homeError, setHomeError] = useState(undefined);
     const [interestInBuyingError, setInterestInBuyingError] = useState(undefined);
     // Profile Details End
+
+    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+    const [validationErrors, setValidationErrors] = useState([]);
 
     // Profile
     useEffect(() => {
@@ -219,12 +244,111 @@ function MemberProfileSummary(props) {
 
     }
 
+    function resolveUpdateState (data) {
+        if (data && data.errors && Array.isArray(data.errors)) {
+            setValidationErrors(data.errors);
+            throw new Error(UPDATE_STATES.VALIDATION_ERROR);
+        }
+        else if (data && (!data.authenticated && !data.success)) {
+            throw new Error(UPDATE_STATES.UNAUTHENTICATED);
+        }
+        else if (data && data.success) {
+            return UPDATE_STATES.SUCCESS;
+        }
+        else {
+            throw new Error(UPDATE_STATES.ERROR);
+        }
+    }
+
+    function dispatchActionOnUpdateState (updateState) {
+        switch (updateState) {
+            case UPDATE_STATES.SUCCESS:
+                setShowSuccessMessage(true);
+                break;
+            case UPDATE_STATES.VALIDATION_ERROR:
+                alert(getConcatenatedErrorMessage(validationErrors));
+                setShowSuccessMessage(false);
+                break;
+            case UPDATE_STATES.UNAUTHENTICATED:
+                setIsAdmin({isAdmin: false});
+                setAccountType({accountType: USER_TYPES.UNREGISTERED});
+                setAuthenticated({authenticated: false});
+
+                alert('There was an error with your session. Please try to login again.');
+
+                // redirect to home page
+                history.push('/');
+                break;
+            default:
+                alert('There was an error when updating your profile. Please try again and contact Home Together ' +
+                    'if the issue persists');
+                setShowSuccessMessage(false);
+                break;
+        }
+    }
+
     function onSubmit(event) {
         if (!isFormValid()) {
             event.preventDefault();
             return;
         }
-        alert("Profile information saved");
+
+        const memberProfile = {
+            gender: gender,
+            genderDescription: (gender === 'Other') ? genderDescription : undefined,
+            birthYear: yearOfBirth,
+            status: selectedFamilyStatus,
+            partnerUsername: memberHasCoupleStatus(selectedFamilyStatus) ? partner : undefined,
+            existingGroupUsernames: memberHasExistingGroupStatus(selectedFamilyStatus) ? groupMembers : undefined,
+            workStatus: selectedWorkStatus,
+            minMonthlyBudget: Number(minRent),
+            maxMonthlyBudget: Number(maxRent),
+            hasHomeToShare: (hasHome === 'yes'),
+            ...(hasHome === 'yes') && {hasHomeToShareDescription: homeDescription},
+            isReligionImportant: (religious === 'yes'),
+            ...(religious === 'yes') && {religionDescription: religionDescription},
+            isDietImportant: (hasDiet === 'yes'),
+            ...(hasDiet === 'yes') && {dietDescription: dietDescription},
+            hasHealthMobilityIssues: (mobilityIssues === 'yes'),
+            ...(mobilityIssues === 'yes') && {healthMobilityIssuesDescription: mobilityIssuesDescription},
+            hasAllergies: (hasAllergies === 'yes'),
+            ...(hasAllergies === 'yes') && {allergiesDescription: allergiesDescription},
+            hasPets: (petFriendly === 'yes'),
+            ...(petFriendly === 'yes') && {petsDescription: petDescription},
+            isSmoker: (smoking === 'yes'),
+            ...(smoking === 'yes') && {smokingDescription: smokingDescription},
+            isInterestedInBuyingHome: (interestInBuyingHome === 'yes'),
+            ...(interestInBuyingHome === 'yes') && {interestInBuyingHomeDescription: interestDescription},
+            numRoommates: selectedLimit,
+            bio: aboutSelf,
+            areasOfInterest: areasOfInterest
+        };
+
+        MemberService.updateMemberProfile(memberProfile)
+            .then(res => res.json())
+            .then(data => {
+                resolveUpdateState(data);
+                const roommates = {
+                    partnerUsername: memberHasCoupleStatus(selectedFamilyStatus) && partner ? partner : undefined,
+                    existingGroupUsernames: memberHasExistingGroupStatus(selectedFamilyStatus) && groupMembers
+                        ? groupMembers.split(',').map(item => item.trim())
+                        : undefined
+                }
+                return MemberService.updateMemberStatus(selectedFamilyStatus, roommates);
+            })
+            .then(res => res.json())
+            .then(data => {
+                resolveUpdateState(data);
+                return MemberService.updateMemberAreasOfInterest(areasOfInterest);
+            })
+            .then(res => res.json())
+            .then(data => {
+                const updateState = resolveUpdateState(data);
+                dispatchActionOnUpdateState(updateState);
+            })
+            .catch(err => {
+                dispatchActionOnUpdateState(err.message);
+            });
     }
 
     return (
@@ -494,7 +618,8 @@ function MemberProfileSummary(props) {
                                     toolTipID="about"
                                     required={false}
                                     name="aboutSelf"
-                                    value={aboutSelf}
+                                    value={aboutSelf || ''}
+                                    rows={'5'}
                                     placeholder="Let others know more about your lifestyle, values and why you want to home share"
                                     onChange={(e) => setAboutSelf(e.target.value)}
                                 />
@@ -503,6 +628,9 @@ function MemberProfileSummary(props) {
                     </div>
                 </div>
             </div>
+            {showSuccessMessage &&
+                <section className={'success-msg mb-4 justify-center'}>Account info successfully updated!</section>
+            }
             <SubmitButton
                 inputValue={"Save"}
                 className="btn btn-green form-btn w-1/2"
@@ -543,8 +671,10 @@ MemberProfileSummary.propTypes = {
 
     }).isRequired,
     areasOfInterestList: PropTypes.array.isRequired,
-    roommates: PropTypes.array.isRequired
-
+    roommates: PropTypes.array.isRequired,
+    setAccountType: PropTypes.func.isRequired,
+    setAuthenticated: PropTypes.func.isRequired,
+    setIsAdmin: PropTypes.func.isRequired
 }
 
-export default MemberProfileSummary
+export default connect(null, mapDispatch)(MemberProfileSummary);
