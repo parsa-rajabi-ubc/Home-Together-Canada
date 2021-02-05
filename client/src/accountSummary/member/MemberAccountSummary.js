@@ -22,7 +22,7 @@ import {dropdownDefaultCSS, dropdownErrorCSS} from "../../css/dropdownCSSUtil";
 import {splitPhoneNumber} from "../accountSummaryUtils";
 import {MEMBER_PROFILE_INFO_TEXT} from "../../common/constants/TooltipText";
 import Asterisk from "../../common/forms/Asterisk";
-import MemberService from '../../services/MemberService';
+import * as MemberService from '../../services/MemberService';
 import {USER_TYPES} from "../../common/constants/users";
 import {connect} from "react-redux";
 import {setAccountType, setAuthenticated, setIsAdmin} from "../../redux/slices/userPrivileges";

@@ -30,7 +30,7 @@ import {
 import Asterisk from "../../common/forms/Asterisk";
 import {memberHasCoupleStatus, memberHasExistingGroupStatus} from "./memberAccountSummaryUtils";
 import {STATUSES} from "../../common/constants/memberConstants";
-import MemberService from '../../services/MemberService';
+import * as MemberService from '../../services/MemberService';
 import {setAccountType, setAuthenticated, setIsAdmin} from "../../redux/slices/userPrivileges";
 import {USER_TYPES} from "../../common/constants/users";
 import { useHistory } from "react-router-dom";

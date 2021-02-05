@@ -8,7 +8,7 @@
 
 import React, {useState, useEffect} from 'react';
 import MemberAccountSummary from "./MemberAccountSummary";
-import MemberService from '../../services/MemberService';
+import * as MemberService from '../../services/MemberService';
 import {prepareMemberAccountInfo} from "../accountSummaryUtils";
 
 const MemberAccountSummaryContainer = () => {
