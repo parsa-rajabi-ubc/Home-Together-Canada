@@ -6,7 +6,7 @@
  *
  */
 import React, {useState, useEffect} from 'react';
-import MemberService from '../../services/MemberService';
+import * as MemberService from '../../services/MemberService.js';
 import MemberProfileSummary from "./MemberProfileSummary";
 
 const MemberProfileSummaryContainer = () => {
