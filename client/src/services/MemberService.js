@@ -11,7 +11,7 @@ if (process.env.NODE_ENV === 'development') {
     DEV_URL = 'http://localhost:3001';
 }
 
-const searchMemberProfiles = (searchFilters) => {
+export const searchMemberProfiles = (searchFilters) => {
     const request = {
         method: 'POST',
         headers: {
@@ -26,7 +26,7 @@ const searchMemberProfiles = (searchFilters) => {
     return fetch(`${DEV_URL}/member/search/profiles/`, request);
 }
 
-const getMemberAccountInfo = () => {
+export const getMemberAccountInfo = () => {
     return fetch(`${DEV_URL}/member/info/`, {
         method: 'GET',
         withCredentials: true,
@@ -34,7 +34,7 @@ const getMemberAccountInfo = () => {
     });
 }
 
-const updateMemberAccountInfo = memberAccountInfo => {
+export const updateMemberAccountInfo = memberAccountInfo => {
     const request = {
         method: 'POST',
         headers: {
@@ -48,7 +48,7 @@ const updateMemberAccountInfo = memberAccountInfo => {
     return fetch(`${DEV_URL}/member/info/update/`, request);
 }
 
-const getMemberProfileInfo = () => {
+export const getMemberProfileInfo = () => {
     return fetch(`${DEV_URL}/member/profile/`, {
         method: 'GET',
         withCredentials: true,
@@ -56,7 +56,7 @@ const getMemberProfileInfo = () => {
     });
 }
 
-const updateMemberProfile = memberProfileInfo => {
+export const updateMemberProfile = memberProfileInfo => {
     const request = {
         method: 'POST',
         headers: {
@@ -70,7 +70,7 @@ const updateMemberProfile = memberProfileInfo => {
     return fetch(`${DEV_URL}/member/profile/update/`, request);
 }
 
-const updateMemberStatus = (status, roommates) => {
+export const updateMemberStatus = (status, roommates) => {
     const body = {
         status: status,
         ...roommates
@@ -89,7 +89,7 @@ const updateMemberStatus = (status, roommates) => {
     return fetch(`${DEV_URL}/member/profile/status/update/`, request);
 }
 
-const updateMemberAreasOfInterest = areasOfInterest => {
+export const updateMemberAreasOfInterest = areasOfInterest => {
     const request = {
         method: 'POST',
         headers: {
@@ -101,14 +101,4 @@ const updateMemberAreasOfInterest = areasOfInterest => {
         body: JSON.stringify({areasOfInterest: areasOfInterest})
     };
     return fetch(`${DEV_URL}/member/profile/areasOfInterest/update/`, request);
-}
-
-module.exports = {
-    searchMemberProfiles,
-    getMemberAccountInfo,
-    updateMemberAccountInfo,
-    getMemberProfileInfo,
-    updateMemberProfile,
-    updateMemberStatus,
-    updateMemberAreasOfInterest
 }
