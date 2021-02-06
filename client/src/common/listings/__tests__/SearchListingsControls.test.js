@@ -2,13 +2,13 @@
  * @Author:     Jeff Hatton
  * @Created:    2020.02.04
  *
- * @Description: MemberSearchControls component Snapshot test
+ * @Description: SearchListingsControls component Snapshot test
  *
  */
 import React from 'react';
 import renderer from  'react-test-renderer'
 import {BrowserRouter} from "react-router-dom";
-import MemberSearchControls from "../MemberSearchControls";
+import SearchListingsControls from "../SearchListingsControls";
 
 jest.mock('react-redux', () => ({
     connect: () => {
@@ -18,7 +18,7 @@ jest.mock('react-redux', () => ({
     }
 }));
 
-describe('MemberSearchControls', () => {
+describe('SearchListingsControls', () => {
     describe('Component Snapshot test', () => {
         it("should render correctly regardless of properties", () => {
             //given
@@ -28,7 +28,7 @@ describe('MemberSearchControls', () => {
             const changeStart = jest.fn();
             const changeNumResults = jest.fn();
             //when
-            const component = renderer.create(<BrowserRouter><MemberSearchControls numOfResultsAvailable={numOfAvailableResults} currentNumResults={numResults} currentFirstResult={startIndex} onChangeStartIndex={changeStart} onChangeNumResults={changeNumResults}/></BrowserRouter>).toJSON();
+            const component = renderer.create(<BrowserRouter><SearchListingsControls totalNumResults={numOfAvailableResults} currentNumResults={numResults} currentFirstResult={startIndex} onChangeStartIndex={changeStart} onChangeNumResults={changeNumResults}/></BrowserRouter>).toJSON();
             //then
             expect(component).toMatchSnapshot();
         });
