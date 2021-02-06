@@ -1340,32 +1340,40 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                       </div>
                     </span>
                   </div>
-                  <label
-                    className="text-base text-gray-700 pr-8"
+                  <span
+                    className="false"
                   >
-                    <input
-                      checked={false}
-                      className="form-radio mt-2 ml-2 mr-1 pb-4"
-                      name="petFriendlyPref"
-                      onChange={[Function]}
-                      type="radio"
-                      value="no"
-                    />
-                    No
-                  </label>
-                  <label
-                    className="text-base text-gray-700 pr-8"
+                    <label
+                      className="text-base text-gray-700 pr-8"
+                    >
+                      <input
+                        checked={false}
+                        className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        name="petFriendlyPref"
+                        onChange={[Function]}
+                        type="radio"
+                        value="no"
+                      />
+                      No
+                    </label>
+                  </span>
+                  <span
+                    className="false"
                   >
-                    <input
-                      checked={true}
-                      className="form-radio mt-2 ml-2 mr-1 pb-4"
-                      name="petFriendlyPref"
-                      onChange={[Function]}
-                      type="radio"
-                      value="yes"
-                    />
-                    Yes
-                  </label>
+                    <label
+                      className="text-base text-gray-700 pr-8"
+                    >
+                      <input
+                        checked={true}
+                        className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        name="petFriendlyPref"
+                        onChange={[Function]}
+                        type="radio"
+                        value="yes"
+                      />
+                      Yes
+                    </label>
+                  </span>
                 </div>
               </section>
             </div>
@@ -1519,32 +1527,40 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                       </div>
                     </span>
                   </div>
-                  <label
-                    className="text-base text-gray-700 pr-8"
+                  <span
+                    className="false"
                   >
-                    <input
-                      checked={true}
-                      className="form-radio mt-2 ml-2 mr-1 pb-4"
-                      name="smokingPref"
-                      onChange={[Function]}
-                      type="radio"
-                      value="no"
-                    />
-                    No
-                  </label>
-                  <label
-                    className="text-base text-gray-700 pr-8"
+                    <label
+                      className="text-base text-gray-700 pr-8"
+                    >
+                      <input
+                        checked={true}
+                        className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        name="smokingPref"
+                        onChange={[Function]}
+                        type="radio"
+                        value="no"
+                      />
+                      No
+                    </label>
+                  </span>
+                  <span
+                    className="false"
                   >
-                    <input
-                      checked={false}
-                      className="form-radio mt-2 ml-2 mr-1 pb-4"
-                      name="smokingPref"
-                      onChange={[Function]}
-                      type="radio"
-                      value="yes"
-                    />
-                    Yes
-                  </label>
+                    <label
+                      className="text-base text-gray-700 pr-8"
+                    >
+                      <input
+                        checked={false}
+                        className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        name="smokingPref"
+                        onChange={[Function]}
+                        type="radio"
+                        value="yes"
+                      />
+                      Yes
+                    </label>
+                  </span>
                 </div>
               </section>
             </div>
@@ -1698,32 +1714,40 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                       </div>
                     </span>
                   </div>
-                  <label
-                    className="text-base text-gray-700 pr-8"
+                  <span
+                    className="false"
                   >
-                    <input
-                      checked={false}
-                      className="form-radio mt-2 ml-2 mr-1 pb-4"
-                      name="religionPref"
-                      onChange={[Function]}
-                      type="radio"
-                      value="no"
-                    />
-                    No
-                  </label>
-                  <label
-                    className="text-base text-gray-700 pr-8"
+                    <label
+                      className="text-base text-gray-700 pr-8"
+                    >
+                      <input
+                        checked={false}
+                        className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        name="religionPref"
+                        onChange={[Function]}
+                        type="radio"
+                        value="no"
+                      />
+                      No
+                    </label>
+                  </span>
+                  <span
+                    className="false"
                   >
-                    <input
-                      checked={true}
-                      className="form-radio mt-2 ml-2 mr-1 pb-4"
-                      name="religionPref"
-                      onChange={[Function]}
-                      type="radio"
-                      value="yes"
-                    />
-                    Yes
-                  </label>
+                    <label
+                      className="text-base text-gray-700 pr-8"
+                    >
+                      <input
+                        checked={true}
+                        className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        name="religionPref"
+                        onChange={[Function]}
+                        type="radio"
+                        value="yes"
+                      />
+                      Yes
+                    </label>
+                  </span>
                 </div>
               </section>
             </div>
@@ -1877,32 +1901,40 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                       </div>
                     </span>
                   </div>
-                  <label
-                    className="text-base text-gray-700 pr-8"
+                  <span
+                    className="false"
                   >
-                    <input
-                      checked={true}
-                      className="form-radio mt-2 ml-2 mr-1 pb-4"
-                      name="dietPref"
-                      onChange={[Function]}
-                      type="radio"
-                      value="no"
-                    />
-                    No
-                  </label>
-                  <label
-                    className="text-base text-gray-700 pr-8"
+                    <label
+                      className="text-base text-gray-700 pr-8"
+                    >
+                      <input
+                        checked={true}
+                        className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        name="dietPref"
+                        onChange={[Function]}
+                        type="radio"
+                        value="no"
+                      />
+                      No
+                    </label>
+                  </span>
+                  <span
+                    className="false"
                   >
-                    <input
-                      checked={false}
-                      className="form-radio mt-2 ml-2 mr-1 pb-4"
-                      name="dietPref"
-                      onChange={[Function]}
-                      type="radio"
-                      value="yes"
-                    />
-                    Yes
-                  </label>
+                    <label
+                      className="text-base text-gray-700 pr-8"
+                    >
+                      <input
+                        checked={false}
+                        className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        name="dietPref"
+                        onChange={[Function]}
+                        type="radio"
+                        value="yes"
+                      />
+                      Yes
+                    </label>
+                  </span>
                 </div>
               </section>
             </div>
@@ -2056,32 +2088,40 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                       </div>
                     </span>
                   </div>
-                  <label
-                    className="text-base text-gray-700 pr-8"
+                  <span
+                    className="false"
                   >
-                    <input
-                      checked={false}
-                      className="form-radio mt-2 ml-2 mr-1 pb-4"
-                      name="homeToSharePref"
-                      onChange={[Function]}
-                      type="radio"
-                      value="no"
-                    />
-                    No
-                  </label>
-                  <label
-                    className="text-base text-gray-700 pr-8"
+                    <label
+                      className="text-base text-gray-700 pr-8"
+                    >
+                      <input
+                        checked={false}
+                        className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        name="homeToSharePref"
+                        onChange={[Function]}
+                        type="radio"
+                        value="no"
+                      />
+                      No
+                    </label>
+                  </span>
+                  <span
+                    className="false"
                   >
-                    <input
-                      checked={true}
-                      className="form-radio mt-2 ml-2 mr-1 pb-4"
-                      name="homeToSharePref"
-                      onChange={[Function]}
-                      type="radio"
-                      value="yes"
-                    />
-                    Yes
-                  </label>
+                    <label
+                      className="text-base text-gray-700 pr-8"
+                    >
+                      <input
+                        checked={true}
+                        className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        name="homeToSharePref"
+                        onChange={[Function]}
+                        type="radio"
+                        value="yes"
+                      />
+                      Yes
+                    </label>
+                  </span>
                 </div>
               </section>
             </div>
