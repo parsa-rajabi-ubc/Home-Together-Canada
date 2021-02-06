@@ -24,11 +24,17 @@ jest.mock('react-redux', () => ({
     }
 }));
 
+const setAccountType = jest.fn();
+const setAuthenticated = jest.fn();
+
 describe('MemberAccountSummary', () => {
     it("should render correctly regardless of properties", () => {
         // given
         const props = {
-            member: memberAccountMock
+            member: memberAccountMock,
+            setAccountType,
+            setAuthenticated,
+            setIsAdmin: false
         };
         //when
         const component = renderer.create(<Router><MemberAccountSummary {...props}/></Router>);
