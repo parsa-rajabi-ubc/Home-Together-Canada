@@ -19,6 +19,7 @@ import {pushToRoute} from "../utils/navigationUtils";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
 import {dropdownAccountCSS, dropdownAccountTheme} from "../../css/dropdownCSSUtil"
+import {SERVICES_TEXT, CLASSIFIEDS_TEXT, CREATE_LISTINGS_TEXT} from "../constants/listingsConstants";
 
 const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
 
@@ -76,10 +77,10 @@ const Header = (props) => {
                             </Link>
                             }
                             <Link to={'/services'} className="nav-icon">
-                                Home Sharing Services
+                                {SERVICES_TEXT}
                             </Link>
                             <Link to={'/classifieds'} className="nav-icon">
-                                Local Classifieds
+                                {CLASSIFIEDS_TEXT}
                             </Link>
                             <Link to={'/about'} className="nav-icon">
                                 About Us
@@ -89,7 +90,7 @@ const Header = (props) => {
                             </Link>
                             {(authenticated && accountType !== USER_TYPES.UNREGISTERED) &&
                             < Link to={'/create-listing'} className="nav-icon">
-                                Create Listing
+                                {CREATE_LISTINGS_TEXT}
                             </Link>
                             }
                             {(authenticated && isAdmin) &&
