@@ -15,7 +15,7 @@ exports[`MemberHomeShareForm Snapshot test should render correctly regardless of
           className="page-title mb-5"
         >
            
-          Member Share Home
+          Member with Home to Share
            
         </h1>
         <section>
@@ -678,7 +678,7 @@ exports[`MemberHomeShareForm Snapshot test should render correctly regardless of
            Photos 
         </label>
         <span>
-          <span
+          <a
             data-for="UploadPhotos"
             data-tip={true}
           >
@@ -703,7 +703,7 @@ exports[`MemberHomeShareForm Snapshot test should render correctly regardless of
                 fillRule="evenodd"
               />
             </svg>
-          </span>
+          </a>
           <div
             className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
             data-id="tooltip"
