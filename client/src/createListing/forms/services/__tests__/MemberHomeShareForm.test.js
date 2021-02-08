@@ -20,6 +20,7 @@ describe('MemberHomeShareForm', () => {
         it("should render correctly regardless of properties", () => {
             // given
             const props = {
+                onSubmit: jest.fn()
             };
             //when
             const component = renderer.create(<MemberHomeShareForm {...props}/>).toJSON();

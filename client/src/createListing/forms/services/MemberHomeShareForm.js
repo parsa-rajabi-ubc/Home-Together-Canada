@@ -8,7 +8,7 @@
 
 import React, {useEffect, useState} from 'react';
 import PropTypes from "prop-types";
-import {MEMBER_HOME_SHARE_TEXT as Text} from "./constants/ServiceListingText";
+import {MEMBER_HOME_SHARE_TEXT as TEXT} from "./constants/ServiceListingText";
 import {
     checkIfErrorsExistInMapping,
     validateCheckbox,
@@ -135,7 +135,6 @@ const MemberHomeShareForm = (props) => {
         if (!isFormValid()) {
             console.log("Form is invalid")
             // form is invalid
-            event.preventDefault();
         }
         // else form is valid and proceed to make request
         else {
@@ -149,11 +148,11 @@ const MemberHomeShareForm = (props) => {
                 <div className="grid grid-cols-2 gap-6">
                     <div className="col-span-3 sm:col-span-2">
 
-                        <h1 className={"page-title mb-5"}> {Text.form_title} </h1>
+                        <h1 className={"page-title mb-5"}> {TEXT.form_title} </h1>
 
                         <TextArea
                             className={`${titleError && "border-red-500"} input`}
-                            label={Text.title}
+                            label={TEXT.title}
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setTitle(e.target.value)}
@@ -165,7 +164,7 @@ const MemberHomeShareForm = (props) => {
 
                                 <TextArea
                                     className={`${shortDescriptionError && "border-red-500"} input`}
-                                    label={Text.short_des + " (" + SHORT_DESC_CHAR_COUNT + " Characters)"}
+                                    label={TEXT.short_des + " (" + SHORT_DESC_CHAR_COUNT + " Characters)"}
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setShortDescription(e.target.value)}
@@ -175,7 +174,7 @@ const MemberHomeShareForm = (props) => {
                             <section className={"col-start-6 col-end-9"}>
                                 <TextArea
                                     className={`${postalCodeError && "border-red-500"} input`}
-                                    label={Text.postal_code}
+                                    label={TEXT.postal_code}
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setPostalCode(e.target.value)}
@@ -184,7 +183,7 @@ const MemberHomeShareForm = (props) => {
 
 
                             <section className={"col-start-1 col-end-5"}>
-                                <LabelAsterisk label={Text.monthly_cost} className={"label"}/>
+                                <LabelAsterisk label={TEXT.monthly_cost} className={"label"}/>
                                 <input
                                     className={`${monthlyCostError && "border-red-500"} input`}
                                     type="number"
@@ -197,7 +196,7 @@ const MemberHomeShareForm = (props) => {
                             <section
                                 className={`${utilIncludedError && "pl-1 border rounded-lg border-red-500"} my-2 col-start-6 col-end-9`}>
                                 <YNButton
-                                    label={Text.util_included}
+                                    label={TEXT.util_included}
                                     name="utilIncluded"
                                     required={true}
                                     value={utilIncluded}
@@ -206,7 +205,7 @@ const MemberHomeShareForm = (props) => {
                             </section>
                             <section className={"col-start-1 col-end-5"}>
                                 <LabelAsterisk
-                                    label={Text.num_bed}
+                                    label={TEXT.num_bed}
                                     className={"label"}
                                 />
 
@@ -220,7 +219,7 @@ const MemberHomeShareForm = (props) => {
                             <section
                                 className={`${petFriendlyError && "pl-1 border rounded-lg border-red-500"} my-2 col-start-6 col-end-9`}>
                                 <YNButton
-                                    label={Text.pet}
+                                    label={TEXT.pet}
                                     name="petFriendly"
                                     required={true}
                                     value={petFriendly}
@@ -229,7 +228,7 @@ const MemberHomeShareForm = (props) => {
                             </section>
                             <section className={"col-start-1 col-end-5"}>
                                 <LabelAsterisk
-                                    label={Text.num_bath}
+                                    label={TEXT.num_bath}
                                     className={"label"}
                                 />
                                 <Dropdown
@@ -244,7 +243,7 @@ const MemberHomeShareForm = (props) => {
                             <section
                                 className={`${smokeFriendlyError && "pl-1 border rounded-lg border-red-500"} my-2 col-start-6 col-end-9`}>
                                 <YNButton
-                                    label={Text.smoking}
+                                    label={TEXT.smoking}
                                     name="smokeFriendly"
                                     required={true}
                                     value={smokeFriendly}
@@ -256,7 +255,7 @@ const MemberHomeShareForm = (props) => {
                         <LargeTextArea
                             className={`${fullDescriptionError && "border-red-500"} input`}
                             rows={"6"}
-                            label={Text.full_des}
+                            label={TEXT.full_des}
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setFullDescription(e.target.value)}
@@ -280,7 +279,7 @@ const MemberHomeShareForm = (props) => {
 }
 
 MemberHomeShareForm.propTypes = {
-    onSubmit: PropTypes.func,
+    onSubmit: PropTypes.func.isRequired,
 }
 
 export default MemberHomeShareForm;

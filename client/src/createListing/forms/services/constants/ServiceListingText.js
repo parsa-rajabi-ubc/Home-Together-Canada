@@ -7,7 +7,7 @@
  */
 
 export const MEMBER_HOME_SHARE_TEXT = {
-    form_title: "Member Share Home",
+    form_title: "Member with Home to Share",
     title: "Descriptive Title",
     postal_code: "Postal Code",
     short_des: "Short Description",

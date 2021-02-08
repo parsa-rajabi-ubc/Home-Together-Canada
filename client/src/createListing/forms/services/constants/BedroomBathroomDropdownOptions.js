@@ -21,7 +21,7 @@ export const options = [
     },
     {
         label: "4",
-        value: 40
+        value: 4
     },
     {
         label: "5",
