@@ -1,0 +1,31 @@
+.current-page {
+    @apply border-2 border-orange-500 bg-white font-bold text-black;
+}
+
+.current-page:focus {
+    @apply outline-none;
+}
+
+.current-page:active {
+    @apply outline-none;
+}
+
+.page-numbers {
+    @apply rounded-xl py-3 px-4 outline-none;
+}
+
+.page-numbers:hover {
+    @apply bg-orange-500 text-white;
+}
+
+.next-prev-link {
+    @apply outline-none select-none rounded-xl text-white bg-green-500 p-3;
+}
+
+.next-prev-link:hover {
+    @apply bg-green-600;
+}
+
+.next-prev-text {
+    @apply px-2;
+}
