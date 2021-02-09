@@ -13,7 +13,7 @@ exports[`TermsOfService Snapshot Test should render correctly regardless of prop
   <p
     className="text"
   >
-    Home Together Canada provides individuals who wish to enter into a shared living experience, the basic tools needed to find others that may wish to share a living experience with them and we list information with links to organizations, groups and businesses that provide housing and services that support shared living. 
+    Home Together Canada provides individuals who wish to enter into a shared living experience, the basic tools needed to find others that may wish to share a living experience with them through 1) individual online profiles and 2) listing information with links to organizations, groups and businesses that provide housing and services that support shared living. 
 
   </p>
   <br />
@@ -48,9 +48,9 @@ If you agree to these Terms on behalf of a society or other legal entity, you re
   <p
     className="text"
   >
-    Home Together Canada Assoc. has compiled and posted sharing ideas and sharing options on the website for members to read and utilize if they choose. The website provides members the ability to create a short basic profile so that they can search for and be searched for by others with profiles on the site.  The website also provides information and links to sharing services and businesses that provide services to those wishing to enter into a shared living experience. We provide this service to you so that you can find sharing services and housing opportunities you may be looking for.  Individuals can anonymously message each other through the site. All individuals using the site are responsible for deciding when they give another person their real name,  how they go forward , when and where they meet, and what steps they choose to take to enter into Living Arrangements with others. They do this directly with each other. We do not own, operate, manage, provide, rent, or control any properties, including the Bedrooms or Residences listed by members on the hometogether.ca  website or offered in any of the subcategories listed in the Classifieds
-By using the Website and Services, you understand and acknowledge that we provide you the basic tool to find others and information about sharing business and service groups so you are able to find them. Our responsibilities are limited to facilitating the availability of the Website only.
-We are not a party to any agreements entered into between any individual, business, group, organization or other entity of any kind. We have no control over the conduct of members or the service providers listed on the Website,  and disclaim all liability in this regard to the maximum extent permitted by law.
+    Home Together Canada Assoc. may compiled and posted sharing ideas and sharing options on the website for members to read and utilize if they choose. The website provides members the ability to create a short basic profile so that they can search for and be searched for by others with profiles on the site.  The website also provides information and links to sharing services and businesses that provide services to those wishing to enter into a shared living experience. We provide this service to you so that you can find sharing services and housing opportunities you may be looking for.  Individuals can anonymously message each other through the site. All individuals using the site are responsible for deciding when they give another person their real name,  how they go forward with others to create a shared home, when and where they meet, and what steps they choose to take to enter into Living Arrangements with others. They do this directly with each other. We do not own, operate, manage, provide, rent, or control any properties, including the Bedrooms or Residences listed by members on the hometogether.ca  website or offered in any of the subcategories listed in the Classifieds
+By using the Website and Services, you understand and acknowledge that we provide you the basic tool to find others and information about sharing business and service groups so you are able to find and choose the individuals and services that you think may meet your own personal needs. Our responsibilities are limited to facilitating the availability of the Website only.
+We are not a party to any agreements entered into between any individual, business, group, organization or other entity of any kind. We have no control over the conduct of members or the service providers listed on the Website, and disclaim all liability in this regard to the maximum extent permitted by law.
 
   </p>
   <br />
@@ -106,7 +106,7 @@ To search for others on the site, you must be registered as a member, you will n
   <p
     className="text"
   >
-    You acknowledge that the nature of the Living Arrangement constitutes a living accommodation in which a home sharer shares a bathroom or kitchen facilities with a home owner, and as such, pursuant to the Residential Tenancy Act (British Columbia), currently the residential tenancy laws and regulations in some Provinces do not apply to shared living Arrangements. NOTE that Regulations in all Provinces change over time, and it is your responsibility to check with your province to ensure you have up to date information about their tenancy regulations before entering into a shared living agreement with others.
+    It is your responsibility to check with your province and/or your municipal or regional authority to ensure you have up to date information about their tenancy regulations before entering into a shared living agreement with others. Law and regulations differ between governing bodies and will continue to change over time. 
 
   </p>
   <br />
@@ -118,7 +118,7 @@ To search for others on the site, you must be registered as a member, you will n
   <p
     className="text"
   >
-    Home Together Canada charges a one-time membership fee that remains in place for as long as you remain a member on the website.  If you choose to have your registration information and profile deleted from the site you forfeit your membership and will have to pay another membership fee if you choose to register to the site at some time in the future.
+    Home Together Canada  Requires all individuals, services providers and business wishing to use the hometogether.ca website to register to the site and agree to our terms of service and privacy policy. 
 
   </p>
   <br />
@@ -143,7 +143,7 @@ To search for others on the site, you must be registered as a member, you will n
   <p
     className="text"
   >
-    Home together Canada provides those registered to the site to post public comments and star ratings about businesses, services and each other. Feedback and Ratings reflect the opinions of individual Members and do not reflect the opinion of Home Together Canada. We make no representations about the accuracy of such Feedback or Ratings. Ratings are part of a Member’s public profile such as on a member home share listings in the classified section, together with other relevant information.
+    Home together Canada provides those registered to the site to post public comments and star ratings about businesses, services and each homes. Feedback and Ratings reflect the opinions of individual Members and do not reflect the opinion of Home Together Canada. We make no representations about the accuracy of such Feedback or Ratings. 
 
   </p>
   <br />
@@ -342,7 +342,7 @@ You agree not to submit or use any inappropriate content in relation to the Webs
   <p
     className="text"
   >
-    We provide information and links to other websites. These links are provided for your convenience to provide further information. They do not signify that we endorse the website(s). We have no responsibility for the content of the linked website(s). You agree that we will not be liable in any way, either directly or indirectly, for any loss or damage of any kind incurred as a result of, or in connection with the use of or reliance on any content, goods or services available through such third parties.
+    We provide information and links to other websites. These links are provided for your convenience to provide further information. They do not signify that we endorse the website(s). We have no responsibility for the content or safety of the linked website(s). You agree that we will not be liable in any way, either directly or indirectly, for any loss or damage of any kind incurred as a result of, or in connection with the use of or reliance on any content, goods or services available through such third parties.
 
   </p>
   <br />
@@ -354,7 +354,7 @@ You agree not to submit or use any inappropriate content in relation to the Webs
   <p
     className="text"
   >
-    This website is for the use of Canadians wishing to enter into a shared living arrangement with others in Canada and for sharing businesses, groups and service providers in Canada. We make no representation that materials on this site are appropriate or available for use in locations outside Canada. If you access the Website, or Services from other locations, you agree that you are doing so on your own initiative and that you are wholly responsible for compliance with local laws.
+    This is a Canada only website and is for the use of Canadians wishing to enter into a shared living arrangement with others in Canada and for sharing businesses, groups and service providers in Canada. We make no representation that materials on this site are appropriate or available for use in locations outside Canada. If you access the Website, or Services from other locations, you are breaking our terms of service and fully understand that you are doing so on your own initiative and that you are wholly responsible for your actions and any consequences that may come about through your action.
   </p>
   <br />
   <h2
@@ -466,7 +466,7 @@ You agree not to submit or use any inappropriate content in relation to the Webs
   <p
     className="text"
   >
-    The laws of the Provinces of Canada and the federal laws of Canada applicable therein govern these Terms and any dispute of any sort that might arise between you and us. Except as otherwise provided herein, you agree that any claim, whether at law or equity, arising out of or related to the provision of Services by us, regardless of the date or location of accrual of such dispute, will be within the exclusive jurisdiction of the courts of British Columbia, Canada.
+    The laws of the Provinces of Canada and the federal laws of Canada applicable therein govern these Terms and any dispute of any sort that might arise between you and us. Except as otherwise provided herein, you agree that any claim, whether at law or equity, arising out of or related to the provision of Services by us, regardless of the date or location of accrual of such dispute, will be within the exclusive jurisdiction of the courts of Canada.
   </p>
   <br />
 </div>

@@ -184,7 +184,7 @@ exports[`Privacy Policy Snapshot Test should render correctly regardless of prop
   <p
     className="text"
   >
-    This site was not created to use cookies or other technologies. That said.  Ads may contain cookies and we do not have access to this information. Please note that this Privacy Policy covers the use of cookies by us only and does not cover the use of cookies by any third-party ad companies.
+    We do not use cookies and this site was not created to use cookies. Please note that this Privacy Policy covers the use of cookies by us only and does not cover the use of cookies by any third-party ad companies or their affiliated websites.
   </p>
   <br />
   <h2
@@ -217,7 +217,7 @@ exports[`Privacy Policy Snapshot Test should render correctly regardless of prop
   <p
     className="text"
   >
-    We take steps to ensure that the personal information we collect is accurate and up to date, and that you have the ability to access and make corrections to it. You can view and change your personal information by signing in to your Account. Please update your personal information immediately if it changes or is inaccurate. Upon your request, we will close your Account and remove your personal registration information from the site, but once removed your record of being a member will be deleted and you will be required to pay a new membership fee if you wish to become a member again.
+    We take steps to ensure that the personal information we collect is accurate and up to date, and that you have the ability to access and make corrections to it. You can view and change your personal information by signing in to your Account. Please update your personal information immediately if it changes or is inaccurate. Upon your request, we will close your account. Note that we attempt to retain information pertaining to a registrant complaints as a way to monitor and in some cases stop individuals or businesses from re-registering to the site.
   </p>
   <br />
   <h2
@@ -239,7 +239,7 @@ exports[`Privacy Policy Snapshot Test should render correctly regardless of prop
   <p
     className="text"
   >
-    If you have any questions or concerns about our Privacy Policy, or how we have handled your personal information please contact us.
+    If you have any questions or concerns about our Privacy Policy, or how we have handled your personal information please contact us. You will find our email under contacts.
   </p>
   <br />
 </div>

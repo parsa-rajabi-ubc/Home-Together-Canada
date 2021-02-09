@@ -52,7 +52,7 @@ export const PRIVACY_POLICY_TEXT =
     "By accessing and using our Website, we consider you to have given us consent to the collection, use, and disclosure of your personal information in accordance with this Privacy Policy. Once this consent has been given, we will continue to collect, use, and disclose your personal information for purposes set out in this Privacy Policy without obtaining further written or verbal consent to do so. \n" +
     "\n" +
     "9.      Cookies\n" +
-    "This site was not created to use cookies or other technologies. That said.  Ads may contain cookies and we do not have access to this information. Please note that this Privacy Policy covers the use of cookies by us only and does not cover the use of cookies by any third-party ad companies.\n" +
+    "We do not use cookies and this site was not created to use cookies. Please note that this Privacy Policy covers the use of cookies by us only and does not cover the use of cookies by any third-party ad companies or their affiliated websites.\n" +
     " \n" +
     "10.      Third Party Services\n" +
     "Our Website includes links to other websites. We provide these links and information to you as a service, much like a yellow pages. If you choose to register for such products or services, you are responsible for what information you choose to give them. We are not responsible for the privacy practices and policies of such third parties and, therefore, you should review the privacy practices and policies of such third parties prior to providing your personal information in connection with such products or services.\n" +
@@ -61,13 +61,13 @@ export const PRIVACY_POLICY_TEXT =
     "You can choose not to provide any personal information to us or to withdraw your consent for the collection, use, or disclosure of your personal information for purposes set out in this Privacy Policy. If you choose to do so, you will not have access to the membership portions of the Website or Application \n" +
     " \n" +
     "12.      Requests to Access, Correct, or Delete\n" +
-    "We take steps to ensure that the personal information we collect is accurate and up to date, and that you have the ability to access and make corrections to it. You can view and change your personal information by signing in to your Account. Please update your personal information immediately if it changes or is inaccurate. Upon your request, we will close your Account and remove your personal registration information from the site, but once removed your record of being a member will be deleted and you will be required to pay a new membership fee if you wish to become a member again. \n" +
+    "We take steps to ensure that the personal information we collect is accurate and up to date, and that you have the ability to access and make corrections to it. You can view and change your personal information by signing in to your Account. Please update your personal information immediately if it changes or is inaccurate. Upon your request, we will close your account. Note that we attempt to retain information pertaining to a registrant complaints as a way to monitor and in some cases stop individuals or businesses from re-registering to the site. \n" +
     " \n" +
     "13.     Improper Collection and Misuse of Personal Information\n" +
     "If at any time you think your personal information has been accessed, please contact us immediately.\n" +
     " \n" +
     "14.      Contact\n" +
-    "If you have any questions or concerns about our Privacy Policy, or how we have handled your personal information please contact us.\n";
+    "If you have any questions or concerns about our Privacy Policy, or how we have handled your personal information please contact us. You will find our email under contacts.\n";
 
 export const PRIVACY_POLICY = {
     title: 'Privacy Policy\n',
@@ -109,7 +109,7 @@ export const PRIVACY_POLICY = {
     point8Text: 'By accessing and using our Website, we consider you to have given us consent to the collection, use, and disclosure of your personal information in accordance with this Privacy Policy. Once this consent has been given, we will continue to collect, use, and disclose your personal information for purposes set out in this Privacy Policy without obtaining further written or verbal consent to do so.',
 
     point9Title: '9. Cookies',
-    point9Text: 'This site was not created to use cookies or other technologies. That said.  Ads may contain cookies and we do not have access to this information. Please note that this Privacy Policy covers the use of cookies by us only and does not cover the use of cookies by any third-party ad companies.',
+    point9Text: 'We do not use cookies and this site was not created to use cookies. Please note that this Privacy Policy covers the use of cookies by us only and does not cover the use of cookies by any third-party ad companies or their affiliated websites.',
 
     point10Title: '10. Third Party Services',
     point10Text: 'Our Website includes links to other websites. We provide these links and information to you as a service, much like a yellow pages. If you choose to register for such products or services, you are responsible for what information you choose to give them. We are not responsible for the privacy practices and policies of such third parties and, therefore, you should review the privacy practices and policies of such third parties prior to providing your personal information in connection with such products or services.',
@@ -118,12 +118,12 @@ export const PRIVACY_POLICY = {
     point11Text: 'You can choose not to provide any personal information to us or to withdraw your consent for the collection, use, or disclosure of your personal information for purposes set out in this Privacy Policy. If you choose to do so, you will not have access to the membership portions of the Website or Application.',
 
     point12Title: '12. Requests to Access, Correct, or Delete',
-    point12Text: 'We take steps to ensure that the personal information we collect is accurate and up to date, and that you have the ability to access and make corrections to it. You can view and change your personal information by signing in to your Account. Please update your personal information immediately if it changes or is inaccurate. Upon your request, we will close your Account and remove your personal registration information from the site, but once removed your record of being a member will be deleted and you will be required to pay a new membership fee if you wish to become a member again.',
+    point12Text: 'We take steps to ensure that the personal information we collect is accurate and up to date, and that you have the ability to access and make corrections to it. You can view and change your personal information by signing in to your Account. Please update your personal information immediately if it changes or is inaccurate. Upon your request, we will close your account. Note that we attempt to retain information pertaining to a registrant complaints as a way to monitor and in some cases stop individuals or businesses from re-registering to the site.',
 
     point13Title: '13. Improper Collection and Misuse of Personal Information',
     point13Text: 'If at any time you think your personal information has been accessed, please contact us immediately.',
 
     point14Title: '14. Contact',
-    point14Text: 'If you have any questions or concerns about our Privacy Policy, or how we have handled your personal information please contact us.',
+    point14Text: 'If you have any questions or concerns about our Privacy Policy, or how we have handled your personal information please contact us. You will find our email under contacts.',
 
 }
