@@ -7,7 +7,6 @@
  */
 
 import React, {useState, useEffect} from 'react';
-import PropTypes from "prop-types";
 import SearchFilter from "./SearchFilter";
 import {isValueInArray} from "../common/utils/generalUtils";
 import get from "lodash/get";
@@ -16,8 +15,8 @@ import {memberSearchCriteriaMock} from "../accountSummary/member/MockData";
 import indexOf from "lodash/indexOf";
 
 
-const SearchFilterContainer = (props) => {
-    const {toggleSidebar} = props;
+const SearchFilterContainer = () => {
+
     // Gender and Family Status
     const [genderPreference, setGenderPreference] = useState(get(memberSearchCriteriaMock, "genderPreference", ""));
     const [familyStatusPreference, setFamilyStatusPreference] = useState(get(memberSearchCriteriaMock, "statusPreference", ""));
@@ -116,29 +115,29 @@ const SearchFilterContainer = (props) => {
 
     function onSubmit() {
         if (isFormValid()) {
-            toggleSidebar();
-        }
-        // else form is valid and proceed to make request
 
-        //TODO: Update Filter Based on Results
-        const filteringData = {
-            // member search preferences
-            minAgePreference: minAgePreference,
-            maxAgePreference: maxAgePreference,
+            // else form is valid and proceed to make request
 
-            minBudgetPreference: minBudgetPreference,
-            maxBudgetPreference: maxBudgetPreference,
+            //TODO: Update Filter Based on Results
+            const filteringData = {
+                // member search preferences
+                minAgePreference: minAgePreference,
+                maxAgePreference: maxAgePreference,
 
-            statusPreference: familyStatusPreference,
-            numRoommatesPreference: selectedLimitPreference,
+                minBudgetPreference: minBudgetPreference,
+                maxBudgetPreference: maxBudgetPreference,
 
-            dietPreference: dietPreference,
-            petsPreference: petPreference,
-            smokingPreference: smokingPreference,
-            genderPreference: genderPreference,
-            religionPreference: religionPreference,
-            othersWithHomeToSharePreference: homeToSharePreference,
+                statusPreference: familyStatusPreference,
+                numRoommatesPreference: selectedLimitPreference,
 
+                dietPreference: dietPreference,
+                petsPreference: petPreference,
+                smokingPreference: smokingPreference,
+                genderPreference: genderPreference,
+                religionPreference: religionPreference,
+                othersWithHomeToSharePreference: homeToSharePreference,
+
+            }
         }
     }
 
@@ -189,7 +188,5 @@ const SearchFilterContainer = (props) => {
     )
 }
 
-SearchFilterContainer.propTypes = {
-    toggleSidebar: PropTypes.func.isRequired,
-};
+
 export default SearchFilterContainer;

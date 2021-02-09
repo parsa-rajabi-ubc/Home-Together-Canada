@@ -1,7 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SearchResultsContainer Container test should match snapshot test for data greater than limit 1`] = `
-<div>
+<div
+  className="m-6"
+>
+  <h1
+    className="text-3xl font-medium m-5"
+  >
+     Members 
+  </h1>
   <div>
     <a
       href="/members/AliceinWonderLand"
@@ -1787,7 +1794,14 @@ exports[`SearchResultsContainer Container test should match snapshot test for da
 `;
 
 exports[`SearchResultsContainer Container test should match snapshot test for existing data less than limit 1`] = `
-<div>
+<div
+  className="m-6"
+>
+  <h1
+    className="text-3xl font-medium m-5"
+  >
+     Members 
+  </h1>
   <div>
     <a
       href="/members/AliceinWonderLand"
@@ -3016,7 +3030,14 @@ exports[`SearchResultsContainer Container test should match snapshot test for ex
 `;
 
 exports[`SearchResultsContainer Container test should match snapshot test with an empty array 1`] = `
-<div>
+<div
+  className="m-6"
+>
+  <h1
+    className="text-3xl font-medium m-5"
+  >
+     Members 
+  </h1>
   <div>
     No Results found
   </div>

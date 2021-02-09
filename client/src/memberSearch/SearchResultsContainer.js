@@ -31,11 +31,12 @@ function SearchResultsContainer(props) {
         )
     }, [profileData, numResults, startIndex]);
     return (
-        <div>
+        <div className={"m-6"}>
+            <h1 className={"text-3xl font-medium m-5"}> Members </h1>
+
             {/*check for an empty list*/}
-            {(!filteredResults.length) ? <NoResultsFound/>
-                : <MemberSearchResults profileData={filteredResults}/>
-            }
+            {(!filteredResults.length) ? <NoResultsFound/> : <MemberSearchResults profileData={filteredResults}/>}
+
             <SearchListingsControls currentFirstResult={startIndex} currentNumResults={numResults}
                                     totalNumResults={profileData.length} onChangeNumResults={setNumResults}
                                     onChangeStartIndex={setStartIndex}/>
