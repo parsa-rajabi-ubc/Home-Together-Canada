@@ -6,46 +6,47 @@
  *
  */
 import React, {useState} from "react";
-import DeactiveAccount from "./DeactiveAccount";
+import DeactivateAccount from "./DeactivateAccount";
 import PropTypes from "prop-types";
-const DeactiveAccountContainer = (props)=>{
+
+const DeactivateAccountContainer = (props) => {
     const {activeStatus} = props;
     const [reasons, setReasons] = useState("");
     const [active, setActive] = useState(activeStatus);
     const [isSelectReason, setIsSelectReason] = useState(false);
 
-    function handleReasonsChange(e) {
+    const handleReasonsChange = (e) => {
         setReasons(e.value);
         setIsSelectReason(true);
     }
 
-    function activeAccount(){
+    function activeAccount() {
         setActive(true);
         setIsSelectReason(false);
         alert("Your account is activated!");
     }
 
-    function deactiveActivedAccount(){
-        if(!isSelectReason){
-            alert("Please select a reason!");
-        }else{
+    function deactivateActiveAccount() {
+        if (!isSelectReason) {
+            alert("Please select a reason using the dropdown.");
+        } else {
             setActive(false);
             alert("Your account is de-activated!");
         }
     }
 
-    return(
-        <DeactiveAccount
+    return (
+        <DeactivateAccount
             active={active}
-            deactiveActivedAccount = {deactiveActivedAccount}
-            activeAccount = {activeAccount}
-            handleReasonsChange = {handleReasonsChange}
+            deactivateActiveAccount={deactivateActiveAccount}
+            activeAccount={activeAccount}
+            handleReasonsChange={handleReasonsChange}
         />
     )
 
 }
-DeactiveAccountContainer.propTypes = {
+DeactivateAccountContainer.propTypes = {
     activeStatus: PropTypes.bool.isRequired
 }
 
-export default DeactiveAccountContainer
+export default DeactivateAccountContainer
