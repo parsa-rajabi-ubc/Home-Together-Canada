@@ -16,14 +16,31 @@ import MemberProfileSummaryContainer from "./member/MemberProfileSummaryContaine
 import BusinessAccountSummaryContainer from "./business/BusinessAccountSummaryContainer";
 import Error404 from "../common/error/Error404";
 import SearchCriteriaContainer from "./member/SearchCriteriaContainer";
-import DeactiveAccountContainer from './accountDeactivateAndDelete/DeactiveAccountContainer'
+import DeactivateAccountContainer from './accountDeactivateAndDelete/DeactivateAccountContainer'
 import DeleteAccountContainer from "./accountDeactivateAndDelete/DeleteAccountContainer";
 import {memberAccountMock} from "./member/MockData"
 
 const AccountSummaryContainer = () => {
     const {accountType, selected} = useLocation().state;
 
-    const options = accountType === USER_TYPES.MEMBER ? MEMBER_SUBPAGES : BUSINESS_SUBPAGES;
+    const MEMBER_SIDEBAR = [...MEMBER_SUBPAGES,
+        {
+            label: 'Activate / Deactivate Account',
+            value: 'Activate / Deactivate Account'
+        },
+        {
+            label: 'Delete Account',
+            value: 'Delete Account'
+        }];
+
+    const BUSINESS_SIDEBAR = [...BUSINESS_SUBPAGES,
+        {
+            label: 'Delete Account',
+            value: 'Delete Account'
+        }];
+
+
+    const options = accountType === USER_TYPES.MEMBER ? MEMBER_SIDEBAR : BUSINESS_SIDEBAR;
 
     const [selectedSubpage, setSelectedSubpage] = useState(selected);
 
@@ -31,10 +48,12 @@ const AccountSummaryContainer = () => {
         switch (subpage) {
             case ALL_SUBPAGES.PROFILE:
                 return accountType === USER_TYPES.MEMBER
-                    ? <MemberProfileSummaryContainer />
+                    ? <MemberProfileSummaryContainer/>
                     : <Error404/>
             case ALL_SUBPAGES.SEARCH_CRITERIA:
-                return accountType === USER_TYPES.MEMBER ? <SearchCriteriaContainer/> : <Error404/>
+                return accountType === USER_TYPES.MEMBER ?
+                    <SearchCriteriaContainer/>
+                    : <Error404/>
             case ALL_SUBPAGES.PASSWORD:
                 return <ChangePasswordContainer/>
             case ALL_SUBPAGES.MESSAGING:
@@ -42,7 +61,9 @@ const AccountSummaryContainer = () => {
             case ALL_SUBPAGES.MANAGE_LISTINGS:
                 return <div>Manage Listings Component</div>
             case ALL_SUBPAGES.ACTIVATE_DEACTIVATE:
-                return accountType === USER_TYPES.MEMBER ? <DeactiveAccountContainer activeStatus ={memberAccountMock.activate}/> : <Error404/>
+                return accountType === USER_TYPES.MEMBER ?
+                    <DeactivateAccountContainer activeStatus={memberAccountMock.activate}/>
+                    : <Error404/>
             case ALL_SUBPAGES.DELETE:
                 return <DeleteAccountContainer/>
             default:
