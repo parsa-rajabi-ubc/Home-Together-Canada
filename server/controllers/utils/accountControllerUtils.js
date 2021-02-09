@@ -50,6 +50,8 @@ const getFilteredProfilesInformation = results => {
 
     return results.map(result => {
         const values = result.dataValues;
+        // TODO: add the areas of interest to this object
+        // TODO: add partner/group member usernames to this object (not for this ticket)
         return {
             ...getProfile(values),
             username: getUsernameFromAbstractUser(values.AbstractUser)

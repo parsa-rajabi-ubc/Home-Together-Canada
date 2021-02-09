@@ -6,17 +6,25 @@
  *
  */
 
+const circle = require('@turf/circle').default;
+
 const db = require('../models');
 const AreaOfInterest = db.areaOfInterest;
+const { getGeographicalCoordinates, getCircularFeatureFromCoordinates} = require('./utils/locationUtils');
 
-const createAreaOfInterest = (areaOfInterest, uid) => {
+const createAreaOfInterest = async (areaOfInterest, uid) => {
+    const coordinates = await getGeographicalCoordinates(areaOfInterest.province, areaOfInterest.city);
 
-    // TODO: add geocoding to determine lat. and long. coordinates
+    const feature = getCircularFeatureFromCoordinates(coordinates, areaOfInterest.radius);
+
     const areaOfInterestEntry = {
         uid: uid,
         province: areaOfInterest.province,
         city: areaOfInterest.city,
-        radius: areaOfInterest.radius
+        radius: areaOfInterest.radius,
+        latitude: coordinates.latitude,
+        longitude: coordinates.longitude,
+        feature: JSON.stringify(feature)
     }
 
     return AreaOfInterest.create(areaOfInterestEntry);

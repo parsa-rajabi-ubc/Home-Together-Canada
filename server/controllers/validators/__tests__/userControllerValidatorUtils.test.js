@@ -732,13 +732,13 @@ describe('userControllerValidatorUtils', () => {
         });
     });
 
-    describe('isValidAreasOfInterest', () => {
+    describe('isValidAreasOfInterestList', () => {
         it('should return true if one valid area of interest is provided', () => {
             // given
             const areasOfInterest = [{ province: 'AB', city: 'Calgary', radius: 50 }];
 
             // when
-            const result = userControllerValidatorUtils.isValidAreasOfInterest(areasOfInterest);
+            const result = userControllerValidatorUtils.isValidAreasOfInterestList(areasOfInterest);
 
             // then
             expect(result).toBe(true);
@@ -752,7 +752,7 @@ describe('userControllerValidatorUtils', () => {
             ];
 
             // when
-            const result = userControllerValidatorUtils.isValidAreasOfInterest(areasOfInterest);
+            const result = userControllerValidatorUtils.isValidAreasOfInterestList(areasOfInterest);
 
             // then
             expect(result).toBe(true);
@@ -762,7 +762,7 @@ describe('userControllerValidatorUtils', () => {
             const areasOfInterest = [{ province: undefined, city: 'Calgary', radius: 50 }];
 
             // then
-            expect(() => userControllerValidatorUtils.isValidAreasOfInterest(areasOfInterest))
+            expect(() => userControllerValidatorUtils.isValidAreasOfInterestList(areasOfInterest))
                 .toThrowError('Area of interest must include province, city and radius properties');
         });
         it('should throw an error if a province is null in an area of interest', () => {
@@ -770,7 +770,7 @@ describe('userControllerValidatorUtils', () => {
             const areasOfInterest = [{ province: null, city: 'Calgary', radius: 50 }];
 
             // then
-            expect(() => userControllerValidatorUtils.isValidAreasOfInterest(areasOfInterest))
+            expect(() => userControllerValidatorUtils.isValidAreasOfInterestList(areasOfInterest))
                 .toThrowError('Area of interest must include province, city and radius properties');
         });
         it('should throw an error if a city is undefined in an area of interest', () => {
@@ -778,7 +778,7 @@ describe('userControllerValidatorUtils', () => {
             const areasOfInterest = [{ province: 'AB', city: undefined, radius: 50 }];
 
             // then
-            expect(() => userControllerValidatorUtils.isValidAreasOfInterest(areasOfInterest))
+            expect(() => userControllerValidatorUtils.isValidAreasOfInterestList(areasOfInterest))
                 .toThrowError('Area of interest must include province, city and radius properties');
         });
         it('should throw an error if a city is null in an area of interest', () => {
@@ -786,7 +786,7 @@ describe('userControllerValidatorUtils', () => {
             const areasOfInterest = [{ province: 'AB', city: null, radius: 50 }];
 
             // then
-            expect(() => userControllerValidatorUtils.isValidAreasOfInterest(areasOfInterest))
+            expect(() => userControllerValidatorUtils.isValidAreasOfInterestList(areasOfInterest))
                 .toThrowError('Area of interest must include province, city and radius properties');
         });
         it('should throw an error if a radius is undefined in an area of interest', () => {
@@ -794,7 +794,7 @@ describe('userControllerValidatorUtils', () => {
             const areasOfInterest = [{ province: 'AB', city: 'Calgary', radius: undefined }];
 
             // then
-            expect(() => userControllerValidatorUtils.isValidAreasOfInterest(areasOfInterest))
+            expect(() => userControllerValidatorUtils.isValidAreasOfInterestList(areasOfInterest))
                 .toThrowError('Area of interest must include province, city and radius properties');
         });
         it('should throw an error if a radius is null in an area of interest', () => {
@@ -802,7 +802,7 @@ describe('userControllerValidatorUtils', () => {
             const areasOfInterest = [{ province: 'AB', city: 'Calgary', radius: null }];
 
             // then
-            expect(() => userControllerValidatorUtils.isValidAreasOfInterest(areasOfInterest))
+            expect(() => userControllerValidatorUtils.isValidAreasOfInterestList(areasOfInterest))
                 .toThrowError('Area of interest must include province, city and radius properties');
         });
         it('should throw an error if an invalid province in an area of interest', () => {
@@ -810,7 +810,7 @@ describe('userControllerValidatorUtils', () => {
             const areasOfInterest = [{ province: 'NOT A VALID PROVINCE', city: 'Calgary', radius: 25 }];
 
             // then
-            expect(() => userControllerValidatorUtils.isValidAreasOfInterest(areasOfInterest))
+            expect(() => userControllerValidatorUtils.isValidAreasOfInterestList(areasOfInterest))
                 .toThrowError('Must provide a valid Canadian Province');
         });
         it('should throw an error if a radius is less than 0 in an area of interest', () => {
@@ -818,7 +818,7 @@ describe('userControllerValidatorUtils', () => {
             const areasOfInterest = [{ province: 'AB', city: 'Calgary', radius: -25 }];
 
             // then
-            expect(() => userControllerValidatorUtils.isValidAreasOfInterest(areasOfInterest))
+            expect(() => userControllerValidatorUtils.isValidAreasOfInterestList(areasOfInterest))
                 .toThrowError('Radius must be positive');
         });
         it('should throw an error if areasOfInterest is empty', () => {
@@ -826,7 +826,7 @@ describe('userControllerValidatorUtils', () => {
             const areasOfInterest = [];
 
             // then
-            expect(() => userControllerValidatorUtils.isValidAreasOfInterest(areasOfInterest))
+            expect(() => userControllerValidatorUtils.isValidAreasOfInterestList(areasOfInterest))
                 .toThrowError('At least one area of interest must be provided');
         });
         it('should throw an error if areasOfInterest is undefined', () => {
@@ -834,7 +834,7 @@ describe('userControllerValidatorUtils', () => {
             const areasOfInterest = undefined;
 
             // then
-            expect(() => userControllerValidatorUtils.isValidAreasOfInterest(areasOfInterest))
+            expect(() => userControllerValidatorUtils.isValidAreasOfInterestList(areasOfInterest))
                 .toThrowError('At least one area of interest must be provided');
         });
         it('should throw an error if areasOfInterest is null', () => {
@@ -842,7 +842,7 @@ describe('userControllerValidatorUtils', () => {
             const areasOfInterest = null;
 
             // then
-            expect(() => userControllerValidatorUtils.isValidAreasOfInterest(areasOfInterest))
+            expect(() => userControllerValidatorUtils.isValidAreasOfInterestList(areasOfInterest))
                 .toThrowError('At least one area of interest must be provided');
         });
     });

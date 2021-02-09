@@ -18,6 +18,7 @@ const accountUtils = require('../controllers/utils/accountControllerUtils');
 const livesWith = require('../controllers/livesWithController');
 const areasOfInterest = require('../controllers/areaOfInterestController');
 const { getRoommatesUsernames } = require('../controllers/utils/statusUtils');
+const { getCircularFeatureFromLocation } = require('../controllers/utils/locationUtils');
 const { getListOfAreaOfInterestObjects } = require('../controllers/utils/areaOfInterestUtils');
 const { isLoggedIn, userIsMember } = require('./routeUtils');
 
@@ -198,14 +199,21 @@ router.post('/search/profiles/',
         if (!errors.isEmpty()) {
             res.status(202).json({ errors: errors.array()});
         } else {
-            memberAccounts.getMemberProfilesMatchingSearchFilters(req.user.uid,{ ...req.body })
+            getCircularFeatureFromLocation(req.body.province, req.body.city, req.body.radius)
+                .then(feature => {
+                    return memberAccounts.getMemberProfilesMatchingSearchFilters(
+                        req.user.uid,
+                        { ...req.body },
+                        feature
+                    );
+                })
                 .then(results => {
                     const profiles = accountUtils.getFilteredProfilesInformation(results);
-
                     res.status(200).json({ profiles });
                 })
                 .catch(err => {
-                    res.status(500).json({ msg: 'Something went wrong while filtering' });
+                    console.log('error in search profiles route: ', err.message);
+                    res.status(500).json({ err: err.message });
                 })
         }
     });

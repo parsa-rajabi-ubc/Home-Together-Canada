@@ -6,7 +6,8 @@
  *
  */
 
-// TODO: add fields for latitude and longitude
+const booleanOverlap = require('@turf/boolean-overlap').default;
+
 module.exports = (DataTypes, sequelize) => {
     return sequelize.define('AreaOfInterest', {
         uid: {
@@ -23,6 +24,19 @@ module.exports = (DataTypes, sequelize) => {
         },
         radius: {
             type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        latitude: {
+            type: DataTypes.DOUBLE,
+            allowNull: false
+        },
+        longitude: {
+            type: DataTypes.DOUBLE,
+            allowNull: false
+        },
+        // stringified GeoJSON object
+        feature: {
+            type: DataTypes.TEXT,   // unlimited characters
             allowNull: false
         }
     })

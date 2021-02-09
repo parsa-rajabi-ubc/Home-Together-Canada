@@ -55,6 +55,8 @@ const WORK_STATUSES = [
     'Other'
 ];
 
+const MAX_RADIUS = 500;
+
 const isValidPassword = password => {
     const numbersRegex = /\d+/;         // checks for numbers
     const lowerCaseRegex = /[a-z]/;     // checks for lowercase letters
@@ -201,15 +203,21 @@ const isValidShareLimitArray = limits => {
     return true;
 }
 
-const isValidAreasOfInterest = (areasOfInterest) => {
+const isValidRadius = radius => {
+    if (parseInt(radius) < 0 || parseInt(radius) > MAX_RADIUS) {
+        throw new Error('Error must be positive and less than 500 km');
+    }
+    return true;
+}
+
+const isValidAreasOfInterestList = (areasOfInterest) => {
     if (!!areasOfInterest && areasOfInterest.length > 0) {
         areasOfInterest.forEach(areaOfInterest => {
             if (!areaOfInterest || !areaOfInterest.province || !areaOfInterest.city || !isNumber(areaOfInterest.radius)) {
                 throw new Error('Area of interest must include province, city and radius properties');
             } else if (!PROVINCES.includes(areaOfInterest.province)) {
                 throw new Error('Must provide a valid Canadian Province');
-            } else if (parseInt(areaOfInterest.radius) < 0) {
-                // TODO: look into if there should be a max radius
+            } else if (parseInt(areaOfInterest.radius) < 0 || parseInt(areaOfInterest.radius) > MAX_RADIUS) {
                 throw new Error('Radius must be positive');
             }
         });
@@ -338,7 +346,8 @@ module.exports = {
     validGenderPreferences,
     isValidShareLimit,
     isValidShareLimitArray,
-    isValidAreasOfInterest,
+    isValidRadius,
+    isValidAreasOfInterestList,
     usernameShouldNotAlreadyExist,
     emailShouldNotAlreadyBeInUse,
     updatedEmailShouldNotAlreadyBeInUse,
