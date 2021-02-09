@@ -12,6 +12,7 @@ import React from 'react';
 import ProfileCard from "./ProfileCard";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
+import Paginate from "../common/forms/Paginate";
 
 function MemberSearchResults(props) {
     const {profileData} = props;
@@ -36,7 +37,7 @@ function MemberSearchResults(props) {
     }
     return (
         <div>
-            {profiles}
+            <Paginate data={profiles} resultsPerPage={7}/>
         </div>
     );
 }
