@@ -6,8 +6,6 @@
  *
  */
 
-export function limitResults(profiles, limit, start){
-    const filteredResults = profiles.slice(
-        start, (limit<profiles.length-start) ? start+limit : profiles.length)
-    return filteredResults;
+export function limitResults(profiles, limit, start) {
+    return profiles.slice(start, (limit < profiles.length - start) ? start + limit : profiles.length);
 }
