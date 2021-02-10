@@ -6,7 +6,7 @@
  *
  */
 
-import {isValueInArray, resolveBooleanToYesNo, validatePositiveNumber} from "../generalUtils";
+import {isValueInArray, resolveBooleanToYesNo, getMemberAge, validatePositiveNumber} from "../generalUtils";
 
 describe('generalUtils', () => {
     describe('resolveBooleanToYesNo', () => {

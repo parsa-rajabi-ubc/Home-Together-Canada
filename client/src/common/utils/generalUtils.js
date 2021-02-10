@@ -17,6 +17,10 @@ export function isValueInArray(arr, value){
     return includes(arr, value);
 }
 
+export function getMemberAge(birthYear){
+    return new Date().getFullYear() - birthYear;
+}
+
 export function validatePositiveNumber(number, setStateVar){
     // If number is negative or empty, it's not valid
     if (number < 0 || isStringEmpty(number)){
