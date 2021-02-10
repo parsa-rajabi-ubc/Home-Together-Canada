@@ -187,11 +187,39 @@ router.get('/profile/',
     }
 );
 
+router.post('/filters/update/',
+    isLoggedIn,
+    userIsMember,
+    usersValidator.validate('updateMemberSearchFilters'),
+    function (req, res, next) {
+        memberAccounts.updateMemberSearchFilters(req.user.uid, req)
+            .then(data => {
+                if (data && data.length) {
+                    res.status(202).json({ success: true });
+                } else {
+                    res.status(202).json()
+                }
+            })
+            .catch(err => {
+                res.status(500).json({ err: err.message });
+            })
+    }
+);
+
+router.get('/filters/', isLoggedIn, userIsMember, function(req, res, next) {
+    memberAccounts.getMemberSearchFilters(req.user.uid)
+        .then(searchFilters => {
+            res.json({ ...searchFilters.dataValues });
+        })
+        .catch(err => {
+            res.json({ err: err.message });
+        })
+});
 
 router.post('/search/profiles/',
     isLoggedIn,
     userIsMember,
-    usersValidator.validate('memberSearchFilters'),
+    usersValidator.validate('memberSearchRequest'),
     function (req, res, next) {
         const errors = validationResult(req);
 

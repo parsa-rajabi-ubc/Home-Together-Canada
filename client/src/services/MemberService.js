@@ -102,3 +102,24 @@ export const updateMemberAreasOfInterest = areasOfInterest => {
     };
     return fetch(`${DEV_URL}/member/profile/areasOfInterest/update/`, request);
 }
+
+export const getMemberSearchFilters = () =>
+    fetch(`${DEV_URL}/member/filters/`, {
+        method: 'GET',
+        withCredentials: true,
+        credentials: 'include'
+    });
+
+export const updateMemberSearchFilters = searchFilters => {
+    const request = {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        withCredentials: true,
+        body: JSON.stringify(searchFilters)
+    }
+    return fetch(`${DEV_URL}/member/filters/update/`, request);
+}

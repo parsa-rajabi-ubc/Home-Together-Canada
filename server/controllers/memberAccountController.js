@@ -279,6 +279,49 @@ const updateMemberAreaOfInterest = async (req) => {
 
 }
 
+const getMemberSearchFilters = uid => {
+    return MemberAccount.findOne({
+        attributes: [
+            'minAgePreference',
+            'maxAgePreference',
+            'statusPreference',
+            'numRoommatesPreference',
+            'minBudgetPreference',
+            'maxBudgetPreference',
+            'dietPreference',
+            'petsPreference',
+            'smokingPreference',
+            'genderPreference',
+            'religionPreference',
+            'othersWithHomeToSharePreference'
+        ],
+        where: {
+            uid: uid
+        }
+    });
+}
+
+const updateMemberSearchFilters = (uid, req) => {
+    return MemberAccount.update({
+        minAgePreference: req.body.minAgePreference,
+        maxAgePreference: req.body.maxAgePreference,
+        minBudgetPreference: req.body.minBudgetPreference,
+        maxBudgetPreference: req.body.maxBudgetPreference,
+        statusPreference: JSON.stringify(req.body.statusPreference),
+        numRoommatesPreference: JSON.stringify(req.body.numRoommatesPreference),
+        dietPreference: req.body.dietPreference,
+        petsPreference: req.body.petsPreference,
+        smokingPreference: req.body.smokingPreference,
+        genderPreference: JSON.stringify(req.body.genderPreference),
+        religionPreference: req.body.religionPreference,
+        othersWithHomeToSharePreference: req.body.othersWithHomeToSharePreference
+    }, {
+        where: {
+            uid: uid
+        }
+    })
+}
+
 const getMemberProfilesMatchingSearchFilters = (uid, searchFilters) => {
     let query = {
         where: {
@@ -383,5 +426,7 @@ module.exports = {
     updateMemberStatus,
     updateMemberStatusAndRoommates,
     updateMemberAreaOfInterest,
+    getMemberSearchFilters,
+    updateMemberSearchFilters,
     getMemberProfilesMatchingSearchFilters
 }
