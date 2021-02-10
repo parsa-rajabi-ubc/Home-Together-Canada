@@ -9,8 +9,10 @@
 import React from 'react';
 import Dropdown from "../../common/forms/Dropdown";
 import propTypes from "prop-types";
+import {dropdownDefaultCSS} from "../../css/dropdownCSSUtil";
 
-function DeactiveAccountDropdown(props) {
+function DeactivateAccountDropdown(props) {
+
     const {givenReason, onChange} = props;
     const initialSelection = (givenReason && {label: givenReason, value: givenReason}) || undefined;
     const REASONS = [
@@ -34,12 +36,13 @@ function DeactiveAccountDropdown(props) {
 
     return (
         // Updated autoComplete based on: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
-        <div>
+        <div className={"mx-auto my-16 w-1/2 "}>
+            <label className={"label"}> Reason for Deactivating Account </label>
             <Dropdown
                 isSearchable={true}
-                placeholder={"Select the Reason to Deactivate"}
+                placeholder={"Select a Reason"}
                 options={REASONS}
-                autoComplete="d-reasons"
+                dropdownCSS={dropdownDefaultCSS}
                 onChange={onChange}
                 initialSelection={initialSelection}
             />
@@ -48,9 +51,9 @@ function DeactiveAccountDropdown(props) {
     )
 }
 
-DeactiveAccountDropdown.propTypes = {
+DeactivateAccountDropdown.propTypes = {
     givenReason: propTypes.string,
     onChange: propTypes.func.isRequired,
 };
 
-export default DeactiveAccountDropdown;
+export default DeactivateAccountDropdown;

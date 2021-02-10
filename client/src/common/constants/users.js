@@ -36,14 +36,6 @@ export const MEMBER_SUBPAGES = [
     {
         label: 'Manage Listings',
         value: 'Manage Listings'
-    },
-    {
-        label: 'Activate/Deactivate Account',
-        value: 'Activate/Deactivate Account'
-    },
-    {
-        label: 'Delete Account',
-        value: 'Delete Account'
     }
 ];
 
@@ -59,10 +51,6 @@ export const BUSINESS_SUBPAGES = [
     {
         label: 'Manage Listings',
         value: 'Manage Listings'
-    },
-    {
-        label: 'Delete Account',
-        value: 'Delete Account'
     }
 ];
 
@@ -73,6 +61,6 @@ export const ALL_SUBPAGES = {
     PASSWORD: 'Password',
     MESSAGING: 'Messaging',
     MANAGE_LISTINGS: 'Manage Listings',
-    ACTIVATE_DEACTIVATE: 'Activate/Deactivate Account',
+    ACTIVATE_DEACTIVATE: 'Activate / Deactivate Account',
     DELETE: 'Delete Account'
 };

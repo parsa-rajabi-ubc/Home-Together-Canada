@@ -37,11 +37,9 @@ const DeleteAccountContainer = (props)=>{
     }
 
     function handleDeleteAccount(){
-        if(confirm){
-            alert("Your Account is deleted");
+        if(confirm) {
+            alert("Your Account has been deleted.");
             return logout();
-        }else{
-            alert("Please confirm the checkbox below!");
         }
     }
 
