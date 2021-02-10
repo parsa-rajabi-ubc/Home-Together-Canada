@@ -12,7 +12,7 @@ import {MEMBER_HOME_SHARE_TEXT as TEXT} from "./constants/ServiceListingText";
 import {
     checkIfErrorsExistInMapping,
     validateCheckbox,
-    validateInput,
+    validateInput, validatePostalCode,
 } from "../../../registration/registrationUtils";
 import TextArea from "../../../common/forms/TextArea";
 import LargeTextArea from "../../../common/forms/LargeTextArea";
@@ -25,6 +25,7 @@ import UploadImage from "../../../common/forms/UploadImage";
 import SubmitButton from "../../../common/forms/SubmitButton";
 import Tooltip from "../../../common/forms/Tooltip";
 import {CREATE_LISTING_MEMBER_SHARE_HOME as ToolTipText} from "../../../common/constants/TooltipText";
+import {validatePositiveNumber} from "../../../common/utils/generalUtils";
 
 
 const MemberHomeShareForm = (props) => {
@@ -60,7 +61,7 @@ const MemberHomeShareForm = (props) => {
         title !== undefined && validateInput(title, setTitleError);
     }, [title]);
     useEffect(() => {
-        postalCode !== undefined && validateInput(postalCode, setPostalCodeError);
+        postalCode !== undefined && validatePostalCode(postalCode, setPostalCodeError);
     }, [postalCode]);
     useEffect(() => {
         shortDescription !== undefined && validateInput(shortDescription, setShortDescriptionError);
@@ -69,7 +70,7 @@ const MemberHomeShareForm = (props) => {
         fullDescription !== undefined && validateInput(fullDescription, setFullDescriptionError);
     }, [fullDescription]);
     useEffect(() => {
-        monthlyCost !== undefined && validateInput(monthlyCost, setMonthlyCostError);
+        monthlyCost !== undefined && validatePositiveNumber(monthlyCost, setMonthlyCostError);
     }, [monthlyCost]);
     useEffect(() => {
         numBed !== undefined && validateInput(numBed, setNumBedError);
@@ -116,10 +117,10 @@ const MemberHomeShareForm = (props) => {
         }
 
         errors.title = validateInput(title, setTitleError);
-        errors.postalCode = validateInput(postalCode, setPostalCodeError);
+        errors.postalCode = validatePostalCode(postalCode, setPostalCodeError);
         errors.shortDes = validateInput(shortDescription, setShortDescriptionError);
         errors.fullDes = validateInput(fullDescription, setFullDescriptionError);
-        errors.monthlyCost = validateInput(monthlyCost, setMonthlyCostError);
+        errors.monthlyCost = validatePositiveNumber(monthlyCost, setMonthlyCostError);
         errors.utilIncluded = validateInput(utilIncluded, setUtilIncludedError);
         errors.numBed = validateInput(numBed, setNumBedError);
         errors.numBath = validateInput(numBath, setNumBathError);
@@ -130,7 +131,7 @@ const MemberHomeShareForm = (props) => {
     }
 
     //function for input checks on submit
-    function onCreateListing(event) {
+    function onCreateListing() {
 
         if (!isFormValid()) {
             console.log("Form is invalid")
