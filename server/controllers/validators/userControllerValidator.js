@@ -29,7 +29,8 @@ const {
     isValidShareLimitArray,
     validStatusPreferences,
     validGenderPreferences,
-    isValidAreasOfInterest,
+    isValidRadius,
+    isValidAreasOfInterestList,
     usernameShouldNotAlreadyExist,
     emailShouldNotAlreadyBeInUse,
     updatedEmailShouldNotAlreadyBeInUse,
@@ -321,7 +322,7 @@ const areasOfInterestValidation = [
     body('areasOfInterest')
         .exists()
         .isArray()
-        .custom(areasOfInterest => isValidAreasOfInterest(areasOfInterest))
+        .custom(areasOfInterest => isValidAreasOfInterestList(areasOfInterest))
 ];
 
 
@@ -503,7 +504,18 @@ exports.validate = (method) => {
                     .isBoolean(),
                 body('othersWithHomeToSharePreference')
                     .optional()
-                    .isBoolean()
+                    .isBoolean(),
+                body('province')
+                    .exists()
+                    .isIn(PROVINCES),
+                body('city')
+                    .exists()
+                    .trim()
+                    .stripLow(),
+                body('radius')
+                    .exists()
+                    .isNumeric()
+                    .custom(radius => isValidRadius(radius))
             ]
         }
     }

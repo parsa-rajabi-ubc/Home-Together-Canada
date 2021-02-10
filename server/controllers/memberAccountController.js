@@ -7,13 +7,16 @@
  */
 const { Op } = require("sequelize");
 const has = require('lodash/has');
+const filter = require('lodash/filter');
 const differenceWith = require('lodash/differenceWith');
 const isEqual = require('lodash/isEqual');
+
 
 const db = require('../models');
 const {getValueOfOptionalField} = require("./utils/accountControllerUtils");
 const MemberAccount = db.memberAccount;
 const AbstractUser = db.abstractUser;
+const AreaOfInterest = db.areaOfInterest;
 const livesWith = require('../controllers/livesWithController');
 const abstractUsers = require('../controllers/abstractUserController');
 const areasOfInterest = require('../controllers/areaOfInterestController');
@@ -25,6 +28,8 @@ const {
     haveGroupMembersChanged
 } = require('./utils/statusUtils');
 const { areasOfInterestHaveChanged, getListOfAreaOfInterestObjects } = require('./utils/areaOfInterestUtils');
+const { featuresOverlap } = require('./utils/locationUtils');
+
 
 const createMemberAccount = (req, uid) => {
 
@@ -279,7 +284,7 @@ const updateMemberAreaOfInterest = async (req) => {
 
 }
 
-const getMemberProfilesMatchingSearchFilters = (uid, searchFilters) => {
+const getMemberProfilesMatchingSearchFilters = async (uid, searchFilters, filteringLocationFeature) => {
     let query = {
         where: {
             // do not include user doing the search in the results
@@ -364,14 +369,30 @@ const getMemberProfilesMatchingSearchFilters = (uid, searchFilters) => {
         }
     }
 
-
-    return MemberAccount.findAll({
+    const profilesFilteredByPreferences = await MemberAccount.findAll({
         where: {...query.where},
-        include: {
-            model: AbstractUser,
-            attributes: ['username']
-        }
+        include: [
+            {
+                model: AbstractUser,
+                attributes: ['username']
+            },
+            {
+                model: AreaOfInterest
+            }
+        ]
     });
+
+    const profilesFilteredByLocation = filter(profilesFilteredByPreferences, function (profile) {
+        const areasOfInterest = profile.AreaOfInterests;
+
+        const profileHasAreaOfInterestInRange = filter(areasOfInterest, function (areaOfInterest) {
+            const areaOfInterestFeature = JSON.parse(areaOfInterest.dataValues.feature);
+            return featuresOverlap(areaOfInterestFeature, filteringLocationFeature);
+        });
+        return !!profileHasAreaOfInterestInRange.length;
+    });
+
+    return profilesFilteredByLocation;
 }
 
 module.exports = {
