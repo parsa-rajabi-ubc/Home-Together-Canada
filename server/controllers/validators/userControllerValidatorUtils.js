@@ -218,7 +218,7 @@ const isValidAreasOfInterestList = (areasOfInterest) => {
             } else if (!PROVINCES.includes(areaOfInterest.province)) {
                 throw new Error('Must provide a valid Canadian Province');
             } else if (parseInt(areaOfInterest.radius) < 0 || parseInt(areaOfInterest.radius) > MAX_RADIUS) {
-                throw new Error('Radius must be positive');
+                throw new Error('Radius must be positive and less than 500 km');
             }
         });
     } else if (!areasOfInterest || (!!areasOfInterest && !areasOfInterest.length)) {

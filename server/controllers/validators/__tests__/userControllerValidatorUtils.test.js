@@ -732,6 +732,35 @@ describe('userControllerValidatorUtils', () => {
         });
     });
 
+    describe('isValidRadius', () => {
+        it('should throw an error if radius is less than 0', () => {
+            // given
+            const radius = -10;
+
+            // then
+            expect(() => userControllerValidatorUtils.isValidRadius(radius))
+                .toThrowError('Error must be positive and less than 500 km');
+        });
+        it('should throw an error if radius is greater than 500', () => {
+            // given
+            const radius = 550;
+
+            // then
+            expect(() => userControllerValidatorUtils.isValidRadius(radius))
+                .toThrowError('Error must be positive and less than 500 km');
+        });
+        it('should return true when radius is positive and less than 500', () => {
+            // given
+            const radius = 100;
+
+            // when
+            const result = userControllerValidatorUtils.isValidRadius(radius);
+
+            // then
+            expect(result).toBe(true);
+        });
+    });
+
     describe('isValidAreasOfInterestList', () => {
         it('should return true if one valid area of interest is provided', () => {
             // given
@@ -819,7 +848,15 @@ describe('userControllerValidatorUtils', () => {
 
             // then
             expect(() => userControllerValidatorUtils.isValidAreasOfInterestList(areasOfInterest))
-                .toThrowError('Radius must be positive');
+                .toThrowError('Radius must be positive and less than 500 km');
+        });
+        it('should throw an error if radius is greater than 500', () => {
+            // given
+            const areasOfInterest = [{ province: 'AB', city: 'Calgary', radius: 1000 }];
+
+            // then
+            expect(() => userControllerValidatorUtils.isValidAreasOfInterestList(areasOfInterest))
+                .toThrowError('Radius must be positive and less than 500 km');
         });
         it('should throw an error if areasOfInterest is empty', () => {
             // given
