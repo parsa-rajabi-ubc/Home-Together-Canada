@@ -42,7 +42,6 @@ function SearchCriteria(props) {
         handleSelectedLimitPreferenceChange,
         selectedLimitPreferenceError,
 
-
         minBudgetPreference,
         setMinBudgetPreference,
         minBudgetPreferenceError,
@@ -70,6 +69,8 @@ function SearchCriteria(props) {
         homeToSharePreference,
         setHomeToSharePreference,
         homeToSharePreferenceError,
+
+        showSuccessMessage,
 
         onSubmit,
     } = props;
@@ -267,6 +268,9 @@ function SearchCriteria(props) {
                     </div>
                 </div>
             </div>
+            {showSuccessMessage &&
+                <section className={'success-msg mb-4 justify-center'}>Account info successfully updated!</section>
+            }
             <SubmitButton
                 inputValue={"Save"}
                 className="btn btn-green form-btn w-1/2"
@@ -325,6 +329,8 @@ SearchCriteria.propTypes = {
     homeToSharePreference: PropTypes.string,
     setHomeToSharePreference: PropTypes.func,
     homeToSharePreferenceError: PropTypes.bool,
+
+    showSuccessMessage: PropTypes.bool.isRequired,
 
     onSubmit: PropTypes.func,
 };

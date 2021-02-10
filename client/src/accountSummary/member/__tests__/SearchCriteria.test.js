@@ -69,6 +69,8 @@ describe('SearchCriteria', () => {
                 setHomeToSharePreference: jest.fn(),
                 homeToSharePreferenceError: true,
 
+                showSuccessMessage: false,
+
                 onSubmit: jest.fn(),
             }
 
