@@ -42,3 +42,7 @@ export const BUSINESS_INFO_TEXT = {
         PRIVACY_POLICY: "All users must agree to the Privacy Policy in order to use Home Together Canada",
     }
 };
+
+export const CREATE_LISTING_MEMBER_SHARE_HOME = {
+    PHOTOS: "Maximum 6 pictures"
+}

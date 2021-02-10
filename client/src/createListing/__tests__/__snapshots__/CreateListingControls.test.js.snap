@@ -1,3 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CreateListingControls Container test should match snapshot test 1`] = `<div />`;
+exports[`CreateListingControls Container test should match snapshot test 1`] = `
+<div>
+  <div
+    className="page-title mx-4 my-5"
+  >
+    Create Listing
+  </div>
+  <section
+    className="m-4"
+  >
+    <label
+      className="label text-lg"
+    >
+      Select Type of Listing
+    </label>
+    <span
+      className="block"
+    >
+      <label
+        className="text-base text-gray-700 pr-8"
+      >
+        <input
+          className="form-radio mt-2 ml-2 mr-1 pb-4"
+          name="listingType"
+          onChange={[Function]}
+          type="radio"
+          value="Home Sharing Services"
+        />
+        Home Sharing Services
+      </label>
+    </span>
+    <span
+      className="block"
+    >
+      <label
+        className="text-base text-gray-700 pr-8"
+      >
+        <input
+          className="form-radio mt-2 ml-2 mr-1 pb-4"
+          name="listingType"
+          onChange={[Function]}
+          type="radio"
+          value="Local Classifieds"
+        />
+        Local Classifieds
+      </label>
+    </span>
+  </section>
+</div>
+`;

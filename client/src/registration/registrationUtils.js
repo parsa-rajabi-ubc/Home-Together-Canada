@@ -55,7 +55,7 @@ export function validatePassword(password, setStateVar) {
     } else if (!upperCaseRegex.test(password)) {
         setStateVar(true);
         return true;
-    } else if(password.length < 8) {
+    } else if (password.length < 8) {
         setStateVar(true);
         return true;
     } else {
@@ -193,6 +193,26 @@ export function validateArrayInput(arr, setStateVar) {
         setStateVar(true);
         return true;
     } else {
+        setStateVar(false);
+        return false;
+    }
+}
+
+// Source : https://stackoverflow.com/questions/15774555/efficient-regex-for-canadian-postal-code-function
+function isPostalCodeValid(postalCode) {
+    const postalCodeRegex = /^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i;
+
+    return postalCodeRegex.test(String(postalCode));
+}
+
+export function validatePostalCode(postalCode, setStateVar){
+    // If postal code is empty OR if it's not a valid postal code
+    if(isStringEmpty(postalCode) || !isPostalCodeValid(postalCode)){
+        // Set error true, it's NOT valid
+        setStateVar(true);
+        return true;
+    } else {
+        // Set error false, it's a valid postal code
         setStateVar(false);
         return false;
     }

@@ -20,7 +20,8 @@ function TextArea(props) {
         autoComplete,
         required,
         disabled = false,
-        value
+        value,
+        charLimit
     } = props;
     return (
         <section>
@@ -36,6 +37,7 @@ function TextArea(props) {
                 onChange={onChange}
                 disabled={disabled}
                 value={value}
+                maxLength={charLimit}
             />
         </section>
     );
@@ -50,7 +52,8 @@ TextArea.propTypes = {
     autoComplete: PropTypes.string,
     onChange: PropTypes.func,
     disabled: PropTypes.bool,
-    value: PropTypes.string
+    value: PropTypes.string,
+    charLimit: PropTypes.string
 }
 
 export default TextArea;

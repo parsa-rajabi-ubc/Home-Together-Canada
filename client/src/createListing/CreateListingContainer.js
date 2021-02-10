@@ -8,11 +8,23 @@
 
 import React from 'react';
 import CreateListingControls from "./CreateListingControls";
+import MemberHomeShareForm from "./forms/services/MemberHomeShareForm";
+
+function onSubmit() {
+
+}
 
 const CreateListingContainer = () => {
 
     return (
-        <CreateListingControls/>
+        <div className={"sideBar-container grid-cols-8"}>
+            <div className={"sideBar col-end-3"}>
+                <CreateListingControls/>
+            </div>
+            <div className={"sideBar-selected-component col-start-3 col-end-10"}>
+                <MemberHomeShareForm onSubmit={onSubmit}/>
+            </div>
+        </div>
     )
 }
 

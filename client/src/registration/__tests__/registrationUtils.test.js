@@ -6,7 +6,7 @@ import {
     isValueNegative,
     validateMinMax,
     resolveYesNoToBoolean,
-    validateArrayInput, validateCheckbox, validateMinMaxFilter
+    validateArrayInput, validateCheckbox, validateMinMaxFilter, validatePostalCode
 } from "../registrationUtils";
 
 describe('registrationUtils', () => {
@@ -391,6 +391,162 @@ describe('registrationUtils', () => {
 
             // then
             expect(output).toBe(expectedResult);
+        });
+    });
+    describe('validatePostalCode', () => {
+        it('should return true when postalCode is empty', () => {
+            // given
+            const postalCode = "";
+            const setStateVar = jest.fn();
+
+            // when
+            const result = validatePostalCode(postalCode, setStateVar);
+
+            // then
+            expect(result).toBe(true);
+        });
+        it('should return true when postalCode is not a postal Code', () => {
+            // given
+            const postalCode = "HelloWorld";
+            const setStateVar = jest.fn();
+
+            // when
+            const result = validatePostalCode(postalCode, setStateVar);
+
+            // then
+            expect(result).toBe(true);
+        });
+        it('should return true when postalCode is leading with Z', () => {
+            // given
+            const postalCode = "Z3T 1B8";
+            const setStateVar = jest.fn();
+
+            // when
+            const result = validatePostalCode(postalCode, setStateVar);
+
+            // then
+            expect(result).toBe(true);
+        });
+        it('should return true when postalCode is leading with W', () => {
+            // given
+            const postalCode = "W3T 1B8";
+            const setStateVar = jest.fn();
+
+            // when
+            const result = validatePostalCode(postalCode, setStateVar);
+
+            // then
+            expect(result).toBe(true);
+        });
+        it('should return true when postalCode contains O', () => {
+            // given
+            const postalCode = "Z3T 1O8";
+            const setStateVar = jest.fn();
+
+            // when
+            const result = validatePostalCode(postalCode, setStateVar);
+
+            // then
+            expect(result).toBe(true);
+        });
+        it('should return true when postalCode contains U', () => {
+            // given
+            const postalCode = "U3T 1O8";
+            const setStateVar = jest.fn();
+
+            // when
+            const result = validatePostalCode(postalCode, setStateVar);
+
+            // then
+            expect(result).toBe(true);
+        });
+        it('should return true when postalCode is invalid format L#L #L#', () => {
+            // given
+            const postalCode = "2Z2 1B8";
+            const setStateVar = jest.fn();
+
+            // when
+            const result = validatePostalCode(postalCode, setStateVar);
+
+            // then
+            expect(result).toBe(true);
+        });
+        it('should return true when postalCode is invalid format L#L #L#', () => {
+            // given
+            const postalCode = "2Z2 ABC";
+            const setStateVar = jest.fn();
+
+            // when
+            const result = validatePostalCode(postalCode, setStateVar);
+
+            // then
+            expect(result).toBe(true);
+        });
+        it('should return false when postalCode is valid in XXX XXX format and uppercase', () => {
+            // given
+            const postalCode = "T3T 1B8";
+            const setStateVar = jest.fn();
+
+            // when
+            const result = validatePostalCode(postalCode, setStateVar);
+
+            // then
+            expect(result).toBe(false);
+        });
+        it('should return false when postalCode is valid in XXX-XXX format and uppercase', () => {
+            // given
+            const postalCode = "T3T-1B8";
+            const setStateVar = jest.fn();
+
+            // when
+            const result = validatePostalCode(postalCode, setStateVar);
+
+            // then
+            expect(result).toBe(false);
+        });
+        it('should return false when postalCode is valid in XXXXXX format and uppercase', () => {
+            // given
+            const postalCode = "T3T1B8";
+            const setStateVar = jest.fn();
+
+            // when
+            const result = validatePostalCode(postalCode, setStateVar);
+
+            // then
+            expect(result).toBe(false);
+        });
+        it('should return false when postalCode is valid in XXX XXX format and lowercase', () => {
+            // given
+            const postalCode = "h2z 1b8";
+            const setStateVar = jest.fn();
+
+            // when
+            const result = validatePostalCode(postalCode, setStateVar);
+
+            // then
+            expect(result).toBe(false);
+        });
+        it('should return false when postalCode is valid in XXX-XXX format and lowercase', () => {
+            // given
+            const postalCode = "h2t-1b8";
+            const setStateVar = jest.fn();
+
+            // when
+            const result = validatePostalCode(postalCode, setStateVar);
+
+            // then
+            expect(result).toBe(false);
+        });
+        it('should return false when postalCode is valid in XXXXXX format and lowercase', () => {
+            // given
+            const postalCode = "h2z1b8";
+            const setStateVar = jest.fn();
+
+            // when
+            const result = validatePostalCode(postalCode, setStateVar);
+
+            // then
+            expect(result).toBe(false);
         });
     });
 });
