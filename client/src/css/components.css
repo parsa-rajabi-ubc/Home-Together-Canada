@@ -8,6 +8,7 @@
 @import "../termsOfService/TermsOfService.css";
 @import "../memberSearch/ProfileCard.css";
 @import "../memberSearch/profilePage/ProfilePage.css";
+@import "../common/forms/Paginate.css";
 
 .btn {
     @apply items-center justify-center w-full px-8 py-3 text-lg text-white transition duration-150 ease-in-out border border-transparent rounded-md;
