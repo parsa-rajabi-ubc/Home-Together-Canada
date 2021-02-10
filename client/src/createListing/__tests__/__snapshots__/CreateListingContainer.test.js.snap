@@ -736,7 +736,7 @@ exports[`CreateListingContainer Container test should match snapshot test 1`] = 
                Photos 
             </label>
             <span>
-              <a
+              <span
                 data-for="UploadPhotos"
                 data-tip={true}
               >
@@ -761,7 +761,7 @@ exports[`CreateListingContainer Container test should match snapshot test 1`] = 
                     fillRule="evenodd"
                   />
                 </svg>
-              </a>
+              </span>
               <div
                 className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                 data-id="tooltip"
