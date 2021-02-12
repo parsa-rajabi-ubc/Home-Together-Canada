@@ -80,3 +80,22 @@ export const dropdownAccountTheme = theme => ({
         neutral50: 'black'
     }
 })
+
+export const dropdownSearchAreaCSS = {
+    control: base => ({
+            ...base,
+            marginTop: 4,
+            borderColor: "#e2e8f0",
+            marginBottom: 16,
+            paddingTop: 2,
+            paddingBottom: 2,
+        }
+    ),
+    menuPortal: base => ({...base, zIndex: 9999}),
+    placeholder: (defaultStyles) => {
+        return {
+            ...defaultStyles,
+            "font-size": "95%",
+        }
+    }
+}
