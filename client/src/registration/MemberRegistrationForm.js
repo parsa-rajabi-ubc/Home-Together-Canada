@@ -44,6 +44,7 @@ import Asterisk from "../common/forms/Asterisk";
 import LabelAsterisk from "../common/forms/LabelAsterisk";
 import {connect} from 'react-redux';
 import {setIsAdmin, setAccountType, setAuthenticated} from '../redux/slices/userPrivileges';
+import {setActive} from "../redux/slices/memberPrivileges";
 import Tooltip from "../common/forms/Tooltip";
 import {USER_TYPES} from "../common/constants/users";
 import {MEMBER_PROFILE_INFO_TEXT} from "../common/constants/TooltipText";
@@ -53,11 +54,11 @@ import indexOf from 'lodash/indexOf';
 import {TERMS_OF_SERVICE_TEXT} from "../common/constants/termsOfServiceText";
 import {PRIVACY_POLICY_TEXT} from "../common/constants/privacyPolicyText";
 
-const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
+const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated, setActive};
 
 //Returns a Form with fields
 function MemberRegistrationForm(props) {
-    const {history, setIsAdmin, setAccountType, setAuthenticated} = props;
+    const {history, setIsAdmin, setAccountType, setAuthenticated, setActive} = props;
     const [firstName, setFirstName] = useState(undefined);
     const [lastName, setLastName] = useState(undefined);
     const [yearOfBirth, setYearOfBirth] = useState(undefined);
@@ -611,6 +612,9 @@ function MemberRegistrationForm(props) {
                     if (data.member) {
                         setAccountType({accountType: USER_TYPES.MEMBER});
                     }
+
+                    // dispatch action to set active
+                    setActive({active: data.member.active});
 
                     // dispatch action to set authenticated
                     setAuthenticated({authenticated: data.authenticated});

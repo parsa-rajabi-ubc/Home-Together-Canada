@@ -26,6 +26,14 @@ const changePassword = (passwordData) => {
     return fetch(`${DEV_URL}/user/changePassword/`, request);
 }
 
+const deleteAccount = () =>
+    fetch(`${DEV_URL}/user/delete/`, {
+        method: 'GET',
+        credentials: 'include',
+        withCredentials: true
+    });
+
 module.exports = {
-    changePassword
+    changePassword,
+    deleteAccount
 }

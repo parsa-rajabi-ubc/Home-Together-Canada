@@ -23,12 +23,13 @@ import {
 import PropTypes from "prop-types";
 import {connect} from 'react-redux';
 import {setIsAdmin, setAccountType, setAuthenticated} from "../redux/slices/userPrivileges";
+import {setActive} from "../redux/slices/memberPrivileges";
 import {USER_TYPES} from "../common/constants/users";
 
-const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
+const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated, setActive};
 
 function LoginForm(props) {
-    const {history, setIsAdmin, setAccountType, setAuthenticated} = props;
+    const {history, setIsAdmin, setAccountType, setAuthenticated, setActive} = props;
 
     const [username, setUsername] = useState(undefined);
     const [password, setPassword] = useState(undefined);
@@ -89,6 +90,9 @@ function LoginForm(props) {
                     }
                     setAccountType({accountType});
 
+                    // dispatch action to set active
+                    setActive({active: data.member ? data.member.active : null});
+
                     // dispatch action to set authenticated
                     setAuthenticated({authenticated: data.authenticated});
 
@@ -104,7 +108,7 @@ function LoginForm(props) {
                 }
             })
             .catch((error) => {
-                alert('Something went wrong creating your user. Please try again. Error: ' + error);
+                alert('Something went wrong with login. Please try again. Error: ' + error);
             });
     }
 
@@ -169,6 +173,7 @@ LoginForm.propTypes = {
     setAccountType: PropTypes.func.isRequired,
     setIsAdmin: PropTypes.func.isRequired,
     setAuthenticated: PropTypes.func.isRequired,
+    setActive: PropTypes.func.isRequired,
     history: PropTypes.shape({
         push: PropTypes.func
     })

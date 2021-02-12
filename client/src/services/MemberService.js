@@ -102,3 +102,31 @@ export const updateMemberAreasOfInterest = areasOfInterest => {
     };
     return fetch(`${DEV_URL}/member/profile/areasOfInterest/update/`, request);
 }
+
+export const getActiveStatus = () =>
+    fetch(`${DEV_URL}/member/active/status/`, {
+        method: 'GET',
+        withCredentials: true,
+        credentials: 'include'
+    });
+
+export const activateAccount = () =>
+    fetch(`${DEV_URL}/member/activate/`, {
+        method: 'GET',
+        withCredentials: true,
+        credentials: 'include'
+    });
+
+export const deactivateAccount = reason => {
+    const request = {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        withCredentials: true,
+        body: JSON.stringify({ reason })
+    }
+    return fetch(`${DEV_URL}/member/deactivate/`, request);
+}
