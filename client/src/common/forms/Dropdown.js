@@ -24,6 +24,7 @@ function Dropdown(props) {
         onChange,
         initialSelection,
         isMulti = false,
+        isDisabled = false,
         dropdownCSS,
         currentSelectedValue,
         dropdownTheme = dropdownDefaultTheme
@@ -64,6 +65,7 @@ function Dropdown(props) {
                 menuPortalTarget={document.body}
                 styles={dropdownCSS}
                 theme={dropdownTheme}
+                isDisabled={isDisabled}
             />
         </div>
     );
@@ -82,7 +84,8 @@ Dropdown.propTypes = {
     currentSelectedValue: propTypes.any,
     dropdownCSS: propTypes.object,
     dropdownTheme: propTypes.func,
-    isMulti: propTypes.bool
+    isMulti: propTypes.bool,
+    isDisabled: propTypes.bool
 };
 
 export default Dropdown;
