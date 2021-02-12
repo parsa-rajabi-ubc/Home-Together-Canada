@@ -13,7 +13,8 @@ import {
     BUSINESS_SERVICE_CATEGORIES_DROPDOWN,
     GOVERNMENT_SERVICES_SUBCATEGORIES_LIST,
     CO_HOUSING_SUBCATEGORIES_LIST,
-    SHARED_SERVICES_SUBCATEGORIES_LIST
+    SHARED_HOME_SERVICES_SUBCATEGORIES_LIST,
+    SHARED_BUSINESS_SERVICES_SUBCATEGORIES_LIST
 } from "./constants/serviceListingConstants";
 import {BUSINESS_SERVICE_CATEGORIES} from "./constants/serviceListingText"
 import {BUSINESS_CLASSIFIEDS_CATEGORIES} from "./constants/classifiedListingText"
@@ -82,11 +83,14 @@ const CreateListingControls = () => {
     const returnSubcategory = (selectedCategory) => {
         if (selectedListingType === SERVICES_TEXT) {
             switch (selectedCategory) {
-                case BUSINESS_SERVICE_CATEGORIES.SHARE_COMMUNITY:
+                case BUSINESS_SERVICE_CATEGORIES.CO_HOUSING:
                     setSubcategories(CO_HOUSING_SUBCATEGORIES_LIST);
                     break;
-                case BUSINESS_SERVICE_CATEGORIES.SHARED_SERVICES:
-                    setSubcategories(SHARED_SERVICES_SUBCATEGORIES_LIST);
+                case BUSINESS_SERVICE_CATEGORIES.SHARED_HOME_SERVICES:
+                    setSubcategories(SHARED_HOME_SERVICES_SUBCATEGORIES_LIST);
+                    break;
+                case BUSINESS_SERVICE_CATEGORIES.SHARED_BUSINESS_SERVICES:
+                    setSubcategories(SHARED_BUSINESS_SERVICES_SUBCATEGORIES_LIST);
                     break;
                 case BUSINESS_SERVICE_CATEGORIES.GOVERNMENT_SERVICES:
                     setSubcategories(GOVERNMENT_SERVICES_SUBCATEGORIES_LIST);
