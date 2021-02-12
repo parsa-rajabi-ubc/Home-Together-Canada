@@ -15,7 +15,7 @@ const usersValidator = require('../controllers/validators/userControllerValidato
 const abstractUsers = require('../controllers/abstractUserController');
 const businessAccounts = require('../controllers/businessAccountController');
 const memberAccounts = require('../controllers/memberAccountController');
-const { isLoggedIn } = require('./routeUtils');
+const { isLoggedIn, terminateSession } = require('./routeUtils');
 
 // Create abstract user
 router.post('/create/', function (req, res, next) {
@@ -24,6 +24,7 @@ router.post('/create/', function (req, res, next) {
 
 // get all abstract users
 router.get('/all/', function (req, res, next) {
+    console.log('req.user: ', req.user);
     abstractUsers.findAllAbstractUsers(req, res);
 });
 
@@ -57,7 +58,7 @@ router.get('/successfulLogin/', async function (req, res, next) {
 });
 
 // logout
-router.get('/logout/', function (req, res) {
+router.get('/logout/', function (req, res, next) {
     req.session.destroy(function (err) {
         if (err) console.log(err)
         res.redirect('/user/checkAuth/');
@@ -93,6 +94,29 @@ router.post('/changePassword/', isLoggedIn, usersValidator.validate('changePassw
             abstractUsers.changePassword(req, res);
         }
     });
+
+
+// Delete user
+router.get('/delete/',
+    isLoggedIn,
+    function (req,res,next){
+        // delete their entry from the DB
+        abstractUsers.deleteAccount(req.user.uid)
+            .then(data => {
+                if (data) {
+                    // deletion was successful, destroy session
+                    req.session.destroy(function (err) {
+                        if (err) console.log(err)
+                        res.status(200).json( { deleted: true });
+                    });
+                } else {
+                    res.status(500).json({ err: 'Unable to delete user' });
+                }
+            })
+            .catch(err => {
+                res.status(500).json({ err: err.message });
+            });
+});
 
 // Get a specific abstract user
 // This route MUST BE LAST

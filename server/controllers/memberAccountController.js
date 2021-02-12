@@ -150,6 +150,26 @@ const updateMemberStatus = (uid, status) => {
     });
 }
 
+const activateAccount = uid =>
+    MemberAccount.update({
+        active: true,
+        deactivationReason: null
+    }, {
+        where: {
+            uid: uid
+        }
+    });
+
+const deactivateAccount = (uid, reason) =>
+    MemberAccount.update({
+        active: false,
+        deactivationReason: reason
+    }, {
+        where: {
+            uid: uid
+        }
+    });
+
 const updateMemberStatusAndRoommates = async (req) => {
     try {
         const uid = req.user.uid;
@@ -448,5 +468,7 @@ module.exports = {
     updateMemberAreaOfInterest,
     getMemberSearchFilters,
     updateMemberSearchFilters,
-    getMemberProfilesMatchingSearchFilters
+    getMemberProfilesMatchingSearchFilters,
+    activateAccount,
+    deactivateAccount
 }

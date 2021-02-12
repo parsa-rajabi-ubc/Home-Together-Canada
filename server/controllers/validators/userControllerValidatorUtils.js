@@ -55,6 +55,13 @@ const WORK_STATUSES = [
     'Other'
 ];
 
+const DEACTIVATION_REASONS = [
+    'Have found people to share with, am not able to find people',
+    'Will be away for a while',
+    'Have changed my mind. I do not want to share',
+    'Other'
+];
+
 const MAX_RADIUS = 500;
 
 const isValidPassword = password => {
@@ -309,7 +316,6 @@ const providedNewPasswordShouldNotMatchExistingPassword = (password, uid) => {
             }
         });
 }
-
 const correctPasswordForUsername = (username, password) =>
     abstractUserController.findUserByUsername(username)
         .then(user => {
@@ -330,6 +336,7 @@ module.exports = {
     STATUSES,
     WORK_STATUSES,
     SHARE_LIMITS,
+    DEACTIVATION_REASONS,
     isValidPassword,
     isValidPhoneNumber,
     isValidCanadianPostalCode,

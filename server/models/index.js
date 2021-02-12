@@ -35,13 +35,14 @@ db.businessAccount.belongsTo(db.abstractUser, {
     foreignKey: {
         name: 'uid'
     },
-    onDelete: 'RESTRICT'
+    onDelete: 'CASCADE'
 });
+
 db.memberAccount.belongsTo(db.abstractUser, {
     foreignKey: {
         name: 'uid'
     },
-    onDelete: 'RESTRICT'
+    onDelete: 'CASCADE'
 });
 
 db.memberAccount.belongsToMany(db.memberAccount, { as: "Roommates", through: db.livesWith });
@@ -50,7 +51,7 @@ db.memberAccount.hasMany(db.areaOfInterest, {
     foreignKey: {
         name: 'uid'
     },
-    onDelete: 'RESTRICT'
+    onDelete: 'CASCADE'
 });
 
 module.exports = db;
