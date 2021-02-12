@@ -30,6 +30,8 @@ import { useHistory } from "react-router-dom";
 
 const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
 
+const SUCCESS_MESSAGE = 'Account info successfully updated!';
+
 //Returns a summary Form with fields filled
 function MemberAccountSummary(props) {
     const { member, setIsAdmin, setAccountType, setAuthenticated } = props;
@@ -316,7 +318,7 @@ function MemberAccountSummary(props) {
                 </div>
             </div>
             {showSuccessMessage &&
-                <section className={'success-msg mb-4 justify-center'}>Account info successfully updated!</section>
+                <section className={'success-msg mb-4 justify-center'}>{SUCCESS_MESSAGE}</section>
             }
             <SubmitButton
                 inputValue={"Save"}

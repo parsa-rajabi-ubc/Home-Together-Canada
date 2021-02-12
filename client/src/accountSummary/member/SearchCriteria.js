@@ -20,6 +20,8 @@ import ShareLimit from "../../common/forms/ShareLimits";
 import YNButton from "../../common/forms/YNButtons";
 import SubmitButton from "../../common/forms/SubmitButton";
 
+const SUCCESS_MESSAGE = 'Search criteria successfully updated!';
+
 function SearchCriteria(props) {
     const {
         genderPreference,
@@ -136,7 +138,7 @@ function SearchCriteria(props) {
                                         step="1"
                                         placeholder="Min Age"
                                         value={minAgePreference}
-                                        onChange={(e) => setMinAgePreference(e.target.value)}
+                                        onChange={e => setMinAgePreference(parseInt(e.target.value))}
                                     />
                                 </div>
                                 <div className="column-span-6-layout">
@@ -147,7 +149,7 @@ function SearchCriteria(props) {
                                         step="1"
                                         placeholder="Max Age"
                                         value={maxAgePreference}
-                                        onChange={(e) => setMaxAgePreference(e.target.value)}
+                                        onChange={e => setMaxAgePreference(parseInt(e.target.value))}
                                     />
                                 </div>
                             </div>
@@ -176,7 +178,7 @@ function SearchCriteria(props) {
                                         step="1"
                                         placeholder="Min $ CAD"
                                         value={minBudgetPreference}
-                                        onChange={(e) => setMinBudgetPreference(e.target.value)}
+                                        onChange={e => setMinBudgetPreference(parseInt(e.target.value))}
                                     />
                                 </div>
                                 <div className="column-span-6-layout">
@@ -187,7 +189,7 @@ function SearchCriteria(props) {
                                         step="1"
                                         placeholder=" Max $ CAD"
                                         value={maxBudgetPreference}
-                                        onChange={(e) => setMaxBudgetPreference(e.target.value)}
+                                        onChange={e => setMaxBudgetPreference(parseInt(e.target.value))}
                                     />
                                 </div>
                             </div>
@@ -269,7 +271,7 @@ function SearchCriteria(props) {
                 </div>
             </div>
             {showSuccessMessage &&
-                <section className={'success-msg mb-4 justify-center'}>Account info successfully updated!</section>
+                <section className={'success-msg mb-4 justify-center'}>{SUCCESS_MESSAGE}</section>
             }
             <SubmitButton
                 inputValue={"Save"}
@@ -282,52 +284,52 @@ function SearchCriteria(props) {
 }
 
 SearchCriteria.propTypes = {
-    genderPreference: PropTypes.array,
-    handleGenderPrefChange: PropTypes.func,
+    genderPreference: PropTypes.array.isRequired,
+    handleGenderPrefChange: PropTypes.func.isRequired,
     genderPreferenceError: PropTypes.bool,
 
-    familyStatusPreference: PropTypes.array,
-    setFamilyStatusPreference: PropTypes.func,
+    familyStatusPreference: PropTypes.array.isRequired,
+    setFamilyStatusPreference: PropTypes.func.isRequired,
     familyStatusPreferenceError: PropTypes.bool,
 
-    minAgePreference: PropTypes.number,
-    setMinAgePreference: PropTypes.func,
+    minAgePreference: PropTypes.number.isRequired,
+    setMinAgePreference: PropTypes.func.isRequired,
     minAgePreferenceError: PropTypes.bool,
 
-    maxAgePreference: PropTypes.number,
-    setMaxAgePreference: PropTypes.func,
+    maxAgePreference: PropTypes.number.isRequired,
+    setMaxAgePreference: PropTypes.func.isRequired,
     maxAgePreferenceError: PropTypes.bool,
 
-    selectedLimitPreference: PropTypes.array,
-    handleSelectedLimitPreferenceChange: PropTypes.func,
+    selectedLimitPreference: PropTypes.array.isRequired,
+    handleSelectedLimitPreferenceChange: PropTypes.func.isRequired,
     selectedLimitPreferenceError: PropTypes.bool,
 
-    minBudgetPreference: PropTypes.number,
-    setMinBudgetPreference: PropTypes.func,
+    minBudgetPreference: PropTypes.number.isRequired,
+    setMinBudgetPreference: PropTypes.func.isRequired,
     minBudgetPreferenceError: PropTypes.bool,
 
-    maxBudgetPreference: PropTypes.number,
-    setMaxBudgetPreference: PropTypes.func,
+    maxBudgetPreference: PropTypes.number.isRequired,
+    setMaxBudgetPreference: PropTypes.func.isRequired,
     maxBudgetPreferenceError: PropTypes.bool,
 
-    petPreference: PropTypes.string,
-    setPetPreference: PropTypes.func,
+    petPreference: PropTypes.string.isRequired,
+    setPetPreference: PropTypes.func.isRequired,
     petPreferenceError: PropTypes.bool,
 
-    smokingPreference: PropTypes.string,
-    setSmokingPreference: PropTypes.func,
+    smokingPreference: PropTypes.string.isRequired,
+    setSmokingPreference: PropTypes.func.isRequired,
     smokingPreferenceError: PropTypes.bool,
 
-    religionPreference: PropTypes.string,
-    setReligionPreference: PropTypes.func,
+    religionPreference: PropTypes.string.isRequired,
+    setReligionPreference: PropTypes.func.isRequired,
     religionPreferenceError: PropTypes.bool,
 
-    dietPreference: PropTypes.string,
-    setDietPreference: PropTypes.func,
+    dietPreference: PropTypes.string.isRequired,
+    setDietPreference: PropTypes.func.isRequired,
     dietPreferenceError: PropTypes.bool,
 
-    homeToSharePreference: PropTypes.string,
-    setHomeToSharePreference: PropTypes.func,
+    homeToSharePreference: PropTypes.string.isRequired,
+    setHomeToSharePreference: PropTypes.func.isRequired,
     homeToSharePreferenceError: PropTypes.bool,
 
     showSuccessMessage: PropTypes.bool.isRequired,
