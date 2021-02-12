@@ -142,7 +142,7 @@ const CreateListingControls = (props) => {
                     label={SERVICES_TEXT}
                     name={"listingType"}
                     value={SERVICES_TEXT}
-                    checked={isUserMember ? true : null}
+                    checked={selectedListingType === SERVICES_TEXT}
                     disabled={isUserMember}
                     blockElement={true}
                     onChange={(e) => setSelectedListingType(e.target.value)}
