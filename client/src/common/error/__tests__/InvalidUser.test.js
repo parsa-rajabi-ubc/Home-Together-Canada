@@ -6,7 +6,7 @@
  *
  */
 import React from 'react';
-import renderer from  'react-test-renderer'
+import renderer from 'react-test-renderer'
 import InvalidUser from "../InvalidUser";
 import {BrowserRouter} from "react-router-dom";
 
@@ -21,10 +21,14 @@ jest.mock('react-redux', () => ({
 describe('InvalidUser', () => {
     describe('Component Snapshot test', () => {
         it("should render correctly regardless of properties", () => {
+            //given
+            const props = {
+                message: "Hello world"
+            };
             //when
-            const component = renderer.create(<BrowserRouter><InvalidUser/></BrowserRouter>).toJSON();
+            const component = renderer.create(<BrowserRouter><InvalidUser {...props}/></BrowserRouter>).toJSON();
             //then
             expect(component).toMatchSnapshot();
         });
     })
-})
+    })

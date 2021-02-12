@@ -10,6 +10,7 @@ import React from 'react';
 import renderer from 'react-test-renderer'
 import CreateListingContainer from "../CreateListingContainer";
 import {BrowserRouter as Router} from "react-router-dom";
+import PropTypes from "prop-types";
 
 jest.mock('react-redux', () => ({
     connect: () => {
@@ -27,10 +28,11 @@ jest.mock("react-tooltip/node_modules/uuid", () => ({
 
 describe('CreateListingContainer', () => {
     describe('Container test', () => {
-        it('should match snapshot test', () => {
+        it('should match snapshot test if the user is a member', () => {
             // given
             const props = {
-                accountType: "member"
+                accountType: "member",
+                authenticated: true
             };
             //when
             const component = renderer.create(<Router><CreateListingContainer {...props}/></Router>);
@@ -38,10 +40,23 @@ describe('CreateListingContainer', () => {
             //then
             expect(tree).toMatchSnapshot();
         });
-        it('should match snapshot test', () => {
+        it('should match snapshot test if the user is a business', () => {
             // given
             const props = {
-                accountType: null
+                accountType: "business",
+                authenticated: true
+            };
+            //when
+            const component = renderer.create(<Router><CreateListingContainer {...props}/></Router>);
+            const tree = component.toJSON();
+            //then
+            expect(tree).toMatchSnapshot();
+        });
+        it('should match snapshot test if the user is not logged in', () => {
+            // given
+            const props = {
+                accountType: null,
+                authenticated: true
             };
             //when
             const component = renderer.create(<Router><CreateListingContainer {...props}/></Router>);
