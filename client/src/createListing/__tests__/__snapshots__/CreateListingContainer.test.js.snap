@@ -29,7 +29,7 @@ exports[`CreateListingContainer Container test should match snapshot test if the
               className="text-base text-gray-700 pr-8"
             >
               <input
-                checked={null}
+                checked={false}
                 className="form-radio mt-2 ml-2 mr-1 pb-4"
                 disabled={false}
                 name="listingType"
@@ -1953,7 +1953,7 @@ exports[`CreateListingContainer Container test should match snapshot test if the
               className="text-base text-gray-700 pr-8"
             >
               <input
-                checked={null}
+                checked={false}
                 className="form-radio mt-2 ml-2 mr-1 pb-4"
                 disabled={false}
                 name="listingType"
