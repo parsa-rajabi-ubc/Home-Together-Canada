@@ -61,6 +61,7 @@ export const ALL_SUBPAGES = {
     PASSWORD: 'Password',
     MESSAGING: 'Messaging',
     MANAGE_LISTINGS: 'Manage Listings',
-    ACTIVATE_DEACTIVATE: 'Activate / Deactivate Account',
+    ACTIVATE: 'Activate Account',
+    DEACTIVATE: 'Deactivate Account',
     DELETE: 'Delete Account'
 };

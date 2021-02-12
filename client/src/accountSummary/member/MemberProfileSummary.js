@@ -32,11 +32,12 @@ import {memberHasCoupleStatus, memberHasExistingGroupStatus} from "./memberAccou
 import {STATUSES} from "../../common/constants/memberConstants";
 import * as MemberService from '../../services/MemberService';
 import {setAccountType, setAuthenticated, setIsAdmin} from "../../redux/slices/userPrivileges";
+import {setActive} from "../../redux/slices/memberPrivileges";
 import {USER_TYPES} from "../../common/constants/users";
 import { useHistory } from "react-router-dom";
 import {connect} from "react-redux";
 
-const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
+const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated, setActive};
 
 const UPDATE_STATES = {
     SUCCESS: 'SUCCESS',
@@ -55,7 +56,8 @@ function MemberProfileSummary(props) {
         roommates,
         setAccountType,
         setAuthenticated,
-        setIsAdmin
+        setIsAdmin,
+        setActive
     } = props;
 
     const history = useHistory();
@@ -275,6 +277,7 @@ function MemberProfileSummary(props) {
                 setIsAdmin({isAdmin: false});
                 setAccountType({accountType: USER_TYPES.UNREGISTERED});
                 setAuthenticated({authenticated: false});
+                setActive({active: null});
 
                 alert('There was an error with your session. Please try to login again.');
 
@@ -676,7 +679,8 @@ MemberProfileSummary.propTypes = {
     roommates: PropTypes.array.isRequired,
     setAccountType: PropTypes.func.isRequired,
     setAuthenticated: PropTypes.func.isRequired,
-    setIsAdmin: PropTypes.func.isRequired
+    setIsAdmin: PropTypes.func.isRequired,
+    setActive: PropTypes.func.isRequired
 }
 
 export default connect(null, mapDispatch)(MemberProfileSummary);

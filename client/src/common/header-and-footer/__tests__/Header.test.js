@@ -14,6 +14,7 @@ jest.mock('react-redux', () => ({
 const setAccountType = jest.fn();
 const setIsAdmin = jest.fn();
 const setAuthenticated = jest.fn();
+const setActive = jest.fn();
 
 describe('Header', () => {
     describe('Header structure', () => {
@@ -23,6 +24,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: null,
                 authenticated: false
@@ -42,6 +44,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: null,
                 authenticated: false
@@ -61,6 +64,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: 'member',
                 authenticated: true
@@ -80,6 +84,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: 'business',
                 authenticated: true
@@ -102,6 +107,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: null,
                 authenticated: false
@@ -121,6 +127,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: 'member',
                 authenticated: true
@@ -140,6 +147,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: 'business',
                 authenticated: true
@@ -161,6 +169,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: null,
                 authenticated: false
@@ -180,6 +189,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: 'member',
                 authenticated: true
@@ -199,6 +209,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: 'business',
                 authenticated: true
@@ -221,6 +232,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: null,
                 authenticated: false
@@ -240,6 +252,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: 'member',
                 authenticated: true
@@ -259,6 +272,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: 'business',
                 authenticated: true
@@ -281,6 +295,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: null,
                 authenticated: false
@@ -300,6 +315,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: 'member',
                 authenticated: true
@@ -319,6 +335,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: 'business',
                 authenticated: true
@@ -341,6 +358,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: null,
                 authenticated: false
@@ -360,6 +378,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: 'member',
                 authenticated: true
@@ -379,6 +398,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: 'business',
                 authenticated: true
@@ -401,6 +421,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: null,
                 authenticated: false
@@ -420,6 +441,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: 'member',
                 authenticated: true
@@ -439,6 +461,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: true,
                 accountType: 'member',
                 authenticated: true
@@ -461,6 +484,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: null,
                 authenticated: false
@@ -480,6 +504,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: 'member',
                 authenticated: true
@@ -502,6 +527,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: null,
                 authenticated: false
@@ -521,6 +547,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: 'member',
                 authenticated: true
@@ -543,6 +570,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: null,
                 authenticated: false
@@ -562,6 +590,7 @@ describe('Header', () => {
                 setAccountType,
                 setIsAdmin,
                 setAuthenticated,
+                setActive,
                 isAdmin: false,
                 accountType: 'member',
                 authenticated: true

@@ -26,15 +26,16 @@ import * as MemberService from '../../services/MemberService';
 import {USER_TYPES} from "../../common/constants/users";
 import {connect} from "react-redux";
 import {setAccountType, setAuthenticated, setIsAdmin} from "../../redux/slices/userPrivileges";
+import {setActive} from "../../redux/slices/memberPrivileges";
 import { useHistory } from "react-router-dom";
 
-const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
+const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated, setActive};
 
 const SUCCESS_MESSAGE = 'Account info successfully updated!';
 
 //Returns a summary Form with fields filled
 function MemberAccountSummary(props) {
-    const { member, setIsAdmin, setAccountType, setAuthenticated } = props;
+    const { member, setIsAdmin, setAccountType, setAuthenticated, setActive } = props;
 
     const history = useHistory();
 
@@ -226,6 +227,7 @@ function MemberAccountSummary(props) {
                     setIsAdmin({isAdmin: false});
                     setAccountType({accountType: USER_TYPES.UNREGISTERED});
                     setAuthenticated({authenticated: false});
+                    setActive({active: null});
 
                     alert('There was an error with your session. Please try to login again.');
 
@@ -349,7 +351,8 @@ MemberAccountSummary.propTypes = {
     }).isRequired,
     setAccountType: PropTypes.func.isRequired,
     setAuthenticated: PropTypes.func.isRequired,
-    setIsAdmin: PropTypes.func.isRequired
+    setIsAdmin: PropTypes.func.isRequired,
+    setActive: PropTypes.func.isRequired
 }
 
 export default connect(null, mapDispatch)(MemberAccountSummary);

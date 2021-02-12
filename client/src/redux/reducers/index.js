@@ -9,7 +9,9 @@
 import { combineReducers } from 'redux';
 
 import userPrivilegesReducer from '../slices/userPrivileges';
+import memberPrivilegesReducer from '../slices/memberPrivileges';
 
 export default combineReducers({
-    userPrivileges: userPrivilegesReducer
+    userPrivileges: userPrivilegesReducer,
+    memberPrivileges: memberPrivilegesReducer
 });

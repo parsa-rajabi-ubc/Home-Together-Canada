@@ -12,6 +12,7 @@ import {Link} from "react-router-dom";
 import LoginService from '../../services/LoginService';
 import {connect} from "react-redux";
 import {setAccountType, setAuthenticated, setIsAdmin} from "../../redux/slices/userPrivileges";
+import {setActive} from "../../redux/slices/memberPrivileges";
 import PropTypes from "prop-types";
 import {BUSINESS_SUBPAGES, MEMBER_SUBPAGES, USER_TYPES} from "../constants/users";
 import Dropdown from "../forms/Dropdown";
@@ -21,16 +22,15 @@ import {compose} from "redux";
 import {dropdownAccountCSS, dropdownAccountTheme} from "../../css/dropdownCSSUtil"
 import {SERVICES_TEXT, CLASSIFIEDS_TEXT, CREATE_LISTINGS_TEXT} from "../constants/listingsConstants";
 
-const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
-
+const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated, setActive};
 
 const Header = (props) => {
-
     const {
         history,
         setIsAdmin,
         setAccountType,
         setAuthenticated,
+        setActive,
         isAdmin,
         accountType,
         authenticated
@@ -43,6 +43,7 @@ const Header = (props) => {
                 setIsAdmin({isAdmin: false});
                 setAccountType({accountType: USER_TYPES.UNREGISTERED});
                 setAuthenticated({authenticated: false});
+                setActive({active: null});
 
                 // redirect to home page
                 history.push('/');
@@ -152,6 +153,7 @@ Header.propTypes = {
     setAccountType: PropTypes.func.isRequired,
     setIsAdmin: PropTypes.func.isRequired,
     setAuthenticated: PropTypes.func.isRequired,
+    setActive: PropTypes.func.isRequired,
     isAdmin: PropTypes.bool.isRequired,
     authenticated: PropTypes.bool.isRequired,
     accountType: PropTypes.string
