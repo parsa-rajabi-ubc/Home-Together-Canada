@@ -6,7 +6,6 @@
  *
  */
 
-// TODO: when implementing search filters, all preference fields show have allowNull: false property
 module.exports = (DataTypes, sequelize) => {
     return sequelize.define('MemberAccount', {
         uid: {
@@ -19,6 +18,14 @@ module.exports = (DataTypes, sequelize) => {
             type: DataTypes.BOOLEAN,
             allowNull: false,
             defaultValue: false
+        },
+        active: {
+          type: DataTypes.BOOLEAN,
+          allowNull: false,
+          defaultValue: true
+        },
+        deactivationReason: {
+            type: DataTypes.STRING
         },
         gender: {
             type: DataTypes.STRING,

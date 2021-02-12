@@ -20,7 +20,7 @@ const areasOfInterest = require('../controllers/areaOfInterestController');
 const { getRoommatesUsernames } = require('../controllers/utils/statusUtils');
 const { getCircularFeatureFromLocation } = require('../controllers/utils/locationUtils');
 const { getListOfAreaOfInterestObjects } = require('../controllers/utils/areaOfInterestUtils');
-const { isLoggedIn, userIsMember } = require('./routeUtils');
+const { isLoggedIn, userIsMember, userIsInactive, userIsActive } = require('./routeUtils');
 
 
 // Get all member accounts
@@ -218,6 +218,66 @@ router.post('/search/profiles/',
         }
     });
 
+router.get('/active/status/',
+    isLoggedIn,
+    userIsMember,
+    function (req, res, next) {
+        memberAccounts.findMemberAccountByUid(req.user.uid)
+            .then(member => {
+                res.status(200).json({
+                    active: member.dataValues.active,
+                    deactivationReason: member.dataValues.deactivationReason
+                });
+            })
+            .catch(err => {
+                res.status(500).json({ err: err.message });
+            })
+    }
+);
+
+router.get('/activate/',
+    isLoggedIn,
+    userIsMember,
+    userIsInactive,
+    function (req,res,next){
+        memberAccounts.activateAccount(req.user.uid)
+            .then(data => {
+                if (data.length) {
+                    res.status(200).json({ success: true });
+                } else {
+                    res.status(500).json({ success: false, err: 'Unable to activate account' });
+                }
+            })
+            .catch(err => {
+                res.status(500).json({ success: false, err: err.message });
+            })
+});
+
+router.post('/deactivate/',
+    isLoggedIn,
+    userIsMember,
+    userIsActive,
+    usersValidator.validate('deactivateMemberAccount'),
+    function (req, res, next) {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            res.status(202).json({ errors: errors.array()});
+        } else {
+            memberAccounts.deactivateAccount(req.user.uid, req.body.reason)
+                .then(data => {
+                    if (data.length) {
+                        res.status(200).json({success: true});
+                    } else {
+                        res.status(500).json({success: false, err: 'Unable to deactivate account'});
+                    }
+                })
+                .catch(err => {
+                    res.status(500).json({success: false, err: err.message});
+                })
+        }
+    }
+);
 
 module.exports = router;
 

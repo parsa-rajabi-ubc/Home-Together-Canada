@@ -13,6 +13,7 @@ const {
     GENDERS,
     STATUSES,
     WORK_STATUSES,
+    DEACTIVATION_REASONS,
     isValidPassword,
     isValidPhoneNumber,
     isValidCanadianPostalCode,
@@ -518,5 +519,11 @@ exports.validate = (method) => {
                     .custom(radius => isValidRadius(radius))
             ]
         }
+        case 'deactivateMemberAccount':
+            return [
+                body('reason', 'A valid deactivation reason must be provided')
+                    .exists()
+                    .isIn(DEACTIVATION_REASONS)
+            ];
     }
 }

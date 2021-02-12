@@ -32,8 +32,30 @@ async function userIsMember(req, res, next) {
     res.json({ err: 'User is not a member' });
 }
 
+function userIsInactive (req, res, next) {
+    memberAccounts.findMemberAccountByUid(req.user.uid)
+        .then(member => {
+            if (member && !member.dataValues.active) {
+                return next();
+            }
+            res.status(500).json({ success: false, err: 'Account is already active'});
+        });
+}
+
+function userIsActive (req, res, next) {
+    memberAccounts.findMemberAccountByUid(req.user.uid)
+        .then(member => {
+            if (member && member.dataValues.active) {
+                return next();
+            }
+            res.status(500).json({ success: false, err: 'Account is already inactive' })
+        });
+}
+
 module.exports = {
     isLoggedIn,
     userIsBusiness,
-    userIsMember
+    userIsMember,
+    userIsInactive,
+    userIsActive
 }
