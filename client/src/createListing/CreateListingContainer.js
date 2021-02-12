@@ -9,6 +9,7 @@
 import React from 'react';
 import CreateListingControls from "./CreateListingControls";
 import MemberHomeShareForm from "./forms/services/MemberHomeShareForm";
+import CohousingForm from "./forms/services/CohousingForm";
 
 function onSubmit() {
 
@@ -23,6 +24,7 @@ const CreateListingContainer = () => {
             </div>
             <div className={"sideBar-selected-component col-start-3 col-end-10"}>
                 <MemberHomeShareForm onSubmit={onSubmit}/>
+                <CohousingForm onSubmit={onSubmit}/>
             </div>
         </div>
     )

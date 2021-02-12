@@ -162,7 +162,6 @@ exports[`MemberHomeShareForm Snapshot test should render correctly regardless of
               className="undefined input"
               min="0"
               onChange={[Function]}
-              placeholder=""
               step="1"
               type="number"
             />
