@@ -293,6 +293,57 @@ const memberProfileBasicFieldsValidation = [
         .isIn(WORK_STATUSES)
 ];
 
+const memberSearchFiltersValidation = [
+    body('minAgePreference')
+        .exists()
+        .isNumeric()
+        .custom(age => isPositiveInteger(age)),
+    body('maxAgePreference')
+        .exists()
+        .isNumeric()
+        .custom(age => isPositiveInteger(age))
+        .custom((age, { req }) => validateMinAndMax(req.body.minAgePreference, age)),
+    body('minBudgetPreference')
+        .exists()
+        .isNumeric()
+        .custom(budget => isPositiveInteger(budget)),
+    body('maxBudgetPreference')
+        .exists()
+        .isNumeric()
+        .custom(budget => isPositiveInteger(budget))
+        .custom((budget, {req}) => validateMinAndMax(req.body.minBudgetPreference, budget)),
+    body('statusPreference')
+        .exists()
+        .isArray()
+        .custom(statusPreference => validStatusPreferences(statusPreference)),
+    body('numRoommatesPreference')
+        .exists()
+        .isArray()
+        .custom(limits => isValidShareLimitArray(limits)),
+    body('numRoommatesPreference.*')
+        .isNumeric()
+        .custom(limit => isValidShareLimit(limit)),
+    body('dietPreference')
+        .exists()
+        .isBoolean(),
+    body('petsPreference')
+        .exists()
+        .isBoolean(),
+    body('smokingPreference')
+        .exists()
+        .isBoolean(),
+    body('genderPreference')
+        .exists()
+        .isArray()
+        .custom(genderPreferences => validGenderPreferences(genderPreferences)),
+    body('religionPreference')
+        .exists()
+        .isBoolean(),
+    body('othersWithHomeToSharePreference')
+        .exists()
+        .isBoolean()
+]
+
 const memberStatusValidation = [
     body('status', 'A valid status must be provided')
         .exists()
@@ -359,55 +410,7 @@ exports.validate = (method) => {
                 ...memberProfileBasicFieldsValidation,
                 ...memberStatusValidation,
                 ...areasOfInterestValidation,
-
-                body('minAgePreference')
-                    .exists()
-                    .isNumeric()
-                    .custom(age => isPositiveInteger(age)),
-                body('maxAgePreference')
-                    .exists()
-                    .isNumeric()
-                    .custom(age => isPositiveInteger(age))
-                    .custom((age, { req }) => validateMinAndMax(req.body.minAgePreference, age)),
-                body('minBudgetPreference')
-                    .exists()
-                    .isNumeric()
-                    .custom(budget => isPositiveInteger(budget)),
-                body('maxBudgetPreference')
-                    .exists()
-                    .isNumeric()
-                    .custom(budget => isPositiveInteger(budget))
-                    .custom((budget, {req}) => validateMinAndMax(req.body.minBudgetPreference, budget)),
-                body('statusPreference')
-                    .exists()
-                    .isArray()
-                    .custom(statusPreference => validStatusPreferences(statusPreference)),
-                body('numRoommatesPreference')
-                    .exists()
-                    .isArray()
-                    .custom(limits => isValidShareLimitArray(limits)),
-                body('numRoommatesPreference.*')
-                    .isNumeric()
-                    .custom(limit => isValidShareLimit(limit)),
-                body('dietPreference')
-                    .exists()
-                    .isBoolean(),
-                body('petsPreference')
-                    .exists()
-                    .isBoolean(),
-                body('smokingPreference')
-                    .exists()
-                    .isBoolean(),
-                body('genderPreference')
-                    .exists()
-                    .isArray()
-                    .custom(genderPreferences => validGenderPreferences(genderPreferences)),
-                body('religionPreference')
-                    .exists()
-                    .isBoolean(),
-                body('othersWithHomeToSharePreference')
-                    .exists()
-                    .isBoolean()
+                ...memberSearchFiltersValidation
             ]
         }
         case 'changePassword': {
@@ -454,7 +457,12 @@ exports.validate = (method) => {
             return [
                 ...areasOfInterestValidation
             ]
-        case 'memberSearchFilters': {
+        case 'updateMemberSearchFilters':
+            return [
+                ...memberSearchFiltersValidation
+            ];
+
+        case 'memberSearchRequest': {
             return [
                 body('minAgePreference')
                     .optional()

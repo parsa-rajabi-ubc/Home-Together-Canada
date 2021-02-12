@@ -45,6 +45,8 @@ const UPDATE_STATES = {
     ERROR: 'ERROR'
 };
 
+const SUCCESS_MESSAGE = 'Profile info successfully updated!';
+
 //Returns a summary Form with fields filled
 function MemberProfileSummary(props) {
     const {
@@ -629,7 +631,7 @@ function MemberProfileSummary(props) {
                 </div>
             </div>
             {showSuccessMessage &&
-                <section className={'success-msg mb-4 justify-center'}>Account info successfully updated!</section>
+                <section className={'success-msg mb-4 justify-center'}>{SUCCESS_MESSAGE}</section>
             }
             <SubmitButton
                 inputValue={"Save"}
