@@ -20,6 +20,8 @@ describe('SearchFilter', () => {
         it("should render correctly regardless of properties", () => {
             // given
             const props = {
+                handleSearchAreaChange: jest.fn(),
+
                 genderPreference: ["Male", "Female"],
                 handleGenderPrefChange: jest.fn(),
 
