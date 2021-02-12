@@ -95,7 +95,7 @@ export const dropdownSearchAreaCSS = {
     placeholder: (defaultStyles) => {
         return {
             ...defaultStyles,
-            "font-size": "95%",
+            fontSize: "95%",
         }
     }
 }
