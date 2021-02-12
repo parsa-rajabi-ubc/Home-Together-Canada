@@ -14,9 +14,12 @@ import Status from "../common/forms/Status";
 import {dropdownDefaultCSS} from "../css/dropdownCSSUtil";
 import ShareLimit from "../common/forms/ShareLimits";
 import SubmitButton from "../common/forms/SubmitButton";
+import SearchArea from "../common/listings/SearchArea";
 
 function SearchFilter(props) {
     const {
+        handleSearchAreaChange,
+
         genderPreference,
         handleGenderPrefChange,
 
@@ -66,10 +69,13 @@ function SearchFilter(props) {
                 <div className="col-span-3 sm:col-span-2">
                     <label className="text-2xl font-medium">Search Filtering</label>
                     <SubmitButton
-                        inputValue={"Done"}
+                        inputValue={"Search"}
                         className="btn btn-green w-1/4 float-right py-2"
                         onClick={onSubmit}
                     />
+                    <label className="label block">Search Area</label>
+                    <SearchArea onChange={handleSearchAreaChange}/>
+
                     <label className={"label block"}>I am open to sharing with </label>
                     <div className={"my-2"}>
                         <Checkbox
@@ -209,6 +215,8 @@ function SearchFilter(props) {
 }
 
 SearchFilter.propTypes = {
+    handleSearchAreaChange: PropTypes.func.isRequired,
+
     genderPreference: PropTypes.array.isRequired,
     handleGenderPrefChange: PropTypes.func.isRequired,
 
