@@ -17,6 +17,12 @@ import indexOf from "lodash/indexOf";
 
 const SearchFilterContainer = () => {
 
+    const [searchArea, setSearchArea]  = useState({
+        province: "",
+        city: "",
+        radius: ""
+    });
+
     // Gender and Family Status
     const [genderPreference, setGenderPreference] = useState(get(memberSearchCriteriaMock, "genderPreference", ""));
     const [familyStatusPreference, setFamilyStatusPreference] = useState(get(memberSearchCriteriaMock, "statusPreference", ""));
@@ -87,6 +93,7 @@ const SearchFilterContainer = () => {
         }
     }
 
+
     const isFormValid = () => {
 
         const searchErrors = {
@@ -121,6 +128,8 @@ const SearchFilterContainer = () => {
             //TODO: Update Filter Based on Results
             const filteringData = {
                 // member search preferences
+                searchArea: searchArea,
+
                 minAgePreference: minAgePreference,
                 maxAgePreference: maxAgePreference,
 
@@ -143,6 +152,8 @@ const SearchFilterContainer = () => {
 
     return (
         <SearchFilter
+            handleSearchAreaChange={setSearchArea}
+
             genderPreference={genderPreference}
             handleGenderPrefChange={handleGenderPrefChange}
 
@@ -184,7 +195,7 @@ const SearchFilterContainer = () => {
             setHomeToSharePreference={setHomeToSharePreference}
 
             onSubmit={onSubmit}
-        />
+         />
     )
 }
 
