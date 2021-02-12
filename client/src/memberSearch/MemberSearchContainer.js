@@ -8,7 +8,7 @@
 
 import React from 'react';
 import {USER_TYPES} from "../common/constants/users";
-import InvalidUser from "./InvalidUser";
+import InvalidUser from "../common/error/InvalidUser";
 import PropTypes from "prop-types";
 import {compose} from "redux";
 import {withRouter} from "react-router-dom";
@@ -23,7 +23,7 @@ const MemberSearchContainer = (props) => {
     return (
         <div>
             {/* Checking to Ensure User is Authenticated and is a Member to view this page*/}
-            {(!authenticated || accountType !== USER_TYPES.MEMBER) ? <InvalidUser/> :
+            {(!authenticated || accountType !== USER_TYPES.MEMBER) ? <InvalidUser message={"You must be a registered member to view this page."}/> :
                 <div className={"flex flex-nowrap"}>
                     <SearchFilterContainer/>
 
