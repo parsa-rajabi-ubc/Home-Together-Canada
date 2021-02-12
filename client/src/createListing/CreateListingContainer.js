@@ -39,7 +39,7 @@ const mapStateToProps = (state) => ({
 });
 
 CreateListingContainer.propTypes = {
-    accountType: PropTypes.string.isRequired
+    accountType: PropTypes.string
 }
 
 export default compose(

@@ -38,5 +38,16 @@ describe('CreateListingContainer', () => {
             //then
             expect(tree).toMatchSnapshot();
         });
+        it('should match snapshot test', () => {
+            // given
+            const props = {
+                accountType: null
+            };
+            //when
+            const component = renderer.create(<Router><CreateListingContainer {...props}/></Router>);
+            const tree = component.toJSON();
+            //then
+            expect(tree).toMatchSnapshot();
+        });
     });
 });
