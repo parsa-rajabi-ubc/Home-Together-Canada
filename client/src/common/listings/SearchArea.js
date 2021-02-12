@@ -14,7 +14,7 @@ import PropTypes from "prop-types";
 import {dropdownSearchAreaCSS} from "../../css/dropdownCSSUtil"
 
 
-function InterestedArea(props) {
+function SearchArea(props) {
     const {onChange} = props;
     const [selectedProvince, setSelectedProvince] = useState();
     const [selectedCity, setSelectedCity] = useState();
@@ -75,8 +75,8 @@ function InterestedArea(props) {
     );
 }
 
-InterestedArea.propTypes = {
-    onChange: PropTypes.func,
+SearchArea.propTypes = {
+    onChange: PropTypes.func.isRequired,
 }
 
-export default InterestedArea;
+export default SearchArea;
