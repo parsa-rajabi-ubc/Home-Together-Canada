@@ -12,10 +12,12 @@ import Dropdown from "../common/forms/Dropdown";
 import {
     BUSINESS_SERVICE_CATEGORIES_DROPDOWN,
     GOVERNMENT_SERVICES_SUBCATEGORIES_LIST,
+    MEMBER_SERVICE_CATEGORIES_DROPDOWN,
+    MEMBER_SERVICE_CATEGORIES_DROPDOWN_OBJECT,
     SHARED_COMMUNITY_SUBCATEGORIES_LIST,
     SHARED_SERVICES_SUBCATEGORIES_LIST
 } from "./constants/serviceListingConstants";
-import {BUSINESS_SERVICE_CATEGORIES} from "./constants/serviceListingText"
+import {BUSINESS_SERVICE_CATEGORIES, MEMBER_SERVICE_CATEGORIES} from "./constants/serviceListingText"
 import {BUSINESS_CLASSIFIEDS_CATEGORIES} from "./constants/classifiedListingText"
 
 import {dropdownDefaultCSS} from "../css/dropdownCSSUtil";
@@ -29,6 +31,7 @@ import {
 import Checkbox from "../common/forms/Checkbox";
 import {SERVICES_TEXT, CLASSIFIEDS_TEXT, CREATE_LISTINGS_TEXT} from "../common/constants/listingsConstants";
 import {isValueInArray} from "../common/utils/generalUtils";
+import PropTypes from "prop-types";
 
 const CREATE_LISTING_CONTROLS_TEXT = {
     CREATE_LISTING: CREATE_LISTINGS_TEXT,
@@ -37,20 +40,25 @@ const CREATE_LISTING_CONTROLS_TEXT = {
     SELECT_SUBCATEGORIES: "Select All Relevant Subcategories"
 }
 
-const CreateListingControls = () => {
-    const [selectedListingType, setSelectedListingType] = useState();
-    const [selectedCategory, setSelectedCategory] = useState();
+const CreateListingControls = (props) => {
+    const {isUserMember} = props;
+
+    const [selectedListingType, setSelectedListingType] = useState(isUserMember && SERVICES_TEXT);
+    const [selectedCategory, setSelectedCategory] = useState(isUserMember && MEMBER_SERVICE_CATEGORIES.MEMBER_HOME);
     const [selectedSubcategories, setSelectedSubcategories] = useState([]);
-    const [categoryOptions, setCategoryOptions] = useState();
+    const [categoryOptions, setCategoryOptions] = useState(isUserMember && MEMBER_SERVICE_CATEGORIES_DROPDOWN);
     const [subcategories, setSubcategories] = useState([]);
 
     useEffect(() => {
-        (selectedListingType === SERVICES_TEXT
-            ? setCategoryOptions(BUSINESS_SERVICE_CATEGORIES_DROPDOWN)
-            : setCategoryOptions(BUSINESS_CLASSIFIEDS_CATEGORIES_DROPDOWN));
+        if (!isUserMember) {
+            (selectedListingType === SERVICES_TEXT
+                ? setCategoryOptions(BUSINESS_SERVICE_CATEGORIES_DROPDOWN)
+                : setCategoryOptions(BUSINESS_CLASSIFIEDS_CATEGORIES_DROPDOWN));
+        } else
+            setCategoryOptions(MEMBER_SERVICE_CATEGORIES_DROPDOWN);
 
         // reset to default values
-        setSelectedCategory();
+        setSelectedCategory(isUserMember && MEMBER_SERVICE_CATEGORIES.MEMBER_HOME);
         setSubcategories([]);
 
     }, [selectedListingType]);
@@ -134,6 +142,8 @@ const CreateListingControls = () => {
                     label={SERVICES_TEXT}
                     name={"listingType"}
                     value={SERVICES_TEXT}
+                    checked={selectedListingType === SERVICES_TEXT}
+                    disabled={isUserMember}
                     blockElement={true}
                     onChange={(e) => setSelectedListingType(e.target.value)}
                 />
@@ -142,6 +152,7 @@ const CreateListingControls = () => {
                     label={CLASSIFIEDS_TEXT}
                     name={"listingType"}
                     value={CLASSIFIEDS_TEXT}
+                    disabled={isUserMember}
                     blockElement={true}
                     onChange={(e) => setSelectedListingType(e.target.value)}
                 />
@@ -154,13 +165,15 @@ const CreateListingControls = () => {
                 <Dropdown
                     key={categoryOptions}
                     options={categoryOptions}
+                    initialSelection={isUserMember ? MEMBER_SERVICE_CATEGORIES_DROPDOWN_OBJECT : null}
+                    isDisabled={isUserMember}
                     onChange={handleCategoryChange}
                     dropdownCSS={dropdownDefaultCSS}
                 />
             </section>
             }
 
-            {selectedCategory &&
+            {(selectedCategory && !isUserMember) &&
             <section className={"m-4"}>
                 <p className={"label text-lg mb-1"}>{CREATE_LISTING_CONTROLS_TEXT.SELECT_SUBCATEGORIES}</p>
                 {subcategoryCheckboxes}
@@ -169,6 +182,10 @@ const CreateListingControls = () => {
 
         </div>
     );
+}
+
+CreateListingControls.propTypes = {
+    isUserMember: PropTypes.bool.isRequired,
 }
 
 export default CreateListingControls;

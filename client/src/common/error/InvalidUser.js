@@ -8,8 +8,10 @@
 
 import React from 'react';
 import {Link} from "react-router-dom";
+import PropTypes from "prop-types";
 
-const InvalidUser = () => {
+const InvalidUser = (props) => {
+    const {message} = props;
 
     return (
 
@@ -18,7 +20,7 @@ const InvalidUser = () => {
                 <div className="flex w-96 rounded-lg border-t-8 border-green-600">
                     <div className="p-10 mx-auto mt-10 w-full">
                         <h1 className="text-gray-800 h1">
-                            You must be a registered member to view this page.
+                            {message}
                         </h1>
                     </div>
                 </div>
@@ -35,6 +37,10 @@ const InvalidUser = () => {
             </div>
         </div>
     )
+}
+
+InvalidUser.propTypes = {
+    message: PropTypes.string.isRequired,
 }
 
 export default InvalidUser;
