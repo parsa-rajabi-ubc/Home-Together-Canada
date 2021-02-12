@@ -56,8 +56,6 @@ const MemberHomeShareForm = (props) => {
     const [smokeFriendlyError, setSmokeFriendlyError] = useState(undefined);
 
 
-    const shortDescCharCount = {SHORT_DESC_CHAR_COUNT};
-
     useEffect(() => {
         title !== undefined && validateInput(title, setTitleError);
     }, [title]);
@@ -170,7 +168,7 @@ const MemberHomeShareForm = (props) => {
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setShortDescription(e.target.value)}
-                                    charLimit={shortDescCharCount}
+                                    charLimit={SHORT_DESC_CHAR_COUNT}
                                 />
                             </section>
                             <section className={"col-start-6 col-end-9"}>

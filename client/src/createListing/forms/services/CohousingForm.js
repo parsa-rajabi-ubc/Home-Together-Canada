@@ -38,8 +38,6 @@ const CohousingForm = (props) => {
     const [unitsForSaleError, setUnitsForSaleError] = useState(undefined);
     const [unitsForRentError, setUnitsForRentError] = useState(undefined);
 
-    const shortDescCharCount = {SHORT_DESC_CHAR_COUNT};
-
     useEffect(() => {
         title !== undefined && validateInput(title, setTitleError);
     }, [title]);
@@ -119,7 +117,7 @@ const CohousingForm = (props) => {
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setShortDescription(e.target.value)}
-                                    charLimit={shortDescCharCount}
+                                    charLimit={SHORT_DESC_CHAR_COUNT}
                                 />
                             </section>
                             <section className={"col-start-6 col-end-9"}>

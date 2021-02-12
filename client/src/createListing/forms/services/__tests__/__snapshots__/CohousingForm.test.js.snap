@@ -86,11 +86,7 @@ exports[`CohousingForm Snapshot test should render correctly regardless of prope
               <input
                 className="undefined input"
                 disabled={false}
-                maxLength={
-                  Object {
-                    "SHORT_DESC_CHAR_COUNT": "50",
-                  }
-                }
+                maxLength="50"
                 onChange={[Function]}
                 type="text"
               />
