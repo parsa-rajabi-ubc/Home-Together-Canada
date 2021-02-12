@@ -17,7 +17,7 @@ import {
     SHARED_COMMUNITY_SUBCATEGORIES_LIST,
     SHARED_SERVICES_SUBCATEGORIES_LIST
 } from "./constants/serviceListingConstants";
-import {BUSINESS_SERVICE_CATEGORIES} from "./constants/serviceListingText"
+import {BUSINESS_SERVICE_CATEGORIES, MEMBER_SERVICE_CATEGORIES} from "./constants/serviceListingText"
 import {BUSINESS_CLASSIFIEDS_CATEGORIES} from "./constants/classifiedListingText"
 
 import {dropdownDefaultCSS} from "../css/dropdownCSSUtil";
@@ -44,7 +44,7 @@ const CreateListingControls = (props) => {
     const {isUserMember} = props;
 
     const [selectedListingType, setSelectedListingType] = useState(isUserMember && SERVICES_TEXT);
-    const [selectedCategory, setSelectedCategory] = useState();
+    const [selectedCategory, setSelectedCategory] = useState(isUserMember && MEMBER_SERVICE_CATEGORIES.MEMBER_HOME);
     const [selectedSubcategories, setSelectedSubcategories] = useState([]);
     const [categoryOptions, setCategoryOptions] = useState(isUserMember && MEMBER_SERVICE_CATEGORIES_DROPDOWN);
     const [subcategories, setSubcategories] = useState([]);
@@ -58,7 +58,7 @@ const CreateListingControls = (props) => {
             setCategoryOptions(MEMBER_SERVICE_CATEGORIES_DROPDOWN);
 
         // reset to default values
-        setSelectedCategory();
+        setSelectedCategory(isUserMember && MEMBER_SERVICE_CATEGORIES.MEMBER_HOME);
         setSubcategories([]);
 
     }, [selectedListingType]);
@@ -165,7 +165,7 @@ const CreateListingControls = (props) => {
                 <Dropdown
                     key={categoryOptions}
                     options={categoryOptions}
-                    initialSelection={isUserMember && MEMBER_SERVICE_CATEGORIES_DROPDOWN_OBJECT}
+                    initialSelection={isUserMember ? MEMBER_SERVICE_CATEGORIES_DROPDOWN_OBJECT : null}
                     isDisabled={isUserMember}
                     onChange={handleCategoryChange}
                     dropdownCSS={dropdownDefaultCSS}
@@ -173,7 +173,7 @@ const CreateListingControls = (props) => {
             </section>
             }
 
-            {selectedCategory &&
+            {(selectedCategory && !isUserMember) &&
             <section className={"m-4"}>
                 <p className={"label text-lg mb-1"}>{CREATE_LISTING_CONTROLS_TEXT.SELECT_SUBCATEGORIES}</p>
                 {subcategoryCheckboxes}
