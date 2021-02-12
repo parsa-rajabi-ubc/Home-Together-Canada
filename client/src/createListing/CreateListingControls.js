@@ -12,6 +12,7 @@ import Dropdown from "../common/forms/Dropdown";
 import {
     BUSINESS_SERVICE_CATEGORIES_DROPDOWN,
     GOVERNMENT_SERVICES_SUBCATEGORIES_LIST,
+    CO_HOUSING_SUBCATEGORIES_LIST,
     MEMBER_SERVICE_CATEGORIES_DROPDOWN,
     MEMBER_SERVICE_CATEGORIES_DROPDOWN_OBJECT,
     SHARED_COMMUNITY_SUBCATEGORIES_LIST,
@@ -93,7 +94,7 @@ const CreateListingControls = (props) => {
         if (selectedListingType === SERVICES_TEXT) {
             switch (selectedCategory) {
                 case BUSINESS_SERVICE_CATEGORIES.SHARE_COMMUNITY:
-                    setSubcategories(SHARED_COMMUNITY_SUBCATEGORIES_LIST);
+                    setSubcategories(CO_HOUSING_SUBCATEGORIES_LIST);
                     break;
                 case BUSINESS_SERVICE_CATEGORIES.SHARED_SERVICES:
                     setSubcategories(SHARED_SERVICES_SUBCATEGORIES_LIST);
