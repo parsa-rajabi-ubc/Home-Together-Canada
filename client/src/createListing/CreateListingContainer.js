@@ -15,12 +15,13 @@ function onSubmit() {
 
 }
 
-const CreateListingContainer = () => {
+const CreateListingContainer = (props) => {
+    const {accountType} = props;
 
     return (
         <div className={"sideBar-container grid-cols-8"}>
             <div className={"sideBar col-end-3"}>
-                <CreateListingControls/>
+                <CreateListingControls isUserMember={accountType === USER_TYPES.MEMBER}/>
             </div>
             <div className={"sideBar-selected-component col-start-3 col-end-10"}>
                 <MemberHomeShareForm onSubmit={onSubmit}/>
@@ -29,5 +30,16 @@ const CreateListingContainer = () => {
         </div>
     )
 }
+const mapStateToProps = (state) => ({
+    accountType: state.userPrivileges.accountType,
+    authenticated: state.userPrivileges.authenticated
+});
 
-export default CreateListingContainer;
+CreateListingContainer.propTypes = {
+    accountType: PropTypes.string.isRequired
+}
+
+export default compose(
+    withRouter,
+    connect(mapStateToProps, null)
+)(CreateListingContainer);
