@@ -35,7 +35,7 @@ const CreateListingContainer = (props) => {
                     </div>
                     <div className={"sideBar-selected-component col-start-3 col-end-10"}>
                         <MemberHomeShareForm onSubmit={onSubmit}/>
-                        <CohousingForm onSubmit={onSubmit}/>
+                        {/*<CohousingForm onSubmit={onSubmit}/>*/}
                     </div>
                 </div>}
         </div>
