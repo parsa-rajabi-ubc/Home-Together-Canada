@@ -9,7 +9,7 @@ import React from 'react'
 import PropTypes from 'prop-types';
 
 function RadioButton(props) {
-    const {label, name, value, checked, onChange, blockElement = false, disabled = false} = props;
+    const {label, name, value, checked, onChange, blockElement = false, disabled} = props;
     return (
         <span className={`${blockElement && "block"}`}>
         <label className={"text-base text-gray-700 pr-8"}>

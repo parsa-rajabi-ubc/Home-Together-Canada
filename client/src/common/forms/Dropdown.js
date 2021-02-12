@@ -24,7 +24,7 @@ function Dropdown(props) {
         onChange,
         initialSelection,
         isMulti = false,
-        isDisabled = false,
+        isDisabled,
         dropdownCSS,
         currentSelectedValue,
         dropdownTheme = dropdownDefaultTheme
