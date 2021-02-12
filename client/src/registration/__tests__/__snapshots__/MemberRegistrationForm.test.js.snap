@@ -1068,7 +1068,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                         }
                       }
                     />
-                    Select the status that most accurately reflects your living arrangement that you would like to maintain while home-sharing
+                    Select the status that most accurately reflects your living arrangement that you would like to maintain while home-sharing. Choose as many option as you wish, however you must select at least one
                   </div>
                 </span>
                 <div>
@@ -3806,7 +3806,7 @@ exports[`MemberProfileForm should render correctly regardless of properties 1`] 
                     }
                   }
                 />
-                Select the status that most accurately reflects your living arrangement that you would like to maintain while home-sharing
+                Select the status that most accurately reflects your living arrangement that you would like to maintain while home-sharing. Choose as many option as you wish, however you must select at least one
               </div>
             </span>
             <div>
