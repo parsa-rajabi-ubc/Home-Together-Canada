@@ -1332,6 +1332,7 @@ MemberRegistrationForm.propTypes = {
     setAccountType: PropTypes.func.isRequired,
     setIsAdmin: PropTypes.func.isRequired,
     setAuthenticated: PropTypes.func.isRequired,
+    setActive: PropTypes.func.isRequired,
     history: PropTypes.shape({
         push: PropTypes.func
     })
