@@ -144,7 +144,11 @@ exports[`CreateListingContainer Container test should match snapshot test 1`] = 
                   <input
                     className="undefined input"
                     disabled={false}
-                    maxLength="50"
+                    maxLength={
+                      Object {
+                        "SHORT_DESC_CHAR_COUNT": "50",
+                      }
+                    }
                     onChange={[Function]}
                     type="text"
                   />
@@ -220,7 +224,6 @@ exports[`CreateListingContainer Container test should match snapshot test 1`] = 
                   className="undefined input"
                   min="0"
                   onChange={[Function]}
-                  placeholder=""
                   step="1"
                   type="number"
                 />
@@ -910,7 +913,7 @@ exports[`CreateListingContainer Container test should match snapshot test 1`] = 
               className="page-title mb-5"
             >
                
-              Shared & Community Living Initiatives
+              Cohousing, Co-ops, Intergenerational, Planned Neighbourhoods
                
             </h1>
             <section>
@@ -981,7 +984,11 @@ exports[`CreateListingContainer Container test should match snapshot test 1`] = 
                   <input
                     className="undefined input"
                     disabled={false}
-                    maxLength="50"
+                    maxLength={
+                      Object {
+                        "SHORT_DESC_CHAR_COUNT": "50",
+                      }
+                    }
                     onChange={[Function]}
                     type="text"
                   />
@@ -1057,7 +1064,6 @@ exports[`CreateListingContainer Container test should match snapshot test 1`] = 
                   className="undefined input"
                   min="0"
                   onChange={[Function]}
-                  placeholder=""
                   step="1"
                   type="number"
                 />
@@ -1095,7 +1101,6 @@ exports[`CreateListingContainer Container test should match snapshot test 1`] = 
                   className="undefined input"
                   min="0"
                   onChange={[Function]}
-                  placeholder=""
                   step="1"
                   type="number"
                 />

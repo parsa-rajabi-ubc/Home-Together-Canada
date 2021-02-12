@@ -13,6 +13,7 @@ import TextArea from "../../../common/forms/TextArea";
 import LabelAsterisk from "../../../common/forms/LabelAsterisk";
 import LargeTextArea from "../../../common/forms/LargeTextArea";
 import SubmitButton from "../../../common/forms/SubmitButton";
+import {SHORT_DESC_CHAR_COUNT} from "../../../common/constants/listingsConstants";
 import {
     checkIfErrorsExistInMapping,
     validateInput,
@@ -37,7 +38,7 @@ const CohousingForm = (props) => {
     const [unitsForSaleError, setUnitsForSaleError] = useState(undefined);
     const [unitsForRentError, setUnitsForRentError] = useState(undefined);
 
-    const SHORT_DESC_CHAR_COUNT = "50";
+    const shortDescCharCount = {SHORT_DESC_CHAR_COUNT};
 
     useEffect(() => {
         title !== undefined && validateInput(title, setTitleError);
@@ -118,7 +119,7 @@ const CohousingForm = (props) => {
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setShortDescription(e.target.value)}
-                                    charLimit={SHORT_DESC_CHAR_COUNT}
+                                    charLimit={shortDescCharCount}
                                 />
                             </section>
                             <section className={"col-start-6 col-end-9"}>
@@ -141,7 +142,6 @@ const CohousingForm = (props) => {
                                     type="number"
                                     min="0"
                                     step="1"
-                                    placeholder=""
                                     onChange={(e) => setUnitsForSale(e.target.value)}
                                 />
 
@@ -156,7 +156,6 @@ const CohousingForm = (props) => {
                                     type="number"
                                     min="0"
                                     step="1"
-                                    placeholder=""
                                     onChange={(e) => setUnitsForRent(e.target.value)}
                                 />
                             </section>

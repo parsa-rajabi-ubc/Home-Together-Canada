@@ -21,7 +21,7 @@ export const MEMBER_HOME_SHARE_TEXT = {
     photos: "Photos"
  }
 export const COHOUSING_TEXT = {
-    form_title: "Shared & Community Living Initiatives",
+    form_title: "Cohousing, Co-ops, Intergenerational, Planned Neighbourhoods",
     title: "Descriptive Title",
     contact_name: "Contact Name",
     short_des: "Short Description",

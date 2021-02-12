@@ -26,6 +26,7 @@ import SubmitButton from "../../../common/forms/SubmitButton";
 import Tooltip from "../../../common/forms/Tooltip";
 import {CREATE_LISTING_MEMBER_SHARE_HOME as ToolTipText} from "../../../common/constants/TooltipText";
 import {validatePositiveNumber} from "../../../common/utils/generalUtils";
+import {SHORT_DESC_CHAR_COUNT} from "../../../common/constants/listingsConstants";
 
 
 const MemberHomeShareForm = (props) => {
@@ -55,7 +56,7 @@ const MemberHomeShareForm = (props) => {
     const [smokeFriendlyError, setSmokeFriendlyError] = useState(undefined);
 
 
-    const SHORT_DESC_CHAR_COUNT = "50";
+    const shortDescCharCount = {SHORT_DESC_CHAR_COUNT};
 
     useEffect(() => {
         title !== undefined && validateInput(title, setTitleError);
@@ -169,7 +170,7 @@ const MemberHomeShareForm = (props) => {
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setShortDescription(e.target.value)}
-                                    charLimit={SHORT_DESC_CHAR_COUNT}
+                                    charLimit={shortDescCharCount}
                                 />
                             </section>
                             <section className={"col-start-6 col-end-9"}>
@@ -190,7 +191,6 @@ const MemberHomeShareForm = (props) => {
                                     type="number"
                                     min="0"
                                     step="1"
-                                    placeholder=""
                                     onChange={(e) => setMonthlyCost(e.target.value)}
                                 />
                             </section>

@@ -86,7 +86,11 @@ exports[`MemberHomeShareForm Snapshot test should render correctly regardless of
               <input
                 className="undefined input"
                 disabled={false}
-                maxLength="50"
+                maxLength={
+                  Object {
+                    "SHORT_DESC_CHAR_COUNT": "50",
+                  }
+                }
                 onChange={[Function]}
                 type="text"
               />
@@ -162,7 +166,6 @@ exports[`MemberHomeShareForm Snapshot test should render correctly regardless of
               className="undefined input"
               min="0"
               onChange={[Function]}
-              placeholder=""
               step="1"
               type="number"
             />

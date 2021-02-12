@@ -15,7 +15,7 @@ exports[`CohousingForm Snapshot test should render correctly regardless of prope
           className="page-title mb-5"
         >
            
-          Shared & Community Living Initiatives
+          Cohousing, Co-ops, Intergenerational, Planned Neighbourhoods
            
         </h1>
         <section>
@@ -86,7 +86,11 @@ exports[`CohousingForm Snapshot test should render correctly regardless of prope
               <input
                 className="undefined input"
                 disabled={false}
-                maxLength="50"
+                maxLength={
+                  Object {
+                    "SHORT_DESC_CHAR_COUNT": "50",
+                  }
+                }
                 onChange={[Function]}
                 type="text"
               />
@@ -162,7 +166,6 @@ exports[`CohousingForm Snapshot test should render correctly regardless of prope
               className="undefined input"
               min="0"
               onChange={[Function]}
-              placeholder=""
               step="1"
               type="number"
             />
@@ -200,7 +203,6 @@ exports[`CohousingForm Snapshot test should render correctly regardless of prope
               className="undefined input"
               min="0"
               onChange={[Function]}
-              placeholder=""
               step="1"
               type="number"
             />
