@@ -196,7 +196,7 @@ exports[`RentalsForm Snapshot test should render correctly regardless of propert
             </svg>
           </span>
           <div
-            className="__react_component_tooltip ta31e6717-42c1-46cc-8fbd-19a0a672883c place-top type-dark"
+            className="__react_component_tooltip tcdfa5a8c-8e92-4799-b158-5d94c87b9289 place-top type-dark"
             data-id="tooltip"
             id="UploadPhotos"
           >
@@ -204,19 +204,19 @@ exports[`RentalsForm Snapshot test should render correctly regardless of propert
               dangerouslySetInnerHTML={
                 Object {
                   "__html": "
-  	.ta31e6717-42c1-46cc-8fbd-19a0a672883c {
+  	.tcdfa5a8c-8e92-4799-b158-5d94c87b9289 {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
   	}
 
-  	.ta31e6717-42c1-46cc-8fbd-19a0a672883c.place-top {
+  	.tcdfa5a8c-8e92-4799-b158-5d94c87b9289.place-top {
         margin-top: -10px;
     }
-    .ta31e6717-42c1-46cc-8fbd-19a0a672883c.place-top::before {
+    .tcdfa5a8c-8e92-4799-b158-5d94c87b9289.place-top::before {
         border-top: 8px solid transparent;
     }
-    .ta31e6717-42c1-46cc-8fbd-19a0a672883c.place-top::after {
+    .tcdfa5a8c-8e92-4799-b158-5d94c87b9289.place-top::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         bottom: -6px;
@@ -227,13 +227,13 @@ exports[`RentalsForm Snapshot test should render correctly regardless of propert
         border-top-width: 6px;
     }
 
-    .ta31e6717-42c1-46cc-8fbd-19a0a672883c.place-bottom {
+    .tcdfa5a8c-8e92-4799-b158-5d94c87b9289.place-bottom {
         margin-top: 10px;
     }
-    .ta31e6717-42c1-46cc-8fbd-19a0a672883c.place-bottom::before {
+    .tcdfa5a8c-8e92-4799-b158-5d94c87b9289.place-bottom::before {
         border-bottom: 8px solid transparent;
     }
-    .ta31e6717-42c1-46cc-8fbd-19a0a672883c.place-bottom::after {
+    .tcdfa5a8c-8e92-4799-b158-5d94c87b9289.place-bottom::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         top: -6px;
@@ -244,13 +244,13 @@ exports[`RentalsForm Snapshot test should render correctly regardless of propert
         border-bottom-width: 6px;
     }
 
-    .ta31e6717-42c1-46cc-8fbd-19a0a672883c.place-left {
+    .tcdfa5a8c-8e92-4799-b158-5d94c87b9289.place-left {
         margin-left: -10px;
     }
-    .ta31e6717-42c1-46cc-8fbd-19a0a672883c.place-left::before {
+    .tcdfa5a8c-8e92-4799-b158-5d94c87b9289.place-left::before {
         border-left: 8px solid transparent;
     }
-    .ta31e6717-42c1-46cc-8fbd-19a0a672883c.place-left::after {
+    .tcdfa5a8c-8e92-4799-b158-5d94c87b9289.place-left::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         right: -6px;
@@ -261,13 +261,13 @@ exports[`RentalsForm Snapshot test should render correctly regardless of propert
         border-left-width: 6px;
     }
 
-    .ta31e6717-42c1-46cc-8fbd-19a0a672883c.place-right {
+    .tcdfa5a8c-8e92-4799-b158-5d94c87b9289.place-right {
         margin-left: 10px;
     }
-    .ta31e6717-42c1-46cc-8fbd-19a0a672883c.place-right::before {
+    .tcdfa5a8c-8e92-4799-b158-5d94c87b9289.place-right::before {
         border-right: 8px solid transparent;
     }
-    .ta31e6717-42c1-46cc-8fbd-19a0a672883c.place-right::after {
+    .tcdfa5a8c-8e92-4799-b158-5d94c87b9289.place-right::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         left: -6px;
