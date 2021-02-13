@@ -67,7 +67,8 @@ describe('CreateListingContainer', () => {
         it('should match snapshot test', () => {
             // given
             const props = {
-                accountType: null
+                accountType: null,
+                authenticated: false
             };
             //when
             const component = renderer.create(<Router><CreateListingContainer {...props}/></Router>);
