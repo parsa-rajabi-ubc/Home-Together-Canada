@@ -21,7 +21,8 @@ describe('CreateListingControls', () => {
         it('should match snapshot test if user is a member', () => {
             // given
             const props = {
-                isUserMember: true
+                isUserMember: true,
+                categoryToDisplay: jest.fn()
             };
             //when
             const component = renderer.create(<CreateListingControls {...props}/>);
@@ -32,7 +33,8 @@ describe('CreateListingControls', () => {
         it('should match snapshot test if user is a business', () => {
             // given
             const props = {
-                isUserMember: false
+                isUserMember: false,
+                categoryToDisplay: jest.fn()
             };
             //when
             const component = renderer.create(<CreateListingControls {...props}/>);

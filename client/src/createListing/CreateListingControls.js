@@ -41,7 +41,7 @@ const CREATE_LISTING_CONTROLS_TEXT = {
 }
 
 const CreateListingControls = (props) => {
-    const {isUserMember} = props;
+    const {isUserMember, categoryToDisplay} = props;
 
     const [selectedListingType, setSelectedListingType] = useState(isUserMember && SERVICES_TEXT);
     const [selectedCategory, setSelectedCategory] = useState(isUserMember && MEMBER_SERVICE_CATEGORIES.MEMBER_HOME);
@@ -64,6 +64,8 @@ const CreateListingControls = (props) => {
     }, [selectedListingType]);
 
     useEffect(() => {
+        categoryToDisplay(selectedCategory);
+
         returnSubcategory(selectedCategory);
         setSelectedSubcategories([]);
     }, [selectedCategory]);
@@ -186,6 +188,7 @@ const CreateListingControls = (props) => {
 
 CreateListingControls.propTypes = {
     isUserMember: PropTypes.bool.isRequired,
+    categoryToDisplay: PropTypes.func.isRequired
 }
 
 export default CreateListingControls;
