@@ -10,7 +10,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
   <p
     className="account-summary-info-text"
   >
-    This information be used to find other compatible members on Home Together Canada
+    This information is used to find other compatible members on Home Together Canada
     <a
       className="label"
       href="/faq"
@@ -369,7 +369,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                   }
                 }
               />
-              Select the status that most accurately reflects your living arrangement that you would like to maintain while home-sharing
+              Select the status that most accurately reflects your living arrangement that you would like to maintain while home-sharing. Choose as many option as you wish, however you must select at least one
             </div>
           </span>
           <div>

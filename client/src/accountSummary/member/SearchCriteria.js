@@ -80,7 +80,7 @@ function SearchCriteria(props) {
         <div>
             <h3 className="account-summary-info-header">Search Criteria</h3>
             <p className="account-summary-info-text">
-                This information be used to find other compatible members on Home Together Canada
+                This information is used to find other compatible members on Home Together Canada
                 <Link to={'/faq'} className={"label"}> FAQs</Link>.
             </p>
             <div className="selected-component-grid-outer">

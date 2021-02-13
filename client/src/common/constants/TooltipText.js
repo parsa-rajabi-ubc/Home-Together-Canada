@@ -9,7 +9,7 @@
 export const MEMBER_PROFILE_INFO_TEXT = {
     YEAR_OF_BIRTH: "Age is required in order to help members connect with others in their desired age range",
     DIFF_MAILING_ADDRESS: "Select this checkbox if your mailing address differs from the address above",
-    FAMILY_STATUS: "Select the status that most accurately reflects your living arrangement that you would like to maintain while home-sharing",
+    FAMILY_STATUS: "Select the status that most accurately reflects your living arrangement that you would like to maintain while home-sharing. Choose as many option as you wish, however you must select at least one",
     NUM_PEOPLE_SHARE: "This number of people does not include yourself",
     RENT: "This does NOT include utilities",
     INTERESTED_AREA: "Preferred living location(s) across Canada",
