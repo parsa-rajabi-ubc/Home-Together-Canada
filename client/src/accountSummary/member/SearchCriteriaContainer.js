@@ -25,6 +25,7 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import { useHistory } from "react-router-dom";
 import {setAccountType, setAuthenticated, setIsAdmin} from "../../redux/slices/userPrivileges";
+import {SESSION_ERR} from "../../common/constants/errors";
 
 const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
 
@@ -221,7 +222,7 @@ const SearchCriteriaContainer = (props) => {
                     setAccountType({accountType: USER_TYPES.UNREGISTERED});
                     setAuthenticated({authenticated: false});
 
-                    alert('There was an error with your session. Please try to login again.');
+                    alert(SESSION_ERR);
 
                     // redirect to home page
                     history.push('/');

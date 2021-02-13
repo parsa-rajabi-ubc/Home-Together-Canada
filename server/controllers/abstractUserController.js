@@ -86,6 +86,13 @@ const changePassword = (req, res) => {
         .catch(err => res.status(500).send({ success: false, message: err.message }));
 }
 
+const deleteAccount = uid =>
+    AbstractUser.destroy({
+        where: {
+            uid: uid
+        }
+    });
+
 const updateAbstractUser = (req, res) => {
     return AbstractUser.update({
         email: req.body.email,
@@ -114,5 +121,6 @@ module.exports = {
     findUsersByUsernames,
     findUserByEmail,
     changePassword,
-    updateAbstractUser
+    updateAbstractUser,
+    deleteAccount
 }

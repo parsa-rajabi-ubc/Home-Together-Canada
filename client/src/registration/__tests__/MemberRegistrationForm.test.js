@@ -27,7 +27,7 @@ const setAccountType = jest.fn();
 const setIsAdmin = jest.fn();
 const setAuthenticated = jest.fn();
 
-describe('MemberProfileForm', () => {
+describe('MemberRegistrationForm', () => {
     it("should render correctly regardless of properties", () => {
         // given
         const props = {

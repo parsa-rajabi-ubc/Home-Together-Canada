@@ -12,8 +12,7 @@ import PropTypes from "prop-types";
 import Button from "../../common/forms/Button";
 
 function DeactivateAccount(props) {
-
-    const {active, handleReasonsChange, activeAccount, deactivateActiveAccount} = props;
+    const {active, handleReasonsChange, activateAccount, deactivateAccount} = props;
 
     const TITLE = active ? "Deactivate Account" : "Re-Activate Account";
     const INFO_TEXT = active ? "deactivate your account. Make sure to select a reason using the dropdown" : "re-activate your account";
@@ -24,7 +23,6 @@ function DeactivateAccount(props) {
             <p className="account-summary-info-text">
                 Use the button below to {INFO_TEXT}.
             </p>
-            {/* Check if account is active or not */}
             {active ?
                 // Deactivate Account
                 <div>
@@ -34,7 +32,7 @@ function DeactivateAccount(props) {
                     <Button
                         className={"btn btn-red m-auto w-1/2"}
                         value={TITLE}
-                        onClick={deactivateActiveAccount}
+                        onClick={deactivateAccount}
                     />
                 </div>
 
@@ -43,7 +41,7 @@ function DeactivateAccount(props) {
                     <Button
                         value={TITLE}
                         className={"btn btn-green m-auto w-1/2"}
-                        onClick={activeAccount}
+                        onClick={activateAccount}
                     />
                 </div>
             }
@@ -52,10 +50,10 @@ function DeactivateAccount(props) {
 }
 
 DeactivateAccount.propTypes = {
-    active: PropTypes.bool,
-    handleReasonsChange: PropTypes.func,
-    activeAccount: PropTypes.func,
-    deactivateActiveAccount: PropTypes.func
+    active: PropTypes.bool.isRequired,
+    handleReasonsChange: PropTypes.func.isRequired,
+    activateAccount: PropTypes.func.isRequired,
+    deactivateAccount: PropTypes.func.isRequired
 }
 
 export default DeactivateAccount

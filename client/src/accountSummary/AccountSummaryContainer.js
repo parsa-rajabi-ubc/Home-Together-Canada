@@ -8,6 +8,8 @@
 
 import React, {useState} from 'react';
 import {useLocation} from 'react-router-dom';
+import {connect} from "react-redux";
+import PropTypes from "prop-types";
 import SubPages from "./SubPages";
 import {ALL_SUBPAGES, BUSINESS_SUBPAGES, MEMBER_SUBPAGES, USER_TYPES} from "../common/constants/users";
 import ChangePasswordContainer from "./ChangePasswordContainer";
@@ -18,27 +20,35 @@ import Error404 from "../common/error/Error404";
 import SearchCriteriaContainer from "./member/SearchCriteriaContainer";
 import DeactivateAccountContainer from './accountDeactivateAndDelete/DeactivateAccountContainer'
 import DeleteAccountContainer from "./accountDeactivateAndDelete/DeleteAccountContainer";
-import {memberAccountMock} from "./member/MockData"
 
-const AccountSummaryContainer = () => {
+const AccountSummaryContainer = props => {
+    const { active } = props;
     const {accountType, selected} = useLocation().state;
 
-    const MEMBER_SIDEBAR = [...MEMBER_SUBPAGES,
-        {
-            label: 'Activate / Deactivate Account',
-            value: 'Activate / Deactivate Account'
-        },
+    const MEMBER_SIDEBAR = [
+        ...MEMBER_SUBPAGES,
+        ...active
+            ? [{
+                label: 'Deactivate Account',
+                value: 'Deactivate Account'
+            }]
+            : [{
+                label: 'Activate Account',
+                value: 'Activate Account'
+            }],
         {
             label: 'Delete Account',
             value: 'Delete Account'
-        }];
+        }
+    ];
 
-    const BUSINESS_SIDEBAR = [...BUSINESS_SUBPAGES,
+    const BUSINESS_SIDEBAR = [
+        ...BUSINESS_SUBPAGES,
         {
             label: 'Delete Account',
             value: 'Delete Account'
-        }];
-
+        }
+    ];
 
     const options = accountType === USER_TYPES.MEMBER ? MEMBER_SIDEBAR : BUSINESS_SIDEBAR;
 
@@ -60,9 +70,13 @@ const AccountSummaryContainer = () => {
                 return <div>Messaging Component</div>
             case ALL_SUBPAGES.MANAGE_LISTINGS:
                 return <div>Manage Listings Component</div>
-            case ALL_SUBPAGES.ACTIVATE_DEACTIVATE:
+            case ALL_SUBPAGES.ACTIVATE:
                 return accountType === USER_TYPES.MEMBER ?
-                    <DeactivateAccountContainer activeStatus={memberAccountMock.activate}/>
+                    <DeactivateAccountContainer/>
+                    : <Error404/>
+            case ALL_SUBPAGES.DEACTIVATE:
+                return accountType === USER_TYPES.MEMBER ?
+                    <DeactivateAccountContainer/>
                     : <Error404/>
             case ALL_SUBPAGES.DELETE:
                 return <DeleteAccountContainer/>
@@ -82,7 +96,15 @@ const AccountSummaryContainer = () => {
                 {subpageComponent(selectedSubpage)}
             </div>
         </div>
-    )
+    );
 }
 
-export default AccountSummaryContainer;
+const mapStateToProps = state => ({
+    active: state.memberPrivileges.active
+});
+
+AccountSummaryContainer.propTypes = {
+    active: PropTypes.bool
+}
+
+export default connect(mapStateToProps, null)(AccountSummaryContainer);
