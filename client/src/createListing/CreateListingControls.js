@@ -188,7 +188,7 @@ const CreateListingControls = (props) => {
 
 CreateListingControls.propTypes = {
     isUserMember: PropTypes.bool.isRequired,
-    categoryToDisplay: PropTypes.func
+    categoryToDisplay: PropTypes.func.isRequired
 }
 
 export default CreateListingControls;
