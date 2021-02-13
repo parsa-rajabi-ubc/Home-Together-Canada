@@ -37,9 +37,11 @@ const CreateListingContainer = (props) => {
         switch (category) {
             case MEMBER_SERVICE_CATEGORIES.MEMBER_HOME:
                 return  <MemberHomeShareForm onSubmit={onSubmit}/>
-            case BUSINESS_SERVICE_CATEGORIES.SHARE_COMMUNITY:
+            case BUSINESS_SERVICE_CATEGORIES.CO_HOUSING:
                 return <CohousingForm onSubmit={onSubmit}/>
-            case BUSINESS_SERVICE_CATEGORIES.SHARED_SERVICES:
+            case BUSINESS_SERVICE_CATEGORIES.SHARED_HOME_SERVICES:
+                return "TODO: Replace this with HomeServicesBusinessForm";
+            case BUSINESS_SERVICE_CATEGORIES.SHARED_BUSINESS_SERVICES:
                 return "TODO: Replace this with HomeServicesBusinessForm";
             case BUSINESS_SERVICE_CATEGORIES.GOVERNMENT_SERVICES:
                 return "TODO: Replace this with GovernmentServicesForm";
