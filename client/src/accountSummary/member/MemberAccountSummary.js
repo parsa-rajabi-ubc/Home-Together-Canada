@@ -28,6 +28,7 @@ import {connect} from "react-redux";
 import {setAccountType, setAuthenticated, setIsAdmin} from "../../redux/slices/userPrivileges";
 import {setActive} from "../../redux/slices/memberPrivileges";
 import { useHistory } from "react-router-dom";
+import {SESSION_ERR} from "../../common/constants/errors";
 
 const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated, setActive};
 
@@ -229,7 +230,7 @@ function MemberAccountSummary(props) {
                     setAuthenticated({authenticated: false});
                     setActive({active: null});
 
-                    alert('There was an error with your session. Please try to login again.');
+                    alert(SESSION_ERR);
 
                     // redirect to home page
                     history.push('/');

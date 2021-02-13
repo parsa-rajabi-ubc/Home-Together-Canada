@@ -104,7 +104,7 @@ const mapStateToProps = state => ({
 });
 
 AccountSummaryContainer.propTypes = {
-    active: PropTypes.bool.isRequired
+    active: PropTypes.bool
 }
 
 export default connect(mapStateToProps, null)(AccountSummaryContainer);

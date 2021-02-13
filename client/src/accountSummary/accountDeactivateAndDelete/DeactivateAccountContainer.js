@@ -14,8 +14,17 @@ import {connect} from "react-redux";
 import {setAccountType, setAuthenticated, setIsAdmin} from "../../redux/slices/userPrivileges";
 import {setActive} from "../../redux/slices/memberPrivileges";
 import {getConcatenatedErrorMessage} from "../../registration/registrationUtils";
+import {SESSION_ERR} from "../../common/constants/errors";
 
 const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated, setActive};
+
+const MESSAGES = {
+    ACTIVATED: 'Your account has been activated!',
+    DEACTIVATED: 'Your account has been deactivated.',
+    SESSION_ERR: SESSION_ERR,
+    GENERIC_ERROR: 'There was an error activating your account. Please contact Home Together if the issue persists'
+
+}
 
 const DeactivateAccountContainer = props => {
     const {setIsAdmin, setAccountType, setAuthenticated, setActive} = props;
@@ -46,18 +55,17 @@ const DeactivateAccountContainer = props => {
                     setActiveStatus(true);
                     setReasons('');
                     setActive({active: true});
-                    alert('Your account has been activated!');
+                    alert(MESSAGES.ACTIVATED);
                 } else if (data.authenticated === false) {
                     setIsAdmin({isAdmin: false});
                     setAccountType({accountType: USER_TYPES.UNREGISTERED});
                     setAuthenticated({authenticated: false});
                     setActive({active: null});
-                    alert('There was error with your session.');
+                    alert(MESSAGES.SESSION_ERR);
                 } else if (data.err) {
                     alert('Error: ' + data.err);
                 } else {
-                    alert('There was an error activating your account. ' +
-                        'Please contact Home Together if the issue persists');
+                    alert(MESSAGES.GENERIC_ERROR);
                 }
             })
             .catch(err => {
@@ -73,20 +81,19 @@ const DeactivateAccountContainer = props => {
                     setActiveStatus(false);
                     setReasons('');
                     setActive({active: false});
-                    alert('Your account has been deactivated.');
+                    alert(MESSAGES.DEACTIVATED);
                 } else if (data.authenticated === false) {
                     setIsAdmin({isAdmin: false});
                     setAccountType({accountType: USER_TYPES.UNREGISTERED});
                     setAuthenticated({authenticated: false});
                     setActive({active: null});
-                    alert('There was error with your session.');
+                    alert(MESSAGES.SESSION_ERR);
                 } else if (data.errors) {
                     alert('Error: ' + getConcatenatedErrorMessage(data.errors));
                 } else if (data.err) {
                     alert('Error: ' + data.err);
                 } else {
-                    alert('There was an error activating your account. ' +
-                        'Please contact Home Together if the issue persists');
+                    alert(MESSAGES.GENERIC_ERROR);
                 }
             })
             .catch(err => {

@@ -18,6 +18,12 @@ import AccountService from "../../services/AccountService"
 
 const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated, setActive};
 
+const MESSAGES = {
+    SUCCESS: 'Your account has been successfully deleted!',
+    GENERIC_ERROR: 'There was an error deleting your account.',
+    CHECKBOX: 'Please confirm the checkbox below!'
+}
+
 const DeleteAccountContainer = props =>{
 
     const {setIsAdmin, setAccountType, setAuthenticated, setActive} = props;
@@ -31,7 +37,7 @@ const DeleteAccountContainer = props =>{
                 if (data.deleted) {
                     alert('Your account has been successfully deleted!')
                 } else {
-                    alert(data.err || 'There was an error deleting your account.');
+                    alert(data.err || MESSAGES.GENERIC_ERROR);
                 }
                 setIsAdmin({isAdmin: false});
                 setAccountType({accountType: USER_TYPES.UNREGISTERED});
@@ -50,15 +56,15 @@ const DeleteAccountContainer = props =>{
         if(confirm){
             return deleteAccount();
         }else{
-            alert("Please confirm the checkbox below!");
+            alert(MESSAGES.CHECKBOX);
         }
     }
 
     return(
         <DeleteAccount
-            confirm = {confirm}
-            setConfirm = {setConfirm}
-            handleDeleteAccount = {handleDeleteAccount}
+            confirm={confirm}
+            setConfirm={setConfirm}
+            handleDeleteAccount={handleDeleteAccount}
         />
     );
 }
