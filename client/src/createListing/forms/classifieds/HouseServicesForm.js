@@ -9,7 +9,6 @@
 import React, {useEffect, useState} from 'react';
 import PropTypes from "prop-types";
 import TextArea from "../../../common/forms/TextArea";
-import LabelAsterisk from "../../../common/forms/LabelAsterisk";
 import LargeTextArea from "../../../common/forms/LargeTextArea";
 import SubmitButton from "../../../common/forms/SubmitButton";
 import {SHORT_DESC_CHAR_COUNT} from "../../../common/constants/listingsConstants";
@@ -17,7 +16,6 @@ import {
     checkIfErrorsExistInMapping,
     validateInput
 } from "../../../registration/registrationUtils";
-import {validatePositiveNumber} from "../../../common/utils/generalUtils";
 import {HOUSE_YARD_TEXT as TEXT} from "./constants/ClassifiedsListingText";
 import Tooltip from "../../../common/forms/Tooltip";
 import {CREATE_LISTING_MEMBER_SHARE_HOME as ToolTipText} from "../../../common/constants/TooltipText";
@@ -47,7 +45,7 @@ const HouseServicesForm = (props) => {
         fullDescription !== undefined && validateInput(fullDescription, setFullDescriptionError);
     }, [fullDescription]);
     useEffect(() => {
-        rateAndFee !== undefined && validatePositiveNumber(rateAndFee, setRateAndFee);
+        rateAndFee !== undefined && validateInput(rateAndFee, setRateAndFee);
     }, [rateAndFee]);
 
     function handleImageUpload(e) {
@@ -66,7 +64,7 @@ const HouseServicesForm = (props) => {
         errors.title = validateInput(title, setTitleError);
         errors.shortDes = validateInput(shortDescription, setShortDescriptionError);
         errors.fullDes = validateInput(fullDescription, setFullDescriptionError);
-        errors.rateFee = validatePositiveNumber(rateAndFee,setRateAndFeeError);
+        errors.rateFee = validateInput(rateAndFee,setRateAndFeeError);
 
         return !(checkIfErrorsExistInMapping(errors));
     }
@@ -115,12 +113,11 @@ const HouseServicesForm = (props) => {
                             </section>
 
                             <section className={"col-start-1 col-end-5"}>
-                                <LabelAsterisk label={TEXT.rateAndFees} className={"label"}/>
-                                <input
+                                <TextArea
                                     className={`${rateAndFeeError && "border-red-500"} input`}
-                                    type="number"
-                                    min="0"
-                                    step="1"
+                                    label={TEXT.rateAndFees}
+                                    labelClassName={"label"}
+                                    required={true}
                                     onChange={(e) => setRateAndFee(e.target.value)}
                                 />
                             </section>
