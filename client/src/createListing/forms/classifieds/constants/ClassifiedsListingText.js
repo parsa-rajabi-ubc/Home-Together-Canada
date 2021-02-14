@@ -13,3 +13,17 @@ export const HOUSE_YARD_TEXT = {
     pictures: "Pictures",
     rateAndFees: "Rates and Fees (CAD)",
 }
+
+export const RENTALS = {
+    form_title: "Rentals",
+    title: "Title",
+    short_des: "Short Description",
+    full_des: "Full Description",
+    price: "Price (CAD)",
+    num_bed: "Number of bedrooms",
+    num_bath: "Number of bathrooms",
+    pet: "Pet friendly?",
+    smoking: "Smoke friendly?",
+    photos: "Photos",
+    furnished: "Furnished?"
+}
