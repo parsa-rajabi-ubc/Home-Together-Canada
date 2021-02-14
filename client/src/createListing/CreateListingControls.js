@@ -165,11 +165,10 @@ const CreateListingControls = (props) => {
             </section>
 
             {selectedListingType &&
-            <section className={"m-4"}>
+            <section className={"m-4"} key={selectedListingType}>
                 <label className={"label text-lg"}>{CREATE_LISTING_CONTROLS_TEXT.SELECT_LISTING_CATEGORY}</label>
                 {/* Unique key is used to reset the selected value */}
                 <Dropdown
-                    key={categoryOptions}
                     options={categoryOptions}
                     initialSelection={isUserMember ? MEMBER_SERVICE_CATEGORIES_DROPDOWN_OBJECT : null}
                     isDisabled={isUserMember}
