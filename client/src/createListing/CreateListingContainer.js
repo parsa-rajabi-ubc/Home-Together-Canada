@@ -38,7 +38,7 @@ const CreateListingContainer = (props) => {
     const formToDisplay = (category) => {
         switch (category) {
             case MEMBER_SERVICE_CATEGORIES.MEMBER_HOME:
-                return  <MemberHomeShareForm onSubmit={onSubmit}/>
+                return <MemberHomeShareForm onSubmit={onSubmit}/>
             case BUSINESS_SERVICE_CATEGORIES.CO_HOUSING:
                 return <CohousingForm onSubmit={onSubmit}/>
             case BUSINESS_SERVICE_CATEGORIES.SHARED_HOME_SERVICES:

@@ -95,11 +95,12 @@ exports[`HouseServicesForm Snapshot test should render correctly regardless of p
           <section
             className="col-start-1 col-end-5"
           >
-            <label
-              className="label"
-            >
-              Rates and Fees (CAD)
-               
+            <section>
+              <label
+                className="label"
+              >
+                Rates and Fees
+              </label>
               <svg
                 className="inline align-top text-red-600"
                 fill="none"
@@ -120,14 +121,13 @@ exports[`HouseServicesForm Snapshot test should render correctly regardless of p
                   fill="currentColor"
                 />
               </svg>
-            </label>
-            <input
-              className="undefined input"
-              min="0"
-              onChange={[Function]}
-              step="1"
-              type="number"
-            />
+              <input
+                className="undefined input"
+                disabled={false}
+                onChange={[Function]}
+                type="text"
+              />
+            </section>
           </section>
         </div>
         <div>

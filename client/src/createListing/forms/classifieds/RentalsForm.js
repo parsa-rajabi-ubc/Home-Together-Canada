@@ -18,7 +18,7 @@ import {
     validateInput
 } from "../../../registration/registrationUtils";
 import {validatePositiveNumber} from "../../../common/utils/generalUtils";
-import {RENTALS as TEXT} from "./constants/ClassifiedsListingText";
+import {RENTALS_TEXT as TEXT} from "./constants/ClassifiedsListingText";
 import Tooltip from "../../../common/forms/Tooltip";
 import {CREATE_LISTING_MEMBER_SHARE_HOME as ToolTipText} from "../../../common/constants/TooltipText";
 import UploadImage from "../../../common/forms/UploadImage";

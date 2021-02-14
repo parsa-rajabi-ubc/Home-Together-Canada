@@ -11,10 +11,10 @@ export const HOUSE_YARD_TEXT = {
     short_des: "Short Description",
     full_des: "Full Description",
     pictures: "Pictures",
-    rateAndFees: "Rates and Fees (CAD)",
+    rateAndFees: "Rates and Fees",
 }
 
-export const RENTALS = {
+export const RENTALS_TEXT = {
     form_title: "Rentals",
     title: "Title",
     short_des: "Short Description",
