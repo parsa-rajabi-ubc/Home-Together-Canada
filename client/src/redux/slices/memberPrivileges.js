@@ -12,18 +12,24 @@ import { createSlice } from '@reduxjs/toolkit';
 const memberPrivilegesSlice = createSlice({
     name: 'memberPrivileges',
     initialState: {
-        active: null
+        active: null,
+        memberSearchFilters: {}
     },
     reducers: {
         setActive(state, action) {
             const { active } = action.payload;
             state.active = active;
+        },
+        setMemberSearchFilters(state, action) {
+            const { memberSearchFilters } = action.payload;
+            state.memberSearchFilters = {...memberSearchFilters};
         }
     }
 });
 
 export const {
-    setActive
+    setActive,
+    setMemberSearchFilters
 } = memberPrivilegesSlice.actions;
 
 export default memberPrivilegesSlice.reducer;
