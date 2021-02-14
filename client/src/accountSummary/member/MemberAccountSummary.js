@@ -23,20 +23,21 @@ import {splitPhoneNumber} from "../accountSummaryUtils";
 import {MEMBER_PROFILE_INFO_TEXT} from "../../common/constants/TooltipText";
 import Asterisk from "../../common/forms/Asterisk";
 import * as MemberService from '../../services/MemberService';
-import {USER_TYPES} from "../../common/constants/users";
 import {connect} from "react-redux";
-import {setAccountType, setAuthenticated, setIsAdmin} from "../../redux/slices/userPrivileges";
-import {setActive} from "../../redux/slices/memberPrivileges";
 import { useHistory } from "react-router-dom";
 import {SESSION_ERR} from "../../common/constants/errors";
+import {bindActionCreators} from "redux";
+import {reset} from "../../redux/actionCreators";
 
-const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated, setActive};
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ reset }, dispatch);
+}
 
 const SUCCESS_MESSAGE = 'Account info successfully updated!';
 
 //Returns a summary Form with fields filled
 function MemberAccountSummary(props) {
-    const { member, setIsAdmin, setAccountType, setAuthenticated, setActive } = props;
+    const { member, reset } = props;
 
     const history = useHistory();
 
@@ -225,10 +226,7 @@ function MemberAccountSummary(props) {
                     setShowSuccessMessage(false);
                 }
                 else if (data && (!data.authenticated || !data.success)) {
-                    setIsAdmin({isAdmin: false});
-                    setAccountType({accountType: USER_TYPES.UNREGISTERED});
-                    setAuthenticated({authenticated: false});
-                    setActive({active: null});
+                    reset();
 
                     alert(SESSION_ERR);
 
@@ -350,10 +348,7 @@ MemberAccountSummary.propTypes = {
         mailingProvince: PropTypes.string,
         mailingPostalCode: PropTypes.string
     }).isRequired,
-    setAccountType: PropTypes.func.isRequired,
-    setAuthenticated: PropTypes.func.isRequired,
-    setIsAdmin: PropTypes.func.isRequired,
-    setActive: PropTypes.func.isRequired
+    reset: PropTypes.func.isRequired
 }
 
-export default connect(null, mapDispatch)(MemberAccountSummary);
+export default connect(null, mapDispatchToProps)(MemberAccountSummary);

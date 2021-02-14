@@ -9,14 +9,15 @@
 import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
 import DeleteAccount from "./DeleteAccount";
-import {USER_TYPES} from "../../common/constants/users";
-import {setAccountType, setAuthenticated, setIsAdmin} from "../../redux/slices/userPrivileges";
-import {setActive} from "../../redux/slices/memberPrivileges";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import AccountService from "../../services/AccountService"
+import {bindActionCreators} from "redux";
+import {reset} from "../../redux/actionCreators";
 
-const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated, setActive};
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ reset }, dispatch);
+}
 
 const MESSAGES = {
     SUCCESS: 'Your account has been successfully deleted!',
@@ -25,8 +26,7 @@ const MESSAGES = {
 }
 
 const DeleteAccountContainer = props =>{
-
-    const {setIsAdmin, setAccountType, setAuthenticated, setActive} = props;
+    const {reset} = props;
     const history = useHistory();
     const [confirm, setConfirm] = useState(false)
 
@@ -39,10 +39,7 @@ const DeleteAccountContainer = props =>{
                 } else {
                     alert(data.err || MESSAGES.GENERIC_ERROR);
                 }
-                setIsAdmin({isAdmin: false});
-                setAccountType({accountType: USER_TYPES.UNREGISTERED});
-                setAuthenticated({authenticated: false});
-                setActive({active: null});
+                reset();
 
                 // redirect to home page
                 history.push('/');
@@ -70,9 +67,6 @@ const DeleteAccountContainer = props =>{
 }
 
 DeleteAccountContainer.propTypes = {
-    setAccountType: PropTypes.func.isRequired,
-    setIsAdmin: PropTypes.func.isRequired,
-    setAuthenticated: PropTypes.func.isRequired,
-    setActive: PropTypes.func.isRequired
+    reset: PropTypes.func.isRequired
 }
-export default connect(null, mapDispatch)(DeleteAccountContainer);
+export default connect(null, mapDispatchToProps)(DeleteAccountContainer);

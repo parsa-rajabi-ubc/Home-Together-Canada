@@ -31,14 +31,15 @@ import Asterisk from "../../common/forms/Asterisk";
 import {memberHasCoupleStatus, memberHasExistingGroupStatus} from "./memberAccountSummaryUtils";
 import {STATUSES} from "../../common/constants/memberConstants";
 import * as MemberService from '../../services/MemberService';
-import {setAccountType, setAuthenticated, setIsAdmin} from "../../redux/slices/userPrivileges";
-import {setActive} from "../../redux/slices/memberPrivileges";
-import {USER_TYPES} from "../../common/constants/users";
 import { useHistory } from "react-router-dom";
 import {connect} from "react-redux";
 import {SESSION_ERR} from "../../common/constants/errors";
+import {bindActionCreators} from "redux";
+import {reset} from "../../redux/actionCreators";
 
-const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated, setActive};
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ reset }, dispatch);
+}
 
 const UPDATE_STATES = {
     SUCCESS: 'SUCCESS',
@@ -55,10 +56,7 @@ function MemberProfileSummary(props) {
         profile,
         areasOfInterestList,
         roommates,
-        setAccountType,
-        setAuthenticated,
-        setIsAdmin,
-        setActive
+        reset
     } = props;
 
     const history = useHistory();
@@ -275,10 +273,7 @@ function MemberProfileSummary(props) {
                 setShowSuccessMessage(false);
                 break;
             case UPDATE_STATES.UNAUTHENTICATED:
-                setIsAdmin({isAdmin: false});
-                setAccountType({accountType: USER_TYPES.UNREGISTERED});
-                setAuthenticated({authenticated: false});
-                setActive({active: null});
+                reset();
 
                 alert(SESSION_ERR);
 
@@ -678,10 +673,7 @@ MemberProfileSummary.propTypes = {
     }).isRequired,
     areasOfInterestList: PropTypes.array.isRequired,
     roommates: PropTypes.array.isRequired,
-    setAccountType: PropTypes.func.isRequired,
-    setAuthenticated: PropTypes.func.isRequired,
-    setIsAdmin: PropTypes.func.isRequired,
-    setActive: PropTypes.func.isRequired
+    reset: PropTypes.func.isRequired
 }
 
-export default connect(null, mapDispatch)(MemberProfileSummary);
+export default connect(null, mapDispatchToProps)(MemberProfileSummary);
