@@ -2,7 +2,7 @@
  * @Author:     Alex Qin
  * @Created:    2021.02.12
  *
- * @Description: RentalsForm
+ * @Description: Rentals Form
  *
  */
 
@@ -14,28 +14,43 @@ import LargeTextArea from "../../../common/forms/LargeTextArea";
 import SubmitButton from "../../../common/forms/SubmitButton";
 import {SHORT_DESC_CHAR_COUNT} from "../../../common/constants/listingsConstants";
 import {
-    checkIfErrorsExistInMapping,
+    checkIfErrorsExistInMapping, validateCheckbox,
     validateInput
 } from "../../../registration/registrationUtils";
 import {validatePositiveNumber} from "../../../common/utils/generalUtils";
-import {HOUSE_YARD_TEXT as TEXT} from "./constants/ClassifiedsListingText";
+import {RENTALS as TEXT} from "./constants/ClassifiedsListingText";
 import Tooltip from "../../../common/forms/Tooltip";
 import {CREATE_LISTING_MEMBER_SHARE_HOME as ToolTipText} from "../../../common/constants/TooltipText";
 import UploadImage from "../../../common/forms/UploadImage";
+import YNButton from "../../../common/forms/YNButtons";
+import Dropdown from "../../../common/forms/Dropdown";
+import {options} from "../services/constants/BedroomBathroomDropdownOptions";
+import {dropdownDefaultCSS, dropdownErrorCSS} from "../../../css/dropdownCSSUtil";
 
-const RentalsForm = (props) => {
+const HouseServicesForm = (props) => {
     const { onSubmit } = props;
 
     const [title, setTitle] = useState(undefined);
     const [shortDescription, setShortDescription] = useState(undefined);
     const [fullDescription, setFullDescription] = useState(undefined);
-    const [rateAndFee, setRateAndFee] = useState(undefined);
-    const [picture, setPicture] = useState(undefined);
+    const [price, setPrice] = useState(undefined);
+    const [furnished, setFurnished] = useState(undefined);
+    const [numBed, setNumBed] = useState(undefined);
+    const [numBath, setNumBath] = useState(undefined);
+    const [petFriendly, setPetFriendly] = useState(undefined);
+    const [smokeFriendly, setSmokeFriendly] = useState(undefined);
+    const [photos, setPhotos] = useState(undefined);
 
     const [titleError, setTitleError] = useState(undefined);
     const [shortDescriptionError, setShortDescriptionError] = useState(undefined);
     const [fullDescriptionError, setFullDescriptionError] = useState(undefined);
-    const [rateAndFeeError, setRateAndFeeError] = useState(undefined);
+    const [priceError, setPriceError] = useState(undefined);
+    const [furnishedError, setFurnishedError] = useState(undefined);
+    const [numBedError, setNumBedError] = useState(undefined);
+    const [numBathError, setNumBathError] = useState(undefined);
+    const [petFriendlyError, setPetFriendlyError] = useState(undefined);
+    const [smokeFriendlyError, setSmokeFriendlyError] = useState(undefined);
+
 
     useEffect(() => {
         title !== undefined && validateInput(title, setTitleError);
@@ -47,11 +62,34 @@ const RentalsForm = (props) => {
         fullDescription !== undefined && validateInput(fullDescription, setFullDescriptionError);
     }, [fullDescription]);
     useEffect(() => {
-        rateAndFee !== undefined && validatePositiveNumber(rateAndFee, setRateAndFee);
-    }, [rateAndFee]);
+        price !== undefined && validatePositiveNumber(price, setPrice);
+    }, [price]);
+    useEffect(() => {
+        numBed !== undefined && validateInput(numBed, setNumBedError);
+    }, [numBed]);
+    useEffect(() => {
+        numBath !== undefined && validateInput(numBath, setNumBathError);
+    }, [numBath]);
+    useEffect(() => {
+        petFriendly !== undefined && validateInput(petFriendly, setPetFriendlyError);
+    }, [petFriendly]);
+    useEffect(() => {
+        smokeFriendly !== undefined && validateInput(smokeFriendly, setSmokeFriendlyError);
+    }, [smokeFriendly]);
+    useEffect(() => {
+        furnished !== undefined && validateCheckbox(furnished, setFurnishedError);
+    }, [furnished]);
+
+    const handleNumBedChange = e => {
+        setNumBed(e.value);
+    }
+
+    const handleNumBathChange = e => {
+        setNumBath(e.value);
+    }
 
     function handleImageUpload(e) {
-        setPicture(e.target.files[0]);
+        setPhotos(e.target.files[0]);
     }
 
     const isFormValid = () => {
@@ -60,13 +98,23 @@ const RentalsForm = (props) => {
             title: false,
             shortDes: false,
             fullDes: false,
-            rateFee: false
+            price: false,
+            utilIncluded: false,
+            numBed: false,
+            numBath: false,
+            pet: false,
+            smoking: false,
         }
 
         errors.title = validateInput(title, setTitleError);
         errors.shortDes = validateInput(shortDescription, setShortDescriptionError);
         errors.fullDes = validateInput(fullDescription, setFullDescriptionError);
-        errors.rateFee = validatePositiveNumber(rateAndFee,setRateAndFeeError);
+        errors.price = validatePositiveNumber(price,setPriceError);
+        errors.utilIncluded = validateInput(furnished, setFurnishedError);
+        errors.numBed = validateInput(numBed, setNumBedError);
+        errors.numBath = validateInput(numBath, setNumBathError);
+        errors.pet = validateInput(petFriendly, setPetFriendlyError);
+        errors.smoking = validateInput(smokeFriendly, setSmokeFriendlyError);
 
         return !(checkIfErrorsExistInMapping(errors));
     }
@@ -115,16 +163,74 @@ const RentalsForm = (props) => {
                             </section>
 
                             <section className={"col-start-1 col-end-5"}>
-                                <LabelAsterisk label={TEXT.rateAndFees} className={"label"}/>
+                                <LabelAsterisk label={TEXT.price} className={"label"}/>
                                 <input
-                                    className={`${rateAndFeeError && "border-red-500"} input`}
+                                    className={`${priceError && "border-red-500"} input`}
                                     type="number"
                                     min="0"
                                     step="1"
-                                    onChange={(e) => setRateAndFee(e.target.value)}
+                                    onChange={(e) => setPrice(e.target.value)}
                                 />
                             </section>
 
+
+                            <section
+                                className={`${furnishedError && "pl-1 border rounded-lg border-red-500"} my-2 col-start-6 col-end-9`}>
+                                <YNButton
+                                    label={TEXT.furnished}
+                                    name="furnished"
+                                    required={true}
+                                    value={furnished}
+                                    onChange={(e) => setFurnished(e.target.value)}
+                                />
+                            </section>
+                            <section className={"col-start-1 col-end-5"}>
+                                <LabelAsterisk
+                                    label={TEXT.num_bed}
+                                    className={"label"}
+                                />
+
+                                <Dropdown
+                                    options={options}
+                                    onChange={handleNumBedChange}
+                                    dropdownCSS={numBedError ? dropdownErrorCSS : dropdownDefaultCSS}/>
+
+                            </section>
+
+                            <section
+                                className={`${petFriendlyError && "pl-1 border rounded-lg border-red-500"} my-2 col-start-6 col-end-9`}>
+                                <YNButton
+                                    label={TEXT.pet}
+                                    name="petFriendly"
+                                    required={true}
+                                    value={petFriendly}
+                                    onChange={(e) => setPetFriendly(e.target.value)}
+                                />
+                            </section>
+                            <section className={"col-start-1 col-end-5"}>
+                                <LabelAsterisk
+                                    label={TEXT.num_bath}
+                                    className={"label"}
+                                />
+                                <Dropdown
+                                    options={options}
+                                    onChange={handleNumBathChange}
+                                    dropdownCSS={numBathError ? dropdownErrorCSS : dropdownDefaultCSS}
+                                />
+
+                            </section>
+
+
+                            <section
+                                className={`${smokeFriendlyError && "pl-1 border rounded-lg border-red-500"} my-2 col-start-6 col-end-9`}>
+                                <YNButton
+                                    label={TEXT.smoking}
+                                    name="smokeFriendly"
+                                    required={true}
+                                    value={smokeFriendly}
+                                    onChange={(e) => setSmokeFriendly(e.target.value)}
+                                />
+                            </section>
 
                         </div>
 
@@ -153,8 +259,8 @@ const RentalsForm = (props) => {
     )
 
 }
-RentalsForm.propTypes = {
+HouseServicesForm.propTypes = {
     onSubmit: PropTypes.func.isRequired
 }
 
-export default RentalsForm;
+export default HouseServicesForm;

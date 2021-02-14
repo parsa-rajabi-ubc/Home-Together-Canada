@@ -124,7 +124,7 @@ const MemberHomeShareForm = (props) => {
         errors.numBed = validateInput(numBed, setNumBedError);
         errors.numBath = validateInput(numBath, setNumBathError);
         errors.pet = validateInput(petFriendly, setPetFriendlyError);
-        errors.smokeFriendly = validateInput(smokeFriendly, setSmokeFriendlyError);
+        errors.smoking = validateInput(smokeFriendly, setSmokeFriendlyError);
 
         return !(checkIfErrorsExistInMapping(errors));
     }
