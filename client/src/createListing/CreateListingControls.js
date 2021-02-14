@@ -12,10 +12,11 @@ import Dropdown from "../common/forms/Dropdown";
 import {
     BUSINESS_SERVICE_CATEGORIES_DROPDOWN,
     GOVERNMENT_SERVICES_SUBCATEGORIES_LIST,
+    CO_HOUSING_SUBCATEGORIES_LIST,
+    SHARED_HOME_SERVICES_SUBCATEGORIES_LIST,
+    SHARED_BUSINESS_SERVICES_SUBCATEGORIES_LIST,
     MEMBER_SERVICE_CATEGORIES_DROPDOWN,
     MEMBER_SERVICE_CATEGORIES_DROPDOWN_OBJECT,
-    SHARED_COMMUNITY_SUBCATEGORIES_LIST,
-    SHARED_SERVICES_SUBCATEGORIES_LIST
 } from "./constants/serviceListingConstants";
 import {BUSINESS_SERVICE_CATEGORIES, MEMBER_SERVICE_CATEGORIES} from "./constants/serviceListingText"
 import {BUSINESS_CLASSIFIEDS_CATEGORIES} from "./constants/classifiedListingText"
@@ -92,11 +93,14 @@ const CreateListingControls = (props) => {
     const returnSubcategory = (selectedCategory) => {
         if (selectedListingType === SERVICES_TEXT) {
             switch (selectedCategory) {
-                case BUSINESS_SERVICE_CATEGORIES.SHARE_COMMUNITY:
-                    setSubcategories(SHARED_COMMUNITY_SUBCATEGORIES_LIST);
+                case BUSINESS_SERVICE_CATEGORIES.CO_HOUSING:
+                    setSubcategories(CO_HOUSING_SUBCATEGORIES_LIST);
                     break;
-                case BUSINESS_SERVICE_CATEGORIES.SHARED_SERVICES:
-                    setSubcategories(SHARED_SERVICES_SUBCATEGORIES_LIST);
+                case BUSINESS_SERVICE_CATEGORIES.SHARED_HOME_SERVICES:
+                    setSubcategories(SHARED_HOME_SERVICES_SUBCATEGORIES_LIST);
+                    break;
+                case BUSINESS_SERVICE_CATEGORIES.SHARED_BUSINESS_SERVICES:
+                    setSubcategories(SHARED_BUSINESS_SERVICES_SUBCATEGORIES_LIST);
                     break;
                 case BUSINESS_SERVICE_CATEGORIES.GOVERNMENT_SERVICES:
                     setSubcategories(GOVERNMENT_SERVICES_SUBCATEGORIES_LIST);
@@ -161,11 +165,10 @@ const CreateListingControls = (props) => {
             </section>
 
             {selectedListingType &&
-            <section className={"m-4"}>
+            <section className={"m-4"} key={selectedListingType}>
                 <label className={"label text-lg"}>{CREATE_LISTING_CONTROLS_TEXT.SELECT_LISTING_CATEGORY}</label>
                 {/* Unique key is used to reset the selected value */}
                 <Dropdown
-                    key={categoryOptions}
                     options={categoryOptions}
                     initialSelection={isUserMember ? MEMBER_SERVICE_CATEGORIES_DROPDOWN_OBJECT : null}
                     isDisabled={isUserMember}
