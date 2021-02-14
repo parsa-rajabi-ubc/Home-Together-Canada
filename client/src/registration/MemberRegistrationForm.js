@@ -44,7 +44,7 @@ import Asterisk from "../common/forms/Asterisk";
 import LabelAsterisk from "../common/forms/LabelAsterisk";
 import {connect} from 'react-redux';
 import {setIsAdmin, setAccountType, setAuthenticated} from '../redux/slices/userPrivileges';
-import {setActive} from "../redux/slices/memberPrivileges";
+import {setActive, setMemberSearchFilters} from "../redux/slices/memberPrivileges";
 import Tooltip from "../common/forms/Tooltip";
 import {USER_TYPES} from "../common/constants/users";
 import {MEMBER_PROFILE_INFO_TEXT} from "../common/constants/TooltipText";
@@ -54,11 +54,11 @@ import indexOf from 'lodash/indexOf';
 import {TERMS_OF_SERVICE_TEXT} from "../common/constants/termsOfServiceText";
 import {PRIVACY_POLICY_TEXT} from "../common/constants/privacyPolicyText";
 
-const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated, setActive};
+const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated, setActive, setMemberSearchFilters};
 
 //Returns a Form with fields
 function MemberRegistrationForm(props) {
-    const {history, setIsAdmin, setAccountType, setAuthenticated, setActive} = props;
+    const {history, setIsAdmin, setAccountType, setAuthenticated, setActive, setMemberSearchFilters} = props;
     const [firstName, setFirstName] = useState(undefined);
     const [lastName, setLastName] = useState(undefined);
     const [yearOfBirth, setYearOfBirth] = useState(undefined);
@@ -618,6 +618,29 @@ function MemberRegistrationForm(props) {
 
                     // dispatch action to set authenticated
                     setAuthenticated({authenticated: data.authenticated});
+
+                    // dispatch action to set search filters
+                    setMemberSearchFilters({
+                        memberSearchFilters: {
+                            searchArea: {
+                                province: '',
+                                city: '',
+                                radius: ''
+                            },
+                            minAgePreference: parseInt(minAgePreference),
+                            maxAgePreference: parseInt(maxAgePreference),
+                            statusPreference: familyStatusPreference,
+                            minBudgetPreference: parseInt(minBudgetPreference),
+                            maxBudgetPreference: parseInt(maxBudgetPreference),
+                            dietPreference: dietPreference,
+                            petsPreference: petPreference,
+                            smokingPreference: smokingPreference,
+                            genderPreference: genderPreference,
+                            religionPreference: religionPreference,
+                            othersWithHomeToSharePreference: homeToSharePreference,
+                            numRoommatesPreference: selectedLimitPreference
+                        }
+                    });
 
                     // user is authenticated, redirect to home screen
                     return history.push('/');
@@ -1333,6 +1356,7 @@ MemberRegistrationForm.propTypes = {
     setIsAdmin: PropTypes.func.isRequired,
     setAuthenticated: PropTypes.func.isRequired,
     setActive: PropTypes.func.isRequired,
+    setMemberSearchFilters: PropTypes.func.isRequired,
     history: PropTypes.shape({
         push: PropTypes.func
     })

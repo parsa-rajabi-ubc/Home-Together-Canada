@@ -23,13 +23,14 @@ import {
 import PropTypes from "prop-types";
 import {connect} from 'react-redux';
 import {setIsAdmin, setAccountType, setAuthenticated} from "../redux/slices/userPrivileges";
-import {setActive} from "../redux/slices/memberPrivileges";
+import {setActive, setMemberSearchFilters} from "../redux/slices/memberPrivileges";
 import {USER_TYPES} from "../common/constants/users";
+import {resolveBooleanToYesNo} from "../common/utils/generalUtils";
 
-const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated, setActive};
+const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated, setActive, setMemberSearchFilters};
 
 function LoginForm(props) {
-    const {history, setIsAdmin, setAccountType, setAuthenticated, setActive} = props;
+    const {history, setIsAdmin, setAccountType, setAuthenticated, setActive, setMemberSearchFilters} = props;
 
     const [username, setUsername] = useState(undefined);
     const [password, setPassword] = useState(undefined);
@@ -96,6 +97,32 @@ function LoginForm(props) {
                     // dispatch action to set authenticated
                     setAuthenticated({authenticated: data.authenticated});
 
+                    // dispatch action to set member search filters
+                    if (data.member) {
+                        setMemberSearchFilters({
+                            memberSearchFilters: {
+                                searchArea: {
+                                    province: '',
+                                    city: '',
+                                    radius: ''
+                                },
+                                genderPreference: JSON.parse(data.member.genderPreference),
+                                statusPreference: JSON.parse(data.member.statusPreference),
+                                minAgePreference:data.member.minAgePreference,
+                                maxAgePreference: data.member.maxBudgetPreference,
+                                numRoommatesPreference: JSON.parse(data.member.numRoommatesPreference),
+                                minBudgetPreference: data.member.minBudgetPreference,
+                                maxBudgetPreference: data.member.maxBudgetPreference,
+                                religionPreference: resolveBooleanToYesNo(data.member.religionPreference),
+                                dietPreference: resolveBooleanToYesNo(data.member.dietPreference),
+                                othersWithHomeToSharePreference: resolveBooleanToYesNo(
+                                      data.member.othersWithHomeToSharePreference),
+                                petsPreference: resolveBooleanToYesNo(data.member.petsPreference),
+                                smokingPreference: resolveBooleanToYesNo(data.member.smokingPreference)
+                            }
+                        });
+                    }
+
                     // user is authenticated, redirect to home screen
                     return history.push('/');
                 } else if (data && data.errors && data.errors.length) {
@@ -113,59 +140,52 @@ function LoginForm(props) {
     }
 
     return (
-            <div className="flex items-center min-h-screen p-6 bg-off_white">
-                <div className="flex-1 h-full max-w-4xl mx-auto overflow-hidden rounded-lg shadow-2xl ">
-                    <div className="flex flex-col overflow-y-auto md:flex-row">
-                        <div className="h-32 md:h-auto md:w-1/2">
-                            <img
-                                className="object-cover w-full h-full"
-                                src={TypingPicture}
-                                alt="Typing behind a computer"
+        <div className="flex items-center min-h-screen p-6 bg-off_white">
+            <div className="flex-1 h-full max-w-4xl mx-auto overflow-hidden rounded-lg shadow-2xl ">
+                <div className="flex flex-col overflow-y-auto md:flex-row">
+                    <div className="h-32 md:h-auto md:w-1/2">
+                        <img
+                            className="object-cover w-full h-full"
+                            src={TypingPicture}
+                            alt="Typing behind a computer"
+                        />
+                    </div>
+                    <div className="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
+                        <div className="w-full">
+                            <h1 className="h1">
+                                Login
+                            </h1>
+                            <TextArea
+                                className={`${usernameError && "border-red-500"} input`}
+                                inputType="text"
+                                placeholder="Username"
+                                onKeyDown={onKeyPress}
+                                onChange={input => setUsername(input.target.value)}
                             />
-                        </div>
-                        <div className="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
-                            <div className="w-full">
-                                <h1 className="h1">
-                                    Login
-                                </h1>
-                                <TextArea
-                                    className={`${usernameError && "border-red-500"} input`}
-                                    inputType="text" placeholder="Username"
-                                    onKeyDown={onKeyPress}
-                                    onChange={(input) => {
-                                    setUsername(input.target.value)
-                                }}/>
 
-                                <GenericInput
-                                    className={`${passwordError && "border-red-500"} input`}
-                                    label={''}
-                                    inputType="password" placeholder="Password"
-                                    onKeyDown={onKeyPress}
-                                    onChange={(input) => {
-                                    setPassword(input.target.value)
-                                }}/>
+                            <GenericInput
+                                className={`${passwordError && "border-red-500"} input`}
+                                inputType="password"
+                                placeholder="Password"
+                                onKeyDown={onKeyPress}
+                                onChange={input => setPassword(input.target.value)}
+                            />
 
-                                <SubmitButton
-                                    inputValue={"Login"}
-                                    className="btn btn-green form-btn py-2 w-3/4 mt-6"
-                                    onClick={onSubmit}
-                                />
+                            <SubmitButton
+                                inputValue={"Login"}
+                                className="btn btn-green form-btn py-2 w-3/4 mt-6"
+                                onClick={onSubmit}
+                            />
 
-                                {/* TODO: remember me feature, using the checkbox function*/}
-                                {/*<Checkbox label="Remember me "/>*/}
+                            <hr className="my-8"/>
 
-                                <hr className="my-8"/>
-
-                                <Link to={'/forgot-password'} className="link"> Forgot your password?
-                                </Link>
-                                <Link to={'/registration'} className="link"> Create an account
-                                </Link>
-                            </div>
+                            <Link to={'/forgot-password'} className="link"> Forgot your password? </Link>
+                            <Link to={'/registration'} className="link"> Create an account </Link>
                         </div>
                     </div>
                 </div>
             </div>
-
+        </div>
     );
 }
 
@@ -174,6 +194,7 @@ LoginForm.propTypes = {
     setIsAdmin: PropTypes.func.isRequired,
     setAuthenticated: PropTypes.func.isRequired,
     setActive: PropTypes.func.isRequired,
+    setMemberSearchFilters: PropTypes.func.isRequired,
     history: PropTypes.shape({
         push: PropTypes.func
     })

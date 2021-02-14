@@ -11,7 +11,7 @@ import indexOf from "lodash/indexOf";
 
 import SearchCriteria from "./SearchCriteria";
 import * as MemberService from '../../services/MemberService';
-import {isValueInArray, resolveBooleanToYesNo} from "../../common/utils/generalUtils";
+import {isValueInArray} from "../../common/utils/generalUtils";
 import {
     checkIfErrorsExistInMapping,
     getConcatenatedErrorMessage,
@@ -20,68 +20,49 @@ import {
     validateMinMax,
     resolveYesNoToBoolean
 } from "../../registration/registrationUtils";
-import {USER_TYPES} from "../../common/constants/users";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import { useHistory } from "react-router-dom";
-import {setAccountType, setAuthenticated, setIsAdmin} from "../../redux/slices/userPrivileges";
+import {setMemberSearchFilters} from "../../redux/slices/memberPrivileges";
 import {SESSION_ERR} from "../../common/constants/errors";
+import {reset} from "../../redux/actionCreators";
 
-const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated};
+const mapDispatchToProps = {
+    reset,
+    setMemberSearchFilters
+}
 
 const SearchCriteriaContainer = (props) => {
-    const {setIsAdmin, setAccountType, setAuthenticated} = props;
+    const {memberSearchFilters, setMemberSearchFilters, reset} = props;
     const history = useHistory();
     // Gender and Family Status
-    const [genderPreference, setGenderPreference] = useState();
-    const [familyStatusPreference, setFamilyStatusPreference] = useState();
+    const [genderPreference, setGenderPreference] = useState(memberSearchFilters.genderPreference);
+    const [familyStatusPreference, setFamilyStatusPreference] = useState(memberSearchFilters.statusPreference);
 
     // Age
-    const [minAgePreference, setMinAgePreference] = useState();
-    const [maxAgePreference, setMaxAgePreference] = useState();
+    const [minAgePreference, setMinAgePreference] = useState(memberSearchFilters.minAgePreference);
+    const [maxAgePreference, setMaxAgePreference] = useState(memberSearchFilters.maxAgePreference);
 
     // Number of Roommates
-    const [selectedLimitPreference, setSelectedLimitPreference] = useState([]);
+    const [selectedLimitPreference, setSelectedLimitPreference] = useState(memberSearchFilters.numRoommatesPreference);
 
     // Budget
-    const [minBudgetPreference, setMinBudgetPreference] = useState();
-    const [maxBudgetPreference, setMaxBudgetPreference] = useState();
+    const [minBudgetPreference, setMinBudgetPreference] = useState(memberSearchFilters.minBudgetPreference);
+    const [maxBudgetPreference, setMaxBudgetPreference] = useState(memberSearchFilters.maxBudgetPreference);
 
     // Yes/No Question
-    const [religionPreference, setReligionPreference] = useState(undefined);
-    // const [religionPreference, setReligionPreference] = useState(resolveBooleanToYesNo(hasReligionPreferenceBoolean));
+    const [religionPreference, setReligionPreference] = useState(memberSearchFilters.religionPreference);
 
-    const [dietPreference, setDietPreference] = useState(undefined);
+    const [dietPreference, setDietPreference] = useState(memberSearchFilters.dietPreference);
 
-    const [homeToSharePreference, setHomeToSharePreference] = useState(undefined);
+    const [homeToSharePreference, setHomeToSharePreference] = useState(memberSearchFilters.othersWithHomeToSharePreference);
 
-    const [petPreference, setPetPreference] = useState(undefined);
+    const [petPreference, setPetPreference] = useState(memberSearchFilters.petsPreference);
 
-    const [smokingPreference, setSmokingPreference] = useState(undefined);
+    const [smokingPreference, setSmokingPreference] = useState(memberSearchFilters.smokingPreference);
 
-    const [loading, setLoading] = useState(true);
+    // const [loading, setLoading] = useState(true);
     const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-
-    useEffect(() => {
-        MemberService.getMemberSearchFilters()
-            .then(res => res.json())
-            .then(data => {
-                setGenderPreference(JSON.parse(data.genderPreference));
-                setFamilyStatusPreference(JSON.parse(data.statusPreference));
-                setMinAgePreference(data.minAgePreference);
-                setMaxAgePreference(data.maxAgePreference);
-                setSelectedLimitPreference(JSON.parse(data.numRoommatesPreference));
-                setMinBudgetPreference(data.minBudgetPreference);
-                setMaxBudgetPreference(data.maxBudgetPreference);
-                setReligionPreference(resolveBooleanToYesNo(data.religionPreference));
-                setDietPreference(resolveBooleanToYesNo(data.dietPreference));
-                setHomeToSharePreference(resolveBooleanToYesNo(data.othersWithHomeToSharePreference));
-                setPetPreference(resolveBooleanToYesNo(data.petsPreference));
-                setSmokingPreference(resolveBooleanToYesNo(data.smokingPreference));
-                setLoading(false);
-            });
-    }, []);
-
 
     // Search Criteria Errors
     const [genderPreferenceError, setGenderPreferenceError] = useState(undefined);
@@ -210,6 +191,22 @@ const SearchCriteriaContainer = (props) => {
             .then(res => res.json())
             .then(data => {
                 if (data && data.success) {
+                    setMemberSearchFilters({
+                        memberSearchFilters: {
+                            genderPreference,
+                            statusPreference: familyStatusPreference,
+                            minAgePreference,
+                            maxAgePreference,
+                            numRoommatesPreference: selectedLimitPreference,
+                            minBudgetPreference,
+                            maxBudgetPreference,
+                            petsPreference: petPreference,
+                            smokingPreference: smokingPreference,
+                            religionPreference: religionPreference,
+                            dietPreference: dietPreference,
+                            othersWithHomeToSharePreference: homeToSharePreference
+                        }
+                    })
                     setShowSuccessMessage(true);
                 }
                 else if (data && data.errors && Array.isArray(data.errors)) {
@@ -218,9 +215,7 @@ const SearchCriteriaContainer = (props) => {
                     setShowSuccessMessage(false);
                 }
                 else if (data && (!data.authenticated || !data.success)) {
-                    setIsAdmin({isAdmin: false});
-                    setAccountType({accountType: USER_TYPES.UNREGISTERED});
-                    setAuthenticated({authenticated: false});
+                    reset();
 
                     alert(SESSION_ERR);
 
@@ -236,70 +231,92 @@ const SearchCriteriaContainer = (props) => {
 
     return (
         <div>
-            {!loading &&
-                <SearchCriteria
-                    genderPreference={genderPreference}
-                    handleGenderPrefChange={handleGenderPrefChange}
-                    genderPreferenceError={genderPreferenceError}
+            <SearchCriteria
+                genderPreference={genderPreference}
+                handleGenderPrefChange={handleGenderPrefChange}
+                genderPreferenceError={genderPreferenceError}
 
-                    familyStatusPreference={familyStatusPreference}
-                    setFamilyStatusPreference={setFamilyStatusPreference}
-                    familyStatusPreferenceError={familyStatusPreferenceError}
+                familyStatusPreference={familyStatusPreference}
+                setFamilyStatusPreference={setFamilyStatusPreference}
+                familyStatusPreferenceError={familyStatusPreferenceError}
 
-                    minAgePreference={minAgePreference}
-                    setMinAgePreference={setMinAgePreference}
-                    minAgePreferenceError={minAgePreferenceError}
+                minAgePreference={minAgePreference}
+                setMinAgePreference={setMinAgePreference}
+                minAgePreferenceError={minAgePreferenceError}
 
-                    maxAgePreference={maxAgePreference}
-                    setMaxAgePreference={setMaxAgePreference}
-                    maxAgePreferenceError={maxAgePreferenceError}
+                maxAgePreference={maxAgePreference}
+                setMaxAgePreference={setMaxAgePreference}
+                maxAgePreferenceError={maxAgePreferenceError}
 
-                    selectedLimitPreference={selectedLimitPreference}
-                    handleSelectedLimitPreferenceChange={handleSelectedLimitPreferenceChange}
-                    selectedLimitPreferenceError={selectedLimitPreferenceError}
+                selectedLimitPreference={selectedLimitPreference}
+                handleSelectedLimitPreferenceChange={handleSelectedLimitPreferenceChange}
+                selectedLimitPreferenceError={selectedLimitPreferenceError}
 
-                    minBudgetPreference={minBudgetPreference}
-                    setMinBudgetPreference={setMinBudgetPreference}
-                    minBudgetPreferenceError={minBudgetPreferenceError}
+                minBudgetPreference={minBudgetPreference}
+                setMinBudgetPreference={setMinBudgetPreference}
+                minBudgetPreferenceError={minBudgetPreferenceError}
 
-                    maxBudgetPreference={maxBudgetPreference}
-                    setMaxBudgetPreference={setMaxBudgetPreference}
-                    maxBudgetPreferenceError={maxBudgetPreferenceError}
+                maxBudgetPreference={maxBudgetPreference}
+                setMaxBudgetPreference={setMaxBudgetPreference}
+                maxBudgetPreferenceError={maxBudgetPreferenceError}
 
-                    petPreference={petPreference}
-                    setPetPreference={setPetPreference}
-                    petPreferenceError={petPreferenceError}
+                petPreference={petPreference}
+                setPetPreference={setPetPreference}
+                petPreferenceError={petPreferenceError}
 
-                    smokingPreference={smokingPreference}
-                    setSmokingPreference={setSmokingPreference}
-                    smokingPreferenceError={smokingPreferenceError}
+                smokingPreference={smokingPreference}
+                setSmokingPreference={setSmokingPreference}
+                smokingPreferenceError={smokingPreferenceError}
 
-                    religionPreference={religionPreference}
-                    setReligionPreference={setReligionPreference}
-                    religionPreferenceError={religionPreferenceError}
+                religionPreference={religionPreference}
+                setReligionPreference={setReligionPreference}
+                religionPreferenceError={religionPreferenceError}
 
-                    dietPreference={dietPreference}
-                    setDietPreference={setDietPreference}
-                    dietPreferenceError={dietPreferenceError}
+                dietPreference={dietPreference}
+                setDietPreference={setDietPreference}
+                dietPreferenceError={dietPreferenceError}
 
-                    homeToSharePreference={homeToSharePreference}
-                    setHomeToSharePreference={setHomeToSharePreference}
-                    homeToSharePreferenceError={homeToSharePreferenceError}
+                homeToSharePreference={homeToSharePreference}
+                setHomeToSharePreference={setHomeToSharePreference}
+                homeToSharePreferenceError={homeToSharePreferenceError}
 
-                    showSuccessMessage={showSuccessMessage}
+                showSuccessMessage={showSuccessMessage}
 
-                    onSubmit={onSubmit}
-                />
-            }
+                onSubmit={onSubmit}
+            />
         </div>
 
     )
 }
 
+const mapStateToProps = state => ({
+    memberSearchFilters: state.memberPrivileges.memberSearchFilters
+});
+
+
 SearchCriteriaContainer.propTypes = {
-    setAccountType: PropTypes.func.isRequired,
-    setAuthenticated: PropTypes.func.isRequired,
-    setIsAdmin: PropTypes.func.isRequired
+    memberSearchFilters: PropTypes.shape({
+        searchArea: PropTypes.shape({
+            province: PropTypes.string,
+            city: PropTypes.string,
+            radius: PropTypes.string
+        }).isRequired,
+        genderPreference: PropTypes.array.isRequired,
+        statusPreference: PropTypes.array.isRequired,
+        minAgePreference: PropTypes.number.isRequired,
+        maxAgePreference: PropTypes.number.isRequired,
+        numRoommatesPreference: PropTypes.array.isRequired,
+        minBudgetPreference: PropTypes.number.isRequired,
+        maxBudgetPreference: PropTypes.number.isRequired,
+        religionPreference: PropTypes.string.isRequired,
+        dietPreference: PropTypes.string.isRequired,
+        othersWithHomeToSharePreference: PropTypes.string.isRequired,
+        petsPreference: PropTypes.string.isRequired,
+        smokingPreference: PropTypes.string.isRequired
+
+    }).isRequired,
+    setMemberSearchFilters: PropTypes.func.isRequired,
+    reset: PropTypes.func.isRequired
 }
 
-export default connect(null, mapDispatch)(SearchCriteriaContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchCriteriaContainer);
