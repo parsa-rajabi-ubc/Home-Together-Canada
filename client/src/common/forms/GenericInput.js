@@ -42,8 +42,8 @@ function GenericInput(props) {
 }
 
 GenericInput.propTypes = {
-    label: PropTypes.string.isRequired,
     inputType: PropTypes.string.isRequired,
+    label: PropTypes.string,
     className: PropTypes.string,
     classNameLabel: PropTypes.string,
     placeholder: PropTypes.string,

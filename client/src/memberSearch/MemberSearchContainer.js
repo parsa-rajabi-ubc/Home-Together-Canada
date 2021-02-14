@@ -23,8 +23,9 @@ const MemberSearchContainer = (props) => {
     return (
         <div>
             {/* Checking to Ensure User is Authenticated and is a Member to view this page*/}
-            {(!authenticated || accountType !== USER_TYPES.MEMBER) ? <InvalidUser message={"You must be a registered member to view this page."}/> :
-                <div className={"flex flex-nowrap"}>
+            {(!authenticated || accountType !== USER_TYPES.MEMBER)
+                ? <InvalidUser message={"You must be a registered member to view this page."}/>
+                : <div className={"flex flex-nowrap"}>
                     <SearchFilterContainer/>
 
                     {/*Results*/}

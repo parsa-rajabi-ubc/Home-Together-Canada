@@ -13,6 +13,10 @@ export function resolveBooleanToYesNo(value) {
     return value ? "yes" : "no";
 }
 
+export function toggleYesNo(value) {
+    return value === 'yes' ? 'no'  : 'yes';
+}
+
 export function isValueInArray(arr, value){
     return includes(arr, value);
 }
