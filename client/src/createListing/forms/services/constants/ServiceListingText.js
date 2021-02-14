@@ -29,3 +29,17 @@ export const COHOUSING_TEXT = {
     units_for_sale: "Number of units for sale",
     units_for_rent: "Number of units for rent",
 }
+export const HOME_SERVICE_BUSINESS_TEXT = {
+    form_title: "Home Sharing Businesses, Groups and Organizations",
+    title: "Descriptive Title",
+    short_des: "Short Description",
+    photos: "Pictures (max of 6)",
+    full_des: "Full Description",
+    rates_and_fees: "Rates and fees"
+}
+export const GOVERNMENT_SERVICES_TEXT = {
+    form_title: "Government & Human Service Agencies Offering Shared Living & Support Services",
+    title: "Descriptive Ad Title",
+    short_des: "Short Description",
+    full_des: "Full Description"
+}

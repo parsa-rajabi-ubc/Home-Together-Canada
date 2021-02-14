@@ -19,6 +19,8 @@ import {BUSINESS_SERVICE_CATEGORIES} from "./constants/serviceListingText";
 import {BUSINESS_CLASSIFIEDS_CATEGORIES} from "./constants/classifiedListingText";
 import {MEMBER_SERVICE_CATEGORIES} from "./constants/serviceListingText";
 import CohousingForm from "./forms/services/CohousingForm";
+import HomeServiceBusinessForm from "./forms/services/HomeServiceBusinessForm";
+import GovernmentServicesForm from "./forms/services/GovernmentServicesForm";
 
 function onSubmit() {
 
@@ -40,11 +42,11 @@ const CreateListingContainer = (props) => {
             case BUSINESS_SERVICE_CATEGORIES.CO_HOUSING:
                 return <CohousingForm onSubmit={onSubmit}/>
             case BUSINESS_SERVICE_CATEGORIES.SHARED_HOME_SERVICES:
-                return "TODO: Replace this with HomeServicesBusinessForm";
+                return <HomeServiceBusinessForm onSubmit={onSubmit}/>;
             case BUSINESS_SERVICE_CATEGORIES.SHARED_BUSINESS_SERVICES:
-                return "TODO: Replace this with HomeServicesBusinessForm";
+                return <HomeServiceBusinessForm onSubmit={onSubmit}/>;
             case BUSINESS_SERVICE_CATEGORIES.GOVERNMENT_SERVICES:
-                return "TODO: Replace this with GovernmentServicesForm";
+                return <GovernmentServicesForm onSubmit={onSubmit}/>;
             case BUSINESS_CLASSIFIEDS_CATEGORIES.RENTALS:
                 return "TODO: Replace this with RentalForm";
             case BUSINESS_CLASSIFIEDS_CATEGORIES.HOUSE_YARD:
