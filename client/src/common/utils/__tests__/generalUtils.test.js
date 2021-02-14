@@ -6,7 +6,13 @@
  *
  */
 
-import {isValueInArray, resolveBooleanToYesNo, getMemberAge, validatePositiveNumber} from "../generalUtils";
+import {
+    isValueInArray,
+    resolveBooleanToYesNo,
+    getMemberAge,
+    validatePositiveNumber,
+    toggleYesNo
+} from "../generalUtils";
 
 describe('generalUtils', () => {
     describe('resolveBooleanToYesNo', () => {
@@ -26,6 +32,28 @@ describe('generalUtils', () => {
 
             // when
             const result = resolveBooleanToYesNo(value);
+
+            // then
+            expect(result).toBe("no");
+        });
+    });
+    describe('toggleYesNo', () => {
+        it('should return yes when value is no', () => {
+            // given
+            const value = 'no';
+
+            // when
+            const result = toggleYesNo(value);
+
+            // then
+            expect(result).toBe("yes");
+        });
+        it('should return no when value is yes', () => {
+            // given
+            const value = 'yes';
+
+            // when
+            const result = toggleYesNo(value);
 
             // then
             expect(result).toBe("no");

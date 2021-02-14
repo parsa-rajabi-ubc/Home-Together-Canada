@@ -11,20 +11,14 @@ jest.mock('react-redux', () => ({
     }
 }));
 
-const setAccountType = jest.fn();
-const setIsAdmin = jest.fn();
-const setAuthenticated = jest.fn();
-const setActive = jest.fn();
+const reset = jest.fn();
 
 describe('Header', () => {
     describe('Header structure', () => {
         it('should match snapshot test', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: null,
                 authenticated: false
@@ -41,10 +35,7 @@ describe('Header', () => {
         it('should show Search Member Profiles button when the user is unregistered', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: null,
                 authenticated: false
@@ -61,10 +52,7 @@ describe('Header', () => {
         it('should show Search Member Profiles button when the user is a member', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: 'member',
                 authenticated: true
@@ -81,10 +69,7 @@ describe('Header', () => {
         it('should not show Search Member Profiles button when the user is a business', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: 'business',
                 authenticated: true
@@ -104,10 +89,7 @@ describe('Header', () => {
         it('should show Home Sharing Services button when the user is unregistered', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: null,
                 authenticated: false
@@ -124,10 +106,7 @@ describe('Header', () => {
         it('should show Home Sharing Services button when the user is a member', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: 'member',
                 authenticated: true
@@ -144,10 +123,7 @@ describe('Header', () => {
         it('should show Home Sharing Services button when the user is a business', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: 'business',
                 authenticated: true
@@ -166,10 +142,7 @@ describe('Header', () => {
         it('should show Local Classifieds button when the user is unregistered', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: null,
                 authenticated: false
@@ -186,10 +159,7 @@ describe('Header', () => {
         it('should show Local Classifieds button when the user is a member', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: 'member',
                 authenticated: true
@@ -206,10 +176,7 @@ describe('Header', () => {
         it('should show Local Classifieds button when the user is a business', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: 'business',
                 authenticated: true
@@ -229,10 +196,7 @@ describe('Header', () => {
         it('should show About Us button when the user is unregistered', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: null,
                 authenticated: false
@@ -249,10 +213,7 @@ describe('Header', () => {
         it('should show About Us button when the user is a member', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: 'member',
                 authenticated: true
@@ -269,10 +230,7 @@ describe('Header', () => {
         it('should show About Us button when the user is a business', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: 'business',
                 authenticated: true
@@ -292,10 +250,7 @@ describe('Header', () => {
         it('should show FAQ button when the user is unregistered', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: null,
                 authenticated: false
@@ -312,10 +267,7 @@ describe('Header', () => {
         it('should show FAQ button when the user is a member', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: 'member',
                 authenticated: true
@@ -332,10 +284,7 @@ describe('Header', () => {
         it('should show FAQ button when the user is a business', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: 'business',
                 authenticated: true
@@ -355,10 +304,7 @@ describe('Header', () => {
         it('should show not show Create Listing button when the user is unregistered', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: null,
                 authenticated: false
@@ -375,10 +321,7 @@ describe('Header', () => {
         it('should show Create Listing button when the user is a member', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: 'member',
                 authenticated: true
@@ -395,10 +338,7 @@ describe('Header', () => {
         it('should show Create Listing button when the user is a business', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: 'business',
                 authenticated: true
@@ -418,10 +358,7 @@ describe('Header', () => {
         it('should show not show Admin button when the user is unauthenticated', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: null,
                 authenticated: false
@@ -438,10 +375,7 @@ describe('Header', () => {
         it('should show not Admin button when isAdmin is false', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: 'member',
                 authenticated: true
@@ -458,10 +392,7 @@ describe('Header', () => {
         it('should show Admin button when the user is authenticated and isAdmin is true', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: true,
                 accountType: 'member',
                 authenticated: true
@@ -481,10 +412,7 @@ describe('Header', () => {
         it('should show Login button when the user is unauthenticated', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: null,
                 authenticated: false
@@ -501,10 +429,7 @@ describe('Header', () => {
         it('should not show Login button when user is authenticated', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: 'member',
                 authenticated: true
@@ -524,10 +449,7 @@ describe('Header', () => {
         it('should show Sign Up button when the user is unauthenticated', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: null,
                 authenticated: false
@@ -544,10 +466,7 @@ describe('Header', () => {
         it('should not show Sign Up button when user is authenticated', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: 'member',
                 authenticated: true
@@ -567,10 +486,7 @@ describe('Header', () => {
         it('should not show Logout button when the user is unauthenticated', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: null,
                 authenticated: false
@@ -587,10 +503,7 @@ describe('Header', () => {
         it('should show Logout button when user is authenticated', () => {
             // given
             const props = {
-                setAccountType,
-                setIsAdmin,
-                setAuthenticated,
-                setActive,
+                reset,
                 isAdmin: false,
                 accountType: 'member',
                 authenticated: true

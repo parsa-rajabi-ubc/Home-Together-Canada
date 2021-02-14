@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeleteAccountContainer should render correctly regardless of properties 1`] = `
+<div>
+  <h3
+    className="account-summary-info-header"
+  >
+    Delete Account
+  </h3>
+  <p
+    className="account-summary-info-text"
+  >
+    To delete your account, please confirm using the checkbox below and then select Delete Account.
+  </p>
+  <div
+    className="m-auto w-1/2"
+  >
+    <div
+      className=" "
+    >
+      <input
+        checked={false}
+        className="mr-2 my-16"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <label
+        className="label font-normal label"
+      >
+        Are you sure you'd like to delete your account?
+      </label>
+    </div>
+  </div>
+</div>
+`;

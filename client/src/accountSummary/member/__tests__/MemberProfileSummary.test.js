@@ -10,6 +10,7 @@ import renderer from  'react-test-renderer'
 import {BrowserRouter as Router} from "react-router-dom";
 import MemberProfileSummary from "../MemberProfileSummary";
 import {interestedAreasMock, memberProfileMock, roommatesMock} from "../MockData";
+
 jest.mock("react-tooltip/node_modules/uuid", () => ({
             v4: () => "00000000-0000-0000-0000-000000000000"}
     )
@@ -23,10 +24,7 @@ jest.mock('react-redux', () => ({
     }
 }));
 
-const setAccountType = jest.fn();
-const setAuthenticated = jest.fn();
-const setIsAdmin = jest.fn();
-const setActive = jest.fn();
+const reset = jest.fn();
 
 describe('MemberProfileSummary', () => {
     it("should render correctly regardless of properties", () => {
@@ -35,10 +33,7 @@ describe('MemberProfileSummary', () => {
             profile: {...memberProfileMock},
             areasOfInterestList: interestedAreasMock,
             roommates: roommatesMock,
-            setAccountType,
-            setAuthenticated,
-            setIsAdmin,
-            setActive
+            reset
         };
         //when
         const component = renderer.create(<Router><MemberProfileSummary {...props}/></Router>);
