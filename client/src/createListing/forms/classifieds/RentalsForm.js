@@ -1,43 +1,40 @@
 /**
- * @Author:     Parsa Rajabi
- * @Created:    2021.2.3
+ * @Author:     Alex Qin
+ * @Created:    2021.02.12
  *
- * @Description: Member Home Share Form;
+ * @Description: Rentals Form
  *
  */
 
 import React, {useEffect, useState} from 'react';
 import PropTypes from "prop-types";
-import {MEMBER_HOME_SHARE_TEXT as TEXT} from "./constants/ServiceListingText";
-import {
-    checkIfErrorsExistInMapping,
-    validateCheckbox,
-    validateInput, validatePostalCode,
-} from "../../../registration/registrationUtils";
 import TextArea from "../../../common/forms/TextArea";
-import LargeTextArea from "../../../common/forms/LargeTextArea";
-import Dropdown from "../../../common/forms/Dropdown";
-import {options} from "./constants/BedroomBathroomDropdownOptions";
 import LabelAsterisk from "../../../common/forms/LabelAsterisk";
-import {dropdownDefaultCSS, dropdownErrorCSS} from "../../../css/dropdownCSSUtil";
-import YNButton from "../../../common/forms/YNButtons";
-import UploadImage from "../../../common/forms/UploadImage";
+import LargeTextArea from "../../../common/forms/LargeTextArea";
 import SubmitButton from "../../../common/forms/SubmitButton";
+import {SHORT_DESC_CHAR_COUNT} from "../../../common/constants/listingsConstants";
+import {
+    checkIfErrorsExistInMapping, validateCheckbox,
+    validateInput
+} from "../../../registration/registrationUtils";
+import {validatePositiveNumber} from "../../../common/utils/generalUtils";
+import {RENTALS_TEXT as TEXT} from "./constants/ClassifiedsListingText";
 import Tooltip from "../../../common/forms/Tooltip";
 import {CREATE_LISTING_MEMBER_SHARE_HOME as ToolTipText} from "../../../common/constants/TooltipText";
-import {validatePositiveNumber} from "../../../common/utils/generalUtils";
-import {SHORT_DESC_CHAR_COUNT} from "../../../common/constants/listingsConstants";
+import UploadImage from "../../../common/forms/UploadImage";
+import YNButton from "../../../common/forms/YNButtons";
+import Dropdown from "../../../common/forms/Dropdown";
+import {options} from "../services/constants/BedroomBathroomDropdownOptions";
+import {dropdownDefaultCSS, dropdownErrorCSS} from "../../../css/dropdownCSSUtil";
 
-
-const MemberHomeShareForm = (props) => {
-    const {onSubmit} = props;
+const HouseServicesForm = (props) => {
+    const { onSubmit } = props;
 
     const [title, setTitle] = useState(undefined);
-    const [postalCode, setPostalCode] = useState(undefined);
     const [shortDescription, setShortDescription] = useState(undefined);
     const [fullDescription, setFullDescription] = useState(undefined);
-    const [monthlyCost, setMonthlyCost] = useState(undefined);
-    const [utilIncluded, setUtilIncluded] = useState(undefined);
+    const [price, setPrice] = useState(undefined);
+    const [furnished, setFurnished] = useState(undefined);
     const [numBed, setNumBed] = useState(undefined);
     const [numBath, setNumBath] = useState(undefined);
     const [petFriendly, setPetFriendly] = useState(undefined);
@@ -45,11 +42,10 @@ const MemberHomeShareForm = (props) => {
     const [photos, setPhotos] = useState(undefined);
 
     const [titleError, setTitleError] = useState(undefined);
-    const [postalCodeError, setPostalCodeError] = useState(undefined);
     const [shortDescriptionError, setShortDescriptionError] = useState(undefined);
     const [fullDescriptionError, setFullDescriptionError] = useState(undefined);
-    const [monthlyCostError, setMonthlyCostError] = useState(undefined);
-    const [utilIncludedError, setUtilIncludedError] = useState(undefined);
+    const [priceError, setPriceError] = useState(undefined);
+    const [furnishedError, setFurnishedError] = useState(undefined);
     const [numBedError, setNumBedError] = useState(undefined);
     const [numBathError, setNumBathError] = useState(undefined);
     const [petFriendlyError, setPetFriendlyError] = useState(undefined);
@@ -60,17 +56,14 @@ const MemberHomeShareForm = (props) => {
         title !== undefined && validateInput(title, setTitleError);
     }, [title]);
     useEffect(() => {
-        postalCode !== undefined && validatePostalCode(postalCode, setPostalCodeError);
-    }, [postalCode]);
-    useEffect(() => {
         shortDescription !== undefined && validateInput(shortDescription, setShortDescriptionError);
     }, [shortDescription]);
     useEffect(() => {
         fullDescription !== undefined && validateInput(fullDescription, setFullDescriptionError);
     }, [fullDescription]);
     useEffect(() => {
-        monthlyCost !== undefined && validatePositiveNumber(monthlyCost, setMonthlyCostError);
-    }, [monthlyCost]);
+        price !== undefined && validatePositiveNumber(price, setPriceError);
+    }, [price]);
     useEffect(() => {
         numBed !== undefined && validateInput(numBed, setNumBedError);
     }, [numBed]);
@@ -84,9 +77,8 @@ const MemberHomeShareForm = (props) => {
         smokeFriendly !== undefined && validateInput(smokeFriendly, setSmokeFriendlyError);
     }, [smokeFriendly]);
     useEffect(() => {
-        utilIncluded !== undefined && validateCheckbox(utilIncluded, setUtilIncludedError);
-    }, [utilIncluded]);
-
+        furnished !== undefined && validateCheckbox(furnished, setFurnishedError);
+    }, [furnished]);
 
     const handleNumBedChange = e => {
         setNumBed(e.value);
@@ -104,10 +96,9 @@ const MemberHomeShareForm = (props) => {
 
         const errors = {
             title: false,
-            postalCode: false,
             shortDes: false,
             fullDes: false,
-            monthlyCost: false,
+            price: false,
             utilIncluded: false,
             numBed: false,
             numBath: false,
@@ -116,11 +107,10 @@ const MemberHomeShareForm = (props) => {
         }
 
         errors.title = validateInput(title, setTitleError);
-        errors.postalCode = validatePostalCode(postalCode, setPostalCodeError);
         errors.shortDes = validateInput(shortDescription, setShortDescriptionError);
         errors.fullDes = validateInput(fullDescription, setFullDescriptionError);
-        errors.monthlyCost = validatePositiveNumber(monthlyCost, setMonthlyCostError);
-        errors.utilIncluded = validateInput(utilIncluded, setUtilIncludedError);
+        errors.price = validatePositiveNumber(price,setPriceError);
+        errors.utilIncluded = validateInput(furnished, setFurnishedError);
         errors.numBed = validateInput(numBed, setNumBedError);
         errors.numBath = validateInput(numBath, setNumBathError);
         errors.pet = validateInput(petFriendly, setPetFriendlyError);
@@ -171,35 +161,27 @@ const MemberHomeShareForm = (props) => {
                                     charLimit={SHORT_DESC_CHAR_COUNT}
                                 />
                             </section>
-                            <section className={"col-start-6 col-end-9"}>
-                                <TextArea
-                                    className={`${postalCodeError && "border-red-500"} input`}
-                                    label={TEXT.postal_code}
-                                    labelClassName={"label"}
-                                    required={true}
-                                    onChange={(e) => setPostalCode(e.target.value)}
-                                />
-                            </section>
-
 
                             <section className={"col-start-1 col-end-5"}>
-                                <LabelAsterisk label={TEXT.monthly_cost} className={"label"}/>
+                                <LabelAsterisk label={TEXT.price} className={"label"}/>
                                 <input
-                                    className={`${monthlyCostError && "border-red-500"} input`}
+                                    className={`${priceError && "border-red-500"} input`}
                                     type="number"
                                     min="0"
                                     step="1"
-                                    onChange={(e) => setMonthlyCost(e.target.value)}
+                                    onChange={(e) => setPrice(e.target.value)}
                                 />
                             </section>
+
+
                             <section
-                                className={`${utilIncludedError && "pl-1 border rounded-lg border-red-500"} my-2 col-start-6 col-end-9`}>
+                                className={`${furnishedError && "pl-1 border rounded-lg border-red-500"} my-2 col-start-6 col-end-9`}>
                                 <YNButton
-                                    label={TEXT.util_included}
-                                    name="utilIncluded"
+                                    label={TEXT.furnished}
+                                    name="furnished"
                                     required={true}
-                                    value={utilIncluded}
-                                    onChange={(e) => setUtilIncluded(e.target.value)}
+                                    value={furnished}
+                                    onChange={(e) => setFurnished(e.target.value)}
                                 />
                             </section>
                             <section className={"col-start-1 col-end-5"}>
@@ -249,6 +231,7 @@ const MemberHomeShareForm = (props) => {
                                     onChange={(e) => setSmokeFriendly(e.target.value)}
                                 />
                             </section>
+
                         </div>
 
                         <LargeTextArea
@@ -260,8 +243,7 @@ const MemberHomeShareForm = (props) => {
                             onChange={(e) => setFullDescription(e.target.value)}
                         />
 
-
-                        <label className="label"> Photos </label>
+                        <label className="label"> Pictures </label>
                         <Tooltip
                             text={ToolTipText.PHOTOS}
                             toolTipID={"UploadPhotos"}
@@ -275,10 +257,10 @@ const MemberHomeShareForm = (props) => {
                           onSubmit={onCreateListing}/>
         </div>
     )
+
+}
+HouseServicesForm.propTypes = {
+    onSubmit: PropTypes.func.isRequired
 }
 
-MemberHomeShareForm.propTypes = {
-    onSubmit: PropTypes.func.isRequired,
-}
-
-export default MemberHomeShareForm;
+export default HouseServicesForm;
