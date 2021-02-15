@@ -7,9 +7,14 @@
  */
 const db = require("../models");
 const { formatPhoneNumber } = require('./utils/accountControllerUtils');
+const { getGeographicalCoordinatesFromAddress } = require('./utils/locationUtils');
 const BusinessAccount = db.businessAccount;
 
-const createBusinessAccount = (req, uid) => {
+const createBusinessAccount = async (req, uid) => {
+    const fullSearchableAddress = `${req.body.mapAddressLine1} ${req.body.mapCity} ${req.body.mapProvince}`;
+    const coordinates = await getGeographicalCoordinatesFromAddress(fullSearchableAddress);
+    console.log('coordinates: ', coordinates);
+
     const businessAccount = {
         uid: uid,
         businessName: req.body.businessName,
@@ -23,8 +28,8 @@ const createBusinessAccount = (req, uid) => {
         mapCity: req.body.mapCity,
         mapProvince: req.body.mapProvince,
         mapPostalCode: req.body.mapPostalCode,
-        mapLatitude: req.body.mapLatitude,
-        mapLongitude: req.body.mapLongitude,
+        mapLatitude: coordinates.latitude,
+        mapLongitude: coordinates.longitude,
         website: req.body.website
     }
 
@@ -71,7 +76,9 @@ const getLogo = (uid) =>
     });
 
 
-const updateBusiness = (req, res) => {
+const updateBusiness = req => {
+    const fullSearchableAddress = `${req.body.mapAddressLine1} ${req.body.mapCity} ${req.body.mapProvince}`;
+    const coordinates = getGeographicalCoordinatesFromAddress(fullSearchableAddress);
     return BusinessAccount.update({
         businessName: req.body.businessName,
         isIncorporated: req.body.isIncorporated,
@@ -84,8 +91,8 @@ const updateBusiness = (req, res) => {
         mapCity: req.body.mapCity,
         mapProvince: req.body.mapProvince,
         mapPostalCode: req.body.mapPostalCode,
-        mapLatitude: req.body.mapLatitude,
-        mapLongitude: req.body.mapLongitude,
+        mapLatitude: coordinates.latitude,
+        mapLongitude: coordinates.longitude,
         website: req.body.website
     }, {
         where: {

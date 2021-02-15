@@ -10,10 +10,10 @@ const circle = require('@turf/circle').default;
 
 const db = require('../models');
 const AreaOfInterest = db.areaOfInterest;
-const { getGeographicalCoordinates, getCircularFeatureFromCoordinates} = require('./utils/locationUtils');
+const { getGeographicalCoordinatesFromCity, getCircularFeatureFromCoordinates} = require('./utils/locationUtils');
 
 const createAreaOfInterest = async (areaOfInterest, uid) => {
-    const coordinates = await getGeographicalCoordinates(areaOfInterest.province, areaOfInterest.city);
+    const coordinates = await getGeographicalCoordinatesFromCity(areaOfInterest.province, areaOfInterest.city);
 
     const feature = getCircularFeatureFromCoordinates(coordinates, areaOfInterest.radius);
 
