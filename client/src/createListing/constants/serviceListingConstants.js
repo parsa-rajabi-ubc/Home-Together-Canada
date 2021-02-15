@@ -13,7 +13,7 @@ import {
     SHARED_HOME_SERVICES_SUBCATEGORIES,
     SHARED_BUSINESS_SERVICES_SUBCATEGORIES,
     GOVERNMENT_SERVICES_SUBCATEGORIES
-} from "./serviceListingText";
+} from "./serviceListingCategoriesText";
 
 export const MEMBER_SERVICE_CATEGORIES_DROPDOWN = [
     {

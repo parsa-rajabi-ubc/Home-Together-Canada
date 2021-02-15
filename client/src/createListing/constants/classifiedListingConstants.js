@@ -12,7 +12,7 @@ import {
     HOUSE_YARD_SERVICES_SUBCATEGORIES,
     LEGAL_SALES_AGENCIES_SUBCATEGORIES,
     RENTALS_SUBCATEGORIES
-} from "./classifiedListingText";
+} from "./classifiedListingCategoriesText";
 
 export const BUSINESS_CLASSIFIEDS_CATEGORIES_DROPDOWN = [
     {
