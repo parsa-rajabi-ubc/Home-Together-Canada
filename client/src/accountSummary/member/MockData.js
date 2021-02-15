@@ -12,12 +12,17 @@ export const memberSearchCriteriaMock = {
     maxBudgetPreference: 1200,
     statusPreference: ["Single", "Couple", "Single Parent"],
     numRoommatesPreference: [1,2,3],
-    dietPreference: true,
-    petsPreference: false,
-    smokingPreference: true,
+    dietPreference: 'yes',
+    petsPreference: 'no',
+    smokingPreference: 'yes',
     genderPreference: ["Male", "Other"],
-    religionPreference: true,
-    othersWithHomeToSharePreference: false
+    religionPreference: 'no',
+    othersWithHomeToSharePreference: 'no',
+    searchArea: {
+        province: '',
+        city: '',
+        radius: ''
+    }
 }
 
 export const memberAccountMock = {

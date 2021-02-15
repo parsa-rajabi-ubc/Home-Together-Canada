@@ -7,8 +7,10 @@
  */
 import React from 'react';
 import renderer from  'react-test-renderer'
+import ShallowRenderer from 'react-test-renderer/shallow';
 import MemberSearchContainer from "../MemberSearchContainer";
 import {BrowserRouter, Link} from "react-router-dom";
+import InvalidUser from "../../common/error/InvalidUser";
 
 jest.mock('react-redux', () => ({
     connect: () => {
@@ -39,77 +41,39 @@ describe('MemberSearchContainer', () => {
         });
     });
 
-    describe('Invalid user component login button', () => {
+    describe('Invalid user component', () => {
         it('should render when the user is not authenticated', () => {
             // given
             const props = {
-                accountType: 'member',
+                accountType: null,
                 authenticated: false
             };
 
             // when
             const testInstance = renderer.create(<BrowserRouter><MemberSearchContainer {...props}/></BrowserRouter>).root;
-            const connectWithMembersButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'Login');
+            const invalidUserComponent = testInstance.findByType(InvalidUser);
 
             // then
-            expect(connectWithMembersButton).toBeDefined();
+            expect(invalidUserComponent).toBeDefined();
         });
-    });
-    describe('Invalid user component sign up button', () => {
-        it('should render when the user is not authenticated', () => {
+        it('should render when the user is not a member', () => {
             // given
             const props = {
-                accountType: 'member',
-                authenticated: false
-            };
-
-            // when
-            const testInstance = renderer.create(<BrowserRouter><MemberSearchContainer {...props}/></BrowserRouter>).root;
-            const connectWithMembersButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'Create an account');
-
-            // then
-            expect(connectWithMembersButton).toBeDefined();
-        });
-    });
-    describe('Invalid user component login button', () => {
-        it('should render when the user is not member', () => {
-            // given
-            const props = {
-                accountType: null,
+                accountType: 'business',
                 authenticated: true
             };
 
             // when
             const testInstance = renderer.create(<BrowserRouter><MemberSearchContainer {...props}/></BrowserRouter>).root;
-            const connectWithMembersButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'Login');
+            const invalidUserComponent = testInstance.findByType(InvalidUser);
 
             // then
-            expect(connectWithMembersButton).toBeDefined();
-        });
-    });
-    describe('Invalid user component sign up button', () => {
-        it('should render when the user is not member', () => {
-            // given
-            const props = {
-                accountType: null,
-                authenticated: true
-            };
-
-            // when
-            const testInstance = renderer.create(<BrowserRouter><MemberSearchContainer {...props}/></BrowserRouter>).root;
-            const connectWithMembersButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'Create an account');
-
-            // then
-            expect(connectWithMembersButton).toBeDefined();
+            expect(invalidUserComponent).toBeDefined();
         });
     });
 
-    describe('Invalid user component login button', () => {
-        it('should not render when the user is not authenticated', () => {
+    describe('Member Search Container component', () => {
+        it('should render when the user is a member and authenticated', () => {
             // given
             const props = {
                 accountType: 'member',
@@ -117,63 +81,12 @@ describe('MemberSearchContainer', () => {
             };
 
             // when
-            const testInstance = renderer.create(<BrowserRouter><MemberSearchContainer {...props}/></BrowserRouter>).root;
-            const connectWithMembersButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'Login');
+            const renderer = new ShallowRenderer();
+            renderer.render(<MemberSearchContainer {...props}/>);
+            const result = renderer.getRenderOutput();
 
             // then
-            expect(connectWithMembersButton).toBeUndefined();
-        });
-    });
-    describe('Invalid user component sign up button', () => {
-        it('should not render when the user is not authenticated', () => {
-            // given
-            const props = {
-                accountType: 'member',
-                authenticated: true
-            };
-
-            // when
-            const testInstance = renderer.create(<BrowserRouter><MemberSearchContainer {...props}/></BrowserRouter>).root;
-            const connectWithMembersButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'Sign Up');
-
-            // then
-            expect(connectWithMembersButton).toBeUndefined();
-        });
-    });
-    describe('Invalid user component login button', () => {
-        it('should not render when the user is not member', () => {
-            // given
-            const props = {
-                accountType: 'member',
-                authenticated: true
-            };
-
-            // when
-            const testInstance = renderer.create(<BrowserRouter><MemberSearchContainer {...props}/></BrowserRouter>).root;
-            const connectWithMembersButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'Login');
-
-            // then
-            expect(connectWithMembersButton).toBeUndefined();
-        });
-    });
-    describe('Invalid user component sign up button', () => {
-        it('should not render when the user is not member', () => {
-            // given
-            const props = {
-                accountType: 'member',
-                authenticated: true
-            };
-
-            // when
-            const testInstance = renderer.create(<BrowserRouter><MemberSearchContainer {...props}/></BrowserRouter>).root;
-            const connectWithMembersButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'Sign Up');
-
-            // then
-            expect(connectWithMembersButton).toBeUndefined();
+            expect(result).toMatchSnapshot();
         });
     });
 });

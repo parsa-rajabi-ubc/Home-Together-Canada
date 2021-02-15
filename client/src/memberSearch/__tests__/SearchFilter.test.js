@@ -47,19 +47,19 @@ describe('SearchFilter', () => {
                 setMaxBudgetPreference: jest.fn(),
                 maxBudgetPreferenceError: true,
 
-                petPreference: true,
+                petPreference: 'yes',
                 setPetPreference: jest.fn(),
 
-                smokingPreference: true,
+                smokingPreference: 'yes',
                 setSmokingPreference: jest.fn(),
 
-                religionPreference: true,
+                religionPreference: 'yes',
                 setReligionPreference: jest.fn(),
 
-                dietPreference: false,
+                dietPreference: 'no',
                 setDietPreference: jest.fn(),
 
-                homeToSharePreference: false,
+                homeToSharePreference: 'no',
                 setHomeToSharePreference: jest.fn(),
 
                 onSubmit: jest.fn(),

@@ -9,42 +9,46 @@
 import React, {useState, useEffect} from 'react';
 import SearchFilter from "./SearchFilter";
 import {isValueInArray} from "../common/utils/generalUtils";
-import get from "lodash/get";
 import {checkIfErrorsExistInMapping, validateMinMaxFilter} from "../registration/registrationUtils";
-import {memberSearchCriteriaMock} from "../accountSummary/member/MockData";
 import indexOf from "lodash/indexOf";
+import { setMemberSearchFilters } from "../redux/slices/memberPrivileges";
+import {connect} from "react-redux";
+import PropTypes from "prop-types";
 
+const mapDispatchToProps = {
+    setMemberSearchFilters
+}
 
-const SearchFilterContainer = () => {
+const SearchFilterContainer = props => {
+    const { setMemberSearchFilters, memberSearchFilters } = props;
 
     const [searchArea, setSearchArea]  = useState({
-        province: "",
-        city: "",
-        radius: ""
+        province: memberSearchFilters.searchArea.province,
+        city: memberSearchFilters.searchArea.city,
+        radius: memberSearchFilters.searchArea.radius
     });
 
     // Gender and Family Status
-    const [genderPreference, setGenderPreference] = useState(get(memberSearchCriteriaMock, "genderPreference", ""));
-    const [familyStatusPreference, setFamilyStatusPreference] = useState(get(memberSearchCriteriaMock, "statusPreference", ""));
+    const [genderPreference, setGenderPreference] = useState(memberSearchFilters.genderPreference);
+    const [familyStatusPreference, setFamilyStatusPreference] = useState(memberSearchFilters.statusPreference);
 
     // Age
-    const [minAgePreference, setMinAgePreference] = useState(get(memberSearchCriteriaMock, "minAgePreference", ""));
-    const [maxAgePreference, setMaxAgePreference] = useState(get(memberSearchCriteriaMock, "maxAgePreference", ""));
+    const [minAgePreference, setMinAgePreference] = useState(memberSearchFilters.minAgePreference);
+    const [maxAgePreference, setMaxAgePreference] = useState(memberSearchFilters.maxAgePreference);
 
     // Number of Roommates
-    const [selectedLimitPreference, setSelectedLimitPreference] = useState(get(memberSearchCriteriaMock, "numRoommatesPreference", ""));
+    const [selectedLimitPreference, setSelectedLimitPreference] = useState(memberSearchFilters.numRoommatesPreference);
 
     // Budget
-    const [minBudgetPreference, setMinBudgetPreference] = useState(get(memberSearchCriteriaMock, "minBudgetPreference", ""));
-    const [maxBudgetPreference, setMaxBudgetPreference] = useState(get(memberSearchCriteriaMock, "maxBudgetPreference", ""));
+    const [minBudgetPreference, setMinBudgetPreference] = useState(memberSearchFilters.minBudgetPreference);
+    const [maxBudgetPreference, setMaxBudgetPreference] = useState(memberSearchFilters.maxBudgetPreference);
 
     // Yes/No Question
-    const [religionPreference, setReligionPreference] = useState(get(memberSearchCriteriaMock, "religionPreference", ""));
-    const [dietPreference, setDietPreference] = useState(get(memberSearchCriteriaMock, "dietPreference", ""));
-    const [homeToSharePreference, setHomeToSharePreference] = useState(get(memberSearchCriteriaMock, "othersWithHomeToSharePreference", ""));
-    const [petPreference, setPetPreference] = useState(get(memberSearchCriteriaMock, "petsPreference", ""));
-    const [smokingPreference, setSmokingPreference] = useState(get(memberSearchCriteriaMock, "smokingPreference", ""));
-
+    const [religionPreference, setReligionPreference] = useState(memberSearchFilters.religionPreference);
+    const [dietPreference, setDietPreference] = useState(memberSearchFilters.dietPreference);
+    const [homeToSharePreference, setHomeToSharePreference] = useState(memberSearchFilters.othersWithHomeToSharePreference);
+    const [petPreference, setPetPreference] = useState(memberSearchFilters.petsPreference);
+    const [smokingPreference, setSmokingPreference] = useState(memberSearchFilters.smokingPreference);
 
     // Search Criteria Errors
     // Age
@@ -93,7 +97,6 @@ const SearchFilterContainer = () => {
         }
     }
 
-
     const isFormValid = () => {
 
         const searchErrors = {
@@ -122,6 +125,27 @@ const SearchFilterContainer = () => {
 
     function onSubmit() {
         if (isFormValid()) {
+            setMemberSearchFilters({
+                memberSearchFilters: {
+                    searchArea: {
+                        province: searchArea.province,
+                        city: searchArea.city,
+                        radius: searchArea.radius
+                    },
+                    genderPreference,
+                    statusPreference: familyStatusPreference,
+                    minAgePreference,
+                    maxAgePreference,
+                    numRoommatesPreference: selectedLimitPreference,
+                    minBudgetPreference,
+                    maxBudgetPreference,
+                    petsPreference: petPreference,
+                    smokingPreference: smokingPreference,
+                    religionPreference: religionPreference,
+                    dietPreference: dietPreference,
+                    othersWithHomeToSharePreference: homeToSharePreference
+                }
+            })
 
             // else form is valid and proceed to make request
 
@@ -145,7 +169,6 @@ const SearchFilterContainer = () => {
                 genderPreference: genderPreference,
                 religionPreference: religionPreference,
                 othersWithHomeToSharePreference: homeToSharePreference,
-
             }
         }
     }
@@ -196,8 +219,35 @@ const SearchFilterContainer = () => {
 
             onSubmit={onSubmit}
          />
-    )
+    );
 }
 
+const mapStateToProps = state => ({
+    memberSearchFilters: state.memberPrivileges.memberSearchFilters
+});
 
-export default SearchFilterContainer;
+SearchFilterContainer.propTypes = {
+    memberSearchFilters: PropTypes.shape({
+        searchArea: PropTypes.shape({
+            province: PropTypes.string,
+            city: PropTypes.string,
+            radius: PropTypes.string
+        }).isRequired,
+        genderPreference: PropTypes.array.isRequired,
+        statusPreference: PropTypes.array.isRequired,
+        minAgePreference: PropTypes.number.isRequired,
+        maxAgePreference: PropTypes.number.isRequired,
+        numRoommatesPreference: PropTypes.array.isRequired,
+        minBudgetPreference: PropTypes.number.isRequired,
+        maxBudgetPreference: PropTypes.number.isRequired,
+        religionPreference: PropTypes.string.isRequired,
+        dietPreference: PropTypes.string.isRequired,
+        othersWithHomeToSharePreference: PropTypes.string.isRequired,
+        petsPreference: PropTypes.string.isRequired,
+        smokingPreference: PropTypes.string.isRequired
+
+    }).isRequired,
+    setMemberSearchFilters: PropTypes.func.isRequired
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchFilterContainer);

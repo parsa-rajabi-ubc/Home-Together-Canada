@@ -11,8 +11,8 @@ import '../../tailwind.output.css';
 import {Link} from "react-router-dom";
 import LoginService from '../../services/LoginService';
 import {connect} from "react-redux";
-import {setAccountType, setAuthenticated, setIsAdmin} from "../../redux/slices/userPrivileges";
-import {setActive} from "../../redux/slices/memberPrivileges";
+import { bindActionCreators } from 'redux';
+import {reset} from '../../redux/actionCreators';
 import PropTypes from "prop-types";
 import {BUSINESS_SUBPAGES, MEMBER_SUBPAGES, USER_TYPES} from "../constants/users";
 import Dropdown from "../forms/Dropdown";
@@ -22,15 +22,14 @@ import {compose} from "redux";
 import {dropdownAccountCSS, dropdownAccountTheme} from "../../css/dropdownCSSUtil"
 import {SERVICES_TEXT, CLASSIFIEDS_TEXT, CREATE_LISTINGS_TEXT} from "../constants/listingsConstants";
 
-const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated, setActive};
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ reset }, dispatch);
+}
 
 const Header = (props) => {
     const {
         history,
-        setIsAdmin,
-        setAccountType,
-        setAuthenticated,
-        setActive,
+        reset,
         isAdmin,
         accountType,
         authenticated
@@ -40,10 +39,7 @@ const Header = (props) => {
         LoginService.logoutUser()
             .then(res => res.json())
             .then(() => {
-                setIsAdmin({isAdmin: false});
-                setAccountType({accountType: USER_TYPES.UNREGISTERED});
-                setAuthenticated({authenticated: false});
-                setActive({active: null});
+                reset();
 
                 // redirect to home page
                 history.push('/');
@@ -137,7 +133,7 @@ const Header = (props) => {
                 }
             </nav>
         </div>
-    )
+    );
 }
 
 const mapStateToProps = (state) => ({
@@ -150,10 +146,7 @@ Header.propTypes = {
     history: PropTypes.shape({
         push: PropTypes.func
     }).isRequired,
-    setAccountType: PropTypes.func.isRequired,
-    setIsAdmin: PropTypes.func.isRequired,
-    setAuthenticated: PropTypes.func.isRequired,
-    setActive: PropTypes.func.isRequired,
+    reset: PropTypes.func.isRequired,
     isAdmin: PropTypes.bool.isRequired,
     authenticated: PropTypes.bool.isRequired,
     accountType: PropTypes.string
@@ -161,5 +154,5 @@ Header.propTypes = {
 
 export default compose(
     withRouter,
-    connect(mapStateToProps, mapDispatch)
+    connect(mapStateToProps, mapDispatchToProps)
 )(Header);

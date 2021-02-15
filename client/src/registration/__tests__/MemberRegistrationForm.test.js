@@ -26,6 +26,8 @@ jest.mock('react-redux', () => ({
 const setAccountType = jest.fn();
 const setIsAdmin = jest.fn();
 const setAuthenticated = jest.fn();
+const setActive = jest.fn();
+const setMemberSearchFilters = jest.fn();
 
 describe('MemberRegistrationForm', () => {
     it("should render correctly regardless of properties", () => {
@@ -33,7 +35,9 @@ describe('MemberRegistrationForm', () => {
         const props = {
             setAccountType,
             setIsAdmin,
-            setAuthenticated
+            setAuthenticated,
+            setActive,
+            setMemberSearchFilters
         };
         //when
         const component = renderer.create(<Router><MemberRegistrationForm {...props}/></Router>);

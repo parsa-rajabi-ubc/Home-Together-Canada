@@ -9,12 +9,13 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import Checkbox from "../common/forms/Checkbox";
-import {isValueInArray} from "../common/utils/generalUtils";
+import {isValueInArray, toggleYesNo} from "../common/utils/generalUtils";
 import Status from "../common/forms/Status";
 import {dropdownDefaultCSS} from "../css/dropdownCSSUtil";
 import ShareLimit from "../common/forms/ShareLimits";
 import SubmitButton from "../common/forms/SubmitButton";
 import SearchArea from "../common/listings/SearchArea";
+import {resolveYesNoToBoolean} from "../registration/registrationUtils";
 
 function SearchFilter(props) {
     const {
@@ -63,6 +64,7 @@ function SearchFilter(props) {
 
         onSubmit,
     } = props;
+
     return (
         <div className="col-start-1 col-end-7 py-5 px-5 m-6 bg-white shadow-lg rounded-xl">
             <div className="grid grid-cols-2 gap-6">
@@ -178,35 +180,34 @@ function SearchFilter(props) {
                     <Checkbox
                         label="Pet friendly"
                         id={"PetFriendly"}
-                        checked={petPreference}
-                        onChange={() => setPetPreference(!petPreference)}
+                        checked={resolveYesNoToBoolean(petPreference)}
+                        onChange={() => setPetPreference(toggleYesNo(petPreference))}
 
                     />
                     <Checkbox
                         label="Smoke friendly"
                         id={"SmokeFriendly"}
-                        checked={smokingPreference}
-                        onChange={() => setSmokingPreference(!smokingPreference)}
+                        checked={resolveYesNoToBoolean(smokingPreference)}
+                        onChange={() => setSmokingPreference(toggleYesNo(smokingPreference))}
                     />
                     <Checkbox
                         label="Religion is important"
                         id={"religionPref"}
-                        checked={religionPreference}
-                        onChange={() => setReligionPreference(!religionPreference)}
+                        checked={resolveYesNoToBoolean(religionPreference)}
+                        onChange={() => setReligionPreference(toggleYesNo(religionPreference))}
                     />
                     <Checkbox
                         label="Diet is important"
                         id={"dietPref"}
-                        checked={dietPreference}
-                        onChange={() => setDietPreference(!dietPreference)}
+                        checked={resolveYesNoToBoolean(dietPreference)}
+                        onChange={() => setDietPreference(toggleYesNo(dietPreference))}
                     />
                     <Checkbox
                         label="Others with a home to share"
                         id={"homeToSharePref"}
-                        checked={homeToSharePreference}
-                        onChange={() => setHomeToSharePreference(!homeToSharePreference)}
+                        checked={resolveYesNoToBoolean(homeToSharePreference)}
+                        onChange={() => setHomeToSharePreference(toggleYesNo(homeToSharePreference))}
                     />
-
                 </div>
             </div>
         </div>
@@ -242,19 +243,19 @@ SearchFilter.propTypes = {
     setMaxBudgetPreference: PropTypes.func.isRequired,
     maxBudgetPreferenceError: PropTypes.bool,
 
-    petPreference: PropTypes.bool.isRequired,
+    petPreference: PropTypes.string.isRequired,
     setPetPreference: PropTypes.func.isRequired,
 
-    smokingPreference: PropTypes.bool.isRequired,
+    smokingPreference: PropTypes.string.isRequired,
     setSmokingPreference: PropTypes.func.isRequired,
 
-    religionPreference: PropTypes.bool.isRequired,
+    religionPreference: PropTypes.string.isRequired,
     setReligionPreference: PropTypes.func.isRequired,
 
-    dietPreference: PropTypes.bool.isRequired,
+    dietPreference: PropTypes.string.isRequired,
     setDietPreference: PropTypes.func.isRequired,
 
-    homeToSharePreference: PropTypes.bool.isRequired,
+    homeToSharePreference: PropTypes.string.isRequired,
     setHomeToSharePreference: PropTypes.func.isRequired,
 
     onSubmit: PropTypes.func.isRequired,

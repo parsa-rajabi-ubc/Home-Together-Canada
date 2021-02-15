@@ -43,3 +43,9 @@ exports[`MemberSearchContainer Container test should match snapshot test 1`] = `
   </div>
 </div>
 `;
+
+exports[`MemberSearchContainer Member Search Container component should render when the user is a member and authenticated 1`] = `
+<Context.Consumer>
+  [Function]
+</Context.Consumer>
+`;

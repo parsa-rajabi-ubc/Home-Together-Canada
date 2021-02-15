@@ -30,12 +30,14 @@ import UploadImage from "../../common/forms/UploadImage";
 import ChangeImage from "../../common/forms/ChangeImage";
 import BusinessService from '../../services/BusinessService';
 import UploadService from '../../services/UploadService';
-import {setAccountType, setAuthenticated} from "../../redux/slices/userPrivileges";
-import {USER_TYPES} from "../../common/constants/users";
 import has from "lodash/has";
 import { useHistory } from "react-router-dom";
+import {bindActionCreators} from "redux";
+import {reset} from "../../redux/actionCreators";
 
-const mapDispatch = {setAccountType, setAuthenticated};
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ reset }, dispatch);
+}
 
 const BusinessAccountSummary = (props) => {
     const {
@@ -67,8 +69,7 @@ const BusinessAccountSummary = (props) => {
         postalCode,
         province,
         website,
-        setAccountType,
-        setAuthenticated,
+        reset
     } = props;
 
     const history = useHistory();
@@ -359,10 +360,7 @@ const BusinessAccountSummary = (props) => {
                     alert(errorMessage);
                     setShowSuccessMessage(false);
                 } else if (data && !data.authenticated && !data.success) {
-                    setAccountType({accountType: USER_TYPES.UNREGISTERED});
-                    setAuthenticated({authenticated: false});
-
-                    alert('There was an error with your session. Please try to login again.');
+                    reset();
 
                     // redirect to home page
                     history.push('/');
@@ -659,8 +657,7 @@ const BusinessAccountSummary = (props) => {
 }
 
 BusinessAccountSummary.propTypes = {
-    setAccountType: PropTypes.func.isRequired,
-    setAuthenticated: PropTypes.func.isRequired,
+    reset: PropTypes.func.isRequired,
     addressLine1: PropTypes.string.isRequired,
     addressLine2: PropTypes.string,
     businessCellPhoneNumber: PropTypes.string.isRequired,
@@ -691,4 +688,4 @@ BusinessAccountSummary.propTypes = {
     website: PropTypes.string
 }
 
-export default connect(null, mapDispatch)(BusinessAccountSummary);
+export default connect(null, mapDispatchToProps)(BusinessAccountSummary);
