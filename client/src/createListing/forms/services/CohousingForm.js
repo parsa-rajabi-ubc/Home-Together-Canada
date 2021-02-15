@@ -84,6 +84,7 @@ const CohousingForm = (props) => {
             onSubmit();
         }
     }
+
     return (
         <div>
             <div className="col-start-1 col-end-7 py-5 px-5 m-6 bg-white shadow-lg rounded-xl">
