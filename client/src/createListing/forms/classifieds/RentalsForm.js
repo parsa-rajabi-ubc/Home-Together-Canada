@@ -62,7 +62,7 @@ const HouseServicesForm = (props) => {
         fullDescription !== undefined && validateInput(fullDescription, setFullDescriptionError);
     }, [fullDescription]);
     useEffect(() => {
-        price !== undefined && validatePositiveNumber(price, setPrice);
+        price !== undefined && validatePositiveNumber(price, setPriceError);
     }, [price]);
     useEffect(() => {
         numBed !== undefined && validateInput(numBed, setNumBedError);

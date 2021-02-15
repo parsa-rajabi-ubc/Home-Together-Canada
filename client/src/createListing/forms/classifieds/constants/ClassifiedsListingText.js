@@ -27,3 +27,4 @@ export const RENTALS_TEXT = {
     photos: "Photos",
     furnished: "Furnished?"
 }
+

@@ -45,7 +45,7 @@ const HouseServicesForm = (props) => {
         fullDescription !== undefined && validateInput(fullDescription, setFullDescriptionError);
     }, [fullDescription]);
     useEffect(() => {
-        rateAndFee !== undefined && validateInput(rateAndFee, setRateAndFee);
+        rateAndFee !== undefined && validateInput(rateAndFee, setRateAndFeeError);
     }, [rateAndFee]);
 
     function handleImageUpload(e) {
