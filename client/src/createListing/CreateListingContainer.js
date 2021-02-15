@@ -22,7 +22,9 @@ import CohousingForm from "./forms/services/CohousingForm";
 import HomeServiceBusinessForm from "./forms/services/HomeServiceBusinessForm";
 import GovernmentServicesForm from "./forms/services/GovernmentServicesForm";
 import HouseServicesForm from "./forms/classifieds/HouseServicesForm";
-import RentalsForm from "./forms/classifieds/RentalsForm"
+import RentalsForm from "./forms/classifieds/RentalsForm";
+import AgenciesForm from "./forms/classifieds/AgenciesForm";
+import EventsForm from "./forms/classifieds/EventsForm";
 
 function onSubmit() {
 
@@ -54,9 +56,9 @@ const CreateListingContainer = (props) => {
             case BUSINESS_CLASSIFIEDS_CATEGORIES.HOUSE_YARD:
                 return <HouseServicesForm onSubmit={onSubmit}/>;
             case BUSINESS_CLASSIFIEDS_CATEGORIES.LEGAL_SALES:
-                return "TODO: Replace this with LegalForm";
+                return <AgenciesForm onSubmit={onSubmit}/>;
             case BUSINESS_CLASSIFIEDS_CATEGORIES.CLASSES_CLUBS:
-                return "TODO: Replace this with ClassesClubs";
+                return <EventsForm onSubmit={onSubmit}/>;
             default:
                 return (
                     <div className="flex justify-center items-center h-64 bg-white">
