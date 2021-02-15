@@ -1,40 +1,43 @@
 /**
- * @Author:     Jeff Hatton
- * @Created:    2021.02.10
+ * @Author:     Alex Qin
+ * @Created:    2021.2.12
  *
- * @Description: Cohousing listing form
+ * @Description: Classes, Clubs & Events Form
  *
  */
 
 import React, {useEffect, useState} from 'react';
 import PropTypes from "prop-types";
-import {HOME_SERVICE_BUSINESS_TEXT as TEXT} from "./constants/ServiceListingText";
 import TextArea from "../../../common/forms/TextArea";
 import LargeTextArea from "../../../common/forms/LargeTextArea";
 import SubmitButton from "../../../common/forms/SubmitButton";
 import {SHORT_DESC_CHAR_COUNT} from "../../../common/constants/listingsConstants";
 import {
     checkIfErrorsExistInMapping,
-    validateInput,
+    validateInput
 } from "../../../registration/registrationUtils";
-import {validatePositiveNumber} from "../../../common/utils/generalUtils";
+import {Events_TEST as TEXT} from "./constants/ClassifiedsListingText";
 import Tooltip from "../../../common/forms/Tooltip";
 import {CREATE_LISTING_MEMBER_SHARE_HOME as ToolTipText} from "../../../common/constants/TooltipText";
 import UploadImage from "../../../common/forms/UploadImage";
 
-const HomeServiceBusinessForm = (props) => {
+const EventsForm = (props) => {
     const { onSubmit } = props;
 
     const [title, setTitle] = useState(undefined);
     const [shortDescription, setShortDescription] = useState(undefined);
-    const [ratesAndFees, setRatesAndFees] = useState(undefined);
     const [fullDescription, setFullDescription] = useState(undefined);
-    const [pictures, setPictures] = useState(undefined);
+    const [rateAndFee, setRateAndFee] = useState(undefined);
+    const [picture, setPicture] = useState(undefined);
+    const [contactName, setContactName] = useState(undefined);
+    const [dateAndTime,setDateAndTime] = useState(undefined);
 
     const [titleError, setTitleError] = useState(undefined);
     const [shortDescriptionError, setShortDescriptionError] = useState(undefined);
     const [fullDescriptionError, setFullDescriptionError] = useState(undefined);
-    const [ratesAndFeesError, setRatesAndFeesError] = useState(undefined);
+    const [rateAndFeeError, setRateAndFeeError] = useState(undefined);
+    const [contactNameError, setContactNameError] = useState(undefined);
+    const [dateAndTimeError,setDateAndTimeError] = useState(undefined);
 
     useEffect(() => {
         title !== undefined && validateInput(title, setTitleError);
@@ -46,11 +49,17 @@ const HomeServiceBusinessForm = (props) => {
         fullDescription !== undefined && validateInput(fullDescription, setFullDescriptionError);
     }, [fullDescription]);
     useEffect(() => {
-        ratesAndFees !== undefined && validatePositiveNumber(ratesAndFees, setRatesAndFeesError);
-    }, [ratesAndFees]);
+        rateAndFee !== undefined && validateInput(rateAndFee, setRateAndFeeError);
+    }, [rateAndFee]);
+    useEffect(() => {
+        contactName !== undefined && validateInput(contactName, setContactNameError);
+    }, [contactName]);
+    useEffect(() => {
+        dateAndTime !== undefined && validateInput(dateAndTime, setDateAndTimeError);
+    }, [dateAndTime]);
 
     function handleImageUpload(e) {
-        setPictures(e.target.files[0]);
+        setPicture(e.target.files[0]);
     }
 
     const isFormValid = () => {
@@ -59,13 +68,17 @@ const HomeServiceBusinessForm = (props) => {
             title: false,
             shortDes: false,
             fullDes: false,
-            ratesAndFees: false,
+            rateFee: false,
+            contactName: false,
+            dateAndTime: false
         }
 
         errors.title = validateInput(title, setTitleError);
         errors.shortDes = validateInput(shortDescription, setShortDescriptionError);
         errors.fullDes = validateInput(fullDescription, setFullDescriptionError);
-        errors.ratesAndFees = validatePositiveNumber(ratesAndFees, setRatesAndFeesError);
+        errors.rateFee = validateInput(rateAndFee,setRateAndFeeError);
+        errors.contactName = validateInput(contactName,setContactNameError);
+        errors.dateAndTime = validateInput(dateAndTime,setDateAndTimeError)
 
         return !(checkIfErrorsExistInMapping(errors));
     }
@@ -115,15 +128,37 @@ const HomeServiceBusinessForm = (props) => {
 
                             <section className={"col-start-1 col-end-5"}>
                                 <TextArea
-                                    className={`${ratesAndFeesError && "border-red-500"} input`}
-                                    label={TEXT.rates_and_fees}
+                                    className={`${rateAndFeeError && "border-red-500"} input`}
+                                    label={TEXT.rateAndFees}
                                     labelClassName={"label"}
                                     required={true}
-                                    onChange={(e) => setRatesAndFees(e.target.value)}
+                                    onChange={(e) => setRateAndFee(e.target.value)}
                                 />
                             </section>
 
+                            <section className={"col-start-1 col-end-5"}>
+                                <TextArea
+                                    className={`${contactNameError && "border-red-500"} input`}
+                                    label={TEXT.contactName}
+                                    labelClassName={"label"}
+                                    required={true}
+                                    onChange={(e) => setContactName(e.target.value)}
+                                />
+                            </section>
+
+                            <section className={"col-start-1 col-end-5"}>
+                                <TextArea
+                                    className={`${dateAndTimeError && "border-red-500"} input`}
+                                    label={TEXT.eventDateAndDate}
+                                    labelClassName={"label"}
+                                    required={true}
+                                    onChange={(e) => setDateAndTime(e.target.value)}
+                                />
+                            </section>
+
+
                         </div>
+
                         <LargeTextArea
                             className={`${fullDescriptionError && "border-red-500"} input`}
                             rows={"6"}
@@ -132,12 +167,14 @@ const HomeServiceBusinessForm = (props) => {
                             required={true}
                             onChange={(e) => setFullDescription(e.target.value)}
                         />
-                        <label className="label"> Photos </label>
+
+                        <label className="label"> Pictures </label>
                         <Tooltip
                             text={ToolTipText.PHOTOS}
                             toolTipID={"UploadPhotos"}
                         />
                         <UploadImage handleImageUpload={handleImageUpload}/>
+
                     </div>
                 </div>
             </div>
@@ -147,8 +184,8 @@ const HomeServiceBusinessForm = (props) => {
     )
 
 }
-HomeServiceBusinessForm.propTypes = {
+EventsForm.propTypes = {
     onSubmit: PropTypes.func.isRequired
 }
 
-export default HomeServiceBusinessForm;
+export default EventsForm;

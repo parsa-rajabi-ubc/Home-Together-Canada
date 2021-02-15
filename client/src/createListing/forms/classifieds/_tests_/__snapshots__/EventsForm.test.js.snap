@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HomeServiceBusinessForm Snapshot test should render correctly regardless of properties 1`] = `
+exports[`EventsForm Snapshot test should render correctly regardless of properties 1`] = `
 <div>
   <div
     className="col-start-1 col-end-7 py-5 px-5 m-6 bg-white shadow-lg rounded-xl"
@@ -15,7 +15,7 @@ exports[`HomeServiceBusinessForm Snapshot test should render correctly regardles
           className="page-title mb-5"
         >
            
-          Home Sharing Businesses, Groups and Organizations
+          Classes, Clubs & Events
            
         </h1>
         <section>
@@ -99,7 +99,81 @@ exports[`HomeServiceBusinessForm Snapshot test should render correctly regardles
               <label
                 className="label"
               >
-                Rates and fees
+                Rates and Fees
+              </label>
+              <svg
+                className="inline align-top text-red-600"
+                fill="none"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <input
+                className="undefined input"
+                disabled={false}
+                onChange={[Function]}
+                type="text"
+              />
+            </section>
+          </section>
+          <section
+            className="col-start-1 col-end-5"
+          >
+            <section>
+              <label
+                className="label"
+              >
+                Contact Name
+              </label>
+              <svg
+                className="inline align-top text-red-600"
+                fill="none"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <input
+                className="undefined input"
+                disabled={false}
+                onChange={[Function]}
+                type="text"
+              />
+            </section>
+          </section>
+          <section
+            className="col-start-1 col-end-5"
+          >
+            <section>
+              <label
+                className="label"
+              >
+                Event dates and time
               </label>
               <svg
                 className="inline align-top text-red-600"
@@ -166,7 +240,7 @@ exports[`HomeServiceBusinessForm Snapshot test should render correctly regardles
         <label
           className="label"
         >
-           Photos 
+           Pictures 
         </label>
         <span>
           <span

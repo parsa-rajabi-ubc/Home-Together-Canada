@@ -28,3 +28,22 @@ export const RENTALS_TEXT = {
     furnished: "Furnished?"
 }
 
+export const AGENCIES_TEXT = {
+    form_title: "Legal & Sales",
+    title: "Descriptive Title",
+    short_des: "Short Description",
+    full_des: "Full Description",
+    pictures: "Pictures",
+    rateAndFees: "Rates and Fees",
+}
+
+export const Events_TEST = {
+    form_title: "Classes, Clubs & Events",
+    title: "Descriptive Title",
+    short_des: "Short Description",
+    full_des: "Full Description",
+    pictures: "Pictures",
+    rateAndFees: "Rates and Fees",
+    contactName: "Contact Name",
+    eventDateAndDate: "Event dates and time"
+}
