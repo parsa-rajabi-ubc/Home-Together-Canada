@@ -109,7 +109,7 @@ function LoginForm(props) {
                                 genderPreference: JSON.parse(data.member.genderPreference),
                                 statusPreference: JSON.parse(data.member.statusPreference),
                                 minAgePreference:data.member.minAgePreference,
-                                maxAgePreference: data.member.maxBudgetPreference,
+                                maxAgePreference: data.member.maxAgePreference,
                                 numRoommatesPreference: JSON.parse(data.member.numRoommatesPreference),
                                 minBudgetPreference: data.member.minBudgetPreference,
                                 maxBudgetPreference: data.member.maxBudgetPreference,

@@ -193,6 +193,7 @@ const SearchCriteriaContainer = (props) => {
                 if (data && data.success) {
                     setMemberSearchFilters({
                         memberSearchFilters: {
+                            ...memberSearchFilters,
                             genderPreference,
                             statusPreference: familyStatusPreference,
                             minAgePreference,
