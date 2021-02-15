@@ -29,7 +29,7 @@ export const RENTALS_TEXT = {
 }
 
 export const AGENCIES_TEXT = {
-    form_title: "Legal, Sales & Insurance agencies",
+    form_title: "Legal & Sales",
     title: "Descriptive Title",
     short_des: "Short Description",
     full_des: "Full Description",

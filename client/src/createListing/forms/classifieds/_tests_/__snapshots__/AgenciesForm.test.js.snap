@@ -15,7 +15,7 @@ exports[`AgenciesForm Snapshot test should render correctly regardless of proper
           className="page-title mb-5"
         >
            
-          Legal, Sales & Insurance agencies
+          Legal & Sales
            
         </h1>
         <section>

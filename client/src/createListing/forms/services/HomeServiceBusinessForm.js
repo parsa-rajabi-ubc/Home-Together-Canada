@@ -113,15 +113,17 @@ const HomeServiceBusinessForm = (props) => {
                                 />
                             </section>
 
+                            <section className={"col-start-1 col-end-5"}>
+                                <TextArea
+                                    className={`${ratesAndFeesError && "border-red-500"} input`}
+                                    label={TEXT.rates_and_fees}
+                                    labelClassName={"label"}
+                                    required={true}
+                                    onChange={(e) => setRatesAndFees(e.target.value)}
+                                />
+                            </section>
+
                         </div>
-                        <LargeTextArea
-                            className={`${ratesAndFeesError && "border-red-500"} input`}
-                            rows={"6"}
-                            label={TEXT.rates_and_fees}
-                            labelClassName={"label"}
-                            required={true}
-                            onChange={(e) => setRatesAndFees(e.target.value)}
-                        />
                         <LargeTextArea
                             className={`${fullDescriptionError && "border-red-500"} input`}
                             rows={"6"}
