@@ -20,14 +20,14 @@ export const MEMBER_HOME_SHARE_TEXT = {
     smoking: "Smoke friendly?",
     photos: "Photos"
  }
-export const COHOUSING_TEXT = {
-    form_title: "Cohousing, Co-ops, Intergenerational, Planned Neighbourhoods",
+export const CO_HOUSING_TEXT = {
+    form_title: "Co-housing, Co-ops, Intergenerational & Planned Neighbourhoods",
     title: "Descriptive Title",
     contact_name: "Contact Name",
     short_des: "Short Description",
     full_des: "Full Description",
-    units_for_sale: "Number of units for sale",
-    units_for_rent: "Number of units for rent",
+    units_for_sale: "Number of Units for Sale",
+    units_for_rent: "Number of Units for Rent",
 }
 export const HOME_SERVICE_BUSINESS_TEXT = {
     form_title: "Home Sharing Businesses, Groups and Organizations",

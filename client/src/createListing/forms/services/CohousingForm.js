@@ -8,7 +8,7 @@
 
 import React, {useEffect, useState} from 'react';
 import PropTypes from "prop-types";
-import {COHOUSING_TEXT as TEXT} from "./constants/ServiceListingText";
+import {CO_HOUSING_TEXT as TEXT} from "./constants/ServiceListingText";
 import TextArea from "../../../common/forms/TextArea";
 import LabelAsterisk from "../../../common/forms/LabelAsterisk";
 import LargeTextArea from "../../../common/forms/LargeTextArea";
@@ -80,17 +80,10 @@ const CohousingForm = (props) => {
 
     //function for input checks on submit
     function onCreateListing() {
-
-        if (!isFormValid()) {
-            console.log("Form is invalid")
-            // form is invalid
-        }
-        // else form is valid and proceed to make request
-        else {
+        if (isFormValid()) {
             onSubmit();
         }
     }
-
     return (
         <div>
             <div className="col-start-1 col-end-7 py-5 px-5 m-6 bg-white shadow-lg rounded-xl">
@@ -121,16 +114,7 @@ const CohousingForm = (props) => {
                                 />
                             </section>
                             <section className={"col-start-6 col-end-9"}>
-                                <TextArea
-                                    className={`${contactNameError && "border-red-500"} input`}
-                                    label={TEXT.contact_name}
-                                    labelClassName={"label"}
-                                    required={true}
-                                    onChange={(e) => setContactName(e.target.value)}
-                                />
-                            </section>
 
-                            <section className={"col-start-1 col-end-5"}>
                                 <LabelAsterisk
                                     label={TEXT.units_for_sale}
                                     className={"label"}
@@ -145,6 +129,17 @@ const CohousingForm = (props) => {
 
                             </section>
                             <section className={"col-start-1 col-end-5"}>
+                                <TextArea
+                                    className={`${contactNameError && "border-red-500"} input`}
+                                    label={TEXT.contact_name}
+                                    labelClassName={"label"}
+                                    required={true}
+                                    onChange={(e) => setContactName(e.target.value)}
+                                />
+                            </section>
+
+
+                            <section className={"col-start-6 col-end-9"}>
                                 <LabelAsterisk
                                     label={TEXT.units_for_rent}
                                     className={"label"}
