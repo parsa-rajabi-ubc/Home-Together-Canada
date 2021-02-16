@@ -32,7 +32,7 @@ export const RENTALS_TEXT = {
 }
 
 export const AGENCIES_TEXT = {
-    form_title: "Legal & Sales",
+    form_title: BUSINESS_CLASSIFIEDS_CATEGORIES.LEGAL_SALES,
     title: "Descriptive Title",
     short_des: "Short Description",
     full_des: "Full Description",
@@ -41,7 +41,7 @@ export const AGENCIES_TEXT = {
 }
 
 export const Events_TEST = {
-    form_title: "Classes, Clubs & Events",
+    form_title: BUSINESS_CLASSIFIEDS_CATEGORIES.CLASSES_CLUBS,
     title: "Descriptive Title",
     short_des: "Short Description",
     full_des: "Full Description",
