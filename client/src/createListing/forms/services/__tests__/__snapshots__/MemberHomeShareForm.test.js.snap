@@ -15,7 +15,7 @@ exports[`MemberHomeShareForm Snapshot test should render correctly regardless of
           className="page-title mb-5"
         >
            
-          Member with Home to Share
+          Members with Homes to Share
            
         </h1>
         <section>

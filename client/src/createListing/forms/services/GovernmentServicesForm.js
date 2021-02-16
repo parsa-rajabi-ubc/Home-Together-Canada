@@ -56,13 +56,7 @@ const GovernmentServicesForm = (props) => {
 
     //function for input checks on submit
     function onCreateListing() {
-
-        if (!isFormValid()) {
-            console.log("Form is invalid")
-            // form is invalid
-        }
-        // else form is valid and proceed to make request
-        else {
+        if (isFormValid()) {
             onSubmit();
         }
     }

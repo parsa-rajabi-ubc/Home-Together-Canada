@@ -6,8 +6,10 @@
  *
  */
 
+import {MEMBER_SERVICE_CATEGORIES, BUSINESS_SERVICE_CATEGORIES} from "../../../constants/serviceListingCategoriesText";
+
 export const MEMBER_HOME_SHARE_TEXT = {
-    form_title: "Member with Home to Share",
+    form_title: MEMBER_SERVICE_CATEGORIES.MEMBER_HOME,
     title: "Descriptive Title",
     postal_code: "Postal Code",
     short_des: "Short Description",
@@ -19,15 +21,15 @@ export const MEMBER_HOME_SHARE_TEXT = {
     pet: "Pet friendly?",
     smoking: "Smoke friendly?",
     photos: "Photos"
- }
-export const COHOUSING_TEXT = {
-    form_title: "Cohousing, Co-ops, Intergenerational, Planned Neighbourhoods",
+}
+export const CO_HOUSING_TEXT = {
+    form_title: BUSINESS_SERVICE_CATEGORIES.CO_HOUSING,
     title: "Descriptive Title",
     contact_name: "Contact Name",
     short_des: "Short Description",
     full_des: "Full Description",
-    units_for_sale: "Number of units for sale",
-    units_for_rent: "Number of units for rent",
+    units_for_sale: "Number of Units for Sale",
+    units_for_rent: "Number of Units for Rent",
 }
 export const HOME_SERVICE_BUSINESS_TEXT = {
     form_title: "Home Sharing Businesses, Groups and Organizations",

@@ -18,8 +18,8 @@ import {
     MEMBER_SERVICE_CATEGORIES_DROPDOWN,
     MEMBER_SERVICE_CATEGORIES_DROPDOWN_OBJECT,
 } from "./constants/serviceListingConstants";
-import {BUSINESS_SERVICE_CATEGORIES, MEMBER_SERVICE_CATEGORIES} from "./constants/serviceListingText"
-import {BUSINESS_CLASSIFIEDS_CATEGORIES} from "./constants/classifiedListingText"
+import {BUSINESS_SERVICE_CATEGORIES, MEMBER_SERVICE_CATEGORIES} from "./constants/serviceListingCategoriesText"
+import {BUSINESS_CLASSIFIEDS_CATEGORIES} from "./constants/classifiedListingCategoriesText"
 
 import {dropdownDefaultCSS} from "../css/dropdownCSSUtil";
 import {
