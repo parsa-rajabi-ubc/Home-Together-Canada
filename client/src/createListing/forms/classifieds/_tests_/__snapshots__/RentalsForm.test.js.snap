@@ -22,7 +22,7 @@ exports[`RentalsForm Snapshot test should render correctly regardless of propert
           <label
             className="label"
           >
-            Title
+            Descriptive Title
           </label>
           <svg
             className="inline align-top text-red-600"
