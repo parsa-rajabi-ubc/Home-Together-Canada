@@ -46,9 +46,9 @@ const CreateListingContainer = (props) => {
             case BUSINESS_SERVICE_CATEGORIES.CO_HOUSING:
                 return <CohousingForm onSubmit={onSubmit}/>
             case BUSINESS_SERVICE_CATEGORIES.SHARED_HOME_SERVICES:
-                return <HomeServiceBusinessForm onSubmit={onSubmit}/>;
+                return <HomeServiceBusinessForm onSubmit={onSubmit} category={selectedCategory}/>;
             case BUSINESS_SERVICE_CATEGORIES.SHARED_BUSINESS_SERVICES:
-                return <HomeServiceBusinessForm onSubmit={onSubmit}/>;
+                return <HomeServiceBusinessForm onSubmit={onSubmit} category={selectedCategory}/>;
             case BUSINESS_SERVICE_CATEGORIES.GOVERNMENT_SERVICES:
                 return <GovernmentServicesForm onSubmit={onSubmit}/>;
             case BUSINESS_CLASSIFIEDS_CATEGORIES.RENTALS:

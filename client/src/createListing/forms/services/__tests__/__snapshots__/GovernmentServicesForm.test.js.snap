@@ -22,7 +22,7 @@ exports[`GovernmentServicesForm Snapshot test should render correctly regardless
           <label
             className="label"
           >
-            Descriptive Ad Title
+            Descriptive Title
           </label>
           <svg
             className="inline align-top text-red-600"
