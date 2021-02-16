@@ -2,6 +2,7 @@
 @import "../common/error/Error404.css";
 @import "../login/LoginForm.css";
 @import "../registration/RegistrationForms.css";
+@import "../registration/MainLandingPage.css";
 @import "../common/header-and-footer/Header.css";
 @import "../common/forms/Checkbox.css";
 @import "../accountSummary/accountSummary.css";
