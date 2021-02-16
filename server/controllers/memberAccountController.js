@@ -446,6 +446,7 @@ const getMemberProfilesMatchingSearchFilters = async (uid, searchFilters, filter
                 // get usernames of all of that member's roommates
                 model: MemberAccount,
                 as: "Roommates",
+                attributes: ['uid'],
                 through: {
                     attributes: ['RoommateUid']
                 },

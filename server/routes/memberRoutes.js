@@ -227,7 +227,7 @@ router.post('/search/profiles/',
         if (!errors.isEmpty()) {
             res.status(202).json({ errors: errors.array()});
         } else {
-            getCircularFeatureFromLocation(req.body.province, req.body.city, req.body.radius)
+            getCircularFeatureFromLocation(req.body.searchArea.province, req.body.searchArea.city, req.body.searchArea.radius)
                 .then(feature => {
                     return memberAccounts.getMemberProfilesMatchingSearchFilters(
                         req.user.uid,
@@ -240,7 +240,8 @@ router.post('/search/profiles/',
                     res.status(200).json({ profiles });
                 })
                 .catch(err => {
-                    console.log('error in search profiles route: ', err.message);
+                    // This console is being left in on purpose for debugging (until logging can be implemented)
+                    console.log('error in search profiles route: ', err);
                     res.status(500).json({ err: err.message });
                 })
         }

@@ -54,9 +54,19 @@ const getFilteredProfilesInformation = results => {
         const member = result.dataValues;
         return {
             ...getProfile(member),
-            areasOfInterest: member.AreaOfInterests,
+            areasOfInterest: getFormattedAreasOfInterest(member.AreaOfInterests),
             roommates: getRoommateUsernamesFromMemberAccount(member.Roommates),
             username: getUsernameFromAbstractUser(member.AbstractUser)
+        }
+    });
+}
+
+const getFormattedAreasOfInterest = areasOfInterest => {
+    return areasOfInterest.map(areaOfInterest => {
+        return {
+            province: areaOfInterest.dataValues.province,
+            city: areaOfInterest.dataValues.city,
+            radius: areaOfInterest.dataValues.radius,
         }
     });
 }
@@ -66,10 +76,10 @@ const getUsernameFromAbstractUser = abstractUser => {
 }
 
 const getRoommateUsernamesFromMemberAccount = memberAccounts => {
-    if (!memberAccounts.length) {
+    if (!memberAccounts || !memberAccounts.length) {
         return undefined;
     }
-    return memberAccounts.map(member => member.AbstractUser.username);
+    return memberAccounts.map(member => member.dataValues.AbstractUser.dataValues.username);
 }
 
 const getProfile = member => {
@@ -122,8 +132,6 @@ const getMemberAccountInfo = member => {
         mailingPostalCode: member.mailingPostalCode
     }
 }
-
-
 
 module.exports = {
     getMailingAddress,
