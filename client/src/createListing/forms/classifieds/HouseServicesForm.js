@@ -92,7 +92,7 @@ const HouseServicesForm = (props) => {
                             onChange={(e) => setTitle(e.target.value)}
                         />
 
-                        <div className={"grid grid-cols-9 gap-x-6"}>
+                        <div className={"grid grid-cols-9"}>
 
                             <section className={"col-start-1 col-end-5"}>
 
@@ -106,7 +106,7 @@ const HouseServicesForm = (props) => {
                                 />
                             </section>
 
-                            <section className={"col-start-1 col-end-5"}>
+                            <section className={"col-start-6 col-end-10"}>
                                 <TextArea
                                     className={`${rateAndFeeError && "border-red-500"} input`}
                                     label={TEXT.rateAndFees}
