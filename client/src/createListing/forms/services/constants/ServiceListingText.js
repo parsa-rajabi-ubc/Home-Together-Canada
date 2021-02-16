@@ -32,7 +32,8 @@ export const CO_HOUSING_TEXT = {
     units_for_rent: "Number of Units for Rent",
 }
 export const HOME_SERVICE_BUSINESS_TEXT = {
-    form_title: "Home Sharing Businesses, Groups and Organizations",
+    home_form_title: BUSINESS_SERVICE_CATEGORIES.SHARED_HOME_SERVICES,
+    business_form_title: BUSINESS_SERVICE_CATEGORIES.SHARED_BUSINESS_SERVICES,
     title: "Descriptive Title",
     short_des: "Short Description",
     photos: "Pictures (max of 6)",
@@ -40,8 +41,8 @@ export const HOME_SERVICE_BUSINESS_TEXT = {
     rates_and_fees: "Rates and fees"
 }
 export const GOVERNMENT_SERVICES_TEXT = {
-    form_title: "Government & Human Service Agencies Offering Shared Living & Support Services",
-    title: "Descriptive Ad Title",
+    form_title: BUSINESS_SERVICE_CATEGORIES.GOVERNMENT_SERVICES,
+    title: "Descriptive Title",
     short_des: "Short Description",
     full_des: "Full Description"
 }
