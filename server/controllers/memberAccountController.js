@@ -16,6 +16,7 @@ const {getValueOfOptionalField} = require("./utils/accountControllerUtils");
 const MemberAccount = db.memberAccount;
 const AbstractUser = db.abstractUser;
 const AreaOfInterest = db.areaOfInterest;
+const LivesWith = db.livesWith;
 const livesWith = require('../controllers/livesWithController');
 const abstractUsers = require('../controllers/abstractUserController');
 const areasOfInterest = require('../controllers/areaOfInterestController');
@@ -440,6 +441,19 @@ const getMemberProfilesMatchingSearchFilters = async (uid, searchFilters, filter
             },
             {
                 model: AreaOfInterest
+            },
+            {
+                // get usernames of all of that member's roommates
+                model: MemberAccount,
+                as: "Roommates",
+                attributes: ['uid'],
+                through: {
+                    attributes: ['RoommateUid']
+                },
+                include: [{
+                    model: AbstractUser,
+                    attributes: ['username']
+                }]
             }
         ]
     });

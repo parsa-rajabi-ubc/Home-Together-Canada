@@ -625,7 +625,7 @@ function MemberRegistrationForm(props) {
                             searchArea: {
                                 province: '',
                                 city: '',
-                                radius: ''
+                                radius: undefined
                             },
                             minAgePreference: parseInt(minAgePreference),
                             maxAgePreference: parseInt(maxAgePreference),

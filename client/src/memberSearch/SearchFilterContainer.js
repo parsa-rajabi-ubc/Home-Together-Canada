@@ -9,7 +9,11 @@
 import React, {useState, useEffect} from 'react';
 import SearchFilter from "./SearchFilter";
 import {isValueInArray} from "../common/utils/generalUtils";
-import {checkIfErrorsExistInMapping, validateMinMaxFilter} from "../registration/registrationUtils";
+import {
+    checkIfErrorsExistInMapping,
+    resolveYesNoToBoolean,
+    validateMinMaxFilter
+} from "../registration/registrationUtils";
 import indexOf from "lodash/indexOf";
 import { setMemberSearchFilters } from "../redux/slices/memberPrivileges";
 import {connect} from "react-redux";
@@ -20,7 +24,7 @@ const mapDispatchToProps = {
 }
 
 const SearchFilterContainer = props => {
-    const { setMemberSearchFilters, memberSearchFilters } = props;
+    const { setMemberSearchFilters, memberSearchFilters, onSearchMembersSubmit } = props;
 
     const [searchArea, setSearchArea]  = useState({
         province: memberSearchFilters.searchArea.province,
@@ -163,13 +167,15 @@ const SearchFilterContainer = props => {
                 statusPreference: familyStatusPreference,
                 numRoommatesPreference: selectedLimitPreference,
 
-                dietPreference: dietPreference,
-                petsPreference: petPreference,
-                smokingPreference: smokingPreference,
+                dietPreference: resolveYesNoToBoolean(dietPreference),
+                petsPreference: resolveYesNoToBoolean(petPreference),
+                smokingPreference: resolveYesNoToBoolean(smokingPreference),
                 genderPreference: genderPreference,
-                religionPreference: religionPreference,
-                othersWithHomeToSharePreference: homeToSharePreference,
+                religionPreference: resolveYesNoToBoolean(religionPreference),
+                othersWithHomeToSharePreference: resolveYesNoToBoolean(homeToSharePreference)
             }
+
+            onSearchMembersSubmit(filteringData);
         }
     }
 
@@ -231,7 +237,7 @@ SearchFilterContainer.propTypes = {
         searchArea: PropTypes.shape({
             province: PropTypes.string,
             city: PropTypes.string,
-            radius: PropTypes.string
+            radius: PropTypes.number
         }).isRequired,
         genderPreference: PropTypes.array.isRequired,
         statusPreference: PropTypes.array.isRequired,
@@ -247,7 +253,8 @@ SearchFilterContainer.propTypes = {
         smokingPreference: PropTypes.string.isRequired
 
     }).isRequired,
-    setMemberSearchFilters: PropTypes.func.isRequired
+    setMemberSearchFilters: PropTypes.func.isRequired,
+    onSearchMembersSubmit: PropTypes.func.isRequired
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchFilterContainer);

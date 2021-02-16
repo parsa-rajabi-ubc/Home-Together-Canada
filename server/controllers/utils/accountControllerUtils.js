@@ -5,6 +5,8 @@
  * @Description: utility functions to abstract manipulation of data in accountControllers
  *
  */
+// import {memberHasCoupleStatus} from "../../../client/src/accountSummary/member/memberAccountSummaryUtils";
+
 const get = require('lodash/get');
 
 const getMailingAddress = (body) => {
@@ -49,18 +51,35 @@ const getFilteredProfilesInformation = results => {
     }
 
     return results.map(result => {
-        const values = result.dataValues;
-        // TODO: add the areas of interest to this object
-        // TODO: add partner/group member usernames to this object (not for this ticket)
+        const member = result.dataValues;
         return {
-            ...getProfile(values),
-            username: getUsernameFromAbstractUser(values.AbstractUser)
+            ...getProfile(member),
+            areasOfInterest: getFormattedAreasOfInterest(member.AreaOfInterests),
+            roommates: getRoommateUsernamesFromMemberAccount(member.Roommates),
+            username: getUsernameFromAbstractUser(member.AbstractUser)
+        }
+    });
+}
+
+const getFormattedAreasOfInterest = areasOfInterest => {
+    return areasOfInterest.map(areaOfInterest => {
+        return {
+            province: areaOfInterest.dataValues.province,
+            city: areaOfInterest.dataValues.city,
+            radius: areaOfInterest.dataValues.radius,
         }
     });
 }
 
 const getUsernameFromAbstractUser = abstractUser => {
     return get(abstractUser, 'dataValues.username', null);
+}
+
+const getRoommateUsernamesFromMemberAccount = memberAccounts => {
+    if (!memberAccounts || !memberAccounts.length) {
+        return undefined;
+    }
+    return memberAccounts.map(member => member.dataValues.AbstractUser.dataValues.username);
 }
 
 const getProfile = member => {
@@ -113,8 +132,6 @@ const getMemberAccountInfo = member => {
         mailingPostalCode: member.mailingPostalCode
     }
 }
-
-
 
 module.exports = {
     getMailingAddress,

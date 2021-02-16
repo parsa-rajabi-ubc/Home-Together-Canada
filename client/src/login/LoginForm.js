@@ -104,7 +104,7 @@ function LoginForm(props) {
                                 searchArea: {
                                     province: '',
                                     city: '',
-                                    radius: ''
+                                    radius: undefined
                                 },
                                 genderPreference: JSON.parse(data.member.genderPreference),
                                 statusPreference: JSON.parse(data.member.statusPreference),
