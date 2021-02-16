@@ -13,7 +13,6 @@ const BusinessAccount = db.businessAccount;
 const createBusinessAccount = async (req, uid) => {
     const fullSearchableAddress = `${req.body.mapAddressLine1} ${req.body.mapCity} ${req.body.mapProvince}`;
     const coordinates = await getGeographicalCoordinatesFromAddress(fullSearchableAddress);
-    console.log('coordinates: ', coordinates);
 
     const businessAccount = {
         uid: uid,
