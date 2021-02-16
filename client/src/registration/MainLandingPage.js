@@ -8,7 +8,7 @@
 
 import React from 'react';
 import {Link} from "react-router-dom";
-import member from "../images/member.svg";
+import member from "../images/member.jpg";
 import business from "../images/business.jpg";
 
 const memberAccountTitle = "Home Share Member Account";
@@ -28,60 +28,53 @@ const businessAccountText = [
     " Benefit from: Member only rating system you can trust"
 ];
 
-const memberAccountBullets = [];
-for (let i = 0; i < memberAccountText.length; i++) {
-    memberAccountBullets.push(
-        <li key={memberAccountText[i]}>
-            {memberAccountText[i]}
+const memberAccountBullets = memberAccountText.map(
+    (text) =>
+        <li key={text}>
+            {text}
         </li>
-    );
-}
+);
 
-const businessAccountBullets = [];
-for (let i = 0; i < businessAccountText.length; i++) {
-    businessAccountBullets.push(
-        <li key={businessAccountText[i]}>
-            {businessAccountText[i]}
+const businessAccountBullets = businessAccountText.map(
+    (text) =>
+        <li key={text}>
+            {text}
         </li>
-    );
-}
+);
+
 
 function MainLandingPage() {
     return (
-        <div>
-            <div className="flex w-full mt-5 mb-10">
-                    <Link to={'/registration/member'} className="flex flex-col w-full pt-12 mx-10 bg-blue-200 rounded-lg shadow-2xl hover:bg-blue-400">
-                    <img className="w-auto h-64"
-                         src={member}
-                         alt="member picture">
-                    </img>
-                    <div className="m-10 mb-2 text-center text-gray-800">
-                        <p className="mb-2 text-3xl font-bold leading-none text-gray-800">{memberAccountTitle}</p>
-                        <div className="mb-10 text-center">
-                            <ul className="inline-block my-3 text-lg text-left list-disc list-inside">
-                                {memberAccountBullets}
-                            </ul>
-                        </div>
+        <div className="page-container">
+            <Link to={'/registration/member'} className="account-box member">
+                <img className="image"
+                     src={member}
+                     alt="member picture">
+                </img>
+                <div className="text-container">
+                    <p className="account-title">{memberAccountTitle}</p>
+                    <div className="text-sub-container">
+                        <ul className="bullet-points">
+                            {memberAccountBullets}
+                        </ul>
                     </div>
-                    </Link>
+                </div>
+            </Link>
 
-                    <Link to={'/registration/business'} className="flex flex-col w-full pt-2 mx-10 bg-yellow-200 rounded-lg shadow-2xl hover:bg-yellow-400 ">
-
-                    <img className="mt-10"
-                         src={business}
-                         alt="member picture">
-                    </img>
-
-                    <div className="m-10 mb-2 text-center text-gray-800">
-                        <p className="mb-2 text-3xl font-bold leading-none text-gray-800">{businessAccountTitle}</p>
-                        <div className="text-center">
-                            <ul className="inline-block my-3 text-lg text-left list-disc list-inside">
-                                {businessAccountBullets}
-                            </ul>
-                        </div>
+            <Link to={'/registration/business'} className="account-box business">
+                <img className="image"
+                     src={business}
+                     alt="member picture">
+                </img>
+                <div className="text-container">
+                    <p className="account-title">{businessAccountTitle}</p>
+                    <div className="text-center">
+                        <ul className="bullet-points">
+                            {businessAccountBullets}
+                        </ul>
                     </div>
-                </Link>
-            </div>
+                </div>
+            </Link>
         </div>
     );
 }
