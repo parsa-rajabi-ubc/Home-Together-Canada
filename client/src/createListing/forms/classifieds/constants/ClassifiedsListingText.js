@@ -5,8 +5,11 @@
  * @Description: Constants for Listing Forms
  *
  */
+import {BUSINESS_CLASSIFIEDS_CATEGORIES} from "../../../constants/classifiedListingCategoriesText";
+
+
 export const HOUSE_YARD_TEXT = {
-    form_title: "House & Yard Services",
+    form_title: BUSINESS_CLASSIFIEDS_CATEGORIES.HOUSE_YARD,
     title: "Descriptive Title",
     short_des: "Short Description",
     full_des: "Full Description",
@@ -15,8 +18,8 @@ export const HOUSE_YARD_TEXT = {
 }
 
 export const RENTALS_TEXT = {
-    form_title: "Rentals",
-    title: "Title",
+    form_title: BUSINESS_CLASSIFIEDS_CATEGORIES.RENTALS,
+    title: "Descriptive Title",
     short_des: "Short Description",
     full_des: "Full Description",
     price: "Price (CAD)",
