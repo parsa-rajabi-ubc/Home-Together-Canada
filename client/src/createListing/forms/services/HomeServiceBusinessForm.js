@@ -21,9 +21,10 @@ import {validatePositiveNumber} from "../../../common/utils/generalUtils";
 import Tooltip from "../../../common/forms/Tooltip";
 import {CREATE_LISTING_MEMBER_SHARE_HOME as ToolTipText} from "../../../common/constants/TooltipText";
 import UploadImage from "../../../common/forms/UploadImage";
+import {BUSINESS_SERVICE_CATEGORIES} from "../../constants/serviceListingCategoriesText";
 
 const HomeServiceBusinessForm = (props) => {
-    const { onSubmit } = props;
+    const { onSubmit, category } = props;
 
     const [title, setTitle] = useState(undefined);
     const [shortDescription, setShortDescription] = useState(undefined);
@@ -83,7 +84,7 @@ const HomeServiceBusinessForm = (props) => {
                 <div className="grid grid-cols-2 gap-6">
                     <div className="col-span-3 sm:col-span-2">
 
-                        <h1 className={"page-title mb-5"}> {TEXT.form_title} </h1>
+                        <h1 className={"page-title mb-5"}> {(category === BUSINESS_SERVICE_CATEGORIES.SHARED_HOME_SERVICES ? TEXT.home_form_title : TEXT.business_form_title)} </h1>
 
                         <TextArea
                             className={`${titleError && "border-red-500"} input`}
@@ -93,7 +94,7 @@ const HomeServiceBusinessForm = (props) => {
                             onChange={(e) => setTitle(e.target.value)}
                         />
 
-                        <div className={"grid grid-cols-9 gap-x-6"}>
+                        <div className={"grid grid-cols-9"}>
 
                             <section className={"col-start-1 col-end-5"}>
 
@@ -107,7 +108,7 @@ const HomeServiceBusinessForm = (props) => {
                                 />
                             </section>
 
-                            <section className={"col-start-1 col-end-5"}>
+                            <section className={"col-start-6 col-end-10"}>
                                 <TextArea
                                     className={`${ratesAndFeesError && "border-red-500"} input`}
                                     label={TEXT.rates_and_fees}
@@ -142,7 +143,8 @@ const HomeServiceBusinessForm = (props) => {
 
 }
 HomeServiceBusinessForm.propTypes = {
-    onSubmit: PropTypes.func.isRequired
+    onSubmit: PropTypes.func.isRequired,
+    category: PropTypes.string.isRequired
 }
 
 export default HomeServiceBusinessForm;
