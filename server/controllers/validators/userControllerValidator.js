@@ -514,14 +514,14 @@ exports.validate = (method) => {
                 body('othersWithHomeToSharePreference')
                     .optional()
                     .isBoolean(),
-                body('province')
+                body('searchArea.province')
                     .exists()
                     .isIn(PROVINCES),
-                body('city')
+                body('searchArea.city')
                     .exists()
                     .trim()
                     .stripLow(),
-                body('radius')
+                body('searchArea.radius')
                     .exists()
                     .isNumeric()
                     .custom(radius => isValidRadius(radius))

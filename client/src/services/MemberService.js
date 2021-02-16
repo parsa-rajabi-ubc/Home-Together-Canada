@@ -20,7 +20,7 @@ export const searchMemberProfiles = (searchFilters) => {
         },
         credentials: 'include',
         withCredentials: true,
-        body: JSON.stringify(searchFilters)
+        body: JSON.stringify({...searchFilters})
     }
 
     return fetch(`${DEV_URL}/member/search/profiles/`, request);
