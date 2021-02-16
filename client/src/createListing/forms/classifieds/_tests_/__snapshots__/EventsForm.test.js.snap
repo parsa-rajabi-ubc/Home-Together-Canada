@@ -52,7 +52,7 @@ exports[`EventsForm Snapshot test should render correctly regardless of properti
           />
         </section>
         <div
-          className="grid grid-cols-9 gap-x-6"
+          className="grid grid-cols-9"
         >
           <section
             className="col-start-1 col-end-5"
@@ -87,6 +87,43 @@ exports[`EventsForm Snapshot test should render correctly regardless of properti
                 className="undefined input"
                 disabled={false}
                 maxLength="50"
+                onChange={[Function]}
+                type="text"
+              />
+            </section>
+          </section>
+          <section
+            className="col-start-6 col-end-10"
+          >
+            <section>
+              <label
+                className="label"
+              >
+                Contact Name
+              </label>
+              <svg
+                className="inline align-top text-red-600"
+                fill="none"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <input
+                className="undefined input"
+                disabled={false}
                 onChange={[Function]}
                 type="text"
               />
@@ -130,44 +167,7 @@ exports[`EventsForm Snapshot test should render correctly regardless of properti
             </section>
           </section>
           <section
-            className="col-start-1 col-end-5"
-          >
-            <section>
-              <label
-                className="label"
-              >
-                Contact Name
-              </label>
-              <svg
-                className="inline align-top text-red-600"
-                fill="none"
-                height="1em"
-                stroke="currentColor"
-                strokeWidth="0"
-                style={
-                  Object {
-                    "color": undefined,
-                  }
-                }
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
-                  fill="currentColor"
-                />
-              </svg>
-              <input
-                className="undefined input"
-                disabled={false}
-                onChange={[Function]}
-                type="text"
-              />
-            </section>
-          </section>
-          <section
-            className="col-start-1 col-end-5"
+            className="col-start-6 col-end-10"
           >
             <section>
               <label
