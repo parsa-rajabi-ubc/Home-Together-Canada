@@ -23,13 +23,21 @@ const isCanadianPostalCode = (postalCode) => {
     return regex.test(postalCode);
 }
 
-const getGeographicalCoordinates = async (province, city) => {
+const getGeographicalCoordinatesFromCity = async (province, city) => {
     const location = `${city} ${province} ${DEFAULT_COUNTRY}`;
     const locations = await geoCoder.geocode(location);
     return {
         latitude: locations[0].latitude,
         longitude: locations[0].longitude
     };
+}
+
+const getGeographicalCoordinatesFromAddress = async (address) => {
+    const locations = await geoCoder.geocode(address);
+    return {
+        latitude: locations[0].latitude,
+        longitude: locations[0].longitude
+    }
 }
 
 const getCircularFeatureFromCoordinates = (coordinates, radius) =>
@@ -40,7 +48,7 @@ const getCircularFeatureFromCoordinates = (coordinates, radius) =>
     );
 
 const getCircularFeatureFromLocation = async (province, city, radius) => {
-        const coordinates = await getGeographicalCoordinates(province, city);
+        const coordinates = await getGeographicalCoordinatesFromCity(province, city);
         return getCircularFeatureFromCoordinates(coordinates, radius);
 }
 
@@ -52,7 +60,8 @@ const featuresOverlap = (feature1, feature2) => {
 
 module.exports = {
     isCanadianPostalCode,
-    getGeographicalCoordinates,
+    getGeographicalCoordinatesFromCity,
+    getGeographicalCoordinatesFromAddress,
     getCircularFeatureFromCoordinates,
     getCircularFeatureFromLocation,
     featuresOverlap

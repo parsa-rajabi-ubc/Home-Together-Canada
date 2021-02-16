@@ -6,11 +6,17 @@
  *
  */
 const isNumber = require('lodash/isNumber');
+const nodeGeocoder = require("node-geocoder");
+
 const abstractUserController = require('../abstractUserController');
 const memberAccountController = require('../memberAccountController');
 const PasswordService = require('../../services/PasswordService');
 const {isCanadianPostalCode} = require('../utils/locationUtils');
 const {STATUS} = require('../../constants/memberConstants');
+
+const geoCoder = nodeGeocoder({
+    provider: 'openstreetmap'
+});
 
 const PROVINCES = [
     'AB',
@@ -149,6 +155,16 @@ const validateMapProvince = (province, req) => {
     } else {
         return true;
     }
+}
+
+const validMapAddress = (addressLine1, req) => {
+    const address = `${addressLine1} ${req.body.mapCity} ${req.body.mapProvince}`;
+    return geoCoder.geocode(address)
+        .then(locations => {
+            if (!locations.length) {
+                return Promise.reject('Invalid map address');
+            }
+        });
 }
 
 const shouldIncorporatedOwnersNamesBeDefined = (incorporatedOwnersNames, req) => {
@@ -346,6 +362,7 @@ module.exports = {
     shouldMapAddressBeDefined,
     validateMapPostalCode,
     validateMapProvince,
+    validMapAddress,
     shouldIncorporatedOwnersNamesBeDefined,
     isPositiveInteger,
     validateMinAndMax,

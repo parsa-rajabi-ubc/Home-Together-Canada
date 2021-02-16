@@ -23,6 +23,7 @@ const {
     shouldMapAddressBeDefined,
     validateMapPostalCode,
     validateMapProvince,
+    validMapAddress,
     shouldIncorporatedOwnersNamesBeDefined,
     isPositiveInteger,
     validateMinAndMax,
@@ -160,7 +161,8 @@ const businessAccountValidation = [
     body('mapAddressLine1')
         .trim()
         .stripLow()
-        .custom((mapAddressLine1, { req }) => shouldMapAddressBeDefined(mapAddressLine1, req)),
+        .custom((mapAddressLine1, { req }) => shouldMapAddressBeDefined(mapAddressLine1, req))
+        .custom((mapAddressLine1, { req }) => validMapAddress(mapAddressLine1, req)),
     body('mapAddressLine2')
         .optional()
         .trim()

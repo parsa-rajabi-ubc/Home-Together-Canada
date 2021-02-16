@@ -58,10 +58,10 @@ module.exports = (DataTypes, sequelize) => {
             type: DataTypes.STRING
         },
         mapLatitude: {
-            type: DataTypes.DECIMAL
+            type: DataTypes.DECIMAL(10,7)   // 10 total digits, 7 digit decimal accuracy
         },
         mapLongitude: {
-            type: DataTypes.DECIMAL
+            type: DataTypes.DECIMAL(10,7)
         },
         website: {
             type: DataTypes.STRING
