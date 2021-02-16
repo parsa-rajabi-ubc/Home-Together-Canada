@@ -106,7 +106,7 @@ const EventsForm = (props) => {
                             onChange={(e) => setTitle(e.target.value)}
                         />
 
-                        <div className={"grid grid-cols-9 gap-x-6"}>
+                        <div className={"grid grid-cols-9"}>
 
                             <section className={"col-start-1 col-end-5"}>
 
@@ -120,17 +120,7 @@ const EventsForm = (props) => {
                                 />
                             </section>
 
-                            <section className={"col-start-1 col-end-5"}>
-                                <TextArea
-                                    className={`${rateAndFeeError && "border-red-500"} input`}
-                                    label={TEXT.rateAndFees}
-                                    labelClassName={"label"}
-                                    required={true}
-                                    onChange={(e) => setRateAndFee(e.target.value)}
-                                />
-                            </section>
-
-                            <section className={"col-start-1 col-end-5"}>
+                            <section className={"col-start-6 col-end-10"}>
                                 <TextArea
                                     className={`${contactNameError && "border-red-500"} input`}
                                     label={TEXT.contactName}
@@ -141,6 +131,18 @@ const EventsForm = (props) => {
                             </section>
 
                             <section className={"col-start-1 col-end-5"}>
+                                <TextArea
+                                    className={`${rateAndFeeError && "border-red-500"} input`}
+                                    label={TEXT.rateAndFees}
+                                    labelClassName={"label"}
+                                    required={true}
+                                    onChange={(e) => setRateAndFee(e.target.value)}
+                                />
+                            </section>
+
+
+
+                            <section className={"col-start-6 col-end-10"}>
                                 <TextArea
                                     className={`${dateAndTimeError && "border-red-500"} input`}
                                     label={TEXT.eventDateAndDate}
