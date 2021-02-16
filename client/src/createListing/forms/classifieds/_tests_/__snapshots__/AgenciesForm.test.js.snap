@@ -52,7 +52,7 @@ exports[`AgenciesForm Snapshot test should render correctly regardless of proper
           />
         </section>
         <div
-          className="grid grid-cols-9 gap-x-6"
+          className="grid grid-cols-9"
         >
           <section
             className="col-start-1 col-end-5"
@@ -93,7 +93,7 @@ exports[`AgenciesForm Snapshot test should render correctly regardless of proper
             </section>
           </section>
           <section
-            className="col-start-1 col-end-5"
+            className="col-start-6 col-end-10"
           >
             <section>
               <label
