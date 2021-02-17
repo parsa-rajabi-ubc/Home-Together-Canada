@@ -21,6 +21,7 @@ jest.mock('react-redux', () => ({
 
 describe('SearchFilterContainer', () => {
     const setMemberSearchFilters = jest.fn();
+    const onSearchMembersSubmit = jest.fn();
     const memberSearchFilters = {
         ...memberSearchCriteriaMock
     }
@@ -29,7 +30,8 @@ describe('SearchFilterContainer', () => {
         // given
         const props = {
             setMemberSearchFilters,
-            memberSearchFilters
+            memberSearchFilters,
+            onSearchMembersSubmit
         };
         //when
         const component = renderer.create(<SearchFilterContainer {...props}/>);

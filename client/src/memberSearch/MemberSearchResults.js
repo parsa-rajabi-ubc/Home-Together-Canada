@@ -13,6 +13,9 @@ import ProfileCard from "./ProfileCard";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import Paginate from "../common/forms/Paginate";
+import {getMemberAge} from "../common/utils/generalUtils";
+
+const NUM_RESULTS = 7;
 
 function MemberSearchResults(props) {
     const {profileData} = props;
@@ -22,22 +25,22 @@ function MemberSearchResults(props) {
             <Link to={`/members/${profileData[i].username}`} key={i}>
                 <ProfileCard key={i}
                              username={profileData[i].username}
-                             age={profileData[i].age}
+                             age={getMemberAge(profileData[i].birthYear)}
                              familyStatus={profileData[i].status}
-                             minBudget={profileData[i].minRent}
-                             maxBudget={profileData[i].maxRent}
-                             pet={profileData[i].pet}
-                             smoke={profileData[i].smoke}
-                             religion={profileData[i].religion}
-                             diet={profileData[i].diet}
-                             hasHome={profileData[i].hasHome}
+                             minBudget={profileData[i].minMonthlyBudget}
+                             maxBudget={profileData[i].maxMonthlyBudget}
+                             pet={profileData[i].hasPets}
+                             smoke={profileData[i].isSmoker}
+                             religion={profileData[i].isReligionImportant}
+                             diet={profileData[i].isDietImportant}
+                             hasHome={profileData[i].hasHomeToShare}
                 />
             </Link>
         );
     }
     return (
         <div>
-            <Paginate data={profiles} resultsPerPage={7}/>
+            <Paginate data={profiles} resultsPerPage={NUM_RESULTS}/>
         </div>
     );
 }

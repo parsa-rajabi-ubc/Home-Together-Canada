@@ -14,7 +14,6 @@ import {bindActionCreators, compose} from "redux";
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import SearchResultsContainer from "./SearchResultsContainer";
-import MockProfileCardData from "../mockData/MockProfileCardData";
 import SearchFilterContainer from "./SearchFilterContainer";
 import * as MemberService from '../services/MemberService';
 import {reset} from "../redux/actionCreators";
@@ -29,14 +28,14 @@ const MemberSearchContainer = (props) => {
     const {accountType, authenticated, reset} = props;
 
     const [memberSearchResults, setMemberSearchResults] = useState([]);
+    const [searchFiltersSelected, setSearchFiltersSelected] = useState(false);
     const [error, setError] = useState(false);
 
     const onSubmit = searchFilters => {
         MemberService.searchMemberProfiles(searchFilters)
             .then(res => res.json())
             .then(data => {
-                // TODO: remove this console log with HTC-621
-                console.log('data: ', data);
+                setSearchFiltersSelected(true);
                 if (data.profiles || Array.isArray(data.profiles)) {
                     setMemberSearchResults(data.profiles);
                     setError(false);
@@ -72,9 +71,11 @@ const MemberSearchContainer = (props) => {
 
                     {/*Results*/}
                     <div className={"flex-1"}>
-                        {error
-                            ? <div>There was error loading search results</div>
-                            : <SearchResultsContainer profileData={MockProfileCardData}/>
+                        {!searchFiltersSelected
+                            ? <div>Please select search filters to search</div>
+                            : error
+                                ? <div>There was error loading search results</div>
+                                : <SearchResultsContainer profileData={memberSearchResults}/>
                         }
                     </div>
                 </div>

@@ -455,7 +455,7 @@ exports[`SearchFilterContainer should render correctly regardless of properties 
             placeholder="Min Age"
             step="1"
             type="number"
-            value={20}
+            value="20"
           />
         </div>
         <div
@@ -468,12 +468,12 @@ exports[`SearchFilterContainer should render correctly regardless of properties 
           </label>
           <input
             className="undefined input text-center"
-            min={20}
+            min="20"
             onChange={[Function]}
             placeholder="Max Age"
             step="1"
             type="number"
-            value={29}
+            value="29"
           />
         </div>
       </div>
@@ -495,7 +495,7 @@ exports[`SearchFilterContainer should render correctly regardless of properties 
             placeholder="Min $ CAD"
             step="1"
             type="number"
-            value={700}
+            value="700"
           />
         </div>
         <div
@@ -508,12 +508,12 @@ exports[`SearchFilterContainer should render correctly regardless of properties 
           </label>
           <input
             className="undefined input text-center"
-            min={700}
+            min="700"
             onChange={[Function]}
             placeholder=" Max $ CAD"
             step="1"
             type="number"
-            value={1200}
+            value="1200"
           />
         </div>
       </div>
