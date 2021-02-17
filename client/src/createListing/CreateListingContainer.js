@@ -25,40 +25,55 @@ import HouseServicesForm from "./forms/classifieds/HouseServicesForm";
 import RentalsForm from "./forms/classifieds/RentalsForm";
 import AgenciesForm from "./forms/classifieds/AgenciesForm";
 import EventsForm from "./forms/classifieds/EventsForm";
+import Paypal from "./Paypal";
+import {animateScroll as scroll} from 'react-scroll'
 
-function onSubmit() {
-
-}
 
 const CreateListingContainer = (props) => {
     const {accountType, authenticated} = props;
+    const [displayPayment, setDisplayPayment] = useState(false);
+
+    function onSubmitServices() {
+
+    }
+
+    const onSubmitClassifieds = () => {
+        setDisplayPayment(true);
+        scroll.scrollToBottom({
+                // set smoothness = https://www.npmjs.com/package/react-scroll
+                smooth: 'easeInOutQuad',
+            }
+        );
+    }
 
     const [selectedCategory, setSelectedCategory] = useState();
 
     const handleSelectedCategory = (category) => {
         setSelectedCategory(category);
+        // hide payment section when categories are changed
+        setDisplayPayment(false);
     }
 
     const formToDisplay = (category) => {
         switch (category) {
             case MEMBER_SERVICE_CATEGORIES.MEMBER_HOME:
-                return <MemberHomeShareForm onSubmit={onSubmit}/>
+                return <MemberHomeShareForm onSubmit={onSubmitServices}/>
             case BUSINESS_SERVICE_CATEGORIES.CO_HOUSING:
-                return <CohousingForm onSubmit={onSubmit}/>
+                return <CohousingForm onSubmit={onSubmitServices}/>
             case BUSINESS_SERVICE_CATEGORIES.SHARED_HOME_SERVICES:
-                return <HomeServiceBusinessForm onSubmit={onSubmit} category={selectedCategory}/>;
+                return <HomeServiceBusinessForm onSubmit={onSubmitServices} category={selectedCategory}/>;
             case BUSINESS_SERVICE_CATEGORIES.SHARED_BUSINESS_SERVICES:
-                return <HomeServiceBusinessForm onSubmit={onSubmit} category={selectedCategory}/>;
+                return <HomeServiceBusinessForm onSubmit={onSubmitServices} category={selectedCategory}/>;
             case BUSINESS_SERVICE_CATEGORIES.GOVERNMENT_SERVICES:
-                return <GovernmentServicesForm onSubmit={onSubmit}/>;
+                return <GovernmentServicesForm onSubmit={onSubmitServices}/>;
             case BUSINESS_CLASSIFIEDS_CATEGORIES.RENTALS:
-                return <RentalsForm onSubmit={onSubmit}/>;
+                return <RentalsForm onSubmit={onSubmitClassifieds}/>;
             case BUSINESS_CLASSIFIEDS_CATEGORIES.HOUSE_YARD:
-                return <HouseServicesForm onSubmit={onSubmit}/>;
+                return <HouseServicesForm onSubmit={onSubmitClassifieds}/>;
             case BUSINESS_CLASSIFIEDS_CATEGORIES.LEGAL_SALES:
-                return <AgenciesForm onSubmit={onSubmit}/>;
+                return <AgenciesForm onSubmit={onSubmitClassifieds}/>;
             case BUSINESS_CLASSIFIEDS_CATEGORIES.CLASSES_CLUBS:
-                return <EventsForm onSubmit={onSubmit}/>;
+                return <EventsForm onSubmit={onSubmitClassifieds}/>;
             default:
                 return (
                     <div className="flex justify-center items-center h-64 bg-white">
@@ -86,8 +101,11 @@ const CreateListingContainer = (props) => {
                     </div>
                     <div className={"sideBar-selected-component col-start-3 col-end-10"}>
                         {formToDisplay(selectedCategory)}
+                        {displayPayment && <Paypal/>}
+
                     </div>
-                </div>}
+                </div>
+            }
         </div>
     )
 }
