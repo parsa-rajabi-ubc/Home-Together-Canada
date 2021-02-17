@@ -26,6 +26,7 @@ import TermsOfService from "./termsOfService/TermsOfService";
 import PrivacyPolicy from "./termsOfService/PrivacyPolicy";
 import ScrollToTop from "./ScrollToTop";
 import ProfilePageContainer from "./memberSearch/profilePage/ProfilePageContainer";
+import FAQ from "./fAQ/FAQ"
 
 const Navigation = (props) => {
     const {authenticated, accountType} = props;
@@ -55,6 +56,7 @@ const Navigation = (props) => {
                     }
                     <Route path={"/tos"} component={TermsOfService}/>
                     <Route path={"/privacy"} component={PrivacyPolicy}/>
+                    <Route path={"/faq"} component={FAQ}/>
                     <Route component={Error404}/>
                 </Switch>
                 <Footer/>
