@@ -44,41 +44,41 @@ describe('SearchResultsContainer', () => {
                 {
                     username: "AliceinWonderLand",
                     gender: "Female",
-                    age: 13,
+                    birthYear: 1985,
                     status: "Single",
-                    minRent: 200,
-                    maxRent: 550,
-                    pet: false,
-                    smoke: false,
-                    religion: false,
-                    diet: false,
-                    hasHome: false
+                    minMonthlyBudget: 200,
+                    maxMonthlyBudget: 550,
+                    hasPets: false,
+                    isSmoker: false,
+                    isReligionImportant: false,
+                    isDietImportant: false,
+                    hasHomeToShare: false
                 },
                 {
                     username: "Babar",
                     gender: "Male",
-                    age: 30,
+                    birthYear: 1990,
                     status: "Couple With Children",
-                    minRent: 2000,
-                    maxRent: 5500,
-                    pet: true,
-                    smoke: true,
-                    religion: true,
-                    diet: true,
-                    hasHome: true
+                    minMonthlyBudget: 2000,
+                    maxMonthlyBudget: 5500,
+                    hasPets: true,
+                    isSmoker: true,
+                    isReligionImportant: true,
+                    isDietImportant: true,
+                    hasHomeToShare: true
                 },
                 {
                     username: "CREATINE",
                     gender: "Other",
-                    age: 20,
+                    birthYear: 1995,
                     status: "Single",
-                    minRent: 800,
-                    maxRent: 1200,
-                    pet: false,
-                    smoke: true,
-                    religion: true,
-                    diet: true,
-                    hasHome: true
+                    minMonthlyBudget: 800,
+                    maxMonthlyBudget: 1200,
+                    hasPets: false,
+                    isSmoker: true,
+                    isReligionImportant: true,
+                    isDietImportant: true,
+                    hasHomeToShare: true
                 }
             ];
             //when

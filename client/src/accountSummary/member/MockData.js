@@ -21,7 +21,7 @@ export const memberSearchCriteriaMock = {
     searchArea: {
         province: '',
         city: '',
-        radius: ''
+        radius: undefined
     }
 }
 

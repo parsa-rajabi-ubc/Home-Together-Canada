@@ -37,15 +37,15 @@ const SearchFilterContainer = props => {
     const [familyStatusPreference, setFamilyStatusPreference] = useState(memberSearchFilters.statusPreference);
 
     // Age
-    const [minAgePreference, setMinAgePreference] = useState(memberSearchFilters.minAgePreference);
-    const [maxAgePreference, setMaxAgePreference] = useState(memberSearchFilters.maxAgePreference);
+    const [minAgePreference, setMinAgePreference] = useState(memberSearchFilters.minAgePreference.toString());
+    const [maxAgePreference, setMaxAgePreference] = useState(memberSearchFilters.maxAgePreference.toString());
 
     // Number of Roommates
     const [selectedLimitPreference, setSelectedLimitPreference] = useState(memberSearchFilters.numRoommatesPreference);
 
     // Budget
-    const [minBudgetPreference, setMinBudgetPreference] = useState(memberSearchFilters.minBudgetPreference);
-    const [maxBudgetPreference, setMaxBudgetPreference] = useState(memberSearchFilters.maxBudgetPreference);
+    const [minBudgetPreference, setMinBudgetPreference] = useState(memberSearchFilters.minBudgetPreference.toString());
+    const [maxBudgetPreference, setMaxBudgetPreference] = useState(memberSearchFilters.maxBudgetPreference.toString());
 
     // Yes/No Question
     const [religionPreference, setReligionPreference] = useState(memberSearchFilters.religionPreference);
@@ -138,11 +138,11 @@ const SearchFilterContainer = props => {
                     },
                     genderPreference,
                     statusPreference: familyStatusPreference,
-                    minAgePreference,
-                    maxAgePreference,
+                    minAgePreference: parseInt(minAgePreference),
+                    maxAgePreference: parseInt(maxAgePreference),
                     numRoommatesPreference: selectedLimitPreference,
-                    minBudgetPreference,
-                    maxBudgetPreference,
+                    minBudgetPreference: parseInt(minBudgetPreference),
+                    maxBudgetPreference: parseInt(maxBudgetPreference),
                     petsPreference: petPreference,
                     smokingPreference: smokingPreference,
                     religionPreference: religionPreference,
@@ -151,18 +151,15 @@ const SearchFilterContainer = props => {
                 }
             })
 
-            // else form is valid and proceed to make request
-
-            //TODO: Update Filter Based on Results
             const filteringData = {
                 // member search preferences
                 searchArea: searchArea,
 
-                minAgePreference: minAgePreference,
-                maxAgePreference: maxAgePreference,
+                minAgePreference: parseInt(minAgePreference),
+                maxAgePreference: parseInt(maxAgePreference),
 
-                minBudgetPreference: minBudgetPreference,
-                maxBudgetPreference: maxBudgetPreference,
+                minBudgetPreference: parseInt(minBudgetPreference),
+                maxBudgetPreference: parseInt(maxBudgetPreference),
 
                 statusPreference: familyStatusPreference,
                 numRoommatesPreference: selectedLimitPreference,
