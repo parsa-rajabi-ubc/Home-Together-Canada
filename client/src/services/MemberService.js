@@ -26,6 +26,21 @@ export const searchMemberProfiles = (searchFilters) => {
     return fetch(`${DEV_URL}/member/search/profiles/`, request);
 }
 
+export const findMemberProfileByUsername = username => {
+    const request = {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        withCredentials: true,
+        body: JSON.stringify({ username })
+    }
+
+    return fetch(`${DEV_URL}/member/search/username/`, request);
+}
+
 export const getMemberAccountInfo = () => {
     return fetch(`${DEV_URL}/member/info/`, {
         method: 'GET',

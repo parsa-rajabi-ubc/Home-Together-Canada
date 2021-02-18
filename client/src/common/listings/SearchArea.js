@@ -15,29 +15,49 @@ import {dropdownSearchAreaCSS} from "../../css/dropdownCSSUtil"
 
 
 function SearchArea(props) {
-    const {onChange} = props;
-    const [selectedProvince, setSelectedProvince] = useState();
-    const [selectedCity, setSelectedCity] = useState();
-    const [selectedRadius, setSelectedRadius] = useState();
+    const {onChange, searchArea} = props;
+    const [selectedProvince, setSelectedProvince] = useState(
+        (!!searchArea && !!searchArea.province)
+            ? {label: searchArea.province, value: searchArea.province}
+            : null
+    );
+    const [selectedCity, setSelectedCity] = useState(
+        (!!searchArea && !!searchArea.city)
+        ? {label: searchArea.city, value: searchArea.city}
+        : null
+    );
+    const [selectedRadius, setSelectedRadius] = useState(
+        (!!searchArea && !!searchArea.radius)
+        ? {label: `${searchArea.radius} km`, value: searchArea.radius}
+        : null
+    );
+    const [cityOptions, setCityOptions] = useState(selectedProvince ? getCities(selectedProvince.value) : []);
 
     const handleProvinceChange = e => {
-        setSelectedProvince(e.value);
+        setSelectedProvince({label: e.value, value: e.value});
     }
     const handleCityChange = e => {
-        setSelectedCity(e.value);
+        setSelectedCity({label: e.value, value: e.value});
     }
     const handleRadiusChange = e => {
-        setSelectedRadius(e.value);
+        setSelectedRadius({label: e.value, value: e.value});
     }
 
     useEffect(() => {
-        onChange({
-            province: selectedProvince,
-            city: selectedCity,
-            radius: selectedRadius
-        })
-    }, [selectedProvince, selectedCity, selectedRadius])
+        !!selectedProvince && setCityOptions(getCities(selectedProvince.value));
+        // this will clear the city name when the province changes, except when province is initially set
+        if (!!selectedProvince && selectedProvince.value !== searchArea.province) {
+            setSelectedCity(null);
+        }
+    }, [selectedProvince]);
 
+    useEffect(() => {
+        onChange({
+            province: selectedProvince ? selectedProvince.value : selectedProvince,
+            city: selectedCity ? selectedCity.value : selectedCity,
+            radius: selectedRadius ? selectedRadius.value : selectedRadius
+        })
+    }, [selectedProvince, selectedCity, selectedRadius]);
 
     return (
         <div>
@@ -48,14 +68,16 @@ function SearchArea(props) {
                               options={getProvinces()}
                               onChange={e => handleProvinceChange(e)}
                               dropdownCSS={dropdownSearchAreaCSS}
+                              initialSelection={selectedProvince}
                     />
                 </div>
-                <div className="col-start-4 col-end-8">
+                <div className="col-start-4 col-end-8" key={selectedCity}>
                     <Dropdown isSearchable={true} placeholder={"City"}
                               name="city"
-                              options={getCities(selectedProvince)}
+                              options={cityOptions}
                               onChange={e => handleCityChange(e)}
                               dropdownCSS={dropdownSearchAreaCSS}
+                              initialSelection={selectedCity}
                     />
                 </div>
                 <div className="col-start-8 col-end-11">
@@ -66,6 +88,7 @@ function SearchArea(props) {
                         options={radii}
                         onChange={e => handleRadiusChange(e)}
                         dropdownCSS={dropdownSearchAreaCSS}
+                        initialSelection={selectedRadius}
                     />
                 </div>
 
@@ -77,6 +100,11 @@ function SearchArea(props) {
 
 SearchArea.propTypes = {
     onChange: PropTypes.func.isRequired,
+    searchArea: PropTypes.shape({
+        province: PropTypes.string,
+        city: PropTypes.string,
+        radius: PropTypes.number
+    })
 }
 
 export default SearchArea;

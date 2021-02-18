@@ -92,13 +92,43 @@ const findAllMemberAccounts = (req, res) => {
 }
 
 const findMemberAccountByUsername = (username) => {
-    return MemberAccount.findAll({
+    return MemberAccount.findOne({
         include: [
             {
                 model: AbstractUser,
                 where: {
                     username: username
                 }
+            }
+        ]
+    })
+}
+
+const findFullMemberProfileByUsername = username => {
+    return MemberAccount.findOne({
+        include: [
+            {
+                model: AbstractUser,
+                attributes: ['username'],
+                where: {
+                    username: username
+                }
+            },
+            {
+                model: AreaOfInterest
+            },
+            {
+                // get usernames of all of that member's roommates
+                model: MemberAccount,
+                as: "Roommates",
+                attributes: ['uid'],
+                through: {
+                    attributes: ['RoommateUid']
+                },
+                include: [{
+                    model: AbstractUser,
+                    attributes: ['username']
+                }]
             }
         ]
     })
@@ -475,6 +505,7 @@ module.exports = {
     createMemberAccount,
     findAllMemberAccounts,
     findMemberAccountByUsername,
+    findFullMemberProfileByUsername,
     findMemberAccountByUid,
     updateMemberProfile,
     updateMemberStatus,
