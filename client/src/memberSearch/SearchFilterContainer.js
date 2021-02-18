@@ -178,6 +178,7 @@ const SearchFilterContainer = props => {
 
     return (
         <SearchFilter
+            searchArea={searchArea}
             handleSearchAreaChange={setSearchArea}
 
             genderPreference={genderPreference}
