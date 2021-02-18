@@ -27,7 +27,7 @@ describe('ProfilePage', () => {
                 familyStatus: "Existing Group",
 
                 roommates: ["jack", "potato"],
-                partnerOrGroupMembers: "Group: ",
+                partnerOrGroupMembersLabel: "Existing Group: ",
                 roommateUsernames: ["jack", "potato"],
 
                 minRent: "400",

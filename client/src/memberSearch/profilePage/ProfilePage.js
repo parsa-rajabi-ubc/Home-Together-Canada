@@ -26,7 +26,7 @@ function ProfilePage(props) {
         familyStatus,
 
         roommates,
-        partnerOrGroupMembers,
+        partnerOrGroupMembersLabel,
         roommateUsernames,
 
         minRent,
@@ -78,7 +78,7 @@ function ProfilePage(props) {
                         </section>
 
                         <span className={"block my-6 font-normal"}>Open to sharing
-                                with {shareLimit} people</span>
+                                with {shareLimit !== -1 ? shareLimit : 'any number of'} people</span>
 
                         <section className={"my-6"}>
                             <span className={"block"}> {workStatus} </span>
@@ -86,9 +86,9 @@ function ProfilePage(props) {
 
                         <section className={"my-6"}>
                             <span className={"block"}> {familyStatus} </span>
-                            {roommates &&
+                            {!!roommates.length &&
                             <section>
-                                <label>{partnerOrGroupMembers}: </label>
+                                <label>{partnerOrGroupMembersLabel}: </label>
                                 {roommateUsernames}
                             </section>
                             }
@@ -212,7 +212,7 @@ ProfilePage.propTypes =
         age: PropTypes.number.isRequired,
 
         gender: PropTypes.string.isRequired,
-        genderDescription: PropTypes.string.isRequired,
+        genderDescription: PropTypes.string,
 
         shareLimit: PropTypes.number.isRequired,
 
@@ -220,7 +220,7 @@ ProfilePage.propTypes =
         familyStatus: PropTypes.string.isRequired,
 
         roommates: PropTypes.array,
-        partnerOrGroupMembers: PropTypes.string.isRequired,
+        partnerOrGroupMembersLabel: PropTypes.string.isRequired,
         roommateUsernames: PropTypes.array,
 
         minRent: PropTypes.string.isRequired,
