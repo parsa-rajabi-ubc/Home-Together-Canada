@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Paypal Snapshot test should match snapshot test regardless of properties 1`] = `
+<div>
+  <h1
+    className="page-title mb-5"
+  >
+     
+    Payment
+     
+  </h1>
+  <p
+    className="label mb-2"
+  >
+    Please select how many months you would like to purchase
+  </p>
+  <span
+    className="block"
+  >
+    <label
+      className="text-base text-gray-700 pr-8"
+    >
+      <input
+        className="form-radio mt-2 ml-2 mr-1 pb-4"
+        name="months"
+        onChange={[Function]}
+        type="radio"
+        value="18"
+      />
+      1 Month - $18
+    </label>
+  </span>
+  <span
+    className="block"
+  >
+    <label
+      className="text-base text-gray-700 pr-8"
+    >
+      <input
+        className="form-radio mt-2 ml-2 mr-1 pb-4"
+        name="months"
+        onChange={[Function]}
+        type="radio"
+        value="45"
+      />
+      3 Months - $45
+    </label>
+  </span>
+  <span
+    className="block"
+  >
+    <label
+      className="text-base text-gray-700 pr-8"
+    >
+      <input
+        className="form-radio mt-2 ml-2 mr-1 pb-4"
+        name="months"
+        onChange={[Function]}
+        type="radio"
+        value="80"
+      />
+      6 Months - $80
+    </label>
+  </span>
+  <span
+    className="block"
+  >
+    <label
+      className="text-base text-gray-700 pr-8"
+    >
+      <input
+        className="form-radio mt-2 ml-2 mr-1 pb-4"
+        name="months"
+        onChange={[Function]}
+        type="radio"
+        value="140"
+      />
+      12 Months - $140
+    </label>
+  </span>
+</div>
+`;
