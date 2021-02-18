@@ -9,7 +9,7 @@
 const { body } = require('express-validator/check');
 
 const {
-    PROVINCES,
+    PROVINCES_LIST,
     GENDERS,
     STATUSES,
     WORK_STATUSES,
@@ -33,6 +33,7 @@ const {
     validGenderPreferences,
     isValidRadius,
     isValidAreasOfInterestList,
+    isValidLocation,
     usernameShouldNotAlreadyExist,
     emailShouldNotAlreadyBeInUse,
     updatedEmailShouldNotAlreadyBeInUse,
@@ -106,7 +107,7 @@ const abstractUserValidation = [
         .not().isEmpty(),
     body('province', 'A valid province must be provided')
         .exists()
-        .isIn(PROVINCES),
+        .isIn(PROVINCES_LIST),
     body('postalCode', 'A valid postal code must be provided')
         .exists()
         .trim()
@@ -376,7 +377,9 @@ const areasOfInterestValidation = [
     body('areasOfInterest')
         .exists()
         .isArray()
-        .custom(areasOfInterest => isValidAreasOfInterestList(areasOfInterest))
+        .custom(areasOfInterest => isValidAreasOfInterestList(areasOfInterest)),
+    body('areasOfInterest.*', 'Invalid location provided for area of interest')
+        .custom(areaOfInterest => isValidLocation(areaOfInterest))
 ];
 
 
@@ -516,24 +519,37 @@ exports.validate = (method) => {
                 body('othersWithHomeToSharePreference')
                     .optional()
                     .isBoolean(),
-                body('searchArea.province')
+                body('searchArea.province', 'Invalid province in search area')
                     .exists()
-                    .isIn(PROVINCES),
-                body('searchArea.city')
+                    .isIn(PROVINCES_LIST),
+                body('searchArea.city', 'Invalid city in search area')
                     .exists()
                     .trim()
                     .stripLow(),
-                body('searchArea.radius')
+                body('searchArea.radius', 'Invalid radius in search area')
                     .exists()
                     .isNumeric()
-                    .custom(radius => isValidRadius(radius))
+                    .custom(radius => isValidRadius(radius)),
+                body('searchArea', 'Invalid location for search area')
+                    .exists()
+                    .custom(searchArea => isValidLocation(searchArea))
             ]
         }
-        case 'deactivateMemberAccount':
+        case 'deactivateMemberAccount': {
             return [
                 body('reason', 'A valid deactivation reason must be provided')
                     .exists()
                     .isIn(DEACTIVATION_REASONS)
             ];
+        }
+        case 'searchMemberByUsername': {
+            return [
+                body('username')
+                    .exists()
+                    .trim()
+                    .stripLow()
+                    .custom(username => usernameShouldExist(username))
+            ]
+        }
     }
 }

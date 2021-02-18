@@ -13,26 +13,11 @@ const memberAccountController = require('../memberAccountController');
 const PasswordService = require('../../services/PasswordService');
 const {isCanadianPostalCode} = require('../utils/locationUtils');
 const {STATUS} = require('../../constants/memberConstants');
+const { DEFAULT_COUNTRY, PROVINCE_MAP, PROVINCES_LIST } = require('../configConstants');
 
 const geoCoder = nodeGeocoder({
     provider: 'openstreetmap'
 });
-
-const PROVINCES = [
-    'AB',
-    'BC',
-    'MB',
-    'NB',
-    'NL',
-    'NT',
-    'NS',
-    'NU',
-    'ON',
-    'PE',
-    'QC',
-    'SK',
-    'YT'
-];
 
 const GENDERS = [
     'Female',
@@ -119,7 +104,7 @@ const validateMailingPostalCode = (postalCode, req) => {
 
 const validateMailingProvince = (province, req) => {
     if (req.body.hasDifferentMailingAddress) {
-        if (!PROVINCES.includes(province)) {
+        if (!PROVINCES_LIST.includes(province)) {
             throw new Error('Mailing province is incorrect');
         } else {
             return true;
@@ -147,7 +132,7 @@ const validateMapPostalCode = (postalCode, req) => {
 
 const validateMapProvince = (province, req) => {
     if (!req.body.isNationWide) {
-        if (!PROVINCES.includes(province)) {
+        if (!PROVINCES_LIST.includes(province)) {
             throw new Error('Searchable address province is incorrect');
         } else {
             return true;
@@ -238,7 +223,7 @@ const isValidAreasOfInterestList = (areasOfInterest) => {
         areasOfInterest.forEach(areaOfInterest => {
             if (!areaOfInterest || !areaOfInterest.province || !areaOfInterest.city || !isNumber(areaOfInterest.radius)) {
                 throw new Error('Area of interest must include province, city and radius properties');
-            } else if (!PROVINCES.includes(areaOfInterest.province)) {
+            } else if (!PROVINCES_LIST.includes(areaOfInterest.province)) {
                 throw new Error('Must provide a valid Canadian Province');
             } else if (parseInt(areaOfInterest.radius) < 0 || parseInt(areaOfInterest.radius) > MAX_RADIUS) {
                 throw new Error('Radius must be positive and less than 500 km');
@@ -248,6 +233,22 @@ const isValidAreasOfInterestList = (areasOfInterest) => {
         throw new Error('At least one area of interest must be provided');
     }
     return true;
+}
+
+const isValidLocation = area => {
+    if (!PROVINCES_LIST.includes(area.province)) {
+        throw new Error('Invalid location provided');
+    }
+    return geoCoder.geocode({
+        country: DEFAULT_COUNTRY,
+        state: PROVINCE_MAP.get(area.province),
+        city: area.city
+    })
+        .then(results => {
+            if (!results || !results.length) {
+                return Promise.reject('Invalid location provided');
+            }
+        });
 }
 
 const usernameShouldNotAlreadyExist = (username) =>
@@ -286,7 +287,7 @@ const usernameShouldExist = (username) =>
 const usernameShouldExistAndBeAMember = (username) => {
     return memberAccountController.findMemberAccountByUsername(username)
         .then(member => {
-            if (!!member && !member.length) {
+            if (!member) {
                 return Promise.reject(`That member's username does not exist`);
             }
         });
@@ -295,7 +296,7 @@ const usernameShouldExistAndBeAMember = (username) => {
 const linkedMemberShouldHaveSameStatus = (username, req) => {
     return memberAccountController.findMemberAccountByUsername(username)
         .then(member => {
-            if (!!member && member.length && member[0].dataValues.status !== req.body.status) {
+            if (!member || member.dataValues.status !== req.body.status) {
                 return Promise.reject(`Member and linked username must share the same status`);
             }
         });
@@ -347,7 +348,8 @@ const correctPasswordForUsername = (username, password) =>
     });
 
 module.exports = {
-    PROVINCES,
+    PROVINCES_LIST,
+    PROVINCE_MAP,
     GENDERS,
     STATUSES,
     WORK_STATUSES,
@@ -372,6 +374,7 @@ module.exports = {
     isValidShareLimitArray,
     isValidRadius,
     isValidAreasOfInterestList,
+    isValidLocation,
     usernameShouldNotAlreadyExist,
     emailShouldNotAlreadyBeInUse,
     updatedEmailShouldNotAlreadyBeInUse,
