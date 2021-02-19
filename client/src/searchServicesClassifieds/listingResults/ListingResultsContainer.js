@@ -17,10 +17,7 @@ function ListingResultsContainer() {
 
     return (
         <div className={"m-6"}>
-
-            <div className={"w-1/2"}>
-                <ListingResults/>
-            </div>
+            <ListingResults/>
         </div>
     );
 }

@@ -29,8 +29,14 @@ function SearchListingContainer() {
 
     return (
         <listingContext.Provider value={listingPage}>
-            <SearchListingFiltersContainer/>
-            <ListingResultsContainer/>
+            <div className={"flex"}>
+                <div className={"flex-none w-1/3"}>
+                    <SearchListingFiltersContainer/>
+                </div>
+                <div className={"flex-1"}>
+                    <ListingResultsContainer/>
+                </div>
+            </div>
         </listingContext.Provider>
     );
 }
