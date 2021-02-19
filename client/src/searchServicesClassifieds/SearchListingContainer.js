@@ -7,7 +7,7 @@
  */
 
 import React, {useState, createContext, useEffect} from 'react';
-import SearchListingFiltersContainer from "./SearchListingFiltersContainer";
+import SearchListingFiltersContainer from "./searchFilter/SearchListingFiltersContainer";
 import {useParams} from "react-router-dom";
 import ListingResultsContainer from "./listingResults/ListingResultsContainer";
 
