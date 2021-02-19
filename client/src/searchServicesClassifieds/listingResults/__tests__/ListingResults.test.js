@@ -7,14 +7,15 @@
  */
 
 import React from 'react';
-import renderer from  'react-test-renderer'
+import renderer from 'react-test-renderer'
 import ListingResults from "../ListingResults";
+import {BrowserRouter as Router} from "react-router-dom";
 
 describe('ListingResultsContainer', () => {
     describe('Container test', () => {
         it('should match snapshot test', () => {
             //when
-            const component = renderer.create(<ListingResults/>);
+            const component = renderer.create(<Router><ListingResults/></Router>);
             const tree = component.toJSON();
             //then
             expect(tree).toMatchSnapshot();
