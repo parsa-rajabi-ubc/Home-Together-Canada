@@ -7,9 +7,8 @@
  */
 
 import React from 'react';
-import renderer from  'react-test-renderer'
 import BusinessListingCard from "../BusinessListingCard";
-import PropTypes from "prop-types";
+import ShallowRenderer from "react-test-renderer/shallow";
 
 describe('BusinessListingCard', () => {
     describe('Container test', () => {
@@ -22,12 +21,13 @@ describe('BusinessListingCard', () => {
                 shortDescription: "Snow",
                 datePosted: "2021-02-14T05:42:39.000Z",
             }
-            
+
             //when
-            const component = renderer.create(<BusinessListingCard {...props}/>);
-            const tree = component.toJSON();
+            const renderer = new ShallowRenderer();
+            renderer.render(<BusinessListingCard {...props}/>);
+            const result = renderer.getRenderOutput();
             //then
-            expect(tree).toMatchSnapshot();
+            expect(result).toMatchSnapshot();
         });
     });
 });

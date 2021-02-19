@@ -22,11 +22,27 @@ exports[`BusinessListingCard Container test should match snapshot test 1`] = `
     <section
       className="inline float-right pr-6 justify-end"
     >
-      <time
-        dateTime={"2021-02-14T05:42:39.000Z"}
+      <n
+        ago={false}
+        calendar={false}
+        decimal={false}
+        element={null}
+        filter={[Function]}
+        format="MMM D, YYYY"
+        fromNow={false}
+        interval={60000}
+        local={false}
+        onChange={[Function]}
+        titleFormat=""
+        toNow={false}
+        trim={false}
+        unit={null}
+        unix={false}
+        utc={false}
+        withTitle={false}
       >
-        Feb 13, 2021
-      </time>
+        2021-02-14T05:42:39.000Z
+      </n>
     </section>
   </div>
   <div
