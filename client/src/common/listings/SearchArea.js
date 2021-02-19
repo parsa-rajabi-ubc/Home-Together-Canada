@@ -11,11 +11,16 @@ import radii from "../forms/Radii";
 import {getProvinces, getCities} from "../utils/locationUtils";
 import Dropdown from "../forms/Dropdown";
 import PropTypes from "prop-types";
-import {dropdownSearchAreaCSS} from "../../css/dropdownCSSUtil"
+import {dropdownErrorCSS, dropdownSearchAreaCSS} from "../../css/dropdownCSSUtil"
 
 
 function SearchArea(props) {
-    const {onChange, searchArea} = props;
+    const {
+        onChange, searchArea,
+        SearchAreaProvinceError,
+        SearchAreaCityError,
+        SearchAreaRadiusError,
+    } = props;
     const [selectedProvince, setSelectedProvince] = useState(
         (!!searchArea && !!searchArea.province)
             ? {label: searchArea.province, value: searchArea.province}
@@ -23,13 +28,13 @@ function SearchArea(props) {
     );
     const [selectedCity, setSelectedCity] = useState(
         (!!searchArea && !!searchArea.city)
-        ? {label: searchArea.city, value: searchArea.city}
-        : null
+            ? {label: searchArea.city, value: searchArea.city}
+            : null
     );
     const [selectedRadius, setSelectedRadius] = useState(
         (!!searchArea && !!searchArea.radius)
-        ? {label: `${searchArea.radius} km`, value: searchArea.radius}
-        : null
+            ? {label: `${searchArea.radius} km`, value: searchArea.radius}
+            : null
     );
     const [cityOptions, setCityOptions] = useState(selectedProvince ? getCities(selectedProvince.value) : []);
 
@@ -67,7 +72,7 @@ function SearchArea(props) {
                               name="province"
                               options={getProvinces()}
                               onChange={e => handleProvinceChange(e)}
-                              dropdownCSS={dropdownSearchAreaCSS}
+                              dropdownCSS={SearchAreaProvinceError ? dropdownErrorCSS : dropdownSearchAreaCSS}
                               initialSelection={selectedProvince}
                     />
                 </div>
@@ -76,7 +81,7 @@ function SearchArea(props) {
                               name="city"
                               options={cityOptions}
                               onChange={e => handleCityChange(e)}
-                              dropdownCSS={dropdownSearchAreaCSS}
+                              dropdownCSS={SearchAreaCityError ? dropdownErrorCSS : dropdownSearchAreaCSS}
                               initialSelection={selectedCity}
                     />
                 </div>
@@ -87,7 +92,7 @@ function SearchArea(props) {
                         name="radius"
                         options={radii}
                         onChange={e => handleRadiusChange(e)}
-                        dropdownCSS={dropdownSearchAreaCSS}
+                        dropdownCSS={SearchAreaRadiusError ? dropdownErrorCSS : dropdownSearchAreaCSS}
                         initialSelection={selectedRadius}
                     />
                 </div>
@@ -104,7 +109,10 @@ SearchArea.propTypes = {
         province: PropTypes.string,
         city: PropTypes.string,
         radius: PropTypes.number
-    })
+    }),
+    SearchAreaProvinceError: PropTypes.bool,
+    SearchAreaCityError: PropTypes.bool,
+    SearchAreaRadiusError: PropTypes.bool
 }
 
 export default SearchArea;
