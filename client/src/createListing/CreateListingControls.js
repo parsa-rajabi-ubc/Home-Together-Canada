@@ -34,7 +34,7 @@ import {SERVICES_TEXT, CLASSIFIEDS_TEXT, CREATE_LISTINGS_TEXT} from "../common/c
 import {isValueInArray} from "../common/utils/generalUtils";
 import PropTypes from "prop-types";
 
-const CREATE_LISTING_CONTROLS_TEXT = {
+export const CREATE_LISTING_CONTROLS_TEXT = {
     CREATE_LISTING: CREATE_LISTINGS_TEXT,
     SELECT_LISTING_TYPE: "Select Type of Listing",
     SELECT_LISTING_CATEGORY: "Select Listing Category",
