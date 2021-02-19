@@ -11,7 +11,7 @@ import React, {useContext} from 'react';
 import {listingContext} from "../SearchListingContainer";
 import ListingResults from "./ListingResults";
 
-function SearchListingFiltersContainer() {
+function ListingResultsContainer() {
 
     const listingPage = useContext(listingContext);
 
@@ -24,4 +24,4 @@ function SearchListingFiltersContainer() {
 }
 
 
-export default SearchListingFiltersContainer;
+export default ListingResultsContainer;
