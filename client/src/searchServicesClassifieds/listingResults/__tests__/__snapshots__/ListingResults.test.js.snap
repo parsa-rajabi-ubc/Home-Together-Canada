@@ -229,9 +229,9 @@ exports[`ListingResultsContainer Container test should match snapshot test 1`] =
             className="inline float-right pr-6 justify-end"
           >
             <time
-              dateTime={"2021-02-16T03:42:39.000Z"}
+              dateTime={"2021-01-15T11:42:39.000Z"}
             >
-              Feb 15, 2021
+              Jan 15, 2021
             </time>
           </section>
         </div>
