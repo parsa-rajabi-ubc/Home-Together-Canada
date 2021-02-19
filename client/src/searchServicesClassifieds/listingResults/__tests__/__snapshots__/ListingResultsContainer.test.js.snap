@@ -87,7 +87,7 @@ exports[`ListingResultsContainer Container test should match snapshot test 1`] =
                 <time
                   dateTime={"2021-02-15T05:42:39.000Z"}
                 >
-                  Feb 15, 2021
+                  Feb 14, 2021
                 </time>
               </section>
             </div>
@@ -237,7 +237,7 @@ exports[`ListingResultsContainer Container test should match snapshot test 1`] =
                 <time
                   dateTime={"2021-02-16T03:42:39.000Z"}
                 >
-                  Feb 16, 2021
+                  Feb 15, 2021
                 </time>
               </section>
             </div>
@@ -354,6 +354,1137 @@ exports[`ListingResultsContainer Container test should match snapshot test 1`] =
               <section>
                  
                 We offer services, or tool rentals
+                 
+              </section>
+            </div>
+          </section>
+        </a>
+        <ul
+          className="flex m-auto w-2/3"
+        >
+          <li
+            className="next-prev-text disabled"
+          >
+            <a
+              aria-disabled="true"
+              aria-label="Previous page"
+              className="next-prev-link"
+              onClick={[Function]}
+              onKeyPress={[Function]}
+              rel="prev"
+              role="button"
+              tabIndex="0"
+            >
+              Previous
+            </a>
+          </li>
+          <li
+            className="selected"
+          >
+            <a
+              aria-current="page"
+              aria-label="Page 1 is your current page"
+              className="page-numbers current-page"
+              onClick={[Function]}
+              onKeyPress={[Function]}
+              role="button"
+              tabIndex="0"
+            >
+              1
+            </a>
+          </li>
+          <li>
+            <a
+              aria-current={null}
+              aria-label="Page 2"
+              className="page-numbers"
+              onClick={[Function]}
+              onKeyPress={[Function]}
+              role="button"
+              tabIndex="0"
+            >
+              2
+            </a>
+          </li>
+          <li>
+            <a
+              aria-current={null}
+              aria-label="Page 3"
+              className="page-numbers"
+              onClick={[Function]}
+              onKeyPress={[Function]}
+              role="button"
+              tabIndex="0"
+            >
+              3
+            </a>
+          </li>
+          <li
+            className="next-prev-text"
+          >
+            <a
+              aria-disabled="false"
+              aria-label="Next page"
+              className="next-prev-link"
+              onClick={[Function]}
+              onKeyPress={[Function]}
+              rel="next"
+              role="button"
+              tabIndex="0"
+            >
+              Next
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <a
+          href="/undefined/1"
+          onClick={[Function]}
+        >
+          <section
+            className="card-container mt-0"
+          >
+            <div
+              className="inline align-middle "
+            >
+              <label
+                className="font-semibold justify-between"
+              >
+                 
+                Room for Rent
+                 
+              </label>
+              <section
+                className="inline float-right pr-6 justify-end"
+              >
+                <time
+                  dateTime={"2021-02-14T02:42:39.005Z"}
+                >
+                  Feb 13, 2021
+                </time>
+              </section>
+            </div>
+            <div
+              className="ml-6 flex"
+            >
+              <label
+                className="px-1"
+              >
+                 
+                750
+                 
+              </label>
+              <section
+                className="flex w-full pr-6 justify-end"
+              />
+            </div>
+            <div
+              className="mx-6 inline items-center justify-between leading-tight font-light"
+            >
+              <section>
+                 
+                Furnished Room, Utilities Covered
+                 
+              </section>
+            </div>
+          </section>
+        </a>
+        <a
+          href="/undefined/2"
+          onClick={[Function]}
+        >
+          <section
+            className="card-container mt-0"
+          >
+            <div
+              className="inline align-middle "
+            >
+              <label
+                className="font-semibold justify-between"
+              >
+                 
+                Room for Rent
+                 
+              </label>
+              <section
+                className="inline float-right pr-6 justify-end"
+              >
+                <time
+                  dateTime={"2021-02-15T05:42:39.000Z"}
+                >
+                  Feb 14, 2021
+                </time>
+              </section>
+            </div>
+            <div
+              className="ml-6 flex"
+            >
+              <label
+                className="px-1"
+              >
+                 
+                500
+                 
+              </label>
+              <section
+                className="flex w-full pr-6 justify-end"
+              >
+                <span>
+                  <span
+                    data-for="PetFriendly"
+                    data-tip={true}
+                  >
+                    <svg
+                      className="text-blue-400 ml-1"
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 576 512"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M298.06,224,448,277.55V496a16,16,0,0,1-16,16H368a16,16,0,0,1-16-16V384H192V496a16,16,0,0,1-16,16H112a16,16,0,0,1-16-16V282.09C58.84,268.84,32,233.66,32,192a32,32,0,0,1,64,0,32.06,32.06,0,0,0,32,32ZM544,112v32a64,64,0,0,1-64,64H448v35.58L320,197.87V48c0-14.25,17.22-21.39,27.31-11.31L374.59,64h53.63c10.91,0,23.75,7.92,28.62,17.69L464,96h64A16,16,0,0,1,544,112Zm-112,0a16,16,0,1,0-16,16A16,16,0,0,0,432,112Z"
+                      />
+                    </svg>
+                  </span>
+                  <div
+                    className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
+                    data-id="tooltip"
+                    id="PetFriendly"
+                  >
+                    <style
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "
+  	.t00000000-0000-0000-0000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-0000-0000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                        }
+                      }
+                    />
+                    Pet Friendly
+                  </div>
+                </span>
+                <span>
+                  <span
+                    data-for="SmokeFriendly"
+                    data-tip={true}
+                  >
+                    <svg
+                      className="text-red-500 ml-1"
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 512 512"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M224 32c9.036 24.71 106.984 58.72 156.096 64-37.096 7.89-53.042 10.52-57.545 32-13.076 62.384 191.477 60.478 115.73 152.223 69.11-15.788 57.922-116.197 15.887-129.84-27.237-8.84-63.75-11.67-47.75-38.383C425.962 88.104 503.57 59.74 448 32zM28.096 292v64h87v-64zm105 0v64h274v-64zm292 0v64h16v-64zm34 0v64h17v-64z"
+                      />
+                    </svg>
+                  </span>
+                  <div
+                    className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
+                    data-id="tooltip"
+                    id="SmokeFriendly"
+                  >
+                    <style
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "
+  	.t00000000-0000-0000-0000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-0000-0000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                        }
+                      }
+                    />
+                    Smoke Friendly
+                  </div>
+                </span>
+              </section>
+            </div>
+            <div
+              className="mx-6 inline items-center justify-between leading-tight font-light"
+            >
+              <section>
+                 
+                Unfurnished Room, Utilities/internet Split
+                 
+              </section>
+            </div>
+          </section>
+        </a>
+        <a
+          href="/undefined/3"
+          onClick={[Function]}
+        >
+          <section
+            className="card-container mt-0"
+          >
+            <div
+              className="inline align-middle "
+            >
+              <label
+                className="font-semibold justify-between"
+              >
+                 
+                Basement suite
+                 
+              </label>
+              <section
+                className="inline float-right pr-6 justify-end"
+              >
+                <time
+                  dateTime={"2021-02-14T16:42:39.000Z"}
+                >
+                  Feb 14, 2021
+                </time>
+              </section>
+            </div>
+            <div
+              className="ml-6 flex"
+            >
+              <label
+                className="px-1"
+              >
+                 
+                1100
+                 
+              </label>
+              <section
+                className="flex w-full pr-6 justify-end"
+              />
+            </div>
+            <div
+              className="mx-6 inline items-center justify-between leading-tight font-light"
+            >
+              <section>
+                 
+                1 bed 1 bath, nice part of town, parking spot
+                 
+              </section>
+            </div>
+          </section>
+        </a>
+        <a
+          href="/undefined/4"
+          onClick={[Function]}
+        >
+          <section
+            className="card-container mt-0"
+          >
+            <div
+              className="inline align-middle "
+            >
+              <label
+                className="font-semibold justify-between"
+              >
+                 
+                Room for Rent
+                 
+              </label>
+              <section
+                className="inline float-right pr-6 justify-end"
+              >
+                <time
+                  dateTime={"2021-02-16T23:42:39.000Z"}
+                >
+                  Feb 16, 2021
+                </time>
+              </section>
+            </div>
+            <div
+              className="ml-6 flex"
+            >
+              <label
+                className="px-1"
+              >
+                 
+                850
+                 
+              </label>
+              <section
+                className="flex w-full pr-6 justify-end"
+              >
+                <span>
+                  <span
+                    data-for="SmokeFriendly"
+                    data-tip={true}
+                  >
+                    <svg
+                      className="text-red-500 ml-1"
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 512 512"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M224 32c9.036 24.71 106.984 58.72 156.096 64-37.096 7.89-53.042 10.52-57.545 32-13.076 62.384 191.477 60.478 115.73 152.223 69.11-15.788 57.922-116.197 15.887-129.84-27.237-8.84-63.75-11.67-47.75-38.383C425.962 88.104 503.57 59.74 448 32zM28.096 292v64h87v-64zm105 0v64h274v-64zm292 0v64h16v-64zm34 0v64h17v-64z"
+                      />
+                    </svg>
+                  </span>
+                  <div
+                    className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
+                    data-id="tooltip"
+                    id="SmokeFriendly"
+                  >
+                    <style
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "
+  	.t00000000-0000-0000-0000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-0000-0000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                        }
+                      }
+                    />
+                    Smoke Friendly
+                  </div>
+                </span>
+              </section>
+            </div>
+            <div
+              className="mx-6 inline items-center justify-between leading-tight font-light"
+            >
+              <section>
+                 
+                Furnished Room, Utilities Covered
+                 
+              </section>
+            </div>
+          </section>
+        </a>
+        <a
+          href="/undefined/5"
+          onClick={[Function]}
+        >
+          <section
+            className="card-container mt-0"
+          >
+            <div
+              className="inline align-middle "
+            >
+              <label
+                className="font-semibold justify-between"
+              >
+                 
+                Room for Rent
+                 
+              </label>
+              <section
+                className="inline float-right pr-6 justify-end"
+              >
+                <time
+                  dateTime={"2021-02-16T03:42:39.000Z"}
+                >
+                  Feb 15, 2021
+                </time>
+              </section>
+            </div>
+            <div
+              className="ml-6 flex"
+            >
+              <label
+                className="px-1"
+              >
+                 
+                950
+                 
+              </label>
+              <section
+                className="flex w-full pr-6 justify-end"
+              >
+                <span>
+                  <span
+                    data-for="PetFriendly"
+                    data-tip={true}
+                  >
+                    <svg
+                      className="text-blue-400 ml-1"
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 576 512"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M298.06,224,448,277.55V496a16,16,0,0,1-16,16H368a16,16,0,0,1-16-16V384H192V496a16,16,0,0,1-16,16H112a16,16,0,0,1-16-16V282.09C58.84,268.84,32,233.66,32,192a32,32,0,0,1,64,0,32.06,32.06,0,0,0,32,32ZM544,112v32a64,64,0,0,1-64,64H448v35.58L320,197.87V48c0-14.25,17.22-21.39,27.31-11.31L374.59,64h53.63c10.91,0,23.75,7.92,28.62,17.69L464,96h64A16,16,0,0,1,544,112Zm-112,0a16,16,0,1,0-16,16A16,16,0,0,0,432,112Z"
+                      />
+                    </svg>
+                  </span>
+                  <div
+                    className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
+                    data-id="tooltip"
+                    id="PetFriendly"
+                  >
+                    <style
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "
+  	.t00000000-0000-0000-0000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-0000-0000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                        }
+                      }
+                    />
+                    Pet Friendly
+                  </div>
+                </span>
+                <span>
+                  <span
+                    data-for="SmokeFriendly"
+                    data-tip={true}
+                  >
+                    <svg
+                      className="text-red-500 ml-1"
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 512 512"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M224 32c9.036 24.71 106.984 58.72 156.096 64-37.096 7.89-53.042 10.52-57.545 32-13.076 62.384 191.477 60.478 115.73 152.223 69.11-15.788 57.922-116.197 15.887-129.84-27.237-8.84-63.75-11.67-47.75-38.383C425.962 88.104 503.57 59.74 448 32zM28.096 292v64h87v-64zm105 0v64h274v-64zm292 0v64h16v-64zm34 0v64h17v-64z"
+                      />
+                    </svg>
+                  </span>
+                  <div
+                    className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
+                    data-id="tooltip"
+                    id="SmokeFriendly"
+                  >
+                    <style
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "
+  	.t00000000-0000-0000-0000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-0000-0000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                        }
+                      }
+                    />
+                    Smoke Friendly
+                  </div>
+                </span>
+              </section>
+            </div>
+            <div
+              className="mx-6 inline items-center justify-between leading-tight font-light"
+            >
+              <section>
+                 
+                Furnished Room, Utilities Covered, Private Kitchenette
+                 
+              </section>
+            </div>
+          </section>
+        </a>
+        <a
+          href="/undefined/6"
+          onClick={[Function]}
+        >
+          <section
+            className="card-container mt-0"
+          >
+            <div
+              className="inline align-middle "
+            >
+              <label
+                className="font-semibold justify-between"
+              >
+                 
+                Room for Rent
+                 
+              </label>
+              <section
+                className="inline float-right pr-6 justify-end"
+              >
+                <time
+                  dateTime={"2021-02-15T11:42:39.000Z"}
+                >
+                  Feb 15, 2021
+                </time>
+              </section>
+            </div>
+            <div
+              className="ml-6 flex"
+            >
+              <label
+                className="px-1"
+              >
+                 
+                775
+                 
+              </label>
+              <section
+                className="flex w-full pr-6 justify-end"
+              />
+            </div>
+            <div
+              className="mx-6 inline items-center justify-between leading-tight font-light"
+            >
+              <section>
+                 
+                Unfurnished Room, spacious living area 
+                 
+              </section>
+            </div>
+          </section>
+        </a>
+        <a
+          href="/undefined/7"
+          onClick={[Function]}
+        >
+          <section
+            className="card-container mt-0"
+          >
+            <div
+              className="inline align-middle "
+            >
+              <label
+                className="font-semibold justify-between"
+              >
+                 
+                Room for Rent
+                 
+              </label>
+              <section
+                className="inline float-right pr-6 justify-end"
+              >
+                <time
+                  dateTime={"2021-02-13T18:42:39.000Z"}
+                >
+                  Feb 13, 2021
+                </time>
+              </section>
+            </div>
+            <div
+              className="ml-6 flex"
+            >
+              <label
+                className="px-1"
+              >
+                 
+                750
+                 
+              </label>
+              <section
+                className="flex w-full pr-6 justify-end"
+              >
+                <span>
+                  <span
+                    data-for="PetFriendly"
+                    data-tip={true}
+                  >
+                    <svg
+                      className="text-blue-400 ml-1"
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 576 512"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M298.06,224,448,277.55V496a16,16,0,0,1-16,16H368a16,16,0,0,1-16-16V384H192V496a16,16,0,0,1-16,16H112a16,16,0,0,1-16-16V282.09C58.84,268.84,32,233.66,32,192a32,32,0,0,1,64,0,32.06,32.06,0,0,0,32,32ZM544,112v32a64,64,0,0,1-64,64H448v35.58L320,197.87V48c0-14.25,17.22-21.39,27.31-11.31L374.59,64h53.63c10.91,0,23.75,7.92,28.62,17.69L464,96h64A16,16,0,0,1,544,112Zm-112,0a16,16,0,1,0-16,16A16,16,0,0,0,432,112Z"
+                      />
+                    </svg>
+                  </span>
+                  <div
+                    className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
+                    data-id="tooltip"
+                    id="PetFriendly"
+                  >
+                    <style
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "
+  	.t00000000-0000-0000-0000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-0000-0000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                        }
+                      }
+                    />
+                    Pet Friendly
+                  </div>
+                </span>
+              </section>
+            </div>
+            <div
+              className="mx-6 inline items-center justify-between leading-tight font-light"
+            >
+              <section>
+                 
+                Unfurnished Room, large kitchen storage
                  
               </section>
             </div>

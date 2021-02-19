@@ -12,7 +12,8 @@ import {Link} from "react-router-dom";
 import Paginate from "../../common/forms/Paginate";
 import {listingContext} from "../SearchListingContainer";
 import BusinessListingCard from "../listingCards/BusinessListingCard";
-import {mockBusinessListings} from "../../mockData/MockListingData";
+import {mockBusinessListings, mockMemberListings} from "../../mockData/MockListingData";
+import MemberListingCard from "../listingCards/MemberListingCard";
 
 const NUM_RESULTS = 7;
 
@@ -32,9 +33,24 @@ function ListingResults() {
             </Link>
     )
 
+    const memberListingCards = mockMemberListings.map(
+        (member) =>
+            <Link to={`/${listingPage}/${member.id}`} key={member.id}>
+                <MemberListingCard
+                    title={member.title}
+                    monthlyCost={member.monthlyCost}
+                    petFriendly={member.petFriendly}
+                    smokeFriendly={member.smokeFriendly
+                    }
+                    shortDescription={member.shortDescription}
+                    datePosted={member.datePosted}/>
+            </Link>
+    )
+
     return (
         <div>
             <Paginate data={businessCards} resultsPerPage={NUM_RESULTS}/>
+            <Paginate data={memberListingCards} resultsPerPage={NUM_RESULTS}/>
         </div>
     );
 }
