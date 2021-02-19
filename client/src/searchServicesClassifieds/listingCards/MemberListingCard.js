@@ -22,7 +22,6 @@ function MemberListingCard(props) {
 
             <div className={"inline align-middle "}>
                 <label className={"font-semibold justify-between"}> {title} </label>
-                {/*{shortDescription}*/}
                 <section className={"inline float-right pr-6 justify-end"}>
                     <Moment format="MMM D, YYYY">{datePosted}</Moment>
                 </section>
