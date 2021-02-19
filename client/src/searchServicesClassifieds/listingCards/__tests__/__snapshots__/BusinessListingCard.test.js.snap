@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BusinessListingCard Container test should match snapshot test 1`] = `
+<section
+  className="card-container mt-0"
+>
+  <img
+    alt=""
+    className="float-left w-24 h-auto mx-4 "
+    src="HTC_Logo.jpg"
+  />
+  <div
+    className="inline align-middle "
+  >
+    <label
+      className="font-semibold justify-between"
+    >
+       
+      Soup
+       
+    </label>
+    <section
+      className="inline float-right pr-6 justify-end"
+    >
+      <time
+        dateTime={"2021-02-14T05:42:39.000Z"}
+      >
+        Feb 13, 2021
+      </time>
+    </section>
+  </div>
+  <div
+    className="mx-6 inline items-center justify-between leading-tight font-light"
+  >
+    <section
+      className="mb-3"
+    >
+       
+      Pasta
+       
+    </section>
+    <section>
+       
+      Snow
+       
+    </section>
+  </div>
+</section>
+`;
