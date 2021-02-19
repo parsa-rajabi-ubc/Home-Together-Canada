@@ -39,8 +39,8 @@ function SearchListingFilters(props) {
         (subcategory, index) =>
             <Checkbox
                 key={subcategory + index}
-                label={subcategory}
-                id={subcategory}
+                label={subcategory.toString()}
+                id={subcategory.toString()}
                 fontNormal={true}
                 onChange={handleSubcategoriesChange}
             />
