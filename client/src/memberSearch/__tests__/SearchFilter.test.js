@@ -28,22 +28,22 @@ describe('SearchFilter', () => {
                 familyStatusPreference: ["Single", "Couple"],
                 setFamilyStatusPreference: jest.fn(),
 
-                minAgePreference: 20,
+                minAgePreference: '20',
                 setMinAgePreference: jest.fn(),
                 minAgePreferenceError: true,
 
-                maxAgePreference: 25,
+                maxAgePreference: '25',
                 setMaxAgePreference: jest.fn(),
                 maxAgePreferenceError: false,
 
                 selectedLimitPreference: [1,3],
                 handleSelectedLimitPreferenceChange: jest.fn(),
 
-                minBudgetPreference: 200,
+                minBudgetPreference: '200',
                 setMinBudgetPreference: jest.fn(),
                 minBudgetPreferenceError: false,
 
-                maxBudgetPreference: 250,
+                maxBudgetPreference: '250',
                 setMaxBudgetPreference: jest.fn(),
                 maxBudgetPreferenceError: true,
 

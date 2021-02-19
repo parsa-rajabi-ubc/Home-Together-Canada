@@ -49,16 +49,16 @@ const getFilteredProfilesInformation = results => {
     if (!results || !results.length) {
         return [];
     }
+    return results.map(member => getMemberProfileInfo(member.dataValues));
+}
 
-    return results.map(result => {
-        const member = result.dataValues;
-        return {
-            ...getProfile(member),
-            areasOfInterest: getFormattedAreasOfInterest(member.AreaOfInterests),
-            roommates: getRoommateUsernamesFromMemberAccount(member.Roommates),
-            username: getUsernameFromAbstractUser(member.AbstractUser)
-        }
-    });
+const getMemberProfileInfo = member => {
+    return {
+        ...getBasicProfile(member),
+        areasOfInterest: getFormattedAreasOfInterest(member.AreaOfInterests),
+        roommates: getRoommateUsernamesFromMemberAccount(member.Roommates),
+        username: getUsernameFromAbstractUser(member.AbstractUser)
+    }
 }
 
 const getFormattedAreasOfInterest = areasOfInterest => {
@@ -82,7 +82,7 @@ const getRoommateUsernamesFromMemberAccount = memberAccounts => {
     return memberAccounts.map(member => member.dataValues.AbstractUser.dataValues.username);
 }
 
-const getProfile = member => {
+const getBasicProfile = member => {
     return {
         uid: member.uid,
         gender: member.gender,
@@ -138,6 +138,7 @@ module.exports = {
     getValueOfOptionalField,
     formatPhoneNumber,
     getFilteredProfilesInformation,
+    getMemberProfileInfo,
     getMemberAccountInfo,
-    getProfile
+    getBasicProfile
 }

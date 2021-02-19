@@ -157,11 +157,13 @@ router.get('/profile/',
     userIsMember,
     function (req, res, next) {
         let member = {};
+        // TODO: implement the following using a function in member account controller
+        //  similar to findFullMemberProfileByUsername
         memberAccounts.findMemberAccountByUid(req.user.uid)
             .then(memberAccount => {
                 member = {
                     profile: {
-                        ...accountUtils.getProfile(memberAccount.dataValues),
+                        ...accountUtils.getBasicProfile(memberAccount.dataValues),
                         username: req.user.username
                     }
                 }
@@ -246,6 +248,27 @@ router.post('/search/profiles/',
                 })
         }
     });
+
+router.post('/search/username/',
+    isLoggedIn,
+    userIsMember,
+    usersValidator.validate('searchMemberByUsername'),
+    function (req, res, next) {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            res.status(202).json({ errors: errors.array()});
+        } else {
+            memberAccounts.findFullMemberProfileByUsername(req.body.username)
+                .then(member => {
+                    res.status(200).json({ profile: !!member ? accountUtils.getMemberProfileInfo(member) : undefined });
+                })
+                .catch(err => {
+                    res.status(500).json({ err: err.message });
+                })
+        }
+    }
+)
 
 router.get('/active/status/',
     isLoggedIn,

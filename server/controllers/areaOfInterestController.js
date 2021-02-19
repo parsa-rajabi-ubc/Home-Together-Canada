@@ -6,8 +6,6 @@
  *
  */
 
-const circle = require('@turf/circle').default;
-
 const db = require('../models');
 const AreaOfInterest = db.areaOfInterest;
 const { getGeographicalCoordinatesFromCity, getCircularFeatureFromCoordinates} = require('./utils/locationUtils');

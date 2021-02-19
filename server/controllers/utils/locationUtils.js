@@ -12,7 +12,7 @@ const circle = require('@turf/circle').default;
 const booleanOverlap = require('@turf/boolean-overlap').default;
 const booleanWithin = require('@turf/boolean-within').default;
 
-const { DEFAULT_COUNTRY, DEFAULT_RADIUS, DEFAULT_STEP_ACCURACY } = require('../configConstants');
+const { DEFAULT_COUNTRY, DEFAULT_RADIUS, DEFAULT_STEP_ACCURACY, PROVINCE_MAP } = require('../configConstants');
 
 const geoCoder = nodeGeocoder({
     provider: 'openstreetmap'
@@ -24,8 +24,11 @@ const isCanadianPostalCode = (postalCode) => {
 }
 
 const getGeographicalCoordinatesFromCity = async (province, city) => {
-    const location = `${city} ${province} ${DEFAULT_COUNTRY}`;
-    const locations = await geoCoder.geocode(location);
+    const locations = await geoCoder.geocode({
+        country: DEFAULT_COUNTRY,
+        state: PROVINCE_MAP.get(province),
+        city: city
+    });
     return {
         latitude: locations[0].latitude,
         longitude: locations[0].longitude

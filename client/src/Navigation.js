@@ -45,9 +45,7 @@ const Navigation = (props) => {
                     <Route path={"/registration/member"} component={MemberRegistrationForm}/>
                     <Route path={"/registration"} component={MainLandingPage}/>
                     {(authenticated && accountType === USER_TYPES.MEMBER) &&
-                    <Route path={"/members/:username"}>
-                        <ProfilePageContainer/>
-                    </Route>
+                    <Route path={"/members/:username"} component={ProfilePageContainer}/>
                     }
                     <Route path={"/members"} component={MemberSearchContainer}/>
                     <Route path={"/create-listing"} component={CreateListingContainer}/>

@@ -20,6 +20,7 @@ import {resolveYesNoToBoolean} from "../registration/registrationUtils";
 function SearchFilter(props) {
     const {
         handleSearchAreaChange,
+        searchArea,
 
         genderPreference,
         handleGenderPrefChange,
@@ -76,7 +77,7 @@ function SearchFilter(props) {
                         onClick={onSubmit}
                     />
                     <label className="label block">Search Area</label>
-                    <SearchArea onChange={handleSearchAreaChange}/>
+                    <SearchArea searchArea={searchArea} onChange={handleSearchAreaChange}/>
 
                     <label className={"label block"}>I am open to sharing with </label>
                     <div className={"my-2"}>
@@ -217,6 +218,11 @@ function SearchFilter(props) {
 
 SearchFilter.propTypes = {
     handleSearchAreaChange: PropTypes.func.isRequired,
+    searchArea: PropTypes.shape({
+        province: PropTypes.string,
+        city: PropTypes.string,
+        radius: PropTypes.number
+    }),
 
     genderPreference: PropTypes.array.isRequired,
     handleGenderPrefChange: PropTypes.func.isRequired,

@@ -27,7 +27,8 @@ const rootReducer = (state, action) => {
             },
             memberPrivileges: {
                 active: null,
-                memberSearchFilters: {}
+                memberSearchFilters: {},
+                memberSearchResults: undefined
             }
         }
     }

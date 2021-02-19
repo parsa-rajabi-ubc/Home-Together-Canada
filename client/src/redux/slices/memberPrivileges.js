@@ -13,7 +13,8 @@ const memberPrivilegesSlice = createSlice({
     name: 'memberPrivileges',
     initialState: {
         active: null,
-        memberSearchFilters: {}
+        memberSearchFilters: {},
+        memberSearchResults: undefined
     },
     reducers: {
         setActive(state, action) {
@@ -23,13 +24,18 @@ const memberPrivilegesSlice = createSlice({
         setMemberSearchFilters(state, action) {
             const { memberSearchFilters } = action.payload;
             state.memberSearchFilters = {...memberSearchFilters};
+        },
+        setMemberSearchResults(state, action) {
+            const { memberSearchResults } = action.payload;
+            state.memberSearchResults = memberSearchResults;
         }
     }
 });
 
 export const {
     setActive,
-    setMemberSearchFilters
+    setMemberSearchFilters,
+    setMemberSearchResults
 } = memberPrivilegesSlice.actions;
 
 export default memberPrivilegesSlice.reducer;

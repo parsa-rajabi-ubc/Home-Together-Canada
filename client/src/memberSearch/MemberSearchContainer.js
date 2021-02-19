@@ -10,7 +10,7 @@ import React, {useState} from 'react';
 import {USER_TYPES} from "../common/constants/users";
 import InvalidUser from "../common/error/InvalidUser";
 import PropTypes from "prop-types";
-import {bindActionCreators, compose} from "redux";
+import {compose} from "redux";
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import SearchResultsContainer from "./SearchResultsContainer";
@@ -19,46 +19,70 @@ import * as MemberService from '../services/MemberService';
 import {reset} from "../redux/actionCreators";
 import {SESSION_ERR} from "../common/constants/errors";
 import {getConcatenatedErrorMessage} from "../registration/registrationUtils";
+import {setMemberSearchResults} from "../redux/slices/memberPrivileges";
 
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ reset }, dispatch);
+const mapDispatchToProps = {
+    reset,
+    setMemberSearchResults
 }
 
-const MemberSearchContainer = (props) => {
-    const {accountType, authenticated, reset} = props;
+    const MemberSearchContainer = (props) => {
+    const {accountType, authenticated, reset, memberSearchResults, setMemberSearchResults} = props;
 
-    const [memberSearchResults, setMemberSearchResults] = useState([]);
-    const [searchFiltersSelected, setSearchFiltersSelected] = useState(false);
+    const [memberSearchResultsProfiles, setMemberSearchResultsProfiles] = useState(memberSearchResults || []);
+    const [searchFiltersSelected, setSearchFiltersSelected] = useState(!!memberSearchResults);
     const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const onSubmit = searchFilters => {
-        MemberService.searchMemberProfiles(searchFilters)
-            .then(res => res.json())
-            .then(data => {
-                setSearchFiltersSelected(true);
-                if (data.profiles || Array.isArray(data.profiles)) {
-                    setMemberSearchResults(data.profiles);
-                    setError(false);
-                } else if (!data.authenticated && typeof data.authenticated === 'boolean') {
-                    reset();
-                    alert(SESSION_ERR);
-                } else if (data.err) {
-                    alert('Error: ' + data.err);
+        if (!loading) {
+            setLoading(true);
+            MemberService.searchMemberProfiles(searchFilters)
+                .then(res => res.json())
+                .then(data => {
+                    setSearchFiltersSelected(true);
+                    if (data.profiles || Array.isArray(data.profiles)) {
+                        setMemberSearchResultsProfiles(data.profiles);
+                        setMemberSearchResults({ memberSearchResults: data.profiles });
+                        setError(false);
+                        setLoading(false);
+                    } else if (!data.authenticated && typeof data.authenticated === 'boolean') {
+                        reset();
+                        alert(SESSION_ERR);
+                    } else if (data.err) {
+                        alert('Error: ' + data.err);
+                        setError(true);
+                        setLoading(false);
+                    } else if (data.errors) {
+                        const errorMessage = getConcatenatedErrorMessage(data.errors);
+                        // show list of all errors
+                        alert(errorMessage);
+                        setError(true);
+                        setLoading(false);
+                    } else {
+                        alert('There was an error retrieving profiles');
+                        setError(true);
+                        setLoading(false);
+                    }
+                })
+                .catch(err => {
+                    alert('Error: ' + err.message);
                     setError(true);
-                } else if (data.errors) {
-                    const errorMessage = getConcatenatedErrorMessage(data.errors);
-                    // show list of all errors
-                    alert(errorMessage);
-                    setError(true);
-                } else {
-                    alert('There was an error retrieving profiles');
-                    setError(true);
-                }
-            })
-            .catch(err => {
-                alert('Error: ' + err.message);
-                setError(true);
-            });
+                    setLoading(false);
+                });
+        }
+    }
+
+    function showAppropriateResultsPanel () {
+        if (loading) {
+            return <div>Loading profiles...</div>;
+        } else if (!searchFiltersSelected) {
+            return <div>Please select search filters to search</div>;
+        } else if (error) {
+            return <div>There was error loading search results</div>;
+        } else {
+            return <SearchResultsContainer profileData={memberSearchResultsProfiles}/>
+        }
     }
 
     return (
@@ -71,28 +95,26 @@ const MemberSearchContainer = (props) => {
 
                     {/*Results*/}
                     <div className={"flex-1"}>
-                        {!searchFiltersSelected
-                            ? <div>Please select search filters to search</div>
-                            : error
-                                ? <div>There was error loading search results</div>
-                                : <SearchResultsContainer profileData={memberSearchResults}/>
-                        }
+                        {showAppropriateResultsPanel()}
                     </div>
                 </div>
             }
         </div>
-    )
+    );
 }
 
 const mapStateToProps = (state) => ({
     accountType: state.userPrivileges.accountType,
-    authenticated: state.userPrivileges.authenticated
+    authenticated: state.userPrivileges.authenticated,
+    memberSearchResults: state.memberPrivileges.memberSearchResults
 });
 
 MemberSearchContainer.propTypes = {
     authenticated: PropTypes.bool.isRequired,
     accountType: PropTypes.string,
-    reset: PropTypes.func.isRequired
+    reset: PropTypes.func.isRequired,
+    memberSearchResults: PropTypes.array,
+    setMemberSearchResults: PropTypes.func.isRequired
 }
 
 export default compose(

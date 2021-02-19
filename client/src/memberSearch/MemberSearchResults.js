@@ -22,7 +22,15 @@ function MemberSearchResults(props) {
     const profiles = [];
     for (let i = 0; i < profileData.length; i++) {
         profiles.push(
-            <Link to={`/members/${profileData[i].username}`} key={i}>
+            <Link
+                to={{
+                    pathname: `/members/${profileData[i].username}`,
+                    state: {
+                        profile: profileData[i]
+                    }
+                }}
+                key={i}
+            >
                 <ProfileCard key={i}
                              username={profileData[i].username}
                              age={getMemberAge(profileData[i].birthYear)}
