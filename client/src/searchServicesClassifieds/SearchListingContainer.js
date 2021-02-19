@@ -8,7 +8,7 @@
 
 import React, {useState, createContext, useEffect} from 'react';
 import SearchListingFiltersContainer from "./SearchListingFiltersContainer";
-import {useHistory} from "react-router-dom";
+import {useParams} from "react-router-dom";
 
 export const listingContext = createContext();
 
@@ -19,12 +19,12 @@ const PAGE_NAMES = {
 
 function SearchListingContainer() {
 
-    let URL_PATH = useHistory().location.pathname;
+    let {servicesClassifieds} = useParams();
     const [listingPage, setListingPage] = useState();
 
     useEffect(() => {
-        (URL_PATH === "/" + PAGE_NAMES.SERVICES ? setListingPage(PAGE_NAMES.SERVICES) : setListingPage(PAGE_NAMES.CLASSIFIEDS));
-    }, [URL_PATH]);
+        (servicesClassifieds === PAGE_NAMES.SERVICES ? setListingPage(PAGE_NAMES.SERVICES) : setListingPage(PAGE_NAMES.CLASSIFIEDS));
+    }, [servicesClassifieds]);
 
     return (
         <listingContext.Provider value={listingPage}>

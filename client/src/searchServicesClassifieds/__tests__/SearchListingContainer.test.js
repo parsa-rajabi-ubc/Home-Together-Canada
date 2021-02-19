@@ -17,7 +17,7 @@ describe('SearchListingContainer', () => {
         it('should match snapshot test', () => {
             //when
             const component = renderer.create(
-                // using MemoryRouter to test useHistory() as per https://reactrouter.com/web/guides/testing
+                // using MemoryRouter to test useParam() as per https://reactrouter.com/web/guides/testing
                 <MemoryRouter>
                     <SearchListingContainer/>
                 </MemoryRouter>
