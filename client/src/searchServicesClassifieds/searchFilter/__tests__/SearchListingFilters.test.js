@@ -27,6 +27,7 @@ describe('SearchListingFilters', () => {
         it('should match snapshot test with Classifieds Category', () => {
             //given
             const props = {
+                handleSearchAreaChange: jest.fn(),
                 categoryOptions: BUSINESS_CLASSIFIEDS_CATEGORIES_DROPDOWN,
                 selectedCategory: BUSINESS_CLASSIFIEDS_CATEGORIES.RENTALS,
                 subcategories: [RENTALS_SUBCATEGORIES_LIST],
@@ -46,6 +47,7 @@ describe('SearchListingFilters', () => {
         it('should match snapshot test with Services Category', () => {
             //given
             const props = {
+                handleSearchAreaChange: jest.fn(),
                 categoryOptions: BUSINESS_SERVICE_CATEGORIES_DROPDOWN,
                 selectedCategory: BUSINESS_SERVICE_CATEGORIES.CO_HOUSING,
                 subcategories: [CO_HOUSING_SUBCATEGORIES_LIST],
