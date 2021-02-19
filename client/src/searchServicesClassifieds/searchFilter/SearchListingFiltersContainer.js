@@ -141,20 +141,16 @@ function SearchListingFiltersContainer() {
     }
 
     return (
-        <div>
-            <div className={"w-1/3"}>
-                <SearchListingFilters
-                    categoryOptions={categoryOptions}
-                    selectedCategory={selectedCategory}
-                    subcategories={subcategories}
-                    handleSubcategoriesChange={handleSubcategoriesChange}
-                    handleCategoryChange={handleCategoryChange}
-                    selectedCategoryError={selectedCategoryError}
-                    selectedSubcategoryError={selectedSubcategoryError}
-                    onSubmit={onSubmit}
-                />
-            </div>
-        </div>
+        <SearchListingFilters
+            categoryOptions={categoryOptions}
+            selectedCategory={selectedCategory}
+            subcategories={subcategories}
+            handleSubcategoriesChange={handleSubcategoriesChange}
+            handleCategoryChange={handleCategoryChange}
+            selectedCategoryError={selectedCategoryError}
+            selectedSubcategoryError={selectedSubcategoryError}
+            onSubmit={onSubmit}
+        />
     );
 }
 
