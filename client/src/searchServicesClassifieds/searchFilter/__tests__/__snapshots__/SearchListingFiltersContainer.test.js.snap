@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchListingContainer Container test should match snapshot test 1`] = `
+exports[`SearchListingFiltersContainer Container test should match snapshot test 1`] = `
 <div>
   <div
     className="w-1/3"
