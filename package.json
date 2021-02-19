@@ -64,8 +64,11 @@
           "jsx"
         ],
         "moduleNameMapper": {
-          "\\.(jpg|jpeg|png|gif|svg|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-          "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+          "\\.(css|less)$": "identity-obj-proxy"
+        },
+        "transform": {
+          "\\.(js|jsx)$": "babel-jest",
+          "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileTransformer.js"
         }
       }
     ]
@@ -75,6 +78,7 @@
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.1",
     "@testing-library/jest-dom": "^5.11.5",
-    "concurrently": "^5.3.0"
+    "concurrently": "^5.3.0",
+    "identity-obj-proxy": "^3.0.0"
   }
 }
