@@ -4,439 +4,435 @@ exports[`ListingResultsContainer Container test should match snapshot test 1`] =
 <div
   className="m-6"
 >
-  <div
-    className="w-1/2"
-  >
+  <div>
     <div>
-      <div>
-        <a
-          href="/undefined/50"
-          onClick={[Function]}
+      <a
+        href="/undefined/50"
+        onClick={[Function]}
+      >
+        <section
+          className="card-container mt-0"
         >
-          <section
-            className="card-container mt-0"
+          <img
+            alt=""
+            className="float-left w-24 h-auto mx-4 "
+            src="HTC_Logo.jpg"
+          />
+          <div
+            className="inline align-middle "
           >
-            <img
-              alt=""
-              className="float-left w-24 h-auto mx-4 "
-              src="HTC_Logo.jpg"
-            />
-            <div
-              className="inline align-middle "
+            <label
+              className="font-semibold justify-between"
             >
-              <label
-                className="font-semibold justify-between"
-              >
-                 
-                Apartments for 2 available
-                 
-              </label>
-              <section
-                className="inline float-right pr-6 justify-end"
-              >
-                <time
-                  dateTime={"2021-02-14T22:42:39.000Z"}
-                >
-                  Feb 14, 2021
-                </time>
-              </section>
-            </div>
-            <div
-              className="mx-6 inline items-center justify-between leading-tight font-light"
+               
+              Apartments for 2 available
+               
+            </label>
+            <section
+              className="inline float-right pr-6 justify-end"
             >
-              <section
-                className="mb-3"
+              <time
+                dateTime={"2021-02-14T22:42:39.000Z"}
               >
-                 
-                Kelowna Apartment Inc.
-                 
-              </section>
-              <section>
-                 
-                2 bed 2 bath - furnished
-                 
-              </section>
-            </div>
-          </section>
-        </a>
-        <a
-          href="/undefined/51"
-          onClick={[Function]}
+                Feb 14, 2021
+              </time>
+            </section>
+          </div>
+          <div
+            className="mx-6 inline items-center justify-between leading-tight font-light"
+          >
+            <section
+              className="mb-3"
+            >
+               
+              Kelowna Apartment Inc.
+               
+            </section>
+            <section>
+               
+              2 bed 2 bath - furnished
+               
+            </section>
+          </div>
+        </section>
+      </a>
+      <a
+        href="/undefined/51"
+        onClick={[Function]}
+      >
+        <section
+          className="card-container mt-0"
         >
-          <section
-            className="card-container mt-0"
+          <img
+            alt=""
+            className="float-left w-24 h-auto mx-4 "
+            src="HTC_Logo.jpg"
+          />
+          <div
+            className="inline align-middle "
           >
-            <img
-              alt=""
-              className="float-left w-24 h-auto mx-4 "
-              src="HTC_Logo.jpg"
-            />
-            <div
-              className="inline align-middle "
+            <label
+              className="font-semibold justify-between"
             >
-              <label
-                className="font-semibold justify-between"
-              >
-                 
-                Apartments for 3 available
-                 
-              </label>
-              <section
-                className="inline float-right pr-6 justify-end"
-              >
-                <time
-                  dateTime={"2021-02-15T05:42:39.000Z"}
-                >
-                  Feb 15, 2021
-                </time>
-              </section>
-            </div>
-            <div
-              className="mx-6 inline items-center justify-between leading-tight font-light"
+               
+              Apartments for 3 available
+               
+            </label>
+            <section
+              className="inline float-right pr-6 justify-end"
             >
-              <section
-                className="mb-3"
+              <time
+                dateTime={"2021-02-15T05:42:39.000Z"}
               >
-                 
-                Kelowna Apartment Inc.
-                 
-              </section>
-              <section>
-                 
-                3 bed 2 bath - furnished
-                 
-              </section>
-            </div>
-          </section>
-        </a>
-        <a
-          href="/undefined/52"
-          onClick={[Function]}
+                Feb 14, 2021
+              </time>
+            </section>
+          </div>
+          <div
+            className="mx-6 inline items-center justify-between leading-tight font-light"
+          >
+            <section
+              className="mb-3"
+            >
+               
+              Kelowna Apartment Inc.
+               
+            </section>
+            <section>
+               
+              3 bed 2 bath - furnished
+               
+            </section>
+          </div>
+        </section>
+      </a>
+      <a
+        href="/undefined/52"
+        onClick={[Function]}
+      >
+        <section
+          className="card-container mt-0"
         >
-          <section
-            className="card-container mt-0"
+          <img
+            alt=""
+            className="float-left w-24 h-auto mx-4 "
+            src="HTC_Logo.jpg"
+          />
+          <div
+            className="inline align-middle "
           >
-            <img
-              alt=""
-              className="float-left w-24 h-auto mx-4 "
-              src="HTC_Logo.jpg"
-            />
-            <div
-              className="inline align-middle "
+            <label
+              className="font-semibold justify-between"
             >
-              <label
-                className="font-semibold justify-between"
-              >
-                 
-                House with 4 rooms available
-                 
-              </label>
-              <section
-                className="inline float-right pr-6 justify-end"
-              >
-                <time
-                  dateTime={"2021-02-14T16:42:39.000Z"}
-                >
-                  Feb 14, 2021
-                </time>
-              </section>
-            </div>
-            <div
-              className="mx-6 inline items-center justify-between leading-tight font-light"
+               
+              House with 4 rooms available
+               
+            </label>
+            <section
+              className="inline float-right pr-6 justify-end"
             >
-              <section
-                className="mb-3"
+              <time
+                dateTime={"2021-02-14T16:42:39.000Z"}
               >
-                 
-                Kelowna House Rentals
-                 
-              </section>
-              <section>
-                 
-                4 bed 3 bath - furnished
-                 
-              </section>
-            </div>
-          </section>
-        </a>
-        <a
-          href="/undefined/53"
-          onClick={[Function]}
+                Feb 14, 2021
+              </time>
+            </section>
+          </div>
+          <div
+            className="mx-6 inline items-center justify-between leading-tight font-light"
+          >
+            <section
+              className="mb-3"
+            >
+               
+              Kelowna House Rentals
+               
+            </section>
+            <section>
+               
+              4 bed 3 bath - furnished
+               
+            </section>
+          </div>
+        </section>
+      </a>
+      <a
+        href="/undefined/53"
+        onClick={[Function]}
+      >
+        <section
+          className="card-container mt-0"
         >
-          <section
-            className="card-container mt-0"
+          <img
+            alt=""
+            className="float-left w-24 h-auto mx-4 "
+            src="HTC_Logo.jpg"
+          />
+          <div
+            className="inline align-middle "
           >
-            <img
-              alt=""
-              className="float-left w-24 h-auto mx-4 "
-              src="HTC_Logo.jpg"
-            />
-            <div
-              className="inline align-middle "
+            <label
+              className="font-semibold justify-between"
             >
-              <label
-                className="font-semibold justify-between"
-              >
-                 
-                Beautiful House On Lakefront For Rent
-                 
-              </label>
-              <section
-                className="inline float-right pr-6 justify-end"
-              >
-                <time
-                  dateTime={"2021-02-16T23:42:39.000Z"}
-                >
-                  Feb 16, 2021
-                </time>
-              </section>
-            </div>
-            <div
-              className="mx-6 inline items-center justify-between leading-tight font-light"
+               
+              Beautiful House On Lakefront For Rent
+               
+            </label>
+            <section
+              className="inline float-right pr-6 justify-end"
             >
-              <section
-                className="mb-3"
+              <time
+                dateTime={"2021-02-16T23:42:39.000Z"}
               >
-                 
-                Lakefront Properties
-                 
-              </section>
-              <section>
-                 
-                2 bed 2 bath - furnished
-                 
-              </section>
-            </div>
-          </section>
-        </a>
-        <a
-          href="/undefined/54"
-          onClick={[Function]}
+                Feb 16, 2021
+              </time>
+            </section>
+          </div>
+          <div
+            className="mx-6 inline items-center justify-between leading-tight font-light"
+          >
+            <section
+              className="mb-3"
+            >
+               
+              Lakefront Properties
+               
+            </section>
+            <section>
+               
+              2 bed 2 bath - furnished
+               
+            </section>
+          </div>
+        </section>
+      </a>
+      <a
+        href="/undefined/54"
+        onClick={[Function]}
+      >
+        <section
+          className="card-container mt-0"
         >
-          <section
-            className="card-container mt-0"
+          <img
+            alt=""
+            className="float-left w-24 h-auto mx-4 "
+            src="HTC_Logo.jpg"
+          />
+          <div
+            className="inline align-middle "
           >
-            <img
-              alt=""
-              className="float-left w-24 h-auto mx-4 "
-              src="HTC_Logo.jpg"
-            />
-            <div
-              className="inline align-middle "
+            <label
+              className="font-semibold justify-between"
             >
-              <label
-                className="font-semibold justify-between"
-              >
-                 
-                Vacuum Rentals
-                 
-              </label>
-              <section
-                className="inline float-right pr-6 justify-end"
-              >
-                <time
-                  dateTime={"2021-02-16T03:42:39.000Z"}
-                >
-                  Feb 16, 2021
-                </time>
-              </section>
-            </div>
-            <div
-              className="mx-6 inline items-center justify-between leading-tight font-light"
+               
+              Vacuum Rentals
+               
+            </label>
+            <section
+              className="inline float-right pr-6 justify-end"
             >
-              <section
-                className="mb-3"
+              <time
+                dateTime={"2021-02-16T03:42:39.000Z"}
               >
-                 
-                Kelowna Apartment Inc.
-                 
-              </section>
-              <section>
-                 
-                2 bed 2 bath - furnished
-                 
-              </section>
-            </div>
-          </section>
-        </a>
-        <a
-          href="/undefined/55"
-          onClick={[Function]}
+                Feb 15, 2021
+              </time>
+            </section>
+          </div>
+          <div
+            className="mx-6 inline items-center justify-between leading-tight font-light"
+          >
+            <section
+              className="mb-3"
+            >
+               
+              Kelowna Apartment Inc.
+               
+            </section>
+            <section>
+               
+              2 bed 2 bath - furnished
+               
+            </section>
+          </div>
+        </section>
+      </a>
+      <a
+        href="/undefined/55"
+        onClick={[Function]}
+      >
+        <section
+          className="card-container mt-0"
         >
-          <section
-            className="card-container mt-0"
+          <img
+            alt=""
+            className="float-left w-24 h-auto mx-4 "
+            src="HTC_Logo.jpg"
+          />
+          <div
+            className="inline align-middle "
           >
-            <img
-              alt=""
-              className="float-left w-24 h-auto mx-4 "
-              src="HTC_Logo.jpg"
-            />
-            <div
-              className="inline align-middle "
+            <label
+              className="font-semibold justify-between"
             >
-              <label
-                className="font-semibold justify-between"
-              >
-                 
-                Lawn Management Services
-                 
-              </label>
-              <section
-                className="inline float-right pr-6 justify-end"
-              >
-                <time
-                  dateTime={"2021-02-15T11:42:39.000Z"}
-                >
-                  Feb 15, 2021
-                </time>
-              </section>
-            </div>
-            <div
-              className="mx-6 inline items-center justify-between leading-tight font-light"
+               
+              Lawn Management Services
+               
+            </label>
+            <section
+              className="inline float-right pr-6 justify-end"
             >
-              <section
-                className="mb-3"
+              <time
+                dateTime={"2021-02-15T11:42:39.000Z"}
               >
-                 
-                Lawns-R-Us
-                 
-              </section>
-              <section>
-                 
-                2 bed 2 bath - furnished
-                 
-              </section>
-            </div>
-          </section>
-        </a>
-        <a
-          href="/undefined/56"
-          onClick={[Function]}
+                Feb 15, 2021
+              </time>
+            </section>
+          </div>
+          <div
+            className="mx-6 inline items-center justify-between leading-tight font-light"
+          >
+            <section
+              className="mb-3"
+            >
+               
+              Lawns-R-Us
+               
+            </section>
+            <section>
+               
+              2 bed 2 bath - furnished
+               
+            </section>
+          </div>
+        </section>
+      </a>
+      <a
+        href="/undefined/56"
+        onClick={[Function]}
+      >
+        <section
+          className="card-container mt-0"
         >
-          <section
-            className="card-container mt-0"
+          <img
+            alt=""
+            className="float-left w-24 h-auto mx-4 "
+            src="HTC_Logo.jpg"
+          />
+          <div
+            className="inline align-middle "
           >
-            <img
-              alt=""
-              className="float-left w-24 h-auto mx-4 "
-              src="HTC_Logo.jpg"
-            />
-            <div
-              className="inline align-middle "
+            <label
+              className="font-semibold justify-between"
             >
-              <label
-                className="font-semibold justify-between"
-              >
-                 
-                Carpet Cleaning Rentals
-                 
-              </label>
-              <section
-                className="inline float-right pr-6 justify-end"
-              >
-                <time
-                  dateTime={"2021-02-13T18:42:39.000Z"}
-                >
-                  Feb 13, 2021
-                </time>
-              </section>
-            </div>
-            <div
-              className="mx-6 inline items-center justify-between leading-tight font-light"
+               
+              Carpet Cleaning Rentals
+               
+            </label>
+            <section
+              className="inline float-right pr-6 justify-end"
             >
-              <section
-                className="mb-3"
+              <time
+                dateTime={"2021-02-13T18:42:39.000Z"}
               >
-                 
-                Carpet Cleaners
-                 
-              </section>
-              <section>
-                 
-                We offer services, or tool rentals
-                 
-              </section>
-            </div>
-          </section>
-        </a>
-        <ul
-          className="flex m-auto w-2/3"
+                Feb 13, 2021
+              </time>
+            </section>
+          </div>
+          <div
+            className="mx-6 inline items-center justify-between leading-tight font-light"
+          >
+            <section
+              className="mb-3"
+            >
+               
+              Carpet Cleaners
+               
+            </section>
+            <section>
+               
+              We offer services, or tool rentals
+               
+            </section>
+          </div>
+        </section>
+      </a>
+      <ul
+        className="flex m-auto w-2/3"
+      >
+        <li
+          className="next-prev-text disabled"
         >
-          <li
-            className="next-prev-text disabled"
+          <a
+            aria-disabled="true"
+            aria-label="Previous page"
+            className="next-prev-link"
+            onClick={[Function]}
+            onKeyPress={[Function]}
+            rel="prev"
+            role="button"
+            tabIndex="0"
           >
-            <a
-              aria-disabled="true"
-              aria-label="Previous page"
-              className="next-prev-link"
-              onClick={[Function]}
-              onKeyPress={[Function]}
-              rel="prev"
-              role="button"
-              tabIndex="0"
-            >
-              Previous
-            </a>
-          </li>
-          <li
-            className="selected"
+            Previous
+          </a>
+        </li>
+        <li
+          className="selected"
+        >
+          <a
+            aria-current="page"
+            aria-label="Page 1 is your current page"
+            className="page-numbers current-page"
+            onClick={[Function]}
+            onKeyPress={[Function]}
+            role="button"
+            tabIndex="0"
           >
-            <a
-              aria-current="page"
-              aria-label="Page 1 is your current page"
-              className="page-numbers current-page"
-              onClick={[Function]}
-              onKeyPress={[Function]}
-              role="button"
-              tabIndex="0"
-            >
-              1
-            </a>
-          </li>
-          <li>
-            <a
-              aria-current={null}
-              aria-label="Page 2"
-              className="page-numbers"
-              onClick={[Function]}
-              onKeyPress={[Function]}
-              role="button"
-              tabIndex="0"
-            >
-              2
-            </a>
-          </li>
-          <li>
-            <a
-              aria-current={null}
-              aria-label="Page 3"
-              className="page-numbers"
-              onClick={[Function]}
-              onKeyPress={[Function]}
-              role="button"
-              tabIndex="0"
-            >
-              3
-            </a>
-          </li>
-          <li
-            className="next-prev-text"
+            1
+          </a>
+        </li>
+        <li>
+          <a
+            aria-current={null}
+            aria-label="Page 2"
+            className="page-numbers"
+            onClick={[Function]}
+            onKeyPress={[Function]}
+            role="button"
+            tabIndex="0"
           >
-            <a
-              aria-disabled="false"
-              aria-label="Next page"
-              className="next-prev-link"
-              onClick={[Function]}
-              onKeyPress={[Function]}
-              rel="next"
-              role="button"
-              tabIndex="0"
-            >
-              Next
-            </a>
-          </li>
-        </ul>
-      </div>
+            2
+          </a>
+        </li>
+        <li>
+          <a
+            aria-current={null}
+            aria-label="Page 3"
+            className="page-numbers"
+            onClick={[Function]}
+            onKeyPress={[Function]}
+            role="button"
+            tabIndex="0"
+          >
+            3
+          </a>
+        </li>
+        <li
+          className="next-prev-text"
+        >
+          <a
+            aria-disabled="false"
+            aria-label="Next page"
+            className="next-prev-link"
+            onClick={[Function]}
+            onKeyPress={[Function]}
+            rel="next"
+            role="button"
+            tabIndex="0"
+          >
+            Next
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
