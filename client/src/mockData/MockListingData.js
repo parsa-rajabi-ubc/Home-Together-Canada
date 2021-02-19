@@ -23,7 +23,7 @@ export const mockMemberListings = [
         monthlyCost: 500,
         petFriendly: true,
         smokeFriendly: true,
-        datePosted: "2021-02-15T05:42:39.000Z"
+        datePosted: "2021-01-16T11:42:39.000Z"
     },
     {
         id: 3,
@@ -159,7 +159,7 @@ export const mockBusinessListings = [
         title: "Apartments for 3 available",
         businessName: "Kelowna Apartment Inc.",
         shortDescription: "3 bed 2 bath - furnished",
-        datePosted: "2021-02-15T05:42:39.000Z"
+        datePosted: "2021-01-16T11:42:39.000Z"
     },
     {
         id: 52,
@@ -255,7 +255,7 @@ export const mockBusinessListings = [
         title: "Senior services",
         businessName: "Senior services",
         shortDescription: "Mobility tools, awareness of area services, financial aid",
-        datePosted: "2021-02-15T05:42:39.000Z"
+        datePosted: "2021-01-16T11:42:39.000Z"
     },
     {
         id: 64,
