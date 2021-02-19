@@ -28,6 +28,7 @@ import {BUSINESS_CLASSIFIEDS_CATEGORIES} from "../../createListing/constants/cla
 import {isValueInArray} from "../../common/utils/generalUtils";
 import {checkIfErrorsExistInMapping, validateInput, validateMinMaxFilter} from "../../registration/registrationUtils";
 import SearchFilter from "../../memberSearch/SearchFilter";
+import PropTypes from "prop-types";
 
 
 function SearchListingFiltersContainer() {
@@ -41,22 +42,25 @@ function SearchListingFiltersContainer() {
             : BUSINESS_CLASSIFIEDS_CATEGORIES_DROPDOWN));
     const [subcategories, setSubcategories] = useState([]);
     const [selectedSubcategories, setSelectedSubcategories] = useState([]);
-    const [searchArea, setSearchArea]  = useState({
-        province: "",
-        city: "",
-        radius: 0
+    const [searchArea, setSearchArea] = useState({
+        province: '',
+        city: '',
+        radius: 0,
     });
 
 
     // Error Validation
     const [selectedCategoryError, setSelectedCategoryError] = useState(undefined);
-    const [selectedSubcategoryError, setSelectedSubcategoryError] = useState(false);
+    const [selectedSubcategoryError, setSelectedSubcategoryError] = useState(undefined);
+    const [searchAreaProvinceError, SetSearchAreaProvinceError] = useState(undefined);
+    const [searchAreaCityError, SetSearchAreaCityError] = useState(undefined);
+    const [searchAreaRadiusError, SetSearchAreaRadiusError] = useState(undefined);
 
     // Update Validation after a category has been selected
     useEffect(() => {
         (selectedCategory !== undefined && validateInput(selectedCategory, setSelectedCategoryError));
     }, [selectedCategory, listingPage]);
-
+    
 
     // Update Category Options Based on Page
     useEffect(() => {
@@ -131,11 +135,18 @@ function SearchListingFiltersContainer() {
         const searchErrors = {
             selectedCategory: false,
             selectedSubcategory: false,
+            searchAreaProvince: false,
+            searchAreaCity: false,
+            searchAreaRadius: false,
         }
 
         // Search Criteria Validation
         searchErrors.selectedCategory = validateInput(selectedCategory, setSelectedCategoryError);
         searchErrors.selectedSubcategory = validateInput(selectedSubcategories, setSelectedSubcategoryError);
+        searchErrors.searchAreaProvince = validateInput(searchArea.province, SetSearchAreaProvinceError);
+        searchErrors.searchAreaCity = validateInput(searchArea.city, SetSearchAreaCityError);
+        searchErrors.searchAreaRadius = validateInput(searchArea.radius, SetSearchAreaRadiusError);
+
 
         // check search criteria for errors
         return !checkIfErrorsExistInMapping(searchErrors);
@@ -150,13 +161,21 @@ function SearchListingFiltersContainer() {
         <SearchListingFilters
             searchArea={searchArea}
             handleSearchAreaChange={setSearchArea}
+
             categoryOptions={categoryOptions}
             selectedCategory={selectedCategory}
             subcategories={subcategories}
+
             handleSubcategoriesChange={handleSubcategoriesChange}
             handleCategoryChange={handleCategoryChange}
+
             selectedCategoryError={selectedCategoryError}
             selectedSubcategoryError={selectedSubcategoryError}
+
+            searchAreaProvinceError={searchAreaProvinceError}
+            searchAreaCityError={searchAreaCityError}
+            searchAreaRadiusError={searchAreaRadiusError}
+
             onSubmit={onSubmit}
         />
     );

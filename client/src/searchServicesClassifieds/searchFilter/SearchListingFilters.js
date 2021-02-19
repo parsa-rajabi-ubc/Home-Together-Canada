@@ -25,15 +25,22 @@ function SearchListingFilters(props) {
     const {
         handleSearchAreaChange,
         searchArea,
+
         categoryOptions,
         selectedCategory,
         subcategories,
+
         handleSubcategoriesChange,
         handleCategoryChange,
+
         selectedCategoryError,
         selectedSubcategoryError,
-        onSubmit,
 
+        searchAreaProvinceError,
+        searchAreaCityError,
+        searchAreaRadiusError,
+
+        onSubmit,
     } = props;
 
     const listingPage = useContext(listingContext);
@@ -63,7 +70,13 @@ function SearchListingFilters(props) {
                     <section className={"my-8"} key={listingPage}>
                         <section className={"mb-4"}>
                             <label className="label text-lg mb-1">Search Area</label>
-                            <SearchArea searchArea={searchArea} onChange={handleSearchAreaChange}/>
+                            <SearchArea
+                                searchArea={searchArea}
+                                onChange={handleSearchAreaChange}
+                                SearchAreaProvinceError={searchAreaProvinceError}
+                                SearchAreaCityError={searchAreaCityError}
+                                SearchAreaRadiusError={searchAreaRadiusError}
+                            />
                         </section>
 
                         <label className="label text-lg mb-1">{TEXT.DROPDOWN}</label>
@@ -95,13 +108,21 @@ SearchListingFilters.propTypes = {
         city: PropTypes.string,
         radius: PropTypes.number
     }),
+
     categoryOptions: PropTypes.array.isRequired,
     selectedCategory: PropTypes.string,
     subcategories: PropTypes.array.isRequired,
+
     handleSubcategoriesChange: PropTypes.func.isRequired,
     handleCategoryChange: PropTypes.func.isRequired,
+
     selectedCategoryError: PropTypes.bool,
     selectedSubcategoryError: PropTypes.bool,
+
+    searchAreaProvinceError: PropTypes.bool,
+    searchAreaCityError: PropTypes.bool,
+    searchAreaRadiusError: PropTypes.bool,
+
     onSubmit: PropTypes.func.isRequired,
 };
 

@@ -24,17 +24,24 @@ import {
 
 describe('SearchListingFilters', () => {
     describe('Container test', () => {
-        it('should match snapshot test with Classifieds Category', () => {
+        it('should match snapshot test with Classifieds Category with Errors set to true', () => {
             //given
             const props = {
                 handleSearchAreaChange: jest.fn(),
+
                 categoryOptions: BUSINESS_CLASSIFIEDS_CATEGORIES_DROPDOWN,
                 selectedCategory: BUSINESS_CLASSIFIEDS_CATEGORIES.RENTALS,
                 subcategories: [RENTALS_SUBCATEGORIES_LIST],
+
                 handleSubcategoriesChange: jest.fn(),
                 handleCategoryChange: jest.fn(),
+
                 selectedCategoryError: true,
                 selectedSubcategoryError: true,
+                searchAreaProvinceError: true,
+                searchAreaCityError: true,
+                searchAreaRadiusError: true,
+
                 onSubmit: jest.fn(),
             }
 
@@ -44,17 +51,78 @@ describe('SearchListingFilters', () => {
             //then
             expect(tree).toMatchSnapshot();
         });
-        it('should match snapshot test with Services Category', () => {
+        it('should match snapshot test with Services Category with Errors set to true', () => {
             //given
             const props = {
                 handleSearchAreaChange: jest.fn(),
+
                 categoryOptions: BUSINESS_SERVICE_CATEGORIES_DROPDOWN,
                 selectedCategory: BUSINESS_SERVICE_CATEGORIES.CO_HOUSING,
                 subcategories: [CO_HOUSING_SUBCATEGORIES_LIST],
+
                 handleSubcategoriesChange: jest.fn(),
                 handleCategoryChange: jest.fn(),
+
                 selectedCategoryError: true,
                 selectedSubcategoryError: true,
+                searchAreaProvinceError: true,
+                searchAreaCityError: true,
+                searchAreaRadiusError: true,
+
+                onSubmit: jest.fn(),
+            }
+
+            //when
+            const component = renderer.create(<SearchListingFilters {...props}/>);
+            const tree = component.toJSON();
+            //then
+            expect(tree).toMatchSnapshot();
+        });
+        it('should match snapshot test with Classifieds Category with Errors set to false', () => {
+            //given
+            const props = {
+                handleSearchAreaChange: jest.fn(),
+
+                categoryOptions: BUSINESS_CLASSIFIEDS_CATEGORIES_DROPDOWN,
+                selectedCategory: BUSINESS_CLASSIFIEDS_CATEGORIES.RENTALS,
+                subcategories: [RENTALS_SUBCATEGORIES_LIST],
+
+                handleSubcategoriesChange: jest.fn(),
+                handleCategoryChange: jest.fn(),
+
+                selectedCategoryError: false,
+                selectedSubcategoryError: false,
+                searchAreaProvinceError: false,
+                searchAreaCityError: false,
+                searchAreaRadiusError: false,
+
+                onSubmit: jest.fn(),
+            }
+
+            //when
+            const component = renderer.create(<SearchListingFilters {...props}/>);
+            const tree = component.toJSON();
+            //then
+            expect(tree).toMatchSnapshot();
+        });
+        it('should match snapshot test with Services Category with Errors set to false', () => {
+            //given
+            const props = {
+                handleSearchAreaChange: jest.fn(),
+
+                categoryOptions: BUSINESS_SERVICE_CATEGORIES_DROPDOWN,
+                selectedCategory: BUSINESS_SERVICE_CATEGORIES.CO_HOUSING,
+                subcategories: [CO_HOUSING_SUBCATEGORIES_LIST],
+
+                handleSubcategoriesChange: jest.fn(),
+                handleCategoryChange: jest.fn(),
+
+                selectedCategoryError: false,
+                selectedSubcategoryError: false,
+                searchAreaProvinceError: false,
+                searchAreaCityError: false,
+                searchAreaRadiusError: false,
+
                 onSubmit: jest.fn(),
             }
 
