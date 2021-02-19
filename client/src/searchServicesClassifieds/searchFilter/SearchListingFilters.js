@@ -14,6 +14,7 @@ import {dropdownDefaultCSS, dropdownErrorCSS} from "../../css/dropdownCSSUtil";
 import {listingContext} from "../SearchListingContainer";
 import Checkbox from "../../common/forms/Checkbox";
 import {CREATE_LISTING_CONTROLS_TEXT} from "../../createListing/CreateListingControls";
+import SearchArea from "../../common/listings/SearchArea";
 
 const TEXT = {
     DROPDOWN: CREATE_LISTING_CONTROLS_TEXT.SELECT_LISTING_CATEGORY,
@@ -22,6 +23,8 @@ const TEXT = {
 
 function SearchListingFilters(props) {
     const {
+        handleSearchAreaChange,
+        searchArea,
         categoryOptions,
         selectedCategory,
         subcategories,
@@ -58,6 +61,11 @@ function SearchListingFilters(props) {
                     />
 
                     <section className={"my-8"} key={listingPage}>
+                        <section className={"mb-4"}>
+                            <label className="label text-lg mb-1">Search Area</label>
+                            <SearchArea searchArea={searchArea} onChange={handleSearchAreaChange}/>
+                        </section>
+
                         <label className="label text-lg mb-1">{TEXT.DROPDOWN}</label>
                         <Dropdown
                             options={categoryOptions}
@@ -81,6 +89,12 @@ function SearchListingFilters(props) {
 }
 
 SearchListingFilters.propTypes = {
+    handleSearchAreaChange: PropTypes.func.isRequired,
+    searchArea: PropTypes.shape({
+        province: PropTypes.string,
+        city: PropTypes.string,
+        radius: PropTypes.number
+    }),
     categoryOptions: PropTypes.array.isRequired,
     selectedCategory: PropTypes.string,
     subcategories: PropTypes.array.isRequired,

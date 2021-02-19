@@ -27,6 +27,7 @@ import {BUSINESS_SERVICE_CATEGORIES} from "../../createListing/constants/service
 import {BUSINESS_CLASSIFIEDS_CATEGORIES} from "../../createListing/constants/classifiedListingCategoriesText";
 import {isValueInArray} from "../../common/utils/generalUtils";
 import {checkIfErrorsExistInMapping, validateInput, validateMinMaxFilter} from "../../registration/registrationUtils";
+import SearchFilter from "../../memberSearch/SearchFilter";
 
 
 function SearchListingFiltersContainer() {
@@ -40,6 +41,11 @@ function SearchListingFiltersContainer() {
             : BUSINESS_CLASSIFIEDS_CATEGORIES_DROPDOWN));
     const [subcategories, setSubcategories] = useState([]);
     const [selectedSubcategories, setSelectedSubcategories] = useState([]);
+    const [searchArea, setSearchArea]  = useState({
+        province: "",
+        city: "",
+        radius: 0
+    });
 
 
     // Error Validation
@@ -142,6 +148,8 @@ function SearchListingFiltersContainer() {
 
     return (
         <SearchListingFilters
+            searchArea={searchArea}
+            handleSearchAreaChange={setSearchArea}
             categoryOptions={categoryOptions}
             selectedCategory={selectedCategory}
             subcategories={subcategories}
