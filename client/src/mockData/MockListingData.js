@@ -50,7 +50,7 @@ export const mockMemberListings = [
         monthlyCost: 950,
         petFriendly: true,
         smokeFriendly: true,
-        datePosted: "2021-02-16T03:42:39.000Z"
+        datePosted: "2021-01-16T11:42:39.000Z"
     },
     {
         id: 6,
@@ -86,7 +86,7 @@ export const mockMemberListings = [
         monthlyCost: 750,
         petFriendly: true,
         smokeFriendly: false,
-        datePosted: "2021-02-15T05:42:39.000Z"
+        datePosted: "2021-01-15T18:42:39.000Z"
     },
     {
         id: 10,
@@ -131,7 +131,7 @@ export const mockMemberListings = [
         monthlyCost: 800,
         petFriendly: true,
         smokeFriendly: false,
-        datePosted: "2021-02-15T05:42:39.000Z"
+        datePosted: "2021-01-15T11:42:39.000Z"
     },
     {
         id: 15,
@@ -183,7 +183,7 @@ export const mockBusinessListings = [
         title: "Vacuum Rentals",
         businessName: "Kelowna Apartment Inc.",
         shortDescription: "2 bed 2 bath - furnished",
-        datePosted: "2021-02-16T03:42:39.000Z"
+        datePosted: "2021-01-15T11:42:39.000Z"
     },
     {
         id: 55,
@@ -215,7 +215,7 @@ export const mockBusinessListings = [
         title: "Apartment Rooms Available",
         businessName: "Kelowna Apartment Inc.",
         shortDescription: "Apartments of various sizes",
-        datePosted: "2021-02-15T05:42:39.000Z"
+        datePosted: "2021-01-15T18:42:39.000Z"
     },
     {
         id: 59,
