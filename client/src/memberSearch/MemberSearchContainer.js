@@ -32,36 +32,57 @@ const mapDispatchToProps = {
     const [memberSearchResultsProfiles, setMemberSearchResultsProfiles] = useState(memberSearchResults || []);
     const [searchFiltersSelected, setSearchFiltersSelected] = useState(!!memberSearchResults);
     const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const onSubmit = searchFilters => {
-        MemberService.searchMemberProfiles(searchFilters)
-            .then(res => res.json())
-            .then(data => {
-                setSearchFiltersSelected(true);
-                if (data.profiles || Array.isArray(data.profiles)) {
-                    setMemberSearchResultsProfiles(data.profiles);
-                    setMemberSearchResults({ memberSearchResults: data.profiles });
-                    setError(false);
-                } else if (!data.authenticated && typeof data.authenticated === 'boolean') {
-                    reset();
-                    alert(SESSION_ERR);
-                } else if (data.err) {
-                    alert('Error: ' + data.err);
+        if (!loading) {
+            setLoading(true);
+            MemberService.searchMemberProfiles(searchFilters)
+                .then(res => res.json())
+                .then(data => {
+                    setSearchFiltersSelected(true);
+                    if (data.profiles || Array.isArray(data.profiles)) {
+                        setMemberSearchResultsProfiles(data.profiles);
+                        setMemberSearchResults({ memberSearchResults: data.profiles });
+                        setError(false);
+                        setLoading(false);
+                    } else if (!data.authenticated && typeof data.authenticated === 'boolean') {
+                        reset();
+                        alert(SESSION_ERR);
+                    } else if (data.err) {
+                        alert('Error: ' + data.err);
+                        setError(true);
+                        setLoading(false);
+                    } else if (data.errors) {
+                        const errorMessage = getConcatenatedErrorMessage(data.errors);
+                        // show list of all errors
+                        alert(errorMessage);
+                        setError(true);
+                        setLoading(false);
+                    } else {
+                        alert('There was an error retrieving profiles');
+                        setError(true);
+                        setLoading(false);
+                    }
+                })
+                .catch(err => {
+                    alert('Error: ' + err.message);
                     setError(true);
-                } else if (data.errors) {
-                    const errorMessage = getConcatenatedErrorMessage(data.errors);
-                    // show list of all errors
-                    alert(errorMessage);
-                    setError(true);
-                } else {
-                    alert('There was an error retrieving profiles');
-                    setError(true);
-                }
-            })
-            .catch(err => {
-                alert('Error: ' + err.message);
-                setError(true);
-            });
+                    setLoading(false);
+                });
+        }
+    }
+
+    function showAppropriateResultsPanel () {
+        if (loading) {
+            return <div>Loading profiles...</div>;
+        } else if (!searchFiltersSelected) {
+            return <div>Please select search filters to search</div>;
+        } else if (error) {
+            return <div>There was error loading search results</div>;
+        } else {
+            return <SearchResultsContainer profileData={memberSearchResultsProfiles}/>
+        }
     }
 
     return (
@@ -74,17 +95,12 @@ const mapDispatchToProps = {
 
                     {/*Results*/}
                     <div className={"flex-1"}>
-                        {!searchFiltersSelected
-                            ? <div>Please select search filters to search</div>
-                            : error
-                                ? <div>There was error loading search results</div>
-                                : <SearchResultsContainer profileData={memberSearchResultsProfiles}/>
-                        }
+                        {showAppropriateResultsPanel()}
                     </div>
                 </div>
             }
         </div>
-    )
+    );
 }
 
 const mapStateToProps = (state) => ({

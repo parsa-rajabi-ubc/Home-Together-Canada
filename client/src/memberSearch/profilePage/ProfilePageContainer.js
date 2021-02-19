@@ -23,6 +23,8 @@ const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({ reset }, dispatch);
 }
 
+const ERROR = 'There was an error loading profile';
+
 const ProfilePageContainer = props => {
     const { reset } = props;
     const {username} = useParams();
@@ -74,7 +76,7 @@ const ProfilePageContainer = props => {
                         setError(true);
                         setLoading(false);
                     } else {
-                        alert('There was an error retrieving profiles');
+                        alert(ERROR);
                         setError(true);
                         setLoading(false);
                     }
@@ -113,7 +115,7 @@ const ProfilePageContainer = props => {
             {!loading &&
                 <div>
                     {error
-                        ? <div>There was error loading member profile</div>
+                        ? <div>{ERROR}</div>
                         : <ProfilePage
                             username={profile.username}
                             age={getMemberAge(profile.birthYear)}
@@ -149,11 +151,9 @@ const ProfilePageContainer = props => {
                         />
                     }
                 </div>
-
             }
-
         </div>
-    )
+    );
 }
 
 ProfilePageContainer.propTypes = {

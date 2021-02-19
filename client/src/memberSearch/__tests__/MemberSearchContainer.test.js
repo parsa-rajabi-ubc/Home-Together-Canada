@@ -26,12 +26,17 @@ jest.mock("react-tooltip/node_modules/uuid", () => ({
 );
 
 describe('MemberSearchContainer', () => {
+    const reset = jest.fn();
+    const setMemberSearchResults = jest.fn();
+
     describe('Container test', () => {
         it('should match snapshot test', () => {
             // given
             const props = {
                 accountType: null,
-                authenticated: false
+                authenticated: false,
+                reset,
+                setMemberSearchResults
             };
             //when
             const component = renderer.create(<BrowserRouter><MemberSearchContainer {...props}/></BrowserRouter>);
@@ -46,7 +51,9 @@ describe('MemberSearchContainer', () => {
             // given
             const props = {
                 accountType: null,
-                authenticated: false
+                authenticated: false,
+                reset,
+                setMemberSearchResults
             };
 
             // when
@@ -60,7 +67,9 @@ describe('MemberSearchContainer', () => {
             // given
             const props = {
                 accountType: 'business',
-                authenticated: true
+                authenticated: true,
+                reset,
+                setMemberSearchResults
             };
 
             // when
@@ -77,7 +86,9 @@ describe('MemberSearchContainer', () => {
             // given
             const props = {
                 accountType: 'member',
-                authenticated: true
+                authenticated: true,
+                reset,
+                setMemberSearchResults
             };
 
             // when
