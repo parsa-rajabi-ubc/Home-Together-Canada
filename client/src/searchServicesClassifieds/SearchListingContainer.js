@@ -12,7 +12,7 @@ import {useParams} from "react-router-dom";
 
 export const listingContext = createContext();
 
-const PAGE_NAMES = {
+export const PAGE_NAMES = {
     SERVICES: "services",
     CLASSIFIEDS: "classifieds",
 }
