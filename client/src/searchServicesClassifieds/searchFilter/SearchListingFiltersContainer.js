@@ -7,7 +7,7 @@
  */
 
 import React, {useContext} from 'react';
-import {listingContext} from "./SearchListingContainer";
+import {listingContext} from "../SearchListingContainer";
 
 function SearchListingFiltersContainer() {
 
