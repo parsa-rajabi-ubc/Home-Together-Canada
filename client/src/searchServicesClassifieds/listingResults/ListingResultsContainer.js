@@ -16,9 +16,11 @@ function ListingResultsContainer() {
     const listingPage = useContext(listingContext);
 
     return (
-        <div>
-            {listingPage}
-            <ListingResults/>
+        <div className={"m-6"}>
+
+            <div className={"w-1/2"}>
+                <ListingResults/>
+            </div>
         </div>
     );
 }

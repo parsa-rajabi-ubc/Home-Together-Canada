@@ -8,6 +8,7 @@
 
 export const mockMemberListings = [
     {
+        id: 1,
         title: "Room for Rent",
         shortDescription: "Furnished Room, Utilities Covered",
         monthlyCost: 750,
@@ -16,6 +17,7 @@ export const mockMemberListings = [
         datePosted: "2021-02-14T02:42:39.005Z"
     },
     {
+        id: 2,
         title: "Room for Rent",
         shortDescription: "Unfurnished Room, Utilities/internet Split",
         monthlyCost: 500,
@@ -24,6 +26,7 @@ export const mockMemberListings = [
         datePosted: "2021-02-15T05:42:39.000Z"
     },
     {
+        id: 3,
         title: "Basement suite",
         shortDescription: "1 bed 1 bath, nice part of town, parking spot",
         monthlyCost: 1100,
@@ -32,6 +35,7 @@ export const mockMemberListings = [
         datePosted: "2021-02-14T16:42:39.000Z"
     },
     {
+        id: 4,
         title: "Room for Rent",
         shortDescription: "Furnished Room, Utilities Covered",
         monthlyCost: 850,
@@ -40,6 +44,7 @@ export const mockMemberListings = [
         datePosted: "2021-02-16T23:42:39.000Z"
     },
     {
+        id: 5,
         title: "Room for Rent",
         shortDescription: "Furnished Room, Utilities Covered, Private Kitchenette",
         monthlyCost: 950,
@@ -48,6 +53,7 @@ export const mockMemberListings = [
         datePosted: "2021-02-16T03:42:39.000Z"
     },
     {
+        id: 6,
         title: "Room for Rent",
         shortDescription: "Unfurnished Room, spacious living area ",
         monthlyCost: 775,
@@ -56,6 +62,7 @@ export const mockMemberListings = [
         datePosted: "2021-02-15T11:42:39.000Z"
     },
     {
+        id: 7,
         title: "Room for Rent",
         shortDescription: "Unfurnished Room, large kitchen storage",
         monthlyCost: 750,
@@ -64,6 +71,7 @@ export const mockMemberListings = [
         datePosted: "2021-02-13T18:42:39.000Z"
     },
     {
+        id: 8,
         title: "Room for Rent",
         shortDescription: "Furnished Room, significant storage space",
         monthlyCost: 650,
@@ -72,6 +80,7 @@ export const mockMemberListings = [
         datePosted: "2021-02-13T05:42:39.000Z"
     },
     {
+        id: 9,
         title: "Room for Rent",
         shortDescription: "Furnished Room, private bathroom",
         monthlyCost: 750,
@@ -80,6 +89,7 @@ export const mockMemberListings = [
         datePosted: "2021-02-15T05:42:39.000Z"
     },
     {
+        id: 10,
         title: "Room for Rent",
         shortDescription: "Furnished Room, fast internet",
         monthlyCost: 850,
@@ -88,6 +98,7 @@ export const mockMemberListings = [
         datePosted: "2021-02-16T01:42:39.000Z"
     },
     {
+        id: 11,
         title: "Room for Rent",
         shortDescription: "Furnished, private bath",
         monthlyCost: 950,
@@ -96,6 +107,7 @@ export const mockMemberListings = [
         datePosted: "2021-02-16T02:42:39.000Z"
     },
     {
+        id: 12,
         title: "Room for Rent",
         shortDescription: "Furnished Room, Utilities Covered",
         monthlyCost: 750,
@@ -104,6 +116,7 @@ export const mockMemberListings = [
         datePosted: "2021-02-14T08:42:39.000Z"
     },
     {
+        id: 13,
         title: "Rooms for Rent",
         shortDescription: "3 Furnished Rooms, for students preferably",
         monthlyCost: 650,
@@ -112,6 +125,7 @@ export const mockMemberListings = [
         datePosted: "2021-02-14T07:42:39.000Z"
     },
     {
+        id: 14,
         title: "Room for Rent",
         shortDescription: "Furnished Room, beautiful house",
         monthlyCost: 800,
@@ -120,6 +134,7 @@ export const mockMemberListings = [
         datePosted: "2021-02-15T05:42:39.000Z"
     },
     {
+        id: 15,
         title: "Basement suite for Couple",
         shortDescription: "Furnished Large Room, Utilities Covered",
         monthlyCost: 1300,
@@ -131,6 +146,7 @@ export const mockMemberListings = [
 
 export const mockBusinessListings = [
     {
+        id: 50,
         logo: "public/uploads/logo1",
         title: "Apartments for 2 available",
         businessName: "Kelowna Apartment Inc.",
@@ -138,6 +154,7 @@ export const mockBusinessListings = [
         datePosted: "2021-02-14T22:42:39.000Z"
     },
     {
+        id: 51,
         logo: "public/uploads/logo2",
         title: "Apartments for 3 available",
         businessName: "Kelowna Apartment Inc.",
@@ -145,6 +162,7 @@ export const mockBusinessListings = [
         datePosted: "2021-02-15T05:42:39.000Z"
     },
     {
+        id: 52,
         logo: "public/uploads/logo3",
         title: "House with 4 rooms available",
         businessName: "Kelowna House Rentals",
@@ -152,6 +170,7 @@ export const mockBusinessListings = [
         datePosted: "2021-02-14T16:42:39.000Z"
     },
     {
+        id: 53,
         logo: "public/uploads/logo4",
         title: "Beautiful House On Lakefront For Rent",
         businessName: "Lakefront Properties",
@@ -159,6 +178,7 @@ export const mockBusinessListings = [
         datePosted: "2021-02-16T23:42:39.000Z"
     },
     {
+        id: 54,
         logo: "public/uploads/logo5",
         title: "Vacuum Rentals",
         businessName: "Kelowna Apartment Inc.",
@@ -166,6 +186,7 @@ export const mockBusinessListings = [
         datePosted: "2021-02-16T03:42:39.000Z"
     },
     {
+        id: 55,
         logo: "public/uploads/logo6",
         title: "Lawn Management Services",
         businessName: "Lawns-R-Us",
@@ -173,6 +194,7 @@ export const mockBusinessListings = [
         datePosted: "2021-02-15T11:42:39.000Z"
     },
     {
+        id: 56,
         logo: "public/uploads/logo7",
         title: "Carpet Cleaning Rentals",
         businessName: "Carpet Cleaners",
@@ -180,6 +202,7 @@ export const mockBusinessListings = [
         datePosted: "2021-02-13T18:42:39.000Z"
     },
     {
+        id: 57,
         logo: "public/uploads/logo8",
         title: "Plumbing Services Available",
         businessName: "Kelowna Plumbing Inc.",
@@ -187,6 +210,7 @@ export const mockBusinessListings = [
         datePosted: "2021-02-13T05:42:39.000Z"
     },
     {
+        id: 58,
         logo: "public/uploads/logo9",
         title: "Apartment Rooms Available",
         businessName: "Kelowna Apartment Inc.",
@@ -194,6 +218,7 @@ export const mockBusinessListings = [
         datePosted: "2021-02-15T05:42:39.000Z"
     },
     {
+        id: 59,
         logo: "public/uploads/logo10",
         title: "Window Cleaning Services",
         businessName: "Kelowna Glass Cleaners",
@@ -201,6 +226,7 @@ export const mockBusinessListings = [
         datePosted: "2021-02-16T01:42:39.000Z"
     },
     {
+        id: 60,
         logo: "public/uploads/logo11",
         title: "Apartments for 2 available",
         businessName: "Kelowna Apartment Inc.",
@@ -208,6 +234,7 @@ export const mockBusinessListings = [
         datePosted: "2021-02-16T02:42:39.000Z"
     },
     {
+        id: 61,
         logo: "public/uploads/logo12",
         title: "Apartments for 2 available",
         businessName: "Kelowna Apartment Inc.",
@@ -215,6 +242,7 @@ export const mockBusinessListings = [
         datePosted: "2021-02-14T08:42:39.000Z"
     },
     {
+        id: 62,
         logo: "public/uploads/logo13",
         title: "Apartments for 3 available",
         businessName: "Kelowna Apartment Inc.",
@@ -222,6 +250,7 @@ export const mockBusinessListings = [
         datePosted: "2021-02-14T07:42:39.000Z"
     },
     {
+        id: 63,
         logo: "public/uploads/logo14",
         title: "Senior services",
         businessName: "Senior services",
@@ -229,6 +258,7 @@ export const mockBusinessListings = [
         datePosted: "2021-02-15T05:42:39.000Z"
     },
     {
+        id: 64,
         logo: "public/uploads/logo15",
         title: "Shared Vehicle Insurance",
         businessName: "Kelowna Vehicle Insurance",

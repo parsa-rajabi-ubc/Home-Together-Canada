@@ -9,6 +9,7 @@
 import React, {useState, createContext, useEffect} from 'react';
 import SearchListingFiltersContainer from "./SearchListingFiltersContainer";
 import {useParams} from "react-router-dom";
+import ListingResultsContainer from "./listingResults/ListingResultsContainer";
 
 export const listingContext = createContext();
 
@@ -29,6 +30,7 @@ function SearchListingContainer() {
     return (
         <listingContext.Provider value={listingPage}>
             <SearchListingFiltersContainer/>
+            <ListingResultsContainer/>
         </listingContext.Provider>
     );
 }
