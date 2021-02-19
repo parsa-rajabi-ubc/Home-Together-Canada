@@ -13,7 +13,7 @@ import ListingResultsContainer from "./listingResults/ListingResultsContainer";
 
 export const listingContext = createContext();
 
-const PAGE_NAMES = {
+export const PAGE_NAMES = {
     SERVICES: "services",
     CLASSIFIEDS: "classifieds",
 }
