@@ -8,7 +8,6 @@
 
 import React, {useContext} from 'react';
 import {listingContext} from "./SearchListingContainer";
-import ListingResultsContainer from "./listingResults/ListingResultsContainer";
 
 function SearchListingFiltersContainer() {
 
