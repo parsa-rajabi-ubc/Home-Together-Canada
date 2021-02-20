@@ -50,15 +50,16 @@ const Navigation = (props) => {
                     }
                     <Route path={"/members"} component={MemberSearchContainer}/>
                     <Route path={"/create-listing"} component={CreateListingContainer}/>
-                    <Route path={"/:servicesClassifieds"}>
-                        <SearchListingContainer/>
-                    </Route>
                     {(authenticated && accountType !== USER_TYPES.UNREGISTERED) &&
                         <Route path={"/account"} component={AccountSummaryContainer}/>
                     }
                     <Route path={"/tos"} component={TermsOfService}/>
                     <Route path={"/privacy"} component={PrivacyPolicy}/>
                     <Route path={"/faq"} component={FAQ}/>
+
+                    <Route path={"/:servicesClassifieds"}>
+                        <SearchListingContainer/>
+                    </Route>
                     <Route component={Error404}/>
                 </Switch>
                 <Footer/>

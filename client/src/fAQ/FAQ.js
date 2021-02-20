@@ -6,14 +6,14 @@
  *
  */
 
-import {FAQ_TEXT as TEXT} from "./constant/FAQText"
+import {FAQ_TEXT as TEXT,FAQ_TITLE as TITLE} from "./constant/FAQText"
 import React from 'react';
 
 function FAQ(){
     return (
         <div className={"tos-page-layout"}>
 
-            <h1 className={"page-title"}>FAQ&lsquo;s</h1>
+            <h1 className={"page-title"}>{TITLE}</h1>
             <br/>
 
             <h2 className={"point-title"}>{TEXT[0].Q1}</h2>
@@ -102,6 +102,7 @@ function FAQ(){
 
             <h2 className={"point-title"}>{TEXT[21].Q22}</h2>
             <p className={"text"}>{TEXT[21].A22}</p>
+            <br/>
 
             <h2 className={"point-title"}>{TEXT[22].Q23}</h2>
             <p className={"text"}>{TEXT[22].A23}</p>
