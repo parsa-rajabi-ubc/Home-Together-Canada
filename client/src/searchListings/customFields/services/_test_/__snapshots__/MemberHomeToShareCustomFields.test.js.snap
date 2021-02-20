@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MemberHomeToShareCustomFields should render correctly regardless of properties 1`] = `
+<div>
+  <h1
+    className="page-title mb-5"
+  >
+     
+     
+  </h1>
+   
+  <br />
+  <p>
+    General Location: 
+  </p>
+   
+  <br />
+  <p>
+    Home share monthly cost: 
+     ($CAD)
+  </p>
+   
+  <br />
+  <p>
+    Number of bedrooms available in home: 
+  </p>
+   
+  <br />
+  <p>
+    Number of bathrooms in house: 
+  </p>
+   
+  <br />
+  <p>
+    Utilities included: 
+    no
+  </p>
+   
+  <br />
+  <p>
+    Pet friendly: 
+    no
+  </p>
+   
+  <br />
+  <p>
+    Smoking: 
+    no
+  </p>
+   
+  <br />
+  <p>
+    Photos: 
+  </p>
+   
+  <br />
+  <img
+    alt=""
+    className="float-left w-24 h-auto mx-4 "
+    src="HTC_Logo.jpg"
+  />
+  <button
+    className="btn btn-green mb-6 w-1/2 text-base py-2"
+  >
+    Giving Rate
+  </button>
+</div>
+`;
