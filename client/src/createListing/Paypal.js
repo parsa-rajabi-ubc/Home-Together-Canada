@@ -9,7 +9,7 @@
 import React, {useState} from 'react';
 import {PayPalScriptProvider, PayPalButtons} from "@paypal/react-paypal-js";
 import RadioButton from "../common/forms/RadioButton";
-
+import PropTypes from "prop-types";
 
 
 const MESSAGE = {
@@ -18,6 +18,12 @@ const MESSAGE = {
     ORDER_ID: " was successful! Your OrderID is - ",
     CANCELLED: "Your transaction was cancelled!",
     ERROR: "There was an error with your transaction (you were not charged). Please try again.",
+}
+
+export const PAYMENT_STATUS = {
+    APPROVED: "Approved",
+    CANCELLED: "Cancelled",
+    ERROR: "Error",
 }
 
 const PAGE_TEXT = {
@@ -47,7 +53,8 @@ const purchaseOptionText = [
 ]
 
 
-const Paypal = () => {
+const Paypal = (props) => {
+    const {paymentStatus} = props;
     const [numMonthsToPurchase, setNumMonthsToPurchase] = useState();
     const [orderID, setOrderID] = useState();
 
@@ -78,15 +85,18 @@ const Paypal = () => {
         return actions.order.capture().then(function (details) {
             // This function shows a transaction success message
             alert(MESSAGE.THANK_YOU + details.payer.name.given_name + MESSAGE.PURCHASE + numMonthsToPurchase + MESSAGE.ORDER_ID + details.id);
+            paymentStatus(PAYMENT_STATUS.APPROVED);
         });
     }
 
     const onCancel = () => {
         alert(MESSAGE.CANCELLED);
+        paymentStatus(PAYMENT_STATUS.CANCELLED);
     }
 
     const onError = () => {
         alert(MESSAGE.ERROR);
+        paymentStatus(PAYMENT_STATUS.ERROR);
     }
 
     const paypalOptions = {
@@ -125,6 +135,10 @@ const Paypal = () => {
         </div>
     )
 }
+
+Paypal.propTypes = {
+    paymentStatus: PropTypes.func.isRequired
+};
 
 export default Paypal;
 
