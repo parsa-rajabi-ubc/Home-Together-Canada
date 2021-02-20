@@ -45,24 +45,26 @@ const CATEGORY_FORM_VALIDATION_DICT = new Map([
     [BUSINESS_CLASSIFIEDS_CATEGORIES.CLASSES_CLUBS, LISTING_VALIDATION_METHODS.CLASSES_EVENTS_CLUBS_FORM]
 ]);
 
+const BASIC_ERROR_MESSAGE = 'Missing or invalid value';
+
 const LISTING_FIELDS_ERRORS = {
-    TITLE: 'Missing or invalid value for title',
-    SHORT_DESCRIPTION: 'Missing or invalid value for short description',
-    LONG_DESCRIPTION: 'Missing or invalid value for long description',
-    POSTAL_CODE: 'Missing or invalid value for postal code',
-    MONTHLY_COST: 'Missing or invalid value for monthly cost',
-    UTILITIES_INCLUDED: 'Missing or invalid value for utilities included',
-    NUM_BEDROOMS: 'Missing or invalid value for number of bedrooms',
-    NUM_BATHROOMS: 'Missing or invalid value for number of bathrooms',
-    PET_FRIENDLY: 'Missing or invalid value for pet friendly',
-    SMOKE_FRIENDLY: 'Missing or invalid value for smoke friendly',
-    CONTACT_NAME: 'Missing or invalid value for contact name',
-    CONTACT_PHONE_NUMBER: 'Missing or invalid value for contact phone number',
-    UNITS_FOR_SALE: 'Missing or invalid value for units for sale',
-    UNITS_FOR_RENT: 'Missing or invalid value for units for rent',
-    RATES_AND_FEES: 'Missing or invalid value for rates and fees',
-    IS_FURNISHED: 'Missing or invalid value for furnished',
-    EVENT_DATE_TIME: 'Missing or invalid value for event dates and times'
+    TITLE: `${BASIC_ERROR_MESSAGE} for title`,
+    SHORT_DESCRIPTION: `${BASIC_ERROR_MESSAGE} for short description`,
+    LONG_DESCRIPTION: `${BASIC_ERROR_MESSAGE} for long description`,
+    POSTAL_CODE: `${BASIC_ERROR_MESSAGE} for postal code`,
+    MONTHLY_COST: `${BASIC_ERROR_MESSAGE} for monthly cost`,
+    UTILITIES_INCLUDED: `${BASIC_ERROR_MESSAGE} for utilities included`,
+    NUM_BEDROOMS: `${BASIC_ERROR_MESSAGE} for number of bedrooms`,
+    NUM_BATHROOMS: `${BASIC_ERROR_MESSAGE} for number of bathrooms`,
+    PET_FRIENDLY: `${BASIC_ERROR_MESSAGE} for pet friendly`,
+    SMOKE_FRIENDLY: `${BASIC_ERROR_MESSAGE} for smoke friendly`,
+    CONTACT_NAME: `${BASIC_ERROR_MESSAGE} for contact name`,
+    CONTACT_PHONE_NUMBER: `${BASIC_ERROR_MESSAGE} for contact phone number`,
+    UNITS_FOR_SALE: `${BASIC_ERROR_MESSAGE} for units for sale`,
+    UNITS_FOR_RENT: `${BASIC_ERROR_MESSAGE} for units for rent`,
+    RATES_AND_FEES: `${BASIC_ERROR_MESSAGE} for rates and fees`,
+    IS_FURNISHED: `${BASIC_ERROR_MESSAGE} for furnished`,
+    EVENT_DATE_TIME: `${BASIC_ERROR_MESSAGE} for event dates and times`
 }
 
 const isValidBusinessListingCategory = category => {
