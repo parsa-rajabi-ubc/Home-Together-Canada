@@ -15,7 +15,7 @@ const usersValidator = require('../controllers/validators/userControllerValidato
 const abstractUsers = require('../controllers/abstractUserController');
 const businessAccounts = require('../controllers/businessAccountController');
 const memberAccounts = require('../controllers/memberAccountController');
-const { isLoggedIn, terminateSession } = require('./routeUtils');
+const { isLoggedIn } = require('./routeUtils');
 
 // Create abstract user
 router.post('/create/', function (req, res, next) {

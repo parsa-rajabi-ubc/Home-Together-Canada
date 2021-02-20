@@ -30,17 +30,22 @@ db.businessAccount = require('./businessAccount.js')(DataTypes, sequelize);
 db.memberAccount = require('./memberAccount.js')(DataTypes, sequelize);
 db.livesWith = require('./livesWith.js')(DataTypes, sequelize);
 db.areaOfInterest = require('./areaOfInterest')(DataTypes, sequelize);
+db.listing = require('./listing')(DataTypes, sequelize);
+db.listingCategory = require('./listingCategory')(DataTypes, sequelize);
+db.listingSubcategory = require('./listingSubcategory')(DataTypes, sequelize);
 
 db.businessAccount.belongsTo(db.abstractUser, {
     foreignKey: {
-        name: 'uid'
+        name: 'uid',
+        allowNull: false
     },
     onDelete: 'CASCADE'
 });
 
 db.memberAccount.belongsTo(db.abstractUser, {
     foreignKey: {
-        name: 'uid'
+        name: 'uid',
+        allowNull: false
     },
     onDelete: 'CASCADE'
 });
@@ -51,6 +56,27 @@ db.memberAccount.hasMany(db.areaOfInterest, {
     foreignKey: {
         name: 'uid'
     },
+    onDelete: 'CASCADE'
+});
+
+db.listing.belongsTo(db.abstractUser, {
+    foreignKey: {
+        name: 'uid',
+        allowNull: false
+    },
+    onDelete: 'CASCADE'
+});
+
+db.listing.belongsTo(db.listingCategory, {
+    onDelete: 'CASCADE'
+});
+
+db.listing.belongsToMany(db.listingSubcategory, {
+    through: 'ListingAssignedSubcategory',
+    onDelete: 'CASCADE'
+});
+
+db.listingSubcategory.belongsTo(db.listingCategory, {
     onDelete: 'CASCADE'
 });
 
