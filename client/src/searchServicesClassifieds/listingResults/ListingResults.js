@@ -49,8 +49,7 @@ function ListingResults() {
 
     return (
         <div>
-            <Paginate data={businessCards} resultsPerPage={NUM_RESULTS}/>
-            <Paginate data={memberListingCards} resultsPerPage={NUM_RESULTS}/>
+            <Paginate data={businessCards.concat(memberListingCards)} resultsPerPage={NUM_RESULTS}/>
         </div>
     );
 }
