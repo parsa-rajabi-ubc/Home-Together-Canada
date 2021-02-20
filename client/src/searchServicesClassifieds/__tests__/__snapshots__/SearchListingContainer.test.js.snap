@@ -87,9 +87,9 @@ Array [
                   className="inline float-right pr-6 justify-end"
                 >
                   <time
-                    dateTime={"2021-02-15T05:42:39.000Z"}
+                    dateTime={"2021-01-16T11:42:39.000Z"}
                   >
-                    Feb 15, 2021
+                    Jan 16, 2021
                   </time>
                 </section>
               </div>
@@ -237,9 +237,9 @@ Array [
                   className="inline float-right pr-6 justify-end"
                 >
                   <time
-                    dateTime={"2021-02-16T03:42:39.000Z"}
+                    dateTime={"2021-01-15T11:42:39.000Z"}
                   >
-                    Feb 16, 2021
+                    Jan 15, 2021
                   </time>
                 </section>
               </div>
@@ -419,6 +419,32 @@ Array [
                 tabIndex="0"
               >
                 3
+              </a>
+            </li>
+            <li>
+              <a
+                aria-current={null}
+                aria-label="Page 4"
+                className="page-numbers"
+                onClick={[Function]}
+                onKeyPress={[Function]}
+                role="button"
+                tabIndex="0"
+              >
+                4
+              </a>
+            </li>
+            <li>
+              <a
+                aria-current={null}
+                aria-label="Page 5"
+                className="page-numbers"
+                onClick={[Function]}
+                onKeyPress={[Function]}
+                role="button"
+                tabIndex="0"
+              >
+                5
               </a>
             </li>
             <li
