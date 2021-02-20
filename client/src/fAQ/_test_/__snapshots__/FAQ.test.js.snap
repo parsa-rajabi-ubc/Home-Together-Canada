@@ -7,7 +7,7 @@ exports[`FAQ Snapshot Test should render correctly regardless of properties 1`] 
   <h1
     className="page-title"
   >
-    FAQ
+    Frequently Asked Questions
   </h1>
   <br />
   <h2

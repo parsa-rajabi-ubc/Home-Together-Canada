@@ -5,7 +5,7 @@
  * @Description: Constants for FAQ Text
  *
  */
-export const FAQ_TITLE = "FAQ";
+export const FAQ_TITLE = "Frequently Asked Questions";
 
 export const FAQ_TEXT =[
     {
