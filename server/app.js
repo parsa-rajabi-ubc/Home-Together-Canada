@@ -11,6 +11,7 @@ const routes = require('./routes.js');
 const businessRoutes = require('./routes/businessRoutes');
 const memberRoutes = require('./routes/memberRoutes');
 const userRoutes = require('./routes/userRoutes');
+const listingRoutes = require('./routes/listingRoutes');
 const db = require("./models");
 
 const app = express();
@@ -43,6 +44,7 @@ app.use(passport.session()); // persistent login sessions
 app.use('/user', userRoutes);
 app.use('/business', businessRoutes);
 app.use('/member', memberRoutes);
+app.use('/listing', listingRoutes)
 app.use('/', routes);
 
 //load passport strategies
@@ -53,6 +55,7 @@ require("./config/passport.js")(passport);
 db.sequelize.sync({ force: false })
     .then(() => {
       console.log("Drop and re-sync db.");
+      // TODO: immediately add the categories and subcategories
     })
     .catch((err) => {
       console.log(err);
