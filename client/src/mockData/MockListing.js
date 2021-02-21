@@ -53,6 +53,7 @@ export const mockClassifiedsListings = [
         category: BUSINESS_CLASSIFIEDS_CATEGORIES.RENTALS,
         full_des: faker.lorem.paragraph(),
 
+        price: faker.random.number(),
         pictures: faker.image.cats(),
         ratesAndFees: faker.random.number() + " " + faker.random.words(),
         numBed: faker.random.number(),
