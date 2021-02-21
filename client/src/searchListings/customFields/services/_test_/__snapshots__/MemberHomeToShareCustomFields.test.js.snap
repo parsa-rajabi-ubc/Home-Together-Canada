@@ -7,65 +7,46 @@ exports[`MemberHomeToShareCustomFields should render correctly regardless of pro
     Member Home To Share Mock data
      
   </h1>
-   
-  <br />
   <p>
     General Location
      
     766 Rutland Rd. S.
   </p>
-   
-  <br />
   <p>
     Home share monthly cost ($CAD)
      
     800
   </p>
-   
-  <br />
   <p>
     Number of bedrooms available in home
      
     5
   </p>
-   
-  <br />
   <p>
     Number of bathrooms in house
      
     3
   </p>
-   
-  <br />
   <p>
     Utilities included
      
     yes
   </p>
-   
-  <br />
   <p>
     Pet friendly
      
     no
   </p>
-   
-  <br />
   <p>
     Smoking
      
     no
   </p>
-   
-  <br />
   <p>
     Photos
   </p>
-   
-  <br />
   <img
     alt=""
-    className="float-left w-24 h-auto mx-4 "
     src="HTC_Logo.jpg"
   />
 </div>

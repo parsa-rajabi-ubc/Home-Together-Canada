@@ -7,26 +7,17 @@ exports[`GovernmentServicesCustomFields should render correctly regardless of pr
     Facilitation Mock data
      
   </h1>
-   
-  <br />
   <p>
     Rates and fees ($CAD)
      
     666
   </p>
-   
-  <br />
   <p>
     Pictures (max of 6)
   </p>
-   
-  <br />
   <img
     alt=""
-    className="float-left w-24 h-auto mx-4 "
     src="HTC_Logo.jpg"
   />
-   
-  <br />
 </div>
 `;

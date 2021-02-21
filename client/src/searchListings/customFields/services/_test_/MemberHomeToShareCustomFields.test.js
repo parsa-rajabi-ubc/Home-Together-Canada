@@ -1,6 +1,6 @@
 /**
  * @Author:     Alex Qin
- * @Created:    2020.01.14
+ * @Created:    2021.02.17
  *
  * @Description: MemberHomeToShareCustomFields snapshot test. Returns a snapshot.
  *

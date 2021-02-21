@@ -7,28 +7,20 @@ exports[`CohousingCustomFields should render correctly regardless of properties 
     Cohousing Mock data
      
   </h1>
-   
-  <br />
   <p>
-    Contant Name
+    Contact Name
      
     Alex
   </p>
-   
-  <br />
   <p>
     Units for sale
      
     5
   </p>
-   
-  <br />
   <p>
     Units for rent
      
     5
   </p>
-   
-  <br />
 </div>
 `;

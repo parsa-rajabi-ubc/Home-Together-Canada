@@ -9,9 +9,9 @@ import PropTypes from "prop-types";
 import React from 'react';
 
 const CO_HOUSING_CUSTOM_FIELD_TEXT = {
-    contactName: "Contant Name",
-    unitsForSale: "Units for sale",
-    unitsForRent: "Units for rent"
+    CONTACT_NAME: "Contact Name",
+    UNITS_FOR_SALE: "Units for sale",
+    UNITS_FOR_RENT: "Units for rent"
 }
 
 const CohousingCustomFields = (props) =>{
@@ -19,10 +19,10 @@ const CohousingCustomFields = (props) =>{
 
     return(
         <div>
-            <h1> {title} </h1> <br/>
-            <p>{CO_HOUSING_CUSTOM_FIELD_TEXT.contactName} {contactName}</p> <br/>
-            <p>{CO_HOUSING_CUSTOM_FIELD_TEXT.unitsForSale} {unitsForSale}</p> <br/>
-            <p>{CO_HOUSING_CUSTOM_FIELD_TEXT.unitsForRent} {unitsForRent}</p> <br/>
+            <h1> {title} </h1>
+            <p>{CO_HOUSING_CUSTOM_FIELD_TEXT.CONTACT_NAME} {contactName}</p>
+            <p>{CO_HOUSING_CUSTOM_FIELD_TEXT.UNITS_FOR_SALE} {unitsForSale}</p>
+            <p>{CO_HOUSING_CUSTOM_FIELD_TEXT.UNITS_FOR_RENT} {unitsForRent}</p>
         </div>
     );
 }

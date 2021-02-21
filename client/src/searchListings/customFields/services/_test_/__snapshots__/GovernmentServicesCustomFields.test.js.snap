@@ -7,21 +7,15 @@ exports[`GovernmentServicesCustomFields should render correctly regardless of pr
     Governmental Mock data
      
   </h1>
-   
-  <br />
   <p>
     Contact Person
      
     Alex
   </p>
-   
-  <br />
   <p>
     Phone number with ability to add extension if applicable
      
     778-555-5555
   </p>
-   
-  <br />
 </div>
 `;
