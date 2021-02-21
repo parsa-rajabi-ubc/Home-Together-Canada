@@ -49,6 +49,7 @@ function SearchListingFiltersContainer() {
 
 
     // Error Validation
+    const [hasClickedSearch, setHasClickedSearch] = useState(false);
     const [selectedCategoryError, setSelectedCategoryError] = useState(undefined);
     const [selectedSubcategoryError, setSelectedSubcategoryError] = useState(undefined);
     const [searchAreaProvinceError, setSearchAreaProvinceError] = useState(undefined);
@@ -60,6 +61,11 @@ function SearchListingFiltersContainer() {
         (selectedCategory !== undefined && validateInput(selectedCategory, setSelectedCategoryError));
     }, [selectedCategory, listingPage]);
 
+    useEffect(() => {
+        ((hasClickedSearch && !selectedSubcategories.length)
+            ? setSelectedSubcategoryError(true)
+            : setSelectedSubcategoryError(false))
+    }, [hasClickedSearch, selectedSubcategories]);
 
     // Update Category Options Based on Page
     useEffect(() => {
@@ -152,6 +158,7 @@ function SearchListingFiltersContainer() {
     }
 
     const onSubmit = () => {
+        setHasClickedSearch(true);
         isFormValid();
 
     }
