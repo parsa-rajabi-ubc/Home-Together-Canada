@@ -17,7 +17,6 @@ import {SHORT_DESC_CHAR_COUNT} from "../../../common/constants/listingsConstants
 import {
     checkIfErrorsExistInMapping,
     validateInput,
-    validatePostalCode
 } from "../../../registration/registrationUtils";
 import {validatePositiveNumber} from "../../../common/utils/generalUtils";
 
@@ -42,7 +41,7 @@ const CohousingForm = (props) => {
         title !== undefined && validateInput(title, setTitleError);
     }, [title]);
     useEffect(() => {
-        contactName !== undefined && validatePostalCode(contactName, setContactNameError);
+        contactName !== undefined && validateInput(contactName, setContactNameError);
     }, [contactName]);
     useEffect(() => {
         shortDescription !== undefined && validateInput(shortDescription, setShortDescriptionError);

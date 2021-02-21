@@ -6,7 +6,7 @@
  *
  */
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import CreateListingControls from "./CreateListingControls";
 import MemberHomeShareForm from "./forms/services/MemberHomeShareForm";
 import {withRouter} from "react-router-dom";
@@ -25,16 +25,34 @@ import HouseServicesForm from "./forms/classifieds/HouseServicesForm";
 import RentalsForm from "./forms/classifieds/RentalsForm";
 import AgenciesForm from "./forms/classifieds/AgenciesForm";
 import EventsForm from "./forms/classifieds/EventsForm";
-import Paypal from "./Paypal";
+import Paypal, {PAYMENT_STATUS} from "./Paypal";
 import {animateScroll as scroll} from 'react-scroll'
+import Confirmation from "../common/listings/Confirmation";
 
+const CONFIRMATION_TEXT = {
+    BUSINESS_LISTINGS: "Your listing has successfully been created and is now pending approval from an administrator.",
+    MEMBER_LISTINGS: "Your listing has successfully been created."
+}
 
 const CreateListingContainer = (props) => {
     const {accountType, authenticated} = props;
+
     const [displayPayment, setDisplayPayment] = useState(false);
+    const [paymentStatus, setPaymentStatus] = useState();
+    const [showConfirmation, setShowConfirmation] = useState();
+    const [confirmationMsg, setConfirmationMsg] = useState();
+    const [selectedCategory, setSelectedCategory] = useState();
+
+    const isUserMember = (accountType === USER_TYPES.MEMBER);
+
+    useEffect(() => {
+        (paymentStatus === PAYMENT_STATUS.APPROVED && setShowConfirmation(true))
+        setConfirmationMsg(CONFIRMATION_TEXT.BUSINESS_LISTINGS);
+    }, [paymentStatus]);
 
     function onSubmitServices() {
-
+        setShowConfirmation(true);
+        setConfirmationMsg(isUserMember ? CONFIRMATION_TEXT.MEMBER_LISTINGS : CONFIRMATION_TEXT.BUSINESS_LISTINGS);
     }
 
     const onSubmitClassifieds = () => {
@@ -44,15 +62,17 @@ const CreateListingContainer = (props) => {
                 smooth: 'easeInOutQuad',
             }
         );
-    }
-
-    const [selectedCategory, setSelectedCategory] = useState();
+    };
 
     const handleSelectedCategory = (category) => {
         setSelectedCategory(category);
         // hide payment section when categories are changed
         setDisplayPayment(false);
-    }
+    };
+
+    const handlePaymentStatus = (status) => {
+        setPaymentStatus(status);
+    };
 
     const formToDisplay = (category) => {
         switch (category) {
@@ -93,18 +113,27 @@ const CreateListingContainer = (props) => {
     return (
         <div>
             {/* Checking to Ensure User is authenticated to view this page*/}
-            {!authenticated ? <InvalidUser message={"You must be a registered member or business to view this page."}/> :
-                // Display Container if the user is logged in as member or business
-                <div className={"sideBar-container grid-cols-8"}>
-                    <div className={"sideBar col-end-3"}>
-                        <CreateListingControls isUserMember={accountType === USER_TYPES.MEMBER} categoryToDisplay={handleSelectedCategory}/>
-                    </div>
-                    <div className={"sideBar-selected-component col-start-3 col-end-10"}>
-                        {formToDisplay(selectedCategory)}
-                        {displayPayment && <Paypal/>}
+            {!authenticated ?
+                <InvalidUser message={"You must be a registered member or business to view this page."}/> :
 
+                // Display confirmation if payment went through or services positing is submitted
+                !showConfirmation ?
+                    <div className={"sideBar-container grid-cols-8"}>
+                        <div className={"sideBar col-end-3"}>
+                            <CreateListingControls
+                                isUserMember={isUserMember}
+                                categoryToDisplay={handleSelectedCategory}/>
+                        </div>
+
+                        <div className={"sideBar-selected-component col-start-3 col-end-10"}>
+                            {formToDisplay(selectedCategory)}
+                            {displayPayment &&
+                            <Paypal
+                                paymentStatus={handlePaymentStatus}
+                            />}
+                        </div>
                     </div>
-                </div>
+                    : <Confirmation message={confirmationMsg}/>
             }
         </div>
     )
