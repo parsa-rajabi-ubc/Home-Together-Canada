@@ -30,7 +30,8 @@ import {animateScroll as scroll} from 'react-scroll'
 import Confirmation from "../common/listings/Confirmation";
 
 const CONFIRMATION_TEXT = {
-    SERVICES_CLASSIFIEDS_LISTINGS: "You listing has successfully been created and is now pending approval from an administrator."
+    BUSINESS_LISTINGS: "Your listing has successfully been created and is now pending approval from an administrator.",
+    MEMBER_LISTINGS: "Your listing has successfully been created."
 }
 
 const CreateListingContainer = (props) => {
@@ -38,15 +39,23 @@ const CreateListingContainer = (props) => {
     const [displayPayment, setDisplayPayment] = useState(false);
     const [paymentStatus, setPaymentStatus] = useState();
     const [showConfirmation, setShowConfirmation] = useState();
+    const [confirmationMsg, setConfirmationMsg] = useState();
     const [selectedCategory, setSelectedCategory] = useState();
 
 
     useEffect(() => {
         (paymentStatus === PAYMENT_STATUS.APPROVED && setShowConfirmation(true))
+        setConfirmationMsg(CONFIRMATION_TEXT.BUSINESS_LISTINGS);
     }, [paymentStatus]);
 
     function onSubmitServices() {
         setShowConfirmation(true);
+        setConfirmationMsg(CONFIRMATION_TEXT.BUSINESS_LISTINGS);
+    }
+
+    function onSubmitMembers() {
+        setShowConfirmation(true);
+        setConfirmationMsg(CONFIRMATION_TEXT.MEMBER_LISTINGS);
     }
 
     const onSubmitClassifieds = () => {
@@ -71,7 +80,7 @@ const CreateListingContainer = (props) => {
     const formToDisplay = (category) => {
         switch (category) {
             case MEMBER_SERVICE_CATEGORIES.MEMBER_HOME:
-                return <MemberHomeShareForm onSubmit={onSubmitServices}/>
+                return <MemberHomeShareForm onSubmit={onSubmitMembers}/>
             case BUSINESS_SERVICE_CATEGORIES.CO_HOUSING:
                 return <CohousingForm onSubmit={onSubmitServices}/>
             case BUSINESS_SERVICE_CATEGORIES.SHARED_HOME_SERVICES:
@@ -127,7 +136,7 @@ const CreateListingContainer = (props) => {
                             />}
                         </div>
                     </div>
-                    : <Confirmation message={CONFIRMATION_TEXT.SERVICES_CLASSIFIEDS_LISTINGS}/>
+                    : <Confirmation message={confirmationMsg}/>
             }
         </div>
     )
