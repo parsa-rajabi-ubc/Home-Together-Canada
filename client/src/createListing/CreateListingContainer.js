@@ -36,12 +36,14 @@ const CONFIRMATION_TEXT = {
 
 const CreateListingContainer = (props) => {
     const {accountType, authenticated} = props;
+
     const [displayPayment, setDisplayPayment] = useState(false);
     const [paymentStatus, setPaymentStatus] = useState();
     const [showConfirmation, setShowConfirmation] = useState();
     const [confirmationMsg, setConfirmationMsg] = useState();
     const [selectedCategory, setSelectedCategory] = useState();
 
+    const isUserMember = (accountType === USER_TYPES.MEMBER);
 
     useEffect(() => {
         (paymentStatus === PAYMENT_STATUS.APPROVED && setShowConfirmation(true))
@@ -50,12 +52,7 @@ const CreateListingContainer = (props) => {
 
     function onSubmitServices() {
         setShowConfirmation(true);
-        setConfirmationMsg(CONFIRMATION_TEXT.BUSINESS_LISTINGS);
-    }
-
-    function onSubmitMembers() {
-        setShowConfirmation(true);
-        setConfirmationMsg(CONFIRMATION_TEXT.MEMBER_LISTINGS);
+        setConfirmationMsg(isUserMember ? CONFIRMATION_TEXT.MEMBER_LISTINGS : CONFIRMATION_TEXT.BUSINESS_LISTINGS);
     }
 
     const onSubmitClassifieds = () => {
@@ -80,7 +77,7 @@ const CreateListingContainer = (props) => {
     const formToDisplay = (category) => {
         switch (category) {
             case MEMBER_SERVICE_CATEGORIES.MEMBER_HOME:
-                return <MemberHomeShareForm onSubmit={onSubmitMembers}/>
+                return <MemberHomeShareForm onSubmit={onSubmitServices}/>
             case BUSINESS_SERVICE_CATEGORIES.CO_HOUSING:
                 return <CohousingForm onSubmit={onSubmitServices}/>
             case BUSINESS_SERVICE_CATEGORIES.SHARED_HOME_SERVICES:
@@ -124,7 +121,7 @@ const CreateListingContainer = (props) => {
                     <div className={"sideBar-container grid-cols-8"}>
                         <div className={"sideBar col-end-3"}>
                             <CreateListingControls
-                                isUserMember={accountType === USER_TYPES.MEMBER}
+                                isUserMember={isUserMember}
                                 categoryToDisplay={handleSelectedCategory}/>
                         </div>
 
