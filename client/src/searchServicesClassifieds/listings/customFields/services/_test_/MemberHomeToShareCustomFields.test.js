@@ -2,25 +2,25 @@
  * @Author:     Alex Qin
  * @Created:    2021.02.17
  *
- * @Description: CohousingCustomFields snapshot test. Returns a snapshot.
+ * @Description: MemberHomeToShareCustomFields snapshot test. Returns a snapshot.
  *
  */
 import React from 'react';
 import renderer from  'react-test-renderer'
 import {BrowserRouter as Router} from "react-router-dom";
-import {Cohousing} from "../../../../mockData/MockServicesCustomFields";
-import CohousingCustomFields from "../CohousingCustomFields";
+import {Member} from "../../../../../mockData/MockServicesCustomFields";
+import MemberHomeToShareCustomFields from "../MemberHomeToShareCustomFields";
 
-describe('CohousingCustomFields', () => {
+describe('MemberHomeToShareCustomFields', () => {
     it("should render correctly regardless of properties", () => {
         // given
         const reset = jest.fn();
         const props = {
-            ...Cohousing,
+            ...Member,
             reset
         };
         //when
-        const component = renderer.create(<Router><CohousingCustomFields {...props}/></Router>);
+        const component = renderer.create(<Router><MemberHomeToShareCustomFields {...props}/></Router>);
         const tree = component.toJSON();
         //then
         expect(tree).toMatchSnapshot();

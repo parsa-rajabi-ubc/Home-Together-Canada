@@ -8,7 +8,7 @@
 import React from 'react';
 import renderer from  'react-test-renderer'
 import {BrowserRouter as Router} from "react-router-dom";
-import {Governmental} from "../../../../mockData/MockServicesCustomFields";
+import {Governmental} from "../../../../../mockData/MockServicesCustomFields";
 import GovernmentServicesCustomFields from "../GovernmentServicesCustomFields";
 
 describe('GovernmentServicesCustomFields', () => {

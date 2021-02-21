@@ -7,8 +7,8 @@
  */
 import PropTypes from "prop-types";
 import React, {useState} from 'react';
-import HTC_Logo from "../../../images/HTC_Logo.jpg";
-import {resolveBooleanToYesNo} from "../../../common/utils/generalUtils";
+import HTC_Logo from "../../../../images/HTC_Logo.jpg";
+import {resolveBooleanToYesNo} from "../../../../common/utils/generalUtils";
 
 const MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT= {
     GENERAL_LOCATION: "General Location",
