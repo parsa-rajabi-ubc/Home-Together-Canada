@@ -26,10 +26,11 @@ function BusinessInfo(props) {
 
 
     return (
-        <div className={"relative text-right my-10 mx-32"}>
-            <div className={"inline-block text-left mx-10"}>
+        <div className={"float-right"}>
+            <img src={logo} alt={BUSINESS_INFO_TEXT.TITLE + "'s logo"} className={""}/>
+            <div className={"text-center"}>
                 <section className={"my-3"}>
-                    <label className={"label text-lg text-orange-600"}>{BUSINESS_INFO_TEXT.TITLE} </label>
+                    <label className={"label-result text-lg"}>{BUSINESS_INFO_TEXT.TITLE} </label>
                     <p className={"my-2"}>{businessName}</p>
                 </section>
 
@@ -45,7 +46,7 @@ function BusinessInfo(props) {
                        className={"link"}>{BUSINESS_INFO_TEXT.WEBSITE}</a>
                 </section>
             </div>
-            <img src={logo} alt={BUSINESS_INFO_TEXT.TITLE + "'s logo"} className={"inline-block align-top"}/>
+
 
 
         </div>
