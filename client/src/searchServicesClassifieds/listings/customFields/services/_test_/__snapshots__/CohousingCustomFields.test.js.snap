@@ -2,23 +2,29 @@
 
 exports[`CohousingCustomFields should render correctly regardless of properties 1`] = `
 <div>
-  <h1>
-     
-    cohousingMockCustomFields Mock data
-     
-  </h1>
-  <p>
+  <label
+    className="label-result"
+  >
     Contact Name
+  </label>
+  <p>
      
     Alex
   </p>
-  <p>
+  <label
+    className="label-result"
+  >
     Units for sale
-     
+  </label>
+  <p>
     5
   </p>
-  <p>
+  <label
+    className="label-result"
+  >
     Units for rent
+  </label>
+  <p>
      
     5
   </p>

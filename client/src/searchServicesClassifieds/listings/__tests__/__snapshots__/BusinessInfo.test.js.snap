@@ -2,16 +2,21 @@
 
 exports[`BusinessInfo Container test should match snapshot test 1`] = `
 <div
-  className="relative text-right my-10 mx-32"
+  className="float-right"
 >
+  <img
+    alt="Business Info's logo"
+    className=""
+    src="public/images/12.jpg"
+  />
   <div
-    className="inline-block text-left mx-10"
+    className="text-center"
   >
     <section
       className="my-3"
     >
       <label
-        className="label text-lg text-orange-600"
+        className="label-result text-lg"
       >
         Business Info
          
@@ -63,10 +68,5 @@ exports[`BusinessInfo Container test should match snapshot test 1`] = `
       </a>
     </section>
   </div>
-  <img
-    alt="Business Info's logo"
-    className="inline-block align-top"
-    src="public/images/12.jpg"
-  />
 </div>
 `;

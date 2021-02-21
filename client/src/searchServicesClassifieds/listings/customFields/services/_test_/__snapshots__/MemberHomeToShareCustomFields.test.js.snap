@@ -2,49 +2,78 @@
 
 exports[`MemberHomeToShareCustomFields should render correctly regardless of properties 1`] = `
 <div>
-  <h1>
-     
-    Member Home To Share Mock data
-     
-  </h1>
-  <p>
+  <label
+    className="label-result"
+  >
     General Location
+  </label>
+  <p>
      
     766 Rutland Rd. S.
   </p>
+  <label
+    className="label-result"
+  >
+    Home Share Monthly Cost (CAD)
+  </label>
   <p>
-    Home share monthly cost ($CAD)
      
     800
   </p>
+  <label
+    className="label-result"
+  >
+    Number of Bedrooms
+  </label>
   <p>
-    Number of bedrooms available in home
      
     5
   </p>
+  <label
+    className="label-result"
+  >
+    Number of Bedrooms
+  </label>
   <p>
-    Number of bathrooms in house
+     
+    5
+  </p>
+  <label
+    className="label-result"
+  >
+    Number of Bathrooms
+  </label>
+  <p>
      
     3
   </p>
-  <p>
+  <label
+    className="label-result"
+  >
     Utilities included
-     
-    yes
-  </p>
+  </label>
   <p>
+     
+  </p>
+  <label
+    className="label-result"
+  >
     Pet friendly
-     
-    no
-  </p>
+  </label>
   <p>
-    Smoking
      
-    no
   </p>
+  <label
+    className="label-result"
+  >
+    Smoke friendly
+  </label>
   <p>
-    Photos
+     
   </p>
+  <label
+    className="label-result"
+  />
   <img
     alt=""
     src="HTC_Logo.jpg"

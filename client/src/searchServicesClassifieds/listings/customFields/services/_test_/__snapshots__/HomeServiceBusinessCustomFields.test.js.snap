@@ -2,19 +2,20 @@
 
 exports[`GovernmentServicesCustomFields should render correctly regardless of properties 1`] = `
 <div>
-  <h1>
-     
-    homeServicesMockCustomFields Mock data
-     
-  </h1>
+  <label
+    className="label-result"
+  >
+    Rates and fees (CAD)
+  </label>
   <p>
-    Rates and fees ($CAD)
      
-    666
+    666 per day
   </p>
-  <p>
-    Pictures (max of 6)
-  </p>
+  <label
+    className="label-result"
+  >
+    Pictures
+  </label>
   <img
     alt=""
     src="HTC_Logo.jpg"

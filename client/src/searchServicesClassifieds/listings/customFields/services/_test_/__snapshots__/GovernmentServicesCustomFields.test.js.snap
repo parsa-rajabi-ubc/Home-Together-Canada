@@ -2,18 +2,21 @@
 
 exports[`GovernmentServicesCustomFields should render correctly regardless of properties 1`] = `
 <div>
-  <h1>
-     
-    governmentMockCustomFields Mock data
-     
-  </h1>
+  <label
+    className="label-result"
+  >
+    Contact Name
+  </label>
   <p>
-    Contact Person
      
     Alex
   </p>
+  <label
+    className="label-result"
+  >
+    Contact Phone Number
+  </label>
   <p>
-    Phone number with ability to add extension if applicable
      
     778-555-5555
   </p>
