@@ -15,6 +15,7 @@ import {listingContext} from "../SearchListingContainer";
 import Checkbox from "../../common/forms/Checkbox";
 import {CREATE_LISTING_CONTROLS_TEXT} from "../../createListing/CreateListingControls";
 import SearchArea from "../../common/listings/SearchArea";
+import {MEMBER_SERVICE_CATEGORIES} from "../../createListing/constants/serviceListingCategoriesText";
 
 const TEXT = {
     DROPDOWN: CREATE_LISTING_CONTROLS_TEXT.SELECT_LISTING_CATEGORY,
@@ -87,7 +88,7 @@ function SearchListingFilters(props) {
                         />
                     </section>
 
-                    {selectedCategory &&
+                    {(selectedCategory && selectedCategory !== MEMBER_SERVICE_CATEGORIES.MEMBER_HOME)  &&
                     <section className={`${selectedSubcategoryError && "pl-1 border rounded-lg border-red-500"} my-4`}>
                         <p className={"label text-lg mb-1"}>{TEXT.CHECKBOX}</p>
                         {subcategoryCheckboxes}
