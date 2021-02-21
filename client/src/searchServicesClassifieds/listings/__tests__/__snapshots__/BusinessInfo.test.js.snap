@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BusinessInfo Container test should match snapshot test 1`] = `
+<div
+  className="relative text-right my-10 mx-32"
+>
+  <div
+    className="inline-block text-left mx-10"
+  >
+    <section
+      className="my-3"
+    >
+      <label
+        className="label text-lg text-orange-600"
+      >
+        Business Info
+         
+      </label>
+      <p
+        className="my-2"
+      >
+        Bob the builder
+      </p>
+    </section>
+    <section
+      className="my-3"
+    >
+      <p>
+        123 Kelowna
+      </p>
+      <p>
+        
+      </p>
+      <p>
+        Kelowna
+        , 
+        BC
+         
+      </p>
+      <p>
+        X0X 0X0
+      </p>
+      <p
+        className="my-2"
+      >
+        123-413-1341
+      </p>
+      <a
+        className="link"
+        href="mailto:Bob@Builder.ca"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Bob@Builder.ca
+      </a>
+      <a
+        className="link"
+        href="https://www.bob.com"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Website
+      </a>
+    </section>
+  </div>
+  <img
+    alt="Business Info's logo"
+    className="inline-block align-top"
+    src="public/images/12.jpg"
+  />
+</div>
+`;
