@@ -70,3 +70,7 @@
 .form-btn {
     @apply m-auto mt-8 mb-6 text-base;
 }
+
+.label-result {
+    @apply block mt-3 text-base font-medium text-gray-700 text-orange-600;
+}

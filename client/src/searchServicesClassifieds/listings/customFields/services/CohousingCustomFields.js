@@ -2,7 +2,7 @@
  * @Author:     Alex Qin
  * @Created:    2021.02.17
  *
- * @Description: Re-useable Cohousing custom fields.
+ * @Description: Re-usable Cohousing custom fields.
  *
  */
 import PropTypes from "prop-types";
@@ -14,14 +14,19 @@ const CO_HOUSING_CUSTOM_FIELD_TEXT = {
     UNITS_FOR_RENT: "Units for rent"
 }
 
-const CohousingCustomFields = (props) =>{
-    const {contactName, unitsForSale, unitsForRent } = props;
+const CohousingCustomFields = (props) => {
+    const {contactName, unitsForSale, unitsForRent} = props;
 
-    return(
+    return (
         <div>
-            <p>{CO_HOUSING_CUSTOM_FIELD_TEXT.CONTACT_NAME} {contactName}</p>
-            <p>{CO_HOUSING_CUSTOM_FIELD_TEXT.UNITS_FOR_SALE} {unitsForSale}</p>
-            <p>{CO_HOUSING_CUSTOM_FIELD_TEXT.UNITS_FOR_RENT} {unitsForRent}</p>
+            <label className={"label-result"}>{CO_HOUSING_CUSTOM_FIELD_TEXT.CONTACT_NAME}</label>
+            <p> {contactName}</p>
+
+            <label className={"label-result"}>{CO_HOUSING_CUSTOM_FIELD_TEXT.UNITS_FOR_SALE}</label>
+            <p>{unitsForSale}</p>
+
+            <label className={"label-result"}>{CO_HOUSING_CUSTOM_FIELD_TEXT.UNITS_FOR_RENT}</label>
+            <p> {unitsForRent}</p>
         </div>
     );
 }
