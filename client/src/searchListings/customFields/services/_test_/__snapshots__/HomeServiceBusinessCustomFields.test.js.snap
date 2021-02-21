@@ -2,22 +2,22 @@
 
 exports[`GovernmentServicesCustomFields should render correctly regardless of properties 1`] = `
 <div>
-  <h1
-    className="page-title mb-5"
-  >
+  <h1>
      
+    Facilitation Mock data
      
   </h1>
    
   <br />
   <p>
-    Rates and fees: 
-     ($CAD)
+    Rates and fees ($CAD)
+     
+    666
   </p>
    
   <br />
   <p>
-    Pictures (max of 6): 
+    Pictures (max of 6)
   </p>
    
   <br />
@@ -28,10 +28,5 @@ exports[`GovernmentServicesCustomFields should render correctly regardless of pr
   />
    
   <br />
-  <button
-    className="btn btn-green mb-6 w-1/2 text-base py-2"
-  >
-    Giving Rate
-  </button>
 </div>
 `;

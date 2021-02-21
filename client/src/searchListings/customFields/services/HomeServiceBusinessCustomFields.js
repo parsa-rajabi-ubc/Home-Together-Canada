@@ -6,33 +6,33 @@
  *
  */
 import PropTypes from "prop-types";
-import React, {useState} from 'react';
+import React from 'react';
 import HTC_Logo from "../../../images/HTC_Logo.jpg";
 
+const HOME_SERVICE_BUSINESS_CUSTOM_FIELDS_TEXT = {
+    rateAndFees: "Rates and fees ($CAD)",
+    pictures: "Pictures (max of 6)"
+}
+
+
 const HomeServiceBusinessCustomFields = (props) =>{
-    const { reset } = props;
-    const title = useState(reset.title);
-    const rateAndFees = useState(reset.rateAndFees);
-    const pictures = useState(reset.pictures);
+    const { title, rateAndFees, pictures } = props;
 
     return(
         <div>
-            <h1 className={"page-title mb-5"}> {title} </h1> <br/>
-            <p>Rates and fees: {rateAndFees} ($CAD)</p> <br/>
-            <p>Pictures (max of 6): </p> <br/>
+            <h1> {title} </h1> <br/>
+            <p>{HOME_SERVICE_BUSINESS_CUSTOM_FIELDS_TEXT.rateAndFees} {rateAndFees}</p> <br/>
+            <p>{HOME_SERVICE_BUSINESS_CUSTOM_FIELDS_TEXT.pictures}</p> <br/>
             {/*TODO: replace HTC_Logo with pictures Pictures (max of 6)*/}
             <img className={"float-left w-24 h-auto mx-4 "} src={HTC_Logo} alt={""}/> <br/>
-            <button className={"btn btn-green mb-6 w-1/2 text-base py-2"}>Giving Rate</button>
         </div>
     );
 }
 
 HomeServiceBusinessCustomFields.propTypes = {
-    reset: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        rateAndFees: PropTypes.number.isRequired,
-        pictures: PropTypes.string.isRequired
-    }).isRequired,
+    title: PropTypes.string.isRequired,
+    rateAndFees: PropTypes.number.isRequired,
+    pictures: PropTypes.string.isRequired
 }
 
 export default HomeServiceBusinessCustomFields;

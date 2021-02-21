@@ -6,33 +6,32 @@
  *
  */
 import PropTypes from "prop-types";
-import React, {useState} from 'react';
+import React from 'react';
+
+const CO_HOUSING_CUSTOM_FIELD_TEXT = {
+    contactName: "Contant Name",
+    unitsForSale: "Units for sale",
+    unitsForRent: "Units for rent"
+}
 
 const CohousingCustomFields = (props) =>{
-    const { reset } = props;
-    const title = useState(reset.title);
-    const contactName = useState(reset.contactName);
-    const unitsForSale = useState(reset.unitsForSale);
-    const unitsForRent = useState(reset.unitsForRent);
+    const { title, contactName, unitsForSale, unitsForRent } = props;
 
     return(
         <div>
-            <h1 className={"page-title mb-5"}> {title} </h1> <br/>
-            <p>Contact Name: {contactName}</p> <br/>
-            <p>Units for sale: {unitsForSale}</p> <br/>
-            <p>Units for rent: {unitsForRent}</p> <br/>
-            <button className={"btn btn-green mb-6 w-1/2 text-base py-2"}>Giving Rate</button>
+            <h1> {title} </h1> <br/>
+            <p>{CO_HOUSING_CUSTOM_FIELD_TEXT.contactName} {contactName}</p> <br/>
+            <p>{CO_HOUSING_CUSTOM_FIELD_TEXT.unitsForSale} {unitsForSale}</p> <br/>
+            <p>{CO_HOUSING_CUSTOM_FIELD_TEXT.unitsForRent} {unitsForRent}</p> <br/>
         </div>
     );
 }
 
 CohousingCustomFields.propTypes = {
-    reset: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        contactName: PropTypes.string.isRequired,
-        unitsForSale: PropTypes.number.isRequired,
-        unitsForRent: PropTypes.number.isRequired
-    }).isRequired,
+    title: PropTypes.string.isRequired,
+    contactName: PropTypes.string.isRequired,
+    unitsForSale: PropTypes.number.isRequired,
+    unitsForRent: PropTypes.number.isRequired
 }
 
 export default CohousingCustomFields;

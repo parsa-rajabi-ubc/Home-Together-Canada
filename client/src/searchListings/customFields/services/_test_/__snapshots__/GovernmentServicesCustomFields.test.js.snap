@@ -2,28 +2,26 @@
 
 exports[`GovernmentServicesCustomFields should render correctly regardless of properties 1`] = `
 <div>
-  <h1
-    className="page-title mb-5"
-  >
+  <h1>
      
+    Governmental Mock data
      
   </h1>
    
   <br />
   <p>
-    Contact Person: 
+    Contact Person
+     
+    Alex
   </p>
    
   <br />
   <p>
-    Phone number with ability to add extension if applicable: 
+    Phone number with ability to add extension if applicable
+     
+    778-555-5555
   </p>
    
   <br />
-  <button
-    className="btn btn-green mb-6 w-1/2 text-base py-2"
-  >
-    Giving Rate
-  </button>
 </div>
 `;

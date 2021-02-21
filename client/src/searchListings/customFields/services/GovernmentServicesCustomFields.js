@@ -6,30 +6,29 @@
  *
  */
 import PropTypes from "prop-types";
-import React, {useState} from 'react';
+import React from 'react';
+
+const GOVERNMENT_SERVICES_Custom_Fields_TEXT = {
+    contactPerson: "Contact Person",
+    phoneNumber: "Phone number with ability to add extension if applicable"
+}
 
 const GovernmentServicesCustomFields = (props) =>{
-    const { reset } = props;
-    const title = useState(reset.title);
-    const contactPerson = useState(reset.contactPerson);
-    const phoneNumber = useState(reset.phoneNumber);
+    const { title, contactPerson, phoneNumber } = props;
 
     return(
         <div>
-            <h1 className={"page-title mb-5"}> {title} </h1> <br/>
-            <p>Contact Person: {contactPerson}</p> <br/>
-            <p>Phone number with ability to add extension if applicable: {phoneNumber}</p> <br/>
-            <button className={"btn btn-green mb-6 w-1/2 text-base py-2"}>Giving Rate</button>
+            <h1> {title} </h1> <br/>
+            <p>{GOVERNMENT_SERVICES_Custom_Fields_TEXT.contactPerson} {contactPerson}</p> <br/>
+            <p>{GOVERNMENT_SERVICES_Custom_Fields_TEXT.phoneNumber} {phoneNumber}</p> <br/>
         </div>
     );
 }
 
 GovernmentServicesCustomFields.propTypes = {
-    reset: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        contactPerson: PropTypes.string.isRequired,
-        phoneNumber: PropTypes.string
-    }).isRequired,
+    title: PropTypes.string.isRequired,
+    contactPerson: PropTypes.string.isRequired,
+    phoneNumber: PropTypes.string
 }
 
 export default GovernmentServicesCustomFields;

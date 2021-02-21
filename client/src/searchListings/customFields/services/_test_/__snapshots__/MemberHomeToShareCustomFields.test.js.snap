@@ -2,55 +2,64 @@
 
 exports[`MemberHomeToShareCustomFields should render correctly regardless of properties 1`] = `
 <div>
-  <h1
-    className="page-title mb-5"
-  >
+  <h1>
      
+    Member Home To Share Mock data
      
   </h1>
    
   <br />
   <p>
-    General Location: 
+    General Location
+     
+    766 Rutland Rd. S.
   </p>
    
   <br />
   <p>
-    Home share monthly cost: 
-     ($CAD)
+    Home share monthly cost ($CAD)
+     
+    800
   </p>
    
   <br />
   <p>
-    Number of bedrooms available in home: 
+    Number of bedrooms available in home
+     
+    5
   </p>
    
   <br />
   <p>
-    Number of bathrooms in house: 
+    Number of bathrooms in house
+     
+    3
   </p>
    
   <br />
   <p>
-    Utilities included: 
+    Utilities included
+     
+    yes
+  </p>
+   
+  <br />
+  <p>
+    Pet friendly
+     
     no
   </p>
    
   <br />
   <p>
-    Pet friendly: 
+    Smoking
+     
     no
   </p>
    
   <br />
   <p>
-    Smoking: 
-    no
-  </p>
-   
-  <br />
-  <p>
-    Photos: 
+    Photos
   </p>
    
   <br />
@@ -59,10 +68,5 @@ exports[`MemberHomeToShareCustomFields should render correctly regardless of pro
     className="float-left w-24 h-auto mx-4 "
     src="HTC_Logo.jpg"
   />
-  <button
-    className="btn btn-green mb-6 w-1/2 text-base py-2"
-  >
-    Giving Rate
-  </button>
 </div>
 `;
