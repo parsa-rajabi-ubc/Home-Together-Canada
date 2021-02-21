@@ -29,7 +29,6 @@ const HomeServiceBusinessCustomFields = (props) =>{
 }
 
 HomeServiceBusinessCustomFields.propTypes = {
-    title: PropTypes.string.isRequired,
     rateAndFees: PropTypes.number.isRequired,
     pictures: PropTypes.string.isRequired
 }
