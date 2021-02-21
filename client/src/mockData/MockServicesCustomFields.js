@@ -16,7 +16,7 @@ export const memberMockCustomFields = {
     utilIncluded: true,
     petFriendly: false,
     smokeFriendly: false,
-    photos: "photos"
+    pictures: "pictures"
 }
 
 export const cohousingMockCustomFields = {
