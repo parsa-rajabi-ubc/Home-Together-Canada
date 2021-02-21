@@ -7,6 +7,18 @@
  */
 
 
+export const memberMockCustomFields = {
+    title: "Member Home To Share Mock data",
+    generalLocationText: "766 Rutland Rd. S.",
+    homeShareMonthlyCost: 800,
+    numBed: "5",
+    numBath: "3",
+    utilIncluded: true,
+    petFriendly: false,
+    smokeFriendly: false,
+    photos: "photos"
+}
+
 export const cohousingMockCustomFields = {
     contactName: "Alex",
     unitsForSale: 5,
