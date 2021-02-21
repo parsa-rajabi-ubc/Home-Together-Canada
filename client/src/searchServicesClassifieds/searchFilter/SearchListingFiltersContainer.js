@@ -13,6 +13,7 @@ import {
     BUSINESS_SERVICE_CATEGORIES_DROPDOWN,
     CO_HOUSING_SUBCATEGORIES_LIST,
     GOVERNMENT_SERVICES_SUBCATEGORIES_LIST,
+    MEMBER_SERVICE_CATEGORIES_DROPDOWN,
     SHARED_BUSINESS_SERVICES_SUBCATEGORIES_LIST,
     SHARED_HOME_SERVICES_SUBCATEGORIES_LIST
 } from "../../createListing/constants/serviceListingConstants";
@@ -26,9 +27,7 @@ import {
 import {BUSINESS_SERVICE_CATEGORIES} from "../../createListing/constants/serviceListingCategoriesText";
 import {BUSINESS_CLASSIFIEDS_CATEGORIES} from "../../createListing/constants/classifiedListingCategoriesText";
 import {isValueInArray} from "../../common/utils/generalUtils";
-import {checkIfErrorsExistInMapping, validateInput, validateMinMaxFilter} from "../../registration/registrationUtils";
-import SearchFilter from "../../memberSearch/SearchFilter";
-import PropTypes from "prop-types";
+import {checkIfErrorsExistInMapping, validateInput} from "../../registration/registrationUtils";
 
 
 function SearchListingFiltersContainer() {
@@ -60,12 +59,12 @@ function SearchListingFiltersContainer() {
     useEffect(() => {
         (selectedCategory !== undefined && validateInput(selectedCategory, setSelectedCategoryError));
     }, [selectedCategory, listingPage]);
-    
+
 
     // Update Category Options Based on Page
     useEffect(() => {
         (listingPage === PAGE_NAMES.SERVICES
-            ? setCategoryOptions(BUSINESS_SERVICE_CATEGORIES_DROPDOWN)
+            ? setCategoryOptions(MEMBER_SERVICE_CATEGORIES_DROPDOWN.concat(BUSINESS_SERVICE_CATEGORIES_DROPDOWN))
             : setCategoryOptions(BUSINESS_CLASSIFIEDS_CATEGORIES_DROPDOWN));
 
         // reset to default values
