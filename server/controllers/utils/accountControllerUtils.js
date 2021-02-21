@@ -5,7 +5,6 @@
  * @Description: utility functions to abstract manipulation of data in accountControllers
  *
  */
-// import {memberHasCoupleStatus} from "../../../client/src/accountSummary/member/memberAccountSummaryUtils";
 
 const get = require('lodash/get');
 

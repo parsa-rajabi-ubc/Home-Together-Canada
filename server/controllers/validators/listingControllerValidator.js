@@ -5,12 +5,13 @@
  * @Description: functions to validate input to controller functions to create listings
  *
  */
+const { body } = require('express-validator/check');
+const uniq = require('lodash/uniq');
 
 const {isPositiveInteger} = require("./userControllerValidatorUtils");
 const {isValidPhoneNumber} = require("./userControllerValidatorUtils");
 const {isValidCanadianPostalCode} = require("./userControllerValidatorUtils");
 const {removeAllWhiteSpace} = require("../utils/stringUtils");
-const { body } = require('express-validator/check');
 
 const {
     LISTING_VALIDATION_METHODS,
@@ -20,6 +21,8 @@ const {
     isValidCategoryForListingType,
     isValidSubcategoryForSelectedCategory,
     listingShouldHaveCategories,
+    shouldOrderIdBeDefined,
+    removeDuplicates,
     LISTING_FIELDS_ERRORS,
 } = require('./listingControllerValidatorUtils');
 
@@ -110,7 +113,9 @@ exports.validate = method => {
                 body('subcategories')
                     .custom((subcategories, { req }) => listingShouldHaveCategories(subcategories, req.body.category)),
                 body('subcategories.*')
-                    .custom((subcategory, { req }) => isValidSubcategoryForSelectedCategory(subcategory, req.body.category))
+                    .custom((subcategory, { req }) => isValidSubcategoryForSelectedCategory(subcategory, req.body.category)),
+                body('orderId')
+                    .custom((orderId, { req }) => shouldOrderIdBeDefined(orderId, req.body.type))
             ]
         }
         case LISTING_VALIDATION_METHODS.MEMBER_HOME_FORM: {

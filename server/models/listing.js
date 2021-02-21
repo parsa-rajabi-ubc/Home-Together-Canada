@@ -14,7 +14,7 @@ module.exports = (DataTypes, sequelize) => {
         },
         // stringified JSON object with all listing fields
         fields: {
-            type: DataTypes.STRING, // set a character limit on this
+            type: DataTypes.TEXT, // set a character limit on this
             allowNull: false
         },
         isDeleted: {
@@ -32,5 +32,8 @@ module.exports = (DataTypes, sequelize) => {
             type: DataTypes.BOOLEAN,
             allowNull: false
         },
+        orderId: {
+            type: DataTypes.STRING
+        }
     });
 }

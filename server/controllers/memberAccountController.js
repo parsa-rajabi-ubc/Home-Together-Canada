@@ -387,6 +387,9 @@ const getMemberProfilesMatchingSearchFilters = async (uid, searchFilters, filter
             // admins will not be shown in search results
             isAdmin: {
                 [Op.eq]: false
+            },
+            active: {
+                [Op.eq]: true
             }
         }
     }
