@@ -15,7 +15,7 @@ exports[`HomeServiceBusinessForm Snapshot test should render correctly regardles
           className="page-title mb-5"
         >
            
-          Home Share Facilitation & Supporting Services
+          Home Share homeServicesMockCustomFields & Supporting Services
            
         </h1>
         <section>

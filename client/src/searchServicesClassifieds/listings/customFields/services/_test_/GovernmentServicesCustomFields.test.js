@@ -8,14 +8,14 @@
 import React from 'react';
 import renderer from  'react-test-renderer'
 import {BrowserRouter as Router} from "react-router-dom";
-import {Governmental} from "../../../../../mockData/MockServicesCustomFields";
+import {governmentMockCustomFields} from "../../../../../mockData/MockServicesCustomFields";
 import GovernmentServicesCustomFields from "../GovernmentServicesCustomFields";
 
 describe('GovernmentServicesCustomFields', () => {
     it("should render correctly regardless of properties", () => {
         // given
         const props = {
-            ...Governmental,
+            ...governmentMockCustomFields,
         };
         //when
         const component = renderer.create(<Router><GovernmentServicesCustomFields {...props}/></Router>);

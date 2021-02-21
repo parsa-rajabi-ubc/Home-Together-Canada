@@ -29,7 +29,7 @@ const HomeServiceBusinessCustomFields = (props) =>{
 }
 
 HomeServiceBusinessCustomFields.propTypes = {
-    rateAndFees: PropTypes.number.isRequired,
+    rateAndFees: PropTypes.string.isRequired,
     pictures: PropTypes.string.isRequired
 }
 
