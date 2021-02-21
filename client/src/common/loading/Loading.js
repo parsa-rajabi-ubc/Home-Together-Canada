@@ -7,9 +7,9 @@
  *
  */
 
-import SyncLoader from "react-spinners/SyncLoader";
 import React from "react";
 import PropTypes from "prop-types";
+import SyncLoader from "react-spinners/SyncLoader";
 
 const LOADING_MSG = "Loading...";
 const LOADING_COLOR = "#EC8937";
