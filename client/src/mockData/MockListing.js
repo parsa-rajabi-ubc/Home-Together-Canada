@@ -5,7 +5,9 @@
  * @Description: Mock Listing
  *
  */
-import {BUSINESS_SERVICE_CATEGORIES} from "../createListing/constants/serviceListingCategoriesText";
+import {
+    BUSINESS_SERVICE_CATEGORIES, MEMBER_SERVICE_CATEGORIES
+} from "../createListing/constants/serviceListingCategoriesText";
 import {BUSINESS_CLASSIFIEDS_CATEGORIES} from "../createListing/constants/classifiedListingCategoriesText";
 
 var faker = require('faker');
@@ -43,6 +45,21 @@ export const mockServiceListings = [
         fullDescription: faker.lorem.paragraph(),
         contactName: faker.name.findName(),
         contactPhoneNumber: faker.phone.phoneNumber(),
+    },
+    // MEMBER HOME TO SHARE 4
+    {
+        title: faker.lorem.words(),
+        category: MEMBER_SERVICE_CATEGORIES.MEMBER_HOME,
+        fullDescription: faker.lorem.paragraph(),
+
+        generalLocation: faker.address.zipCode(),
+        monthlyCost: faker.random.number(),
+        pictures: faker.image.cats(),
+        numBed: faker.random.number(),
+        numBath: faker.random.number(),
+        petFriendly: faker.random.boolean(),
+        smokeFriendly: faker.random.boolean(),
+        utilIncluded: faker.random.boolean(),
     }
 ]
 
