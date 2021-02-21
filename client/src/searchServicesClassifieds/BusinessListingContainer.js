@@ -12,7 +12,7 @@ import {useParams} from "react-router-dom";
 import BusinessInfo from "./listings/BusinessInfo";
 import BusinessService from "../services/BusinessService";
 import HTC_Logo from "../images/HTC_Logo.jpg";
-import SyncLoader from "react-spinners/SyncLoader";
+import Loading from "../common/loading/Loading";
 
 
 function BusinessListingContainer() {
@@ -68,10 +68,7 @@ function BusinessListingContainer() {
     return (
         <div>
             {loading ?
-                <section className={"text-center min-h-screen transform translate-y-1/2"}>
-                    <h1 className={"page-title font-normal"}>Loading...</h1>
-                    <SyncLoader loading={loading} color={"#EC8937"}/>
-                </section>
+                <Loading isLoading={loading}/>
                 :
                 // Right Side
                 <div>
