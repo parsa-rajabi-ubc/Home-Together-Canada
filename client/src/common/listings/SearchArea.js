@@ -17,9 +17,9 @@ import {dropdownErrorCSS, dropdownSearchAreaCSS} from "../../css/dropdownCSSUtil
 function SearchArea(props) {
     const {
         onChange, searchArea,
-        SearchAreaProvinceError,
-        SearchAreaCityError,
-        SearchAreaRadiusError,
+        searchAreaProvinceError,
+        searchAreaCityError,
+        searchAreaRadiusError,
     } = props;
     const [selectedProvince, setSelectedProvince] = useState(
         (!!searchArea && !!searchArea.province)
@@ -72,7 +72,7 @@ function SearchArea(props) {
                               name="province"
                               options={getProvinces()}
                               onChange={e => handleProvinceChange(e)}
-                              dropdownCSS={SearchAreaProvinceError ? dropdownErrorCSS : dropdownSearchAreaCSS}
+                              dropdownCSS={searchAreaProvinceError ? dropdownErrorCSS : dropdownSearchAreaCSS}
                               initialSelection={selectedProvince}
                     />
                 </div>
@@ -81,7 +81,7 @@ function SearchArea(props) {
                               name="city"
                               options={cityOptions}
                               onChange={e => handleCityChange(e)}
-                              dropdownCSS={SearchAreaCityError ? dropdownErrorCSS : dropdownSearchAreaCSS}
+                              dropdownCSS={searchAreaCityError ? dropdownErrorCSS : dropdownSearchAreaCSS}
                               initialSelection={selectedCity}
                     />
                 </div>
@@ -92,7 +92,7 @@ function SearchArea(props) {
                         name="radius"
                         options={radii}
                         onChange={e => handleRadiusChange(e)}
-                        dropdownCSS={SearchAreaRadiusError ? dropdownErrorCSS : dropdownSearchAreaCSS}
+                        dropdownCSS={searchAreaRadiusError ? dropdownErrorCSS : dropdownSearchAreaCSS}
                         initialSelection={selectedRadius}
                     />
                 </div>
@@ -110,9 +110,9 @@ SearchArea.propTypes = {
         city: PropTypes.string,
         radius: PropTypes.number
     }),
-    SearchAreaProvinceError: PropTypes.bool,
-    SearchAreaCityError: PropTypes.bool,
-    SearchAreaRadiusError: PropTypes.bool
+    searchAreaProvinceError: PropTypes.bool,
+    searchAreaCityError: PropTypes.bool,
+    searchAreaRadiusError: PropTypes.bool
 }
 
 export default SearchArea;

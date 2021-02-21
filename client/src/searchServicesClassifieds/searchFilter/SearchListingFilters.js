@@ -73,9 +73,9 @@ function SearchListingFilters(props) {
                             <SearchArea
                                 searchArea={searchArea}
                                 onChange={handleSearchAreaChange}
-                                SearchAreaProvinceError={searchAreaProvinceError}
-                                SearchAreaCityError={searchAreaCityError}
-                                SearchAreaRadiusError={searchAreaRadiusError}
+                                searchAreaProvinceError={searchAreaProvinceError}
+                                searchAreaCityError={searchAreaCityError}
+                                searchAreaRadiusError={searchAreaRadiusError}
                             />
                         </section>
 
