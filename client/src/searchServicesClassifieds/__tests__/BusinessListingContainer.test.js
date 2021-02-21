@@ -7,18 +7,21 @@
  */
 
 import React from 'react';
-import renderer from  'react-test-renderer'
+import renderer from 'react-test-renderer'
 import BusinessListingContainer from "../BusinessListingContainer";
+import {MemoryRouter} from "react-router-dom";
 
 describe('BusinessListingContainer', () => {
     describe('Container test', () => {
         it('should match snapshot test', () => {
             //given
-            const props = {
-
-            }
+            const props = {}
             //when
-            const component = renderer.create(<BusinessListingContainer {...props}/>);
+            const component = renderer.create(
+                <MemoryRouter>
+                    <BusinessListingContainer {...props}/>
+                </MemoryRouter>
+            );
             const tree = component.toJSON();
             //then
             expect(tree).toMatchSnapshot();
