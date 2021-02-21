@@ -12,6 +12,7 @@ import PropTypes from "prop-types";
 const BUSINESS_INFO_TEXT = {
     TITLE: "Business Info",
     WEBSITE: "Website",
+    REPORT: "Report Listing"
 }
 
 function BusinessInfo(props) {
@@ -45,8 +46,11 @@ function BusinessInfo(props) {
                     <a href={"https://" + website} target="_blank" rel="noopener noreferrer"
                        className={"link"}>{BUSINESS_INFO_TEXT.WEBSITE}</a>
                 </section>
-            </div>
 
+                <button className={"btn btn-red my-10 text-base px-0 py-2"}>
+                    {BUSINESS_INFO_TEXT.REPORT}
+                </button>
+            </div>
 
 
         </div>
