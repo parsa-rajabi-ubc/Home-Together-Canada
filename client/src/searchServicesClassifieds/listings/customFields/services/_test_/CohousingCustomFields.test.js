@@ -14,10 +14,8 @@ import CohousingCustomFields from "../CohousingCustomFields";
 describe('CohousingCustomFields', () => {
     it("should render correctly regardless of properties", () => {
         // given
-        const reset = jest.fn();
         const props = {
             ...Cohousing,
-            reset
         };
         //when
         const component = renderer.create(<Router><CohousingCustomFields {...props}/></Router>);

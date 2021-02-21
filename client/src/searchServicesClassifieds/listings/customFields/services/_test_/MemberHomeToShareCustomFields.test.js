@@ -14,10 +14,8 @@ import MemberHomeToShareCustomFields from "../MemberHomeToShareCustomFields";
 describe('MemberHomeToShareCustomFields', () => {
     it("should render correctly regardless of properties", () => {
         // given
-        const reset = jest.fn();
         const props = {
             ...Member,
-            reset
         };
         //when
         const component = renderer.create(<Router><MemberHomeToShareCustomFields {...props}/></Router>);

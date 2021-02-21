@@ -16,11 +16,10 @@ const HOME_SERVICE_BUSINESS_CUSTOM_FIELDS_TEXT = {
 
 
 const HomeServiceBusinessCustomFields = (props) =>{
-    const { title, rateAndFees, pictures } = props;
+    const { rateAndFees, pictures } = props;
 
     return(
         <div>
-            <h1> {title} </h1>
             <p>{HOME_SERVICE_BUSINESS_CUSTOM_FIELDS_TEXT.RATE_AND_FEES} {rateAndFees}</p>
             <p>{HOME_SERVICE_BUSINESS_CUSTOM_FIELDS_TEXT.PICTURES}</p>
             {/*TODO: replace HTC_Logo with pictures Pictures (max of 6)*/}

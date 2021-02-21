@@ -14,10 +14,8 @@ import GovernmentServicesCustomFields from "../GovernmentServicesCustomFields";
 describe('GovernmentServicesCustomFields', () => {
     it("should render correctly regardless of properties", () => {
         // given
-        const reset = jest.fn();
         const props = {
             ...Governmental,
-            reset
         };
         //when
         const component = renderer.create(<Router><GovernmentServicesCustomFields {...props}/></Router>);

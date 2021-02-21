@@ -14,10 +14,8 @@ import HomeServiceBusinessCustomFields from "../HomeServiceBusinessCustomFields"
 describe('GovernmentServicesCustomFields', () => {
     it("should render correctly regardless of properties", () => {
         // given
-        const reset = jest.fn();
         const props = {
             ...Facilitation,
-            reset
         };
         //when
         const component = renderer.create(<Router><HomeServiceBusinessCustomFields {...props}/></Router>);

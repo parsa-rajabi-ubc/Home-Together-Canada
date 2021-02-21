@@ -22,7 +22,7 @@ const MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT= {
 }
 
 const MemberHomeToShareCustomFields = (props) =>{
-    const { title, generalLocationText, homeShareMonthlyCost, numBath, numBed, petFriendly, photos, smokeFriendly, utilIncluded } = props;
+    const {generalLocationText, homeShareMonthlyCost, numBath, numBed, petFriendly, photos, smokeFriendly, utilIncluded } = props;
 
     const isUtilIncluded = useState(resolveBooleanToYesNo(utilIncluded));
     const isPetFriendly = useState(resolveBooleanToYesNo(petFriendly));
@@ -30,7 +30,6 @@ const MemberHomeToShareCustomFields = (props) =>{
 
         return(
             <div>
-                <h1> {title} </h1>
                 <p>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.GENERAL_LOCATION} {generalLocationText}</p>
                 <p>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.HOME_SHARE_MONTHLY_COST} {homeShareMonthlyCost}</p>
                 <p>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.NUMBER_BEDROOM} {numBed}</p>
@@ -46,7 +45,6 @@ const MemberHomeToShareCustomFields = (props) =>{
 }
 
 MemberHomeToShareCustomFields.propTypes = {
-    title: PropTypes.string.isRequired,
     generalLocationText: PropTypes.string.isRequired,
     homeShareMonthlyCost: PropTypes.number.isRequired,
     numBed: PropTypes.string.isRequired,

@@ -15,11 +15,10 @@ const CO_HOUSING_CUSTOM_FIELD_TEXT = {
 }
 
 const CohousingCustomFields = (props) =>{
-    const { title, contactName, unitsForSale, unitsForRent } = props;
+    const {contactName, unitsForSale, unitsForRent } = props;
 
     return(
         <div>
-            <h1> {title} </h1>
             <p>{CO_HOUSING_CUSTOM_FIELD_TEXT.CONTACT_NAME} {contactName}</p>
             <p>{CO_HOUSING_CUSTOM_FIELD_TEXT.UNITS_FOR_SALE} {unitsForSale}</p>
             <p>{CO_HOUSING_CUSTOM_FIELD_TEXT.UNITS_FOR_RENT} {unitsForRent}</p>
@@ -28,7 +27,6 @@ const CohousingCustomFields = (props) =>{
 }
 
 CohousingCustomFields.propTypes = {
-    title: PropTypes.string.isRequired,
     contactName: PropTypes.string.isRequired,
     unitsForSale: PropTypes.number.isRequired,
     unitsForRent: PropTypes.number.isRequired
