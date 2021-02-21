@@ -15,7 +15,7 @@ export const mockServiceListings = [
     {
         title: faker.lorem.words(),
         category: BUSINESS_SERVICE_CATEGORIES.CO_HOUSING,
-        full_des: faker.lorem.paragraph(),
+        fullDescription: faker.lorem.paragraph(),
         contactName: faker.name.findName(),
         unitsForSale: faker.random.number(),
         unitsForRent: faker.random.number(),
@@ -24,7 +24,7 @@ export const mockServiceListings = [
     {
         title: faker.lorem.words(),
         category: BUSINESS_SERVICE_CATEGORIES.SHARED_HOME_SERVICES,
-        full_des: faker.lorem.paragraph(),
+        fullDescription: faker.lorem.paragraph(),
         pictures: faker.image.cats(),
         ratesAndFees: faker.random.number() + " " + faker.random.words(),
     },
@@ -32,15 +32,15 @@ export const mockServiceListings = [
     {
         title: faker.lorem.words(),
         category: BUSINESS_SERVICE_CATEGORIES.SHARED_BUSINESS_SERVICES,
-        full_des: faker.lorem.paragraph(),
+        fullDescription: faker.lorem.paragraph(),
         pictures: faker.image.cats(),
         ratesAndFees: faker.random.number() + " " + faker.random.words(),
     },
     // GOVERNMENT 3
     {
         title: faker.lorem.words(),
-        category: BUSINESS_SERVICE_CATEGORIES.SHARED_HOME_SERVICES,
-        full_des: faker.lorem.paragraph(),
+        category: BUSINESS_SERVICE_CATEGORIES.GOVERNMENT_SERVICES,
+        fullDescription: faker.lorem.paragraph(),
         contactName: faker.name.findName(),
         contactPhoneNumber: faker.phone.phoneNumber(),
     }
@@ -51,7 +51,7 @@ export const mockClassifiedsListings = [
     {
         title: faker.lorem.words(),
         category: BUSINESS_CLASSIFIEDS_CATEGORIES.RENTALS,
-        full_des: faker.lorem.paragraph(),
+        fullDescription: faker.lorem.paragraph(),
 
         price: faker.random.number(),
         pictures: faker.image.cats(),
@@ -66,7 +66,7 @@ export const mockClassifiedsListings = [
     {
         title: faker.lorem.words(),
         category: BUSINESS_CLASSIFIEDS_CATEGORIES.HOUSE_YARD,
-        full_des: faker.lorem.paragraph(),
+        fullDescription: faker.lorem.paragraph(),
 
         pictures: faker.image.cats(),
         ratesAndFees: faker.random.number() + " " + faker.random.words(),
@@ -75,7 +75,7 @@ export const mockClassifiedsListings = [
     {
         title: faker.lorem.words(),
         category: BUSINESS_CLASSIFIEDS_CATEGORIES.LEGAL_SALES,
-        full_des: faker.lorem.paragraph(),
+        fullDescription: faker.lorem.paragraph(),
 
         pictures: faker.image.cats(),
         ratesAndFees: faker.random.number() + " " + faker.random.words(),
@@ -84,7 +84,7 @@ export const mockClassifiedsListings = [
     {
         title: faker.lorem.words(),
         category: BUSINESS_CLASSIFIEDS_CATEGORIES.CLASSES_CLUBS,
-        full_des: faker.lorem.paragraph(),
+        fullDescription: faker.lorem.paragraph(),
 
         contactName: faker.name.findName(),
         contactPhoneNumber: faker.phone.phoneNumber(),
