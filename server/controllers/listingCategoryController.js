@@ -41,6 +41,8 @@ const findCategoryIdByName = categoryName => {
 }
 
 const populateDBWithCategories = () => {
+    // NOTE: IDs are auto-incremented by 10 on ClearDB, we are hard coding IDs here in order to establish correct
+    // relation to subcategories
     return ListingCategory.bulkCreate([
         { id: 1, name: BUSINESS_SERVICES_CATEGORIES.CO_HOUSING, isClassified: false },
         { id: 2, name: BUSINESS_SERVICES_CATEGORIES.SHARED_HOME_SERVICES, isClassified: false },
