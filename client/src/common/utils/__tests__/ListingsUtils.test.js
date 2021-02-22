@@ -7,7 +7,7 @@
  *
  */
 
-import {resolveCategoryToListingType, LISTING_TYPE} from "../ListingUtils";
+import {resolveCategoryToListingType, LISTING_TYPE} from "../ListingsUtils";
 import {
     BUSINESS_SERVICE_CATEGORIES,
     MEMBER_SERVICE_CATEGORIES

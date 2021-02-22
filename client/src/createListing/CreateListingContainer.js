@@ -32,8 +32,7 @@ import * as ListingService from "../services/ListingService";
 import {reset} from "../redux/actionCreators";
 import {SESSION_ERR} from "../common/constants/errors";
 import {getConcatenatedErrorMessage, getPhoneNumberFromStrings} from "../registration/registrationUtils";
-import {resolveCategoryToListingType} from "../common/utils/listingUtils";
-import {LISTING_TYPE} from "../common/utils/listingUtils";
+import {resolveCategoryToListingType, LISTING_TYPE} from "../common/utils/listingsUtils.js";
 
 const CONFIRMATION_TEXT = {
     BUSINESS_LISTINGS: "Your listing has successfully been created and is now pending approval from an administrator.",
