@@ -15,7 +15,8 @@ describe('Paypal', () => {
         it('should match snapshot test regardless of properties', () => {
             // given
             const props = {
-                paymentStatus: jest.fn()
+                paymentStatus: jest.fn(),
+                transactionOrderID: jest.fn()
             };
             //when
             const component = renderer.create(<Paypal {...props}/>);
