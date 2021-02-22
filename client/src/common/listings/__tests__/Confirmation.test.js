@@ -17,7 +17,9 @@ describe('Confirmation', () => {
             const props = {
                 message: "Hello world",
                 buttonText: "Potato",
-                redirectTo: "/"
+                redirectTo: "/",
+                displayButton: false,
+                errorColor: false,
             };
             //when
             const component = renderer.create(<Router><Confirmation {...props}/></Router>).toJSON();
@@ -29,7 +31,37 @@ describe('Confirmation', () => {
             const props = {
                 message: "Apples",
                 buttonText: "",
-                redirectTo: "/login"
+                redirectTo: "/login",
+                displayButton: true,
+                errorColor: true,
+            };
+            //when
+            const component = renderer.create(<Router><Confirmation {...props}/></Router>).toJSON();
+            //then
+            expect(component).toMatchSnapshot();
+        });
+        it("should render correctly regardless of properties", () => {
+            //given
+            const props = {
+                message: "Oranges",
+                buttonText: "Summer",
+                redirectTo: "/hello",
+                displayButton: true,
+                errorColor: false,
+            };
+            //when
+            const component = renderer.create(<Router><Confirmation {...props}/></Router>).toJSON();
+            //then
+            expect(component).toMatchSnapshot();
+        });
+        it("should render correctly regardless of properties", () => {
+            //given
+            const props = {
+                message: "Sunshine",
+                buttonText: "Blue Sky",
+                redirectTo: "/skiing",
+                displayButton: false,
+                errorColor: true,
             };
             //when
             const component = renderer.create(<Router><Confirmation {...props}/></Router>).toJSON();

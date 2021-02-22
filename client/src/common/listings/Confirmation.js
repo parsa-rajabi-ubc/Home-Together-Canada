@@ -11,24 +11,24 @@ import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 
 const Confirmation = (props) => {
-    const {message, buttonText = "OK", redirectTo = "/"} = props;
+    const {message, buttonText = "OK", redirectTo = "/", displayButton = true, errorColor} = props;
 
     return (
-        <div className="flex justify-center items-center mx-auto w-1/3 min-h-screen text-center bg-white">
+        <div className={`${displayButton ? "w-1/3" : "w-2/3"} flex justify-center items-center mx-auto min-h-screen text-center bg-white`}>
             <div className="bg-white rounded-lg shadow-2xl">
-                <div className="flex w-96 rounded-lg border-t-8 border-green-600">
-                    <div className="p-10 mx-auto mt-10 w-full">
+                <div className={`${errorColor ? "border-red-600" : "border-green-600"} flex w-96 rounded-lg border-t-8`}>
+                    <div className={`${displayButton ? "mt-10" : "mt-5"} p-10 mx-auto w-full`}>
                         <h1 className="text-gray-800 h1">
                             {message}
                         </h1>
                     </div>
                 </div>
-
+                {displayButton &&
                 <div className="flex py-10 px-10 space-x-4">
                     <Link to={redirectTo} className="flex rounded-md shadow btn btn-green">
                         {buttonText}
                     </Link>
-                </div>
+                </div>}
             </div>
         </div>
     )
@@ -38,6 +38,8 @@ Confirmation.propTypes = {
     message: PropTypes.string.isRequired,
     buttonText: PropTypes.string,
     redirectTo: PropTypes.string,
+    displayButton: PropTypes.bool,
+    errorColor: PropTypes.bool
 }
 
 export default Confirmation;
