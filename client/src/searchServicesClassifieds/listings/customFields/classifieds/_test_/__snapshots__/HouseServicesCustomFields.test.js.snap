@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AgenciesCustomFields should render correctly regardless of properties 1`] = `
+exports[`HouseServicesCustomFields should render correctly regardless of properties 1`] = `
 <div>
   <label
     className="label-result"
   >
-    Rates and fees ($CAD)
+    Rates and fees (CAD)
   </label>
   <p>
      
-    555
+    666 per day
   </p>
   <label
     className="label-result"

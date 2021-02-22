@@ -7,7 +7,7 @@
  */
 import PropTypes from "prop-types";
 import React from 'react';
-import HTC_Logo from "../../../images/HTC_Logo.jpg";
+import HTC_Logo from "../../../../images/HTC_Logo.jpg";
 
 const HOME_SERVICE_BUSINESS_CUSTOM_FIELDS_TEXT = {
     RATE_AND_FEES: "Rates and fees ($CAD)",

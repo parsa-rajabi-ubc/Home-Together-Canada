@@ -7,8 +7,7 @@
  */
 import React from 'react';
 import renderer from  'react-test-renderer'
-import {BrowserRouter as Router} from "react-router-dom";
-import {eventsMockCustomFields} from "../../../../mockData/MockClassifiedsCustomFields";
+import {eventsMockCustomFields} from "../../../../../mockData/MockClassifiedsCustomFields";
 import EventsCustomFields from "../EventsCustomFields";
 
 describe('EventsCustomFields', () => {
@@ -18,7 +17,7 @@ describe('EventsCustomFields', () => {
             ...eventsMockCustomFields,
         };
         //when
-        const component = renderer.create(<Router><EventsCustomFields {...props}/></Router>);
+        const component = renderer.create(<EventsCustomFields {...props}/>);
         const tree = component.toJSON();
         //then
         expect(tree).toMatchSnapshot();

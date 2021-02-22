@@ -1,54 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RentalsCustomFields should render correctly regardless of properties 1`] = `
+exports[`EventsCustomFields should render correctly regardless of properties 1`] = `
 <div>
   <label
     className="label-result"
   >
-    Price (CAD)
+    Rates and fees (CAD)
   </label>
   <p>
      
-    800
+    666 per day
   </p>
   <label
     className="label-result"
   >
-    Number of Bedrooms
+    Contact Name
   </label>
   <p>
      
-    5
+    Alex
   </p>
   <label
     className="label-result"
   >
-    Number of Bathrooms
+    Contact Phone Number
   </label>
   <p>
      
-    3
+    778-555-5555
   </p>
   <label
     className="label-result"
   >
-    Furnished
-  </label>
-  <p>
-     
-  </p>
-  <label
-    className="label-result"
-  >
-    Pet friendly
-  </label>
-  <p>
-     
-  </p>
-  <label
-    className="label-result"
-  >
-    Smoking
+    Event dates and times
   </label>
   <p>
      

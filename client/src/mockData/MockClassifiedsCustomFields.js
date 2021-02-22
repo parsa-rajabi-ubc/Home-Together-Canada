@@ -17,17 +17,17 @@ export const rentalsMockCustomFields = {
 }
 
 export const houseServicesMockCustomFields = {
-    rateAndFees: 666,
+    rateAndFees: "666 per day",
     pictures: "pictures"
 }
 
 export const agenciesMockCustomFields = {
-    rateAndFees: 555,
+    rateAndFees: "555 per day",
     pictures: "pictures"
 }
 
 export const eventsMockCustomFields = {
-    rateAndFees: 666,
+    rateAndFees: "666 per day",
     EventDateTime: "2020/2/21 11:00 A.M.",
     contactName: "Alex",
     contactNumber:"778-555-5555",
