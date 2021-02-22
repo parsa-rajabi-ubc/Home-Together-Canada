@@ -114,12 +114,13 @@ function BusinessListingContainer() {
             case MEMBER_SERVICE_CATEGORIES.MEMBER_HOME:
                 setGeneralLocation(listing.generalLocation);
                 setHomeShareMonthlyCost(listing.monthlyCost);
-                setNumBed(listing.numBed);
-                setNumBath(listing.numBath);
+                setNumBed(listing.numBed.toString());
+                setNumBath(listing.numBath.toString());
                 setFurnished(listing.furnished);
                 setPetFriendly(listing.petFriendly);
                 setSmokeFriendly(listing.smokeFriendly);
                 setUtilIncluded(listing.utilIncluded);
+                setPictures(listing.pictures);
                 break;
             case BUSINESS_SERVICE_CATEGORIES.CO_HOUSING:
                 setContactName(listing.contactName);
