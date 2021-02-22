@@ -57,7 +57,7 @@ describe('Confirmation', () => {
         it("should render correctly regardless of properties", () => {
             //given
             const props = {
-                message: "Sunshine",
+                message: "Watermelon",
                 buttonText: "Blue Sky",
                 redirectTo: "/classifieds",
                 displayButton: false,
