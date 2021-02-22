@@ -22,7 +22,10 @@ describe('CreateListingControls', () => {
             // given
             const props = {
                 isUserMember: true,
-                categoryToDisplay: jest.fn()
+                chosenCategory: jest.fn(),
+                chosenSubcategories: jest.fn(),
+                isSubcategoryEmpty: jest.fn(),
+                submitted: true,
             };
             //when
             const component = renderer.create(<CreateListingControls {...props}/>);
@@ -34,7 +37,40 @@ describe('CreateListingControls', () => {
             // given
             const props = {
                 isUserMember: false,
-                categoryToDisplay: jest.fn()
+                chosenCategory: jest.fn(),
+                chosenSubcategories: jest.fn(),
+                isSubcategoryEmpty: jest.fn(),
+                submitted: true,
+            };
+            //when
+            const component = renderer.create(<CreateListingControls {...props}/>);
+            const tree = component.toJSON();
+            //then
+            expect(tree).toMatchSnapshot();
+        });
+        it('should match snapshot test if user is a member + submitted is false', () => {
+            // given
+            const props = {
+                isUserMember: true,
+                chosenCategory: jest.fn(),
+                chosenSubcategories: jest.fn(),
+                isSubcategoryEmpty: jest.fn(),
+                submitted: false,
+            };
+            //when
+            const component = renderer.create(<CreateListingControls {...props}/>);
+            const tree = component.toJSON();
+            //then
+            expect(tree).toMatchSnapshot();
+        });
+        it('should match snapshot test if user is a business + submitted is false', () => {
+            // given
+            const props = {
+                isUserMember: false,
+                chosenCategory: jest.fn(),
+                chosenSubcategories: jest.fn(),
+                isSubcategoryEmpty: jest.fn(),
+                submitted: false,
             };
             //when
             const component = renderer.create(<CreateListingControls {...props}/>);

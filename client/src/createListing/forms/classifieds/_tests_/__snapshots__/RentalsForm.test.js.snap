@@ -45,7 +45,7 @@ exports[`RentalsForm Snapshot test should render correctly regardless of propert
             />
           </svg>
           <input
-            className="undefined input"
+            className="false undefined input"
             disabled={false}
             onChange={[Function]}
             type="text"
@@ -84,7 +84,7 @@ exports[`RentalsForm Snapshot test should render correctly regardless of propert
                 />
               </svg>
               <input
-                className="undefined input"
+                className="false undefined input"
                 disabled={false}
                 maxLength="50"
                 onChange={[Function]}
@@ -122,7 +122,8 @@ exports[`RentalsForm Snapshot test should render correctly regardless of propert
               </svg>
             </label>
             <input
-              className="undefined input"
+              className="undefined false input"
+              disabled={false}
               min="0"
               onChange={[Function]}
               step="1"
@@ -169,6 +170,7 @@ exports[`RentalsForm Snapshot test should render correctly regardless of propert
                   <input
                     checked={false}
                     className="form-radio mt-2 ml-2 mr-1 pb-4"
+                    disabled={false}
                     name="furnished"
                     onChange={[Function]}
                     type="radio"
@@ -186,6 +188,7 @@ exports[`RentalsForm Snapshot test should render correctly regardless of propert
                   <input
                     checked={false}
                     className="form-radio mt-2 ml-2 mr-1 pb-4"
+                    disabled={false}
                     name="furnished"
                     onChange={[Function]}
                     type="radio"
@@ -371,6 +374,7 @@ exports[`RentalsForm Snapshot test should render correctly regardless of propert
                   <input
                     checked={false}
                     className="form-radio mt-2 ml-2 mr-1 pb-4"
+                    disabled={false}
                     name="petFriendly"
                     onChange={[Function]}
                     type="radio"
@@ -388,6 +392,7 @@ exports[`RentalsForm Snapshot test should render correctly regardless of propert
                   <input
                     checked={false}
                     className="form-radio mt-2 ml-2 mr-1 pb-4"
+                    disabled={false}
                     name="petFriendly"
                     onChange={[Function]}
                     type="radio"
@@ -573,6 +578,7 @@ exports[`RentalsForm Snapshot test should render correctly regardless of propert
                   <input
                     checked={false}
                     className="form-radio mt-2 ml-2 mr-1 pb-4"
+                    disabled={false}
                     name="smokeFriendly"
                     onChange={[Function]}
                     type="radio"
@@ -590,6 +596,7 @@ exports[`RentalsForm Snapshot test should render correctly regardless of propert
                   <input
                     checked={false}
                     className="form-radio mt-2 ml-2 mr-1 pb-4"
+                    disabled={false}
                     name="smokeFriendly"
                     onChange={[Function]}
                     type="radio"
@@ -628,8 +635,9 @@ exports[`RentalsForm Snapshot test should render correctly regardless of propert
             />
           </svg>
           <textarea
-            className="undefined undefined input"
+            className="false undefined input"
             cols="50"
+            disabled={false}
             onChange={[Function]}
             rows="6"
           />
@@ -637,7 +645,9 @@ exports[`RentalsForm Snapshot test should render correctly regardless of propert
         <label
           className="label"
         >
-           Pictures 
+           
+          Pictures
+           
         </label>
         <span>
           <span
