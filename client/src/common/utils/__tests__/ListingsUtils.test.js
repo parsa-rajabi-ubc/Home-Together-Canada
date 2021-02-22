@@ -7,11 +7,9 @@
  *
  */
 
-import {resolveCategoryToListingType, LISTING_TYPE} from "../ListingsUtils";
-import {
-    BUSINESS_SERVICE_CATEGORIES,
-    MEMBER_SERVICE_CATEGORIES
-} from "../../../createListing/constants/serviceListingCategoriesText";
+
+import {resolveCategoryToListingType, LISTING_TYPE} from "../listingsUtils.js";
+import {BUSINESS_SERVICE_CATEGORIES, MEMBER_SERVICE_CATEGORIES} from "../../../createListing/constants/serviceListingCategoriesText";
 import {BUSINESS_CLASSIFIEDS_CATEGORIES} from "../../../createListing/constants/classifiedListingCategoriesText";
 
 describe('resolveCategoryToListingType', () => {
@@ -68,8 +66,6 @@ describe('resolveCategoryToListingType', () => {
         });
 
 
-
-
         it('should return classified when category is classified', () => {
             // given
             const category = BUSINESS_CLASSIFIEDS_CATEGORIES.RENTALS;
@@ -110,6 +106,5 @@ describe('resolveCategoryToListingType', () => {
             // then
             expect(result).toBe(LISTING_TYPE.CLASSIFIED);
         });
-
     })
 })
