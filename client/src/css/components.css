@@ -74,3 +74,7 @@
 .label-result {
     @apply block mt-3 text-base font-medium text-gray-700 text-orange-600;
 }
+
+.disabled-field {
+    @apply bg-gray-500 opacity-50 cursor-not-allowed;
+}
