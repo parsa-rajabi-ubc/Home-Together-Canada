@@ -28,10 +28,21 @@ import EventsForm from "./forms/classifieds/EventsForm";
 import Paypal, {PAYMENT_STATUS} from "./Paypal";
 import {animateScroll as scroll} from 'react-scroll'
 import Confirmation from "../common/listings/Confirmation";
+import * as ListingService from "../services/ListingService";
+import {reset} from "../redux/actionCreators";
+import {SESSION_ERR} from "../common/constants/errors";
+import {getConcatenatedErrorMessage, getPhoneNumberFromStrings} from "../registration/registrationUtils";
+import {resolveCategoryToListingType, LISTING_TYPE} from "../common/utils/listingUtils";
 
 const CONFIRMATION_TEXT = {
     BUSINESS_LISTINGS: "Your listing has successfully been created and is now pending approval from an administrator.",
-    MEMBER_LISTINGS: "Your listing has successfully been created."
+    MEMBER_LISTINGS: "Your listing has successfully been created.",
+    SESSION_ERR: SESSION_ERR,
+    GENERIC_ERROR: 'There was an error creating you listing. Please try again.'
+}
+
+const mapDispatchToProps = {
+    reset,
 }
 
 const CreateListingContainer = (props) => {
@@ -39,30 +50,98 @@ const CreateListingContainer = (props) => {
 
     const [displayPayment, setDisplayPayment] = useState(false);
     const [paymentStatus, setPaymentStatus] = useState();
+    const [classifiedListing, setClassifiedListing] = useState();
+    const [isListingValid, setIsListingValid] = useState();
     const [showConfirmation, setShowConfirmation] = useState();
     const [confirmationMsg, setConfirmationMsg] = useState();
     const [selectedCategory, setSelectedCategory] = useState();
+    const [selectedSubcategories, setSelectedSubcategories] = useState();
+    const [listingOrderID, setListingOrderID] = useState();
+    const [isSelectedSubcategoryEmpty, setIsSelectedSubcategoryEmpty] = useState(true);
+    const [submitted, setSubmitted] = useState();
 
     const isUserMember = (accountType === USER_TYPES.MEMBER);
 
     useEffect(() => {
-        (paymentStatus === PAYMENT_STATUS.APPROVED && setShowConfirmation(true))
-        setConfirmationMsg(CONFIRMATION_TEXT.BUSINESS_LISTINGS);
-    }, [paymentStatus]);
+        if (paymentStatus === PAYMENT_STATUS.APPROVED && !isSelectedSubcategoryEmpty) {
+            submitListing(classifiedListing)
+        }
+        if (isListingValid) {
+            setShowConfirmation(true)
+            setConfirmationMsg(CONFIRMATION_TEXT.BUSINESS_LISTINGS);
+        }
+    }, [paymentStatus, isListingValid]);
 
-    function onSubmitServices() {
-        setShowConfirmation(true);
-        setConfirmationMsg(isUserMember ? CONFIRMATION_TEXT.MEMBER_LISTINGS : CONFIRMATION_TEXT.BUSINESS_LISTINGS);
+    function onSubmitServices(listing) {
+        setSubmitted(true);
+        ((!isSelectedSubcategoryEmpty || isUserMember) && submitListing(listing));
+
     }
 
-    const onSubmitClassifieds = () => {
-        setDisplayPayment(true);
-        scroll.scrollToBottom({
-                // set smoothness = https://www.npmjs.com/package/react-scroll
-                smooth: 'easeInOutQuad',
-            }
-        );
+    const onSubmitClassifieds = (listing) => {
+        setSubmitted(true);
+        if (!isSelectedSubcategoryEmpty) {
+            setDisplayPayment(true);
+            scroll.scrollToBottom({
+                    // set smoothness = https://www.npmjs.com/package/react-scroll
+                    smooth: 'easeInOutQuad',
+                }
+            );
+            setClassifiedListing(listing);
+        }
     };
+
+    function submitListing(listing) {
+        const listingRequestBody = {
+            ...listing,
+            type: resolveCategoryToListingType(selectedCategory),
+            category: selectedCategory,
+            subcategories: selectedSubcategories,
+            ...(resolveCategoryToListingType(selectedCategory) === LISTING_TYPE.CLASSIFIED) && {orderId: listingOrderID},
+            ...(selectedCategory === BUSINESS_SERVICE_CATEGORIES.GOVERNMENT_SERVICES || selectedCategory === BUSINESS_CLASSIFIEDS_CATEGORIES.CLASSES_CLUBS) && {
+                contactPhoneNumber: getPhoneNumberFromStrings(listing.contactPhoneNumber.first, listing.contactPhoneNumber.middle, listing.contactPhoneNumber.last),
+            },
+            ...(selectedCategory === BUSINESS_CLASSIFIEDS_CATEGORIES.RENTALS) && {
+                petFriendly: (listing.petFriendly === 'yes'),
+                smokeFriendly: (listing.smokeFriendly === 'yes'),
+                furnished: (listing.furnished === 'yes'),
+                monthlyCost: listing.price
+            },
+            ...(selectedCategory === MEMBER_SERVICE_CATEGORIES.MEMBER_HOME) && {
+                petFriendly: (listing.petFriendly === 'yes'),
+                smokeFriendly: (listing.smokeFriendly === 'yes'),
+                utilitiesIncluded: (listing.utilIncluded === 'yes'),
+            }
+        }
+
+        ListingService.createListing(listingRequestBody)
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    console.log("success");
+                    setConfirmationMsg(isUserMember ? CONFIRMATION_TEXT.MEMBER_LISTINGS : CONFIRMATION_TEXT.BUSINESS_LISTINGS);
+                    setShowConfirmation(true);
+                    setIsListingValid(true);
+                } else if (data.authenticated === false) {
+                    reset();
+                    setConfirmationMsg(CONFIRMATION_TEXT.SESSION_ERR);
+                    setShowConfirmation(true);
+                } else if (data.errors) {
+                    setIsListingValid(false);
+                    alert('Error: ' + getConcatenatedErrorMessage(data.errors));
+                } else if (data.err) {
+                    setIsListingValid(false);
+                    alert('Error: ' + data.err);
+                } else {
+                    setIsListingValid(false);
+                    setConfirmationMsg(CONFIRMATION_TEXT.GENERIC_ERROR);
+                    setShowConfirmation(true);
+                }
+            })
+            .catch(err => {
+                alert('error creating listing: ' + err.message);
+            });
+    }
 
     const handleSelectedCategory = (category) => {
         setSelectedCategory(category);
@@ -70,8 +149,20 @@ const CreateListingContainer = (props) => {
         setDisplayPayment(false);
     };
 
+    const handleSelectedSubcategory = (subcategories) => {
+        setSelectedSubcategories(subcategories);
+    };
+
+    const handleIsSubcategoryEmpty = (isSubcategoryEmpty) => {
+        setIsSelectedSubcategoryEmpty(isSubcategoryEmpty);
+    }
+
     const handlePaymentStatus = (status) => {
         setPaymentStatus(status);
+    };
+
+    const handleOrderID = (orderID) => {
+        setListingOrderID(orderID);
     };
 
     const formToDisplay = (category) => {
@@ -122,7 +213,11 @@ const CreateListingContainer = (props) => {
                         <div className={"sideBar col-end-3"}>
                             <CreateListingControls
                                 isUserMember={isUserMember}
-                                categoryToDisplay={handleSelectedCategory}/>
+                                chosenCategory={handleSelectedCategory}
+                                chosenSubcategories={handleSelectedSubcategory}
+                                isSubcategoryEmpty={handleIsSubcategoryEmpty}
+                                submitted={submitted}
+                            />
                         </div>
 
                         <div className={"sideBar-selected-component col-start-3 col-end-10"}>
@@ -130,6 +225,7 @@ const CreateListingContainer = (props) => {
                             {displayPayment &&
                             <Paypal
                                 paymentStatus={handlePaymentStatus}
+                                transactionOrderID={handleOrderID}
                             />}
                         </div>
                     </div>
@@ -144,11 +240,12 @@ const mapStateToProps = (state) => ({
 });
 
 CreateListingContainer.propTypes = {
+    reset: PropTypes.func.isRequired,
     authenticated: PropTypes.bool.isRequired,
     accountType: PropTypes.string
 }
 
 export default compose(
     withRouter,
-    connect(mapStateToProps, null)
+    connect(mapStateToProps, mapDispatchToProps)
 )(CreateListingContainer);
