@@ -57,11 +57,9 @@ require("./config/passport.js")(passport);
 db.sequelize.sync({ force: true })
     // populate DB with categories and subcategories
     .then(() => {
-        console.log('populating DB with categories');
         return listingCategories.populateDBWithCategories();
     })
     .then(()=> {
-        console.log('populating DB with subcategories');
         return listingSubcategories.populateDBWithSubcategories();
     })
     .catch((err) => {
