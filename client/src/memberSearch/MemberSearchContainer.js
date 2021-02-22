@@ -29,7 +29,7 @@ const mapDispatchToProps = {
 }
 
 const MESSAGES = {
-    CREATE_SEARCH: "Please use Filters to Search",
+    CREATE_SEARCH: "Please use filters to search",
     ERROR: "Oops, there was an error loading search results. Please try again",
     INVALID_USER: "You must be a registered member to view this page."
 }
