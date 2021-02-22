@@ -2,104 +2,51 @@
  * @Author:     Alex Qin
  * @Created:    2021.02.17
  *
- * @Description: Re-usable Member Home to share custom fields.
+ * @Description: Re-useable Member Home to share custom fields.
  *
  */
 import PropTypes from "prop-types";
-import React from 'react';
+import React, {useState} from 'react';
 import HTC_Logo from "../../../../images/HTC_Logo.jpg";
-import {AiOutlineCheckCircle as Check, AiOutlineCloseCircle as Ex} from "react-icons/ai";
+import {resolveBooleanToYesNo} from "../../../../common/utils/generalUtils";
 
-const MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT = {
+const MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT= {
     GENERAL_LOCATION: "General Location",
-    HOME_SHARE_MONTHLY_COST: "Home Share Monthly Cost (CAD)",
-    NUMBER_BEDROOM: "Number of Bedrooms",
-    NUMBER_BATHROOM: "Number of Bathrooms",
+    HOME_SHARE_MONTHLY_COST: "Home share monthly cost ($CAD)",
+    NUMBER_BEDROOM: "Number of bedrooms available in home",
+    NUMBER_BATHROOM: "Number of bathrooms in house",
     UTIL_INCLUDE: "Utilities included",
     PET_FRIENDLY: "Pet friendly",
-    SMOKE_FRIENDLY: "Smoke friendly",
-    PICTURES: "Pictures"
+    SMOKE_FRIENDLY: "Smoking",
+    PHOTOS: "Photos"
 }
 
-const MemberHomeToShareCustomFields = (props) => {
-    const {
-        generalLocationText,
-        homeShareMonthlyCost,
-        numBath,
-        numBed,
-        petFriendly,
-        pictures,
-        smokeFriendly,
-        utilIncluded
-    } = props;
+const MemberHomeToShareCustomFields = (props) =>{
+    const { title, generalLocationText, homeShareMonthlyCost, numBath, numBed, petFriendly, photos, smokeFriendly, utilIncluded } = props;
 
+    const isUtilIncluded = useState(resolveBooleanToYesNo(utilIncluded));
+    const isPetFriendly = useState(resolveBooleanToYesNo(petFriendly));
+    const isSmokeFriendly = useState(resolveBooleanToYesNo(smokeFriendly));
 
-    return (
-        <div className={"flex"}>
-            <div className={"flex-none w-9/12"}>
-                <label className={"label-result"}>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.GENERAL_LOCATION}</label>
-                <p> {generalLocationText}</p>
-
-                <label
-                    className={"label-result"}>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.HOME_SHARE_MONTHLY_COST}</label>
-                <p> {homeShareMonthlyCost}</p>
-
-                <label className={"label-result"}>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.NUMBER_BEDROOM}</label>
-                <p> {numBed}</p>
-
-                <label className={"label-result"}>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.NUMBER_BATHROOM}</label>
-                <p> {numBath}</p>
-
-                <label className={"label-result"}>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.PICTURES}</label>
-
-                {/*TODO: replace HTC_Logo with picture string from DB*/}
+        return(
+            <div>
+                <h1> {title} </h1>
+                <p>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.GENERAL_LOCATION} {generalLocationText}</p>
+                <p>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.HOME_SHARE_MONTHLY_COST} {homeShareMonthlyCost}</p>
+                <p>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.NUMBER_BEDROOM} {numBed}</p>
+                <p>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.NUMBER_BATHROOM} {numBath}</p>
+                <p>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.UTIL_INCLUDE} {isUtilIncluded}</p>
+                <p>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.PET_FRIENDLY} {isPetFriendly}</p>
+                <p>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.SMOKE_FRIENDLY} {isSmokeFriendly}</p>
+                <p>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.PHOTOS}</p>
+                {/*TODO: replace HTC_Logo with photos*/}
                 <img src={HTC_Logo} alt={""}/>
             </div>
-
-
-            <div className={"w-1/2"}>
-                <table className={"table-auto mx-auto shadow-lg rounded-md"}>
-                    <tbody>
-                    <tr className={`${petFriendly && "bg-gray-200"}`}>
-                        <td>
-                            {petFriendly ?
-                                <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
-                            }
-                        </td>
-                        <td className={"table-item"}>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.PET_FRIENDLY}</td>
-                    </tr>
-
-                    <tr className={`${smokeFriendly && "bg-gray-200"}`}>
-                        <td>
-                            {smokeFriendly ?
-                                <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
-                            }
-                        </td>
-                        <td className={"table-item"}>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.SMOKE_FRIENDLY}</td>
-                    </tr>
-
-                    <tr className={`${utilIncluded && "bg-gray-200"}`}>
-                        <td>
-                            {utilIncluded ?
-                                <Check className={"checkmark-icon"}/> : <Ex className={"ex-icon"}/>
-                            }
-                        </td>
-                        <td className={"table-item"}>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.UTIL_INCLUDE}</td>
-                    </tr>
-
-                    </tbody>
-                </table>
-
-                <button className={"btn btn-red my-10 text-base py-2"}>Report User
-                </button>
-            </div>
-
-
-        </div>
-    );
+        );
 }
 
 MemberHomeToShareCustomFields.propTypes = {
+    title: PropTypes.string.isRequired,
     generalLocationText: PropTypes.string.isRequired,
     homeShareMonthlyCost: PropTypes.number.isRequired,
     numBed: PropTypes.string.isRequired,
@@ -107,7 +54,7 @@ MemberHomeToShareCustomFields.propTypes = {
     utilIncluded: PropTypes.bool.isRequired,
     petFriendly: PropTypes.bool.isRequired,
     smokeFriendly: PropTypes.bool.isRequired,
-    pictures: PropTypes.string.isRequired,
+    photos: PropTypes.string.isRequired,
 }
 
 export default MemberHomeToShareCustomFields;

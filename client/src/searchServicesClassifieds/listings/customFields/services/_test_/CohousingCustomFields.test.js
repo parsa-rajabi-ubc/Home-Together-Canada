@@ -7,18 +7,19 @@
  */
 import React from 'react';
 import renderer from  'react-test-renderer'
-import {BrowserRouter as Router} from "react-router-dom";
-import {cohousingMockCustomFields} from "../../../../../mockData/MockServicesCustomFields";
+import {Cohousing} from "../../../../../mockData/MockServicesCustomFields";
 import CohousingCustomFields from "../CohousingCustomFields";
 
 describe('CohousingCustomFields', () => {
     it("should render correctly regardless of properties", () => {
         // given
+        const reset = jest.fn();
         const props = {
-            ...cohousingMockCustomFields,
+            ...Cohousing,
+            reset
         };
         //when
-        const component = renderer.create(<Router><CohousingCustomFields {...props}/></Router>);
+        const component = renderer.create(<CohousingCustomFields {...props}/>);
         const tree = component.toJSON();
         //then
         expect(tree).toMatchSnapshot();

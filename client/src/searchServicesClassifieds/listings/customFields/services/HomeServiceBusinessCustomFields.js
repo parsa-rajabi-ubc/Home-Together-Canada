@@ -2,7 +2,7 @@
  * @Author:     Alex Qin
  * @Created:    2021.02.17
  *
- * @Description: Re-usable HomeServiceBusiness custom fields.
+ * @Description: Re-useable HomeServiceBusiness custom fields.
  *
  */
 import PropTypes from "prop-types";
@@ -10,28 +10,28 @@ import React from 'react';
 import HTC_Logo from "../../../../images/HTC_Logo.jpg";
 
 const HOME_SERVICE_BUSINESS_CUSTOM_FIELDS_TEXT = {
-    RATE_AND_FEES: "Rates and fees (CAD)",
-    PICTURES: "Pictures"
+    RATE_AND_FEES: "Rates and fees ($CAD)",
+    PICTURES: "Pictures (max of 6)"
 }
 
 
 const HomeServiceBusinessCustomFields = (props) =>{
-    const { rateAndFees, pictures } = props;
+    const { title, rateAndFees, pictures } = props;
 
     return(
         <div>
-            <label className={"label-result"}>{HOME_SERVICE_BUSINESS_CUSTOM_FIELDS_TEXT.RATE_AND_FEES}</label>
-            <p> {rateAndFees}</p>
-
-            <label className={"label-result"}>{HOME_SERVICE_BUSINESS_CUSTOM_FIELDS_TEXT.PICTURES}</label>
-            {/*TODO: replace HTC_Logo with picture string from DB*/}
+            <h1> {title} </h1>
+            <p>{HOME_SERVICE_BUSINESS_CUSTOM_FIELDS_TEXT.RATE_AND_FEES} {rateAndFees}</p>
+            <p>{HOME_SERVICE_BUSINESS_CUSTOM_FIELDS_TEXT.PICTURES}</p>
+            {/*TODO: replace HTC_Logo with pictures Pictures (max of 6)*/}
             <img src={HTC_Logo} alt={""}/>
         </div>
     );
 }
 
 HomeServiceBusinessCustomFields.propTypes = {
-    rateAndFees: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    rateAndFees: PropTypes.number.isRequired,
     pictures: PropTypes.string.isRequired
 }
 

@@ -7,13 +7,13 @@
  */
 import PropTypes from "prop-types";
 import React from 'react';
-import HTC_Logo from "../../../images/HTC_Logo.jpg";
+import HTC_Logo from "../../../../images/HTC_Logo.jpg";
 
-const EVENTS_Custom_Fields_TEXT = {
-    RATE_AND_FEES: "Rates and fees ($CAD)",
+const EVENTS_CUSTOM_FIELDS_TEXT = {
+    RATE_AND_FEES: "Rates and fees (CAD)",
     CONTACT_NAME: "Contact Name",
     CONTACT_NUMBER: "Contact Phone Number",
-    EVENTS_DATE_TIME: "Event dates and times",
+    EVENTS_DATE_AND_TIME: "Event dates and times",
     PICTURES: "Pictures"
 }
 
@@ -22,19 +22,19 @@ const EventsCustomFields = (props) => {
 
     return (
         <div>
-            <label className={"label-result"}>{EVENTS_Custom_Fields_TEXT.RATE_AND_FEES}</label>
+            <label className={"label-result"}>{EVENTS_CUSTOM_FIELDS_TEXT.RATE_AND_FEES}</label>
             <p> {rateAndFees}</p>
 
-            <label className={"label-result"}>{EVENTS_Custom_Fields_TEXT.CONTACT_NAME}</label>
+            <label className={"label-result"}>{EVENTS_CUSTOM_FIELDS_TEXT.CONTACT_NAME}</label>
             <p> {contactName}</p>
 
-            <label className={"label-result"}>{EVENTS_Custom_Fields_TEXT.CONTACT_NUMBER}</label>
+            <label className={"label-result"}>{EVENTS_CUSTOM_FIELDS_TEXT.CONTACT_NUMBER}</label>
             <p> {contactNumber}</p>
 
-            <label className={"label-result"}>{EVENTS_Custom_Fields_TEXT.EVENTS_DATE_TIME}</label>
+            <label className={"label-result"}>{EVENTS_CUSTOM_FIELDS_TEXT.EVENTS_DATE_AND_TIME}</label>
             <p> {eventDateTime}</p>
 
-            <label className={"label-result"}>{EVENTS_Custom_Fields_TEXT.PICTURES}</label>
+            <label className={"label-result"}>{EVENTS_CUSTOM_FIELDS_TEXT.PICTURES}</label>
 
             {/*TODO: replace HTC_Logo with picture string from DB*/}
             <img src={HTC_Logo} alt={""}/>
@@ -43,7 +43,7 @@ const EventsCustomFields = (props) => {
 }
 
 EventsCustomFields.propTypes = {
-    rateAndFees: PropTypes.number.isRequired,
+    rateAndFees: PropTypes.string.isRequired,
     contactName: PropTypes.string.isRequired,
     contactNumber: PropTypes.string.isRequired,
     eventDateTime: PropTypes.string.isRequired,

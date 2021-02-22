@@ -7,10 +7,10 @@
  */
 import PropTypes from "prop-types";
 import React from 'react';
-import HTC_Logo from "../../../images/HTC_Logo.jpg";
+import HTC_Logo from "../../../../images/HTC_Logo.jpg";
 
-const HOUSE_SERVICES_Custom_Fields_TEXT = {
-    RATE_AND_FEES: "Rates and fees ($CAD)",
+const HOUSE_SERVICES_CUSTOM_FIELDS_TEXT = {
+    RATE_AND_FEES: "Rates and fees (CAD)",
     PICTURES: "Pictures"
 }
 
@@ -19,10 +19,10 @@ const HouseServicesCustomFields = (props) => {
 
     return (
         <div>
-            <label className={"label-result"}>{HOUSE_SERVICES_Custom_Fields_TEXT.RATE_AND_FEES}</label>
+            <label className={"label-result"}>{HOUSE_SERVICES_CUSTOM_FIELDS_TEXT.RATE_AND_FEES}</label>
             <p> {rateAndFees}</p>
 
-            <label className={"label-result"}>{HOUSE_SERVICES_Custom_Fields_TEXT.PICTURES}</label>
+            <label className={"label-result"}>{HOUSE_SERVICES_CUSTOM_FIELDS_TEXT.PICTURES}</label>
 
             {/*TODO: replace HTC_Logo with picture string from DB*/}
             <img src={HTC_Logo} alt={""}/>
@@ -31,7 +31,7 @@ const HouseServicesCustomFields = (props) => {
 }
 
 HouseServicesCustomFields.propTypes = {
-    rateAndFees: PropTypes.number.isRequired,
+    rateAndFees: PropTypes.string.isRequired,
     pictures: PropTypes.string.isRequired
 }
 

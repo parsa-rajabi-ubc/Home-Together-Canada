@@ -5,11 +5,11 @@ exports[`HouseServicesCustomFields should render correctly regardless of propert
   <label
     className="label-result"
   >
-    Rates and fees ($CAD)
+    Rates and fees (CAD)
   </label>
   <p>
      
-    666
+    666 per day
   </p>
   <label
     className="label-result"

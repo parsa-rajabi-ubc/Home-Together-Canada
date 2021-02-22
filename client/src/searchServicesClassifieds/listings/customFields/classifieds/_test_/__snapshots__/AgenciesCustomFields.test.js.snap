@@ -5,11 +5,11 @@ exports[`AgenciesCustomFields should render correctly regardless of properties 1
   <label
     className="label-result"
   >
-    Rates and fees ($CAD)
+    Rates and fees (CAD)
   </label>
   <p>
      
-    555
+    555 per day
   </p>
   <label
     className="label-result"
