@@ -20,29 +20,27 @@ function MemberListingCard(props) {
     return (
         <section className={"card-container mt-0"}>
 
-            <div className={"inline align-middle "}>
-                <label className={"font-semibold justify-between"}> {title} </label>
+            <div className={"inline ml-6 align-middle "}>
+                <label className={"font-semibold justify-between"}> {title}</label>,
+                <label className={"px-1"}>${monthlyCost} </label>
+
                 <section className={"inline float-right pr-6 justify-end"}>
                     <Moment format="MMM D, YYYY">{datePosted}</Moment>
                 </section>
             </div>
 
-            <div className={"ml-6 flex"}>
-                <label className={"px-1"}> {monthlyCost} </label>
+            <div className={"ml-6 mt-4 flex"}>
+                <label className={"w-full font-light"}> {shortDescription} </label>
 
-                <section className={"flex w-full pr-6 justify-end"}>
+                <section className={"flex pr-6 "}>
                     {petFriendly && <Tooltip text={"Pet Friendly"} toolTipID={"PetFriendly"}
-                                     customIcon={<Dog className={"text-blue-400 ml-1"}/>}/>}
+                                             customIcon={<Dog className={"text-blue-400 ml-1"}/>}/>}
 
                     {smokeFriendly && <Tooltip text={"Smoke Friendly"} toolTipID={"SmokeFriendly"}
-                                       customIcon={<Cigarette className={"text-red-500 ml-1"}/>}/>}
+                                               customIcon={<Cigarette className={"text-red-500 ml-1"}/>}/>}
                 </section>
             </div>
 
-            <div className={"mx-6 inline items-center justify-between leading-tight font-light"}>
-                <section> {shortDescription} </section>
-
-            </div>
         </section>
     );
 }
