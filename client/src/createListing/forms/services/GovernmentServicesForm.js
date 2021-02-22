@@ -15,18 +15,24 @@ import SubmitButton from "../../../common/forms/SubmitButton";
 import {SHORT_DESC_CHAR_COUNT} from "../../../common/constants/listingsConstants";
 import {
     checkIfErrorsExistInMapping,
-    validateInput
+    validateInput, validatePhoneNumber
 } from "../../../registration/registrationUtils";
+import PhoneNumInput from "../../../common/forms/PhoneNumInput";
 
 const GovernmentServicesForm = (props) => {
-    const { onSubmit } = props;
+    const {onSubmit} = props;
 
     const [title, setTitle] = useState(undefined);
     const [shortDescription, setShortDescription] = useState(undefined);
+    const [contactName, setContactName] = useState(undefined);
+    const [contactPhoneNumber, setContactPhoneNumber] = useState(undefined);
     const [fullDescription, setFullDescription] = useState(undefined);
+
 
     const [titleError, setTitleError] = useState(undefined);
     const [shortDescriptionError, setShortDescriptionError] = useState(undefined);
+    const [contactNameError, setContactNameError] = useState(undefined);
+    const [contactPhoneNumberError, setContactPhoneNumberError] = useState(undefined);
     const [fullDescriptionError, setFullDescriptionError] = useState(undefined);
 
     useEffect(() => {
@@ -36,6 +42,12 @@ const GovernmentServicesForm = (props) => {
         shortDescription !== undefined && validateInput(shortDescription, setShortDescriptionError);
     }, [shortDescription]);
     useEffect(() => {
+        contactName !== undefined && validateInput(contactName, setContactNameError);
+    }, [contactName]);
+    useEffect(() => {
+        contactPhoneNumber !== undefined && validatePhoneNumber(contactPhoneNumber, setContactPhoneNumberError);
+    }, [contactPhoneNumber]);
+    useEffect(() => {
         fullDescription !== undefined && validateInput(fullDescription, setFullDescriptionError);
     }, [fullDescription]);
 
@@ -44,21 +56,40 @@ const GovernmentServicesForm = (props) => {
         const errors = {
             title: false,
             shortDes: false,
+            contactName: false,
+            contactPhoneNumber: false,
             fullDes: false
         }
 
         errors.title = validateInput(title, setTitleError);
         errors.shortDes = validateInput(shortDescription, setShortDescriptionError);
+        errors.contactName = validateInput(contactName, setContactNameError);
+        errors.contactPhoneNumber = validatePhoneNumber(contactPhoneNumber, setContactPhoneNumberError);
         errors.fullDes = validateInput(fullDescription, setFullDescriptionError);
 
         return !(checkIfErrorsExistInMapping(errors));
     }
 
+    console.log(contactPhoneNumber)
     //function for input checks on submit
     function onCreateListing() {
         if (isFormValid()) {
-            onSubmit();
+            onSubmit({
+                title,
+                shortDescription,
+                contactName,
+                contactPhoneNumber,
+                fullDescription,
+            });
         }
+    }
+
+    function handleContactPhoneChange(e) {
+        const value = e.target.value;
+        setContactPhoneNumber({
+            ...contactPhoneNumber,
+            [e.target.name]: value
+        });
     }
 
     return (
@@ -90,6 +121,28 @@ const GovernmentServicesForm = (props) => {
                                     charLimit={SHORT_DESC_CHAR_COUNT}
                                 />
                             </section>
+
+                            <section className={"col-start-1 col-end-5"}>
+                                <TextArea
+                                    className={`${contactNameError && "border-red-500"} input`}
+                                    label={TEXT.contact_name}
+                                    labelClassName={"label"}
+                                    required={true}
+                                    onChange={(e) => setContactName(e.target.value)}
+                                />
+                            </section>
+
+                            <section className={"col-start-1 col-end-5"}>
+                                <PhoneNumInput
+                                    className={`${contactPhoneNumberError && "border-red-500"} phone`}
+                                    required={true}
+                                    value={contactPhoneNumber}
+                                    labelClassName={"label"}
+                                    label={TEXT.contact_phone_number}
+                                    onChange={handleContactPhoneChange}/>
+
+                            </section>
+
 
                         </div>
 

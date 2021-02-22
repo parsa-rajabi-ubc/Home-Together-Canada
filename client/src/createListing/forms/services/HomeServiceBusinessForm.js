@@ -28,14 +28,14 @@ const HomeServiceBusinessForm = (props) => {
 
     const [title, setTitle] = useState(undefined);
     const [shortDescription, setShortDescription] = useState(undefined);
-    const [ratesAndFees, setRatesAndFees] = useState(undefined);
+    const [rateAndFees, setRateAndFees] = useState(undefined);
     const [fullDescription, setFullDescription] = useState(undefined);
     const [pictures, setPictures] = useState(undefined);
 
     const [titleError, setTitleError] = useState(undefined);
     const [shortDescriptionError, setShortDescriptionError] = useState(undefined);
     const [fullDescriptionError, setFullDescriptionError] = useState(undefined);
-    const [ratesAndFeesError, setRatesAndFeesError] = useState(undefined);
+    const [rateAndFeesError, setRateAndFeesError] = useState(undefined);
 
     useEffect(() => {
         title !== undefined && validateInput(title, setTitleError);
@@ -47,8 +47,8 @@ const HomeServiceBusinessForm = (props) => {
         fullDescription !== undefined && validateInput(fullDescription, setFullDescriptionError);
     }, [fullDescription]);
     useEffect(() => {
-        ratesAndFees !== undefined && validatePositiveNumber(ratesAndFees, setRatesAndFeesError);
-    }, [ratesAndFees]);
+        rateAndFees !== undefined && validatePositiveNumber(rateAndFees, setRateAndFeesError);
+    }, [rateAndFees]);
 
     function handleImageUpload(e) {
         setPictures(e.target.files[0]);
@@ -60,13 +60,13 @@ const HomeServiceBusinessForm = (props) => {
             title: false,
             shortDes: false,
             fullDes: false,
-            ratesAndFees: false,
+            rateAndFees: false,
         }
 
         errors.title = validateInput(title, setTitleError);
         errors.shortDes = validateInput(shortDescription, setShortDescriptionError);
         errors.fullDes = validateInput(fullDescription, setFullDescriptionError);
-        errors.ratesAndFees = validatePositiveNumber(ratesAndFees, setRatesAndFeesError);
+        errors.ratesAndFees = validatePositiveNumber(rateAndFees, setRateAndFeesError);
 
         return !(checkIfErrorsExistInMapping(errors));
     }
@@ -74,7 +74,13 @@ const HomeServiceBusinessForm = (props) => {
     //function for input checks on submit
     function onCreateListing() {
         if (isFormValid()) {
-            onSubmit();
+            onSubmit({
+                title,
+                shortDescription,
+                fullDescription,
+                rateAndFees,
+                pictures
+            });
         }
     }
 
@@ -110,11 +116,11 @@ const HomeServiceBusinessForm = (props) => {
 
                             <section className={"col-start-6 col-end-10"}>
                                 <TextArea
-                                    className={`${ratesAndFeesError && "border-red-500"} input`}
+                                    className={`${rateAndFeesError && "border-red-500"} input`}
                                     label={TEXT.rates_and_fees}
                                     labelClassName={"label"}
                                     required={true}
-                                    onChange={(e) => setRatesAndFees(e.target.value)}
+                                    onChange={(e) => setRateAndFees(e.target.value)}
                                 />
                             </section>
 

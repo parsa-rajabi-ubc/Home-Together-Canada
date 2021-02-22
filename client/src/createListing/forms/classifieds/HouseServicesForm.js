@@ -27,8 +27,10 @@ const HouseServicesForm = (props) => {
     const [title, setTitle] = useState(undefined);
     const [shortDescription, setShortDescription] = useState(undefined);
     const [fullDescription, setFullDescription] = useState(undefined);
-    const [rateAndFee, setRateAndFee] = useState(undefined);
+    const [rateAndFees, setRateAndFees] = useState(undefined);
     const [picture, setPicture] = useState(undefined);
+
+    const [submitted, setSubmitted] = useState(false);
 
     const [titleError, setTitleError] = useState(undefined);
     const [shortDescriptionError, setShortDescriptionError] = useState(undefined);
@@ -45,8 +47,8 @@ const HouseServicesForm = (props) => {
         fullDescription !== undefined && validateInput(fullDescription, setFullDescriptionError);
     }, [fullDescription]);
     useEffect(() => {
-        rateAndFee !== undefined && validateInput(rateAndFee, setRateAndFeeError);
-    }, [rateAndFee]);
+        rateAndFees !== undefined && validateInput(rateAndFees, setRateAndFeeError);
+    }, [rateAndFees]);
 
     function handleImageUpload(e) {
         setPicture(e.target.files[0]);
@@ -64,7 +66,7 @@ const HouseServicesForm = (props) => {
         errors.title = validateInput(title, setTitleError);
         errors.shortDes = validateInput(shortDescription, setShortDescriptionError);
         errors.fullDes = validateInput(fullDescription, setFullDescriptionError);
-        errors.rateFee = validateInput(rateAndFee,setRateAndFeeError);
+        errors.rateFee = validateInput(rateAndFees,setRateAndFeeError);
 
         return !(checkIfErrorsExistInMapping(errors));
     }
@@ -72,7 +74,14 @@ const HouseServicesForm = (props) => {
     //function for input checks on submit
     function onCreateListing() {
         if (isFormValid()) {
-            onSubmit();
+            setSubmitted(true);
+            onSubmit({
+                title,
+                shortDescription,
+                fullDescription,
+                rateAndFees,
+                picture
+            });
         }
     }
 
@@ -90,6 +99,7 @@ const HouseServicesForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setTitle(e.target.value)}
+                            disabled={submitted}
                         />
 
                         <div className={"grid grid-cols-9"}>
@@ -103,6 +113,7 @@ const HouseServicesForm = (props) => {
                                     required={true}
                                     onChange={(e) => setShortDescription(e.target.value)}
                                     charLimit={SHORT_DESC_CHAR_COUNT}
+                                    disabled={submitted}
                                 />
                             </section>
 
@@ -112,7 +123,8 @@ const HouseServicesForm = (props) => {
                                     label={TEXT.rateAndFees}
                                     labelClassName={"label"}
                                     required={true}
-                                    onChange={(e) => setRateAndFee(e.target.value)}
+                                    onChange={(e) => setRateAndFees(e.target.value)}
+                                    disabled={submitted}
                                 />
                             </section>
 
@@ -126,9 +138,10 @@ const HouseServicesForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setFullDescription(e.target.value)}
+                            disabled={submitted}
                         />
 
-                        <label className="label"> Pictures </label>
+                        <label className="label"> {TEXT.pictures} </label>
                         <Tooltip
                             text={ToolTipText.PHOTOS}
                             toolTipID={"UploadPhotos"}
