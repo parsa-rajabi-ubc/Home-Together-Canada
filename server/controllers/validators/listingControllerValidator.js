@@ -6,7 +6,6 @@
  *
  */
 const { body } = require('express-validator/check');
-const uniq = require('lodash/uniq');
 
 const {isPositiveInteger} = require("./userControllerValidatorUtils");
 const {isValidPhoneNumber} = require("./userControllerValidatorUtils");
@@ -22,7 +21,6 @@ const {
     isValidSubcategoryForSelectedCategory,
     listingShouldHaveCategories,
     shouldOrderIdBeDefined,
-    removeDuplicates,
     LISTING_FIELDS_ERRORS,
 } = require('./listingControllerValidatorUtils');
 
