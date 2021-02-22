@@ -8,16 +8,14 @@
 import React from 'react';
 import renderer from  'react-test-renderer'
 import {BrowserRouter as Router} from "react-router-dom";
-import {Cohousing} from "../../../../mockData/MockServicesCustomFields";
+import {cohousingMockCustomFields} from "../../../../../mockData/MockServicesCustomFields";
 import CohousingCustomFields from "../CohousingCustomFields";
 
 describe('CohousingCustomFields', () => {
     it("should render correctly regardless of properties", () => {
         // given
-        const reset = jest.fn();
         const props = {
-            ...Cohousing,
-            reset
+            ...cohousingMockCustomFields,
         };
         //when
         const component = renderer.create(<Router><CohousingCustomFields {...props}/></Router>);

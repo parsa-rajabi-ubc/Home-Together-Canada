@@ -6,7 +6,8 @@
  *
  */
 
-export const Member = {
+
+export const memberMockCustomFields = {
     title: "Member Home To Share Mock data",
     generalLocationText: "766 Rutland Rd. S.",
     homeShareMonthlyCost: 800,
@@ -15,23 +16,21 @@ export const Member = {
     utilIncluded: true,
     petFriendly: false,
     smokeFriendly: false,
-    photos: "photos"
+    pictures: "pictures"
 }
 
-export const Cohousing = {
-    title: "Cohousing Mock data",
+export const cohousingMockCustomFields = {
     contactName: "Alex",
     unitsForSale: 5,
     unitsForRent: 5,
 }
 
-export const Facilitation = {
-    title: "Facilitation Mock data",
-    rateAndFees: 666,
+export const homeServicesMockCustomFields = {
+    rateAndFees: "666 per day",
     pictures: "pictures"
 }
 
-export const Governmental = {
+export const governmentMockCustomFields = {
     title: "Governmental Mock data",
     contactPerson: "Alex",
     phoneNumber:"778-555-5555"
