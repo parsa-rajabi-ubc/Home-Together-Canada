@@ -10,7 +10,7 @@ import {
 } from "../createListing/constants/serviceListingCategoriesText";
 import {BUSINESS_CLASSIFIEDS_CATEGORIES} from "../createListing/constants/classifiedListingCategoriesText";
 
-var faker = require('faker');
+const faker = require('faker');
 
 export const mockServiceListings = [
     //CO-HOUSING 0
