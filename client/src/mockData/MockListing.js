@@ -9,8 +9,7 @@ import {
     BUSINESS_SERVICE_CATEGORIES, MEMBER_SERVICE_CATEGORIES
 } from "../createListing/constants/serviceListingCategoriesText";
 import {BUSINESS_CLASSIFIEDS_CATEGORIES} from "../createListing/constants/classifiedListingCategoriesText";
-
-const faker = require('faker');
+import * as faker from 'faker'
 
 export const mockServiceListings = [
     //CO-HOUSING 0
