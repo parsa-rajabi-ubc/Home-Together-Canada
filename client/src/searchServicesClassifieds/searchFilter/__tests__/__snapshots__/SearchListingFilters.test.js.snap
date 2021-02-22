@@ -2,7 +2,7 @@
 
 exports[`SearchListingFilters Container test should match snapshot test with Classifieds Category with Errors set to false 1`] = `
 <div
-  className="col-start-1 col-end-7 py-5 px-5 m-6 bg-white shadow-lg rounded-xl"
+  className="col-start-1 col-end-7 py-5 px-5 my-6 ml-6 bg-white shadow-lg rounded-xl"
 >
   <div
     className="grid grid-cols-2 gap-6"
@@ -121,11 +121,11 @@ exports[`SearchListingFilters Container test should match snapshot test with Cla
                         className=" css-1hb7zxy-IndicatorsContainer"
                       >
                         <span
-                          className=" css-1okebmr-indicatorSeparator"
+                          className=" css-43ykx9-indicatorSeparator"
                         />
                         <div
                           aria-hidden="true"
-                          className=" css-tlfecz-indicatorContainer"
+                          className=" css-1px1elb-indicatorContainer"
                           onMouseDown={[Function]}
                           onTouchEnd={[Function]}
                         >
@@ -235,11 +235,11 @@ exports[`SearchListingFilters Container test should match snapshot test with Cla
                         className=" css-1hb7zxy-IndicatorsContainer"
                       >
                         <span
-                          className=" css-1okebmr-indicatorSeparator"
+                          className=" css-43ykx9-indicatorSeparator"
                         />
                         <div
                           aria-hidden="true"
-                          className=" css-tlfecz-indicatorContainer"
+                          className=" css-1px1elb-indicatorContainer"
                           onMouseDown={[Function]}
                           onTouchEnd={[Function]}
                         >
@@ -349,11 +349,11 @@ exports[`SearchListingFilters Container test should match snapshot test with Cla
                         className=" css-1hb7zxy-IndicatorsContainer"
                       >
                         <span
-                          className=" css-1okebmr-indicatorSeparator"
+                          className=" css-43ykx9-indicatorSeparator"
                         />
                         <div
                           aria-hidden="true"
-                          className=" css-tlfecz-indicatorContainer"
+                          className=" css-1px1elb-indicatorContainer"
                           onMouseDown={[Function]}
                           onTouchEnd={[Function]}
                         >
@@ -525,7 +525,7 @@ exports[`SearchListingFilters Container test should match snapshot test with Cla
 
 exports[`SearchListingFilters Container test should match snapshot test with Classifieds Category with Errors set to true 1`] = `
 <div
-  className="col-start-1 col-end-7 py-5 px-5 m-6 bg-white shadow-lg rounded-xl"
+  className="col-start-1 col-end-7 py-5 px-5 my-6 ml-6 bg-white shadow-lg rounded-xl"
 >
   <div
     className="grid grid-cols-2 gap-6"
@@ -1048,7 +1048,7 @@ exports[`SearchListingFilters Container test should match snapshot test with Cla
 
 exports[`SearchListingFilters Container test should match snapshot test with Services Category with Errors set to false 1`] = `
 <div
-  className="col-start-1 col-end-7 py-5 px-5 m-6 bg-white shadow-lg rounded-xl"
+  className="col-start-1 col-end-7 py-5 px-5 my-6 ml-6 bg-white shadow-lg rounded-xl"
 >
   <div
     className="grid grid-cols-2 gap-6"
@@ -1167,11 +1167,11 @@ exports[`SearchListingFilters Container test should match snapshot test with Ser
                         className=" css-1hb7zxy-IndicatorsContainer"
                       >
                         <span
-                          className=" css-1okebmr-indicatorSeparator"
+                          className=" css-43ykx9-indicatorSeparator"
                         />
                         <div
                           aria-hidden="true"
-                          className=" css-tlfecz-indicatorContainer"
+                          className=" css-1px1elb-indicatorContainer"
                           onMouseDown={[Function]}
                           onTouchEnd={[Function]}
                         >
@@ -1281,11 +1281,11 @@ exports[`SearchListingFilters Container test should match snapshot test with Ser
                         className=" css-1hb7zxy-IndicatorsContainer"
                       >
                         <span
-                          className=" css-1okebmr-indicatorSeparator"
+                          className=" css-43ykx9-indicatorSeparator"
                         />
                         <div
                           aria-hidden="true"
-                          className=" css-tlfecz-indicatorContainer"
+                          className=" css-1px1elb-indicatorContainer"
                           onMouseDown={[Function]}
                           onTouchEnd={[Function]}
                         >
@@ -1395,11 +1395,11 @@ exports[`SearchListingFilters Container test should match snapshot test with Ser
                         className=" css-1hb7zxy-IndicatorsContainer"
                       >
                         <span
-                          className=" css-1okebmr-indicatorSeparator"
+                          className=" css-43ykx9-indicatorSeparator"
                         />
                         <div
                           aria-hidden="true"
-                          className=" css-tlfecz-indicatorContainer"
+                          className=" css-1px1elb-indicatorContainer"
                           onMouseDown={[Function]}
                           onTouchEnd={[Function]}
                         >
@@ -1571,7 +1571,7 @@ exports[`SearchListingFilters Container test should match snapshot test with Ser
 
 exports[`SearchListingFilters Container test should match snapshot test with Services Category with Errors set to true 1`] = `
 <div
-  className="col-start-1 col-end-7 py-5 px-5 m-6 bg-white shadow-lg rounded-xl"
+  className="col-start-1 col-end-7 py-5 px-5 my-6 ml-6 bg-white shadow-lg rounded-xl"
 >
   <div
     className="grid grid-cols-2 gap-6"

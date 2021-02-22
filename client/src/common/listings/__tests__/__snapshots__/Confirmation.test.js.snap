@@ -2,16 +2,16 @@
 
 exports[`Confirmation Component Snapshot test should render correctly regardless of properties 1`] = `
 <div
-  className="flex justify-center items-center mx-auto w-1/3 min-h-screen text-center bg-white"
+  className="w-2/3 flex justify-center items-center mx-auto min-h-screen text-center bg-white"
 >
   <div
     className="bg-white rounded-lg shadow-2xl"
   >
     <div
-      className="flex w-96 rounded-lg border-t-8 border-green-600"
+      className="border-green-600 flex w-96 rounded-lg border-t-8"
     >
       <div
-        className="p-10 mx-auto mt-10 w-full"
+        className="mt-5 p-10 mx-auto w-full"
       >
         <h1
           className="text-gray-800 h1"
@@ -20,33 +20,22 @@ exports[`Confirmation Component Snapshot test should render correctly regardless
         </h1>
       </div>
     </div>
-    <div
-      className="flex py-10 px-10 space-x-4"
-    >
-      <a
-        className="flex rounded-md shadow btn btn-green"
-        href="/"
-        onClick={[Function]}
-      >
-        Potato
-      </a>
-    </div>
   </div>
 </div>
 `;
 
 exports[`Confirmation Component Snapshot test should render correctly regardless of properties 2`] = `
 <div
-  className="flex justify-center items-center mx-auto w-1/3 min-h-screen text-center bg-white"
+  className="w-1/3 flex justify-center items-center mx-auto min-h-screen text-center bg-white"
 >
   <div
     className="bg-white rounded-lg shadow-2xl"
   >
     <div
-      className="flex w-96 rounded-lg border-t-8 border-green-600"
+      className="border-red-600 flex w-96 rounded-lg border-t-8"
     >
       <div
-        className="p-10 mx-auto mt-10 w-full"
+        className="mt-10 p-10 mx-auto w-full"
       >
         <h1
           className="text-gray-800 h1"
@@ -65,6 +54,65 @@ exports[`Confirmation Component Snapshot test should render correctly regardless
       >
         
       </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Confirmation Component Snapshot test should render correctly regardless of properties 3`] = `
+<div
+  className="w-1/3 flex justify-center items-center mx-auto min-h-screen text-center bg-white"
+>
+  <div
+    className="bg-white rounded-lg shadow-2xl"
+  >
+    <div
+      className="border-green-600 flex w-96 rounded-lg border-t-8"
+    >
+      <div
+        className="mt-10 p-10 mx-auto w-full"
+      >
+        <h1
+          className="text-gray-800 h1"
+        >
+          Oranges
+        </h1>
+      </div>
+    </div>
+    <div
+      className="flex py-10 px-10 space-x-4"
+    >
+      <a
+        className="flex rounded-md shadow btn btn-green"
+        href="/hello"
+        onClick={[Function]}
+      >
+        Summer
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Confirmation Component Snapshot test should render correctly regardless of properties 4`] = `
+<div
+  className="w-2/3 flex justify-center items-center mx-auto min-h-screen text-center bg-white"
+>
+  <div
+    className="bg-white rounded-lg shadow-2xl"
+  >
+    <div
+      className="border-red-600 flex w-96 rounded-lg border-t-8"
+    >
+      <div
+        className="mt-5 p-10 mx-auto w-full"
+      >
+        <h1
+          className="text-gray-800 h1"
+        >
+          Sunshine
+        </h1>
+      </div>
     </div>
   </div>
 </div>

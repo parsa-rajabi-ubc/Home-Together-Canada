@@ -5,13 +5,20 @@ exports[`MemberListingCard Container test should match snapshot test 1`] = `
   className="card-container mt-0"
 >
   <div
-    className="inline align-middle "
+    className="inline ml-6 align-middle "
   >
     <label
       className="font-semibold justify-between"
     >
        
       Rooms for Rent
+    </label>
+    ,
+    <label
+      className="px-1"
+    >
+      $
+      650
        
     </label>
     <section
@@ -41,17 +48,17 @@ exports[`MemberListingCard Container test should match snapshot test 1`] = `
     </section>
   </div>
   <div
-    className="ml-6 flex"
+    className="ml-6 mt-4 flex"
   >
     <label
-      className="px-1"
+      className="w-full font-light"
     >
        
-      650
+      3 Furnished Rooms, for students preferably
        
     </label>
     <section
-      className="flex w-full pr-6 justify-end"
+      className="flex pr-6 "
     >
       <Tooltip
         customIcon={
@@ -62,15 +69,6 @@ exports[`MemberListingCard Container test should match snapshot test 1`] = `
         text="Smoke Friendly"
         toolTipID="SmokeFriendly"
       />
-    </section>
-  </div>
-  <div
-    className="mx-6 inline items-center justify-between leading-tight font-light"
-  >
-    <section>
-       
-      3 Furnished Rooms, for students preferably
-       
     </section>
   </div>
 </section>

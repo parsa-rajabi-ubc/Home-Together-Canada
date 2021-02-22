@@ -5,7 +5,7 @@ exports[`Loading Container test should match snapshot test if the page is NOT lo
   className="text-center min-h-screen transform translate-y-1/2"
 >
   <h1
-    className="page-title font-normal"
+    className="text-gray-800 h1"
   >
     Loading...
   </h1>
@@ -17,7 +17,7 @@ exports[`Loading Container test should match snapshot test if the page is loadin
   className="text-center min-h-screen transform translate-y-1/2"
 >
   <h1
-    className="page-title font-normal"
+    className="text-gray-800 h1"
   >
     Loading...
   </h1>

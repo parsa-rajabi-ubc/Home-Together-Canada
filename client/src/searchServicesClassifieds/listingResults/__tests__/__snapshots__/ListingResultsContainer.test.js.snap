@@ -416,32 +416,6 @@ exports[`ListingResultsContainer Container test should match snapshot test 1`] =
             3
           </a>
         </li>
-        <li>
-          <a
-            aria-current={null}
-            aria-label="Page 4"
-            className="page-numbers"
-            onClick={[Function]}
-            onKeyPress={[Function]}
-            role="button"
-            tabIndex="0"
-          >
-            4
-          </a>
-        </li>
-        <li>
-          <a
-            aria-current={null}
-            aria-label="Page 5"
-            className="page-numbers"
-            onClick={[Function]}
-            onKeyPress={[Function]}
-            role="button"
-            tabIndex="0"
-          >
-            5
-          </a>
-        </li>
         <li
           className="next-prev-text"
         >
