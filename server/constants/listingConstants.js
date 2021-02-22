@@ -7,7 +7,7 @@
  */
 
 const BUSINESS_SERVICES_CATEGORIES = {
-    CO_HOUSING: 'Cohousing, Co-ops, Intergenerational & Planned Neighbourhoods',
+    CO_HOUSING: 'Co-housing, Co-ops, Intergenerational & Planned Neighbourhoods',
     SHARED_HOME_SERVICES: "Home Share Facilitation & Supporting Services",
     SHARED_BUSINESS_SERVICES: "Home Sharing Businesses, Groups and Organizations",
     GOVERNMENT_SERVICES: "Government & Human Service Agencies Offering Shared Living & Support Services"
