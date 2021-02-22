@@ -7,13 +7,13 @@
  */
 
 import React, {useState, createContext, useEffect} from 'react';
-import SearchListingFiltersContainer from "./SearchListingFiltersContainer";
+import SearchListingFiltersContainer from "./searchFilter/SearchListingFiltersContainer";
 import {useParams} from "react-router-dom";
 import ListingResultsContainer from "./listingResults/ListingResultsContainer";
 
 export const listingContext = createContext();
 
-const PAGE_NAMES = {
+export const PAGE_NAMES = {
     SERVICES: "services",
     CLASSIFIEDS: "classifieds",
 }
@@ -29,8 +29,14 @@ function SearchListingContainer() {
 
     return (
         <listingContext.Provider value={listingPage}>
-            <SearchListingFiltersContainer/>
-            <ListingResultsContainer/>
+            <div className={"flex"}>
+                <div className={"flex-none w-1/3"}>
+                    <SearchListingFiltersContainer/>
+                </div>
+                <div className={"flex-1"}>
+                    <ListingResultsContainer/>
+                </div>
+            </div>
         </listingContext.Provider>
     );
 }
