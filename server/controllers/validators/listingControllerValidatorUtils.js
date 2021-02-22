@@ -6,6 +6,7 @@
  *
  */
 const includes = require('lodash/includes');
+const uniq = require('lodash/uniq');
 
 const {
     BUSINESS_SERVICES_CATEGORIES,
@@ -130,6 +131,19 @@ const listingShouldHaveCategories = (subcategories, category) => {
     }
 }
 
+const shouldOrderIdBeDefined = (orderId, type) => {
+    if (type === LISTING_TYPES.CLASSIFIED && (!orderId || typeof orderId !== 'string')) {
+        throw new Error('OrderId must be provided for classified listing');
+    }
+    return true;
+}
+
+const removeDuplicates = list => {
+    const uniqueList = uniq(list);
+    console.log('uniqueLIst: ', uniqueList);
+    return uniqueList;
+}
+
 
 module.exports = {
     LISTING_VALIDATION_METHODS,
@@ -143,5 +157,7 @@ module.exports = {
     isValidCategoryForUser,
     isValidCategoryForListingType,
     isValidSubcategoryForSelectedCategory,
-    listingShouldHaveCategories
+    listingShouldHaveCategories,
+    shouldOrderIdBeDefined,
+    removeDuplicates
 }

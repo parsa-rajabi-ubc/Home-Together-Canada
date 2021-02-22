@@ -13,6 +13,10 @@ const { validationResult } = require('express-validator/check');
 const listingValidator = require('../controllers/validators/listingControllerValidator');
 const { LISTING_VALIDATION_METHODS, CATEGORY_FORM_VALIDATION_DICT } = require('../controllers/validators/listingControllerValidatorUtils');
 const { isLoggedIn } = require('./routeUtils');
+const listingCategoryController = require('../controllers/listingCategoryController');
+const listingSubcategoryController = require('../controllers/listingSubcategoryController');
+const listingController = require('../controllers/listingController');
+const listingAssignedSubcategoryController = require('../controllers/listingAssignedSubcategoryController');
 
 router.post('/create/',
     isLoggedIn,
@@ -37,8 +41,7 @@ router.post(`/create/${LISTING_VALIDATION_METHODS.MEMBER_HOME_FORM}`,
         if (!errors.isEmpty()) {
             res.status(500).json({ errors: errors.array()});
         } else {
-            // TODO: add listing to DB
-            res.status(202).json({ success: true });
+            listingController.createListing(req, res);
         }
     }
 );
@@ -51,8 +54,7 @@ router.post(`/create/${LISTING_VALIDATION_METHODS.CO_HOUSING_FORM}`,
         if (!errors.isEmpty()) {
             res.status(500).json({ errors: errors.array()});
         } else {
-            // TODO: add listing to DB
-            res.status(202).json({ success: true });
+            listingController.createListing(req, res);
         }
     }
 );
@@ -65,8 +67,7 @@ router.post(`/create/${LISTING_VALIDATION_METHODS.HOME_SHARE_FACILITATION_BUSINE
         if (!errors.isEmpty()) {
             res.status(500).json({ errors: errors.array()});
         } else {
-            // TODO: add listing to DB
-            res.status(202).json({ success: true });
+            listingController.createListing(req, res);
         }
     }
 );
@@ -79,8 +80,7 @@ router.post(`/create/${LISTING_VALIDATION_METHODS.GOVERNMENT_SERVICES_FORM}`,
         if (!errors.isEmpty()) {
             res.status(500).json({ errors: errors.array()});
         } else {
-            // TODO: add listing to DB
-            res.status(202).json({ success: true });
+            listingController.createListing(req, res);
         }
     }
 );
@@ -93,8 +93,7 @@ router.post(`/create/${LISTING_VALIDATION_METHODS.RENTALS_FORM}`,
         if (!errors.isEmpty()) {
             res.status(500).json({ errors: errors.array()});
         } else {
-            // TODO: add listing to DB
-            res.status(202).json({ success: true });
+            listingController.createListing(req, res);
         }
     }
 );
@@ -107,8 +106,7 @@ router.post(`/create/${LISTING_VALIDATION_METHODS.HOUSE_YARD_FORM}`,
         if (!errors.isEmpty()) {
             res.status(500).json({ errors: errors.array()});
         } else {
-            // TODO: add listing to DB
-            res.status(202).json({ success: true });
+            listingController.createListing(req, res);
         }
     }
 );
@@ -121,8 +119,7 @@ router.post(`/create/${LISTING_VALIDATION_METHODS.LEGAL_SALES_FORM}`,
         if (!errors.isEmpty()) {
             res.status(500).json({ errors: errors.array()});
         } else {
-            // TODO: add listing to DB
-            res.status(202).json({ success: true });
+            listingController.createListing(req, res);
         }
     }
 );
@@ -135,11 +132,25 @@ router.post(`/create/${LISTING_VALIDATION_METHODS.CLASSES_EVENTS_CLUBS_FORM}`,
         if (!errors.isEmpty()) {
             res.status(500).json({ errors: errors.array()});
         } else {
-            // TODO: add listing to DB
-            res.status(202).json({ success: true });
+            listingController.createListing(req, res);
         }
     }
 );
 
+router.get('/categories/', function(req, res, next) {
+    listingCategoryController.findAllListingCategories(req, res);
+});
+
+router.get('/subcategories/', function(req, res, next) {
+    listingSubcategoryController.findAllListingSubcategories(req, res);
+});
+
+router.get('/listings/', function(req, res, next) {
+    listingController.findAllListings(req, res);
+});
+
+router.get('/listingAssignedSubcategories', function (req, res){
+    listingAssignedSubcategoryController.findAllEntries(req, res);
+})
 
 module.exports = router;

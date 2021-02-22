@@ -13,6 +13,8 @@ const memberRoutes = require('./routes/memberRoutes');
 const userRoutes = require('./routes/userRoutes');
 const listingRoutes = require('./routes/listingRoutes');
 const db = require("./models");
+const listingCategories = require('./controllers/listingCategoryController');
+const listingSubcategories = require('./controllers/listingSubcategoryController');
 
 const app = express();
 
@@ -52,10 +54,13 @@ require("./config/passport.js")(passport);
 
 
 // force false will prevent the database from being cleared everytime the server starts up
-db.sequelize.sync({ force: false })
+db.sequelize.sync({ force: true })
+    // populate DB with categories and subcategories
     .then(() => {
-      console.log("Drop and re-sync db.");
-      // TODO: immediately add the categories and subcategories
+        return listingCategories.populateDBWithCategories();
+    })
+    .then(()=> {
+        return listingSubcategories.populateDBWithSubcategories();
     })
     .catch((err) => {
       console.log(err);
