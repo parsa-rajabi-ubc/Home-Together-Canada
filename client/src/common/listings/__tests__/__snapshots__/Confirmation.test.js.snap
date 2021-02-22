@@ -110,7 +110,7 @@ exports[`Confirmation Component Snapshot test should render correctly regardless
         <h1
           className="text-gray-800 h1"
         >
-          Sunshine
+          Watermelon
         </h1>
       </div>
     </div>
