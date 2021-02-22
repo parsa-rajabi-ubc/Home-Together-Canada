@@ -72,11 +72,15 @@ db.listing.belongsTo(db.listingCategory, {
     onDelete: 'CASCADE'
 });
 
+db.listingSubcategory.belongsTo(db.listingCategory, {
+    onDelete: 'CASCADE'
+});
+
 db.listingSubcategory.belongsToMany(db.listing, {
     through: db.listingAssignedSubcategory,
 });
 
-db.listingSubcategory.belongsToMany(db.listingCategory, {
+db.listingSubcategory.belongsToMany(db.listing, {
     through: db.listingAssignedSubcategory
 });
 
