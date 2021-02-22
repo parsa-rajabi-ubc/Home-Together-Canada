@@ -19,7 +19,7 @@ function Loading(props) {
 
     return (
         <section className={"text-center min-h-screen transform translate-y-1/2"}>
-            <h1 className={"page-title font-normal"}>{LOADING_MSG}</h1>
+            <h1 className={"text-gray-800 h1"}>{LOADING_MSG}</h1>
             <SyncLoader loading={isLoading} color={LOADING_COLOR}/>
         </section>
     );
