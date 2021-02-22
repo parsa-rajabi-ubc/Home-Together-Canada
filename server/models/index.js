@@ -34,6 +34,7 @@ db.listing = require('./listing')(DataTypes, sequelize);
 db.listingCategory = require('./listingCategory')(DataTypes, sequelize);
 db.listingSubcategory = require('./listingSubcategory')(DataTypes, sequelize);
 db.listingAssignedSubcategory = require('./listingAssignedSubcategory')(DataTypes, sequelize);
+db.memberListingLocation = require('./memberListingLocation')(DataTypes, sequelize);
 
 db.businessAccount.belongsTo(db.abstractUser, {
     foreignKey: {
@@ -82,6 +83,10 @@ db.listingSubcategory.belongsToMany(db.listing, {
 
 db.listingSubcategory.belongsToMany(db.listing, {
     through: db.listingAssignedSubcategory
+});
+
+db.listing.hasOne(db.memberListingLocation, {
+    onDelete: 'CASCADE'
 });
 
 module.exports = db;

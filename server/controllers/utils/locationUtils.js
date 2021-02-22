@@ -9,8 +9,12 @@
 
 const nodeGeocoder = require("node-geocoder");
 const circle = require('@turf/circle').default;
+const point = require('@turf/helpers').point;
 const booleanOverlap = require('@turf/boolean-overlap').default;
 const booleanWithin = require('@turf/boolean-within').default;
+const fs = require('fs');
+const neatCsv = require('neat-csv');
+const find = require('lodash/find');
 
 const { DEFAULT_COUNTRY, DEFAULT_RADIUS, DEFAULT_STEP_ACCURACY, PROVINCE_MAP } = require('../configConstants');
 
@@ -43,9 +47,41 @@ const getGeographicalCoordinatesFromAddress = async (address) => {
     }
 }
 
+const readPostalCodeCSVFile = () => {
+    return new Promise(function(resolve, reject)  {
+        fs.readFile((__dirname + '/../../constants/CanadianPostalCodes202102.csv'),  (err, data) => {
+            if (err) {
+                reject(err);
+            }
+            resolve(data);
+        });
+    });
+}
+
+const getGeographicalCoordinatesFromPostalCode = postalCode => {
+    return readPostalCodeCSVFile()
+        .then(data => {
+            return neatCsv(data);
+        })
+        .then(csvData => {
+            return new Promise(function(resolve, reject) {
+                resolve(find(csvData, entry => entry.POSTAL_CODE.replace(/ /g,'') === postalCode.toUpperCase()));
+            })
+        })
+        .then(location => {
+            return new Promise(function (resolve, reject) {
+                resolve({
+                    latitude: location.LATITUDE,
+                    longitude: location.LONGITUDE
+                });
+            })
+        })
+        .catch(err => console.log('err: ', err));
+}
+
 const getCircularFeatureFromCoordinates = (coordinates, radius) =>
     circle(
-        [coordinates.latitude, coordinates.longitude],
+        point([coordinates.longitude, coordinates.latitude]),
         DEFAULT_RADIUS + radius,
         {steps: DEFAULT_STEP_ACCURACY}
     );
@@ -65,6 +101,7 @@ module.exports = {
     isCanadianPostalCode,
     getGeographicalCoordinatesFromCity,
     getGeographicalCoordinatesFromAddress,
+    getGeographicalCoordinatesFromPostalCode,
     getCircularFeatureFromCoordinates,
     getCircularFeatureFromLocation,
     featuresOverlap

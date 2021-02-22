@@ -2,7 +2,7 @@
  * @Author:     Rachelle Gelden
  * @Created:    2021.02.18
  *
- * @Description: model for Abstract User
+ * @Description: model for listing
  *
  */
 // id and createdAt fields automatically added by sequelize
