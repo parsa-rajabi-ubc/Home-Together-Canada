@@ -6,7 +6,7 @@
  *
  */
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {PayPalScriptProvider, PayPalButtons} from "@paypal/react-paypal-js";
 import RadioButton from "../common/forms/RadioButton";
 import PropTypes from "prop-types";
@@ -54,9 +54,13 @@ const purchaseOptionText = [
 
 
 const Paypal = (props) => {
-    const {paymentStatus} = props;
+    const {paymentStatus, transactionOrderID} = props;
     const [numMonthsToPurchase, setNumMonthsToPurchase] = useState();
     const [orderID, setOrderID] = useState();
+
+    useEffect(() => {
+        transactionOrderID(orderID);
+    }, [orderID]);
 
 
     function createOrder(data, actions) {
@@ -137,7 +141,8 @@ const Paypal = (props) => {
 }
 
 Paypal.propTypes = {
-    paymentStatus: PropTypes.func.isRequired
+    paymentStatus: PropTypes.func.isRequired,
+    transactionOrderID: PropTypes.func.isRequired
 };
 
 export default Paypal;
