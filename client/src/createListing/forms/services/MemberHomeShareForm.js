@@ -42,7 +42,7 @@ const MemberHomeShareForm = (props) => {
     const [numBath, setNumBath] = useState(undefined);
     const [petFriendly, setPetFriendly] = useState(undefined);
     const [smokeFriendly, setSmokeFriendly] = useState(undefined);
-    const [photos, setPhotos] = useState(undefined);
+    const [picture, setPictures] = useState(undefined);
 
     const [titleError, setTitleError] = useState(undefined);
     const [postalCodeError, setPostalCodeError] = useState(undefined);
@@ -97,7 +97,7 @@ const MemberHomeShareForm = (props) => {
     }
 
     function handleImageUpload(e) {
-        setPhotos(e.target.files[0]);
+        setPictures(e.target.files[0]);
     }
 
     const isFormValid = () => {
@@ -133,7 +133,19 @@ const MemberHomeShareForm = (props) => {
     function onCreateListing() {
 
         if (isFormValid()) {
-            onSubmit();
+            onSubmit({
+                title,
+                shortDescription,
+                fullDescription,
+                postalCode,
+                monthlyCost,
+                utilIncluded,
+                numBath,
+                numBed,
+                petFriendly,
+                smokeFriendly,
+                picture
+            });
         }
     }
 
