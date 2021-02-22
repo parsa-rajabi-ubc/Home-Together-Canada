@@ -8,6 +8,12 @@
 
 module.exports = (DataTypes, sequelize) => {
     return sequelize.define('ListingCategory', {
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            unique: true,
+            autoIncrement: false
+        },
         name: {
             type: DataTypes.STRING,
             allowNull: false

@@ -42,15 +42,15 @@ const findCategoryIdByName = categoryName => {
 
 const populateDBWithCategories = () => {
     return ListingCategory.bulkCreate([
-        { name: BUSINESS_SERVICES_CATEGORIES.CO_HOUSING, isClassified: false },
-        { name: BUSINESS_SERVICES_CATEGORIES.SHARED_HOME_SERVICES, isClassified: false },
-        { name: BUSINESS_SERVICES_CATEGORIES.SHARED_BUSINESS_SERVICES, isClassified: false },
-        { name: BUSINESS_SERVICES_CATEGORIES.GOVERNMENT_SERVICES, isClassified: false },
-        { name: MEMBER_SERVICE_CATEGORIES.MEMBER_HOME, isClassified: false },
-        { name: BUSINESS_CLASSIFIEDS_CATEGORIES.RENTALS, isClassified: true },
-        { name: BUSINESS_CLASSIFIEDS_CATEGORIES.HOUSE_YARD, isClassified: true },
-        { name: BUSINESS_CLASSIFIEDS_CATEGORIES.LEGAL_SALES, isClassified: true },
-        { name: BUSINESS_CLASSIFIEDS_CATEGORIES.CLASSES_CLUBS, isClassified: true }
+        { id: 1, name: BUSINESS_SERVICES_CATEGORIES.CO_HOUSING, isClassified: false },
+        { id: 2, name: BUSINESS_SERVICES_CATEGORIES.SHARED_HOME_SERVICES, isClassified: false },
+        { id: 3, name: BUSINESS_SERVICES_CATEGORIES.SHARED_BUSINESS_SERVICES, isClassified: false },
+        { id: 4, name: BUSINESS_SERVICES_CATEGORIES.GOVERNMENT_SERVICES, isClassified: false },
+        { id: 5, name: MEMBER_SERVICE_CATEGORIES.MEMBER_HOME, isClassified: false },
+        { id: 6, name: BUSINESS_CLASSIFIEDS_CATEGORIES.RENTALS, isClassified: true },
+        { id: 7, name: BUSINESS_CLASSIFIEDS_CATEGORIES.HOUSE_YARD, isClassified: true },
+        { id: 8, name: BUSINESS_CLASSIFIEDS_CATEGORIES.LEGAL_SALES, isClassified: true },
+        { id: 9, name: BUSINESS_CLASSIFIEDS_CATEGORIES.CLASSES_CLUBS, isClassified: true }
     ]);
 }
 
