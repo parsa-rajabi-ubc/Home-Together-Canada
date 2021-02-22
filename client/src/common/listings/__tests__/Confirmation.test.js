@@ -45,7 +45,7 @@ describe('Confirmation', () => {
             const props = {
                 message: "Oranges",
                 buttonText: "Summer",
-                redirectTo: "/hello",
+                redirectTo: "/services",
                 displayButton: true,
                 errorColor: false,
             };
@@ -59,7 +59,7 @@ describe('Confirmation', () => {
             const props = {
                 message: "Sunshine",
                 buttonText: "Blue Sky",
-                redirectTo: "/skiing",
+                redirectTo: "/classifieds",
                 displayButton: false,
                 errorColor: true,
             };

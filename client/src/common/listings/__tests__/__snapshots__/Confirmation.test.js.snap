@@ -84,7 +84,7 @@ exports[`Confirmation Component Snapshot test should render correctly regardless
     >
       <a
         className="flex rounded-md shadow btn btn-green"
-        href="/hello"
+        href="/services"
         onClick={[Function]}
       >
         Summer
