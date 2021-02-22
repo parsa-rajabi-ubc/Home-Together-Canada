@@ -58,7 +58,7 @@ function SearchListingFilters(props) {
     );
 
     return (
-        <div className="col-start-1 col-end-7 py-5 px-5 m-6 bg-white shadow-lg rounded-xl">
+        <div className="col-start-1 col-end-7 py-5 px-5 my-6 ml-6 bg-white shadow-lg rounded-xl">
             <div className="grid grid-cols-2 gap-6">
                 <div className="col-span-3 sm:col-span-2">
                     <label className="text-2xl font-medium">Search Filtering</label>
@@ -88,7 +88,7 @@ function SearchListingFilters(props) {
                         />
                     </section>
 
-                    {(selectedCategory && selectedCategory !== MEMBER_SERVICE_CATEGORIES.MEMBER_HOME)  &&
+                    {(selectedCategory && selectedCategory !== MEMBER_SERVICE_CATEGORIES.MEMBER_HOME) &&
                     <section className={`${selectedSubcategoryError && "pl-1 border rounded-lg border-red-500"} my-4`}>
                         <p className={"label text-lg mb-1"}>{TEXT.CHECKBOX}</p>
                         {subcategoryCheckboxes}
