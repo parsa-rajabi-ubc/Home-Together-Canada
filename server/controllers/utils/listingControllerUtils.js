@@ -14,15 +14,15 @@ const {
     BUSINESS_CLASSIFIEDS_CATEGORIES
 } = require('../../constants/listingConstants')
 
-const COMMON_FIELDS = ['title', 'shortDescription', 'longDescription'];
+const COMMON_FIELDS = ['title', 'shortDescription', 'fullDescription'];
 const CO_HOUSING_FIELDS = [...COMMON_FIELDS, 'contactName', 'unitsForSale', 'unitsForRent'];
-const HOME_SHARE_FACILITATION_BUSINESS_FIELDS = [...COMMON_FIELDS, 'ratesAndFees'];
+const HOME_SHARE_FACILITATION_BUSINESS_FIELDS = [...COMMON_FIELDS, 'rateAndFees'];
 const GOVERNMENT_FIELDS = [...COMMON_FIELDS, 'contactName', 'contactNumber'];
-const RENTAL_FIELDS = [...COMMON_FIELDS, 'monthlyCost', 'numBedrooms', 'numBathrooms', 'petFriendly', 'smokeFriendly', 'isFurnished'];
-const HOUSE_YARD_FIELDS = [...COMMON_FIELDS, 'ratesAndFees'];
-const LEGAL_SALES_FIELDS = [...COMMON_FIELDS, 'ratesAndFees'];
-const EVENTS_CLUBS_FIELDS = [...COMMON_FIELDS, 'ratesAndFees', 'contactName', 'contactNumber', 'eventDateTimes'];
-const MEMBER_HOME_FIELDS = [...COMMON_FIELDS, 'monthlyCost', 'numBedrooms', 'numBathrooms', 'petFriendly', 'smokeFriendly', 'postalCode', 'utilitiesIncluded'];
+const RENTAL_FIELDS = [...COMMON_FIELDS, 'monthlyCost', 'numBed', 'numBath', 'petFriendly', 'smokeFriendly', 'furnished'];
+const HOUSE_YARD_FIELDS = [...COMMON_FIELDS, 'rateAndFees'];
+const LEGAL_SALES_FIELDS = [...COMMON_FIELDS, 'rateAndFees'];
+const EVENTS_CLUBS_FIELDS = [...COMMON_FIELDS, 'rateAndFees', 'contactName', 'contactPhoneNumber', 'eventDateTime'];
+const MEMBER_HOME_FIELDS = [...COMMON_FIELDS, 'monthlyCost', 'numBed', 'numBath', 'petFriendly', 'smokeFriendly', 'postalCode', 'utilitiesIncluded'];
 
 const getListingFields = (req) => {
     switch (req.body.category) {

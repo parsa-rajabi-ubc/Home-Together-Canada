@@ -6,7 +6,6 @@
  *
  */
 const includes = require('lodash/includes');
-const uniq = require('lodash/uniq');
 
 const {
     BUSINESS_SERVICES_CATEGORIES,
@@ -51,7 +50,7 @@ const BASIC_ERROR_MESSAGE = 'Missing or invalid value';
 const LISTING_FIELDS_ERRORS = {
     TITLE: `${BASIC_ERROR_MESSAGE} for title`,
     SHORT_DESCRIPTION: `${BASIC_ERROR_MESSAGE} for short description`,
-    LONG_DESCRIPTION: `${BASIC_ERROR_MESSAGE} for long description`,
+    FULL_DESCRIPTION: `${BASIC_ERROR_MESSAGE} for full description`,
     POSTAL_CODE: `${BASIC_ERROR_MESSAGE} for postal code`,
     MONTHLY_COST: `${BASIC_ERROR_MESSAGE} for monthly cost`,
     UTILITIES_INCLUDED: `${BASIC_ERROR_MESSAGE} for utilities included`,
@@ -125,7 +124,7 @@ const listingShouldHaveCategories = (subcategories, category) => {
     if ((subcategories && subcategories.length) && category === MEMBER_SERVICE_CATEGORIES.MEMBER_HOME) {
         throw new Error(`Listings in ${category} should not have subcategories`);
     } else if ((!subcategories || !subcategories.length) && isValidBusinessListingCategory(category)) {
-        throw new Error(`Listings in ${category} must have at least one subcategory`);
+        throw new Error(`A subcategory must be selected`);
     } else {
         return true;
     }
@@ -136,12 +135,6 @@ const shouldOrderIdBeDefined = (orderId, type) => {
         throw new Error('OrderId must be provided for classified listing');
     }
     return true;
-}
-
-const removeDuplicates = list => {
-    const uniqueList = uniq(list);
-    console.log('uniqueLIst: ', uniqueList);
-    return uniqueList;
 }
 
 
@@ -159,5 +152,4 @@ module.exports = {
     isValidSubcategoryForSelectedCategory,
     listingShouldHaveCategories,
     shouldOrderIdBeDefined,
-    removeDuplicates
 }
