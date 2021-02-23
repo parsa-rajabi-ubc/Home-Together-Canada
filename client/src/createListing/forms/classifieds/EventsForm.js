@@ -14,30 +14,35 @@ import SubmitButton from "../../../common/forms/SubmitButton";
 import {SHORT_DESC_CHAR_COUNT} from "../../../common/constants/listingsConstants";
 import {
     checkIfErrorsExistInMapping,
-    validateInput
+    validateInput, validatePhoneNumber
 } from "../../../registration/registrationUtils";
-import {Events_TEST as TEXT} from "./constants/ClassifiedsListingText";
+import {Events_TEXT as TEXT} from "./constants/ClassifiedsListingText";
 import Tooltip from "../../../common/forms/Tooltip";
 import {CREATE_LISTING_MEMBER_SHARE_HOME as ToolTipText} from "../../../common/constants/TooltipText";
 import UploadImage from "../../../common/forms/UploadImage";
+import PhoneNumInput from "../../../common/forms/PhoneNumInput";
 
 const EventsForm = (props) => {
-    const { onSubmit } = props;
+    const {onSubmit} = props;
 
     const [title, setTitle] = useState(undefined);
     const [shortDescription, setShortDescription] = useState(undefined);
     const [fullDescription, setFullDescription] = useState(undefined);
-    const [rateAndFee, setRateAndFee] = useState(undefined);
+    const [rateAndFees, setRateAndFees] = useState(undefined);
     const [picture, setPicture] = useState(undefined);
     const [contactName, setContactName] = useState(undefined);
-    const [dateAndTime,setDateAndTime] = useState(undefined);
+    const [contactPhoneNumber, setContactPhoneNumber] = useState(undefined);
+    const [eventDateTime, setEventDateTime] = useState(undefined);
+
+    const [submitted, setSubmitted] = useState(false);
 
     const [titleError, setTitleError] = useState(undefined);
     const [shortDescriptionError, setShortDescriptionError] = useState(undefined);
     const [fullDescriptionError, setFullDescriptionError] = useState(undefined);
     const [rateAndFeeError, setRateAndFeeError] = useState(undefined);
     const [contactNameError, setContactNameError] = useState(undefined);
-    const [dateAndTimeError,setDateAndTimeError] = useState(undefined);
+    const [contactPhoneNumberError, setContactPhoneNumberError] = useState(undefined);
+    const [dateAndTimeError, setDateAndTimeError] = useState(undefined);
 
     useEffect(() => {
         title !== undefined && validateInput(title, setTitleError);
@@ -49,14 +54,17 @@ const EventsForm = (props) => {
         fullDescription !== undefined && validateInput(fullDescription, setFullDescriptionError);
     }, [fullDescription]);
     useEffect(() => {
-        rateAndFee !== undefined && validateInput(rateAndFee, setRateAndFeeError);
-    }, [rateAndFee]);
+        rateAndFees !== undefined && validateInput(rateAndFees, setRateAndFeeError);
+    }, [rateAndFees]);
     useEffect(() => {
         contactName !== undefined && validateInput(contactName, setContactNameError);
     }, [contactName]);
     useEffect(() => {
-        dateAndTime !== undefined && validateInput(dateAndTime, setDateAndTimeError);
-    }, [dateAndTime]);
+        contactPhoneNumber !== undefined && validatePhoneNumber(contactPhoneNumber, setContactPhoneNumberError);
+    }, [contactPhoneNumber]);
+    useEffect(() => {
+        eventDateTime !== undefined && validateInput(eventDateTime, setDateAndTimeError);
+    }, [eventDateTime]);
 
     function handleImageUpload(e) {
         setPicture(e.target.files[0]);
@@ -70,15 +78,17 @@ const EventsForm = (props) => {
             fullDes: false,
             rateFee: false,
             contactName: false,
+            contactPhoneNumber: false,
             dateAndTime: false
         }
 
         errors.title = validateInput(title, setTitleError);
         errors.shortDes = validateInput(shortDescription, setShortDescriptionError);
         errors.fullDes = validateInput(fullDescription, setFullDescriptionError);
-        errors.rateFee = validateInput(rateAndFee,setRateAndFeeError);
-        errors.contactName = validateInput(contactName,setContactNameError);
-        errors.dateAndTime = validateInput(dateAndTime,setDateAndTimeError)
+        errors.rateFee = validateInput(rateAndFees, setRateAndFeeError);
+        errors.contactName = validateInput(contactName, setContactNameError);
+        errors.contactPhoneNumber = validatePhoneNumber(contactPhoneNumber, setContactPhoneNumberError);
+        errors.dateAndTime = validateInput(eventDateTime, setDateAndTimeError)
 
         return !(checkIfErrorsExistInMapping(errors));
     }
@@ -86,8 +96,25 @@ const EventsForm = (props) => {
     //function for input checks on submit
     function onCreateListing() {
         if (isFormValid()) {
-            onSubmit();
+            setSubmitted(true);
+            onSubmit({
+                title,
+                shortDescription,
+                fullDescription,
+                rateAndFees,
+                contactName,
+                contactPhoneNumber,
+                eventDateTime,
+            });
         }
+    }
+
+    function handleContactPhoneChange(e) {
+        const value = e.target.value;
+        setContactPhoneNumber({
+            ...contactPhoneNumber,
+            [e.target.name]: value
+        });
     }
 
     return (
@@ -104,6 +131,7 @@ const EventsForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setTitle(e.target.value)}
+                            disabled={submitted}
                         />
 
                         <div className={"grid grid-cols-9"}>
@@ -117,6 +145,7 @@ const EventsForm = (props) => {
                                     required={true}
                                     onChange={(e) => setShortDescription(e.target.value)}
                                     charLimit={SHORT_DESC_CHAR_COUNT}
+                                    disabled={submitted}
                                 />
                             </section>
 
@@ -127,6 +156,7 @@ const EventsForm = (props) => {
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setContactName(e.target.value)}
+                                    disabled={submitted}
                                 />
                             </section>
 
@@ -136,19 +166,31 @@ const EventsForm = (props) => {
                                     label={TEXT.rateAndFees}
                                     labelClassName={"label"}
                                     required={true}
-                                    onChange={(e) => setRateAndFee(e.target.value)}
+                                    onChange={(e) => setRateAndFees(e.target.value)}
+                                    disabled={submitted}
                                 />
                             </section>
 
-
-
                             <section className={"col-start-6 col-end-10"}>
+                                <PhoneNumInput
+                                    className={`${contactPhoneNumberError && "border-red-500"} phone`}
+                                    required={true}
+                                    value={contactPhoneNumber}
+                                    labelClassName={"label"}
+                                    label={TEXT.contactPhoneNumber}
+                                    onChange={handleContactPhoneChange}/>
+
+                            </section>
+
+
+                            <section className={"col-start-1 col-end-5"}>
                                 <TextArea
                                     className={`${dateAndTimeError && "border-red-500"} input`}
-                                    label={TEXT.eventDateAndDate}
+                                    label={TEXT.eventDateTime}
                                     labelClassName={"label"}
                                     required={true}
-                                    onChange={(e) => setDateAndTime(e.target.value)}
+                                    onChange={(e) => setEventDateTime(e.target.value)}
+                                    disabled={submitted}
                                 />
                             </section>
 
@@ -162,9 +204,10 @@ const EventsForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setFullDescription(e.target.value)}
+                            disabled={submitted}
                         />
 
-                        <label className="label"> Pictures </label>
+                        <label className="label"> {TEXT.pictures} </label>
                         <Tooltip
                             text={ToolTipText.PHOTOS}
                             toolTipID={"UploadPhotos"}
