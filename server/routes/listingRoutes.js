@@ -157,7 +157,13 @@ router.post('/search/', listingValidator.validate(LISTING_VALIDATION_METHODS.SEA
                     })
             } else {
                 // do a business listing search
-                res.json({ msg: 'Searching business listings is not implemented yet'});
+                listingController.searchBusinessListings(req.body.searchArea, req.body.category, req.body.subcategories)
+                    .then(listings => {
+                        res.status(200).json({ listings });
+                    })
+                    .catch(err => {
+                        res.status(500).json({ err: err.message });
+                    });
             }
         }
     }
