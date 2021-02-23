@@ -11,7 +11,6 @@ import PropTypes from "prop-types";
 import {MEMBER_HOME_SHARE_TEXT as TEXT} from "./constants/ServiceListingText";
 import {
     checkIfErrorsExistInMapping,
-    validateCheckbox,
     validateInput, validatePostalCode,
 } from "../../../registration/registrationUtils";
 import TextArea from "../../../common/forms/TextArea";
@@ -84,7 +83,7 @@ const MemberHomeShareForm = (props) => {
         smokeFriendly !== undefined && validateInput(smokeFriendly, setSmokeFriendlyError);
     }, [smokeFriendly]);
     useEffect(() => {
-        utilIncluded !== undefined && validateCheckbox(utilIncluded, setUtilIncludedError);
+        utilIncluded !== undefined && validateInput(utilIncluded, setUtilIncludedError);
     }, [utilIncluded]);
 
 

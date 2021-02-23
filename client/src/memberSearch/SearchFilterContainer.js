@@ -11,7 +11,7 @@ import SearchFilter from "./SearchFilter";
 import {isValueInArray} from "../common/utils/generalUtils";
 import {
     checkIfErrorsExistInMapping,
-    resolveYesNoToBoolean,
+    resolveYesNoToBoolean, validateArrayInput, validateInput,
     validateMinMaxFilter
 } from "../registration/registrationUtils";
 import indexOf from "lodash/indexOf";
@@ -61,7 +61,12 @@ const SearchFilterContainer = props => {
     // Budget
     const [minBudgetPreferenceError, setMinBudgetPreferenceError] = useState(undefined);
     const [maxBudgetPreferenceError, setMaxBudgetPreferenceError] = useState(undefined);
-
+    // Gender
+    const [genderPreferenceError, setGenderPreferenceError] = useState(undefined);
+    // Search Area
+    const [searchAreaProvinceError, setSearchAreaProvinceError] = useState(undefined);
+    const [searchAreaCityError, setSearchAreaCityError] = useState(undefined);
+    const [searchAreaRadiusError, setSearchAreaRadiusError] = useState(undefined);
 
     useEffect(() => {
         if (minAgePreference !== undefined && maxAgePreference !== undefined) {
@@ -78,6 +83,7 @@ const SearchFilterContainer = props => {
             );
         }
     }, [minBudgetPreference, maxBudgetPreference]);
+
 
     function handleGenderPrefChange(e) {
         const list = [...genderPreference];
@@ -106,6 +112,10 @@ const SearchFilterContainer = props => {
         const searchErrors = {
             errorAgePref: false,
             errorBudgetPref: false,
+            errorGenderPref: false,
+            searchAreaProvince: false,
+            searchAreaCity: false,
+            searchAreaRadius: false,
         }
 
         // Search Criteria Validation
@@ -121,6 +131,11 @@ const SearchFilterContainer = props => {
             setMinBudgetPreferenceError,
             setMaxBudgetPreferenceError
         );
+        searchErrors.errorGenderPref = validateArrayInput(genderPreference, setGenderPreferenceError);
+        searchErrors.searchAreaProvince = validateInput(searchArea.province, setSearchAreaProvinceError);
+        searchErrors.searchAreaCity = validateInput(searchArea.city, setSearchAreaCityError);
+        searchErrors.searchAreaRadius = validateInput(searchArea.radius, setSearchAreaRadiusError);
+
 
         // check search criteria for errors
         return !checkIfErrorsExistInMapping(searchErrors);
@@ -136,7 +151,7 @@ const SearchFilterContainer = props => {
                         city: searchArea.city,
                         radius: searchArea.radius
                     },
-                    genderPreference,
+                    genderPreference: genderPreference,
                     statusPreference: familyStatusPreference,
                     minAgePreference: parseInt(minAgePreference),
                     maxAgePreference: parseInt(maxAgePreference),
@@ -180,9 +195,13 @@ const SearchFilterContainer = props => {
         <SearchFilter
             searchArea={searchArea}
             handleSearchAreaChange={setSearchArea}
+            searchAreaProvinceError={searchAreaProvinceError}
+            searchAreaCityError={searchAreaCityError}
+            searchAreaRadiusError={searchAreaRadiusError}
 
             genderPreference={genderPreference}
             handleGenderPrefChange={handleGenderPrefChange}
+            genderPreferenceError = {genderPreferenceError}
 
             familyStatusPreference={familyStatusPreference}
             setFamilyStatusPreference={setFamilyStatusPreference}

@@ -14,7 +14,7 @@ import LargeTextArea from "../../../common/forms/LargeTextArea";
 import SubmitButton from "../../../common/forms/SubmitButton";
 import {SHORT_DESC_CHAR_COUNT} from "../../../common/constants/listingsConstants";
 import {
-    checkIfErrorsExistInMapping, validateCheckbox,
+    checkIfErrorsExistInMapping,
     validateInput
 } from "../../../registration/registrationUtils";
 import {validatePositiveNumber} from "../../../common/utils/generalUtils";
@@ -79,7 +79,7 @@ const HouseServicesForm = (props) => {
         smokeFriendly !== undefined && validateInput(smokeFriendly, setSmokeFriendlyError);
     }, [smokeFriendly]);
     useEffect(() => {
-        furnished !== undefined && validateCheckbox(furnished, setFurnishedError);
+        furnished !== undefined && validateInput(furnished, setFurnishedError);
     }, [furnished]);
 
     const handleNumBedChange = e => {
