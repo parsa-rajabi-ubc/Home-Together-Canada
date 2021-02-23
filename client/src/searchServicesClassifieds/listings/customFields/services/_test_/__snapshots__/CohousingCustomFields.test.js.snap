@@ -2,31 +2,17 @@
 
 exports[`CohousingCustomFields should render correctly regardless of properties 1`] = `
 <div>
-  <label
-    className="label-result"
-  >
+  <p>
     Contact Name
-  </label>
-  <p>
      
-    Alex
   </p>
-  <label
-    className="label-result"
-  >
+  <p>
     Units for sale
-  </label>
-  <p>
-    5
-  </p>
-  <label
-    className="label-result"
-  >
-    Units for rent
-  </label>
-  <p>
      
-    5
+  </p>
+  <p>
+    Units for rent
+     
   </p>
 </div>
 `;

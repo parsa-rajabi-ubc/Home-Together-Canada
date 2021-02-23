@@ -2,20 +2,13 @@
 
 exports[`GovernmentServicesCustomFields should render correctly regardless of properties 1`] = `
 <div>
-  <label
-    className="label-result"
-  >
-    Rates and fees (CAD)
-  </label>
   <p>
+    Rates and fees ($CAD)
      
-    666 per day
   </p>
-  <label
-    className="label-result"
-  >
-    Pictures
-  </label>
+  <p>
+    Pictures (max of 6)
+  </p>
   <img
     alt=""
     src="HTC_Logo.jpg"
