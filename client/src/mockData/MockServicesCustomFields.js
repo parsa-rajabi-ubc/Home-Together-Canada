@@ -8,7 +8,6 @@
 
 
 export const memberMockCustomFields = {
-    title: "Member Home To Share Mock data",
     generalLocationText: "766 Rutland Rd. S.",
     homeShareMonthlyCost: 800,
     numBed: "5",
@@ -31,7 +30,6 @@ export const homeServicesMockCustomFields = {
 }
 
 export const governmentMockCustomFields = {
-    title: "Governmental Mock data",
     contactPerson: "Alex",
     phoneNumber:"778-555-5555"
 }

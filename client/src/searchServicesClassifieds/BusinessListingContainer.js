@@ -23,6 +23,10 @@ import HomeServiceBusinessCustomFields from "./listings/customFields/services/Ho
 import GovernmentServicesCustomFields from "./listings/customFields/services/GovernmentServicesCustomFields";
 import {mockServiceListings} from "../mockData/MockListing";
 import MemberHomeToShareCustomFields from "./listings/customFields/services/MemberHomeToShareCustomFields";
+import RentalsCustomFields from "./listings/customFields/classifieds/RentalsCustomFields";
+import AgenciesCustomFields from "./listings/customFields/classifieds/AgenciesCustomFields";
+import EventsCustomFields from "./listings/customFields/classifieds/EventsCustomFields";
+import HouseServicesCustomFields from "./listings/customFields/classifieds/HouseServicesCustomFields";
 
 function BusinessListingContainer() {
     const listingPage = useContext(listingContext);
@@ -180,7 +184,7 @@ function BusinessListingContainer() {
                     petFriendly={petFriendly}
                     smokeFriendly={smokeFriendly}
                     pictures={pictures}
-                />
+                 />
             case BUSINESS_SERVICE_CATEGORIES.CO_HOUSING:
                 return <CohousingCustomFields contactName={contactName} unitsForSale={unitForSale}
                                               unitsForRent={unitForRent}/>
@@ -191,13 +195,13 @@ function BusinessListingContainer() {
             case BUSINESS_SERVICE_CATEGORIES.GOVERNMENT_SERVICES:
                 return <GovernmentServicesCustomFields contactPerson={contactName} phoneNumber={contactPhoneNumber}/>
             case BUSINESS_CLASSIFIEDS_CATEGORIES.RENTALS:
-                break; //TODO: Replace with Rentals Custom Fields
+                return <RentalsCustomFields pictures={pictures} petFriendly={petFriendly} numBed={numBed} numBath={numBath} furnished={furnished} price={price} smokingFriendly={smokeFriendly}/>
             case BUSINESS_CLASSIFIEDS_CATEGORIES.HOUSE_YARD:
-                break; //TODO: Replace with house yard Custom Fields
+                return <HouseServicesCustomFields rateAndFees={ratesAndFees} pictures={pictures}/>
             case BUSINESS_CLASSIFIEDS_CATEGORIES.LEGAL_SALES:
-                break; //TODO: Replace with Legal Custom Fields
+                return <AgenciesCustomFields rateAndFees={ratesAndFees} pictures={pictures}/>
             case BUSINESS_CLASSIFIEDS_CATEGORIES.CLASSES_CLUBS:
-                break; //TODO: Replace with Classes Custom Fields
+                return <EventsCustomFields rateAndFees={ratesAndFees} contactName={contactName} contactNumber={contactPhoneNumber} eventDateTime={eventDateTime} pictures={pictures}/>
         }
     }
 

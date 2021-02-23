@@ -14,11 +14,10 @@ const GOVERNMENT_SERVICES_Custom_Fields_TEXT = {
 }
 
 const GovernmentServicesCustomFields = (props) =>{
-    const { title, contactPerson, phoneNumber } = props;
+    const { contactPerson, phoneNumber } = props;
 
     return(
         <div>
-            <h1> {title} </h1>
             <p>{GOVERNMENT_SERVICES_Custom_Fields_TEXT.CONTACT_PERSON} {contactPerson}</p>
             <p>{GOVERNMENT_SERVICES_Custom_Fields_TEXT.PHONE_NUMBER} {phoneNumber}</p>
         </div>
@@ -26,7 +25,6 @@ const GovernmentServicesCustomFields = (props) =>{
 }
 
 GovernmentServicesCustomFields.propTypes = {
-    title: PropTypes.string.isRequired,
     contactPerson: PropTypes.string.isRequired,
     phoneNumber: PropTypes.string
 }

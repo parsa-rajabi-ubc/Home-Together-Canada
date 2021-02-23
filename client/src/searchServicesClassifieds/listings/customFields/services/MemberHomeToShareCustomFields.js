@@ -18,11 +18,11 @@ const MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT= {
     UTIL_INCLUDE: "Utilities included",
     PET_FRIENDLY: "Pet friendly",
     SMOKE_FRIENDLY: "Smoking",
-    PHOTOS: "Photos"
+    PICTURES: "pictures"
 }
 
 const MemberHomeToShareCustomFields = (props) =>{
-    const { title, generalLocationText, homeShareMonthlyCost, numBath, numBed, petFriendly, photos, smokeFriendly, utilIncluded } = props;
+    const { generalLocationText, homeShareMonthlyCost, numBath, numBed, petFriendly, pictures, smokeFriendly, utilIncluded } = props;
 
     const isUtilIncluded = useState(resolveBooleanToYesNo(utilIncluded));
     const isPetFriendly = useState(resolveBooleanToYesNo(petFriendly));
@@ -30,7 +30,6 @@ const MemberHomeToShareCustomFields = (props) =>{
 
         return(
             <div>
-                <h1> {title} </h1>
                 <p>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.GENERAL_LOCATION} {generalLocationText}</p>
                 <p>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.HOME_SHARE_MONTHLY_COST} {homeShareMonthlyCost}</p>
                 <p>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.NUMBER_BEDROOM} {numBed}</p>
@@ -38,7 +37,7 @@ const MemberHomeToShareCustomFields = (props) =>{
                 <p>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.UTIL_INCLUDE} {isUtilIncluded}</p>
                 <p>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.PET_FRIENDLY} {isPetFriendly}</p>
                 <p>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.SMOKE_FRIENDLY} {isSmokeFriendly}</p>
-                <p>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.PHOTOS}</p>
+                <p>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.PICTURES}</p>
                 {/*TODO: replace HTC_Logo with photos*/}
                 <img src={HTC_Logo} alt={""}/>
             </div>
@@ -46,7 +45,6 @@ const MemberHomeToShareCustomFields = (props) =>{
 }
 
 MemberHomeToShareCustomFields.propTypes = {
-    title: PropTypes.string.isRequired,
     generalLocationText: PropTypes.string.isRequired,
     homeShareMonthlyCost: PropTypes.number.isRequired,
     numBed: PropTypes.string.isRequired,
@@ -54,7 +52,7 @@ MemberHomeToShareCustomFields.propTypes = {
     utilIncluded: PropTypes.bool.isRequired,
     petFriendly: PropTypes.bool.isRequired,
     smokeFriendly: PropTypes.bool.isRequired,
-    photos: PropTypes.string.isRequired,
+    pictures: PropTypes.string.isRequired,
 }
 
 export default MemberHomeToShareCustomFields;

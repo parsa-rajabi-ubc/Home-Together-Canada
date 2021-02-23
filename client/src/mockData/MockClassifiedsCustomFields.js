@@ -12,7 +12,7 @@ export const rentalsMockCustomFields = {
     numBath: "3",
     furnished: true,
     petFriendly: false,
-    smoking: false,
+    smokingFriendly: false,
     pictures: "pictures"
 }
 
