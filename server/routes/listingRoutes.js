@@ -9,6 +9,7 @@
 const express = require('express');
 const router = express.Router();
 const { validationResult } = require('express-validator/check');
+const includes = require('lodash/includes');
 
 const listingValidator = require('../controllers/validators/listingControllerValidator');
 const { LISTING_VALIDATION_METHODS, CATEGORY_FORM_VALIDATION_DICT } = require('../controllers/validators/listingControllerValidatorUtils');
@@ -17,6 +18,8 @@ const listingCategoryController = require('../controllers/listingCategoryControl
 const listingSubcategoryController = require('../controllers/listingSubcategoryController');
 const listingController = require('../controllers/listingController');
 const listingAssignedSubcategoryController = require('../controllers/listingAssignedSubcategoryController');
+const memberListingLocationController = require('../controllers/memberListingLocationController');
+const { MEMBER_SERVICE_CATEGORIES } = require('../constants/listingConstants');
 
 router.post('/create/',
     isLoggedIn,
@@ -137,6 +140,29 @@ router.post(`/create/${LISTING_VALIDATION_METHODS.CLASSES_EVENTS_CLUBS_FORM}`,
     }
 );
 
+router.post('/search/', listingValidator.validate(LISTING_VALIDATION_METHODS.SEARCH_LISTINGS),
+    function(req, res, next) {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            res.status(500).json({ errors: errors.array()});
+        } else {
+            if (includes(Object.values(MEMBER_SERVICE_CATEGORIES), req.body.category)) {
+                // do a member listing search
+                listingController.searchMemberServiceListings(req.body.searchArea, req.body.category)
+                    .then(data => {
+                        res.status(200).json({ listings: data });
+                    })
+                    .catch(err => {
+                        res.status(500).json({ err: err.message });
+                    })
+            } else {
+                // do a business listing search
+                res.json({ msg: 'Searching business listings is not implemented yet'});
+            }
+        }
+    }
+);
+
 router.get('/categories/', function(req, res, next) {
     listingCategoryController.findAllListingCategories(req, res);
 });
@@ -149,8 +175,12 @@ router.get('/listings/', function(req, res, next) {
     listingController.findAllListings(req, res);
 });
 
-router.get('/listingAssignedSubcategories', function (req, res){
+router.get('/listingAssignedSubcategories/', function (req, res){
     listingAssignedSubcategoryController.findAllEntries(req, res);
-})
+});
+
+router.get('/memberListingLocations/', function (req, res){
+    memberListingLocationController.findAllMemberListingLocationEntries(req, res);
+});
 
 module.exports = router;

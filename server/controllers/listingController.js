@@ -5,15 +5,24 @@
  * @Description: controller functions for the listing model
  *
  */
+const filter = require('lodash/filter');
+const booleanPointInPolygon = require('@turf/boolean-point-in-polygon').default;
+const point = require('@turf/helpers').point;
+const polygon = require('@turf/helpers').polygon;
 
 const db = require('../models');
 const Listing = db.listing;
+const ListingCategory = db.listingCategory;
+const MemberListingLocation = db.memberListingLocation;
 
 const { LISTING_TYPES } = require('../controllers/validators/listingControllerValidatorUtils');
 const { getListingFields } = require('./utils/listingControllerUtils');
 const listingCategoryController = require('./listingCategoryController');
 const listingSubcategoryController = require('./listingSubcategoryController');
 const listingAssignedSubcategoryController = require('./listingAssignedSubcategoryController');
+const memberController = require('./memberAccountController');
+const memberListingLocationController = require('./memberListingLocationController');
+const { getGeographicalCoordinatesFromPostalCode, getCircularFeatureFromLocation } = require('./utils/locationUtils');
 
 const createListing = async (req, res) => {
     try {
@@ -35,6 +44,15 @@ const createListing = async (req, res) => {
             listingAssignedSubcategoryController.addListingAssignedSubcategoryEntry(listing.id, subcategory.id);
         });
 
+        if (await memberController.findMemberAccountByUid(req.user.uid)) {
+            const coordinates = await getGeographicalCoordinatesFromPostalCode(req.body.postalCode);
+            await memberListingLocationController.addMemberListingLocation(
+                parseFloat(coordinates.latitude),
+                parseFloat(coordinates.longitude),
+                listing.id
+            );
+        }
+
         res.status(200).json({ success: true });
     }
     catch (err) {
@@ -55,8 +73,39 @@ const findAllListings = (req, res) => {
         });
 }
 
+const searchMemberServiceListings = async (searchArea, categoryName) => {
+    const memberServiceListings = await Listing.findAll({
+        include: [
+            {
+                model: ListingCategory,
+            },
+            {
+                model: MemberListingLocation
+            }
+        ]
+    });
+
+    const searchAreaFeature = await getCircularFeatureFromLocation(searchArea.province, searchArea.city, searchArea.radius);
+
+    const filteredLocations = filter(memberServiceListings, function (memberServiceListing) {
+        const pointObj = point([
+            parseFloat(memberServiceListing.MemberListingLocation.longitude),
+            parseFloat(memberServiceListing.MemberListingLocation.latitude)
+        ]);
+        const polygonObj = polygon(searchAreaFeature.geometry.coordinates);
+
+        return booleanPointInPolygon(
+            pointObj,
+            polygonObj
+        );
+    });
+
+    return filteredLocations;
+}
+
 module.exports = {
     createListing,
-    findAllListings
+    findAllListings,
+    searchMemberServiceListings
 }
 

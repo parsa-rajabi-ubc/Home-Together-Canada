@@ -26,7 +26,8 @@ const LISTING_VALIDATION_METHODS = {
     RENTALS_FORM: 'rentalsForm',
     HOUSE_YARD_FORM: 'houseAndYardServicesForm',
     LEGAL_SALES_FORM: 'legalAndSalesForm',
-    CLASSES_EVENTS_CLUBS_FORM: 'classesClubsEventsForm'
+    CLASSES_EVENTS_CLUBS_FORM: 'classesClubsEventsForm',
+    SEARCH_LISTINGS: 'searchListings'
 }
 
 const LISTING_TYPES = {

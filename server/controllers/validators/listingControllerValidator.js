@@ -7,6 +7,9 @@
  */
 const { body } = require('express-validator/check');
 const uniq = require('lodash/uniq');
+const {isValidRadius} = require("./userControllerValidatorUtils");
+const {PROVINCES_LIST} = require("../configConstants");
+const {isValidLocation} = require("./userControllerValidatorUtils");
 
 const {isPositiveInteger} = require("./userControllerValidatorUtils");
 const {isValidPhoneNumber} = require("./userControllerValidatorUtils");
@@ -199,6 +202,34 @@ exports.validate = method => {
                     .stripLow()
                     .not().isEmpty()
             ];
+        }
+        case LISTING_VALIDATION_METHODS.SEARCH_LISTINGS: {
+            return [
+                body('type')
+                    .exists()
+                    .isIn([LISTING_TYPES.SERVICE, LISTING_TYPES.CLASSIFIED]),
+                body('category')
+                    .exists()
+                    .custom((category, { req }) => isValidCategoryForListingType(category, req.body.type)),
+                body('subcategories')
+                    .custom((subcategories, { req }) => listingShouldHaveCategories(subcategories, req.body.category)),
+                body('subcategories.*')
+                    .custom((subcategory, { req }) => isValidSubcategoryForSelectedCategory(subcategory, req.body.category)),
+                body('searchArea.province', 'Invalid province in search area')
+                    .exists()
+                    .isIn(PROVINCES_LIST),
+                body('searchArea.city', 'Invalid city in search area')
+                    .exists()
+                    .trim()
+                    .stripLow(),
+                body('searchArea.radius', 'Invalid radius in search area')
+                    .exists()
+                    .isNumeric()
+                    .custom(radius => isValidRadius(radius)),
+                body('searchArea', 'Invalid location for search area')
+                    .exists()
+                    .custom(searchArea => isValidLocation(searchArea))
+            ]
         }
     }
 }
