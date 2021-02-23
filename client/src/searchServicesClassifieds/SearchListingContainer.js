@@ -32,7 +32,7 @@ const MESSAGES = {
 function SearchListingContainer() {
 
     let URL_PATH = useHistory().location.pathname;
-    const [listingPage, setListingPage] = useState();
+    const [listingPage, setListingPage] = useState('');
     const [searchFiltersSelected, setSearchFiltersSelected] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
