@@ -122,8 +122,6 @@ const CreateListingContainer = (props) => {
                 }
             }
 
-            console.log(JSON.stringify(listingRequestBody))
-
             ListingService.createListing(listingRequestBody)
                 .then(res => res.json())
                 .then(data => {
