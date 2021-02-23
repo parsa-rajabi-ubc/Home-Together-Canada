@@ -90,9 +90,6 @@ function SearchFilter(props) {
                         searchAreaRadiusError={searchAreaRadiusError}
                     />
 
-                    {/*<label className="label block">Search Area</label>*/}
-                    {/*<SearchArea searchArea={searchArea} onChange={handleSearchAreaChange}/>*/}
-
                     <section
                         className={`${genderPreferenceError && "pl-1 border rounded-lg border-red-500 mr-52"}`}>
                         <label className={"label block"}>I am open to sharing with </label>
