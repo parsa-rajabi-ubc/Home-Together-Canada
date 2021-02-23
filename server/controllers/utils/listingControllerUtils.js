@@ -25,7 +25,7 @@ const {
 const COMMON_FIELDS = ['title', 'shortDescription', 'fullDescription'];
 const CO_HOUSING_FIELDS = [...COMMON_FIELDS, 'contactName', 'unitsForSale', 'unitsForRent'];
 const HOME_SHARE_FACILITATION_BUSINESS_FIELDS = [...COMMON_FIELDS, 'rateAndFees'];
-const GOVERNMENT_FIELDS = [...COMMON_FIELDS, 'contactName', 'contactNumber'];
+const GOVERNMENT_FIELDS = [...COMMON_FIELDS, 'contactName', 'contactPhoneNumber'];
 const RENTAL_FIELDS = [...COMMON_FIELDS, 'monthlyCost', 'numBed', 'numBath', 'petFriendly', 'smokeFriendly', 'furnished'];
 const HOUSE_YARD_FIELDS = [...COMMON_FIELDS, 'rateAndFees'];
 const LEGAL_SALES_FIELDS = [...COMMON_FIELDS, 'rateAndFees'];
