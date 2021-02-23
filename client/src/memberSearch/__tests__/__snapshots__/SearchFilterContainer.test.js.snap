@@ -376,63 +376,67 @@ exports[`SearchFilterContainer should render correctly regardless of properties 
           </div>
         </div>
       </div>
-      <label
-        className="label block"
+      <section
+        className="undefined"
       >
-        I am open to sharing with 
-      </label>
-      <div
-        className="my-2"
-      >
-        <div
-          className=" "
+        <label
+          className="label block"
         >
-          <input
-            checked={true}
-            className="defaultCheckboxCSS"
-            id="Male"
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <label
-            className="label font-normal label"
-          >
-            Male
-          </label>
-        </div>
+          I am open to sharing with 
+        </label>
         <div
-          className=" "
+          className="my-2"
         >
-          <input
-            checked={false}
-            className="defaultCheckboxCSS"
-            id="Female"
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <label
-            className="label font-normal label"
+          <div
+            className=" "
           >
-            Female
-          </label>
-        </div>
-        <div
-          className=" "
-        >
-          <input
-            checked={true}
-            className="defaultCheckboxCSS"
-            id="Other"
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <label
-            className="label font-normal label"
+            <input
+              checked={true}
+              className="align-middle mt-0 mr-1 mb-0 h-4 w-4 border-gray-300 rounded-lg"
+              id="Male"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              className="label font-normal label"
+            >
+              Male
+            </label>
+          </div>
+          <div
+            className=" "
           >
-            Other
-          </label>
+            <input
+              checked={false}
+              className="align-middle mt-0 mr-1 mb-0 text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
+              id="Female"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              className="label font-normal label"
+            >
+              Female
+            </label>
+          </div>
+          <div
+            className=" "
+          >
+            <input
+              checked={true}
+              className="align-middle mt-0 mr-1 mb-0 text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
+              id="Other"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              className="label font-normal label"
+            >
+              Other
+            </label>
+          </div>
         </div>
-      </div>
+      </section>
       <div
         className="grid grid-cols-2 gap-x-6"
       >
