@@ -11,8 +11,8 @@ const {
     BUSINESS_SERVICES_CATEGORIES,
     MEMBER_SERVICE_CATEGORIES,
     BUSINESS_CLASSIFIEDS_CATEGORIES,
-    resolveCategoryToSubcategory
 } = require('../../constants/listingConstants');
+const {resolveCategoryToSubcategory} = require ("../utils/listingControllerUtils");
 const memberAccounts = require('../memberAccountController');
 
 const LISTING_VALIDATION_METHODS = {
