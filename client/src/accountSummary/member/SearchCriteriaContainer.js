@@ -36,32 +36,32 @@ const SearchCriteriaContainer = (props) => {
     const {memberSearchFilters, setMemberSearchFilters, reset} = props;
     const history = useHistory();
     // Gender and Family Status
-    const [genderPreference, setGenderPreference] = useState(memberSearchFilters.genderPreference);
-    const [familyStatusPreference, setFamilyStatusPreference] = useState(memberSearchFilters.statusPreference);
+    const [genderPreference, setGenderPreference] = useState();
+    const [familyStatusPreference, setFamilyStatusPreference] = useState();
 
     // Age
-    const [minAgePreference, setMinAgePreference] = useState(memberSearchFilters.minAgePreference);
-    const [maxAgePreference, setMaxAgePreference] = useState(memberSearchFilters.maxAgePreference);
+    const [minAgePreference, setMinAgePreference] = useState();
+    const [maxAgePreference, setMaxAgePreference] = useState();
 
     // Number of Roommates
-    const [selectedLimitPreference, setSelectedLimitPreference] = useState(memberSearchFilters.numRoommatesPreference);
+    const [selectedLimitPreference, setSelectedLimitPreference] = useState();
 
     // Budget
-    const [minBudgetPreference, setMinBudgetPreference] = useState(memberSearchFilters.minBudgetPreference);
-    const [maxBudgetPreference, setMaxBudgetPreference] = useState(memberSearchFilters.maxBudgetPreference);
+    const [minBudgetPreference, setMinBudgetPreference] = useState();
+    const [maxBudgetPreference, setMaxBudgetPreference] = useState();
 
     // Yes/No Question
-    const [religionPreference, setReligionPreference] = useState(memberSearchFilters.religionPreference);
+    const [religionPreference, setReligionPreference] = useState();
 
-    const [dietPreference, setDietPreference] = useState(memberSearchFilters.dietPreference);
+    const [dietPreference, setDietPreference] = useState();
 
-    const [homeToSharePreference, setHomeToSharePreference] = useState(memberSearchFilters.othersWithHomeToSharePreference);
+    const [homeToSharePreference, setHomeToSharePreference] = useState();
 
-    const [petPreference, setPetPreference] = useState(memberSearchFilters.petsPreference);
+    const [petPreference, setPetPreference] = useState();
 
-    const [smokingPreference, setSmokingPreference] = useState(memberSearchFilters.smokingPreference);
+    const [smokingPreference, setSmokingPreference] = useState();
 
-    // const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
     const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
     // Search Criteria Errors
@@ -80,6 +80,29 @@ const SearchCriteriaContainer = (props) => {
     const [religionPreferenceError, setReligionPreferenceError] = useState(undefined);
     const [dietPreferenceError, setDietPreferenceError] = useState(undefined);
     const [homeToSharePreferenceError, setHomeToSharePreferenceError] = useState(undefined);
+
+    //populate values from server
+    useEffect(() => {
+        MemberService.getMemberSearchFilters()
+            .then(res => res.json())
+            .then(data => {
+                setGenderPreference(data.genderPreference);
+                setFamilyStatusPreference(data.familyStatusPreference);
+                setMinAgePreference(data.minAgePreference);
+                setMaxAgePreference(data.maxAgePreference);
+                setSelectedLimitPreference(data.selectedLimitPreference);
+                setMinBudgetPreference(data.minBudgetPreference);
+                setMaxBudgetPreference(data.maxBudgetPreference);
+                setReligionPreference(data.religionPreference);
+                setDietPreference(data.dietPreference);
+                setHomeToSharePreference(data.homeToSharePreference);
+                setPetPreference(data.petsPreference);
+                setSmokingPreference(data.smokingPreference);
+
+                setLoading(false);
+            });
+    }, []);
+
 
     // UseEffects
     useEffect(() => {
@@ -232,6 +255,7 @@ const SearchCriteriaContainer = (props) => {
 
     return (
         <div>
+            {!loading &&
             <SearchCriteria
                 genderPreference={genderPreference}
                 handleGenderPrefChange={handleGenderPrefChange}
@@ -285,6 +309,7 @@ const SearchCriteriaContainer = (props) => {
 
                 onSubmit={onSubmit}
             />
+            }
         </div>
 
     )
