@@ -12,11 +12,12 @@ import BusinessInfo from "../BusinessInfo";
 
 describe('BusinessInfo', () => {
     describe('Container test', () => {
-        it('should match snapshot test', () => {
+        it('should match snapshot test if business is not nationWide', () => {
             //given
             const props = {
                 logo: "public/images/12.jpg",
                 businessName: "Bob the builder",
+                isNationWide: false,
                 address: ({
                     streetLine1: "123 Kelowna",
                     streetLine2: "",
@@ -28,7 +29,29 @@ describe('BusinessInfo', () => {
                 phone: "123-413-1341",
                 email: "Bob@Builder.ca"
             }
-
+            //when
+            const component = renderer.create(<BusinessInfo {...props}/>);
+            const tree = component.toJSON();
+            //then
+            expect(tree).toMatchSnapshot();
+        });
+        it('should match snapshot test if business is nationWide', () => {
+            //given
+            const props = {
+                logo: "public/images/12.jpg",
+                businessName: "Bob the builder",
+                isNationWide: true,
+                address: ({
+                    streetLine1: null,
+                    streetLine2: null,
+                    city: null,
+                    province: null,
+                    postalCode: null,
+                }),
+                website: "www.bob.com",
+                phone: "123-413-1341",
+                email: "Bob@Builder.ca"
+            }
             //when
             const component = renderer.create(<BusinessInfo {...props}/>);
             const tree = component.toJSON();
