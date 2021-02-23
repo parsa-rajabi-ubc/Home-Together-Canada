@@ -74,7 +74,7 @@ const CreateListingContainer = (props) => {
         }
         if (isListingValid) {
             setShowConfirmation(true)
-            setConfirmationMsg(CONFIRMATION_TEXT.BUSINESS_LISTINGS);
+            setConfirmationMsg(isUserMember ? CONFIRMATION_TEXT.MEMBER_LISTINGS : CONFIRMATION_TEXT.BUSINESS_LISTINGS);
         }
     }, [paymentStatus, isListingValid]);
 
@@ -128,8 +128,6 @@ const CreateListingContainer = (props) => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.success) {
-                        setConfirmationMsg(isUserMember ? CONFIRMATION_TEXT.MEMBER_LISTINGS : CONFIRMATION_TEXT.BUSINESS_LISTINGS);
-                        setShowConfirmation(true);
                         setIsListingValid(true);
                         setLoading(false);
                     } else if (data.authenticated === false) {
