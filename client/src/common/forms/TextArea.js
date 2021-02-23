@@ -30,7 +30,7 @@ function TextArea(props) {
             </label>
             {(required ? <Asterisk/> : '')}
             <input
-                className={className}
+                className={`${disabled && "disabled-field"} ${className}`}
                 type="text"
                 placeholder={placeholder}
                 autoComplete={autoComplete}
