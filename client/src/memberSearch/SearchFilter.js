@@ -21,9 +21,13 @@ function SearchFilter(props) {
     const {
         handleSearchAreaChange,
         searchArea,
+        searchAreaProvinceError,
+        searchAreaCityError,
+        searchAreaRadiusError,
 
         genderPreference,
         handleGenderPrefChange,
+        genderPreferenceError,
 
         familyStatusPreference,
         setFamilyStatusPreference,
@@ -76,34 +80,49 @@ function SearchFilter(props) {
                         className="btn btn-green w-1/4 float-right py-2"
                         onClick={onSubmit}
                     />
+
                     <label className="label block">Search Area</label>
-                    <SearchArea searchArea={searchArea} onChange={handleSearchAreaChange}/>
+                    <SearchArea
+                        searchArea={searchArea}
+                        onChange={handleSearchAreaChange}
+                        searchAreaProvinceError={searchAreaProvinceError}
+                        searchAreaCityError={searchAreaCityError}
+                        searchAreaRadiusError={searchAreaRadiusError}
+                    />
 
-                    <label className={"label block"}>I am open to sharing with </label>
-                    <div className={"my-2"}>
-                        <Checkbox
-                            label="Male"
-                            id={"Male"}
-                            fontNormal={true}
-                            checked={isValueInArray(genderPreference, "Male")}
-                            onChange={handleGenderPrefChange}
-                        />
+                    {/*<label className="label block">Search Area</label>*/}
+                    {/*<SearchArea searchArea={searchArea} onChange={handleSearchAreaChange}/>*/}
 
-                        <Checkbox
-                            label="Female"
-                            id={"Female"}
-                            fontNormal={true}
-                            checked={isValueInArray(genderPreference, "Female")}
-                            onChange={handleGenderPrefChange}
-                        />
-                        <Checkbox
-                            label="Other"
-                            id={"Other"}
-                            fontNormal={true}
-                            checked={isValueInArray(genderPreference, "Other")}
-                            onChange={handleGenderPrefChange}
-                        />
-                    </div>
+                    <section
+                        className={`${genderPreferenceError && "pl-1 border rounded-lg border-red-500 mr-52"}`}>
+                        <label className={"label block"}>I am open to sharing with </label>
+                        <div className={"my-2"}>
+                            <Checkbox
+                                label="Male"
+                                id="Male"
+                                className={"align-middle mt-0 mr-1 mb-0 h-4 w-4 border-gray-300 rounded-lg"}
+                                checked={isValueInArray(genderPreference, "Male")}
+                                fontNormal={true}
+                                onChange={handleGenderPrefChange}
+                            />
+                            <Checkbox
+                                label="Female"
+                                id={"Female"}
+                                className={"align-middle mt-0 mr-1 mb-0 text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"}
+                                checked={isValueInArray(genderPreference, "Female")}
+                                fontNormal={true}
+                                onChange={handleGenderPrefChange}
+                            />
+                            <Checkbox
+                                label="Other"
+                                id={"Other"}
+                                className={"align-middle mt-0 mr-1 mb-0 text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"}
+                                checked={isValueInArray(genderPreference, "Other")}
+                                fontNormal={true}
+                                onChange={handleGenderPrefChange}
+                            />
+                        </div>
+                    </section>
 
                     <div className="grid grid-cols-2 gap-x-6">
                         <div className="column-span-3-layout">
@@ -223,9 +242,13 @@ SearchFilter.propTypes = {
         city: PropTypes.string,
         radius: PropTypes.number
     }),
+    searchAreaProvinceError: PropTypes.bool,
+    searchAreaCityError: PropTypes.bool,
+    searchAreaRadiusError: PropTypes.bool,
 
     genderPreference: PropTypes.array.isRequired,
     handleGenderPrefChange: PropTypes.func.isRequired,
+    genderPreferenceError: PropTypes.bool,
 
     familyStatusPreference: PropTypes.array.isRequired,
     setFamilyStatusPreference: PropTypes.func.isRequired,

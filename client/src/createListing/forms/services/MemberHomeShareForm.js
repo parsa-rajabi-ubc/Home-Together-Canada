@@ -78,10 +78,10 @@ const MemberHomeShareForm = (props) => {
         numBath !== undefined && validateInput(numBath, setNumBathError);
     }, [numBath]);
     useEffect(() => {
-        petFriendly !== undefined && validateInput(petFriendly, setPetFriendlyError);
+        petFriendly !== undefined && validateCheckbox(petFriendly, setPetFriendlyError);
     }, [petFriendly]);
     useEffect(() => {
-        smokeFriendly !== undefined && validateInput(smokeFriendly, setSmokeFriendlyError);
+        smokeFriendly !== undefined && validateCheckbox(smokeFriendly, setSmokeFriendlyError);
     }, [smokeFriendly]);
     useEffect(() => {
         utilIncluded !== undefined && validateCheckbox(utilIncluded, setUtilIncludedError);
