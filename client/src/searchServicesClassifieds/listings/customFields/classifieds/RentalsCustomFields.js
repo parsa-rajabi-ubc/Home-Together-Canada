@@ -28,7 +28,7 @@ const RentalsCustomFields = (props) =>{
             <div className={"flex-none w-9/12"}>
                 <label
                     className={"label-result"}>{RENTALS_CUSTOM_FIELDS_TEXT.PRICE}</label>
-                <p> {price}</p>
+                <p>${price}</p>
 
                 <label className={"label-result"}>{RENTALS_CUSTOM_FIELDS_TEXT.NUMBER_BEDROOM}</label>
                 <p> {numBed}</p>
@@ -76,8 +76,6 @@ const RentalsCustomFields = (props) =>{
                     </tbody>
                 </table>
 
-                <button className={"btn btn-red my-10 text-base py-2"}>Report User
-                </button>
             </div>
 
         </div>

@@ -13,7 +13,7 @@ exports[`RentalsCustomFields should render correctly regardless of properties 1`
       Price (CAD)
     </label>
     <p>
-       
+      $
       800
     </p>
     <label
@@ -152,11 +152,6 @@ exports[`RentalsCustomFields should render correctly regardless of properties 1`
         </tr>
       </tbody>
     </table>
-    <button
-      className="btn btn-red my-10 text-base py-2"
-    >
-      Report User
-    </button>
   </div>
 </div>
 `;
