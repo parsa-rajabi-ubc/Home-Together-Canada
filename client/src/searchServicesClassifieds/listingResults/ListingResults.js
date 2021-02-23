@@ -7,10 +7,10 @@
  *
  */
 
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import Paginate from "../../common/forms/Paginate";
-import {listingContext} from "../SearchListingContainer";
+import {listingContext, PAGE_NAMES} from "../SearchListingContainer";
 import BusinessListingCard from "../listingCards/BusinessListingCard";
 import {mockBusinessListings, mockMemberListings} from "../../mockData/MockListingData";
 import MemberListingCard from "../listingCards/MemberListingCard";
@@ -40,16 +40,22 @@ function ListingResults() {
                     title={member.title}
                     monthlyCost={member.monthlyCost}
                     petFriendly={member.petFriendly}
-                    smokeFriendly={member.smokeFriendly
-                    }
+                    smokeFriendly={member.smokeFriendly}
                     shortDescription={member.shortDescription}
                     datePosted={member.datePosted}/>
             </Link>
     )
 
+    const [listingCards, setListingCards] = useState((listingPage === PAGE_NAMES.SERVICES) ? businessCards.concat(memberListingCards) : businessCards)
+
+    useEffect(() => {
+        setListingCards((listingPage === PAGE_NAMES.SERVICES) ? businessCards.concat(memberListingCards) : businessCards)
+    }, [listingPage]);
+
+
     return (
         <div>
-            <Paginate data={businessCards.concat(memberListingCards)} resultsPerPage={NUM_RESULTS}/>
+            <Paginate data={listingCards} resultsPerPage={NUM_RESULTS}/>
         </div>
     );
 }

@@ -6,7 +6,7 @@ exports[`BusinessListingContainer Container test should match snapshot test 1`] 
     className="text-center min-h-screen transform translate-y-1/2"
   >
     <h1
-      className="page-title font-normal"
+      className="text-gray-800 h1"
     >
       Loading...
     </h1>

@@ -88,11 +88,11 @@ exports[`SearchArea Snapshot test should render correctly regardless of properti
               className=" css-1hb7zxy-IndicatorsContainer"
             >
               <span
-                className=" css-1okebmr-indicatorSeparator"
+                className=" css-43ykx9-indicatorSeparator"
               />
               <div
                 aria-hidden="true"
-                className=" css-tlfecz-indicatorContainer"
+                className=" css-1px1elb-indicatorContainer"
                 onMouseDown={[Function]}
                 onTouchEnd={[Function]}
               >
@@ -202,11 +202,11 @@ exports[`SearchArea Snapshot test should render correctly regardless of properti
               className=" css-1hb7zxy-IndicatorsContainer"
             >
               <span
-                className=" css-1okebmr-indicatorSeparator"
+                className=" css-43ykx9-indicatorSeparator"
               />
               <div
                 aria-hidden="true"
-                className=" css-tlfecz-indicatorContainer"
+                className=" css-1px1elb-indicatorContainer"
                 onMouseDown={[Function]}
                 onTouchEnd={[Function]}
               >
@@ -316,11 +316,11 @@ exports[`SearchArea Snapshot test should render correctly regardless of properti
               className=" css-1hb7zxy-IndicatorsContainer"
             >
               <span
-                className=" css-1okebmr-indicatorSeparator"
+                className=" css-43ykx9-indicatorSeparator"
               />
               <div
                 aria-hidden="true"
-                className=" css-tlfecz-indicatorContainer"
+                className=" css-1px1elb-indicatorContainer"
                 onMouseDown={[Function]}
                 onTouchEnd={[Function]}
               >

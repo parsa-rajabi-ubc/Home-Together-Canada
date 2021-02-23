@@ -20,13 +20,21 @@ import {reset} from "../redux/actionCreators";
 import {SESSION_ERR} from "../common/constants/errors";
 import {getConcatenatedErrorMessage} from "../registration/registrationUtils";
 import {setMemberSearchResults} from "../redux/slices/memberPrivileges";
+import Loading from "../common/loading/Loading";
+import Confirmation from "../common/listings/Confirmation";
 
 const mapDispatchToProps = {
     reset,
     setMemberSearchResults
 }
 
-    const MemberSearchContainer = (props) => {
+const MESSAGES = {
+    CREATE_SEARCH: "Please use filters to search",
+    ERROR: "Oops, there was an error loading search results. Please try again",
+    INVALID_USER: "You must be a registered member to view this page."
+}
+
+const MemberSearchContainer = (props) => {
     const {accountType, authenticated, reset, memberSearchResults, setMemberSearchResults} = props;
 
     const [memberSearchResultsProfiles, setMemberSearchResultsProfiles] = useState(memberSearchResults || []);
@@ -43,7 +51,7 @@ const mapDispatchToProps = {
                     setSearchFiltersSelected(true);
                     if (data.profiles || Array.isArray(data.profiles)) {
                         setMemberSearchResultsProfiles(data.profiles);
-                        setMemberSearchResults({ memberSearchResults: data.profiles });
+                        setMemberSearchResults({memberSearchResults: data.profiles});
                         setError(false);
                         setLoading(false);
                     } else if (!data.authenticated && typeof data.authenticated === 'boolean') {
@@ -73,13 +81,13 @@ const mapDispatchToProps = {
         }
     }
 
-    function showAppropriateResultsPanel () {
+    function showAppropriateResultsPanel() {
         if (loading) {
-            return <div>Loading profiles...</div>;
+            return <Loading isLoading={loading}/>
         } else if (!searchFiltersSelected) {
-            return <div>Please select search filters to search</div>;
+            return <Confirmation message={MESSAGES.CREATE_SEARCH} displayButton={false}/>
         } else if (error) {
-            return <div>There was error loading search results</div>;
+            return <Confirmation message={MESSAGES.ERROR} displayButton={false} errorColor={true}/>
         } else {
             return <SearchResultsContainer profileData={memberSearchResultsProfiles}/>
         }
@@ -89,10 +97,11 @@ const mapDispatchToProps = {
         <div>
             {/* Checking to Ensure User is Authenticated and is a Member to view this page*/}
             {(!authenticated || accountType !== USER_TYPES.MEMBER)
-                ? <InvalidUser message={"You must be a registered member to view this page."}/>
-                : <div className={"flex flex-nowrap"}>
-                    <SearchFilterContainer onSearchMembersSubmit={onSubmit}/>
-
+                ? <InvalidUser message={MESSAGES.INVALID_USER}/>
+                : <div className={"flex"}>
+                    <section className={"flex-none w-1/3"}>
+                        <SearchFilterContainer onSearchMembersSubmit={onSubmit}/>
+                    </section>
                     {/*Results*/}
                     <div className={"flex-1"}>
                         {showAppropriateResultsPanel()}

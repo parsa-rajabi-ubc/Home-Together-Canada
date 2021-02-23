@@ -97,5 +97,14 @@ export const dropdownSearchAreaCSS = {
             ...defaultStyles,
             fontSize: "95%",
         }
-    }
+    },
+    dropdownIndicator: (defaultStyles) => ({
+        ...defaultStyles,
+        paddingLeft: 2,
+        paddingRight: 4
+    }),
+    indicatorSeparator: (styles) => ({
+        ...styles,
+        display:'none'
+    }),
 }
