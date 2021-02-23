@@ -16,6 +16,7 @@ import {getConcatenatedErrorMessage} from "../registration/registrationUtils";
 import Loading from "../common/loading/Loading";
 import Confirmation from "../common/listings/Confirmation";
 import {MEMBER_SERVICE_CATEGORIES} from "../createListing/constants/serviceListingCategoriesText";
+import {USER_TYPES} from "../common/constants/users";
 
 export const listingContext = createContext();
 
@@ -34,6 +35,8 @@ function SearchListingContainer() {
     let URL_PATH = useHistory().location.pathname;
     const [listingPage, setListingPage] = useState('');
     const [searchFiltersSelected, setSearchFiltersSelected] = useState(false);
+    const [listingData, setListingData] = useState();
+    const [listingUser, setListingUser] = useState();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
 
@@ -55,7 +58,13 @@ function SearchListingContainer() {
                 .then(res => res.json())
                 .then(data => {
                     setSearchFiltersSelected(true);
-                    if (data.listing) {
+                    if (data.listings) {
+                        if (searchFilterRequestBody.category === MEMBER_SERVICE_CATEGORIES.MEMBER_HOME) {
+                            setListingUser(USER_TYPES.MEMBER);
+                        } else {
+                            setListingUser(USER_TYPES.BUSINESS);
+                        }
+                        setListingData(data.listings);
                         setError(false);
                         setLoading(false);
                     } else if (data.err) {
@@ -89,7 +98,7 @@ function SearchListingContainer() {
         } else if (error) {
             return <Confirmation message={MESSAGES.ERROR} displayButton={false} errorColor={true}/>
         } else {
-            return <ListingResultsContainer/>
+            return <ListingResultsContainer listingUser={listingUser} listingData={listingData}/>
         }
     }
 
