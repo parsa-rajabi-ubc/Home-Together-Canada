@@ -22,7 +22,10 @@ describe('CreateListingControls', () => {
             // given
             const props = {
                 isUserMember: true,
-                categoryToDisplay: jest.fn()
+                chosenCategory: jest.fn(),
+                chosenSubcategories: jest.fn(),
+                isSubcategoryEmpty: jest.fn(),
+                submit: true
             };
             //when
             const component = renderer.create(<CreateListingControls {...props}/>);
@@ -34,7 +37,10 @@ describe('CreateListingControls', () => {
             // given
             const props = {
                 isUserMember: false,
-                categoryToDisplay: jest.fn()
+                chosenCategory: jest.fn(),
+                chosenSubcategories: jest.fn(),
+                isSubcategoryEmpty: jest.fn(),
+                submit: true
             };
             //when
             const component = renderer.create(<CreateListingControls {...props}/>);

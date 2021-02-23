@@ -93,7 +93,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
             </svg>
             <input
               autoComplete="given-name"
-              className="undefined input"
+              className="false undefined input"
               disabled={false}
               onChange={[Function]}
               type="text"
@@ -127,7 +127,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
             </svg>
             <input
               autoComplete="family-name"
-              className="undefined input"
+              className="false undefined input"
               disabled={false}
               onChange={[Function]}
               type="text"
@@ -161,7 +161,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
             </svg>
             <input
               autoComplete="email"
-              className="undefined input"
+              className="false undefined input"
               disabled={false}
               onChange={[Function]}
               placeholder="personal@email.ca"
@@ -6055,7 +6055,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                       </div>
                     </span>
                     <textarea
-                      className="bg-gray-400 text-sm font-light input"
+                      className="disabled-field input"
                       cols="50"
                       disabled={true}
                       name="termsOfService"
@@ -6336,7 +6336,7 @@ If you have any questions or concerns about our Terms, please contact us by e-ma
                       </div>
                     </span>
                     <textarea
-                      className="bg-gray-400 text-sm font-light input"
+                      className="disabled-field input"
                       cols="50"
                       disabled={true}
                       name="privacyPolicy"

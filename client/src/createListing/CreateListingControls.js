@@ -33,6 +33,7 @@ import Checkbox from "../common/forms/Checkbox";
 import {SERVICES_TEXT, CLASSIFIEDS_TEXT, CREATE_LISTINGS_TEXT} from "../common/constants/listingsConstants";
 import {isValueInArray} from "../common/utils/generalUtils";
 import PropTypes from "prop-types";
+import {validateInput} from "../registration/registrationUtils";
 
 export const CREATE_LISTING_CONTROLS_TEXT = {
     CREATE_LISTING: CREATE_LISTINGS_TEXT,
@@ -42,13 +43,20 @@ export const CREATE_LISTING_CONTROLS_TEXT = {
 }
 
 const CreateListingControls = (props) => {
-    const {isUserMember, categoryToDisplay} = props;
+    const {isUserMember, chosenCategory, chosenSubcategories, isSubcategoryEmpty, submitted} = props;
 
     const [selectedListingType, setSelectedListingType] = useState(isUserMember && SERVICES_TEXT);
     const [selectedCategory, setSelectedCategory] = useState(isUserMember && MEMBER_SERVICE_CATEGORIES.MEMBER_HOME);
     const [selectedSubcategories, setSelectedSubcategories] = useState([]);
     const [categoryOptions, setCategoryOptions] = useState(isUserMember && MEMBER_SERVICE_CATEGORIES_DROPDOWN);
     const [subcategories, setSubcategories] = useState([]);
+
+    const [selectedSubcategoriesError, setSelectedSubcategoriesError] = useState(undefined);
+
+    useEffect(() => {
+        ((selectedSubcategories !== undefined && submitted) &&  validateInput(selectedSubcategories, setSelectedSubcategoriesError));
+    }, [selectedSubcategories, submitted]);
+
 
     useEffect(() => {
         if (!isUserMember) {
@@ -65,7 +73,7 @@ const CreateListingControls = (props) => {
     }, [selectedListingType]);
 
     useEffect(() => {
-        categoryToDisplay(selectedCategory);
+        chosenCategory(selectedCategory);
 
         returnSubcategory(selectedCategory);
         setSelectedSubcategories([]);
@@ -88,6 +96,8 @@ const CreateListingControls = (props) => {
             list.splice(list.indexOf(value), 1);
         }
         setSelectedSubcategories(list);
+        chosenSubcategories(list);
+        isSubcategoryEmpty(!list.length);
     }
 
     const returnSubcategory = (selectedCategory) => {
@@ -179,7 +189,7 @@ const CreateListingControls = (props) => {
             }
 
             {(selectedCategory && !isUserMember) &&
-            <section className={"m-4"}>
+            <section className={`${selectedSubcategoriesError && "pl-1 pb-2 border rounded-lg border-red-500"} m-4`}>
                 <p className={"label text-lg mb-1"}>{CREATE_LISTING_CONTROLS_TEXT.SELECT_SUBCATEGORIES}</p>
                 {subcategoryCheckboxes}
             </section>
@@ -191,7 +201,10 @@ const CreateListingControls = (props) => {
 
 CreateListingControls.propTypes = {
     isUserMember: PropTypes.bool.isRequired,
-    categoryToDisplay: PropTypes.func.isRequired
+    chosenCategory: PropTypes.func.isRequired,
+    chosenSubcategories: PropTypes.func.isRequired,
+    isSubcategoryEmpty: PropTypes.func,
+    submitted: PropTypes.bool
 }
 
 export default CreateListingControls;

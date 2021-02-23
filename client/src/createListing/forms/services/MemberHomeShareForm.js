@@ -133,7 +133,18 @@ const MemberHomeShareForm = (props) => {
     function onCreateListing() {
 
         if (isFormValid()) {
-            onSubmit();
+            onSubmit({
+                title,
+                postalCode,
+                shortDescription,
+                fullDescription,
+                numBath,
+                numBed,
+                smokeFriendly,
+                petFriendly,
+                utilIncluded,
+                monthlyCost
+            });
         }
     }
 

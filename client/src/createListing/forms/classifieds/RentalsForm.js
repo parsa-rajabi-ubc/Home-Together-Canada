@@ -28,7 +28,7 @@ import {options} from "../services/constants/BedroomBathroomDropdownOptions";
 import {dropdownDefaultCSS, dropdownErrorCSS} from "../../../css/dropdownCSSUtil";
 
 const HouseServicesForm = (props) => {
-    const { onSubmit } = props;
+    const {onSubmit} = props;
 
     const [title, setTitle] = useState(undefined);
     const [shortDescription, setShortDescription] = useState(undefined);
@@ -39,7 +39,9 @@ const HouseServicesForm = (props) => {
     const [numBath, setNumBath] = useState(undefined);
     const [petFriendly, setPetFriendly] = useState(undefined);
     const [smokeFriendly, setSmokeFriendly] = useState(undefined);
-    const [photos, setPhotos] = useState(undefined);
+    const [picture, setPicture] = useState(undefined);
+
+    const [submitted, setSubmitted] = useState(false);
 
     const [titleError, setTitleError] = useState(undefined);
     const [shortDescriptionError, setShortDescriptionError] = useState(undefined);
@@ -89,7 +91,7 @@ const HouseServicesForm = (props) => {
     }
 
     function handleImageUpload(e) {
-        setPhotos(e.target.files[0]);
+        setPicture(e.target.files[0]);
     }
 
     const isFormValid = () => {
@@ -99,7 +101,7 @@ const HouseServicesForm = (props) => {
             shortDes: false,
             fullDes: false,
             price: false,
-            utilIncluded: false,
+            furnished: false,
             numBed: false,
             numBath: false,
             pet: false,
@@ -109,8 +111,8 @@ const HouseServicesForm = (props) => {
         errors.title = validateInput(title, setTitleError);
         errors.shortDes = validateInput(shortDescription, setShortDescriptionError);
         errors.fullDes = validateInput(fullDescription, setFullDescriptionError);
-        errors.price = validatePositiveNumber(price,setPriceError);
-        errors.utilIncluded = validateInput(furnished, setFurnishedError);
+        errors.price = validatePositiveNumber(price, setPriceError);
+        errors.furnished = validateInput(furnished, setFurnishedError);
         errors.numBed = validateInput(numBed, setNumBedError);
         errors.numBath = validateInput(numBath, setNumBathError);
         errors.pet = validateInput(petFriendly, setPetFriendlyError);
@@ -122,7 +124,18 @@ const HouseServicesForm = (props) => {
     //function for input checks on submit
     function onCreateListing() {
         if (isFormValid()) {
-            onSubmit();
+            setSubmitted(true);
+            onSubmit({
+                title,
+                shortDescription,
+                fullDescription,
+                price,
+                furnished,
+                numBed,
+                numBath,
+                petFriendly,
+                smokeFriendly,
+            });
         }
     }
 
@@ -140,6 +153,7 @@ const HouseServicesForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setTitle(e.target.value)}
+                            disabled={submitted}
                         />
 
                         <div className={"grid grid-cols-9 gap-x-6"}>
@@ -153,17 +167,19 @@ const HouseServicesForm = (props) => {
                                     required={true}
                                     onChange={(e) => setShortDescription(e.target.value)}
                                     charLimit={SHORT_DESC_CHAR_COUNT}
+                                    disabled={submitted}
                                 />
                             </section>
 
                             <section className={"col-start-1 col-end-5"}>
                                 <LabelAsterisk label={TEXT.price} className={"label"}/>
                                 <input
-                                    className={`${priceError && "border-red-500"} input`}
+                                    className={`${priceError && "border-red-500"} ${submitted && "disabled-field"} input`}
                                     type="number"
                                     min="0"
                                     step="1"
                                     onChange={(e) => setPrice(e.target.value)}
+                                    disabled={submitted}
                                 />
                             </section>
 
@@ -176,6 +192,7 @@ const HouseServicesForm = (props) => {
                                     required={true}
                                     value={furnished}
                                     onChange={(e) => setFurnished(e.target.value)}
+                                    disabled={submitted}
                                 />
                             </section>
                             <section className={"col-start-1 col-end-5"}>
@@ -187,7 +204,10 @@ const HouseServicesForm = (props) => {
                                 <Dropdown
                                     options={options}
                                     onChange={handleNumBedChange}
-                                    dropdownCSS={numBedError ? dropdownErrorCSS : dropdownDefaultCSS}/>
+                                    dropdownCSS={numBedError ? dropdownErrorCSS : dropdownDefaultCSS}
+                                    isDisabled={submitted}
+                                />
+
 
                             </section>
 
@@ -199,6 +219,7 @@ const HouseServicesForm = (props) => {
                                     required={true}
                                     value={petFriendly}
                                     onChange={(e) => setPetFriendly(e.target.value)}
+                                    disabled={submitted}
                                 />
                             </section>
                             <section className={"col-start-1 col-end-5"}>
@@ -210,6 +231,7 @@ const HouseServicesForm = (props) => {
                                     options={options}
                                     onChange={handleNumBathChange}
                                     dropdownCSS={numBathError ? dropdownErrorCSS : dropdownDefaultCSS}
+                                    isDisabled={submitted}
                                 />
 
                             </section>
@@ -223,6 +245,7 @@ const HouseServicesForm = (props) => {
                                     required={true}
                                     value={smokeFriendly}
                                     onChange={(e) => setSmokeFriendly(e.target.value)}
+                                    disabled={submitted}
                                 />
                             </section>
 
@@ -235,9 +258,10 @@ const HouseServicesForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setFullDescription(e.target.value)}
+                            disabled={submitted}
                         />
 
-                        <label className="label"> Pictures </label>
+                        <label className="label"> {TEXT.pictures} </label>
                         <Tooltip
                             text={ToolTipText.PHOTOS}
                             toolTipID={"UploadPhotos"}

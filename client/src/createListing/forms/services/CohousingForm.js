@@ -80,7 +80,14 @@ const CohousingForm = (props) => {
     //function for input checks on submit
     function onCreateListing() {
         if (isFormValid()) {
-            onSubmit();
+            onSubmit({
+                title,
+                contactName,
+                shortDescription,
+                fullDescription,
+                unitsForRent,
+                unitsForSale
+            });
         }
     }
 

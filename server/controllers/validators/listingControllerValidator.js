@@ -6,7 +6,6 @@
  *
  */
 const { body } = require('express-validator/check');
-const uniq = require('lodash/uniq');
 const {isValidRadius} = require("./userControllerValidatorUtils");
 const {PROVINCES_LIST} = require("../configConstants");
 const {isValidLocation} = require("./userControllerValidatorUtils");
@@ -25,7 +24,6 @@ const {
     isValidSubcategoryForSelectedCategory,
     listingShouldHaveCategories,
     shouldOrderIdBeDefined,
-    removeDuplicates,
     LISTING_FIELDS_ERRORS,
 } = require('./listingControllerValidatorUtils');
 
@@ -40,7 +38,7 @@ const commonListingInfo = [
         .trim()
         .stripLow()
         .not().isEmpty(),
-    body('longDescription', LISTING_FIELDS_ERRORS.LONG_DESCRIPTION)
+    body('fullDescription', LISTING_FIELDS_ERRORS.FULL_DESCRIPTION)
         .exists()
         .trim()
         .stripLow()
@@ -56,14 +54,14 @@ const monthlyCostValidation = [
 ];
 
 const numBedBathValidation = [
-    body('numBedrooms', LISTING_FIELDS_ERRORS.NUM_BEDROOMS)
+    body('numBed', LISTING_FIELDS_ERRORS.NUM_BEDROOMS)
         .exists()
         .isNumeric()
-        .custom(numBedrooms => isPositiveInteger(numBedrooms)),
-    body('numBathrooms', LISTING_FIELDS_ERRORS.NUM_BATHROOMS)
+        .custom(numBed => isPositiveInteger(numBed)),
+    body('numBath', LISTING_FIELDS_ERRORS.NUM_BATHROOMS)
         .exists()
         .isNumeric()
-        .custom(numBathrooms => isPositiveInteger(numBathrooms))
+        .custom(numBath => isPositiveInteger(numBath))
 ]
 
 const petFriendlyValidation = [
@@ -87,14 +85,14 @@ const contactNameValidation = [
 ];
 
 const contactNumberValidation = [
-    body('contactNumber', LISTING_FIELDS_ERRORS.CONTACT_PHONE_NUMBER)
+    body('contactPhoneNumber', LISTING_FIELDS_ERRORS.CONTACT_PHONE_NUMBER)
         .exists()
         .isNumeric()
-        .custom(contactNumber => isValidPhoneNumber(contactNumber))
+        .custom(contactPhoneNumber => isValidPhoneNumber(contactPhoneNumber))
 ];
 
 const ratesAndFeesValidation = [
-    body('ratesAndFees', LISTING_FIELDS_ERRORS.RATES_AND_FEES)
+    body('rateAndFees', LISTING_FIELDS_ERRORS.RATES_AND_FEES)
         .exists()
         .trim()
         .stripLow()
@@ -173,7 +171,7 @@ exports.validate = method => {
                 ...numBedBathValidation,
                 ...petFriendlyValidation,
                 ...smokeFriendlyValidation,
-                body('isFurnished', LISTING_FIELDS_ERRORS.IS_FURNISHED)
+                body('furnished', LISTING_FIELDS_ERRORS.IS_FURNISHED)
                     .exists()
                     .isBoolean()
             ];
@@ -196,7 +194,7 @@ exports.validate = method => {
                 ...ratesAndFeesValidation,
                 ...contactNameValidation,
                 ...contactNumberValidation,
-                body('eventDateTimes')
+                body('eventDateTime')
                     .exists()
                     .trim()
                     .stripLow()

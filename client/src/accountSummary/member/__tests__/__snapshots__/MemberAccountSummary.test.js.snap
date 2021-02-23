@@ -72,7 +72,7 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
               />
             </svg>
             <input
-              className="undefined input"
+              className="false undefined input"
               disabled={false}
               onChange={[Function]}
               type="text"
@@ -106,7 +106,7 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
               />
             </svg>
             <input
-              className="undefined input"
+              className="false undefined input"
               disabled={false}
               onChange={[Function]}
               type="text"
@@ -140,7 +140,7 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
               />
             </svg>
             <input
-              className="undefined input"
+              className="false undefined input"
               disabled={false}
               onChange={[Function]}
               placeholder="personal@email.ca"

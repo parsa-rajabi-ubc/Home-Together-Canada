@@ -11,18 +11,26 @@ const pick = require('lodash/pick');
 const {
     BUSINESS_SERVICES_CATEGORIES,
     MEMBER_SERVICE_CATEGORIES,
-    BUSINESS_CLASSIFIEDS_CATEGORIES
+    BUSINESS_CLASSIFIEDS_CATEGORIES,
+    CO_HOUSING_SUBCATEGORIES_ARRAY,
+    SHARED_HOME_SERVICES_SUBCATEGORIES_ARRAY,
+    SHARED_BUSINESS_SERVICES_SUBCATEGORIES_ARRAY,
+    GOVERNMENT_SERVICES_SUBCATEGORIES_ARRAY,
+    RENTALS_SUBCATEGORIES_ARRAY,
+    HOUSE_YARD_SERVICES_SUBCATEGORIES_ARRAY,
+    LEGAL_SALES_AGENCIES_SUBCATEGORIES_ARRAY,
+    CLASSES_CLUBS_EVENTS_SUBCATEGORIES_ARRAY
 } = require('../../constants/listingConstants')
 
-const COMMON_FIELDS = ['title', 'shortDescription', 'longDescription'];
+const COMMON_FIELDS = ['title', 'shortDescription', 'fullDescription'];
 const CO_HOUSING_FIELDS = [...COMMON_FIELDS, 'contactName', 'unitsForSale', 'unitsForRent'];
-const HOME_SHARE_FACILITATION_BUSINESS_FIELDS = [...COMMON_FIELDS, 'ratesAndFees'];
+const HOME_SHARE_FACILITATION_BUSINESS_FIELDS = [...COMMON_FIELDS, 'rateAndFees'];
 const GOVERNMENT_FIELDS = [...COMMON_FIELDS, 'contactName', 'contactNumber'];
-const RENTAL_FIELDS = [...COMMON_FIELDS, 'monthlyCost', 'numBedrooms', 'numBathrooms', 'petFriendly', 'smokeFriendly', 'isFurnished'];
-const HOUSE_YARD_FIELDS = [...COMMON_FIELDS, 'ratesAndFees'];
-const LEGAL_SALES_FIELDS = [...COMMON_FIELDS, 'ratesAndFees'];
-const EVENTS_CLUBS_FIELDS = [...COMMON_FIELDS, 'ratesAndFees', 'contactName', 'contactNumber', 'eventDateTimes'];
-const MEMBER_HOME_FIELDS = [...COMMON_FIELDS, 'monthlyCost', 'numBedrooms', 'numBathrooms', 'petFriendly', 'smokeFriendly', 'postalCode', 'utilitiesIncluded'];
+const RENTAL_FIELDS = [...COMMON_FIELDS, 'monthlyCost', 'numBed', 'numBath', 'petFriendly', 'smokeFriendly', 'furnished'];
+const HOUSE_YARD_FIELDS = [...COMMON_FIELDS, 'rateAndFees'];
+const LEGAL_SALES_FIELDS = [...COMMON_FIELDS, 'rateAndFees'];
+const EVENTS_CLUBS_FIELDS = [...COMMON_FIELDS, 'rateAndFees', 'contactName', 'contactPhoneNumber', 'eventDateTime'];
+const MEMBER_HOME_FIELDS = [...COMMON_FIELDS, 'monthlyCost', 'numBed', 'numBath', 'petFriendly', 'smokeFriendly', 'postalCode', 'utilitiesIncluded'];
 
 const getListingFields = (req) => {
     switch (req.body.category) {
@@ -56,6 +64,28 @@ const getListingFields = (req) => {
     }
 }
 
+const resolveCategoryToSubcategory = (category) => {
+    switch (category) {
+        case BUSINESS_SERVICES_CATEGORIES.CO_HOUSING:
+            return CO_HOUSING_SUBCATEGORIES_ARRAY;
+        case BUSINESS_SERVICES_CATEGORIES.SHARED_HOME_SERVICES:
+            return SHARED_HOME_SERVICES_SUBCATEGORIES_ARRAY;
+        case BUSINESS_SERVICES_CATEGORIES.SHARED_BUSINESS_SERVICES:
+            return SHARED_BUSINESS_SERVICES_SUBCATEGORIES_ARRAY;
+        case BUSINESS_SERVICES_CATEGORIES.GOVERNMENT_SERVICES:
+            return GOVERNMENT_SERVICES_SUBCATEGORIES_ARRAY;
+        case BUSINESS_CLASSIFIEDS_CATEGORIES.RENTALS:
+            return RENTALS_SUBCATEGORIES_ARRAY;
+        case BUSINESS_CLASSIFIEDS_CATEGORIES.HOUSE_YARD:
+            return HOUSE_YARD_SERVICES_SUBCATEGORIES_ARRAY;
+        case BUSINESS_CLASSIFIEDS_CATEGORIES.LEGAL_SALES:
+            return LEGAL_SALES_AGENCIES_SUBCATEGORIES_ARRAY;
+        case BUSINESS_CLASSIFIEDS_CATEGORIES.CLASSES_CLUBS:
+            return CLASSES_CLUBS_EVENTS_SUBCATEGORIES_ARRAY;
+    }
+}
+
 module.exports = {
-    getListingFields
+    getListingFields,
+    resolveCategoryToSubcategory
 }

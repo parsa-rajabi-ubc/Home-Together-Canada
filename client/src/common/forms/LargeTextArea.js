@@ -25,7 +25,7 @@ function LargeTextArea(props) {
             />
             }
             <textarea
-                className={`${disabled && "bg-gray-400 text-sm font-light"} ${className}`}
+                className={`${disabled && "disabled-field"} ${className}`}
                 name={name}
                 rows={rows}
                 cols="50"

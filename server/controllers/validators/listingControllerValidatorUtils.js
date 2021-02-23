@@ -6,14 +6,13 @@
  *
  */
 const includes = require('lodash/includes');
-const uniq = require('lodash/uniq');
 
 const {
     BUSINESS_SERVICES_CATEGORIES,
     MEMBER_SERVICE_CATEGORIES,
     BUSINESS_CLASSIFIEDS_CATEGORIES,
-    LISTING_CATEGORY_SUBCATEGORY_MAP
 } = require('../../constants/listingConstants');
+const {resolveCategoryToSubcategory} = require ("../utils/listingControllerUtils");
 const memberAccounts = require('../memberAccountController');
 
 const LISTING_VALIDATION_METHODS = {
@@ -52,7 +51,7 @@ const BASIC_ERROR_MESSAGE = 'Missing or invalid value';
 const LISTING_FIELDS_ERRORS = {
     TITLE: `${BASIC_ERROR_MESSAGE} for title`,
     SHORT_DESCRIPTION: `${BASIC_ERROR_MESSAGE} for short description`,
-    LONG_DESCRIPTION: `${BASIC_ERROR_MESSAGE} for long description`,
+    FULL_DESCRIPTION: `${BASIC_ERROR_MESSAGE} for full description`,
     POSTAL_CODE: `${BASIC_ERROR_MESSAGE} for postal code`,
     MONTHLY_COST: `${BASIC_ERROR_MESSAGE} for monthly cost`,
     UTILITIES_INCLUDED: `${BASIC_ERROR_MESSAGE} for utilities included`,
@@ -116,7 +115,7 @@ const isValidSubcategoryForSelectedCategory = (subcategory, category) => {
     // there are no subcategories for members with home to share
     // get that category's subcategories and make sure that the given subcategory is included in that list
     if ((category === MEMBER_SERVICE_CATEGORIES.MEMBER_HOME && !!subcategory)
-        || (!includes(Object.values(LISTING_CATEGORY_SUBCATEGORY_MAP.get(category)), subcategory))) {
+        || (!includes(resolveCategoryToSubcategory(category), subcategory))) {
         throw new Error(`Subcategory ${subcategory} is not a valid subcategory for category ${category}`);
     }
     return true;
@@ -126,7 +125,7 @@ const listingShouldHaveCategories = (subcategories, category) => {
     if ((subcategories && subcategories.length) && category === MEMBER_SERVICE_CATEGORIES.MEMBER_HOME) {
         throw new Error(`Listings in ${category} should not have subcategories`);
     } else if ((!subcategories || !subcategories.length) && isValidBusinessListingCategory(category)) {
-        throw new Error(`Listings in ${category} must have at least one subcategory`);
+        throw new Error(`A subcategory must be selected`);
     } else {
         return true;
     }
@@ -137,12 +136,6 @@ const shouldOrderIdBeDefined = (orderId, type) => {
         throw new Error('OrderId must be provided for classified listing');
     }
     return true;
-}
-
-const removeDuplicates = list => {
-    const uniqueList = uniq(list);
-    console.log('uniqueLIst: ', uniqueList);
-    return uniqueList;
 }
 
 
@@ -160,5 +153,4 @@ module.exports = {
     isValidSubcategoryForSelectedCategory,
     listingShouldHaveCategories,
     shouldOrderIdBeDefined,
-    removeDuplicates
 }

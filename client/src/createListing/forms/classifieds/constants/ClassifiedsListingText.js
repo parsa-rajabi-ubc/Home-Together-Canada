@@ -27,7 +27,7 @@ export const RENTALS_TEXT = {
     num_bath: "Number of bathrooms",
     pet: "Pet friendly?",
     smoking: "Smoke friendly?",
-    photos: "Photos",
+    pictures: "Pictures",
     furnished: "Furnished?"
 }
 
@@ -40,7 +40,7 @@ export const AGENCIES_TEXT = {
     rateAndFees: "Rates and Fees",
 }
 
-export const Events_TEST = {
+export const Events_TEXT = {
     form_title: BUSINESS_CLASSIFIEDS_CATEGORIES.CLASSES_CLUBS,
     title: "Descriptive Title",
     short_des: "Short Description",
@@ -48,5 +48,6 @@ export const Events_TEST = {
     pictures: "Pictures",
     rateAndFees: "Rates and Fees",
     contactName: "Contact Name",
-    eventDateAndDate: "Event dates and time"
+    contactPhoneNumber: "Contact Phone Number",
+    eventDateTime: "Event Date(s) and Time(s)"
 }

@@ -634,7 +634,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
             />
             
             <input
-              className="input"
+              className="false input"
               disabled={false}
               onChange={[Function]}
               placeholder="Member's username(s) - divided by commas"
@@ -2293,7 +2293,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                   <label />
                   
                   <input
-                    className="input"
+                    className="false input"
                     disabled={false}
                     onChange={[Function]}
                     placeholder="Elaborate (optional)"
@@ -2492,7 +2492,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                   <label />
                   
                   <input
-                    className="input"
+                    className="false input"
                     disabled={false}
                     onChange={[Function]}
                     placeholder="Elaborate (optional)"
@@ -2762,7 +2762,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                   <label />
                   
                   <input
-                    className="input"
+                    className="false input"
                     disabled={false}
                     onChange={[Function]}
                     placeholder="Elaborate (optional)"
@@ -2961,7 +2961,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                   <label />
                   
                   <input
-                    className="input"
+                    className="false input"
                     disabled={false}
                     onChange={[Function]}
                     placeholder="Elaborate (optional)"

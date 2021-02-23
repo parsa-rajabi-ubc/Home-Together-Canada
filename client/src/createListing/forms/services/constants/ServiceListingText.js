@@ -44,5 +44,8 @@ export const GOVERNMENT_SERVICES_TEXT = {
     form_title: BUSINESS_SERVICE_CATEGORIES.GOVERNMENT_SERVICES,
     title: "Descriptive Title",
     short_des: "Short Description",
+    contact_name: "Contact Name",
+    contact_phone_number: "Contact Phone Number",
     full_des: "Full Description"
+
 }

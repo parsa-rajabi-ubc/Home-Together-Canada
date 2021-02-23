@@ -45,7 +45,7 @@ exports[`HouseServicesForm Snapshot test should render correctly regardless of p
             />
           </svg>
           <input
-            className="undefined input"
+            className="false undefined input"
             disabled={false}
             onChange={[Function]}
             type="text"
@@ -84,7 +84,7 @@ exports[`HouseServicesForm Snapshot test should render correctly regardless of p
                 />
               </svg>
               <input
-                className="undefined input"
+                className="false undefined input"
                 disabled={false}
                 maxLength="50"
                 onChange={[Function]}
@@ -122,7 +122,7 @@ exports[`HouseServicesForm Snapshot test should render correctly regardless of p
                 />
               </svg>
               <input
-                className="undefined input"
+                className="false undefined input"
                 disabled={false}
                 onChange={[Function]}
                 type="text"
@@ -157,8 +157,9 @@ exports[`HouseServicesForm Snapshot test should render correctly regardless of p
             />
           </svg>
           <textarea
-            className="undefined undefined input"
+            className="false undefined input"
             cols="50"
+            disabled={false}
             onChange={[Function]}
             rows="6"
           />
@@ -166,7 +167,9 @@ exports[`HouseServicesForm Snapshot test should render correctly regardless of p
         <label
           className="label"
         >
-           Pictures 
+           
+          Pictures
+           
         </label>
         <span>
           <span
