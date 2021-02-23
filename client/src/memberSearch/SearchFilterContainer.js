@@ -18,7 +18,6 @@ import indexOf from "lodash/indexOf";
 import { setMemberSearchFilters } from "../redux/slices/memberPrivileges";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
-import SearchListingFilters from "../searchServicesClassifieds/searchFilter/SearchListingFilters";
 
 const mapDispatchToProps = {
     setMemberSearchFilters
