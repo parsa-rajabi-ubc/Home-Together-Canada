@@ -7,7 +7,6 @@
  */
 import PropTypes from "prop-types";
 import React from 'react';
-import HTC_Logo from "../../../../images/HTC_Logo.jpg";
 
 const EVENTS_CUSTOM_FIELDS_TEXT = {
     RATE_AND_FEES: "Rates and fees (CAD)",
@@ -34,10 +33,9 @@ const EventsCustomFields = (props) => {
             <label className={"label-result"}>{EVENTS_CUSTOM_FIELDS_TEXT.EVENTS_DATE_AND_TIME}</label>
             <p> {eventDateTime}</p>
 
-            <label className={"label-result"}>{EVENTS_CUSTOM_FIELDS_TEXT.PICTURES}</label>
-
             {/*TODO: replace HTC_Logo with picture string from DB*/}
-            <img src={HTC_Logo} alt={""}/>
+            {/*<label className={"label-result"}>{EVENTS_CUSTOM_FIELDS_TEXT.PICTURES}</label>*/}
+
         </div>
     );
 }
@@ -47,7 +45,7 @@ EventsCustomFields.propTypes = {
     contactName: PropTypes.string.isRequired,
     contactNumber: PropTypes.string.isRequired,
     eventDateTime: PropTypes.string.isRequired,
-    pictures: PropTypes.string.isRequired
+    pictures: PropTypes.string
 }
 
 export default EventsCustomFields;
