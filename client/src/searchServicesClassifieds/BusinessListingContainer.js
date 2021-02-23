@@ -7,6 +7,7 @@
  */
 
 import React, {useContext, useEffect, useState} from 'react';
+import PropTypes from "prop-types";
 import {listingContext} from "./SearchListingContainer";
 import {useParams} from "react-router-dom";
 import BusinessInfo from "./listings/BusinessInfo";
@@ -28,7 +29,7 @@ import AgenciesCustomFields from "./listings/customFields/classifieds/AgenciesCu
 import EventsCustomFields from "./listings/customFields/classifieds/EventsCustomFields";
 import HouseServicesCustomFields from "./listings/customFields/classifieds/HouseServicesCustomFields";
 
-function BusinessListingContainer() {
+function BusinessListingContainer(props) {
     const listingPage = useContext(listingContext);
     const {id} = useParams();
 
@@ -255,5 +256,12 @@ function BusinessListingContainer() {
 
     );
 }
+
+BusinessListingContainer.propTypes = {
+    location: PropTypes.shape({
+        pathname: PropTypes.string,
+        state: PropTypes.object
+    })
+};
 
 export default BusinessListingContainer;
