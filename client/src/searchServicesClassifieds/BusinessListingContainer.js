@@ -6,12 +6,9 @@
  *
  */
 
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import PropTypes from "prop-types";
-import {listingContext} from "./SearchListingContainer";
-import {useParams} from "react-router-dom";
 import BusinessInfo from "./listings/BusinessInfo";
-import BusinessService from "../services/BusinessService";
 import HTC_Logo from "../images/HTC_Logo.jpg";
 import Loading from "../common/loading/Loading";
 import {
@@ -22,7 +19,6 @@ import {BUSINESS_CLASSIFIEDS_CATEGORIES} from "../createListing/constants/classi
 import CohousingCustomFields from "./listings/customFields/services/CohousingCustomFields";
 import HomeServiceBusinessCustomFields from "./listings/customFields/services/HomeServiceBusinessCustomFields";
 import GovernmentServicesCustomFields from "./listings/customFields/services/GovernmentServicesCustomFields";
-import {mockServiceListings} from "../mockData/MockListing";
 import MemberHomeToShareCustomFields from "./listings/customFields/services/MemberHomeToShareCustomFields";
 import RentalsCustomFields from "./listings/customFields/classifieds/RentalsCustomFields";
 import AgenciesCustomFields from "./listings/customFields/classifieds/AgenciesCustomFields";
@@ -30,8 +26,7 @@ import EventsCustomFields from "./listings/customFields/classifieds/EventsCustom
 import HouseServicesCustomFields from "./listings/customFields/classifieds/HouseServicesCustomFields";
 
 function BusinessListingContainer(props) {
-    const listingPage = useContext(listingContext);
-    const {id} = useParams();
+    const [loading, setLoading] = useState(true);
 
     // Common Fields
     const [title, setTitle] = useState();
@@ -43,8 +38,9 @@ function BusinessListingContainer(props) {
     const [contactPhoneNumber, setContactPhoneNumber] = useState();
     const [unitForSale, setUnitForSale] = useState();
     const [unitForRent, setUnitForRent] = useState();
-    const [pictures, setPictures] = useState();
-    const [ratesAndFees, setRatesAndFees] = useState();
+    // TODO: Add Pictures from DB and set Pictures
+    // const [pictures, setPictures] = useState();
+    const [rateAndFees, setRateAndFees] = useState();
     const [price, setPrice] = useState();
     const [numBed, setNumBed] = useState();
     const [numBath, setNumBath] = useState();
@@ -66,58 +62,53 @@ function BusinessListingContainer(props) {
         province: "",
         postalCode: "",
     });
+    const [isNationWide, setIsNationWide] = useState();
     const [website, setWebsite] = useState();
     const [phone, setPhone] = useState();
     const [email, setEmail] = useState();
-    const [loading, setLoading] = useState(true);
 
 
     // Get Data
     useEffect(() => {
-        //TODO: replace getBusinessAccountInfo with function to retrieve business info based on listing ID
-        BusinessService.getBusinessAccountInfo()
-            .then(res => res.json())
-            .then(data => {
-                setBusinessInfo(data.business);
-                // TODO: replace mockListing with a listing object from DB
-                setCommonListingData(mockServiceListings[3]);
-                setLoading(false);
+        setLoading(true);
 
-            })
-            .catch(err => {
-                console.log('err: ', err.message);
-            })
+        const {listing} = props.location.state;
+
+        setCommonListingData(listing);
+        setCustomFieldData(listing);
     }, []);
 
 
-    const setBusinessInfo = (business) => {
+    const setBusinessInfo = (listing) => {
         //TODO: replace logo with string of logo address in DB
         setLogo(HTC_Logo);
-        setBusinessName(business.businessName);
-        setAddress({
-            streetLine1: business.mapAddressLine1,
-            streetLine2: business.mapAddressLine2,
-            city: business.mapCity,
-            province: business.mapProvince,
-            postalCode: business.mapPostalCode,
-        });
-        // check to see if the website includes http or not and add it if its missing
-        (!business.website.includes("http") ? setWebsite("https://" + business.website) : setWebsite(business.website));
-        setPhone(business.phoneNumber);
-        setEmail(business.email);
+        setBusinessName(listing.business.businessName);
+        if (listing.business.mapAddressLine1) {
+            setAddress({
+                streetLine1: listing.business.mapAddressLine1,
+                streetLine2: listing.business.mapAddressLine2,
+                city: listing.business.mapCity,
+                province: listing.business.mapProvince,
+                postalCode: listing.business.mapPostalCode,
+            });
+        } else {
+            setIsNationWide(listing.business.isNationWide);
+        }
+        setWebsite(listing.business.website);
+        setPhone(listing.business.businessPhoneNumber);
+        setEmail(listing.business.email);
     }
 
     const setCommonListingData = (listing) => {
-        setListingCategory(listing.category);
+        setListingCategory(listing.categoryName);
         setTitle(listing.title);
         setFullDescription(listing.fullDescription);
-        setCustomFieldData(listing);
     }
 
     const setCustomFieldData = (listing) => {
-        switch (listing.category) {
+        switch (listing.categoryName) {
             case MEMBER_SERVICE_CATEGORIES.MEMBER_HOME:
-                setGeneralLocation(listing.generalLocation);
+                setGeneralLocation(listing.postalCode);
                 setHomeShareMonthlyCost(listing.monthlyCost);
                 setNumBed(listing.numBed.toString());
                 setNumBath(listing.numBath.toString());
@@ -125,52 +116,53 @@ function BusinessListingContainer(props) {
                 setPetFriendly(listing.petFriendly);
                 setSmokeFriendly(listing.smokeFriendly);
                 setUtilIncluded(listing.utilIncluded);
-                setPictures(listing.pictures);
                 break;
             case BUSINESS_SERVICE_CATEGORIES.CO_HOUSING:
                 setContactName(listing.contactName);
                 setUnitForSale(listing.unitsForSale);
                 setUnitForRent(listing.unitsForRent);
+                setBusinessInfo(listing);
                 break;
             case BUSINESS_SERVICE_CATEGORIES.SHARED_HOME_SERVICES:
-                setPictures(listing.pictures);
-                setRatesAndFees(listing.ratesAndFees);
+                setRateAndFees(listing.rateAndFees);
+                setBusinessInfo(listing);
                 break;
             case BUSINESS_SERVICE_CATEGORIES.SHARED_BUSINESS_SERVICES:
-                setPictures(listing.pictures);
-                setRatesAndFees(listing.ratesAndFees);
+                setRateAndFees(listing.rateAndFees);
+                setBusinessInfo(listing);
                 break;
             case BUSINESS_SERVICE_CATEGORIES.GOVERNMENT_SERVICES:
                 setContactName(listing.contactName);
-                setContactPhoneNumber(listing.contactPhoneNumber);
+                setContactPhoneNumber(listing.contactPhoneNumber.toString());
+                setBusinessInfo(listing);
                 break;
             case BUSINESS_CLASSIFIEDS_CATEGORIES.RENTALS:
-                setPrice(listing.price)
-                setPictures(listing.pictures);
-                setRatesAndFees(listing.ratesAndFees);
-                setNumBed(listing.numBed);
-                setNumBath(listing.numBath);
+                setPrice(listing.monthlyCost)
+                setRateAndFees(listing.rateAndFees);
+                setNumBed(listing.numBed.toString());
+                setNumBath(listing.numBath.toString());
                 setFurnished(listing.furnished);
                 setPetFriendly(listing.petFriendly);
                 setSmokeFriendly(listing.smokeFriendly);
+                setBusinessInfo(listing);
                 break;
             case BUSINESS_CLASSIFIEDS_CATEGORIES.HOUSE_YARD:
-                setPictures(listing.pictures);
-                setRatesAndFees(listing.ratesAndFees);
+                setRateAndFees(listing.rateAndFees);
+                setBusinessInfo(listing);
                 break;
             case BUSINESS_CLASSIFIEDS_CATEGORIES.LEGAL_SALES:
-                setPictures(listing.pictures);
-                setRatesAndFees(listing.ratesAndFees);
+                setRateAndFees(listing.rateAndFees);
+                setBusinessInfo(listing);
                 break;
             case BUSINESS_CLASSIFIEDS_CATEGORIES.CLASSES_CLUBS:
                 setContactName(listing.contactName);
-                setContactPhoneNumber(listing.contactPhoneNumber);
-                setPictures(listing.pictures);
-                setRatesAndFees(listing.ratesAndFees);
-                setEventDateTime(listing.eventDateTime)
+                setContactPhoneNumber(listing.contactPhoneNumber.toString());
+                setRateAndFees(listing.rateAndFees);
+                setEventDateTime(listing.eventDateTime);
+                setBusinessInfo(listing);
                 break;
         }
-
+        setLoading(false);
     }
 
     function returnCustomFieldComponent(selectedCategory) {
@@ -184,25 +176,28 @@ function BusinessListingContainer(props) {
                     utilIncluded={utilIncluded}
                     petFriendly={petFriendly}
                     smokeFriendly={smokeFriendly}
-                    pictures={pictures}
+
                 />
             case BUSINESS_SERVICE_CATEGORIES.CO_HOUSING:
                 return <CohousingCustomFields contactName={contactName} unitsForSale={unitForSale}
                                               unitsForRent={unitForRent}/>
             case BUSINESS_SERVICE_CATEGORIES.SHARED_HOME_SERVICES:
-                return <HomeServiceBusinessCustomFields rateAndFees={ratesAndFees} pictures={pictures}/>
+                return <HomeServiceBusinessCustomFields rateAndFees={rateAndFees}/>
             case BUSINESS_SERVICE_CATEGORIES.SHARED_BUSINESS_SERVICES:
-                return <HomeServiceBusinessCustomFields rateAndFees={ratesAndFees} pictures={pictures}/>
+                return <HomeServiceBusinessCustomFields rateAndFees={rateAndFees}/>
             case BUSINESS_SERVICE_CATEGORIES.GOVERNMENT_SERVICES:
                 return <GovernmentServicesCustomFields contactPerson={contactName} phoneNumber={contactPhoneNumber}/>
             case BUSINESS_CLASSIFIEDS_CATEGORIES.RENTALS:
-                return <RentalsCustomFields pictures={pictures} petFriendly={petFriendly} numBed={numBed} numBath={numBath} furnished={furnished} price={price} smokingFriendly={smokeFriendly}/>
+                return <RentalsCustomFields petFriendly={petFriendly} numBed={numBed}
+                                            numBath={numBath} furnished={furnished} price={price}
+                                            smokingFriendly={smokeFriendly}/>
             case BUSINESS_CLASSIFIEDS_CATEGORIES.HOUSE_YARD:
-                return <HouseServicesCustomFields rateAndFees={ratesAndFees} pictures={pictures}/>
+                return <HouseServicesCustomFields rateAndFees={rateAndFees}/>
             case BUSINESS_CLASSIFIEDS_CATEGORIES.LEGAL_SALES:
-                return <AgenciesCustomFields rateAndFees={ratesAndFees} pictures={pictures}/>
+                return <AgenciesCustomFields rateAndFees={rateAndFees}/>
             case BUSINESS_CLASSIFIEDS_CATEGORIES.CLASSES_CLUBS:
-                return <EventsCustomFields rateAndFees={ratesAndFees} contactName={contactName} contactNumber={contactPhoneNumber} eventDateTime={eventDateTime} pictures={pictures}/>
+                return <EventsCustomFields rateAndFees={rateAndFees} contactName={contactName}
+                                           contactNumber={contactPhoneNumber} eventDateTime={eventDateTime}/>
         }
     }
 
@@ -241,6 +236,7 @@ function BusinessListingContainer(props) {
                                     logo={logo}
                                     businessName={businessName}
                                     address={address}
+                                    isNationWide={isNationWide}
                                     website={website}
                                     phone={phone}
                                     email={email}
