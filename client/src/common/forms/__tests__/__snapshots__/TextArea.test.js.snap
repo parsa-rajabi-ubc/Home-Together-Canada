@@ -7,7 +7,7 @@ exports[`TextArea Snapshot test should render correctly regardless of properties
   </label>
   
   <input
-    className="testClassNameString"
+    className="false testClassNameString"
     disabled={false}
     placeholder="testPlaceholderString2"
     type="text"

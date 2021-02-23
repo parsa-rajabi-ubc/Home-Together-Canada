@@ -45,7 +45,7 @@ exports[`HomeServiceBusinessForm Snapshot test should render correctly regardles
             />
           </svg>
           <input
-            className="undefined input"
+            className="false undefined input"
             disabled={false}
             onChange={[Function]}
             type="text"
@@ -84,7 +84,7 @@ exports[`HomeServiceBusinessForm Snapshot test should render correctly regardles
                 />
               </svg>
               <input
-                className="undefined input"
+                className="false undefined input"
                 disabled={false}
                 maxLength="50"
                 onChange={[Function]}
@@ -122,7 +122,7 @@ exports[`HomeServiceBusinessForm Snapshot test should render correctly regardles
                 />
               </svg>
               <input
-                className="undefined input"
+                className="false undefined input"
                 disabled={false}
                 onChange={[Function]}
                 type="text"

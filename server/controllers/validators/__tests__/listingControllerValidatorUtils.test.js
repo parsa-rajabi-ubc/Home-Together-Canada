@@ -12,7 +12,7 @@ describe('listingControllerValidatorUtils', () => {
     describe('isValidBusinessListingCategory', () => {
         it.each`
             category                                                                            | expected
-            ${'Cohousing, Co-ops, Intergenerational & Planned Neighbourhoods'}                  | ${true}
+            ${'Co-housing, Co-ops, Intergenerational & Planned Neighbourhoods'}                 | ${true}
             ${'Home Share Facilitation & Supporting Services'}                                  | ${true}
             ${'Home Sharing Businesses, Groups and Organizations'}                              | ${true}
             ${'Government & Human Service Agencies Offering Shared Living & Support Services'}  | ${true}
@@ -33,7 +33,7 @@ describe('listingControllerValidatorUtils', () => {
     describe('isValidServiceListingCategory', () => {
         it.each`
             category                                                                            | expected
-            ${'Cohousing, Co-ops, Intergenerational & Planned Neighbourhoods'}                  | ${true}
+            ${'Co-housing, Co-ops, Intergenerational & Planned Neighbourhoods'}                 | ${true}
             ${'Home Share Facilitation & Supporting Services'}                                  | ${true}
             ${'Home Sharing Businesses, Groups and Organizations'}                              | ${true}
             ${'Government & Human Service Agencies Offering Shared Living & Support Services'}  | ${true}
@@ -54,7 +54,7 @@ describe('listingControllerValidatorUtils', () => {
     describe('isValidClassifiedCategory', () => {
         it.each`
             category                                                                            | expected
-            ${'Cohousing, Co-ops, Intergenerational & Planned Neighbourhoods'}                  | ${false}
+            ${'Co-housing, Co-ops, Intergenerational & Planned Neighbourhoods'}                 | ${false}
             ${'Home Share Facilitation & Supporting Services'}                                  | ${false}
             ${'Home Sharing Businesses, Groups and Organizations'}                              | ${false}
             ${'Government & Human Service Agencies Offering Shared Living & Support Services'}  | ${false}
@@ -79,7 +79,7 @@ describe('listingControllerValidatorUtils', () => {
         describe('throws an error', () => {
             it.each`
             category                                                                            | type
-            ${'Cohousing, Co-ops, Intergenerational & Planned Neighbourhoods'}                  | ${classified}
+            ${'Co-housing, Co-ops, Intergenerational & Planned Neighbourhoods'}                 | ${classified}
             ${'Home Share Facilitation & Supporting Services'}                                  | ${classified}
             ${'Home Sharing Businesses, Groups and Organizations'}                              | ${classified}
             ${'Government & Human Service Agencies Offering Shared Living & Support Services'}  | ${classified}
@@ -98,7 +98,7 @@ describe('listingControllerValidatorUtils', () => {
         describe('returns true', () => {
             it.each`
             category                                                                            | type
-            ${'Cohousing, Co-ops, Intergenerational & Planned Neighbourhoods'}                  | ${service}
+            ${'Co-housing, Co-ops, Intergenerational & Planned Neighbourhoods'}                 | ${service}
             ${'Home Share Facilitation & Supporting Services'}                                  | ${service}
             ${'Home Sharing Businesses, Groups and Organizations'}                              | ${service}
             ${'Government & Human Service Agencies Offering Shared Living & Support Services'}  | ${service}

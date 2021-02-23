@@ -73,7 +73,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
             </svg>
             <input
               autoComplete="organization"
-              className="undefined mb-0 input"
+              className="false undefined mb-0 input"
               disabled={false}
               onChange={[Function]}
               type="text"
@@ -220,7 +220,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
               />
               
               <input
-                className="input"
+                className="false input"
                 disabled={false}
                 onChange={[Function]}
                 placeholder="Names of Inc. Owners (separated by comma)"
@@ -257,7 +257,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
             </svg>
             <input
               autoComplete="email"
-              className="undefined input"
+              className="false undefined input"
               disabled={false}
               onChange={[Function]}
               placeholder="business@email.ca"
@@ -274,7 +274,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
             
             <input
               autoComplete="url"
-              className="input"
+              className="false input"
               disabled={false}
               onChange={[Function]}
               placeholder="http://www.your-website.com"
@@ -1569,7 +1569,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
             </svg>
             <input
               autoComplete="given-name"
-              className="undefined input"
+              className="false undefined input"
               disabled={false}
               onChange={[Function]}
               type="text"
@@ -1608,7 +1608,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
             </svg>
             <input
               autoComplete="family-name"
-              className="undefined input"
+              className="false undefined input"
               disabled={false}
               onChange={[Function]}
               type="text"
