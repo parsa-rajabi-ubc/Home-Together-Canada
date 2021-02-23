@@ -6,7 +6,6 @@
  *
  */
 const { body } = require('express-validator/check');
-const uniq = require('lodash/uniq');
 const {isValidRadius} = require("./userControllerValidatorUtils");
 const {PROVINCES_LIST} = require("../configConstants");
 const {isValidLocation} = require("./userControllerValidatorUtils");
@@ -25,7 +24,6 @@ const {
     isValidSubcategoryForSelectedCategory,
     listingShouldHaveCategories,
     shouldOrderIdBeDefined,
-    removeDuplicates,
     LISTING_FIELDS_ERRORS,
 } = require('./listingControllerValidatorUtils');
 

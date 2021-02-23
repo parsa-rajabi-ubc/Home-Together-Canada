@@ -11,7 +11,7 @@ const {
     BUSINESS_SERVICES_CATEGORIES,
     MEMBER_SERVICE_CATEGORIES,
     BUSINESS_CLASSIFIEDS_CATEGORIES,
-    LISTING_CATEGORY_SUBCATEGORY_MAP
+    resolveCategoryToSubcategory
 } = require('../../constants/listingConstants');
 const memberAccounts = require('../memberAccountController');
 
@@ -115,7 +115,7 @@ const isValidSubcategoryForSelectedCategory = (subcategory, category) => {
     // there are no subcategories for members with home to share
     // get that category's subcategories and make sure that the given subcategory is included in that list
     if ((category === MEMBER_SERVICE_CATEGORIES.MEMBER_HOME && !!subcategory)
-        || (!includes(Object.values(LISTING_CATEGORY_SUBCATEGORY_MAP.get(category)), subcategory))) {
+        || (!includes(resolveCategoryToSubcategory(category), subcategory))) {
         throw new Error(`Subcategory ${subcategory} is not a valid subcategory for category ${category}`);
     }
     return true;
