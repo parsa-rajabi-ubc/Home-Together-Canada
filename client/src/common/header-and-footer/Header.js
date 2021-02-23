@@ -2,7 +2,7 @@
  * @Author:     Parsa Rajabi
  * @Created:    2020.11.09
  *
- * @Description: header for the website which contains links to Search Member Profiles, Services, Classifieds, About Us and Account Page
+ * @Description: header for the website which contains links to Search Member Profiles, Services, Classifieds and Account Page
  *
  */
 
@@ -78,9 +78,6 @@ const Header = (props) => {
                             </Link>
                             <Link to={'/classifieds'} className="nav-icon">
                                 {CLASSIFIEDS_TEXT}
-                            </Link>
-                            <Link to={'/about'} className="nav-icon">
-                                About Us
                             </Link>
                             <Link to={'/faq'} className="nav-icon">
                                 FAQ

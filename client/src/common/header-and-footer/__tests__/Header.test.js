@@ -192,60 +192,6 @@ describe('Header', () => {
         });
     });
 
-    describe('About Us button', () => {
-        it('should show About Us button when the user is unregistered', () => {
-            // given
-            const props = {
-                reset,
-                isAdmin: false,
-                accountType: null,
-                authenticated: false
-            };
-
-            // when
-            const testInstance = renderer.create(<BrowserRouter><Header {...props}/></BrowserRouter>).root;
-            const aboutUsButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'About Us');
-
-            // then
-            expect(aboutUsButton).toBeDefined();
-        });
-        it('should show About Us button when the user is a member', () => {
-            // given
-            const props = {
-                reset,
-                isAdmin: false,
-                accountType: 'member',
-                authenticated: true
-            };
-
-            // when
-            const testInstance = renderer.create(<BrowserRouter><Header {...props}/></BrowserRouter>).root;
-            const aboutUsButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'About Us');
-
-            // then
-            expect(aboutUsButton).toBeDefined();
-        });
-        it('should show About Us button when the user is a business', () => {
-            // given
-            const props = {
-                reset,
-                isAdmin: false,
-                accountType: 'business',
-                authenticated: true
-            };
-
-            // when
-            const testInstance = renderer.create(<BrowserRouter><Header {...props}/></BrowserRouter>).root;
-            const aboutUsButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'About Us');
-
-            // then
-            expect(aboutUsButton).toBeDefined();
-        });
-    });
-
     describe('FAQ button', () => {
         it('should show FAQ button when the user is unregistered', () => {
             // given
