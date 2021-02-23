@@ -13,8 +13,12 @@ import SearchListingFiltersContainer from "../SearchListingFiltersContainer";
 describe('SearchListingFiltersContainer', () => {
     describe('Container test', () => {
         it('should match snapshot test', () => {
+            const props ={
+                onSearch: jest.fn()
+            }
+
             //when
-            const component = renderer.create(<SearchListingFiltersContainer/>);
+            const component = renderer.create(<SearchListingFiltersContainer {...props}/>);
             const tree = component.toJSON();
             //then
             expect(tree).toMatchSnapshot();

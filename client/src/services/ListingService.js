@@ -26,4 +26,17 @@ export const createListing = (listingData) => {
     return fetch(`${DEV_URL}/listing/create/`, request);
 }
 
+export const searchListings = (searchFilters) => {
+    const request = {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        withCredentials: true,
+        body: JSON.stringify({...searchFilters})
+    }
 
+    return fetch(`${DEV_URL}/listing/search/`, request);
+}

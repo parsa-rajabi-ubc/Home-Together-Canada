@@ -7,6 +7,7 @@
  */
 
 import React, {useContext, useEffect, useState} from 'react';
+import PropTypes from "prop-types";
 import {listingContext, PAGE_NAMES} from "../SearchListingContainer";
 import SearchListingFilters from "./SearchListingFilters";
 import {
@@ -24,13 +25,17 @@ import {
     LEGAL_SALES_AGENCIES_SUBCATEGORIES_LIST,
     RENTALS_SUBCATEGORIES_LIST
 } from "../../createListing/constants/classifiedListingConstants";
-import {BUSINESS_SERVICE_CATEGORIES} from "../../createListing/constants/serviceListingCategoriesText";
+import {
+    BUSINESS_SERVICE_CATEGORIES,
+    MEMBER_SERVICE_CATEGORIES
+} from "../../createListing/constants/serviceListingCategoriesText";
 import {BUSINESS_CLASSIFIEDS_CATEGORIES} from "../../createListing/constants/classifiedListingCategoriesText";
 import {isValueInArray} from "../../common/utils/generalUtils";
 import {checkIfErrorsExistInMapping, validateInput} from "../../registration/registrationUtils";
 
 
-function SearchListingFiltersContainer() {
+function SearchListingFiltersContainer(props) {
+    const {onSearch} = props;
 
     const listingPage = useContext(listingContext);
 
@@ -62,10 +67,12 @@ function SearchListingFiltersContainer() {
     }, [selectedCategory, listingPage]);
 
     useEffect(() => {
+        if(selectedCategory !== MEMBER_SERVICE_CATEGORIES.MEMBER_HOME){
         ((hasClickedSearch && !selectedSubcategories.length)
             ? setSelectedSubcategoryError(true)
             : setSelectedSubcategoryError(false))
-    }, [hasClickedSearch, selectedSubcategories]);
+        }
+    }, [hasClickedSearch, selectedSubcategories, selectedCategory]);
 
     // Update Category Options Based on Page
     useEffect(() => {
@@ -147,7 +154,9 @@ function SearchListingFiltersContainer() {
 
         // Search Criteria Validation
         searchErrors.selectedCategory = validateInput(selectedCategory, setSelectedCategoryError);
-        searchErrors.selectedSubcategory = validateInput(selectedSubcategories, setSelectedSubcategoryError);
+        if (selectedCategory !== MEMBER_SERVICE_CATEGORIES.MEMBER_HOME) {
+            searchErrors.selectedSubcategory = validateInput(selectedSubcategories, setSelectedSubcategoryError)
+        }
         searchErrors.searchAreaProvince = validateInput(searchArea.province, setSearchAreaProvinceError);
         searchErrors.searchAreaCity = validateInput(searchArea.city, setSearchAreaCityError);
         searchErrors.searchAreaRadius = validateInput(searchArea.radius, setSearchAreaRadiusError);
@@ -159,8 +168,13 @@ function SearchListingFiltersContainer() {
 
     const onSubmit = () => {
         setHasClickedSearch(true);
-        isFormValid();
-
+        if (isFormValid()) {
+            onSearch({
+                selectedCategory,
+                selectedSubcategories,
+                searchArea
+            })
+        }
     }
 
     return (
@@ -187,5 +201,8 @@ function SearchListingFiltersContainer() {
     );
 }
 
+SearchListingFiltersContainer.propTypes = {
+    onSearch: PropTypes.func.isRequired
+}
 
 export default SearchListingFiltersContainer;
