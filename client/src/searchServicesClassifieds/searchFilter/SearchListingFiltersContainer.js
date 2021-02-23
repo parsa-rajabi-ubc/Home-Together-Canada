@@ -25,7 +25,10 @@ import {
     LEGAL_SALES_AGENCIES_SUBCATEGORIES_LIST,
     RENTALS_SUBCATEGORIES_LIST
 } from "../../createListing/constants/classifiedListingConstants";
-import {BUSINESS_SERVICE_CATEGORIES} from "../../createListing/constants/serviceListingCategoriesText";
+import {
+    BUSINESS_SERVICE_CATEGORIES,
+    MEMBER_SERVICE_CATEGORIES
+} from "../../createListing/constants/serviceListingCategoriesText";
 import {BUSINESS_CLASSIFIEDS_CATEGORIES} from "../../createListing/constants/classifiedListingCategoriesText";
 import {isValueInArray} from "../../common/utils/generalUtils";
 import {checkIfErrorsExistInMapping, validateInput} from "../../registration/registrationUtils";
@@ -64,10 +67,12 @@ function SearchListingFiltersContainer(props) {
     }, [selectedCategory, listingPage]);
 
     useEffect(() => {
+        if(selectedCategory !== MEMBER_SERVICE_CATEGORIES.MEMBER_HOME){
         ((hasClickedSearch && !selectedSubcategories.length)
             ? setSelectedSubcategoryError(true)
             : setSelectedSubcategoryError(false))
-    }, [hasClickedSearch, selectedSubcategories]);
+        }
+    }, [hasClickedSearch, selectedSubcategories, selectedCategory]);
 
     // Update Category Options Based on Page
     useEffect(() => {
@@ -149,7 +154,9 @@ function SearchListingFiltersContainer(props) {
 
         // Search Criteria Validation
         searchErrors.selectedCategory = validateInput(selectedCategory, setSelectedCategoryError);
-        searchErrors.selectedSubcategory = validateInput(selectedSubcategories, setSelectedSubcategoryError);
+        if (selectedCategory !== MEMBER_SERVICE_CATEGORIES.MEMBER_HOME) {
+            searchErrors.selectedSubcategory = validateInput(selectedSubcategories, setSelectedSubcategoryError)
+        }
         searchErrors.searchAreaProvince = validateInput(searchArea.province, setSearchAreaProvinceError);
         searchErrors.searchAreaCity = validateInput(searchArea.city, setSearchAreaCityError);
         searchErrors.searchAreaRadius = validateInput(searchArea.radius, setSearchAreaRadiusError);

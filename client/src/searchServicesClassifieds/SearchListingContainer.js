@@ -15,6 +15,7 @@ import * as ListingService from "../services/ListingService";
 import {getConcatenatedErrorMessage} from "../registration/registrationUtils";
 import Loading from "../common/loading/Loading";
 import Confirmation from "../common/listings/Confirmation";
+import {MEMBER_SERVICE_CATEGORIES} from "../createListing/constants/serviceListingCategoriesText";
 
 export const listingContext = createContext();
 
@@ -43,14 +44,13 @@ function SearchListingContainer() {
     const onSearch = (searchFilter) => {
         if (!loading) {
             setLoading(true);
-
             const searchFilterRequestBody = {
                 type: resolveCategoryToListingType(searchFilter.selectedCategory),
                 category: searchFilter.selectedCategory,
-                subcategories: searchFilter.selectedSubcategories,
+                ...(searchFilter.selectedCategory === MEMBER_SERVICE_CATEGORIES.MEMBER_HOME)
+                    ? {subcategories: []} : {subcategories: searchFilter.selectedSubcategories},
                 searchArea: searchFilter.searchArea
             }
-
             ListingService.searchListings(searchFilterRequestBody)
                 .then(res => res.json())
                 .then(data => {
