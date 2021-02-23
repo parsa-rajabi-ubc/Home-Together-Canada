@@ -174,7 +174,7 @@ const HouseServicesForm = (props) => {
                             <section className={"col-start-1 col-end-5"}>
                                 <LabelAsterisk label={TEXT.price} className={"label"}/>
                                 <input
-                                    className={`${priceError && "border-red-500"} ${submitted && "bg-gray-500 opacity-50 cursor-not-allowed"} input`}
+                                    className={`${priceError && "border-red-500"} ${submitted && "disabled-field"} input`}
                                     type="number"
                                     min="0"
                                     step="1"
