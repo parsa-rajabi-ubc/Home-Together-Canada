@@ -55,7 +55,7 @@ function SearchListingContainer() {
                 .then(res => res.json())
                 .then(data => {
                     setSearchFiltersSelected(true);
-                    if (data) {
+                    if (data.listing) {
                         setError(false);
                         setLoading(false);
                     } else if (data.err) {
