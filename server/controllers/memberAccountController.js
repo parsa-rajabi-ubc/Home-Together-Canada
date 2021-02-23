@@ -16,7 +16,6 @@ const {getValueOfOptionalField} = require("./utils/accountControllerUtils");
 const MemberAccount = db.memberAccount;
 const AbstractUser = db.abstractUser;
 const AreaOfInterest = db.areaOfInterest;
-const LivesWith = db.livesWith;
 const livesWith = require('../controllers/livesWithController');
 const abstractUsers = require('../controllers/abstractUserController');
 const areasOfInterest = require('../controllers/areaOfInterestController');

@@ -143,13 +143,17 @@ const validateMapProvince = (province, req) => {
 }
 
 const validMapAddress = (addressLine1, req) => {
-    const address = `${addressLine1} ${req.body.mapCity} ${PROVINCE_MAP.get(req.body.mapProvince)} ${DEFAULT_COUNTRY}`;
-    return geoCoder.geocode(address)
-        .then(locations => {
-            if (!locations.length) {
-                return Promise.reject('Invalid map address');
-            }
-        });
+    if (!req.body.isNationWide) {
+        const address = `${addressLine1} ${req.body.mapCity} ${PROVINCE_MAP.get(req.body.mapProvince)} ${DEFAULT_COUNTRY}`;
+        return geoCoder.geocode(address)
+            .then(locations => {
+                if (!locations.length) {
+                    return Promise.reject('Invalid map address');
+                }
+            });
+    } else {
+        return true;
+    }
 }
 
 const shouldIncorporatedOwnersNamesBeDefined = (incorporatedOwnersNames, req) => {

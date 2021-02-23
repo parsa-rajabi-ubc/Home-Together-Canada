@@ -43,6 +43,13 @@ db.businessAccount.belongsTo(db.abstractUser, {
     },
     onDelete: 'CASCADE'
 });
+db.abstractUser.hasOne(db.businessAccount, {
+    foreignKey: {
+        name: 'uid',
+        allowNull: false
+    },
+    onDelete: 'CASCADE'
+});
 
 db.memberAccount.belongsTo(db.abstractUser, {
     foreignKey: {
@@ -61,6 +68,7 @@ db.memberAccount.hasMany(db.areaOfInterest, {
     onDelete: 'CASCADE'
 });
 
+// relationship between listings and abstract users
 db.listing.belongsTo(db.abstractUser, {
     foreignKey: {
         name: 'uid',
@@ -68,24 +76,39 @@ db.listing.belongsTo(db.abstractUser, {
     },
     onDelete: 'CASCADE'
 });
+db.abstractUser.hasMany(db.listing, {
+    onDelete: 'CASCADE'
+});
 
+// relationship between listings and categories
 db.listing.belongsTo(db.listingCategory, {
     onDelete: 'CASCADE'
 });
-
-db.listingSubcategory.belongsTo(db.listingCategory, {
+db.listingCategory.hasMany(db.listing, {
     onDelete: 'CASCADE'
 });
 
+// relationship between categories and subcategories
+db.listingSubcategory.belongsTo(db.listingCategory, {
+    onDelete: 'CASCADE'
+});
+db.listingCategory.hasMany(db.listingSubcategory), {
+    onDelete: 'CASCADE'
+};
+
+// Through table for listings and subcategories
 db.listingSubcategory.belongsToMany(db.listing, {
     through: db.listingAssignedSubcategory,
 });
-
-db.listingSubcategory.belongsToMany(db.listing, {
+db.listing.belongsToMany(db.listingSubcategory, {
     through: db.listingAssignedSubcategory
 });
 
+// Relationship between member listing locations and listings
 db.listing.hasOne(db.memberListingLocation, {
+    onDelete: 'CASCADE'
+});
+db.memberListingLocation.belongsTo(db.listing, {
     onDelete: 'CASCADE'
 });
 
