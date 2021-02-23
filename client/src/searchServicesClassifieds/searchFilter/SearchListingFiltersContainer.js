@@ -7,6 +7,7 @@
  */
 
 import React, {useContext, useEffect, useState} from 'react';
+import PropTypes from "prop-types";
 import {listingContext, PAGE_NAMES} from "../SearchListingContainer";
 import SearchListingFilters from "./SearchListingFilters";
 import {
@@ -30,7 +31,8 @@ import {isValueInArray} from "../../common/utils/generalUtils";
 import {checkIfErrorsExistInMapping, validateInput} from "../../registration/registrationUtils";
 
 
-function SearchListingFiltersContainer() {
+function SearchListingFiltersContainer(props) {
+    const {onSearch} = props;
 
     const listingPage = useContext(listingContext);
 
@@ -159,8 +161,13 @@ function SearchListingFiltersContainer() {
 
     const onSubmit = () => {
         setHasClickedSearch(true);
-        isFormValid();
-
+        if (isFormValid()) {
+            onSearch({
+                selectedCategory,
+                selectedSubcategories,
+                searchArea
+            })
+        }
     }
 
     return (
@@ -187,5 +194,8 @@ function SearchListingFiltersContainer() {
     );
 }
 
+SearchListingFiltersContainer.propTypes = {
+    onSearch: PropTypes.func.isRequired
+}
 
 export default SearchListingFiltersContainer;
