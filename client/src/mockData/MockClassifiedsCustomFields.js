@@ -28,7 +28,7 @@ export const agenciesMockCustomFields = {
 
 export const eventsMockCustomFields = {
     rateAndFees: "666 per day",
-    EventDateTime: "2020/2/21 11:00 A.M.",
+    eventDateTime: "2020/2/21 11:00 A.M.",
     contactName: "Alex",
     contactNumber:"778-555-5555",
     pictures: "pictures"
