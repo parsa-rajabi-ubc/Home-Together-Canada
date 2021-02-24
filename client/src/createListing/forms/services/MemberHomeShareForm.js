@@ -26,13 +26,13 @@ import Tooltip from "../../../common/forms/Tooltip";
 import {CREATE_LISTING_MEMBER_SHARE_HOME as ToolTipText} from "../../../common/constants/TooltipText";
 import {validatePositiveNumber} from "../../../common/utils/generalUtils";
 import {SHORT_DESC_CHAR_COUNT} from "../../../common/constants/listingsConstants";
+import Address from "../../../common/forms/Address";
 
 
 const MemberHomeShareForm = (props) => {
     const {onSubmit} = props;
 
     const [title, setTitle] = useState(undefined);
-    const [postalCode, setPostalCode] = useState(undefined);
     const [shortDescription, setShortDescription] = useState(undefined);
     const [fullDescription, setFullDescription] = useState(undefined);
     const [monthlyCost, setMonthlyCost] = useState(undefined);
@@ -43,8 +43,15 @@ const MemberHomeShareForm = (props) => {
     const [smokeFriendly, setSmokeFriendly] = useState(undefined);
     const [photos, setPhotos] = useState(undefined);
 
+    const [address, setAddress] = useState({
+        street: undefined,
+        aptNum: undefined,
+        city: undefined,
+        province: undefined,
+        postalCode: undefined
+    });
+
     const [titleError, setTitleError] = useState(undefined);
-    const [postalCodeError, setPostalCodeError] = useState(undefined);
     const [shortDescriptionError, setShortDescriptionError] = useState(undefined);
     const [fullDescriptionError, setFullDescriptionError] = useState(undefined);
     const [monthlyCostError, setMonthlyCostError] = useState(undefined);
@@ -54,13 +61,16 @@ const MemberHomeShareForm = (props) => {
     const [petFriendlyError, setPetFriendlyError] = useState(undefined);
     const [smokeFriendlyError, setSmokeFriendlyError] = useState(undefined);
 
+    // Address Error
+    const [streetAddressError, setStreetAddressError] = useState(undefined);
+    const [cityAddressError, setCityAddressError] = useState(undefined);
+    const [provinceAddressError, setProvinceAddressError] = useState(undefined);
+    const [postalCodeError, setPostalCodeError] = useState(undefined);
+
 
     useEffect(() => {
         title !== undefined && validateInput(title, setTitleError);
     }, [title]);
-    useEffect(() => {
-        postalCode !== undefined && validatePostalCode(postalCode, setPostalCodeError);
-    }, [postalCode]);
     useEffect(() => {
         shortDescription !== undefined && validateInput(shortDescription, setShortDescriptionError);
     }, [shortDescription]);
@@ -86,6 +96,19 @@ const MemberHomeShareForm = (props) => {
         utilIncluded !== undefined && validateInput(utilIncluded, setUtilIncludedError);
     }, [utilIncluded]);
 
+// Address
+    useEffect(() => {
+        address.street !== undefined && validateInput(address.street, setStreetAddressError);
+    }, [address.street]);
+    useEffect(() => {
+        address.city !== undefined && validateInput(address.city, setCityAddressError);
+    }, [address.city]);
+    useEffect(() => {
+        address.province !== undefined && validateInput(address.province, setCityAddressError);
+    }, [address.province]);
+    useEffect(() => {
+        address.postalCode !== undefined && validatePostalCode(address.postalCode, setPostalCodeError);
+    }, [address.postalCode]);
 
     const handleNumBedChange = e => {
         setNumBed(e.value);
@@ -103,7 +126,6 @@ const MemberHomeShareForm = (props) => {
 
         const errors = {
             title: false,
-            postalCode: false,
             shortDes: false,
             fullDes: false,
             monthlyCost: false,
@@ -112,10 +134,14 @@ const MemberHomeShareForm = (props) => {
             numBath: false,
             pet: false,
             smoking: false,
+
+            streetAddress: false,
+            cityAddress: false,
+            provinceAddress: false,
+            postalCodeAddress: false,
         }
 
         errors.title = validateInput(title, setTitleError);
-        errors.postalCode = validatePostalCode(postalCode, setPostalCodeError);
         errors.shortDes = validateInput(shortDescription, setShortDescriptionError);
         errors.fullDes = validateInput(fullDescription, setFullDescriptionError);
         errors.monthlyCost = validatePositiveNumber(monthlyCost, setMonthlyCostError);
@@ -124,6 +150,12 @@ const MemberHomeShareForm = (props) => {
         errors.numBath = validateInput(numBath, setNumBathError);
         errors.pet = validateInput(petFriendly, setPetFriendlyError);
         errors.smoking = validateInput(smokeFriendly, setSmokeFriendlyError);
+
+        errors.streetAddress = validateInput(address.street, setStreetAddressError);
+        errors.cityAddress = validateInput(address.city, setCityAddressError);
+        errors.provinceAddress = validateInput(address.province, setProvinceAddressError);
+        console.log(address.postalCode)
+        errors.postalCodeAddress = validatePostalCode(address.postalCode, setPostalCodeError);
 
         return !(checkIfErrorsExistInMapping(errors));
     }
@@ -134,7 +166,6 @@ const MemberHomeShareForm = (props) => {
         if (isFormValid()) {
             onSubmit({
                 title,
-                postalCode,
                 shortDescription,
                 fullDescription,
                 numBath,
@@ -142,7 +173,12 @@ const MemberHomeShareForm = (props) => {
                 smokeFriendly,
                 petFriendly,
                 utilIncluded,
-                monthlyCost
+                monthlyCost,
+                addressLine1: address.street,
+                addressLine2: address.aptNum,
+                city: address.city,
+                province: address.province,
+                postalCode: address.postalCode,
             });
         }
     }
@@ -163,7 +199,7 @@ const MemberHomeShareForm = (props) => {
                             onChange={(e) => setTitle(e.target.value)}
                         />
 
-                        <div className={"grid grid-cols-9 gap-x-6"}>
+                        <div className={"grid grid-cols-9"}>
 
                             <section className={"col-start-1 col-end-5"}>
 
@@ -176,16 +212,17 @@ const MemberHomeShareForm = (props) => {
                                     charLimit={SHORT_DESC_CHAR_COUNT}
                                 />
                             </section>
-                            <section className={"col-start-6 col-end-9"}>
-                                <TextArea
-                                    className={`${postalCodeError && "border-red-500"} input`}
-                                    label={TEXT.postal_code}
-                                    labelClassName={"label"}
+
+                            <section
+                                className={`${utilIncludedError && "pl-1 border rounded-lg border-red-500"} my-2 col-start-6 col-end-9`}>
+                                <YNButton
+                                    label={TEXT.util_included}
+                                    name="utilIncluded"
                                     required={true}
-                                    onChange={(e) => setPostalCode(e.target.value)}
+                                    value={utilIncluded}
+                                    onChange={(e) => setUtilIncluded(e.target.value)}
                                 />
                             </section>
-
 
                             <section className={"col-start-1 col-end-5"}>
                                 <LabelAsterisk label={TEXT.monthly_cost} className={"label"}/>
@@ -198,29 +235,6 @@ const MemberHomeShareForm = (props) => {
                                 />
                             </section>
                             <section
-                                className={`${utilIncludedError && "pl-1 border rounded-lg border-red-500"} my-2 col-start-6 col-end-9`}>
-                                <YNButton
-                                    label={TEXT.util_included}
-                                    name="utilIncluded"
-                                    required={true}
-                                    value={utilIncluded}
-                                    onChange={(e) => setUtilIncluded(e.target.value)}
-                                />
-                            </section>
-                            <section className={"col-start-1 col-end-5"}>
-                                <LabelAsterisk
-                                    label={TEXT.num_bed}
-                                    className={"label"}
-                                />
-
-                                <Dropdown
-                                    options={options}
-                                    onChange={handleNumBedChange}
-                                    dropdownCSS={numBedError ? dropdownErrorCSS : dropdownDefaultCSS}/>
-
-                            </section>
-
-                            <section
                                 className={`${petFriendlyError && "pl-1 border rounded-lg border-red-500"} my-2 col-start-6 col-end-9`}>
                                 <YNButton
                                     label={TEXT.pet}
@@ -230,19 +244,19 @@ const MemberHomeShareForm = (props) => {
                                     onChange={(e) => setPetFriendly(e.target.value)}
                                 />
                             </section>
+
                             <section className={"col-start-1 col-end-5"}>
                                 <LabelAsterisk
-                                    label={TEXT.num_bath}
+                                    label={TEXT.num_bed}
                                     className={"label"}
                                 />
+
                                 <Dropdown
                                     options={options}
-                                    onChange={handleNumBathChange}
-                                    dropdownCSS={numBathError ? dropdownErrorCSS : dropdownDefaultCSS}
+                                    onChange={handleNumBedChange}
+                                    dropdownCSS={numBedError ? dropdownErrorCSS : dropdownDefaultCSS}
                                 />
-
                             </section>
-
 
                             <section
                                 className={`${smokeFriendlyError && "pl-1 border rounded-lg border-red-500"} my-2 col-start-6 col-end-9`}>
@@ -254,7 +268,36 @@ const MemberHomeShareForm = (props) => {
                                     onChange={(e) => setSmokeFriendly(e.target.value)}
                                 />
                             </section>
+
+                            <section className={"col-start-1 col-end-5"}>
+
+                                <LabelAsterisk
+                                    label={TEXT.num_bath}
+                                    className={"label"}
+                                />
+                                <Dropdown
+                                    options={options}
+                                    onChange={handleNumBathChange}
+                                    dropdownCSS={numBathError ? dropdownErrorCSS : dropdownDefaultCSS}
+                                />
+                            </section>
+
+                            <section className={"col-start-1 col-end-6"}>
+                                <Address
+                                    label="General Location"
+                                    toolTipID={"memberHomeToShareAddress"}
+                                    toolTipText={ToolTipText.ADDRESS}
+                                    required={true}
+                                    onChange={setAddress}
+                                    streetAddressError={streetAddressError}
+                                    cityAddressError={cityAddressError}
+                                    provinceAddressError={provinceAddressError}
+                                    postalCodeError={postalCodeError}
+                                />
+                            </section>
+
                         </div>
+
 
                         <LargeTextArea
                             className={`${fullDescriptionError && "border-red-500"} input`}
