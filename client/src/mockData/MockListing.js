@@ -109,3 +109,60 @@ export const mockClassifiedsListings = [
         eventDateTime: faker.date.soon() + " " + faker.time.recent()
     }
 ]
+
+export const mockBusinessListingResponse = {
+    "id": 6,
+    "uid": 2,
+    "title": "A Local Calligraphy Classes",
+    "shortDescription": "Calligraphy for beginners",
+    "fullDescription": "Lorem ipsum dolor .",
+    "rateAndFees": "March 1 2021, 10:00 AM",
+    "contactName": "Betsy",
+    "contactPhoneNumber": 4036527153,
+    "eventDateTime": 4036527153,
+    "isClassified": true,
+    "createdAt": "2021-02-23T18:54:05.000Z",
+    "updatedAt": "2021-02-23T18:54:05.000Z",
+    "categoryName": "Classes, Clubs & Events",
+    "business": {
+        "username": "apples0",
+        "email": "apples0@gelden.com",
+        "uid": 2,
+        "businessName": "Bob's Bricks",
+        "logo": null,
+        "isIncorporated": false,
+        "incorporatedOwnersNames": null,
+        "businessPhoneNumber": "333-333-3333",
+        "businessCellPhoneNumber": "444-444-4444",
+        "isNationWide": true,
+        "mapAddressLine1": null,
+        "mapAddressLine2": null,
+        "mapCity": null,
+        "mapProvince": null,
+        "mapPostalCode": null,
+        "mapLatitude": "36.0195234",
+        "mapLongitude": "14.2385650",
+        "website": "www.google.com",
+        "createdAt": "2021-02-23T18:54:01.000Z",
+        "updatedAt": "2021-02-23T18:54:01.000Z"
+    }
+}
+
+export const mockMemberListingResponse = {
+    "id": 18,
+    "uid": 5,
+    "title": "Empty Room in Condo",
+    "shortDescription": "Looking for an easy going roommate",
+    "fullDescription": "Lorem ipsum .",
+    "monthlyCost": 600,
+    "numBed": 2,
+    "numBath": 1,
+    "petFriendly": true,
+    "smokeFriendly": false,
+    "postalCode": "T2V1S5",
+    "utilitiesIncluded": true,
+    "isClassified": false,
+    "createdAt": "2021-02-24T01:31:58.000Z",
+    "updatedAt": "2021-02-24T01:31:58.000Z",
+    "categoryName": "Members with Homes to Share"
+}
