@@ -26,6 +26,7 @@ import { useHistory } from "react-router-dom";
 import {setMemberSearchFilters} from "../../redux/slices/memberPrivileges";
 import {SESSION_ERR} from "../../common/constants/errors";
 import {reset} from "../../redux/actionCreators";
+import {resolveBooleanToYesNo} from "../../common/utils/generalUtils";
 
 const mapDispatchToProps = {
     reset,
@@ -36,30 +37,30 @@ const SearchCriteriaContainer = (props) => {
     const {memberSearchFilters, setMemberSearchFilters, reset} = props;
     const history = useHistory();
     // Gender and Family Status
-    const [genderPreference, setGenderPreference] = useState();
-    const [familyStatusPreference, setFamilyStatusPreference] = useState();
+    const [genderPreference, setGenderPreference] = useState([]);
+    const [familyStatusPreference, setFamilyStatusPreference] = useState([]);
 
     // Age
     const [minAgePreference, setMinAgePreference] = useState();
     const [maxAgePreference, setMaxAgePreference] = useState();
 
     // Number of Roommates
-    const [selectedLimitPreference, setSelectedLimitPreference] = useState();
+    const [selectedLimitPreference, setSelectedLimitPreference] = useState([]);
 
     // Budget
     const [minBudgetPreference, setMinBudgetPreference] = useState();
     const [maxBudgetPreference, setMaxBudgetPreference] = useState();
 
     // Yes/No Question
-    const [religionPreference, setReligionPreference] = useState();
+    const [religionPreference, setReligionPreference] = useState("");
 
-    const [dietPreference, setDietPreference] = useState();
+    const [dietPreference, setDietPreference] = useState("");
 
-    const [homeToSharePreference, setHomeToSharePreference] = useState();
+    const [homeToSharePreference, setHomeToSharePreference] = useState("");
 
-    const [petPreference, setPetPreference] = useState();
+    const [petPreference, setPetPreference] = useState("");
 
-    const [smokingPreference, setSmokingPreference] = useState();
+    const [smokingPreference, setSmokingPreference] = useState("");
 
     const [loading, setLoading] = useState(true);
     const [showSuccessMessage, setShowSuccessMessage] = useState(false);
@@ -80,24 +81,27 @@ const SearchCriteriaContainer = (props) => {
     const [religionPreferenceError, setReligionPreferenceError] = useState(undefined);
     const [dietPreferenceError, setDietPreferenceError] = useState(undefined);
     const [homeToSharePreferenceError, setHomeToSharePreferenceError] = useState(undefined);
-
+    console.log(memberSearchFilters.genderPreference);
+    console.log(memberSearchFilters.statusPreference);
+    console.log(memberSearchFilters.numRoommatesPreference);
     //populate values from server
     useEffect(() => {
         MemberService.getMemberSearchFilters()
             .then(res => res.json())
             .then(data => {
+                console.log(data)
                 setGenderPreference(data.genderPreference);
-                setFamilyStatusPreference(data.familyStatusPreference);
+                setFamilyStatusPreference(JSON.parse(data.statusPreference));
                 setMinAgePreference(data.minAgePreference);
                 setMaxAgePreference(data.maxAgePreference);
-                setSelectedLimitPreference(data.selectedLimitPreference);
+                setSelectedLimitPreference(JSON.parse(data.numRoommatesPreference));
                 setMinBudgetPreference(data.minBudgetPreference);
                 setMaxBudgetPreference(data.maxBudgetPreference);
-                setReligionPreference(data.religionPreference);
-                setDietPreference(data.dietPreference);
-                setHomeToSharePreference(data.homeToSharePreference);
-                setPetPreference(data.petsPreference);
-                setSmokingPreference(data.smokingPreference);
+                setReligionPreference(resolveBooleanToYesNo(data.religionPreference));
+                setDietPreference(resolveBooleanToYesNo(data.dietPreference));
+                setHomeToSharePreference(resolveBooleanToYesNo(data.homeToSharePreference));
+                setPetPreference(resolveBooleanToYesNo(data.petsPreference));
+                setSmokingPreference(resolveBooleanToYesNo(data.smokingPreference));
 
                 setLoading(false);
             });
@@ -334,11 +338,11 @@ SearchCriteriaContainer.propTypes = {
         numRoommatesPreference: PropTypes.array.isRequired,
         minBudgetPreference: PropTypes.number.isRequired,
         maxBudgetPreference: PropTypes.number.isRequired,
-        religionPreference: PropTypes.string.isRequired,
-        dietPreference: PropTypes.string.isRequired,
-        othersWithHomeToSharePreference: PropTypes.string.isRequired,
-        petsPreference: PropTypes.string.isRequired,
-        smokingPreference: PropTypes.string.isRequired
+        religionPreference: PropTypes.bool.isRequired,
+        dietPreference: PropTypes.bool.isRequired,
+        othersWithHomeToSharePreference: PropTypes.bool.isRequired,
+        petsPreference: PropTypes.bool.isRequired,
+        smokingPreference: PropTypes.bool.isRequired
 
     }).isRequired,
     setMemberSearchFilters: PropTypes.func.isRequired,
