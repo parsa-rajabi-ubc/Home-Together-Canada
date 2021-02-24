@@ -175,7 +175,7 @@ const EventsForm = (props) => {
                                 <PhoneNumInput
                                     className={`${contactPhoneNumberError && "border-red-500"} phone`}
                                     required={true}
-                                    value={contactPhoneNumber || ''}
+                                    value={contactPhoneNumber || {}}
                                     labelClassName={"label"}
                                     label={TEXT.contactPhoneNumber}
                                     onChange={handleContactPhoneChange}/>
