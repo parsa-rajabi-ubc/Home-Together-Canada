@@ -22,7 +22,11 @@ const MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT = {
 
 const MemberHomeToShareCustomFields = (props) => {
     const {
-        generalLocationText,
+        streetLine1,
+        streetLine2,
+        city,
+        province,
+        postalCode,
         homeShareMonthlyCost,
         numBath,
         numBed,
@@ -37,7 +41,10 @@ const MemberHomeToShareCustomFields = (props) => {
         <div className={"flex"}>
             <div className={"flex-none w-9/12"}>
                 <label className={"label-result"}>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.GENERAL_LOCATION}</label>
-                <p> {generalLocationText}</p>
+                <p> {streetLine1} </p>
+                <p> {streetLine2} </p>
+                <p> {city}, {province} </p>
+                <p> {postalCode} </p>
 
                 <label
                     className={"label-result"}>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.HOME_SHARE_MONTHLY_COST}</label>
@@ -97,7 +104,11 @@ const MemberHomeToShareCustomFields = (props) => {
 }
 
 MemberHomeToShareCustomFields.propTypes = {
-    generalLocationText: PropTypes.string.isRequired,
+    streetLine1: PropTypes.string.isRequired,
+    streetLine2: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    province: PropTypes.string.isRequired,
+    postalCode: PropTypes.string.isRequired,
     homeShareMonthlyCost: PropTypes.number.isRequired,
     numBed: PropTypes.number.isRequired,
     numBath: PropTypes.number.isRequired,
