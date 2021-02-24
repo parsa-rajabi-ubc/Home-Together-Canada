@@ -47,38 +47,6 @@ const getGeographicalCoordinatesFromAddress = async (address) => {
     }
 }
 
-const readPostalCodeCSVFile = () => {
-    return new Promise(function(resolve, reject)  {
-        fs.readFile((__dirname + '/../../constants/CanadianPostalCodes202102.csv'),  (err, data) => {
-            if (err) {
-                reject(err);
-            }
-            resolve(data);
-        });
-    });
-}
-
-const getGeographicalCoordinatesFromPostalCode = postalCode => {
-    return readPostalCodeCSVFile()
-        .then(data => {
-            return neatCsv(data);
-        })
-        .then(csvData => {
-            return new Promise(function(resolve, reject) {
-                resolve(find(csvData, entry => entry.POSTAL_CODE.replace(/ /g,'') === postalCode.toUpperCase()));
-            })
-        })
-        .then(location => {
-            return new Promise(function (resolve, reject) {
-                resolve({
-                    latitude: location.LATITUDE,
-                    longitude: location.LONGITUDE
-                });
-            })
-        })
-        .catch(err => console.log('err: ', err));
-}
-
 const getCircularFeatureFromCoordinates = (coordinates, radius) =>
     circle(
         point([coordinates.longitude, coordinates.latitude]),
@@ -101,7 +69,6 @@ module.exports = {
     isCanadianPostalCode,
     getGeographicalCoordinatesFromCity,
     getGeographicalCoordinatesFromAddress,
-    getGeographicalCoordinatesFromPostalCode,
     getCircularFeatureFromCoordinates,
     getCircularFeatureFromLocation,
     featuresOverlap

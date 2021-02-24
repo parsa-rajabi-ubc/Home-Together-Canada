@@ -26,7 +26,8 @@ const listingSubcategoryController = require('./listingSubcategoryController');
 const listingAssignedSubcategoryController = require('./listingAssignedSubcategoryController');
 const memberController = require('./memberAccountController');
 const memberListingLocationController = require('./memberListingLocationController');
-const { getGeographicalCoordinatesFromPostalCode, getCircularFeatureFromLocation } = require('./utils/locationUtils');
+const {PROVINCE_MAP, DEFAULT_COUNTRY} = require("./configConstants");
+const { getGeographicalCoordinatesFromAddress, getCircularFeatureFromLocation } = require('./utils/locationUtils');
 
 const createListing = async (req, res) => {
     try {
@@ -49,7 +50,8 @@ const createListing = async (req, res) => {
         });
 
         if (await memberController.findMemberAccountByUid(req.user.uid)) {
-            const coordinates = await getGeographicalCoordinatesFromPostalCode(req.body.postalCode);
+            const fullSearchableAddress = `${req.body.addressLine1} ${req.body.city} ${PROVINCE_MAP.get(req.body.province)} ${DEFAULT_COUNTRY}`;
+            const coordinates = await getGeographicalCoordinatesFromAddress(fullSearchableAddress);
             await memberListingLocationController.addMemberListingLocation(
                 parseFloat(coordinates.latitude),
                 parseFloat(coordinates.longitude),

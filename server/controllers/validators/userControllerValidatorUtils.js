@@ -156,6 +156,16 @@ const validMapAddress = (addressLine1, req) => {
     }
 }
 
+const validAddress = (addressLine1, req) => {
+    const address = `${addressLine1} ${req.body.city} ${PROVINCE_MAP.get(req.body.province)} ${DEFAULT_COUNTRY}`;
+    return geoCoder.geocode(address)
+        .then(locations => {
+            if (!locations.length) {
+                return Promise.reject('Invalid searchable address');
+            }
+        });
+}
+
 const shouldIncorporatedOwnersNamesBeDefined = (incorporatedOwnersNames, req) => {
     if (req.body.isIncorporated && !incorporatedOwnersNames) {
         throw new Error(`Incorporated owners' names must be defined`);
@@ -369,6 +379,7 @@ module.exports = {
     validateMapPostalCode,
     validateMapProvince,
     validMapAddress,
+    validAddress,
     shouldIncorporatedOwnersNamesBeDefined,
     isPositiveInteger,
     validateMinAndMax,

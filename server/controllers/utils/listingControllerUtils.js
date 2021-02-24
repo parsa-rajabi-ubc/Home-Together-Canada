@@ -30,7 +30,20 @@ const RENTAL_FIELDS = [...COMMON_FIELDS, 'monthlyCost', 'numBed', 'numBath', 'pe
 const HOUSE_YARD_FIELDS = [...COMMON_FIELDS, 'rateAndFees'];
 const LEGAL_SALES_FIELDS = [...COMMON_FIELDS, 'rateAndFees'];
 const EVENTS_CLUBS_FIELDS = [...COMMON_FIELDS, 'rateAndFees', 'contactName', 'contactPhoneNumber', 'eventDateTime'];
-const MEMBER_HOME_FIELDS = [...COMMON_FIELDS, 'monthlyCost', 'numBed', 'numBath', 'petFriendly', 'smokeFriendly', 'postalCode', 'utilitiesIncluded'];
+const MEMBER_HOME_FIELDS = [
+    ...COMMON_FIELDS,
+    'monthlyCost',
+    'numBed',
+    'numBath',
+    'petFriendly',
+    'smokeFriendly',
+    'utilitiesIncluded',
+    'addressLine1',
+    'addressLine2',
+    'city',
+    'province',
+    'postalCode'
+];
 
 const getListingFields = (req) => {
     switch (req.body.category) {
