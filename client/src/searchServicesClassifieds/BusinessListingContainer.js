@@ -60,7 +60,11 @@ function BusinessListingContainer(props) {
     const [petFriendly, setPetFriendly] = useState();
     const [smokeFriendly, setSmokeFriendly] = useState();
     const [eventDateTime, setEventDateTime] = useState();
-    const [generalLocation, setGeneralLocation] = useState();
+    const [memberAddressLine1, setMemberAddressLine1] = useState();
+    const [memberAddressLine2, setMemberAddressLine2] = useState();
+    const [memberAddressCity, setMemberAddressCity] = useState();
+    const [memberAddressProvince, setMemberAddressProvince] = useState();
+    const [memberAddressPostalCode, setMemberAddressPostalCode] = useState();
     const [homeShareMonthlyCost, setHomeShareMonthlyCost] = useState();
     const [utilIncluded, setUtilIncluded] = useState();
 
@@ -87,7 +91,6 @@ function BusinessListingContainer(props) {
         // set listing if props.location.state exists
         if (props.location.state) {
             const {listing} = props.location.state;
-
             setCommonListingData(listing);
             setCustomFieldData(listing);
 
@@ -138,7 +141,11 @@ function BusinessListingContainer(props) {
     const setCustomFieldData = (listing) => {
         switch (listing.categoryName) {
             case MEMBER_SERVICE_CATEGORIES.MEMBER_HOME:
-                setGeneralLocation(listing.postalCode);
+                setMemberAddressLine1(listing.addressLine1);
+                setMemberAddressLine2(listing.addressLine2);
+                setMemberAddressCity(listing.city);
+                setMemberAddressProvince(listing.province);
+                setMemberAddressPostalCode(listing.postalCode);
                 setHomeShareMonthlyCost(listing.monthlyCost);
                 setNumBed(listing.numBed);
                 setNumBath(listing.numBath);
@@ -191,7 +198,6 @@ function BusinessListingContainer(props) {
         switch (selectedCategory) {
             case MEMBER_SERVICE_CATEGORIES.MEMBER_HOME:
                 return <MemberHomeToShareCustomFields
-                    generalLocationText={generalLocation}
                     homeShareMonthlyCost={homeShareMonthlyCost}
                     numBed={numBed}
                     numBath={numBath}
@@ -199,6 +205,11 @@ function BusinessListingContainer(props) {
                     petFriendly={petFriendly}
                     smokeFriendly={smokeFriendly}
 
+                    streetLine1={memberAddressLine1}
+                    streetLine2={memberAddressLine2}
+                    city={memberAddressCity}
+                    province={memberAddressProvince}
+                    postalCode={memberAddressPostalCode}
                 />
             case BUSINESS_SERVICE_CATEGORIES.CO_HOUSING:
                 return <CohousingCustomFields contactName={contactName} unitsForSale={unitForSale}
