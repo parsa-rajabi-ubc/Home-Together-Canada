@@ -11,14 +11,5 @@ exports[`AgenciesCustomFields should render correctly regardless of properties 1
      
     555 per day
   </p>
-  <label
-    className="label-result"
-  >
-    Pictures
-  </label>
-  <img
-    alt=""
-    src="HTC_Logo.jpg"
-  />
 </div>
 `;
