@@ -10,8 +10,8 @@
 export const memberMockCustomFields = {
     generalLocationText: "766 Rutland Rd. S.",
     homeShareMonthlyCost: 800,
-    numBed: "5",
-    numBath: "3",
+    numBed: 5,
+    numBath: 3,
     utilIncluded: true,
     petFriendly: false,
     smokeFriendly: false,

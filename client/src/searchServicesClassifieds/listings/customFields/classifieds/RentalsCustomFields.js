@@ -84,8 +84,8 @@ const RentalsCustomFields = (props) =>{
 
 RentalsCustomFields.propTypes = {
     price: PropTypes.number.isRequired,
-    numBed: PropTypes.string.isRequired,
-    numBath: PropTypes.string.isRequired,
+    numBed: PropTypes.number.isRequired,
+    numBath: PropTypes.number.isRequired,
     furnished: PropTypes.bool.isRequired,
     petFriendly: PropTypes.bool.isRequired,
     smokingFriendly: PropTypes.bool.isRequired,

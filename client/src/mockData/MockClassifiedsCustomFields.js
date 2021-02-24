@@ -8,8 +8,8 @@
 
 export const rentalsMockCustomFields = {
     price: 800,
-    numBed: "5",
-    numBath: "3",
+    numBed: 5,
+    numBath: 3,
     furnished: true,
     petFriendly: false,
     smokingFriendly: false,
