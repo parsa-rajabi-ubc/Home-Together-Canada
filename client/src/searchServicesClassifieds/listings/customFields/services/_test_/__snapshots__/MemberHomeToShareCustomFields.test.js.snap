@@ -14,7 +14,25 @@ exports[`MemberHomeToShareCustomFields should render correctly regardless of pro
     </label>
     <p>
        
-      766 Rutland Rd. S.
+      123 Candy Lane
+       
+    </p>
+    <p>
+       
+      
+       
+    </p>
+    <p>
+       
+      Kelowna
+      , 
+      BC
+       
+    </p>
+    <p>
+       
+      V1X 1X3
+       
     </p>
     <label
       className="label-result"

@@ -8,7 +8,11 @@
 
 
 export const memberMockCustomFields = {
-    generalLocationText: "766 Rutland Rd. S.",
+    streetLine1: "123 Candy Lane",
+    streetLine2: "",
+    city: "Kelowna",
+    province: "BC",
+    postalCode: "V1X 1X3",
     homeShareMonthlyCost: 800,
     numBed: 5,
     numBath: 3,
