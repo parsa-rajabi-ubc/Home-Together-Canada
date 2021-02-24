@@ -99,8 +99,8 @@ const MemberHomeToShareCustomFields = (props) => {
 MemberHomeToShareCustomFields.propTypes = {
     generalLocationText: PropTypes.string.isRequired,
     homeShareMonthlyCost: PropTypes.number.isRequired,
-    numBed: PropTypes.string.isRequired,
-    numBath: PropTypes.string.isRequired,
+    numBed: PropTypes.number.isRequired,
+    numBath: PropTypes.number.isRequired,
     utilIncluded: PropTypes.bool.isRequired,
     petFriendly: PropTypes.bool.isRequired,
     smokeFriendly: PropTypes.bool.isRequired,
