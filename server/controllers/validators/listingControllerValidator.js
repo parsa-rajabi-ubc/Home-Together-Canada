@@ -5,10 +5,11 @@
  * @Description: functions to validate input to controller functions to create listings
  *
  */
+const {validMapAddress} = require("./userControllerValidatorUtils");
 const { body } = require('express-validator/check');
 const {isValidRadius} = require("./userControllerValidatorUtils");
 const {PROVINCES_LIST} = require("../configConstants");
-const {isValidLocation} = require("./userControllerValidatorUtils");
+const {isValidLocation, validAddress} = require("./userControllerValidatorUtils");
 
 const {isPositiveInteger} = require("./userControllerValidatorUtils");
 const {isValidPhoneNumber} = require("./userControllerValidatorUtils");
@@ -126,7 +127,25 @@ exports.validate = method => {
                 ...numBedBathValidation,
                 ...petFriendlyValidation,
                 ...smokeFriendlyValidation,
-                body('postalCode', LISTING_FIELDS_ERRORS.POSTAL_CODE)
+                body('addressLine1', 'A valid address line 1 must be provided')
+                    .exists()
+                    .trim()
+                    .stripLow()
+                    .not().isEmpty()
+                    .custom((addressLine1, { req }) => validAddress(addressLine1, req)),
+                body('addressLine2', 'Address line 2 is invalid')
+                    .optional()
+                    .trim()
+                    .stripLow(),
+                body('city', 'A valid city must be provided')
+                    .exists()
+                    .trim()
+                    .stripLow()
+                    .not().isEmpty(),
+                body('province', 'A valid province must be provided')
+                    .exists()
+                    .isIn(PROVINCES_LIST),
+                body('postalCode', 'A valid postal code must be provided')
                     .exists()
                     .trim()
                     .stripLow()
