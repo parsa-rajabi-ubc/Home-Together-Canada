@@ -81,15 +81,11 @@ const SearchCriteriaContainer = (props) => {
     const [religionPreferenceError, setReligionPreferenceError] = useState(undefined);
     const [dietPreferenceError, setDietPreferenceError] = useState(undefined);
     const [homeToSharePreferenceError, setHomeToSharePreferenceError] = useState(undefined);
-    console.log(memberSearchFilters.genderPreference);
-    console.log(memberSearchFilters.statusPreference);
-    console.log(memberSearchFilters.numRoommatesPreference);
     //populate values from server
     useEffect(() => {
         MemberService.getMemberSearchFilters()
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 setGenderPreference(data.genderPreference);
                 setFamilyStatusPreference(JSON.parse(data.statusPreference));
                 setMinAgePreference(data.minAgePreference);
