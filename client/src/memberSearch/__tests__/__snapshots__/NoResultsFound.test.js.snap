@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`MemberSearchResults Container test should match snapshot test with an empty array 1`] = `
-<div>
-  No Results found
-</div>
-`;
