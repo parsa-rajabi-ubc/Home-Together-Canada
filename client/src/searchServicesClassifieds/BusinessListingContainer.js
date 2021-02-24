@@ -84,7 +84,7 @@ function BusinessListingContainer(props) {
     useEffect(() => {
         setLoading(true);
 
-        // set listing if redux store exists
+        // set listing if props.location.state exists
         if (props.location.state) {
             const {listing} = props.location.state;
 
