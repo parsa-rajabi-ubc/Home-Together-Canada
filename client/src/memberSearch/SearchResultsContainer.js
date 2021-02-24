@@ -8,8 +8,12 @@
 
 import React from "react";
 import MemberSearchResults from "./MemberSearchResults";
-import NoResultsFound from "./NoResultsFound";
+import Confirmation from "../common/listings/Confirmation";
 import PropTypes from "prop-types";
+
+const MESSAGE = {
+    NO_RESULTS: "No results found"
+}
 
 function SearchResultsContainer(props) {
     const {profileData} = props;
@@ -19,7 +23,7 @@ function SearchResultsContainer(props) {
             <h1 className={"text-3xl font-medium m-5"}> Members </h1>
 
             {/*check for an empty list*/}
-            {(!profileData.length) ? <NoResultsFound/> : <MemberSearchResults profileData={profileData}/>}
+            {(!profileData.length) ? <Confirmation displayButton={false} errorColor={true} message={MESSAGE.NO_RESULTS}/> : <MemberSearchResults profileData={profileData}/>}
         </div>
     );
 }

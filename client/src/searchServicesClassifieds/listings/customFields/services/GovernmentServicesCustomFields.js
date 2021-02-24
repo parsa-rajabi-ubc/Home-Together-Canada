@@ -29,7 +29,7 @@ const GovernmentServicesCustomFields = (props) => {
 
 GovernmentServicesCustomFields.propTypes = {
     contactPerson: PropTypes.string.isRequired,
-    phoneNumber: PropTypes.string
+    phoneNumber: PropTypes.string.isRequired
 }
 
 export default GovernmentServicesCustomFields;

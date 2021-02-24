@@ -7,20 +7,30 @@
  *
  */
 
-import React, {useContext} from 'react';
-import {listingContext} from "../SearchListingContainer";
+import React from 'react';
+import PropTypes from "prop-types";
 import ListingResults from "./ListingResults";
+import Confirmation from "../../common/listings/Confirmation";
 
-function ListingResultsContainer() {
+const MESSAGE = {
+    NO_RESULTS: "No results found"
+}
 
-    const listingPage = useContext(listingContext);
+function ListingResultsContainer(props) {
+    const {listingUser, listingData} = props;
+
 
     return (
         <div className={"m-6"}>
-            <ListingResults/>
+            {(!listingData.length) ? <Confirmation displayButton={false} errorColor={true} message={MESSAGE.NO_RESULTS}/>
+                : <ListingResults listingUser={listingUser} listingData={listingData}/>}
         </div>
     );
 }
 
+ListingResultsContainer.propTypes = {
+    listingUser: PropTypes.string.isRequired,
+    listingData: PropTypes.array.isRequired,
+};
 
 export default ListingResultsContainer;

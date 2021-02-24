@@ -11,14 +11,5 @@ exports[`HouseServicesCustomFields should render correctly regardless of propert
      
     666 per day
   </p>
-  <label
-    className="label-result"
-  >
-    Pictures
-  </label>
-  <img
-    alt=""
-    src="HTC_Logo.jpg"
-  />
 </div>
 `;

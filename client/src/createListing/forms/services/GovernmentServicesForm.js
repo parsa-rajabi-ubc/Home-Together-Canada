@@ -135,7 +135,7 @@ const GovernmentServicesForm = (props) => {
                                 <PhoneNumInput
                                     className={`${contactPhoneNumberError && "border-red-500"} phone`}
                                     required={true}
-                                    value={contactPhoneNumber || ''}
+                                    value={contactPhoneNumber || {}}
                                     labelClassName={"label"}
                                     label={TEXT.contact_phone_number}
                                     onChange={handleContactPhoneChange}/>

@@ -7,7 +7,6 @@
  */
 import PropTypes from "prop-types";
 import React from 'react';
-import HTC_Logo from "../../../../images/HTC_Logo.jpg";
 import {AiOutlineCheckCircle as Check, AiOutlineCloseCircle as Ex} from "react-icons/ai";
 
 const MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT = {
@@ -50,10 +49,8 @@ const MemberHomeToShareCustomFields = (props) => {
                 <label className={"label-result"}>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.NUMBER_BATHROOM}</label>
                 <p> {numBath}</p>
 
-                <label className={"label-result"}>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.PICTURES}</label>
-
                 {/*TODO: replace HTC_Logo with picture string from DB*/}
-                <img src={HTC_Logo} alt={""}/>
+                {/*<label className={"label-result"}>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.PICTURES}</label>*/}
             </div>
 
 
@@ -102,12 +99,12 @@ const MemberHomeToShareCustomFields = (props) => {
 MemberHomeToShareCustomFields.propTypes = {
     generalLocationText: PropTypes.string.isRequired,
     homeShareMonthlyCost: PropTypes.number.isRequired,
-    numBed: PropTypes.string.isRequired,
-    numBath: PropTypes.string.isRequired,
+    numBed: PropTypes.number.isRequired,
+    numBath: PropTypes.number.isRequired,
     utilIncluded: PropTypes.bool.isRequired,
     petFriendly: PropTypes.bool.isRequired,
     smokeFriendly: PropTypes.bool.isRequired,
-    pictures: PropTypes.string.isRequired,
+    pictures: PropTypes.string,
 }
 
 export default MemberHomeToShareCustomFields;

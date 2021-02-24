@@ -107,7 +107,17 @@ const searchMemberServiceListings = async (searchArea, categoryName) => {
         );
     });
 
-    return filteredLocations;
+    return filteredLocations.map(listing => {
+        return {
+            id: listing.id,
+            uid: listing.uid,
+            ...(JSON.parse(listing.fields)),
+            isClassified: listing.isClassified,
+            createdAt: listing.createdAt,
+            updatedAt: listing.updatedAt,
+            categoryName: listing.ListingCategory.name
+        }
+    });
 }
 
 const searchBusinessListings = async (searchArea, categoryName, subcategoryNames) => {
@@ -181,6 +191,7 @@ const searchBusinessListings = async (searchArea, categoryName, subcategoryNames
             isClassified: listing.isClassified,
             createdAt: listing.createdAt,
             updatedAt: listing.updatedAt,
+            categoryName: listing.ListingCategory.name,
             business: {
                 username: listing.AbstractUser.dataValues.username,
                 email: listing.AbstractUser.dataValues.email,

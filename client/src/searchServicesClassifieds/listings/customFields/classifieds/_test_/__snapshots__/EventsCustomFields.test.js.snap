@@ -36,15 +36,7 @@ exports[`EventsCustomFields should render correctly regardless of properties 1`]
   </label>
   <p>
      
+    2020/2/21 11:00 A.M.
   </p>
-  <label
-    className="label-result"
-  >
-    Pictures
-  </label>
-  <img
-    alt=""
-    src="HTC_Logo.jpg"
-  />
 </div>
 `;
