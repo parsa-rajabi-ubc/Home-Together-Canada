@@ -86,7 +86,7 @@ const SearchCriteriaContainer = (props) => {
         MemberService.getMemberSearchFilters()
             .then(res => res.json())
             .then(data => {
-                setGenderPreference(data.genderPreference);
+                setGenderPreference(JSON.parse(data.genderPreference));
                 setFamilyStatusPreference(JSON.parse(data.statusPreference));
                 setMinAgePreference(data.minAgePreference);
                 setMaxAgePreference(data.maxAgePreference);
@@ -327,18 +327,18 @@ SearchCriteriaContainer.propTypes = {
             city: PropTypes.string,
             radius: PropTypes.string
         }).isRequired,
-        genderPreference: PropTypes.array.isRequired,
+        genderPreference: PropTypes.oneOfType([PropTypes.string, PropTypes.array]).isRequired,
         statusPreference: PropTypes.array.isRequired,
         minAgePreference: PropTypes.number.isRequired,
         maxAgePreference: PropTypes.number.isRequired,
         numRoommatesPreference: PropTypes.array.isRequired,
         minBudgetPreference: PropTypes.number.isRequired,
         maxBudgetPreference: PropTypes.number.isRequired,
-        religionPreference: PropTypes.bool.isRequired,
-        dietPreference: PropTypes.bool.isRequired,
-        othersWithHomeToSharePreference: PropTypes.bool.isRequired,
-        petsPreference: PropTypes.bool.isRequired,
-        smokingPreference: PropTypes.bool.isRequired
+        religionPreference: PropTypes.string.isRequired,
+        dietPreference: PropTypes.string.isRequired,
+        othersWithHomeToSharePreference: PropTypes.string.isRequired,
+        petsPreference: PropTypes.string.isRequired,
+        smokingPreference: PropTypes.string.isRequired
 
     }).isRequired,
     setMemberSearchFilters: PropTypes.func.isRequired,
