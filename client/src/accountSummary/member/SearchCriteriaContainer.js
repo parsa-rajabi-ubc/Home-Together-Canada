@@ -26,6 +26,7 @@ import { useHistory } from "react-router-dom";
 import {setMemberSearchFilters} from "../../redux/slices/memberPrivileges";
 import {SESSION_ERR} from "../../common/constants/errors";
 import {reset} from "../../redux/actionCreators";
+import {resolveBooleanToYesNo} from "../../common/utils/generalUtils";
 
 const mapDispatchToProps = {
     reset,
@@ -36,32 +37,32 @@ const SearchCriteriaContainer = (props) => {
     const {memberSearchFilters, setMemberSearchFilters, reset} = props;
     const history = useHistory();
     // Gender and Family Status
-    const [genderPreference, setGenderPreference] = useState(memberSearchFilters.genderPreference);
-    const [familyStatusPreference, setFamilyStatusPreference] = useState(memberSearchFilters.statusPreference);
+    const [genderPreference, setGenderPreference] = useState([]);
+    const [familyStatusPreference, setFamilyStatusPreference] = useState([]);
 
     // Age
-    const [minAgePreference, setMinAgePreference] = useState(memberSearchFilters.minAgePreference);
-    const [maxAgePreference, setMaxAgePreference] = useState(memberSearchFilters.maxAgePreference);
+    const [minAgePreference, setMinAgePreference] = useState();
+    const [maxAgePreference, setMaxAgePreference] = useState();
 
     // Number of Roommates
-    const [selectedLimitPreference, setSelectedLimitPreference] = useState(memberSearchFilters.numRoommatesPreference);
+    const [selectedLimitPreference, setSelectedLimitPreference] = useState([]);
 
     // Budget
-    const [minBudgetPreference, setMinBudgetPreference] = useState(memberSearchFilters.minBudgetPreference);
-    const [maxBudgetPreference, setMaxBudgetPreference] = useState(memberSearchFilters.maxBudgetPreference);
+    const [minBudgetPreference, setMinBudgetPreference] = useState();
+    const [maxBudgetPreference, setMaxBudgetPreference] = useState();
 
     // Yes/No Question
-    const [religionPreference, setReligionPreference] = useState(memberSearchFilters.religionPreference);
+    const [religionPreference, setReligionPreference] = useState("");
 
-    const [dietPreference, setDietPreference] = useState(memberSearchFilters.dietPreference);
+    const [dietPreference, setDietPreference] = useState("");
 
-    const [homeToSharePreference, setHomeToSharePreference] = useState(memberSearchFilters.othersWithHomeToSharePreference);
+    const [homeToSharePreference, setHomeToSharePreference] = useState("");
 
-    const [petPreference, setPetPreference] = useState(memberSearchFilters.petsPreference);
+    const [petPreference, setPetPreference] = useState("");
 
-    const [smokingPreference, setSmokingPreference] = useState(memberSearchFilters.smokingPreference);
+    const [smokingPreference, setSmokingPreference] = useState("");
 
-    // const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
     const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
     // Search Criteria Errors
@@ -80,6 +81,28 @@ const SearchCriteriaContainer = (props) => {
     const [religionPreferenceError, setReligionPreferenceError] = useState(undefined);
     const [dietPreferenceError, setDietPreferenceError] = useState(undefined);
     const [homeToSharePreferenceError, setHomeToSharePreferenceError] = useState(undefined);
+    //populate values from server
+    useEffect(() => {
+        MemberService.getMemberSearchFilters()
+            .then(res => res.json())
+            .then(data => {
+                setGenderPreference(JSON.parse(data.genderPreference));
+                setFamilyStatusPreference(JSON.parse(data.statusPreference));
+                setMinAgePreference(data.minAgePreference);
+                setMaxAgePreference(data.maxAgePreference);
+                setSelectedLimitPreference(JSON.parse(data.numRoommatesPreference));
+                setMinBudgetPreference(data.minBudgetPreference);
+                setMaxBudgetPreference(data.maxBudgetPreference);
+                setReligionPreference(resolveBooleanToYesNo(data.religionPreference));
+                setDietPreference(resolveBooleanToYesNo(data.dietPreference));
+                setHomeToSharePreference(resolveBooleanToYesNo(data.homeToSharePreference));
+                setPetPreference(resolveBooleanToYesNo(data.petsPreference));
+                setSmokingPreference(resolveBooleanToYesNo(data.smokingPreference));
+
+                setLoading(false);
+            });
+    }, []);
+
 
     // UseEffects
     useEffect(() => {
@@ -232,6 +255,7 @@ const SearchCriteriaContainer = (props) => {
 
     return (
         <div>
+            {!loading &&
             <SearchCriteria
                 genderPreference={genderPreference}
                 handleGenderPrefChange={handleGenderPrefChange}
@@ -285,6 +309,7 @@ const SearchCriteriaContainer = (props) => {
 
                 onSubmit={onSubmit}
             />
+            }
         </div>
 
     )
@@ -302,7 +327,7 @@ SearchCriteriaContainer.propTypes = {
             city: PropTypes.string,
             radius: PropTypes.string
         }).isRequired,
-        genderPreference: PropTypes.array.isRequired,
+        genderPreference: PropTypes.oneOfType([PropTypes.string, PropTypes.array]).isRequired,
         statusPreference: PropTypes.array.isRequired,
         minAgePreference: PropTypes.number.isRequired,
         maxAgePreference: PropTypes.number.isRequired,
