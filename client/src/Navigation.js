@@ -27,7 +27,7 @@ import PrivacyPolicy from "./termsOfService/PrivacyPolicy";
 import ScrollToTop from "./ScrollToTop";
 import ProfilePageContainer from "./memberSearch/profilePage/ProfilePageContainer";
 import SearchListingContainer from "./searchServicesClassifieds/SearchListingContainer";
-import BusinessListingContainer from "./searchServicesClassifieds/BusinessListingContainer";
+import ListingContainer from "./searchServicesClassifieds/ListingContainer";
 import FAQ from "./fAQ/FAQ";
 
 const Navigation = (props) => {
@@ -51,7 +51,7 @@ const Navigation = (props) => {
                     }
                     <Route path={"/members"} component={MemberSearchContainer}/>
                     <Route path={"/create-listing"} component={CreateListingContainer}/>
-                    <Route path={"/:servicesClassifieds/:id"} exact component={BusinessListingContainer}/>
+                    <Route path={"/:servicesClassifieds/:id"} exact component={ListingContainer}/>
                     <Route path={"/services"} exact component={SearchListingContainer}/>
                     <Route path={"/classifieds"} exact component={SearchListingContainer}/>
                     {(authenticated && accountType !== USER_TYPES.UNREGISTERED) &&

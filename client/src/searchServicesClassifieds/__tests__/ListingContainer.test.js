@@ -8,10 +8,10 @@
 
 import React from 'react';
 import renderer from 'react-test-renderer'
-import BusinessListingContainer from "../BusinessListingContainer";
+import ListingContainer from "../ListingContainer";
 import {MemoryRouter} from "react-router-dom";
 
-describe('BusinessListingContainer', () => {
+describe('ListingContainer', () => {
     describe('Container test', () => {
         it('should match snapshot test', () => {
             //given
@@ -19,7 +19,7 @@ describe('BusinessListingContainer', () => {
             //when
             const component = renderer.create(
                 <MemoryRouter>
-                    <BusinessListingContainer {...props}/>
+                    <ListingContainer {...props}/>
                 </MemoryRouter>
             );
             const tree = component.toJSON();

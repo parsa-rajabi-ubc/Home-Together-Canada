@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BusinessListingContainer Container test should match snapshot test 1`] = `
+exports[`ListingContainer Container test should match snapshot test 1`] = `
 <div>
   <section
     className="text-center min-h-screen transform translate-y-1/2"
