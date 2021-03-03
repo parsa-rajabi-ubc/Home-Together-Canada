@@ -33,7 +33,7 @@ const MESSAGE = {
     INVALID_PAGE_BUTTON_TEXT: "Back to Search Page"
 }
 
-function BusinessListingContainer(props) {
+function ListingContainer(props) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
@@ -289,11 +289,11 @@ function BusinessListingContainer(props) {
     );
 }
 
-BusinessListingContainer.propTypes = {
+ListingContainer.propTypes = {
     location: PropTypes.shape({
         pathname: PropTypes.string,
         state: PropTypes.object
     })
 };
 
-export default BusinessListingContainer;
+export default ListingContainer;
