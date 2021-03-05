@@ -28,7 +28,7 @@ import ScrollToTop from "./ScrollToTop";
 import ProfilePageContainer from "./memberSearch/profilePage/ProfilePageContainer";
 import SearchListingContainer from "./searchServicesClassifieds/SearchListingContainer";
 import ListingContainer from "./searchServicesClassifieds/ListingContainer";
-import FAQ from "./fAQ/FAQ";
+import FAQ from "./FAQ/FAQ";
 
 const Navigation = (props) => {
     const {authenticated, accountType} = props;
