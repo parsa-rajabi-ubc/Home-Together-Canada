@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BusinessInfo Container test should match snapshot test if business is nationWide 1`] = `
+<div
+  className="float-right"
+>
+  <img
+    alt="Business Info's logo"
+    className=""
+    src="public/images/12.jpg"
+  />
+  <div
+    className="text-center"
+  >
+    <section
+      className="my-3"
+    >
+      <label
+        className="label-result text-lg"
+      >
+        Business Info
+         
+      </label>
+      <p
+        className="my-2"
+      >
+        Bob the builder
+      </p>
+    </section>
+    <section
+      className="my-3"
+    >
+      <label>
+         
+        Canada Wide
+         
+      </label>
+      <p
+        className="my-2"
+      >
+        123-413-1341
+      </p>
+      <a
+        className="link"
+        href="mailto:Bob@Builder.ca"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Bob@Builder.ca
+      </a>
+      <a
+        className="link"
+        href="https://www.bob.com"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Website
+      </a>
+    </section>
+    <button
+      className="btn btn-red my-10 text-base px-0 py-2"
+    >
+      Report Listing
+    </button>
+  </div>
+</div>
+`;
+
+exports[`BusinessInfo Container test should match snapshot test if business is not nationWide 1`] = `
+<div
+  className="float-right"
+>
+  <img
+    alt="Business Info's logo"
+    className=""
+    src="public/images/12.jpg"
+  />
+  <div
+    className="text-center"
+  >
+    <section
+      className="my-3"
+    >
+      <label
+        className="label-result text-lg"
+      >
+        Business Info
+         
+      </label>
+      <p
+        className="my-2"
+      >
+        Bob the builder
+      </p>
+    </section>
+    <section
+      className="my-3"
+    >
+      <section>
+        <p>
+          123 Kelowna
+        </p>
+        <p>
+          
+        </p>
+        <p>
+          Kelowna
+          , 
+          BC
+           
+        </p>
+        <p>
+          X0X 0X0
+        </p>
+      </section>
+      <p
+        className="my-2"
+      >
+        123-413-1341
+      </p>
+      <a
+        className="link"
+        href="mailto:Bob@Builder.ca"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Bob@Builder.ca
+      </a>
+      <a
+        className="link"
+        href="https://www.bob.com"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Website
+      </a>
+    </section>
+    <button
+      className="btn btn-red my-10 text-base px-0 py-2"
+    >
+      Report Listing
+    </button>
+  </div>
+</div>
+`;

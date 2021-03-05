@@ -1,7 +1,15 @@
 @import "../home/Home.css";
 @import "../common/error/Error404.css";
 @import "../login/LoginForm.css";
-@import "../registration/BusinessRegistrationForm.css";
+@import "../registration/RegistrationForms.css";
+@import "../registration/MainLandingPage.css";
+@import "../common/header-and-footer/Header.css";
+@import "../common/forms/Checkbox.css";
+@import "../accountSummary/accountSummary.css";
+@import "../termsOfService/TermsOfService.css";
+@import "../memberSearch/ProfileCard.css";
+@import "../memberSearch/profilePage/ProfilePage.css";
+@import "../common/forms/Paginate.css";
 
 .btn {
     @apply items-center justify-center w-full px-8 py-3 text-lg text-white transition duration-150 ease-in-out border border-transparent rounded-md;
@@ -32,11 +40,11 @@
 }
 
 .btn-red {
-    @apply bg-ired-normal;
+    @apply bg-red-600;
 }
 
 .btn-red:hover {
-    @apply bg-ired-dark;
+    @apply bg-red-700;
 }
 
 .btn-red:active {
@@ -59,6 +67,14 @@
     @apply block w-full px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;
 }
 
-.input:focus {
-    @apply outline-none shadow-outline;
+.form-btn {
+    @apply m-auto mt-8 mb-6 text-base;
+}
+
+.label-result {
+    @apply block mt-3 text-base font-medium text-gray-700 text-orange-600;
+}
+
+.disabled-field {
+    @apply bg-gray-500 opacity-50 cursor-not-allowed;
 }

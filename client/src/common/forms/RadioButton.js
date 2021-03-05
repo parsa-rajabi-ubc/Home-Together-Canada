@@ -8,22 +8,24 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 
-function RadioButton(props){
-    const { label, name, value, checked, onChange } = props;
-    return(
+function RadioButton(props) {
+    const {label, name, value, checked, onChange, blockElement = false, disabled} = props;
+    return (
+        <span className={`${blockElement && "block"}`}>
         <label className={"text-base text-gray-700 pr-8"}>
 
             <input
-            className={"form-radio mt-2 ml-2 mr-1 mb-4"}
+                className={"form-radio mt-2 ml-2 mr-1 pb-4"}
                 type="radio"
-                   name={name}
-                   value={value}
-                   checked={checked}
-                   onChange={onChange}
-
+                name={name}
+                value={value}
+                checked={checked}
+                onChange={onChange}
+                disabled={disabled}
             />
             {label}
         </label>
+        </span>
     );
 }
 
@@ -32,6 +34,8 @@ RadioButton.propTypes = {
     name: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     checked: PropTypes.bool,
+    disabled: PropTypes.bool,
+    blockElement: PropTypes.bool,
     onChange: PropTypes.func
 }
 

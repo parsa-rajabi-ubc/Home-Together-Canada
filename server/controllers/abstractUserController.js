@@ -40,12 +40,19 @@ const createAbstractUser = (req, res) => {
 
 const findAbstractUser = (id) => AbstractUser.findByPk(id);
 
-const findUserByUsername = (username) =>
+const findUsersByUsernames = (usernames) =>
     AbstractUser.findAll({
+        where: {
+            username: usernames
+        }
+    });
+
+const findUserByUsername = username =>
+    AbstractUser.findOne({
         where: {
             username: username
         }
-    });
+    })
 
 const findUserByEmail = (email) =>
     AbstractUser.findAll({
@@ -67,10 +74,53 @@ const findAllAbstractUsers = (req, res) => {
         });
 }
 
+const changePassword = (req, res) => {
+    AbstractUser.update({ password: PasswordService.getHashedPassword(req.body.newPassword, req.user.salt) }, {
+        where: {
+            uid: req.user.uid
+        }
+    })
+        .then(data => {
+            res.status(200).send({ success: true });
+        })
+        .catch(err => res.status(500).send({ success: false, message: err.message }));
+}
+
+const deleteAccount = uid =>
+    AbstractUser.destroy({
+        where: {
+            uid: uid
+        }
+    });
+
+const updateAbstractUser = (req, res) => {
+    return AbstractUser.update({
+        email: req.body.email,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        phoneNumber: accountControllerUtils.formatPhoneNumber(req.body.phoneNumber),
+        addressLine1: req.body.addressLine1,
+        addressLine2: req.body.addressLine2 ? req.body.addressLine2 : null,
+        city: req.body.city,
+        province: req.body.province,
+        postalCode: req.body.postalCode,
+        hasDifferentMailingAddress: req.body.hasDifferentMailingAddress,
+        ...getMailingAddress(req.body)
+    }, {
+        where: {
+            uid: req.user.uid
+        }
+    });
+}
+
 module.exports = {
     createAbstractUser,
     findAllAbstractUsers,
     findAbstractUser,
     findUserByUsername,
-    findUserByEmail
+    findUsersByUsernames,
+    findUserByEmail,
+    changePassword,
+    updateAbstractUser,
+    deleteAccount
 }

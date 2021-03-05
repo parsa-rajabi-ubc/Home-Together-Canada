@@ -6,51 +6,66 @@
  *
  */
 
-import React, {useEffect, useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Select from 'react-select';
 import propTypes from "prop-types";
+import {dropdownDefaultTheme} from "../../css/dropdownCSSUtil";
+import {
+    getSelectedOptionForSingleSelect,
+    getSelectedOptionsForMultiSelect
+} from "../utils/dropdownUtils";
 
 function Dropdown(props) {
-    const {isSearchable, name, placeholder, options, onChange} = props;
+    const {
+        isSearchable,
+        name,
+        placeholder,
+        options,
+        onChange,
+        initialSelection,
+        isMulti = false,
+        isDisabled,
+        dropdownCSS,
+        currentSelectedValue,
+        dropdownTheme = dropdownDefaultTheme
+    } = props;
 
-    const [selected, setSelected] = useState("");
+    // currentSelectedValue and related functions/constants/hooks are used to update the
+    // values in the Dropdown from the parent component
+    const prefilledDropdownSelection = isMulti
+        ? getSelectedOptionsForMultiSelect(currentSelectedValue, options)
+        : getSelectedOptionForSingleSelect(currentSelectedValue, options);
 
-    // this code is run every time selected changes
+    const [selected, setSelected] = useState(initialSelection || prefilledDropdownSelection || "");
+
     useEffect(() => {
-        // this onChange function is the callback from the parent component
-        onChange(selected);
-        // that can be used to get the value that is inside the dropdown
-    }, [selected]);
+        if(isMulti) {
+            setSelected(getSelectedOptionsForMultiSelect(currentSelectedValue, options));
+        } else {
+            setSelected(getSelectedOptionForSingleSelect(currentSelectedValue, options));
+        }
+    }, [currentSelectedValue]);
 
-
-    const newStyling = {
-        control: base => ({
-                ...base,
-                marginTop: 4,
-                borderColor: "#e2e8f0",
-                marginBottom: 16,
-            }
-        ),
-        menuPortal: base => ({...base, zIndex: 9999}),
+    const onDropdownChange = e => {
+        onChange(e);
+        setSelected(e);
     }
-
 
     return (
         <div>
-            <Select isSearchable={isSearchable} placeholder={placeholder}
-                    options={options} value={options.find(obj => obj.label === selected)}
-                    onChange={(e) => setSelected(e)}
-                    name={name}
-                    menuPortalTarget={document.body}
-                    styles={newStyling}
-                    theme={theme => ({
-                        ...theme,
-                        borderRadius: 8,
-                        colors: {
-                            ...theme.colors,
-                            neutral50: '#A0AEBF',  // Placeholder color
-                        }
-                    })}
+            <Select
+                isSearchable={isSearchable}
+                isClearable={false}
+                isMulti={isMulti}
+                placeholder={placeholder}
+                options={options}
+                value={selected}
+                onChange={onDropdownChange}
+                name={name}
+                menuPortalTarget={document.body}
+                styles={dropdownCSS}
+                theme={dropdownTheme}
+                isDisabled={isDisabled}
             />
         </div>
     );
@@ -61,7 +76,16 @@ Dropdown.propTypes = {
     name: propTypes.string,
     isSearchable: propTypes.bool,
     placeholder: propTypes.string,
-    onChange: propTypes.func
+    onChange: propTypes.func,
+    initialSelection: propTypes.shape({
+        label: propTypes.oneOfType([propTypes.string, propTypes.number]),
+        value: propTypes.oneOfType([propTypes.string, propTypes.number])
+    }),
+    currentSelectedValue: propTypes.any,
+    dropdownCSS: propTypes.object,
+    dropdownTheme: propTypes.func,
+    isMulti: propTypes.bool,
+    isDisabled: propTypes.bool
 };
 
 export default Dropdown;

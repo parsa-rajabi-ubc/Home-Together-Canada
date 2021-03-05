@@ -1,0 +1,246 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Privacy Policy Snapshot Test should render correctly regardless of properties 1`] = `
+<div
+  className="tos-page-layout"
+  id="Privacy"
+>
+  <h1
+    className="page-title"
+  >
+    Privacy Policy
+
+  </h1>
+  <p
+    className="text"
+  >
+    Home Together Canada is an online platform that provides individuals, wishing to share a home with others, the ability to find each other and the ability to find the sharing services and shared homes they want or need to succeed at creating a shared living experience of their own making.
+  </p>
+  <br />
+  <h2
+    className="point-title"
+  >
+    1. Definition of Personal Information
+  </h2>
+  <p
+    className="text"
+  >
+    Personal information is defined as information that can identify an individual and information about an identifiable individual, which means a person can be identified by the information either directly or in combination with other information.
+  </p>
+  <br />
+  <h2
+    className="point-title"
+  >
+    2. Collection of Personal Information
+
+  </h2>
+  <p
+    className="text"
+  >
+    We collect your personal information as a way to ensure you are who you say you are, (a) to provide basic information on the number of individuals in different demographic groups in different areas at any given point in time.  (b) to provide you the ability to search for others in the demographic grouping of your choice on the website. We collect personal information from you when you register for an Account; provide us information on a web form; update or add information to your Account; participate in community discussions, chats, or dispute resolution; or when you otherwise correspond with us. Personal information that we may collect may include:
+  </p>
+  <br />
+  <p
+    className="sub-point text"
+  >
+    a) identifying information such as your name, addresses, telephone number, email addresses, and IP addresses; 
+
+  </p>
+  <p
+    className="sub-point text"
+  >
+    b) location data and demographic data such as your gender and age;
+
+  </p>
+  <p
+    className="sub-point text"
+  >
+    c) any content that you generate, or that is connected to you, as a result of creating an Account 
+
+  </p>
+  <p
+    className="sub-point text"
+  >
+    d) we collect your information in order to authenticate or identify you or to verify the information we have collected.
+  </p>
+  <br />
+  <p
+    className="text"
+  >
+    We provide you with information, links and classified advertisements on hometogether.ca. We do not share your personal information with these third parties.  When you access these third-parties, they may collect personal information from you. Please note that this Privacy Policy covers the collection of personal information by us only and does not cover the collection of personal information by any third-party ad companies. 
+
+  </p>
+  <br />
+  <h2
+    className="point-title"
+  >
+    3. Use of Personal Information
+
+  </h2>
+  <p
+    className="text"
+  >
+    We use the personal information we collect to:
+
+  </p>
+  <br />
+  <p
+    className="sub-point text"
+  >
+    a) provide, improve, and personalize our content and the Services; 
+
+  </p>
+  <p
+    className="sub-point text"
+  >
+    b) communicate with you when necessary
+
+  </p>
+  <p
+    className="sub-point text"
+  >
+    c) detect, prevent, mitigate, and investigate fraudulent or illegal activities; and 
+
+  </p>
+  <p
+    className="sub-point text"
+  >
+    d) enforce our Terms of Service and this Privacy Policy.
+  </p>
+  <br />
+  <h2
+    className="point-title"
+  >
+    4. Security and Retention of Personal Information
+
+  </h2>
+  <p
+    className="text"
+  >
+    We retain your personal information as long as it is necessary and relevant for our operations. In addition, we may retain your personal information, including information from closed Accounts, to comply with applicable laws, prevent fraud, collect any fees owed, resolve disputes, troubleshoot problems, assist with any investigation, enforce our Terms of Service, or take other actions permitted or required by applicable laws. After it is no longer necessary for us to retain your personal information, as determined by us in our sole discretion in accordance with applicable laws, we dispose of it in a secure manner according to our data retention and deletion policies. We use a payment service and therefore do not ask for or store your financial information. All moneys coming to us, come directly from the payment provider. In recognition of our legal obligations to protect your personal information, our website is updated regularly by a qualified web builder.
+  </p>
+  <br />
+  <h2
+    className="point-title"
+  >
+    5. Location of Servers
+  </h2>
+  <p
+    className="text"
+  >
+    We create, maintain, and archive information on servers that are not located on our immediate premises and are located in Canada or the USA.
+  </p>
+  <br />
+  <h2
+    className="point-title"
+  >
+    6. Minors
+  </h2>
+  <p
+    className="text"
+  >
+    The Website, Application, and Services are intended for general audiences and are not directed to individuals under 19. We do not knowingly collect personal information from Minors. If you are a Minor, please do not use the Website, Application, or Services or submit any personal information through the Website or Application. If you have reason to believe that a Minor has provided their personal information to us, please contact us at the email address provided below, and we will delete that information.
+  </p>
+  <br />
+  <h2
+    className="point-title"
+  >
+    7. Disclosure of Personal Information
+  </h2>
+  <p
+    className="text"
+  >
+    We do not disclose your personal information to third parties. There are, however, certain circumstances in which we may share your personal information with certain third parties without further notice to you. This disclosure may be required to comply with our legal obligations, to enforce our Terms of Service, or to prevent, detect, mitigate, and investigate fraudulent or illegal activities related to our Services. These circumstances include, but are not limited to:
+  </p>
+  <br />
+  <p
+    className="sub-point text"
+  >
+    a) Law Enforcement. We cooperate with government and law enforcement officials or private parties to enforce and comply with applicable laws. We may disclose any information about you to government or law enforcement officials or private parties as we, in our sole discretion, believe necessary or appropriate to respond to claims, legal process (including subpoenas), to protect our property or rights or the property or rights of a third party, the safety of the public or any person, to prevent or stop any illegal, unethical, or legally actionable activity, or to otherwise comply with applicable laws. 
+
+  </p>
+  <p
+    className="sub-point text"
+  >
+    b) Service Providers. We engage certain trusted third parties to perform functions and provide services to us, including, without limitation, hosting and maintenance, database storage and management. We will share your personal information with these third parties, but only to the extent necessary to perform these functions and provide such services, and only pursuant to binding contractual obligations requiring such third parties to maintain the privacy and security of your data.
+  </p>
+  <br />
+  <h2
+    className="point-title"
+  >
+    8. Consent for Collection, User, and Disclosure
+  </h2>
+  <p
+    className="text"
+  >
+    By accessing and using our Website, we consider you to have given us consent to the collection, use, and disclosure of your personal information in accordance with this Privacy Policy. Once this consent has been given, we will continue to collect, use, and disclose your personal information for purposes set out in this Privacy Policy without obtaining further written or verbal consent to do so.
+  </p>
+  <br />
+  <h2
+    className="point-title"
+  >
+    9. Cookies
+  </h2>
+  <p
+    className="text"
+  >
+    We do not use cookies and this site was not created to use cookies. Please note that this Privacy Policy covers the use of cookies by us only and does not cover the use of cookies by any third-party ad companies or their affiliated websites.
+  </p>
+  <br />
+  <h2
+    className="point-title"
+  >
+    10. Third Party Services
+  </h2>
+  <p
+    className="text"
+  >
+    Our Website includes links to other websites. We provide these links and information to you as a service, much like a yellow pages. If you choose to register for such products or services, you are responsible for what information you choose to give them. We are not responsible for the privacy practices and policies of such third parties and, therefore, you should review the privacy practices and policies of such third parties prior to providing your personal information in connection with such products or services.
+  </p>
+  <br />
+  <h2
+    className="point-title"
+  >
+    11. Withdraw Consent
+  </h2>
+  <p
+    className="text"
+  >
+    You can choose not to provide any personal information to us or to withdraw your consent for the collection, use, or disclosure of your personal information for purposes set out in this Privacy Policy. If you choose to do so, you will not have access to the membership portions of the Website or Application.
+  </p>
+  <br />
+  <h2
+    className="point-title"
+  >
+    12. Requests to Access, Correct, or Delete
+  </h2>
+  <p
+    className="text"
+  >
+    We take steps to ensure that the personal information we collect is accurate and up to date, and that you have the ability to access and make corrections to it. You can view and change your personal information by signing in to your Account. Please update your personal information immediately if it changes or is inaccurate. Upon your request, we will close your account. Note that we attempt to retain information pertaining to a registrant complaints as a way to monitor and in some cases stop individuals or businesses from re-registering to the site.
+  </p>
+  <br />
+  <h2
+    className="point-title"
+  >
+    13. Improper Collection and Misuse of Personal Information
+  </h2>
+  <p
+    className="text"
+  >
+    If at any time you think your personal information has been accessed, please contact us immediately.
+  </p>
+  <br />
+  <h2
+    className="point-title"
+  >
+    14. Contact
+  </h2>
+  <p
+    className="text"
+  >
+    If you have any questions or concerns about our Privacy Policy, or how we have handled your personal information please contact us. You will find our email under contacts.
+  </p>
+  <br />
+</div>
+`;

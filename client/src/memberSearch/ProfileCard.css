@@ -1,0 +1,6 @@
+.card-container {
+    @apply shadow rounded-lg border-red-800 mx-5 mb-5 py-5;
+}
+.card-container:hover{
+    @apply bg-gray-300 cursor-pointer;
+}

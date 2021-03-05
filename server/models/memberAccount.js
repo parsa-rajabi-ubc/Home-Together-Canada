@@ -6,7 +6,6 @@
  *
  */
 
-// TODO: when implementing search filters, all preference fields show have allowNull: false property
 module.exports = (DataTypes, sequelize) => {
     return sequelize.define('MemberAccount', {
         uid: {
@@ -20,12 +19,20 @@ module.exports = (DataTypes, sequelize) => {
             allowNull: false,
             defaultValue: false
         },
+        active: {
+          type: DataTypes.BOOLEAN,
+          allowNull: false,
+          defaultValue: true
+        },
+        deactivationReason: {
+            type: DataTypes.STRING
+        },
         gender: {
             type: DataTypes.STRING,
             allowNull: false
         },
         genderDescription: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
         },
         birthYear: {
             type: DataTypes.INTEGER,
@@ -50,15 +57,22 @@ module.exports = (DataTypes, sequelize) => {
         homeToShareDescription: {
             type: DataTypes.STRING
         },
+        isInterestedInBuyingHome: {
+          type: DataTypes.BOOLEAN,
+          allowNull: false
+        },
+        interestInBuyingHomeDescription: {
+            type: DataTypes.STRING
+        },
         isReligionImportant: {
-            type: DataTypes.STRING,
+            type: DataTypes.BOOLEAN,
             allowNull: false
         },
         religionDescription: {
             type: DataTypes.STRING
         },
         isDietImportant: {
-            type: DataTypes.STRING,
+            type: DataTypes.BOOLEAN,
             allowNull: false
         },
         dietDescription: {
@@ -86,7 +100,7 @@ module.exports = (DataTypes, sequelize) => {
             type: DataTypes.STRING
         },
         isSmoker: {
-            type: DataTypes.STRING,
+            type: DataTypes.BOOLEAN,
             allowNull: false
         },
         smokingDescription: {
@@ -96,34 +110,62 @@ module.exports = (DataTypes, sequelize) => {
             type: DataTypes.INTEGER,
             allowNull: false
         },
+        workStatus: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         bio: {
             type: DataTypes.STRING
         },
 
         // PREFERENCES
         minAgePreference: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         maxAgePreference: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         statusPreference: {
-            type: DataTypes.STRING // JSON of status preferences
+            type: DataTypes.STRING, // stringified array
+            allowNull: false
         },
-        numRoommatesPreference: {   // -1 means any number
-            type: DataTypes.INTEGER
+        numRoommatesPreference: {
+            type: DataTypes.STRING, // stringified array, -1 means any number
+            allowNull: false
+        },
+        minBudgetPreference: {
+          type: DataTypes.INTEGER,
+          allowNull: false
+        },
+        maxBudgetPreference: {
+          type: DataTypes.INTEGER,
+          allowNull: false
         },
         dietPreference: {
-            type: DataTypes.BOOLEAN
+            type: DataTypes.BOOLEAN,
+            allowNull: false
         },
         petsPreference: {
-            type: DataTypes.BOOLEAN
+            type: DataTypes.BOOLEAN,
+            allowNull: false
         },
         smokingPreference: {
-            type: DataTypes.BOOLEAN
+            type: DataTypes.BOOLEAN,
+            allowNull: false
         },
-        healthAndMobilityPreference: {
-            type: DataTypes.BOOLEAN
+        genderPreference: {
+            type: DataTypes.STRING,     // stringified array
+            allowNull: false
+        },
+        religionPreference: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
+        },
+        othersWithHomeToSharePreference: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
         }
     });
 }

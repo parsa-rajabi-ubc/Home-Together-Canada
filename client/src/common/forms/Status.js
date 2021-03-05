@@ -9,47 +9,66 @@
 import React from 'react';
 import propTypes from "prop-types";
 import Dropdown from "./Dropdown";
+import {STATUSES} from "../constants/memberConstants";
 
 const statuses = [
     {
-        label: "Single",
-        value: "Single"
+        label: STATUSES.SINGLE,
+        value: STATUSES.SINGLE
     },
     {
-        label: "Couple",
-        value: "Couple"
+        label: STATUSES.COUPLE,
+        value: STATUSES.COUPLE
     },
     {
-        label: "Couple With Children",
-        value: "Couple With Children"
+        label: STATUSES.COUPLE_WITH_CHILDREN,
+        value: STATUSES.COUPLE_WITH_CHILDREN
     },
     {
-        label: "Single Parent",
-        value: "Single Parent"
+        label: STATUSES.SINGLE_PARENT,
+        value: STATUSES.SINGLE_PARENT
     },
     {
-        label: "Existing Group",
-        value: "Existing Group"
+        label: STATUSES.EXISTING_GROUP,
+        value: STATUSES.EXISTING_GROUP
     }
 ]
 
 
 function Status(props) {
-    const {onChange} = props;
+    const {givenSelection, onChange, dropdownCSS, isDropdownMulti = false, currentSelectedValue} = props;
+    const initialSelection = (givenSelection && {label: givenSelection, value: givenSelection}) || undefined;
 
+    const handleInputChange = (e) => {
+        let values = [];
+        for (let val in e) {
+            values.push(e[val].value);
+        }
+        onChange(values);
+    }
 
     return (
         <div>
-            <Dropdown isSearchable={true} placeholder={"Family Status"}
-                      options={statuses}
-                      onChange={onChange}/>
+            <Dropdown
+                isSearchable={true}
+                placeholder={"Family Status"}
+                options={statuses}
+                onChange={isDropdownMulti ? handleInputChange : onChange}
+                dropdownCSS={dropdownCSS}
+                initialSelection={initialSelection}
+                currentSelectedValue={currentSelectedValue}
+                isMulti={isDropdownMulti}
+            />
         </div>
-    )
-
+    );
 }
 
 Status.propTypes = {
-  onChange: propTypes.func
+    onChange: propTypes.func,
+    dropdownCSS: propTypes.object,
+    isDropdownMulti: propTypes.bool,
+    givenSelection: propTypes.string,
+    currentSelectedValue: propTypes.any
 };
 
 

@@ -1,0 +1,53 @@
+.phone {
+    @apply w-1/4 px-2 py-2 mt-1 mb-4 mr-2 text-center text-base leading-normal bg-white border border-gray-300 rounded-lg appearance-none;
+}
+
+.label {
+    @apply mt-2 text-gray-700 text-base font-medium;
+}
+
+.info-header {
+    @apply text-2xl font-medium leading-6 text-gray-900;
+}
+
+.info-text {
+    @apply mt-5 text-base text-gray-600;
+}
+
+.info-detail {
+    @apply mt-4 text-xs text-gray-600;
+}
+
+.column-span-6-layout {
+    @apply col-span-6;
+}
+
+.border-divider {
+    @apply py-5 border-dashed border-t-2 border-gray-200 mx-16;
+}
+
+.error-msg {
+    @apply block mb-2 text-sm text-red-500;
+}
+
+.success-msg {
+    @apply block mb-2 text-sm text-green-500;
+}
+
+.photo-upload-width {
+    @apply w-48;
+}
+
+.photo-upload {
+    @apply font-medium text-indigo-600 bg-white rounded-md;
+}
+
+@screen sm {
+    .column-span-6-layout {
+        @apply col-span-3;
+    }
+
+    .border-divider {
+        @apply: hidden block;
+    }
+}

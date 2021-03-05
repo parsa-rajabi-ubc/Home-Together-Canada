@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BusinessRegistrationForm Snapshot test should render correctly regardless of properties 1`] = `
+exports[`BusinessRegistrationForm should render correctly regardless of properties 1`] = `
 <div>
   <div>
     <div
@@ -22,6 +22,31 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
           >
             This information is about your business.
           </p>
+          <p
+            className="info-text mr-10"
+          >
+            <svg
+              className="inline align-top text-red-600"
+              fill="none"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                fill="currentColor"
+              />
+            </svg>
+             = Required Field
+          </p>
         </div>
       </div>
       <div
@@ -33,65 +58,256 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
           <div
             className="col-span-3 sm:col-span-2"
           >
-            <label
-              className="label"
-            >
-              Business Name
+            <section>
+              <label
+                className="label"
+              >
+                Business Name
+              </label>
+              <svg
+                className="inline align-top text-red-600"
+                fill="none"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                  fill="currentColor"
+                />
+              </svg>
               <input
-                className="mb-0 input"
+                autoComplete="organization"
+                className="false undefined mb-0 input"
                 disabled={false}
                 onChange={[Function]}
-                placeholder=""
                 type="text"
               />
-            </label>
-            <span
-              className="info-detail"
+            </section>
+            <div
+              className="my-2"
             >
-              Select incorporated business if your business is Inc.
-            </span>
-            <label
-              className="block label mt-0 "
-            >
+              <div
+                className="mb-4"
+              >
+                <input
+                  className="defaultCheckboxCSS"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <label
+                  className="undefined label"
+                >
+                  Incorporated business
+                </label>
+                <span>
+                  <span
+                    data-for="incorporated"
+                    data-tip={true}
+                  >
+                    <svg
+                      className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 16 16"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clipRule="evenodd"
+                        d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                        fillRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  <div
+                    className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
+                    data-id="tooltip"
+                    id="incorporated"
+                  >
+                    <style
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "
+  	.t00000000-0000-0000-0000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-0000-0000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                        }
+                      }
+                    />
+                    Select this checkbox if your business in Incorporated
+                  </div>
+                </span>
+              </div>
+            </div>
+            <section>
+              <label
+                className="label"
+              >
+                Business Email
+              </label>
+              <svg
+                className="inline align-top text-red-600"
+                fill="none"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                  fill="currentColor"
+                />
+              </svg>
               <input
-                className=" align-middle mr-2 my-4 font-medium text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
-                onChange={[Function]}
-                type="checkbox"
-              />
-              Incorporated Business
-            </label>
-            <label
-              className="label"
-            >
-              Business Email
-              <input
-                className="input"
+                autoComplete="email"
+                className="false undefined input"
                 disabled={false}
                 onChange={[Function]}
                 placeholder="business@email.ca"
                 type="text"
               />
-            </label>
-            <label
-              className="label"
-            >
-              Business Website
+            </section>
+            <section>
+              <label
+                className="label"
+              >
+                Business Website
+              </label>
+              
               <input
-                className="input"
+                autoComplete="url"
+                className="false input"
                 disabled={false}
                 onChange={[Function]}
                 placeholder="http://www.your-website.com"
                 type="text"
               />
-            </label>
+            </section>
             <div>
-              <label
-                className="label "
-              >
-                Business Phone Number
+              <label>
+                <label
+                  className="label "
+                >
+                  Business Phone Number
+                </label>
+                <svg
+                  className="inline align-top text-red-600"
+                  fill="none"
+                  height="1em"
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": undefined,
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                    fill="currentColor"
+                  />
+                </svg>
                 <br />
                 <input
-                  className="phone"
+                  autoComplete="tel-area-code"
+                  className="undefined phone"
                   maxLength="3"
                   name="first"
                   onChange={[Function]}
@@ -101,7 +317,8 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
               </label>
               <label>
                 <input
-                  className="phone"
+                  autoComplete="tel-local-prefix"
+                  className="undefined phone"
                   maxLength="3"
                   name="middle"
                   onChange={[Function]}
@@ -111,7 +328,8 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
               </label>
               <label>
                 <input
-                  className="phone"
+                  autoComplete="tel-local-suffix"
+                  className="undefined phone"
                   maxLength="4"
                   name="last"
                   onChange={[Function]}
@@ -121,13 +339,36 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
               </label>
             </div>
             <div>
-              <label
-                className="label"
-              >
-                Business Cell Number
+              <label>
+                <label
+                  className="label"
+                >
+                  Business Cell Number
+                </label>
+                <svg
+                  className="inline align-top text-red-600"
+                  fill="none"
+                  height="1em"
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": undefined,
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                    fill="currentColor"
+                  />
+                </svg>
                 <br />
                 <input
-                  className="phone"
+                  autoComplete="tel-area-code"
+                  className="undefined phone"
                   maxLength="3"
                   name="first"
                   onChange={[Function]}
@@ -137,7 +378,8 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
               </label>
               <label>
                 <input
-                  className="phone"
+                  autoComplete="tel-local-prefix"
+                  className="undefined phone"
                   maxLength="3"
                   name="middle"
                   onChange={[Function]}
@@ -147,7 +389,8 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
               </label>
               <label>
                 <input
-                  className="phone"
+                  autoComplete="tel-local-suffix"
+                  className="undefined phone"
                   maxLength="4"
                   name="last"
                   onChange={[Function]}
@@ -156,335 +399,887 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                 />
               </label>
             </div>
-            <div>
-              <label
-                className="label"
+            <div
+              className="grid grid-cols-9 gap-x-2"
+            >
+              <div
+                className="col-start-1 col-end-8"
               >
-                Business Address
+                <label
+                  className="label"
+                >
+                  Business Address
+                </label>
+                <svg
+                  className="inline align-top text-red-600"
+                  fill="none"
+                  height="1em"
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": undefined,
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                    fill="currentColor"
+                  />
+                </svg>
                 <input
-                  className="input"
+                  autoComplete="address-line1"
+                  className="undefined input"
                   name="street"
                   onChange={[Function]}
                   placeholder="Address Line 1"
                   type="text"
+                  value=""
                 />
-              </label>
-              <label>
+              </div>
+              <div
+                className="col-start-1 col-end-8"
+              >
                 <input
+                  autoComplete="address-line2"
                   className="input"
                   name="aptNum"
                   onChange={[Function]}
                   placeholder="Address Line 2: Apt, suite, etc. (optional)"
                   type="text"
+                  value=""
                 />
-              </label>
-              <label>
+              </div>
+              <div
+                className="col-start-1 col-end-4"
+              >
                 <input
-                  className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
+                  autoComplete="address-level2"
+                  className="undefined input"
                   name="city"
                   onChange={[Function]}
                   placeholder="City"
                   type="text"
+                  value=""
                 />
-              </label>
-              <div>
-                <div
-                  className=" css-2b097c-container"
-                  onKeyDown={[Function]}
-                >
+              </div>
+              <div
+                className="col-start-4 col-end-8"
+              >
+                <div>
                   <div
-                    className=" css-d7dxyn-control"
-                    onMouseDown={[Function]}
-                    onTouchEnd={[Function]}
+                    className=" css-2b097c-container"
+                    onKeyDown={[Function]}
                   >
                     <div
-                      className=" css-g1d714-ValueContainer"
+                      className=" css-1jumw1e-control"
+                      onMouseDown={[Function]}
+                      onTouchEnd={[Function]}
                     >
                       <div
-                        className=" css-1d6d5xl-placeholder"
-                      >
-                        Province
-                      </div>
-                      <div
-                        className="css-b8ldur-Input"
+                        className=" css-g1d714-ValueContainer"
                       >
                         <div
-                          className=""
-                          style={
-                            Object {
-                              "display": "inline-block",
-                            }
-                          }
+                          className=" css-1d6d5xl-placeholder"
                         >
-                          <input
-                            aria-autocomplete="list"
-                            autoCapitalize="none"
-                            autoComplete="off"
-                            autoCorrect="off"
-                            disabled={false}
-                            id="react-select-2-input"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            onFocus={[Function]}
-                            spellCheck="false"
-                            style={
-                              Object {
-                                "background": 0,
-                                "border": 0,
-                                "boxSizing": "content-box",
-                                "color": "inherit",
-                                "fontSize": "inherit",
-                                "label": "input",
-                                "opacity": 1,
-                                "outline": 0,
-                                "padding": 0,
-                                "width": "1px",
-                              }
-                            }
-                            tabIndex="0"
-                            type="text"
-                            value=""
-                          />
+                          Province
+                        </div>
+                        <div
+                          className="css-b8ldur-Input"
+                        >
                           <div
+                            className=""
                             style={
                               Object {
-                                "height": 0,
-                                "left": 0,
-                                "overflow": "scroll",
-                                "position": "absolute",
-                                "top": 0,
-                                "visibility": "hidden",
-                                "whiteSpace": "pre",
+                                "display": "inline-block",
                               }
                             }
                           >
-                            
+                            <input
+                              aria-autocomplete="list"
+                              autoCapitalize="none"
+                              autoComplete="off"
+                              autoCorrect="off"
+                              disabled={false}
+                              id="react-select-2-input"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              onFocus={[Function]}
+                              spellCheck="false"
+                              style={
+                                Object {
+                                  "background": 0,
+                                  "border": 0,
+                                  "boxSizing": "content-box",
+                                  "color": "inherit",
+                                  "fontSize": "inherit",
+                                  "label": "input",
+                                  "opacity": 1,
+                                  "outline": 0,
+                                  "padding": 0,
+                                  "width": "1px",
+                                }
+                              }
+                              tabIndex="0"
+                              type="text"
+                              value=""
+                            />
+                            <div
+                              style={
+                                Object {
+                                  "height": 0,
+                                  "left": 0,
+                                  "overflow": "scroll",
+                                  "position": "absolute",
+                                  "top": 0,
+                                  "visibility": "hidden",
+                                  "whiteSpace": "pre",
+                                }
+                              }
+                            >
+                              
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div
-                      className=" css-1hb7zxy-IndicatorsContainer"
-                    >
-                      <span
-                        className=" css-1okebmr-indicatorSeparator"
-                      />
                       <div
-                        aria-hidden="true"
-                        className=" css-tlfecz-indicatorContainer"
-                        onMouseDown={[Function]}
-                        onTouchEnd={[Function]}
+                        className=" css-1hb7zxy-IndicatorsContainer"
                       >
-                        <svg
+                        <span
+                          className=" css-1okebmr-indicatorSeparator"
+                        />
+                        <div
                           aria-hidden="true"
-                          className="css-6q0nyr-Svg"
-                          focusable="false"
-                          height={20}
-                          viewBox="0 0 20 20"
-                          width={20}
+                          className=" css-tlfecz-indicatorContainer"
+                          onMouseDown={[Function]}
+                          onTouchEnd={[Function]}
                         >
-                          <path
-                            d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
-                          />
-                        </svg>
+                          <svg
+                            aria-hidden="true"
+                            className="css-6q0nyr-Svg"
+                            focusable="false"
+                            height={20}
+                            viewBox="0 0 20 20"
+                            width={20}
+                          >
+                            <path
+                              d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                            />
+                          </svg>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <label>
+              <div
+                className="col-start-1 col-end-4"
+              >
                 <input
-                  className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
+                  autoComplete="postal-code"
+                  className="undefined input"
                   name="postalCode"
                   onChange={[Function]}
                   placeholder="Postal Code"
                   type="text"
+                  value=""
                 />
-              </label>
+              </div>
             </div>
-            <span
-              className="info-detail"
-            >
-              Select different mailing address if it differs from the address above:
-            </span>
-            <label
-              className="block label mt-0 "
+            <div
+              className="mb-4"
             >
               <input
-                className=" align-middle mr-2 my-4 font-medium text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
+                className="defaultCheckboxCSS"
                 onChange={[Function]}
                 type="checkbox"
               />
-              Different Mailing Address
-            </label>
-            <span
-              className="info-detail"
-            >
-              Select nation-wide if your service spans across Canada:
-            </span>
-            <label
-              className="block label mt-0 "
-            >
-              <input
-                className=" align-middle mr-2 my-4 font-medium text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
-                onChange={[Function]}
-                type="checkbox"
-              />
-              Nation-wide 
-            </label>
-            <div>
               <label
-                className="label"
+                className="undefined label"
               >
-                Searchable Address
-                <input
-                  className="input"
-                  name="street"
-                  onChange={[Function]}
-                  placeholder="Address Line 1"
-                  type="text"
-                />
+                Different Mailing Address
               </label>
-              <label>
-                <input
-                  className="input"
-                  name="aptNum"
-                  onChange={[Function]}
-                  placeholder="Address Line 2: Apt, suite, etc. (optional)"
-                  type="text"
-                />
-              </label>
-              <label>
-                <input
-                  className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
-                  name="city"
-                  onChange={[Function]}
-                  placeholder="City"
-                  type="text"
-                />
-              </label>
-              <div>
-                <div
-                  className=" css-2b097c-container"
-                  onKeyDown={[Function]}
+              <span>
+                <span
+                  data-for="differentMailingAddress"
+                  data-tip={true}
                 >
-                  <div
-                    className=" css-d7dxyn-control"
-                    onMouseDown={[Function]}
-                    onTouchEnd={[Function]}
+                  <svg
+                    className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    strokeWidth="0"
+                    style={
+                      Object {
+                        "color": undefined,
+                      }
+                    }
+                    viewBox="0 0 16 16"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
+                    <path
+                      clipRule="evenodd"
+                      d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                      fillRule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <div
+                  className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
+                  data-id="tooltip"
+                  id="differentMailingAddress"
+                >
+                  <style
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "
+  	.t00000000-0000-0000-0000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-0000-0000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                      }
+                    }
+                  />
+                  Select this checkbox if your mailing address differs from the address above
+                </div>
+              </span>
+            </div>
+            <div>
+              <div
+                className="mb-4"
+              >
+                <input
+                  className="defaultCheckboxCSS"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <label
+                  className="undefined label"
+                >
+                  Canada-wide business
+                </label>
+                <span>
+                  <span
+                    data-for="nationWide"
+                    data-tip={true}
+                  >
+                    <svg
+                      className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 16 16"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clipRule="evenodd"
+                        d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                        fillRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  <div
+                    className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
+                    data-id="tooltip"
+                    id="nationWide"
+                  >
+                    <style
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "
+  	.t00000000-0000-0000-0000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-0000-0000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                        }
+                      }
+                    />
+                    Select this checkbox if your business offers services across all of Canada
+                  </div>
+                </span>
+              </div>
+              <div
+                className="grid grid-cols-9 gap-x-2"
+              >
+                <div
+                  className="col-start-1 col-end-8"
+                >
+                  <label
+                    className="label"
+                  >
+                    Searchable Address
+                  </label>
+                  <svg
+                    className="inline align-top text-red-600"
+                    fill="none"
+                    height="1em"
+                    stroke="currentColor"
+                    strokeWidth="0"
+                    style={
+                      Object {
+                        "color": undefined,
+                      }
+                    }
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                  <span>
+                    <span
+                      data-for="mapAddress"
+                      data-tip={true}
+                    >
+                      <svg
+                        className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        strokeWidth="0"
+                        style={
+                          Object {
+                            "color": undefined,
+                          }
+                        }
+                        viewBox="0 0 16 16"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clipRule="evenodd"
+                          d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                          fillRule="evenodd"
+                        />
+                      </svg>
+                    </span>
                     <div
-                      className=" css-g1d714-ValueContainer"
+                      className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
+                      data-id="tooltip"
+                      id="mapAddress"
+                    >
+                      <style
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "
+  	.t00000000-0000-0000-0000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-0000-0000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                          }
+                        }
+                      />
+                      Address that users use to search for the business
+                    </div>
+                  </span>
+                  <input
+                    autoComplete="address-line1"
+                    className="undefined input"
+                    name="street"
+                    onChange={[Function]}
+                    placeholder="Address Line 1"
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="col-start-1 col-end-8"
+                >
+                  <input
+                    autoComplete="address-line2"
+                    className="input"
+                    name="aptNum"
+                    onChange={[Function]}
+                    placeholder="Address Line 2: Apt, suite, etc. (optional)"
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="col-start-1 col-end-4"
+                >
+                  <input
+                    autoComplete="address-level2"
+                    className="undefined input"
+                    name="city"
+                    onChange={[Function]}
+                    placeholder="City"
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="col-start-4 col-end-8"
+                >
+                  <div>
+                    <div
+                      className=" css-2b097c-container"
+                      onKeyDown={[Function]}
                     >
                       <div
-                        className=" css-1d6d5xl-placeholder"
-                      >
-                        Province
-                      </div>
-                      <div
-                        className="css-b8ldur-Input"
+                        className=" css-1jumw1e-control"
+                        onMouseDown={[Function]}
+                        onTouchEnd={[Function]}
                       >
                         <div
-                          className=""
-                          style={
-                            Object {
-                              "display": "inline-block",
-                            }
-                          }
+                          className=" css-g1d714-ValueContainer"
                         >
-                          <input
-                            aria-autocomplete="list"
-                            autoCapitalize="none"
-                            autoComplete="off"
-                            autoCorrect="off"
-                            disabled={false}
-                            id="react-select-3-input"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            onFocus={[Function]}
-                            spellCheck="false"
-                            style={
-                              Object {
-                                "background": 0,
-                                "border": 0,
-                                "boxSizing": "content-box",
-                                "color": "inherit",
-                                "fontSize": "inherit",
-                                "label": "input",
-                                "opacity": 1,
-                                "outline": 0,
-                                "padding": 0,
-                                "width": "1px",
+                          <div
+                            className=" css-1d6d5xl-placeholder"
+                          >
+                            Province
+                          </div>
+                          <div
+                            className="css-b8ldur-Input"
+                          >
+                            <div
+                              className=""
+                              style={
+                                Object {
+                                  "display": "inline-block",
+                                }
                               }
-                            }
-                            tabIndex="0"
-                            type="text"
-                            value=""
+                            >
+                              <input
+                                aria-autocomplete="list"
+                                autoCapitalize="none"
+                                autoComplete="off"
+                                autoCorrect="off"
+                                disabled={false}
+                                id="react-select-3-input"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onFocus={[Function]}
+                                spellCheck="false"
+                                style={
+                                  Object {
+                                    "background": 0,
+                                    "border": 0,
+                                    "boxSizing": "content-box",
+                                    "color": "inherit",
+                                    "fontSize": "inherit",
+                                    "label": "input",
+                                    "opacity": 1,
+                                    "outline": 0,
+                                    "padding": 0,
+                                    "width": "1px",
+                                  }
+                                }
+                                tabIndex="0"
+                                type="text"
+                                value=""
+                              />
+                              <div
+                                style={
+                                  Object {
+                                    "height": 0,
+                                    "left": 0,
+                                    "overflow": "scroll",
+                                    "position": "absolute",
+                                    "top": 0,
+                                    "visibility": "hidden",
+                                    "whiteSpace": "pre",
+                                  }
+                                }
+                              >
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          className=" css-1hb7zxy-IndicatorsContainer"
+                        >
+                          <span
+                            className=" css-1okebmr-indicatorSeparator"
                           />
                           <div
-                            style={
-                              Object {
-                                "height": 0,
-                                "left": 0,
-                                "overflow": "scroll",
-                                "position": "absolute",
-                                "top": 0,
-                                "visibility": "hidden",
-                                "whiteSpace": "pre",
-                              }
-                            }
+                            aria-hidden="true"
+                            className=" css-tlfecz-indicatorContainer"
+                            onMouseDown={[Function]}
+                            onTouchEnd={[Function]}
                           >
-                            
+                            <svg
+                              aria-hidden="true"
+                              className="css-6q0nyr-Svg"
+                              focusable="false"
+                              height={20}
+                              viewBox="0 0 20 20"
+                              width={20}
+                            >
+                              <path
+                                d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                              />
+                            </svg>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div
-                      className=" css-1hb7zxy-IndicatorsContainer"
-                    >
-                      <span
-                        className=" css-1okebmr-indicatorSeparator"
-                      />
-                      <div
-                        aria-hidden="true"
-                        className=" css-tlfecz-indicatorContainer"
-                        onMouseDown={[Function]}
-                        onTouchEnd={[Function]}
-                      >
-                        <svg
-                          aria-hidden="true"
-                          className="css-6q0nyr-Svg"
-                          focusable="false"
-                          height={20}
-                          viewBox="0 0 20 20"
-                          width={20}
-                        >
-                          <path
-                            d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
-                          />
-                        </svg>
-                      </div>
-                    </div>
                   </div>
                 </div>
+                <div
+                  className="col-start-1 col-end-4"
+                >
+                  <input
+                    autoComplete="postal-code"
+                    className="undefined input"
+                    name="postalCode"
+                    onChange={[Function]}
+                    placeholder="Postal Code"
+                    type="text"
+                    value=""
+                  />
+                </div>
               </div>
-              <label>
-                <input
-                  className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
-                  name="postalCode"
-                  onChange={[Function]}
-                  placeholder="Postal Code"
-                  type="text"
-                />
-              </label>
             </div>
           </div>
         </div>
         <label
           className="label"
         >
-          Business Logo
+           Business Logo 
         </label>
+        <span>
+          <span
+            data-for="businessLogo"
+            data-tip={true}
+          >
+            <svg
+              className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 16 16"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clipRule="evenodd"
+                d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                fillRule="evenodd"
+              />
+            </svg>
+          </span>
+          <div
+            className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
+            data-id="tooltip"
+            id="businessLogo"
+          >
+            <style
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "
+  	.t00000000-0000-0000-0000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-0000-0000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                }
+              }
+            />
+            This logo will be displayed on all of your listings and can be changed at any time. Max size of 2MB
+          </div>
+        </span>
         <div
           className="flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md"
         >
@@ -505,22 +1300,17 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                 strokeWidth="2"
               />
             </svg>
-            <p
-              className="info-text"
-            >
-              <label>
-                
-                <input
-                  className="font-medium text-indigo-600 bg-white rounded-md hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  type="button"
-                  value="Upload a file"
-                />
-              </label>
-            </p>
+            <input
+              accept="image/png, image/jpg, image/jpeg, image/JPG, image/JPEG"
+              className="photo-upload-width photo-upload hover:text-indigo-500"
+              name="logo"
+              onChange={[Function]}
+              type="file"
+            />
             <p
               className="text-xs text-gray-500"
             >
-              PNG or JPG up to 10MB
+              PNG or JPG up to 2MB
             </p>
           </div>
         </div>
@@ -560,60 +1350,113 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
         <div
           className="column-span-6-layout"
         >
-          <label
-            className="label"
-          >
-            First Name
+          <section>
+            <label
+              className="label"
+            >
+              First Name
+            </label>
+            <svg
+              className="inline align-top text-red-600"
+              fill="none"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                fill="currentColor"
+              />
+            </svg>
             <input
-              className="input"
+              autoComplete="given-name"
+              className="false undefined input"
               disabled={false}
               onChange={[Function]}
               type="text"
             />
-          </label>
+          </section>
         </div>
         <div
           className="column-span-6-layout"
         >
-          <label
-            className="label"
-          >
-            Last Name
+          <section>
+            <label
+              className="label"
+            >
+              Last Name
+            </label>
+            <svg
+              className="inline align-top text-red-600"
+              fill="none"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                fill="currentColor"
+              />
+            </svg>
             <input
-              className="input"
+              autoComplete="family-name"
+              className="false undefined input"
               disabled={false}
               onChange={[Function]}
               type="text"
             />
-          </label>
-        </div>
-        <div
-          className="column-span-6-layout"
-        >
-          <label
-            className="label"
-          >
-            Personal Email
-            <input
-              className="input"
-              disabled={false}
-              onChange={[Function]}
-              placeholder="personal@email.ca"
-              type="text"
-            />
-          </label>
+          </section>
         </div>
         <div
           className="column-span-6-layout"
         >
           <div>
-            <label
-              className="label"
-            >
-              Personal Phone Number
+            <label>
+              <label
+                className="label"
+              >
+                Personal Phone Number
+              </label>
+              <svg
+                className="inline align-top text-red-600"
+                fill="none"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                  fill="currentColor"
+                />
+              </svg>
               <br />
               <input
-                className="w-1/4 phone"
+                autoComplete="tel-area-code"
+                className="undefined phone"
                 maxLength="3"
                 name="first"
                 onChange={[Function]}
@@ -623,7 +1466,8 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
             </label>
             <label>
               <input
-                className="w-1/4 phone"
+                autoComplete="tel-local-prefix"
+                className="undefined phone"
                 maxLength="3"
                 name="middle"
                 onChange={[Function]}
@@ -633,7 +1477,8 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
             </label>
             <label>
               <input
-                className="w-1/4 phone"
+                autoComplete="tel-local-suffix"
+                className="undefined phone"
                 maxLength="4"
                 name="last"
                 onChange={[Function]}
@@ -664,12 +1509,12 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
           <h3
             className="info-header"
           >
-            Account Details
+            Sign In Details
           </h3>
           <p
             className="info-text"
           >
-            This information is to set up and access your account.
+            This information is to set up and access your account. Usernames are permanent. They cannot be changed at a later time.
           </p>
         </div>
       </div>
@@ -689,57 +1534,917 @@ exports[`BusinessRegistrationForm Snapshot test should render correctly regardle
                 className="col-span-3 sm:col-span-2"
               >
                 <div>
-                  <label
-                    className="label"
-                  >
-                    Username:
+                  <label>
+                    <label
+                      className="label"
+                    >
+                      Username
+                       
+                      <svg
+                        className="inline align-top text-red-600"
+                        fill="none"
+                        height="1em"
+                        stroke="currentColor"
+                        strokeWidth="0"
+                        style={
+                          Object {
+                            "color": undefined,
+                          }
+                        }
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </label>
+                    <span>
+                      <span
+                        data-for="username"
+                        data-tip={true}
+                      >
+                        <svg
+                          className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 16 16"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clipRule="evenodd"
+                            d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                            fillRule="evenodd"
+                          />
+                        </svg>
+                      </span>
+                      <div
+                        className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
+                        data-id="tooltip"
+                        id="username"
+                      >
+                        <style
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "
+  	.t00000000-0000-0000-0000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-0000-0000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                            }
+                          }
+                        />
+                        Your username should be unique and meaningful.
+                      </div>
+                    </span>
                     <input
-                      className="input"
+                      className="undefined input"
                       onChange={[Function]}
-                      placeholder=""
                       type="text"
                     />
                   </label>
-                  <label
-                    className="label"
-                  >
-                    Password:
+                  <label>
+                    <label
+                      className="label"
+                    >
+                      Password
+                       
+                      <svg
+                        className="inline align-top text-red-600"
+                        fill="none"
+                        height="1em"
+                        stroke="currentColor"
+                        strokeWidth="0"
+                        style={
+                          Object {
+                            "color": undefined,
+                          }
+                        }
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </label>
+                    <span>
+                      <span
+                        data-for="password"
+                        data-tip={true}
+                      >
+                        <svg
+                          className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 16 16"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clipRule="evenodd"
+                            d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                            fillRule="evenodd"
+                          />
+                        </svg>
+                      </span>
+                      <div
+                        className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
+                        data-id="tooltip"
+                        id="password"
+                      >
+                        <style
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "
+  	.t00000000-0000-0000-0000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-0000-0000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                            }
+                          }
+                        />
+                        Your password must be at least 8 characters long and contain a mix of numeric digits, upper and lower case letters!
+                      </div>
+                    </span>
                     <input
-                      className="input"
+                      className="undefined input"
                       onChange={[Function]}
-                      placeholder=""
                       type="password"
                     />
                   </label>
-                  <label
-                    className="label"
-                  >
-                    Confirm Password:
+                  <label>
+                    <label
+                      className="label"
+                    >
+                      Confirm Password
+                       
+                      <svg
+                        className="inline align-top text-red-600"
+                        fill="none"
+                        height="1em"
+                        stroke="currentColor"
+                        strokeWidth="0"
+                        style={
+                          Object {
+                            "color": undefined,
+                          }
+                        }
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </label>
                     <input
-                      className="input"
+                      className="undefined input"
                       onChange={[Function]}
-                      placeholder=""
                       type="password"
                     />
+                    
                   </label>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="border-divider"
+  />
+  <div
+    className="mt-10 sm:mt-0"
+  >
+    <div
+      className="m-10 md:grid md:grid-cols-4 md:gap-6"
+    >
+      <div
+        className="md:col-span-1"
+      >
         <div
-          className="px-4 pt-4 mt-4 text-center bg-gray-50 sm:px-6"
+          className="px-4 sm:px-0"
         >
-          <label>
-            
-            <input
-              className="text-base btn btn-green"
+          <h3
+            className="info-header"
+          >
+            Terms and Condition
+          </h3>
+          <p
+            className="info-text"
+          >
+            All users must read and accept the Terms of Service and Privacy Policy of Home Together Canada. For more information please read
+            <a
+              className="label"
+              href="/faq"
               onClick={[Function]}
-              type="submit"
-              value="Create Account"
-            />
-          </label>
+            >
+               FAQs
+            </a>
+            .
+          </p>
         </div>
+      </div>
+      <div
+        className="mt-5 md:mt-0 md:col-span-2"
+      >
+        <div
+          className="overflow-hidden shadow sm:rounded-md"
+        >
+          <div
+            className="py-6 px-4 bg-white sm:p-5"
+          >
+            <div
+              className="grid grid-cols-2 gap-6"
+            >
+              <div
+                className="col-span-3 sm:col-span-2"
+              >
+                <div
+                  className="undefined mt-4"
+                >
+                  <div>
+                    <label
+                      className="label"
+                    >
+                      Terms of Service
+                    </label>
+                    <svg
+                      className="inline align-top text-red-600"
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <span>
+                      <span
+                        data-for="termsOfService"
+                        data-tip={true}
+                      >
+                        <svg
+                          className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 16 16"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clipRule="evenodd"
+                            d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                            fillRule="evenodd"
+                          />
+                        </svg>
+                      </span>
+                      <div
+                        className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
+                        data-id="tooltip"
+                        id="termsOfService"
+                      >
+                        <style
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "
+  	.t00000000-0000-0000-0000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-0000-0000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                            }
+                          }
+                        />
+                        All users must agree to the Terms of Service in order use Home Together Canada
+                      </div>
+                    </span>
+                    <textarea
+                      className="disabled-field input"
+                      cols="50"
+                      disabled={true}
+                      name="termsOfService"
+                      rows="7"
+                      value="Home Together Canada provides individuals who wish to enter into a shared living experience, the basic tools needed to find others that may wish to share a living experience with them them through 1) individual online profiles and 2) listing information with links to organizations, groups and businesses that provide housing and services that support shared living. 
+
+The tools and information we provide are available at hometogether.ca and can be accessed on mobile, tablet, and other smart devices.
+The Website is owned by Home Together Canada Assoc. which is a volunteer run non profit.  These Terms of Service together with our Privacy Policy, govern your relationship with us. If you use or access the Website, or Services, you are indicating that you have read, understand, and agree to comply with and be legally bound by these Terms, whether or not you become a registered user of the Site. If you do not agree to these Terms, then you do not have the right to access or use the Website, or Services.
+If you agree to these Terms on behalf of a society or other legal entity, you represent and warrant that you have the authority to bind that company or other legal entity to these Terms and, in such event, “you” and “your” will refer and apply to that company or other legal entity.
+
+1.      Terms of Service Subject to Amendment
+These Terms are subject to change without notice. By continuing to use or access the Website and Services, you agree to be bound by any such changes. Unless explicitly stated otherwise, any new features or functionality that augment or enhance the Website or Services will be subject to these Terms.
+
+2.      The Services
+Home Together Canada Assoc. may compiled and posted sharing ideas and sharing options on the website for members to read and utilize if they choose. The website provides members the ability to create a short basic profile so that they can search for and be searched for by others with profiles on the site.  The website also provides information and links to sharing services and businesses that provide services to those wishing to enter into a shared living experience. We provide this service to you so that you can find sharing services and housing opportunities you may be looking for.  Individuals can anonymously message each other through the site. All individuals using the site are responsible for deciding when they give another person their real name,  how they go forward with others to create a shared home, when and where they meet, and what steps they choose to take to enter into Living Arrangements with others. They do this directly with each other. We do not own, operate, manage, provide, rent, or control any properties, including the Bedrooms or Residences listed by members on the hometogether.ca  website or offered in any of the subcategories listed in the Classifieds By using the Website and Services, you understand and acknowledge that we provide you the basic tool to find others and information about sharing business and service groups so you are able to find and choose the individuals and services that you think may meet your own personal needs. Our responsibilities are limited to facilitating the availability of the Website only. We are not a party to any agreements entered into between any individual, business, group, organization or other entity of any kind. We have no control over the conduct of members or the service providers listed on the Website,  and disclaim all liability in this regard to the maximum extent permitted by law.
+
+3.      Account Registration
+In order to access certain features on the site you must register to the site. If you choose to register to become a member or register to be an advertiser, you represent that you are of legal age to form a binding contract and are not a person barred from receiving services under the laws of Canada or other applicable jurisdictions. You also agree to:
+ 
+3a. provide true, accurate, current, and complete information about yourself as required by our registration form maintain and update the Registration Data to keep it true, accurate, current, and complete; and be responsible for all activities that occur under your Account registration.
+3b. If you provide any information that is, or we have reason to suspect is, untrue, inaccurate, not current, incomplete, or otherwise in violation of these Terms, we have the right to suspend or terminate your Account and refuse any and all current or future use of the Services.
+3c. You are responsible for safeguarding your password. You agree that you will not disclose your password to any third party.  You are not permitted to share your Account with anyone or allow others to access or use your Account. You must immediately notify us of any unauthorized use of your Account.
+3d. To search for others on the site, you must be registered as a member, you will need to provide certain information about yourself including your name and contact information as well as certain information about your preferences in relation to a Living Arrangement. 
+
+4.      Residential Tenancy Act and Regulations
+It is your responsibility to check with your province and/or your municipal or regional authority to ensure you have up to date information about their tenancy regulations before entering into a shared living agreement with others. Law and regulations differ between governing bodies and will continue to change over time. 
+
+5.     Home Together Canada  Requires all individuals, services providers and business wishing to use the hometogether.ca website to register to the site and agree to our terms of service and privacy policy. 
+ 
+6.      Home Together Canada is an information only site and takes no part in the shared living agreements individuals create between themselves or other entities.  Home Together Canada has no control over the conduct of members or the service providers listed on the Website or the agreements they form between them. Home Together Canada takes no responsibility for the outcome of these agreements and disclaim all liability in this regard to the maximum extent permitted by law.
+ 
+7.   Feedback and Ratings
+Home together Canada provides those registered to the site to post public comments and star ratings about businesses, services and each homes. Feedback and Ratings reflect the opinions of individual Members and do not reflect the opinion of Home Together Canada. We make no representations about the accuracy of such Feedback or Ratings. 
+
+8.   Ownership of Content
+All material on the Website and any related registered domains and sub-domains, and any other digital medium owned or operated by us, including the design, layout, videos, audio, text, photographs, graphics, interfaces, computer code, appearance, trademarks, and logos used therein as well as individual articles, blogs, videos, photographs, and other content or elements comprising the Website are owned by us, unless otherwise specified. Reproduction of any part thereof, is prohibited except with our written consent or in accordance with the law 
+ 
+9.   Your Representations and Warranties
+By submitting, posting, uploading, or transmitting content on or through the Website, Application, or Services in any format including comments, images, photographs, graphics, texts, videos, audio, appearance, trademarks, or logos used therein, you represent and warrant that you own or have the necessary licences, rights, consents, and permissions to use and authorize us to use such Member Content in the manner contemplated by us and these Terms.
+You agree not to submit or use any inappropriate content in relation to the Website, Application, or Services. In furtherance of the above, you agree that you will not:
+ 
+9a. submit, post, upload, or transmit material that is copyrighted, protected by trademark, or otherwise subject to third party proprietary rights, including privacy and publicity rights, unless you are the owner of such rights or have permission from their rightful owner to post the material and to grant us all of the rights granted herein;
+9b. submit, post, or upload falsehoods or misrepresentations that could damage us, our users, or any third party;
+9c. impersonate any person or entity or falsely state or otherwise misrepresent your affiliation with a person or entity;
+9d. submit, post, or upload material that is unlawful, obscene, defamatory, libelous, threatening, pornographic, harassing, hateful, racially or ethnically offensive, or encourages conduct that would be considered a criminal offence, give rise to a civil liability, violate any local, provincial, national, or international law, or is otherwise inappropriate;
+9e. submit, post, or upload advertisements or solicitations of business, unless in the classifieds section
+9.f collect or store personal data about Members or other users without their express consent;
+9.g manipulate the Feedback or Ratings system in any manner, such as instructing a third party to submit a particular Rating about another Member; or
+9.h submit, post, or upload material that contains anything, such as viruses, that will disturb, destroy, or impair the use of the Website, Application, or Services.
+
+10.   Responsibility for Content, Actions, and Compliance with Laws
+You acknowledge and agree that you are responsible for your own acts and omissions and are also responsible for the acts and omissions of any individuals who represent you, whether as an employee, contractor, agent, or in another capacity, and any individuals who reside at or are otherwise present at your Residence at your request or invitation.You understand and agree that we do not act as an employer, insurer, or agent of any Member. We do not have any control over the conduct of any Member and will not be liable, in any way for any acts or omissions of any Member. We do not make any guarantees with respect to the suitability of the Living Arrangement made between members or offered by any group, business, organization or other entity listed on the site.You agree that you will have no recourse against us for any alleged or actual infringement or misappropriation of any proprietary or other right in Member Content submitted by you. You assume all liability for any claims, suits, or grievances filed against you, including all damages related to your submitted Member Content and your participation on and through the Website, Application, and Services.You are responsible for complying with all applicable laws and regulations, including human rights laws, criminal laws, intellectual property laws, housing laws and regulations, health and safety laws, regulations, and standards, building codes and standards, and bylaws and other municipal regulations when you use the Website, Application, and Services. You will be solely responsible for the breach of any laws in association with your use of the Website, Application, and Services.Home owners acknowledge and agree;
+ 
+10a. not to breach any agreements they have entered into with any third parties including homeowners’ associations, condominium or strata boards, or insurance providers; and
+10b. to comply with all applicable laws including zoning and other applicable bylaws (including having all required permits, licenses, and registrations).
+10c. Any agreement entered into is strictly between the owner and home sharer(s)  and we are not a party to it.
+ 
+11.   Prohibited Activities
+Members are prohibited from requesting, offering, negotiating, or engaging in any activities that:
+ 
+11a. violate applicable laws or regulations or the legal rights of any person or entity including human rights laws, criminal laws, intellectual property laws, housing laws and regulations, health and safety laws, regulations, and standards, building codes and standards, and bylaws and other municipal regulations;
+11b. encourage or facilitate illegal activity;
+11c. would harm any person including children or minors; or
+11d. relate to spam, or unsolicited services or products, or false, misleading, or fraudulent services or products.
+ 
+12.   No Endorsement
+We do not endorse any members, businesses, organization, services or other entities on the website, nor will we be responsible for their actions or inactions. You should therefore ensure that you carry out your own searches and ask questions of anyone that you wish to enter into a Living Arrangement with in order to satisfy yourself as to the suitability of the Living Arrangement you are creating and your compatibility, as applicable.
+ 
+13.   Opinions Expressed on Website and Application
+Opinions and other statements expressed by Members and third parties (including bloggers and feature contributors) are theirs alone, and do not represent our opinions. Content created by third parties is the sole responsibility of the third parties and its accuracy and completeness are not endorsed or guaranteed by us. You acknowledge that by providing you with the ability to view and distribute Member Content through the Website, Application, and Services, we are not undertaking any obligation or liability relating to the Member Content. We do not undertake or assume any duty to monitor the Website and Application for inappropriate or unlawful content and we assume no responsibility or liability which may arise from the content thereof, including claims for defamation, libel, slander, infringement, invasion of privacy and publicity rights, obscenity, pornography, profanity, fraud, or misrepresentation. Notwithstanding the foregoing, we reserve the right to block or remove communications, postings, or materials at any time in our sole discretion.
+ 
+14.   Disclaimer
+The information contained in the Website and Application is for general information purposes only. While we use reasonable efforts to include accurate information on the Website, we make no representations or warranties of any kind, express or implied, that any content is or remains complete, accurate, up-to-date, available, free from bugs, errors or omissions, or fit or suitable for any purpose. Any reliance you place on such information is strictly at your own risk. None of the information on the Website or Application is to be taken as advice of any kind. The Services are made available to you on an “as is” basis. We expressly deny any and all warranties and representations, express or implied, regarding the Services. For greater certainty, we do not represent nor warrant that the use of the Website or Services will satisfy your purposes. It will be your own responsibility to ensure that any services available through the Website and Application meet your specific requirements. While we make reasonable efforts to ensure that the Website and services are available, we do not represent, warrant, or guarantee in any way the Website's continued availability at all times or uninterrupted use by you of the Website or Services.
+ 
+15.   Limitation of Liability
+We take no responsibility for, and will not be liable for, any error or inaccuracies in any content or the Website or Services being temporarily unavailable due to technical issues beyond our control. It is our right to make the Website or Services unavailable from time to time, solely at our discretion, and we will not be liable for any loss or damage relating to such unavailability. We are not responsible for any loss or damage, including loss or damage arising from the loss of data, revenue, salary, profits, or reputation in connection with the use of the Website or Services. Any claim against us will be limited to the amount you paid, if any, for use of the Website, and Services.
+ 
+16.   Third Party Websites
+We provide information and links to other websites. These links are provided for your convenience to provide further information. They do not signify that we endorse the website(s). We have no responsibility for the content or safety of the linked website(s). You agree that we will not be liable in any way, either directly or indirectly, for any loss or damage of any kind incurred as a result of, or in connection with the use of or reliance on any content, goods or services available through such third parties.
+ 
+17.   International Use
+This is a Canada only website and is for the use of Canadians wishing to enter into a shared living arrangement with others in Canada and for sharing businesses, groups and service providers in Canada. We make no representation that materials on this site are appropriate or available for use in locations outside Canada. If you access the Website, or Services from other locations, you are breaking our terms of service and fully understand that you are doing so on your own initiative and that you are wholly responsible for your actions and any consequences that may come about through your action. 
+ 
+18.   Changes to the Services
+In connection with any purchase of Services from the Website or Application, we do not make any promise regarding the continuation of any current features or functionality or delivery of any future functionality or features. We have the right to change any of the features on, or the services being offered through, the Website and Application.
+ 
+19.   Discontinuation or Suspension of Website, Application, or Services
+We reserve the right at any time and from time to time to modify, suspend, or discontinue, temporarily or permanently, the Website, Application, or Services, or any part thereof, with or without notice and in our sole discretion. You agree that we will not be liable to you or any third party for any such modification, suspension, or discontinuance of the Website, Application, or Services.
+ 
+20.   Termination, Unauthorized Use
+In the event that you breach these Terms, we have the right to terminate your access to the Website, Application, and Services, to delete any Member Content, and to disclose any of your information as necessary. Unauthorized use of the Website, Application, or Services may give rise to a claim for damages and/or result in you being held liable for a criminal offence in a court of law. In addition, we reserve the right to terminate your access to our Website, Application, and Services for any reason, and to take any other actions that we, in our sole discretion, believe to be in the interest of us or our users as a whole.
+
+21.   Indemnity
+You agree to indemnify and hold harmless Home Together Canada Assoc.  and their respective directors, officers,  employees, and licensors, from and against all losses, expenses, damages, and costs, including reasonable lawyers’ fees, resulting from your acts, omissions, access to or use of the Website, Application, or Services, your violation of these Terms, your breach of your representations and warranties hereunder, or your violation, or violation by any other user under your name, of any applicable laws or regulations, or the legal rights of any person or entity in relation to your use of the Website, Application, or Services. We reserve the right to take over the exclusive defense of any claim for which we are entitled to indemnification, in our sole discretion. In such event, you must provide us with such cooperation as is reasonably requested by us.
+ 
+22.   Relationship
+These Terms do not create a joint venture, partnership, employment, or agency relationship between us and you. If you choose to create an Account and register to become a member or advertiser on the hometogether.ca  website, you understand and agree that your relationship with us is limited to being a Member and not our employee, agent, joint venture, or partner. You act exclusively on your own behalf and for your own benefit, and not on our behalf or for our benefit. We do not control, and have no right to control, your Account, your offline activities associated with you creating your own shared living arrangement and agreements. As a Member, you agree not to do anything to create a false impression that you are endorsed by, employed by, partnering with, or acting on behalf of or for the benefit of us, including by inappropriately using any of our intellectual property including terms, trademark, or branding.
+ 
+23.   Privacy
+Registration data and certain other information that we collect about you are subject to our Privacy Policy. See Privacy Policy 
+ 
+24.   Headings
+The headings used in these Terms are inserted for convenience of reference only and will not affect the construction or meaning of any of the provisions contained in these Terms or govern the rights or liabilities of any of the parties subject to these Terms.
+ 
+25.   Severability
+The invalidity or unenforceability of any provision of these Terms will not affect the validity or enforceability of any other provision of these Terms and any such invalid or unenforceable provision will be deemed to be severable.
+ 
+26.   Waiver
+No waiver of any breach of any provision of these Terms will constitute a waiver of any prior, concurrent, or subsequent breach of the same or any other provisions hereof, and no waiver will be effective unless made in writing and signed by the waiving party.
+ 
+27.   Jurisdiction
+The laws of the Provinces of Canada and the federal laws of Canada applicable therein govern these Terms and any dispute of any sort that might arise between you and us. Except as otherwise provided herein, you agree that any claim, whether at law or equity, arising out of or related to the provision of Services by us, regardless of the date or location of accrual of such dispute, will be within the exclusive jurisdiction of the courts of Canada.
+ 
+28.   Contact
+If you have any questions or concerns about our Terms, please contact us by e-mail. Our email can be found under contacts. 
+"
+                    />
+                  </div>
+                  <div
+                    className="mb-4"
+                  >
+                    <input
+                      checked={false}
+                      className="defaultCheckboxCSS"
+                      onChange={[Function]}
+                      type="checkbox"
+                    />
+                    <label
+                      className="undefined label"
+                    >
+                      I have read and agreed to the Terms of Service
+                    </label>
+                  </div>
+                </div>
+                <div
+                  className="undefined mt-4"
+                >
+                  <div>
+                    <label
+                      className="label"
+                    >
+                      Privacy Policy
+                    </label>
+                    <svg
+                      className="inline align-top text-red-600"
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <span>
+                      <span
+                        data-for="privacyPolicy"
+                        data-tip={true}
+                      >
+                        <svg
+                          className="inline ml-1 mb-1 text-blue-500 hover:text-blue-400"
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 16 16"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clipRule="evenodd"
+                            d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                            fillRule="evenodd"
+                          />
+                        </svg>
+                      </span>
+                      <div
+                        className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
+                        data-id="tooltip"
+                        id="privacyPolicy"
+                      >
+                        <style
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "
+  	.t00000000-0000-0000-0000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-0000-0000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-0000-0000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  ",
+                            }
+                          }
+                        />
+                        All users must agree to the Privacy Policy in order to use Home Together Canada
+                      </div>
+                    </span>
+                    <textarea
+                      className="disabled-field input"
+                      cols="50"
+                      disabled={true}
+                      name="privacyPolicy"
+                      rows="7"
+                      value="Home Together Canada is an online platform that provides individuals, wishing to share a home with others, the ability to find each other and the ability to find the sharing services and shared homes they want or need to succeed at creating a shared living experience of their own making.
+
+1.      Definition of Personal Information
+Personal information is defined as information that can identify an individual and information about an identifiable individual, which means a person can be identified by the information either directly or in combination with other information.
+ 
+2.      Collection of Personal Information
+We collect your personal information as a way to ensure you are who you say you are, (a) to provide basic information on the number of individuals in different demographic groups in different areas at any given point in time.  (b) to provide you the ability to search for others in the demographic grouping of your choice on the website. We collect personal information from you when you register for an Account; provide us information on a web form; update or add information to your Account; participate in community discussions, chats, or dispute resolution; or when you otherwise correspond with us. Personal information that we may collect may include:
+ 
+2a. identifying information such as your name, addresses, telephone number, email addresses, and IP addresses;
+2b. location data and demographic data such as your gender and age;
+2c. any content that you generate, or that is connected to you, as a result of creating an Account 
+2d. we collect your information in order to authenticate or identify you or to verify the information we have collected.
+ 
+We provide you with information, links and classified advertisements on hometogether.ca. We do not share your personal information with these third parties.  When you access these third-parties, they may collect personal information from you. Please note that this Privacy Policy covers the collection of personal information by us only and does not cover the collection of personal information by any third-party ad companies. 
+ 
+3.      Use of Personal Information
+We use the personal information we collect to:
+ 
+3a. provide, improve, and personalize our content and the Services;
+3b. communicate with you when necessary 
+3c. detect, prevent, mitigate, and investigate fraudulent or illegal activities; and
+3d. enforce our Terms of Service and this Privacy Policy.
+ 
+4.      Security and Retention of Personal Information
+We retain your personal information as long as it is necessary and relevant for our operations. In addition, we may retain your personal information, including information from closed Accounts, to comply with applicable laws, prevent fraud, collect any fees owed, resolve disputes, troubleshoot problems, assist with any investigation, enforce our Terms of Service, or take other actions permitted or required by applicable laws. After it is no longer necessary for us to retain your personal information, as determined by us in our sole discretion in accordance with applicable laws, we dispose of it in a secure manner according to our data retention and deletion policies.We use a payment service and therefore do not ask for or store your financial information. All moneys coming to us, come directly from the payment provider.In recognition of our legal obligations to protect your personal information, our website is updated regularly by a qualified web builder.
+ 
+5.      Location of Servers
+We create, maintain, and archive information on servers that are not located on our immediate premises and are located in Canada or the USA.
+ 
+6.      Minors
+The Website, Application, and Services are intended for general audiences and are not directed to individuals under 19. We do not knowingly collect personal information from Minors. If you are a Minor, please do not use the Website, Application, or Services or submit any personal information through the Website or Application. If you have reason to believe that a Minor has provided their personal information to us, please contact us at the email address provided below, and we will delete that information.
+
+7.      Disclosure of Personal Information
+We do not disclose your personal information to third parties. There are, however, certain circumstances in which we may share your personal information with certain third parties without further notice to you. This disclosure may be required to comply with our legal obligations, to enforce our Terms of Service, or to prevent, detect, mitigate, and investigate fraudulent or illegal activities related to our Services. These circumstances include, but are not limited to:
+Law Enforcement. We cooperate with government and law enforcement officials or private parties to enforce and comply with applicable laws. We may disclose any information about you to government or law enforcement officials or private parties as we, in our sole discretion, believe necessary or appropriate to respond to claims, legal process (including subpoenas), to protect our property or rights or the property or rights of a third party, the safety of the public or any person, to prevent or stop any illegal, unethical, or legally actionable activity, or to otherwise comply with applicable laws.
+
+Service Providers. We engage certain trusted third parties to perform functions and provide services to us, including, without limitation, hosting and maintenance, database storage and management. We will share your personal information with these third parties, but only to the extent necessary to perform these functions and provide such services, and only pursuant to binding contractual obligations requiring such third parties to maintain the privacy and security of your data.
+
+8.      Consent for Collection, User, and Disclosure
+By accessing and using our Website, we consider you to have given us consent to the collection, use, and disclosure of your personal information in accordance with this Privacy Policy. Once this consent has been given, we will continue to collect, use, and disclose your personal information for purposes set out in this Privacy Policy without obtaining further written or verbal consent to do so. 
+
+9.      Cookies
+We do not use cookies and this site was not created to use cookies. Please note that this Privacy Policy covers the use of cookies by us only and does not cover the use of cookies by any third-party ad companies or their affiliated websites.
+ 
+10.      Third Party Services
+Our Website includes links to other websites. We provide these links and information to you as a service, much like a yellow pages. If you choose to register for such products or services, you are responsible for what information you choose to give them. We are not responsible for the privacy practices and policies of such third parties and, therefore, you should review the privacy practices and policies of such third parties prior to providing your personal information in connection with such products or services.
+ 
+11.      Withdraw Consent
+You can choose not to provide any personal information to us or to withdraw your consent for the collection, use, or disclosure of your personal information for purposes set out in this Privacy Policy. If you choose to do so, you will not have access to the membership portions of the Website or Application 
+ 
+12.      Requests to Access, Correct, or Delete
+We take steps to ensure that the personal information we collect is accurate and up to date, and that you have the ability to access and make corrections to it. You can view and change your personal information by signing in to your Account. Please update your personal information immediately if it changes or is inaccurate. Upon your request, we will close your account. Note that we attempt to retain information pertaining to a registrant complaints as a way to monitor and in some cases stop individuals or businesses from re-registering to the site. 
+ 
+13.     Improper Collection and Misuse of Personal Information
+If at any time you think your personal information has been accessed, please contact us immediately.
+ 
+14.      Contact
+If you have any questions or concerns about our Privacy Policy, or how we have handled your personal information please contact us. You will find our email under contacts.
+"
+                    />
+                  </div>
+                  <div
+                    className="mb-4"
+                  >
+                    <input
+                      checked={false}
+                      className="defaultCheckboxCSS"
+                      onChange={[Function]}
+                      type="checkbox"
+                    />
+                    <label
+                      className="undefined label"
+                    >
+                      I have read and agreed to the Privacy Policy
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <label>
+          <input
+            className="btn btn-green form-btn w-3/4"
+            onClick={[Function]}
+            type="submit"
+            value="Create Account"
+          />
+        </label>
       </div>
     </div>
   </div>

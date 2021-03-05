@@ -5,10 +5,15 @@
   "scripts": {
     "start": "node server/bin/www",
     "test": "jest",
-    "dev": "concurrently \"set PORT=3001 && npm start\" \" cd client && set PORT=3002 && npm start\"",
+    "dev": "concurrently \"set PORT=3001 && npm start\" \" cd client && npm start\"",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "dependencies": {
+    "@turf/boolean-overlap": "^6.3.0",
+    "@turf/boolean-point-in-polygon": "^6.3.0",
+    "@turf/boolean-within": "^6.3.0",
+    "@turf/circle": "^6.3.0",
+    "@turf/helpers": "^6.3.0",
     "body-parser": "^1.19.0",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
@@ -19,8 +24,12 @@
     "hbs": "^4.1.1",
     "http-errors": "~1.6.3",
     "jest": "^26.6.0",
+    "lodash": "^4.17.20",
     "morgan": "~1.9.1",
+    "multer": "^1.4.2",
     "mysql2": "^2.2.5",
+    "neat-csv": "^6.0.1",
+    "node-geocoder": "^3.27.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "sequelize": "^6.3.5"
@@ -58,8 +67,11 @@
           "jsx"
         ],
         "moduleNameMapper": {
-          "\\.(jpg|jpeg|png|gif|svg|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-          "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+          "\\.(css|less)$": "identity-obj-proxy"
+        },
+        "transform": {
+          "\\.(js|jsx)$": "babel-jest",
+          "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileTransformer.js"
         }
       }
     ]
@@ -69,6 +81,7 @@
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.1",
     "@testing-library/jest-dom": "^5.11.5",
-    "concurrently": "^5.3.0"
+    "concurrently": "^5.3.0",
+    "identity-obj-proxy": "^3.0.0"
   }
 }

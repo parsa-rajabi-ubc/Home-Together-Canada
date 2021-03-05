@@ -2,7 +2,7 @@
  * @Author:     Parsa Rajabi
  * @Created:    2020.11.09
  *
- * @Description: footer for the website which contains a link to About Us, FAQ, Contact Us and Comment and Concerns Form"
+ * @Description: footer for the website which contains a link to FAQ, Contact Us and Comment and Concerns Form"
  *
  */
 
@@ -51,7 +51,7 @@ const Footer = () => {
                                           className="text-gray-800 hover:text-orange-500">Terms</Link>
                                 </li>
                                 <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                                    <Link to={'/tos'}
+                                    <Link to={'/privacy'}
                                           className="text-gray-800 hover:text-orange-500">Privacy</Link>
                                 </li>
                             </ul>
@@ -62,11 +62,8 @@ const Footer = () => {
                             <ul className="list-reset mb-6">
                                 <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                                     <a href="https://www.facebook.com/WeAreHomeTogetherCanada/"
+                                       target="_blank" rel="noopener noreferrer"
                                        className="text-gray-800 hover:text-orange-500">Facebook</a>
-                                </li>
-                                <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                                    <a href="https://www.happipad.com/housing-companion-program/"
-                                       className="text-gray-800 hover:text-orange-500">Happipad</a>
                                 </li>
                             </ul>
                         </div>
@@ -75,12 +72,7 @@ const Footer = () => {
                             <p className="uppercase text-gray-500 md:mb-6">Company</p>
                             <ul className="list-reset mb-6">
                                 <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                                    <Link to={'/about'}
-                                          className="text-gray-800 hover:text-orange-500">About Us</Link>
-                                </li>
-                                <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                                    <a href="mailto:hometogether.ca@gmail.com"
-                                       className="text-gray-800 hover:text-orange-500">Contact</a>
+                                    <Link to="/contact" className="text-gray-800 hover:text-orange-500">Contact</Link>
                                 </li>
                             </ul>
                         </div>

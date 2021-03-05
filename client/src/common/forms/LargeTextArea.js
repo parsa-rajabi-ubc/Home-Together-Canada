@@ -7,21 +7,49 @@
  */
 import React from 'react';
 import PropTypes from "prop-types";
+import Asterisk from "./Asterisk";
+import Tooltip from "./Tooltip";
 
-function LargeTextArea(props){
-    const { label, name, placeholder, onChange } = props;
-    return(
-        <label className={"label"}>
-            {label}
-            <textarea className={"input "} name={name} rows="5" cols="50" placeholder={placeholder} onChange={onChange}/>
-        </label>
+function LargeTextArea(props) {
+    const {label, name, placeholder, required, disabled, value, onChange, toolTipID, toolTipText, rows, className ="input"} = props;
+    return (
+        <div>
+            <label className={"label"}>
+                {label}
+            </label>
+            {(required ? <Asterisk/> : '')}
+            {toolTipID &&
+            <Tooltip
+                text={toolTipText}
+                toolTipID={toolTipID}
+            />
+            }
+            <textarea
+                className={`${disabled && "disabled-field"} ${className}`}
+                name={name}
+                rows={rows}
+                cols="50"
+                placeholder={placeholder}
+                onChange={onChange}
+                disabled={disabled}
+                value={value}
+            />
+        </div>
     );
 }
+
 LargeTextArea.propTypes = {
     label: PropTypes.string.isRequired,
+    toolTipText: PropTypes.string,
+    toolTipID: PropTypes.string,
     name: PropTypes.string,
+    rows: PropTypes.string,
+    required: PropTypes.bool,
+    disabled: PropTypes.bool,
+    value: PropTypes.string,
     placeholder: PropTypes.string,
+    className: PropTypes.string,
     onChange: PropTypes.func
-}
+};
 
 export default LargeTextArea;

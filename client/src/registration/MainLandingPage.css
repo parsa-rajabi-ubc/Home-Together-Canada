@@ -1,0 +1,43 @@
+.page-container {
+    @apply flex mt-5 mb-10 w-full;
+}
+
+.account-box {
+    @apply flex flex-col pt-12 mx-10 w-full rounded-lg shadow-2xl;
+}
+
+.member {
+    @apply bg-blue-200;
+}
+
+.member:hover {
+    @apply bg-blue-400;
+}
+
+.business {
+    @apply bg-yellow-200;
+}
+
+.business:hover {
+    @apply bg-yellow-400;
+}
+
+.image {
+    @apply mx-auto mb-0 w-7/12 h-auto rounded-lg shadow-lg;
+}
+
+.text-container {
+    @apply m-10 mb-2 text-center text-gray-800;
+}
+
+.account-title {
+    @apply mb-2 text-3xl font-bold leading-none;
+}
+
+.text-sub-container {
+    @apply mb-10 text-center;
+}
+
+.bullet-points {
+    @apply inline-block my-3 text-lg list-disc list-inside text-left;
+}

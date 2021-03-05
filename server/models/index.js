@@ -30,18 +30,33 @@ db.businessAccount = require('./businessAccount.js')(DataTypes, sequelize);
 db.memberAccount = require('./memberAccount.js')(DataTypes, sequelize);
 db.livesWith = require('./livesWith.js')(DataTypes, sequelize);
 db.areaOfInterest = require('./areaOfInterest')(DataTypes, sequelize);
+db.listing = require('./listing')(DataTypes, sequelize);
+db.listingCategory = require('./listingCategory')(DataTypes, sequelize);
+db.listingSubcategory = require('./listingSubcategory')(DataTypes, sequelize);
+db.listingAssignedSubcategory = require('./listingAssignedSubcategory')(DataTypes, sequelize);
+db.memberListingLocation = require('./memberListingLocation')(DataTypes, sequelize);
 
 db.businessAccount.belongsTo(db.abstractUser, {
     foreignKey: {
-        name: 'uid'
+        name: 'uid',
+        allowNull: false
     },
-    onDelete: 'RESTRICT'
+    onDelete: 'CASCADE'
 });
+db.abstractUser.hasOne(db.businessAccount, {
+    foreignKey: {
+        name: 'uid',
+        allowNull: false
+    },
+    onDelete: 'CASCADE'
+});
+
 db.memberAccount.belongsTo(db.abstractUser, {
     foreignKey: {
-        name: 'uid'
+        name: 'uid',
+        allowNull: false
     },
-    onDelete: 'RESTRICT'
+    onDelete: 'CASCADE'
 });
 
 db.memberAccount.belongsToMany(db.memberAccount, { as: "Roommates", through: db.livesWith });
@@ -50,7 +65,51 @@ db.memberAccount.hasMany(db.areaOfInterest, {
     foreignKey: {
         name: 'uid'
     },
-    onDelete: 'RESTRICT'
+    onDelete: 'CASCADE'
+});
+
+// relationship between listings and abstract users
+db.listing.belongsTo(db.abstractUser, {
+    foreignKey: {
+        name: 'uid',
+        allowNull: false
+    },
+    onDelete: 'CASCADE'
+});
+db.abstractUser.hasMany(db.listing, {
+    onDelete: 'CASCADE'
+});
+
+// relationship between listings and categories
+db.listing.belongsTo(db.listingCategory, {
+    onDelete: 'CASCADE'
+});
+db.listingCategory.hasMany(db.listing, {
+    onDelete: 'CASCADE'
+});
+
+// relationship between categories and subcategories
+db.listingSubcategory.belongsTo(db.listingCategory, {
+    onDelete: 'CASCADE'
+});
+db.listingCategory.hasMany(db.listingSubcategory), {
+    onDelete: 'CASCADE'
+};
+
+// Through table for listings and subcategories
+db.listingSubcategory.belongsToMany(db.listing, {
+    through: db.listingAssignedSubcategory,
+});
+db.listing.belongsToMany(db.listingSubcategory, {
+    through: db.listingAssignedSubcategory
+});
+
+// Relationship between member listing locations and listings
+db.listing.hasOne(db.memberListingLocation, {
+    onDelete: 'CASCADE'
+});
+db.memberListingLocation.belongsTo(db.listing, {
+    onDelete: 'CASCADE'
 });
 
 module.exports = db;

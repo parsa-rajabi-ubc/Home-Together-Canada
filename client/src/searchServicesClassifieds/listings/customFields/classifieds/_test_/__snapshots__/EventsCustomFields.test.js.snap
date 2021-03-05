@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventsCustomFields should render correctly regardless of properties 1`] = `
+<div>
+  <label
+    className="label-result"
+  >
+    Rates and fees (CAD)
+  </label>
+  <p>
+     
+    666 per day
+  </p>
+  <label
+    className="label-result"
+  >
+    Contact Name
+  </label>
+  <p>
+     
+    Alex
+  </p>
+  <label
+    className="label-result"
+  >
+    Contact Phone Number
+  </label>
+  <p>
+     
+    778-555-5555
+  </p>
+  <label
+    className="label-result"
+  >
+    Event dates and times
+  </label>
+  <p>
+     
+    2020/2/21 11:00 A.M.
+  </p>
+</div>
+`;

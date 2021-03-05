@@ -7,22 +7,36 @@
  */
 
 import React, {useState, useEffect} from 'react';
-import "canada"
 import PropTypes from "prop-types";
 import Dropdown from "./Dropdown";
 import {getProvinces} from "../utils/locationUtils"
-
+import Asterisk from "./Asterisk";
+import Tooltip from "./Tooltip";
+import get from 'lodash/get';
+import {dropdownErrorCSS, dropdownDefaultCSS} from "../../css/dropdownCSSUtil"
 
 function Address(props) {
-    const {label, onChange} = props;
-    const [street, setStreet] = useState("");
-    const [aptNum, setApt] = useState("");
-    const [city, setCity] = useState("");
-    const [province, setProvince] = useState('');
-    const [postalCode, setPostalCode] = useState('');
+    const {
+        label,
+        value,
+        onChange,
+        required,
+        toolTipID,
+        toolTipText,
+        streetAddressError,
+        cityAddressError,
+        provinceAddressError,
+        postalCodeError,
+    } = props;
+    const [street, setStreet] = useState(get(value, 'street', undefined));
+    const [aptNum, setApt] = useState(get(value, 'aptNum', ""));
+    const [city, setCity] = useState(get(value, 'city', undefined));
+    const [province, setProvince] = useState(get(value, 'province', undefined));
+    const initialSelection = (province && {label: province, value: province}) || undefined;
+    const [postalCode, setPostalCode] = useState(get(value, 'postalCode', undefined));
 
     const handleInputChange = (e) => {
-        switch(e.target.name) {
+        switch (e.target.name) {
             case 'street': {
                 setStreet(e.target.value);
                 break;
@@ -51,40 +65,84 @@ function Address(props) {
             province,
             postalCode
         })
-    },[street, aptNum, city, province, postalCode]);
+    }, [street, aptNum, city, province, postalCode]);
 
+    // Updated autoComplete based on: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
     return (
-        <div>
-            <label className="label">
-                {label}
-                <input className="input" type="text" name="street" placeholder="Address Line 1"
-                       onChange={handleInputChange}/>
-            </label>
-            <label>
-                <input className="input" type="text" name="aptNum" placeholder="Address Line 2: Apt, suite, etc. (optional)"
-                       onChange={handleInputChange}/>
-            </label>
-            <label>
+        <div className="grid grid-cols-9 gap-x-2">
+            <div className="col-start-1 col-end-8">
+                <label className="label">
+                    {label}
+                </label>
+                {required && <Asterisk/>}
+                {toolTipID && <Tooltip text={toolTipText} toolTipID={toolTipID}/>}
                 <input
-                    className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
-                    type="text" name="city" placeholder="City" onChange={handleInputChange}/>
-            </label>
-            <Dropdown isSearchable={true} placeholder={"Province"}
-                    options={getProvinces()}
-                    onChange={address => setProvince(address.value)}/>
-            <label>
-                <input
-                    className="inline w-1/3 px-3 py-2 mb-4 mt-1 leading-normal bg-white border border-gray-300 rounded-lg appearance-none;"
-                    type="text" name="postalCode" placeholder="Postal Code"
+                    className={`${streetAddressError && "border-red-500"} input`}
+                    type="text" value={street || ''}
+                    name="street"
+                    placeholder="Address Line 1"
+                    autoComplete="address-line1"
                     onChange={handleInputChange}/>
-            </label>
+            </div>
+            <div className="col-start-1 col-end-8">
+                <input
+                    className="input"
+                    type="text"
+                    value={aptNum || ''}
+                    name="aptNum"
+                    placeholder="Address Line 2: Apt, suite, etc. (optional)"
+                    autoComplete="address-line2" onChange={handleInputChange}/>
+            </div>
+            <div className="col-start-1 col-end-4">
+                <input
+                    className={`${cityAddressError && "border-red-500"} input`}
+                    type="text"
+                    autoComplete="address-level2"
+                    value={city || ''}
+                    name="city"
+                    placeholder="City"
+                    onChange={handleInputChange}/>
+            </div>
+            <div className="col-start-4 col-end-8">
+                <Dropdown
+                    isSearchable={true}
+                    placeholder={"Province"}
+                    initialSelection={initialSelection}
+                    options={getProvinces()} autoComplete="address-level1"
+                    onChange={address => setProvince(address.value)}
+                    dropdownCSS={provinceAddressError ? dropdownErrorCSS : dropdownDefaultCSS}
+                />
+            </div>
+            <div className="col-start-1 col-end-4">
+                <input
+                    className={`${postalCodeError && "border-red-500"} input`}
+                    type="text" autoComplete="postal-code"
+                    name="postalCode"
+                    placeholder="Postal Code"
+                    value={postalCode || ''}
+                    onChange={handleInputChange}/>
+            </div>
         </div>
     );
 }
 
 Address.propTypes = {
     label: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
+    toolTipText: PropTypes.string,
+    value: PropTypes.shape({
+        street: PropTypes.string,
+        aptNum: PropTypes.string,
+        city: PropTypes.string,
+        province: PropTypes.string,
+        postalCode: PropTypes.string
+    }),
+    toolTipID: PropTypes.string,
+    required: PropTypes.bool,
+    streetAddressError: PropTypes.bool,
+    cityAddressError: PropTypes.bool,
+    provinceAddressError: PropTypes.bool,
+    postalCodeError: PropTypes.bool,
 };
 
 export default Address;

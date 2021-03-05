@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CohousingCustomFields should render correctly regardless of properties 1`] = `
+<div>
+  <label
+    className="label-result"
+  >
+    Contact Name
+  </label>
+  <p>
+     
+    Alex
+  </p>
+  <label
+    className="label-result"
+  >
+    Units for sale
+  </label>
+  <p>
+    5
+  </p>
+  <label
+    className="label-result"
+  >
+    Units for rent
+  </label>
+  <p>
+     
+    5
+  </p>
+</div>
+`;

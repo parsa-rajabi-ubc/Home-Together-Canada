@@ -72,11 +72,11 @@ module.exports = function (passport) {
                     if (req.body.partnerUsername) {
                         abstractUserController.findUserByUsername(req.body.partnerUsername)
                             .then(partnerUser => {
-                                if (partnerUser.length) {
-                                    memberAccount.addRoommate(partnerUser[0].uid,
+                                if (partnerUser) {
+                                    memberAccount.addRoommate(partnerUser.uid,
                                         {
                                             through: {
-                                                relationship: 'partner'
+                                                relationship: req.body.status
                                             }
                                         });
                                 }
@@ -86,10 +86,10 @@ module.exports = function (passport) {
                         req.body.existingGroupUsernames.forEach(username => {
                             abstractUserController.findUserByUsername(username)
                                 .then(roommate => {
-                                    memberAccount.addRoommate(roommate[0].uid,
+                                    memberAccount.addRoommate(roommate.uid,
                                         {
                                             through: {
-                                                relationship: 'roommate'
+                                                relationship: req.body.status
                                             }
                                         });
                                 });
@@ -110,12 +110,10 @@ module.exports = function (passport) {
                         });
                     }
 
-                    console.log('user: ', user);
-
-
                     return done(null, user);
                 })
                 .catch(error => {
+                    console.log('error: ', error.message);
                     return done(null, false, { message: error.message || "Error creating member"});
                 });
         }
@@ -148,6 +146,12 @@ module.exports = function (passport) {
                 if (!isValidPassword(user.password, user.salt, password)) {
                     return done(null, false, {
                         message: 'Incorrect password.'
+                    });
+                }
+
+                if (user.isBanned) {
+                    return done(null, false, {
+                        message: 'Account is frozen. Please contact Home Together Canada for more information.'
                     });
                 }
 

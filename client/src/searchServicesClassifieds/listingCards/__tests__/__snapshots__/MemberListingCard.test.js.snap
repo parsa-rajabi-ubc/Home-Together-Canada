@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MemberListingCard Container test should match snapshot test 1`] = `
+<section
+  className="card-container mt-0"
+>
+  <div
+    className="inline ml-6 align-middle "
+  >
+    <label
+      className="font-semibold justify-between"
+    >
+       
+      Rooms for Rent
+    </label>
+    ,
+    <label
+      className="px-1"
+    >
+      $
+      650
+       
+    </label>
+    <section
+      className="inline float-right pr-6 justify-end"
+    >
+      <n
+        ago={false}
+        calendar={false}
+        decimal={false}
+        element={null}
+        filter={[Function]}
+        format="MMM D, YYYY"
+        fromNow={false}
+        interval={60000}
+        local={false}
+        onChange={[Function]}
+        titleFormat=""
+        toNow={false}
+        trim={false}
+        unit={null}
+        unix={false}
+        utc={false}
+        withTitle={false}
+      >
+        2021-02-14T07:42:39.000Z
+      </n>
+    </section>
+  </div>
+  <div
+    className="ml-6 mt-4 flex"
+  >
+    <label
+      className="w-full font-light"
+    >
+       
+      3 Furnished Rooms, for students preferably
+       
+    </label>
+    <section
+      className="flex pr-6 "
+    >
+      <Tooltip
+        customIcon={
+          <GiCigarette
+            className="text-red-500 ml-1"
+          />
+        }
+        text="Smoke Friendly"
+        toolTipID="SmokeFriendly"
+      />
+    </section>
+  </div>
+</section>
+`;

@@ -2,7 +2,7 @@
  * @Author:     Parsa Rajabi
  * @Created:    2020.11.09
  *
- * @Description: header for the website which contains links to Connect with Members, Services, Classifieds, About Us and Account Page
+ * @Description: header for the website which contains links to Search Member Profiles, Services, Classifieds and Account Page
  *
  */
 
@@ -10,26 +10,53 @@ import React from 'react';
 import '../../tailwind.output.css';
 import {Link} from "react-router-dom";
 import LoginService from '../../services/LoginService';
-import Button from "../forms/Button";
+import {connect} from "react-redux";
+import { bindActionCreators } from 'redux';
+import {reset} from '../../redux/actionCreators';
+import PropTypes from "prop-types";
+import {BUSINESS_SUBPAGES, MEMBER_SUBPAGES, USER_TYPES} from "../constants/users";
+import Dropdown from "../forms/Dropdown";
+import {pushToRoute} from "../utils/navigationUtils";
+import {withRouter} from "react-router-dom";
+import {compose} from "redux";
+import {dropdownAccountCSS, dropdownAccountTheme} from "../../css/dropdownCSSUtil"
+import {SERVICES_TEXT, CLASSIFIEDS_TEXT, CREATE_LISTINGS_TEXT} from "../constants/listingsConstants";
 
-const Header = () => {
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ reset }, dispatch);
+}
+
+const Header = (props) => {
+    const {
+        history,
+        reset,
+        isAdmin,
+        accountType,
+        authenticated
+    } = props;
 
     const logout = () => {
         LoginService.logoutUser()
             .then(res => res.json())
             .then(() => {
-                alert('You have been logged out.')
+                reset();
+
+                // redirect to home page
+                history.push('/');
             })
     }
 
+    // TODO: save active status to redux store and conditionally show "Activate Account" and "Deactivate Account" based on the status
 
-    // TODO: Dynamically generate buttons in header based on authentication and user privileges
+    const dropdownOptions = accountType === USER_TYPES.MEMBER
+        ? [...MEMBER_SUBPAGES, {label: 'Logout', value: 'Logout'}]
+        : [...BUSINESS_SUBPAGES, {label: 'Logout', value: 'Logout'}];
 
     return (
         <div>
-            {/*TODO: change bg color to igreen*/}
             <nav className="top-0 flex w-full bg-green-400 tex-black">
-                <div className="container flex items-center justify-between w-full py-2 mx-auto mt-0 whitespace-no-wrap">
+                <div
+                    className="container flex items-center justify-between w-full py-2 mx-auto mt-0 whitespace-no-wrap">
                     <div className="flex flex-no-wrap items-center ml-4">
                         <Link to={'/'}
                               className="text-lg font-bold lg:text-xl">
@@ -37,52 +64,92 @@ const Header = () => {
                         </Link>
                     </div>
 
-                    {/*TODO: move classNames to header.css */}
                     {/* Middle of Nav */}
                     <div
                         className="flex-no-wrap hidden w-full p-4 mt-2 tex-black lg:flex lg:items-center lg:w-auto lg:block lg:mt-0 lg:bg-transparent lg:p-0">
                         <div className="items-center justify-end flex-1 mr-16 list-reset lg:flex">
-                            <Link to={'/members'}
-                                  className="inline-block px-4 py-2 mr-3 transition duration-200 ease-in-out border-transparent rounded-md hover:bg-white hover:text-black hover:opacity-50">
-                                Connect with Members
+                            {accountType !== USER_TYPES.BUSINESS &&
+                            <Link to={'/members'} className="nav-icon">
+                                Search Member Profiles
                             </Link>
-                            <Link to={'/services'}
-                                  className="inline-block px-4 py-2 mr-3 transition duration-200 ease-in-out border-transparent rounded-md hover:bg-white hover:text-black hover:opacity-50">
-                                Services
+                            }
+                            <Link to={'/services'} className="nav-icon">
+                                {SERVICES_TEXT}
                             </Link>
-                            <Link to={'/classifieds'}
-                                  className="inline-block px-4 py-2 mr-3 transition duration-200 ease-in-out border-transparent rounded-md hover:bg-white hover:text-black hover:opacity-50">
-                                Classifieds
+                            <Link to={'/classifieds'} className="nav-icon">
+                                {CLASSIFIEDS_TEXT}
                             </Link>
-                            <Link to={'/about'}
-                                  className="inline-block px-4 py-2 mr-3 transition duration-200 ease-in-out border-transparent rounded-md hover:bg-white hover:text-black hover:opacity-50">
-                                About Us
-                            </Link>
-                            <Link to={'/faq'}
-                                  className="inline-block px-4 py-2 mr-3 no-underline transition duration-200 ease-in-out border-transparent rounded-md hover:bg-white hover:text-black hover:opacity-50">
+                            <Link to={'/faq'} className="nav-icon">
                                 FAQ
                             </Link>
+                            {(authenticated && accountType !== USER_TYPES.UNREGISTERED) &&
+                            < Link to={'/create-listing'} className="nav-icon">
+                                {CREATE_LISTINGS_TEXT}
+                            </Link>
+                            }
+                            {(authenticated && isAdmin) &&
+                            <Link to={'/admin'} className="nav-icon">
+                                Admin
+                            </Link>
+                            }
                         </div>
 
                         {/* Login and Sign Up Buttons */}
-                        <Link to={'/login'}
-                              className="items-center justify-center w-full px-6 py-2 mr-4 transition duration-200 ease-in-out bg-white border-transparent rounded-md opacity-75 hover:bg-orange-400">Login
+                        {(accountType === USER_TYPES.UNREGISTERED || !authenticated) &&
+                        <Link to={'/login'} className="nav-btn">
+                            Login
                         </Link>
-                        <Link to={'/registration'}
-                              className="items-center justify-center w-full px-4 py-2 mr-4 transition duration-200 ease-in-out bg-white border-transparent rounded-md opacity-75 hover:bg-orange-400">Sign
-                            Up
+                        }
+                        {(accountType === USER_TYPES.UNREGISTERED || !authenticated) &&
+                        <Link to={'/registration'} className="nav-btn">
+                            Sign Up
                         </Link>
-                        <Button
-                            className="items-center justify-center w-full px-4 py-2 mr-4 transition duration-200 ease-in-out bg-white border-transparent rounded-md opacity-75 hover:bg-orange-400"
-                            value={'Logout'}
-                            onClick={logout}/>
+                        }
                     </div>
                 </div>
                 {/*Bottom Border*/}
                 <hr className="py-0 my-0 border-b border-gray-200 opacity-25"/>
+                {(authenticated || accountType !== USER_TYPES.UNREGISTERED) &&
+                <section className={"mr-10"}>
+                    <Dropdown
+                        options={dropdownOptions}
+                        onChange={(selected) =>
+                            selected.label === 'Logout'
+                                ? logout()
+                                : pushToRoute(
+                                history,
+                                '/account',
+                                {accountType: accountType, selected: selected.label})}
+                        placeholder={'Account'}
+                        name={'Account'}
+                        dropdownCSS={dropdownAccountCSS}
+                        dropdownTheme={dropdownAccountTheme}
+                        isSearchable={false}
+                    />
+                </section>
+                }
             </nav>
         </div>
-    )
+    );
 }
 
-export default Header;
+const mapStateToProps = (state) => ({
+    isAdmin: state.userPrivileges.isAdmin,
+    accountType: state.userPrivileges.accountType,
+    authenticated: state.userPrivileges.authenticated
+});
+
+Header.propTypes = {
+    history: PropTypes.shape({
+        push: PropTypes.func
+    }).isRequired,
+    reset: PropTypes.func.isRequired,
+    isAdmin: PropTypes.bool.isRequired,
+    authenticated: PropTypes.bool.isRequired,
+    accountType: PropTypes.string
+}
+
+export default compose(
+    withRouter,
+    connect(mapStateToProps, mapDispatchToProps)
+)(Header);

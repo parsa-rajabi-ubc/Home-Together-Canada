@@ -5,16 +5,18 @@
  * @Description: controller functions for BusinessAccount model
  *
  */
-
 const db = require("../models");
 const { formatPhoneNumber } = require('./utils/accountControllerUtils');
+const { getGeographicalCoordinatesFromAddress } = require('./utils/locationUtils');
 const BusinessAccount = db.businessAccount;
 
-const createBusinessAccount = (req, uid) => {
+const createBusinessAccount = async (req, uid) => {
+    const fullSearchableAddress = `${req.body.mapAddressLine1} ${req.body.mapCity} ${req.body.mapProvince}`;
+    const coordinates = await getGeographicalCoordinatesFromAddress(fullSearchableAddress);
+
     const businessAccount = {
         uid: uid,
         businessName: req.body.businessName,
-        logo: req.body.logo,
         isIncorporated: req.body.isIncorporated,
         incorporatedOwnersNames: req.body.incorporatedOwnersNames,
         businessPhoneNumber: formatPhoneNumber(req.body.businessPhoneNumber),
@@ -25,8 +27,8 @@ const createBusinessAccount = (req, uid) => {
         mapCity: req.body.mapCity,
         mapProvince: req.body.mapProvince,
         mapPostalCode: req.body.mapPostalCode,
-        mapLatitude: req.body.mapLatitude,
-        mapLongitude: req.body.mapLongitude,
+        mapLatitude: coordinates.latitude,
+        mapLongitude: coordinates.longitude,
         website: req.body.website
     }
 
@@ -46,7 +48,64 @@ const findAllBusinessAccounts = (req, res) => {
         });
 }
 
+const findBusinessByUid = (uid) => {
+    return BusinessAccount.findByPk(uid);
+}
+
+const updateLogo = (uid, logoAddress) =>
+    BusinessAccount.update({ logo: logoAddress }, {
+        where: {
+            uid: uid
+        }
+    });
+
+const removeLogo = (uid) =>
+    BusinessAccount.update({ logo: null }, {
+        where: {
+            uid: uid
+        }
+    });
+
+const getLogo = (uid) =>
+    BusinessAccount.findAll({
+        attributes: ['logo'],
+        where: {
+            uid: uid
+        }
+    });
+
+
+const updateBusiness = req => {
+    const fullSearchableAddress = `${req.body.mapAddressLine1} ${req.body.mapCity} ${req.body.mapProvince}`;
+    const coordinates = getGeographicalCoordinatesFromAddress(fullSearchableAddress);
+    return BusinessAccount.update({
+        businessName: req.body.businessName,
+        isIncorporated: req.body.isIncorporated,
+        incorporatedOwnersNames: req.body.incorporatedOwnersNames,
+        businessPhoneNumber: formatPhoneNumber(req.body.businessPhoneNumber),
+        businessCellPhoneNumber: formatPhoneNumber(req.body.businessCellPhoneNumber),
+        isNationWide: req.body.isNationWide,
+        mapAddressLine1: req.body.mapAddressLine1,
+        mapAddressLine2: req.body.mapAddressLine2,
+        mapCity: req.body.mapCity,
+        mapProvince: req.body.mapProvince,
+        mapPostalCode: req.body.mapPostalCode,
+        mapLatitude: coordinates.latitude,
+        mapLongitude: coordinates.longitude,
+        website: req.body.website
+    }, {
+        where: {
+            uid: req.user.uid
+        }
+    })
+}
+
 module.exports = {
     createBusinessAccount,
-    findAllBusinessAccounts
+    findAllBusinessAccounts,
+    findBusinessByUid,
+    updateLogo,
+    removeLogo,
+    updateBusiness,
+    getLogo
 }

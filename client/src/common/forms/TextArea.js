@@ -8,39 +8,52 @@
 
 import React from 'react';
 import PropTypes from "prop-types";
+import Asterisk from './Asterisk';
 
-function TextArea(props){
+function TextArea(props) {
     const {
         label,
         labelClassName,
         className,
         placeholder,
         onChange,
-        disabled=false,
-        value
+        autoComplete,
+        required,
+        disabled = false,
+        value,
+        charLimit
     } = props;
-    return(
-        <label className={labelClassName}>
-            {label}
+    return (
+        <section>
+            <label className={labelClassName}>
+                {label}
+            </label>
+            {(required ? <Asterisk/> : '')}
             <input
-                className={className}
+                className={`${disabled && "disabled-field"} ${className}`}
                 type="text"
                 placeholder={placeholder}
-                onChange= {onChange}
+                autoComplete={autoComplete}
+                onChange={onChange}
                 disabled={disabled}
                 value={value}
+                maxLength={charLimit}
             />
-        </label>
+        </section>
     );
 }
+
 TextArea.propTypes = {
     label: PropTypes.string,
+    required: PropTypes.bool,
     labelClassName: PropTypes.string,
     className: PropTypes.string,
     placeholder: PropTypes.string,
+    autoComplete: PropTypes.string,
     onChange: PropTypes.func,
     disabled: PropTypes.bool,
-    value: PropTypes.string
+    value: PropTypes.string,
+    charLimit: PropTypes.string
 }
 
 export default TextArea;

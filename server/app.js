@@ -2,17 +2,26 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const routes = require('./routes');
-const db = require("./models");
 const cors = require('cors');
 const expressValidator = require('express-validator');
 const passport = require('passport');
 const session = require('express-session');
 
+const routes = require('./routes.js');
+const businessRoutes = require('./routes/businessRoutes');
+const memberRoutes = require('./routes/memberRoutes');
+const userRoutes = require('./routes/userRoutes');
+const listingRoutes = require('./routes/listingRoutes');
+const db = require("./models");
+const listingCategories = require('./controllers/listingCategoryController');
+const listingSubcategories = require('./controllers/listingSubcategoryController');
+
 const app = express();
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, '../client/build')));
+// Serve static files that are in the public folder
+app.use(express.static(__dirname + '/public'));
 
 if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
     const corsOptions = {
@@ -30,10 +39,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Passport
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized:true})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
+app.use('/user', userRoutes);
+app.use('/business', businessRoutes);
+app.use('/member', memberRoutes);
+app.use('/listing', listingRoutes)
 app.use('/', routes);
 
 //load passport strategies
@@ -42,11 +55,15 @@ require("./config/passport.js")(passport);
 
 // force false will prevent the database from being cleared everytime the server starts up
 db.sequelize.sync({ force: false })
+    // populate DB with categories and subcategories
     .then(() => {
-      console.log("Drop and re-sync db.");
+        return listingCategories.populateDBWithCategories();
+    })
+    .then(()=> {
+        return listingSubcategories.populateDBWithSubcategories();
     })
     .catch((err) => {
-      console.log(err);
+        console.log('error syncing/populating DB: ', err);
     });
 
 // view engine setup

@@ -1,0 +1,15 @@
+.nav-icon {
+    @apply inline-block px-2 py-2 mr-3 transition duration-200 ease-in-out border-transparent rounded-md;
+}
+
+.nav-icon:hover {
+    @apply bg-white text-black opacity-50;
+}
+
+.nav-btn {
+    @apply items-center justify-center w-full px-6 py-2 mr-3 transition duration-200 ease-in-out bg-white border-transparent rounded-md opacity-75;
+}
+
+.nav-btn:hover {
+    @apply bg-orange-400;
+}

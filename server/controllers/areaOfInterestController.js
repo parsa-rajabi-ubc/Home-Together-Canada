@@ -8,18 +8,56 @@
 
 const db = require('../models');
 const AreaOfInterest = db.areaOfInterest;
+const { getGeographicalCoordinatesFromCity, getCircularFeatureFromCoordinates} = require('./utils/locationUtils');
 
-const createAreaOfInterest = (areaOfInterest, uid) => {
+const createAreaOfInterest = async (areaOfInterest, uid) => {
+    const coordinates = await getGeographicalCoordinatesFromCity(areaOfInterest.province, areaOfInterest.city);
 
-    // TODO: add geocoding to determine lat. and long. coordinates
-    const areaOfInterstEntry = {
+    const feature = getCircularFeatureFromCoordinates(coordinates, areaOfInterest.radius);
+
+    const areaOfInterestEntry = {
         uid: uid,
         province: areaOfInterest.province,
         city: areaOfInterest.city,
-        radius: areaOfInterest.radius
+        radius: areaOfInterest.radius,
+        latitude: coordinates.latitude,
+        longitude: coordinates.longitude,
+        feature: JSON.stringify(feature)
     }
 
-    return AreaOfInterest.create(areaOfInterstEntry);
+    return AreaOfInterest.create(areaOfInterestEntry);
+}
+
+const updateAreaOfInterest = (areaOfInterest, uid) => {
+    return AreaOfInterest.update(
+        {
+            province: areaOfInterest.province,
+            city: areaOfInterest.city,
+            radius: areaOfInterest.radius
+        },
+        {
+            where: { uid: uid }
+        }
+    );
+}
+
+const deleteAreaOfInterest = (areaOfInterest, uid) => {
+    return AreaOfInterest.destroy({
+        where: {
+            uid: uid,
+            province: areaOfInterest.province,
+            city: areaOfInterest.city,
+            radius: areaOfInterest.radius
+        }
+    });
+}
+
+const findAreasOfInterestForUser = uid => {
+    return AreaOfInterest.findAll({
+        where: {
+            uid: uid
+        }
+    });
 }
 
 const findAllAreasOfInterestsForAllUsers = (req, res) => {
@@ -32,5 +70,8 @@ const findAllAreasOfInterestsForAllUsers = (req, res) => {
 
 module.exports = {
     createAreaOfInterest,
-    findAllAreasOfInterestsForAllUsers
+    findAllAreasOfInterestsForAllUsers,
+    updateAreaOfInterest,
+    deleteAreaOfInterest,
+    findAreasOfInterestForUser
 }
