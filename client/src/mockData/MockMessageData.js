@@ -26,7 +26,7 @@ export const mockMessages = [
         messageContent: "message content 3",
         senderId: "messageMember1",
         receiverId: "otherUser3",
-        dateSent: "2021-02-14T02:42:39.005Z"
+        dateSent: "2021-02-14T08:42:39.005Z"
     },
     {
         id: 4,
@@ -40,14 +40,14 @@ export const mockMessages = [
         messageContent: "message content 5",
         senderId: "messageMember1",
         receiverId: "otherUser5",
-        dateSent: "2020-01-14T02:42:39.075Z"
+        dateSent: "2020-03-14T02:42:39.075Z"
     },
     {
         id: 6,
         messageContent: "message content 6",
         senderId: "messageMember1",
         receiverId: "otherUser6",
-        dateSent: "2021-01-18T02:41:39.005Z"
+        dateSent: "2021-02-18T02:43:39.005Z"
     },
     {
         id: 7,
@@ -299,7 +299,7 @@ export const mockMessages = [
         messageContent: "message content with lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots of padding 42",
         senderId: "otherUser2",
         receiverId: "messageMember1",
-        dateSent: "2021-01-07T02:42:39.005Z"
+        dateSent: "2021-01-07T07:42:39.005Z"
     },
     {
         id: 43,
