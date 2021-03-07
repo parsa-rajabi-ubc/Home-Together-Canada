@@ -7,14 +7,15 @@
  */
 
 import React from 'react';
-import renderer from  'react-test-renderer'
+import renderer from  'react-test-renderer';
 import SearchListingFiltersContainer from "../SearchListingFiltersContainer";
 
 describe('SearchListingFiltersContainer', () => {
     describe('Container test', () => {
         it('should match snapshot test', () => {
             const props ={
-                onSearch: jest.fn()
+                onSearch: jest.fn(),
+                setSearchFilters: jest.fn()
             }
 
             //when

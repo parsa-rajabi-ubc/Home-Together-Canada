@@ -8,6 +8,8 @@
 
 import React, {useContext} from 'react';
 import PropTypes from "prop-types";
+import includes from 'lodash/includes';
+
 import SubmitButton from "../../common/forms/SubmitButton";
 import Dropdown from "../../common/forms/Dropdown";
 import {dropdownDefaultCSS, dropdownErrorCSS} from "../../css/dropdownCSSUtil";
@@ -30,6 +32,7 @@ function SearchListingFilters(props) {
         categoryOptions,
         selectedCategory,
         subcategories,
+        selectedSubcategories,
 
         handleSubcategoriesChange,
         handleCategoryChange,
@@ -54,6 +57,7 @@ function SearchListingFilters(props) {
                 id={subcategory.toString()}
                 fontNormal={true}
                 onChange={handleSubcategoriesChange}
+                // checked={includes(selectedSubcategories, subcategory)}
             />
     );
 
@@ -85,6 +89,7 @@ function SearchListingFilters(props) {
                             options={categoryOptions}
                             onChange={handleCategoryChange}
                             dropdownCSS={selectedCategoryError ? dropdownErrorCSS : dropdownDefaultCSS}
+                            initialSelection={(selectedCategory && {label: selectedCategory, value: selectedCategory}) || undefined}
                         />
                     </section>
 
@@ -113,6 +118,7 @@ SearchListingFilters.propTypes = {
     categoryOptions: PropTypes.array.isRequired,
     selectedCategory: PropTypes.string,
     subcategories: PropTypes.array.isRequired,
+    selectedSubcategories: PropTypes.array,
 
     handleSubcategoriesChange: PropTypes.func.isRequired,
     handleCategoryChange: PropTypes.func.isRequired,

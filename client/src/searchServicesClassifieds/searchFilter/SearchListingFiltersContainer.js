@@ -32,25 +32,29 @@ import {
 import {BUSINESS_CLASSIFIEDS_CATEGORIES} from "../../createListing/constants/classifiedListingCategoriesText";
 import {isValueInArray} from "../../common/utils/generalUtils";
 import {checkIfErrorsExistInMapping, validateInput} from "../../registration/registrationUtils";
-
+import {
+    getInitialCategoryFilter,
+    getInitialSearchAreaFilter,
+    getInitialSubcategoriesFilter
+} from "../searchListingUtils";
 
 function SearchListingFiltersContainer(props) {
-    const {onSearch} = props;
+    const {
+        onSearch,
+        searchFilters,
+        setSearchFilters
+    } = props;
 
     const listingPage = useContext(listingContext);
 
-    const [selectedCategory, setSelectedCategory] = useState();
+    const [selectedCategory, setSelectedCategory] = useState(getInitialCategoryFilter(searchFilters));
     const [categoryOptions, setCategoryOptions] = useState(
         (listingPage === PAGE_NAMES.SERVICES
             ? BUSINESS_SERVICE_CATEGORIES_DROPDOWN
             : BUSINESS_CLASSIFIEDS_CATEGORIES_DROPDOWN));
     const [subcategories, setSubcategories] = useState([]);
-    const [selectedSubcategories, setSelectedSubcategories] = useState([]);
-    const [searchArea, setSearchArea] = useState({
-        province: '',
-        city: '',
-        radius: 0,
-    });
+    const [selectedSubcategories, setSelectedSubcategories] = useState(getInitialSubcategoriesFilter(searchFilters));
+    const [searchArea, setSearchArea] = useState(getInitialSearchAreaFilter(searchFilters));
 
 
     // Error Validation
@@ -79,17 +83,22 @@ function SearchListingFiltersContainer(props) {
         (listingPage === PAGE_NAMES.SERVICES
             ? setCategoryOptions(MEMBER_SERVICE_CATEGORIES_DROPDOWN.concat(BUSINESS_SERVICE_CATEGORIES_DROPDOWN))
             : setCategoryOptions(BUSINESS_CLASSIFIEDS_CATEGORIES_DROPDOWN));
-
-        // reset to default values
-        setSelectedCategory();
-        setSubcategories([]);
-
     }, [listingPage]);
 
-    // Update subcategories based on Category selected
+    // TODO: replace with a custom hook that tracks the first render
+    //  - https://stackoverflow.com/questions/53179075/with-useeffect-how-can-i-skip-applying-an-effect-upon-the-initial-render
+    let initialRender = true;
     useEffect(() => {
+        // Update subcategories based on Category selected
         returnSubcategory(selectedCategory);
-        setSelectedSubcategories([]);
+
+        // reset selected categories except for on the first render
+        if (initialRender) {
+            initialRender = false;
+        } else {
+            // reset selected subcategories when category is changed
+            setSelectedSubcategories([]);
+        }
     }, [selectedCategory]);
 
 
@@ -169,11 +178,16 @@ function SearchListingFiltersContainer(props) {
     const onSubmit = () => {
         setHasClickedSearch(true);
         if (isFormValid()) {
+            setSearchFilters({
+                category: selectedCategory,
+                subcategories: selectedSubcategories,
+                searchArea: searchArea
+            });
             onSearch({
                 selectedCategory,
                 selectedSubcategories,
                 searchArea
-            })
+            });
         }
     }
 
@@ -185,6 +199,7 @@ function SearchListingFiltersContainer(props) {
             categoryOptions={categoryOptions}
             selectedCategory={selectedCategory}
             subcategories={subcategories}
+            selectedSubcategories={selectedSubcategories}
 
             handleSubcategoriesChange={handleSubcategoriesChange}
             handleCategoryChange={handleCategoryChange}
@@ -202,7 +217,17 @@ function SearchListingFiltersContainer(props) {
 }
 
 SearchListingFiltersContainer.propTypes = {
-    onSearch: PropTypes.func.isRequired
+    onSearch: PropTypes.func.isRequired,
+    searchFilters: PropTypes.shape({
+        searchArea: PropTypes.shape({
+            province: PropTypes.string,
+            city: PropTypes.string,
+            radius: PropTypes.number
+        }),
+        category: PropTypes.string,
+        subcategories: PropTypes.array
+    }),
+    setSearchFilters: PropTypes.func.isRequired
 }
 
 export default SearchListingFiltersContainer;

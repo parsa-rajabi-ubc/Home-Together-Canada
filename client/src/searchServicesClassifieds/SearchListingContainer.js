@@ -6,9 +6,10 @@
  *
  */
 
-import React, {useState, createContext, useEffect} from 'react';
+import React, {createContext, useState, useCallback} from 'react';
+import {connect} from "react-redux";
+import PropTypes from "prop-types";
 import SearchListingFiltersContainer from "./searchFilter/SearchListingFiltersContainer";
-import {useHistory} from "react-router-dom";
 import ListingResultsContainer from "./listingResults/ListingResultsContainer";
 import {resolveCategoryToListingType} from "../common/utils/listingsUtils";
 import * as ListingService from "../services/ListingService";
@@ -17,6 +18,13 @@ import Loading from "../common/loading/Loading";
 import Confirmation from "../common/listings/Confirmation";
 import {MEMBER_SERVICE_CATEGORIES} from "../createListing/constants/serviceListingCategoriesText";
 import {USER_TYPES} from "../common/constants/users";
+import {
+    setServiceListingsSearchResults,
+    setClassifiedListingsSearchResults,
+    setServiceListingsSearchFilters,
+    setClassifiedListingsSearchFilters
+} from "../redux/slices/listing";
+import {getInitialListingUserType} from "./searchListingUtils";
 
 export const listingContext = createContext();
 
@@ -30,19 +38,38 @@ const MESSAGES = {
     ERROR: "Oops, there was an error loading search results. Please try again",
 }
 
-function SearchListingContainer() {
+function SearchListingContainer(props) {
+    const {
+        listingPage,
+        serviceListingsSearchResults,
+        setServiceListingsSearchResults,
+        classifiedListingsSearchResults,
+        setClassifiedListingsSearchResults,
+        serviceListingsSearchFilters,
+        setServiceListingsSearchFilters,
+        classifiedListingsSearchFilters,
+        setClassifiedListingsSearchFilters
+    } = props;
 
-    let URL_PATH = useHistory().location.pathname;
-    const [listingPage, setListingPage] = useState('');
-    const [searchFiltersSelected, setSearchFiltersSelected] = useState(false);
-    const [listingData, setListingData] = useState();
-    const [listingUser, setListingUser] = useState();
+    const [searchFiltersSelected, setSearchFiltersSelected] = useState(
+        listingPage === PAGE_NAMES.SERVICES
+            ? !!serviceListingsSearchResults
+            : !!classifiedListingsSearchResults
+    );
+    const [listingData, setListingData] = useState(
+        listingPage === PAGE_NAMES.SERVICES
+            ? (serviceListingsSearchResults || [])
+            : (classifiedListingsSearchResults || [])
+    );
+    const [listingUser, setListingUser] = useState(
+        getInitialListingUserType(
+            serviceListingsSearchResults,
+            classifiedListingsSearchResults,
+            serviceListingsSearchFilters
+        )
+    );
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
-
-    useEffect(() => {
-        (URL_PATH === "/" + PAGE_NAMES.SERVICES ? setListingPage(PAGE_NAMES.SERVICES) : setListingPage(PAGE_NAMES.CLASSIFIEDS));
-    }, [URL_PATH]);
 
     const onSearch = (searchFilter) => {
         if (!loading) {
@@ -64,6 +91,11 @@ function SearchListingContainer() {
                         } else {
                             setListingUser(USER_TYPES.BUSINESS);
                         }
+
+                        listingPage === PAGE_NAMES.SERVICES
+                            ? setServiceListingsSearchResults({ serviceListingsSearchResults: data.listings })
+                            : setClassifiedListingsSearchResults({ classifiedListingsSearchResults: data.listings });
+
                         setListingData(data.listings);
                         setError(false);
                         setLoading(false);
@@ -90,7 +122,13 @@ function SearchListingContainer() {
         }
     }
 
-    function showAppropriateResultsPanel() {
+    function updateSearchFilters(newSearchFilters) {
+        listingPage === PAGE_NAMES.SERVICES
+            ? setServiceListingsSearchFilters({ serviceListingsSearchFilters: {...newSearchFilters} })
+            : setClassifiedListingsSearchFilters({ classifiedListingsSearchFilters: {...newSearchFilters} })
+    }
+
+    const showAppropriateResultsPanel = useCallback(() => {
         if (loading) {
             return <Loading isLoading={loading}/>
         } else if (!searchFiltersSelected) {
@@ -100,13 +138,21 @@ function SearchListingContainer() {
         } else {
             return <ListingResultsContainer listingUser={listingUser} listingData={listingData}/>
         }
-    }
+    }, [loading, searchFiltersSelected, error]);
 
     return (
         <listingContext.Provider value={listingPage}>
             <div className={"flex"}>
                 <div className={"flex-none w-1/3"}>
-                    <SearchListingFiltersContainer onSearch={onSearch}/>
+                    <SearchListingFiltersContainer
+                        onSearch={onSearch}
+                        searchFilters={
+                            listingPage === PAGE_NAMES.SERVICES
+                                ? serviceListingsSearchFilters
+                                : classifiedListingsSearchFilters
+                        }
+                        setSearchFilters={updateSearchFilters}
+                    />
                 </div>
                 <div className={"flex-1"}>
                     {showAppropriateResultsPanel()}
@@ -116,4 +162,46 @@ function SearchListingContainer() {
     );
 }
 
-export default SearchListingContainer;
+SearchListingContainer.propTypes = {
+    listingPage: PropTypes.string.isRequired,
+    serviceListingsSearchResults: PropTypes.array,
+    setServiceListingsSearchResults: PropTypes.func.isRequired,
+    classifiedListingsSearchResults: PropTypes.array,
+    setClassifiedListingsSearchResults: PropTypes.func.isRequired,
+    serviceListingsSearchFilters: PropTypes.shape({
+        searchArea: PropTypes.shape({
+            province: PropTypes.string,
+            city: PropTypes.string,
+            radius: PropTypes.number
+        }),
+        category: PropTypes.string,
+        subcategories: PropTypes.array
+    }),
+    setServiceListingsSearchFilters: PropTypes.func.isRequired,
+    classifiedListingsSearchFilters: PropTypes.shape({
+        searchArea: PropTypes.shape({
+            province: PropTypes.string,
+            city: PropTypes.string,
+            radius: PropTypes.number
+        }),
+        category: PropTypes.string,
+        subcategories: PropTypes.array
+    }),
+    setClassifiedListingsSearchFilters: PropTypes.func.isRequired
+}
+
+const mapDispatchToProps = {
+    setServiceListingsSearchResults,
+    setClassifiedListingsSearchResults,
+    setServiceListingsSearchFilters,
+    setClassifiedListingsSearchFilters
+}
+
+const mapStateToProps = state => ({
+    serviceListingsSearchResults: state.listings.serviceListingsSearchResults,
+    classifiedListingsSearchResults: state.listings.classifiedListingsSearchResults,
+    serviceListingsSearchFilters: state.listings.serviceListingsSearchFilters,
+    classifiedListingsSearchFilters: state.listings.classifiedListingsSearchFilters
+});
+
+export default connect(mapStateToProps, mapDispatchToProps) (SearchListingContainer);
