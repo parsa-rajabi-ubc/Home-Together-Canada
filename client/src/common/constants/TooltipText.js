@@ -47,3 +47,7 @@ export const CREATE_LISTING_MEMBER_SHARE_HOME = {
     PHOTOS: "Maximum 6 pictures",
     ADDRESS: "Please enter the general location of the house"
 }
+
+export const PAYPAL_TEXT = {
+    PAYMENT: "By selecting an option, you're purchasing a certain amount of months that the listing will be live and visible to users on the site"
+}
