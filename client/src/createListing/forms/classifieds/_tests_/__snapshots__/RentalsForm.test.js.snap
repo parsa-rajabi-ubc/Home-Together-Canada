@@ -635,7 +635,7 @@ exports[`RentalsForm Snapshot test should render correctly regardless of propert
             />
           </svg>
           <textarea
-            className="false undefined input"
+            className="false undefined undefined input"
             cols="50"
             disabled={false}
             onChange={[Function]}

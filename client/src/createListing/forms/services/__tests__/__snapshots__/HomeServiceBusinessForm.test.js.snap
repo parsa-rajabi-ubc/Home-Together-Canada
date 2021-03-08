@@ -157,7 +157,7 @@ exports[`HomeServiceBusinessForm Snapshot test should render correctly regardles
             />
           </svg>
           <textarea
-            className="undefined undefined input"
+            className="undefined undefined undefined input"
             cols="50"
             onChange={[Function]}
             rows="6"

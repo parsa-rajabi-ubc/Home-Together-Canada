@@ -9,7 +9,7 @@ exports[`LargeTextArea Snapshot test should render correctly regardless of prope
   </label>
   
   <textarea
-    className="undefined input"
+    className="undefined undefined input"
     cols="50"
     name="testLabelString2"
     onChange={[MockFunction]}

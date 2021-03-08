@@ -2070,7 +2070,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                       </div>
                     </span>
                     <textarea
-                      className="disabled-field input"
+                      className="disabled-field opacity-100 my-4 p-4 bg-gray-200 text-gray-800 text-sm input"
                       cols="50"
                       disabled={true}
                       name="termsOfService"
@@ -2351,7 +2351,7 @@ If you have any questions or concerns about our Terms, please contact us by e-ma
                       </div>
                     </span>
                     <textarea
-                      className="disabled-field input"
+                      className="disabled-field opacity-100 my-4 p-4 bg-gray-200 text-gray-800 text-sm input"
                       cols="50"
                       disabled={true}
                       name="privacyPolicy"

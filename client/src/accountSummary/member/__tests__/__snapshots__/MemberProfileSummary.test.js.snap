@@ -3544,7 +3544,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                 </div>
               </span>
               <textarea
-                className="undefined input"
+                className="undefined undefined input"
                 cols="50"
                 name="aboutSelf"
                 onChange={[Function]}
