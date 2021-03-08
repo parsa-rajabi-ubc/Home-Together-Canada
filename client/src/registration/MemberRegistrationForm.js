@@ -53,6 +53,11 @@ import {Link} from "react-router-dom";
 import indexOf from 'lodash/indexOf';
 import {TERMS_OF_SERVICE_TEXT} from "../common/constants/termsOfServiceText";
 import {PRIVACY_POLICY_TEXT} from "../common/constants/privacyPolicyText";
+import {toast, Flip} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'
+import {REGISTRATION_TOAST} from "../common/constants/ToastText";
+
+toast.configure()
 
 const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated, setActive, setMemberSearchFilters};
 
@@ -530,6 +535,17 @@ function MemberRegistrationForm(props) {
 
         if (!isFormValid()) {
             // form is invalid
+            toast.error(REGISTRATION_TOAST.ERROR, {
+                toastId: "errorToast",
+                position: "bottom-center",
+                autoClose: 10000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: false,
+                transition: Flip
+            });
             event.preventDefault();
             return;
         }
@@ -640,6 +656,18 @@ function MemberRegistrationForm(props) {
                             othersWithHomeToSharePreference: homeToSharePreference,
                             numRoommatesPreference: selectedLimitPreference
                         }
+                    });
+
+                    toast.success(REGISTRATION_TOAST.SUCCESS, {
+                        toastId: "successToast",
+                        position: "bottom-center",
+                        autoClose: 10000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: false,
+                        transition: Flip
                     });
 
                     // user is authenticated, redirect to home screen
