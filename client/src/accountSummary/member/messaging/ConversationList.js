@@ -70,7 +70,7 @@ function ConversationList(props) {
 
 
         <div>
-            {(!messageData.length) ? <Confirmation displayButton={false} errorColor={true} message={MESSAGE.NO_RESULTS}/>
+            {(!cardData.length) ? <Confirmation displayButton={false} errorColor={true} message={MESSAGE.NO_RESULTS}/>
                 : <Paginate data={cardData} resultsPerPage={NUM_RESULTS}/>}
         </div>
     );
