@@ -39,6 +39,11 @@ import LargeTextArea from "../common/forms/LargeTextArea";
 import {TERMS_OF_SERVICE_TEXT} from "../common/constants/termsOfServiceText";
 import {PRIVACY_POLICY_TEXT} from "../common/constants/privacyPolicyText";
 import UploadImage from "../common/forms/UploadImage";
+import {toast, Flip} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'
+import {REGISTRATION_TOAST} from "../common/constants/ToastText";
+
+toast.configure()
 
 const mapDispatch = {setAccountType, setAuthenticated};
 
@@ -348,6 +353,17 @@ const BusinessRegistrationForm = (props) => {
     function onSubmit(event) {
         if (!isFormValid()) {
             event.preventDefault();
+            toast.error(REGISTRATION_TOAST.ERROR, {
+                toastId: "errorToast",
+                position: "bottom-center",
+                autoClose: 10000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: false,
+                transition: Flip
+            });
             return;
         }
 
@@ -409,6 +425,18 @@ const BusinessRegistrationForm = (props) => {
                                     'Account Info page. Remember files have a maximum size of 2 MB');
                             });
                     }
+
+                    toast.success(REGISTRATION_TOAST.SUCCESS, {
+                        toastId: "successToast",
+                        position: "bottom-center",
+                        autoClose: 10000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: false,
+                        transition: Flip
+                    });
 
                     // user is authenticated, redirect to home screen
                     return history.push('/');
