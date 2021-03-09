@@ -9,22 +9,34 @@
 import React from 'react';
 import renderer from 'react-test-renderer'
 import SearchListingContainer from "../SearchListingContainer";
-import {MemoryRouter} from "react-router-dom";
 
 jest.mock("react-tooltip/node_modules/uuid", () => ({
             v4: () => "00000000-0000-0000-0000-000000000000"}
     )
 );
+
+jest.mock('react-redux', () => ({
+    connect: () => {
+        return (component) => {
+            return component
+        };
+    }
+}));
+
 describe('SearchListingContainer', () => {
     describe('Container test', () => {
         it('should match snapshot test', () => {
+            // given
+            const props = {
+                listingPage: 'services',
+                setServiceListingsSearchResults: jest.fn(),
+                setClassifiedListingsSearchResults: jest.fn(),
+                setServiceListingsSearchFilters: jest.fn(),
+                setClassifiedListingsSearchFilters: jest.fn()
+            }
+
             //when
-            const component = renderer.create(
-                // using MemoryRouter to test useParam() as per https://reactrouter.com/web/guides/testing
-                <MemoryRouter>
-                    <SearchListingContainer/>
-                </MemoryRouter>
-            );
+            const component = renderer.create(<SearchListingContainer {...props}/>);
             const tree = component.toJSON();
             //then
             expect(tree).toMatchSnapshot();

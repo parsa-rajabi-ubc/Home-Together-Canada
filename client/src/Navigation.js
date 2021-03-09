@@ -26,9 +26,10 @@ import TermsOfService from "./termsOfService/TermsOfService";
 import PrivacyPolicy from "./termsOfService/PrivacyPolicy";
 import ScrollToTop from "./ScrollToTop";
 import ProfilePageContainer from "./memberSearch/profilePage/ProfilePageContainer";
-import SearchListingContainer from "./searchServicesClassifieds/SearchListingContainer";
 import ListingContainer from "./searchServicesClassifieds/ListingContainer";
 import FAQ from "./FAQ/FAQ";
+import SearchServiceListings from "./searchServicesClassifieds/SearchServiceListings";
+import SearchClassifiedListings from "./searchServicesClassifieds/SearchClassifiedListings";
 
 const Navigation = (props) => {
     const {authenticated, accountType} = props;
@@ -52,8 +53,8 @@ const Navigation = (props) => {
                     <Route path={"/members"} component={MemberSearchContainer}/>
                     <Route path={"/create-listing"} component={CreateListingContainer}/>
                     <Route path={"/:servicesClassifieds/:id"} exact component={ListingContainer}/>
-                    <Route path={"/services"} exact component={SearchListingContainer}/>
-                    <Route path={"/classifieds"} exact component={SearchListingContainer}/>
+                    <Route path={"/services"} component={SearchServiceListings}/>
+                    <Route path={"/classifieds"} component={SearchClassifiedListings}/>
                     {(authenticated && accountType !== USER_TYPES.UNREGISTERED) &&
                         <Route path={"/account"} component={AccountSummaryContainer}/>
                     }
