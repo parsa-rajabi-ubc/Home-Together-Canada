@@ -2,7 +2,7 @@
  * @Author:     Alex Qin
  * @Created:    2021.02.12
  *
- * @Description: Rentals Form
+ * @Description: Form to create a listing in Rentals category
  *
  */
 
@@ -21,11 +21,12 @@ import {validatePositiveNumber} from "../../../common/utils/generalUtils";
 import {RENTALS_TEXT as TEXT} from "./constants/ClassifiedsListingText";
 import Tooltip from "../../../common/forms/Tooltip";
 import {CREATE_LISTING_MEMBER_SHARE_HOME as ToolTipText} from "../../../common/constants/TooltipText";
-import UploadImage from "../../../common/forms/UploadImage";
 import YNButton from "../../../common/forms/YNButtons";
 import Dropdown from "../../../common/forms/Dropdown";
 import {options} from "../services/constants/BedroomBathroomDropdownOptions";
 import {dropdownDefaultCSS, dropdownErrorCSS} from "../../../css/dropdownCSSUtil";
+import MultiImageUpload from "../../../common/forms/MultiImageUpload";
+import {DEFAULT_MAX_NUM_IMAGES} from "../../constants/createListingConfig";
 
 const HouseServicesForm = (props) => {
     const {onSubmit} = props;
@@ -39,7 +40,7 @@ const HouseServicesForm = (props) => {
     const [numBath, setNumBath] = useState(undefined);
     const [petFriendly, setPetFriendly] = useState(undefined);
     const [smokeFriendly, setSmokeFriendly] = useState(undefined);
-    const [picture, setPicture] = useState(undefined);
+    const [pictures, setPictures] = useState(undefined);
 
     const [submitted, setSubmitted] = useState(false);
 
@@ -91,7 +92,7 @@ const HouseServicesForm = (props) => {
     }
 
     function handleImageUpload(e) {
-        setPicture(e.target.files[0]);
+        setPictures([...e.target.files]);
     }
 
     const isFormValid = () => {
@@ -135,6 +136,7 @@ const HouseServicesForm = (props) => {
                 numBath,
                 petFriendly,
                 smokeFriendly,
+                pictures
             });
         }
     }
@@ -266,7 +268,7 @@ const HouseServicesForm = (props) => {
                             text={ToolTipText.PHOTOS}
                             toolTipID={"UploadPhotos"}
                         />
-                        <UploadImage handleImageUpload={handleImageUpload}/>
+                        <MultiImageUpload handleImageUpload={handleImageUpload} maxNumImages={DEFAULT_MAX_NUM_IMAGES}/>
 
                     </div>
                 </div>

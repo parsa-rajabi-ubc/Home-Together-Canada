@@ -2,7 +2,7 @@
  * @Author:     Alex Qin
  * @Created:    2021.2.12
  *
- * @Description: Classes, Clubs & Events Form
+ * @Description: Form to create a listing in Classes, Clubs & Events category
  *
  */
 
@@ -19,8 +19,9 @@ import {
 import {Events_TEXT as TEXT} from "./constants/ClassifiedsListingText";
 import Tooltip from "../../../common/forms/Tooltip";
 import {CREATE_LISTING_MEMBER_SHARE_HOME as ToolTipText} from "../../../common/constants/TooltipText";
-import UploadImage from "../../../common/forms/UploadImage";
 import PhoneNumInput from "../../../common/forms/PhoneNumInput";
+import MultiImageUpload from "../../../common/forms/MultiImageUpload";
+import {DEFAULT_MAX_NUM_IMAGES} from "../../constants/createListingConfig";
 
 const EventsForm = (props) => {
     const {onSubmit} = props;
@@ -29,7 +30,7 @@ const EventsForm = (props) => {
     const [shortDescription, setShortDescription] = useState(undefined);
     const [fullDescription, setFullDescription] = useState(undefined);
     const [rateAndFees, setRateAndFees] = useState(undefined);
-    const [picture, setPicture] = useState(undefined);
+    const [pictures, setPictures] = useState(undefined);
     const [contactName, setContactName] = useState(undefined);
     const [contactPhoneNumber, setContactPhoneNumber] = useState(undefined);
     const [eventDateTime, setEventDateTime] = useState(undefined);
@@ -67,7 +68,7 @@ const EventsForm = (props) => {
     }, [eventDateTime]);
 
     function handleImageUpload(e) {
-        setPicture(e.target.files[0]);
+        setPictures([...e.target.files]);
     }
 
     const isFormValid = () => {
@@ -105,6 +106,7 @@ const EventsForm = (props) => {
                 contactName,
                 contactPhoneNumber,
                 eventDateTime,
+                pictures
             });
         }
     }
@@ -212,7 +214,7 @@ const EventsForm = (props) => {
                             text={ToolTipText.PHOTOS}
                             toolTipID={"UploadPhotos"}
                         />
-                        <UploadImage handleImageUpload={handleImageUpload}/>
+                        <MultiImageUpload handleImageUpload={handleImageUpload} maxNumImages={DEFAULT_MAX_NUM_IMAGES}/>
 
                     </div>
                 </div>
