@@ -57,7 +57,7 @@ function SearchListingFilters(props) {
                 id={subcategory.toString()}
                 fontNormal={true}
                 onChange={handleSubcategoriesChange}
-                // checked={includes(selectedSubcategories, subcategory)}
+                checked={includes(selectedSubcategories, subcategory)}
             />
     );
 

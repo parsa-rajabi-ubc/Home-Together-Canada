@@ -55,6 +55,7 @@ function SearchListingFiltersContainer(props) {
     const [subcategories, setSubcategories] = useState([]);
     const [selectedSubcategories, setSelectedSubcategories] = useState(getInitialSubcategoriesFilter(searchFilters));
     const [searchArea, setSearchArea] = useState(getInitialSearchAreaFilter(searchFilters));
+    const [initialRender, setInitialRender] = useState(true);
 
 
     // Error Validation
@@ -87,18 +88,17 @@ function SearchListingFiltersContainer(props) {
 
     // TODO: replace with a custom hook that tracks the first render
     //  - https://stackoverflow.com/questions/53179075/with-useeffect-how-can-i-skip-applying-an-effect-upon-the-initial-render
-    let initialRender = true;
     useEffect(() => {
-        // Update subcategories based on Category selected
-        returnSubcategory(selectedCategory);
-
         // reset selected categories except for on the first render
         if (initialRender) {
-            initialRender = false;
+            setInitialRender(false);
         } else {
             // reset selected subcategories when category is changed
             setSelectedSubcategories([]);
         }
+
+        // Update subcategories based on Category selected
+        returnSubcategory(selectedCategory);
     }, [selectedCategory]);
 
 

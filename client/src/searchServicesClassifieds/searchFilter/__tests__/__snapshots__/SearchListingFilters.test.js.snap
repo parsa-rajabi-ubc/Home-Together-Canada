@@ -88,6 +88,7 @@ exports[`SearchListingFilters Container test should match snapshot test with Cla
           Select Subcategories
         </p>
         <Checkbox
+          checked={false}
           fontNormal={true}
           id="House,Partial house / suite up or down,Duplex / triplex,Apartment,Condo/townhouse,Rural,Country,Other"
           label="House,Partial house / suite up or down,Duplex / triplex,Apartment,Condo/townhouse,Rural,Country,Other"
@@ -187,6 +188,7 @@ exports[`SearchListingFilters Container test should match snapshot test with Cla
           Select Subcategories
         </p>
         <Checkbox
+          checked={false}
           fontNormal={true}
           id="House,Partial house / suite up or down,Duplex / triplex,Apartment,Condo/townhouse,Rural,Country,Other"
           label="House,Partial house / suite up or down,Duplex / triplex,Apartment,Condo/townhouse,Rural,Country,Other"
@@ -286,6 +288,7 @@ exports[`SearchListingFilters Container test should match snapshot test with Ser
           Select Subcategories
         </p>
         <Checkbox
+          checked={false}
           fontNormal={true}
           id="Co-housing Groups & Communities,Cooperatives,Communal Living,Eco villages,Intergenerational Living,Shared Living First Step Homes,Other"
           label="Co-housing Groups & Communities,Cooperatives,Communal Living,Eco villages,Intergenerational Living,Shared Living First Step Homes,Other"
@@ -385,6 +388,7 @@ exports[`SearchListingFilters Container test should match snapshot test with Ser
           Select Subcategories
         </p>
         <Checkbox
+          checked={false}
           fontNormal={true}
           id="Co-housing Groups & Communities,Cooperatives,Communal Living,Eco villages,Intergenerational Living,Shared Living First Step Homes,Other"
           label="Co-housing Groups & Communities,Cooperatives,Communal Living,Eco villages,Intergenerational Living,Shared Living First Step Homes,Other"

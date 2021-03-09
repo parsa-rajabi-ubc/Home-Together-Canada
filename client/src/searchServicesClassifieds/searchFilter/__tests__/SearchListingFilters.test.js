@@ -7,7 +7,6 @@
  */
 
 import React from 'react';
-// import renderer from  'react-test-renderer';
 import ShallowRenderer from 'react-test-renderer/shallow';
 import SearchListingFilters from "../SearchListingFilters";
 import {BUSINESS_CLASSIFIEDS_CATEGORIES} from "../../../createListing/constants/classifiedListingCategoriesText";
