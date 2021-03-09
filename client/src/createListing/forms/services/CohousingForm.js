@@ -2,7 +2,7 @@
  * @Author:     Jeff Hatton
  * @Created:    2021.02.10
  *
- * @Description: Cohousing listing form
+ * @Description: Form to create a listing in Cohousing listing category
  *
  */
 

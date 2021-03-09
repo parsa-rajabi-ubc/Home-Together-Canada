@@ -29,7 +29,7 @@ import Tooltip from "../../common/forms/Tooltip";
 import UploadImage from "../../common/forms/UploadImage";
 import ChangeImage from "../../common/forms/ChangeImage";
 import BusinessService from '../../services/BusinessService';
-import UploadService from '../../services/UploadService';
+import * as UploadService from '../../services/UploadService';
 import has from "lodash/has";
 import { useHistory } from "react-router-dom";
 import {bindActionCreators} from "redux";

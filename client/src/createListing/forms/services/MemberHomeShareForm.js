@@ -2,7 +2,7 @@
  * @Author:     Parsa Rajabi
  * @Created:    2021.2.3
  *
- * @Description: Member Home Share Form;
+ * @Description: Form to create a listing in Member Home Share category
  *
  */
 
@@ -20,13 +20,14 @@ import {options} from "./constants/BedroomBathroomDropdownOptions";
 import LabelAsterisk from "../../../common/forms/LabelAsterisk";
 import {dropdownDefaultCSS, dropdownErrorCSS} from "../../../css/dropdownCSSUtil";
 import YNButton from "../../../common/forms/YNButtons";
-import UploadImage from "../../../common/forms/UploadImage";
 import SubmitButton from "../../../common/forms/SubmitButton";
 import Tooltip from "../../../common/forms/Tooltip";
 import {CREATE_LISTING_MEMBER_SHARE_HOME as ToolTipText} from "../../../common/constants/TooltipText";
 import {validatePositiveNumber} from "../../../common/utils/generalUtils";
 import {SHORT_DESC_CHAR_COUNT} from "../../../common/constants/listingsConstants";
 import Address from "../../../common/forms/Address";
+import MultiImageUpload from "../../../common/forms/MultiImageUpload";
+import {DEFAULT_MAX_NUM_IMAGES} from "../../constants/createListingConfig";
 
 
 const MemberHomeShareForm = (props) => {
@@ -41,7 +42,7 @@ const MemberHomeShareForm = (props) => {
     const [numBath, setNumBath] = useState(undefined);
     const [petFriendly, setPetFriendly] = useState(undefined);
     const [smokeFriendly, setSmokeFriendly] = useState(undefined);
-    const [photos, setPhotos] = useState(undefined);
+    const [pictures, setPictures] = useState(undefined);
 
     const [address, setAddress] = useState({
         street: undefined,
@@ -119,7 +120,7 @@ const MemberHomeShareForm = (props) => {
     }
 
     function handleImageUpload(e) {
-        setPhotos(e.target.files[0]);
+        setPictures([...e.target.files]);
     }
 
     const isFormValid = () => {
@@ -154,7 +155,6 @@ const MemberHomeShareForm = (props) => {
         errors.streetAddress = validateInput(address.street, setStreetAddressError);
         errors.cityAddress = validateInput(address.city, setCityAddressError);
         errors.provinceAddress = validateInput(address.province, setProvinceAddressError);
-        console.log(address.postalCode)
         errors.postalCodeAddress = validatePostalCode(address.postalCode, setPostalCodeError);
 
         return !(checkIfErrorsExistInMapping(errors));
@@ -179,6 +179,7 @@ const MemberHomeShareForm = (props) => {
                 city: address.city,
                 province: address.province,
                 postalCode: address.postalCode,
+                pictures
             });
         }
     }
@@ -314,7 +315,7 @@ const MemberHomeShareForm = (props) => {
                             text={ToolTipText.PHOTOS}
                             toolTipID={"UploadPhotos"}
                         />
-                        <UploadImage handleImageUpload={handleImageUpload}/>
+                        <MultiImageUpload handleImageUpload={handleImageUpload} maxNumImages={DEFAULT_MAX_NUM_IMAGES}/>
 
                     </div>
                 </div>

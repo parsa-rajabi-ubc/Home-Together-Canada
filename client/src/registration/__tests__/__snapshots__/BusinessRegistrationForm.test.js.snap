@@ -1303,6 +1303,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
             <input
               accept="image/png, image/jpg, image/jpeg, image/JPG, image/JPEG"
               className="photo-upload-width photo-upload hover:text-indigo-500"
+              multiple={false}
               name="logo"
               onChange={[Function]}
               type="file"

@@ -59,7 +59,7 @@ const createListing = async (req, res) => {
             );
         }
 
-        res.status(200).json({ success: true });
+        res.status(200).json({ success: true, listing: listing });
     }
     catch (err) {
         res.status(500).json({ err: err.message });

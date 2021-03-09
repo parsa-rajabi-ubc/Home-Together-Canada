@@ -15,7 +15,7 @@ import Address from "../common/forms/Address";
 import SignInInfo from "../common/forms/SignInInfo";
 import PhoneNumInput from "../common/forms/PhoneNumInput";
 import RegistrationService from '../services/RegistrationService';
-import UploadService from '../services/UploadService';
+import * as UploadService from '../services/UploadService';
 import {
     checkIfErrorsExistInMapping,
     getConcatenatedErrorMessage,

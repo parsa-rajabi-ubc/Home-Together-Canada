@@ -2,7 +2,7 @@
  * @Author:     Alex Qin
  * @Created:    2021.02.12
  *
- * @Description: Legal, Sales & Insurance agencies Form
+ * @Description: Form to create a listing in Legal, Sales & Insurance agencies category
  *
  */
 
@@ -19,7 +19,8 @@ import {
 import {AGENCIES_TEXT as TEXT} from "./constants/ClassifiedsListingText";
 import Tooltip from "../../../common/forms/Tooltip";
 import {CREATE_LISTING_MEMBER_SHARE_HOME as ToolTipText} from "../../../common/constants/TooltipText";
-import UploadImage from "../../../common/forms/UploadImage";
+import MultiImageUpload from "../../../common/forms/MultiImageUpload";
+import {DEFAULT_MAX_NUM_IMAGES} from "../../constants/createListingConfig";
 
 const AgenciesForm = (props) => {
     const {onSubmit} = props;
@@ -28,7 +29,7 @@ const AgenciesForm = (props) => {
     const [shortDescription, setShortDescription] = useState(undefined);
     const [fullDescription, setFullDescription] = useState(undefined);
     const [rateAndFees, setRateAndFees] = useState(undefined);
-    const [picture, setPicture] = useState(undefined);
+    const [pictures, setPictures] = useState(undefined);
 
     const [submitted, setSubmitted] = useState(false);
 
@@ -51,7 +52,7 @@ const AgenciesForm = (props) => {
     }, [rateAndFees]);
 
     function handleImageUpload(e) {
-        setPicture(e.target.files[0]);
+        setPictures([...e.target.files]);
     }
 
     const isFormValid = () => {
@@ -80,6 +81,7 @@ const AgenciesForm = (props) => {
                 shortDescription,
                 fullDescription,
                 rateAndFees,
+                pictures
             });
         }
     }
@@ -144,7 +146,7 @@ const AgenciesForm = (props) => {
                             text={ToolTipText.PHOTOS}
                             toolTipID={"UploadPhotos"}
                         />
-                        <UploadImage handleImageUpload={handleImageUpload}/>
+                        <MultiImageUpload handleImageUpload={handleImageUpload} maxNumImages={DEFAULT_MAX_NUM_IMAGES}/>
 
                     </div>
                 </div>
