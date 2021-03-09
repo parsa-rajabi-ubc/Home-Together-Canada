@@ -12,8 +12,13 @@ import Paginate from "../../../common/forms/Paginate";
 import ConversationCard from "./ConversationCard";
 import {Link} from "react-router-dom";
 import {mostRecentMessages} from "./messageUtils";
+import Confirmation from "../../../common/listings/Confirmation";
 
 const NUM_RESULTS = 7;
+const MESSAGE = {
+    NO_RESULTS: "No results found"
+}
+
 
 function ConversationList(props) {
     const {messageData, messageUser} = props;
@@ -65,7 +70,8 @@ function ConversationList(props) {
 
 
         <div>
-            <Paginate data={cardData} resultsPerPage={NUM_RESULTS}/>
+            {(!messageData.length) ? <Confirmation displayButton={false} errorColor={true} message={MESSAGE.NO_RESULTS}/>
+                : <Paginate data={cardData} resultsPerPage={NUM_RESULTS}/>}
         </div>
     );
 }
