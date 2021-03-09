@@ -1309,6 +1309,7 @@ function MemberRegistrationForm(props) {
                                                 name={"termsOfService"}
                                                 value={TERMS_OF_SERVICE_TEXT}
                                                 disabled={true}
+                                                customDisabled={true}
                                             />
                                             <Checkbox
                                                 label={"I have read and agreed to the Terms of Service"}
@@ -1328,6 +1329,7 @@ function MemberRegistrationForm(props) {
                                                 name={"privacyPolicy"}
                                                 value={PRIVACY_POLICY_TEXT}
                                                 disabled={true}
+                                                customDisabled={true}
                                             />
                                             <Checkbox
                                                 label={"I have read and agreed to the Privacy Policy"}

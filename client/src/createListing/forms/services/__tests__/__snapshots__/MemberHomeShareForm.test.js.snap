@@ -938,7 +938,7 @@ exports[`MemberHomeShareForm Snapshot test should render correctly regardless of
             />
           </svg>
           <textarea
-            className="undefined undefined input"
+            className="undefined undefined undefined input"
             cols="50"
             onChange={[Function]}
             rows="6"
