@@ -335,3 +335,339 @@ exports[`ConversationList Snapshot test should match snapshot test if listing is
   </label>
 </div>
 `;
+
+exports[`FullConversation Snapshot test should match snapshot test if listing is NOT empty for userName 1`] = `
+<div>
+  <h1>
+    otherUser1
+  </h1>
+   
+  <br />
+  <div>
+    <p>
+      right
+    </p>
+    <p>
+      <time
+        dateTime={"2021-01-12T02:42:39.005Z"}
+      >
+        Jan 11, 2021
+      </time>
+    </p>
+    <p>
+      messageMember1
+      : 
+      message content 1 all on different days and times
+    </p>
+    <hr />
+  </div>
+  <div>
+    <p>
+      right
+    </p>
+    <p>
+      <time
+        dateTime={"2021-01-15T03:42:39.005Z"}
+      >
+        Jan 14, 2021
+      </time>
+    </p>
+    <p>
+      messageMember1
+      : 
+      message content 21
+    </p>
+    <hr />
+  </div>
+  <div>
+    <p>
+      right
+    </p>
+    <p>
+      <time
+        dateTime={"2021-01-16T04:42:39.005Z"}
+      >
+        Jan 15, 2021
+      </time>
+    </p>
+    <p>
+      messageMember1
+      : 
+      message content 22
+    </p>
+    <hr />
+  </div>
+  <div>
+    <p>
+      Left
+    </p>
+    <p>
+      <time
+        dateTime={"2021-01-17T05:42:39.005Z"}
+      >
+        Jan 16, 2021
+      </time>
+    </p>
+    <p>
+      otherUser1
+      : 
+      message content 23
+    </p>
+    <hr />
+  </div>
+  <div>
+    <p>
+      right
+    </p>
+    <p>
+      <time
+        dateTime={"2021-01-18T06:42:39.005Z"}
+      >
+        Jan 17, 2021
+      </time>
+    </p>
+    <p>
+      messageMember1
+      : 
+      message content 24
+    </p>
+    <hr />
+  </div>
+  <div>
+    <p>
+      Left
+    </p>
+    <p>
+      <time
+        dateTime={"2021-01-19T07:42:39.005Z"}
+      >
+        Jan 18, 2021
+      </time>
+    </p>
+    <p>
+      otherUser1
+      : 
+      message content 25
+    </p>
+    <hr />
+  </div>
+  <div>
+    <p>
+      right
+    </p>
+    <p>
+      <time
+        dateTime={"2021-01-20T08:42:39.005Z"}
+      >
+        Jan 20, 2021
+      </time>
+    </p>
+    <p>
+      messageMember1
+      : 
+      message content 26
+    </p>
+    <hr />
+  </div>
+  <div>
+    <p>
+      right
+    </p>
+    <p>
+      <time
+        dateTime={"2021-01-21T09:42:39.005Z"}
+      >
+        Jan 21, 2021
+      </time>
+    </p>
+    <p>
+      messageMember1
+      : 
+      message content 27
+    </p>
+    <hr />
+  </div>
+  <div>
+    <p>
+      right
+    </p>
+    <p>
+      <time
+        dateTime={"2021-01-22T10:42:39.005Z"}
+      >
+        Jan 22, 2021
+      </time>
+    </p>
+    <p>
+      messageMember1
+      : 
+      message content 28
+    </p>
+    <hr />
+  </div>
+  <div>
+    <p>
+      right
+    </p>
+    <p>
+      <time
+        dateTime={"2021-01-23T11:42:39.005Z"}
+      >
+        Jan 23, 2021
+      </time>
+    </p>
+    <p>
+      messageMember1
+      : 
+      message content 29
+    </p>
+    <hr />
+  </div>
+  <div>
+    <p>
+      right
+    </p>
+    <p>
+      <time
+        dateTime={"2021-01-24T12:42:39.005Z"}
+      >
+        Jan 24, 2021
+      </time>
+    </p>
+    <p>
+      messageMember1
+      : 
+      message content 30
+    </p>
+    <hr />
+  </div>
+  <div>
+    <p>
+      right
+    </p>
+    <p>
+      <time
+        dateTime={"2021-01-25T13:42:39.005Z"}
+      >
+        Jan 25, 2021
+      </time>
+    </p>
+    <p>
+      messageMember1
+      : 
+      message content 31
+    </p>
+    <hr />
+  </div>
+  <div>
+    <p>
+      Left
+    </p>
+    <p>
+      <time
+        dateTime={"2021-01-26T14:42:39.005Z"}
+      >
+        Jan 26, 2021
+      </time>
+    </p>
+    <p>
+      otherUser1
+      : 
+      message content 32
+    </p>
+    <hr />
+  </div>
+  <div>
+    <p>
+      right
+    </p>
+    <p>
+      <time
+        dateTime={"2021-01-27T15:42:39.005Z"}
+      >
+        Jan 27, 2021
+      </time>
+    </p>
+    <p>
+      messageMember1
+      : 
+      message content 33
+    </p>
+    <hr />
+  </div>
+  <div>
+    <p>
+      right
+    </p>
+    <p>
+      <time
+        dateTime={"2021-01-28T16:42:39.005Z"}
+      >
+        Jan 28, 2021
+      </time>
+    </p>
+    <p>
+      messageMember1
+      : 
+      message content 34
+    </p>
+    <hr />
+  </div>
+  <div>
+    <p>
+      right
+    </p>
+    <p>
+      <time
+        dateTime={"2021-01-29T17:42:39.005Z"}
+      >
+        Jan 29, 2021
+      </time>
+    </p>
+    <p>
+      messageMember1
+      : 
+      message content 35
+    </p>
+    <hr />
+  </div>
+  <div>
+    <p>
+      right
+    </p>
+    <p>
+      <time
+        dateTime={"2021-01-30T18:42:39.005Z"}
+      >
+        Jan 30, 2021
+      </time>
+    </p>
+    <p>
+      messageMember1
+      : 
+      message content 36 all on different days and times
+    </p>
+    <hr />
+  </div>
+   
+  <br />
+  <section>
+    <label />
+    
+    <input
+      className="false undefined"
+      disabled={false}
+      placeholder="type a message..."
+      type="text"
+    />
+  </section>
+   
+  <br />
+  <label>
+    <input
+      type="button"
+      value="Send"
+    />
+  </label>
+</div>
+`;
