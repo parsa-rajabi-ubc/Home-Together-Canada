@@ -12,6 +12,7 @@ const businessRoutes = require('./routes/businessRoutes');
 const memberRoutes = require('./routes/memberRoutes');
 const userRoutes = require('./routes/userRoutes');
 const listingRoutes = require('./routes/listingRoutes');
+const adminRoutes = require('./routes/adminRoutes');
 const db = require("./models");
 const listingCategories = require('./controllers/listingCategoryController');
 const listingSubcategories = require('./controllers/listingSubcategoryController');
@@ -46,7 +47,8 @@ app.use(passport.session()); // persistent login sessions
 app.use('/user', userRoutes);
 app.use('/business', businessRoutes);
 app.use('/member', memberRoutes);
-app.use('/listing', listingRoutes)
+app.use('/listing', listingRoutes);
+app.use('/admin', adminRoutes);
 app.use('/', routes);
 
 //load passport strategies

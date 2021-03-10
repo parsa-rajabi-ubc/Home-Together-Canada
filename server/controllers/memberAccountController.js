@@ -503,6 +503,16 @@ const getMemberProfilesMatchingSearchFilters = async (uid, searchFilters, filter
     return profilesFilteredByLocation;
 }
 
+const giveAdminPrivileges = uid => {
+    return MemberAccount.update({
+        isAdmin: true
+    }, {
+        where: {
+            uid: uid
+        }
+    });
+}
+
 module.exports = {
     createMemberAccount,
     findAllMemberAccounts,
@@ -517,5 +527,6 @@ module.exports = {
     updateMemberSearchFilters,
     getMemberProfilesMatchingSearchFilters,
     activateAccount,
-    deactivateAccount
+    deactivateAccount,
+    giveAdminPrivileges
 }
