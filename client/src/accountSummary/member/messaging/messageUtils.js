@@ -29,12 +29,9 @@ export function mostRecentMessages(messageData){
     return mostRecentMessages;
 }
 export function isMoreRecentMessageTime(time1, time2){
-    return (time2>time1)
-        ? true
-        : false;
+    return (time2>time1);
+
 }
 export function isSameConversation(message1, message2){
-    return ((message1.senderId==message2.senderId && message1.receiverId==message2.receiverId)||(message1.senderId==message2.receiverId && message1.receiverId==message2.senderId))
-        ? true
-        : false;
+    return ((message1.senderId==message2.senderId && message1.receiverId==message2.receiverId)||(message1.senderId==message2.receiverId && message1.receiverId==message2.senderId));
 }
