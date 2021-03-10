@@ -64,7 +64,7 @@ exports[`ConversationList Snapshot test should match snapshot test if listing is
             <time
               dateTime={"2021-01-07T07:42:39.005Z"}
             >
-              Jan 7, 2021
+              Jan 6, 2021
             </time>
           </section>
         </div>
@@ -142,7 +142,7 @@ exports[`ConversationList Snapshot test should match snapshot test if listing is
             <time
               dateTime={"2021-01-12T02:42:39.005Z"}
             >
-              Jan 12, 2021
+              Jan 11, 2021
             </time>
           </section>
         </div>
@@ -181,7 +181,7 @@ exports[`ConversationList Snapshot test should match snapshot test if listing is
             <time
               dateTime={"2020-03-13T02:42:39.075Z"}
             >
-              Mar 13, 2020
+              Mar 12, 2020
             </time>
           </section>
         </div>
@@ -220,7 +220,7 @@ exports[`ConversationList Snapshot test should match snapshot test if listing is
             <time
               dateTime={"2021-02-17T02:43:39.005Z"}
             >
-              Feb 17, 2021
+              Feb 16, 2021
             </time>
           </section>
         </div>
