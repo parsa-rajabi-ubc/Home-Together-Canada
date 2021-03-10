@@ -1,0 +1,371 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConversationList Snapshot test should match snapshot test if listing is NOT empty for userName 1`] = `
+<div>
+  <div>
+    <a
+      href="/members/undefined"
+      onClick={[Function]}
+    >
+      <section
+        className="card-container mt-0"
+      >
+        <div
+          className="inline ml-6 align-middle "
+        >
+          <label
+            className="font-semibold justify-between"
+          >
+             
+            otherUser1
+          </label>
+          <section
+            className="inline float-right pr-6 justify-end"
+          >
+            <time
+              dateTime={"2021-01-30T18:42:39.005Z"}
+            >
+              Jan 30, 2021
+            </time>
+          </section>
+        </div>
+        <div
+          className="ml-6 mt-4 flex"
+        >
+          <label
+            className="w-full font-light"
+          >
+             
+            message content 36 all on different days and times
+             
+          </label>
+        </div>
+      </section>
+    </a>
+    <a
+      href="/members/undefined"
+      onClick={[Function]}
+    >
+      <section
+        className="card-container mt-0"
+      >
+        <div
+          className="inline ml-6 align-middle "
+        >
+          <label
+            className="font-semibold justify-between"
+          >
+             
+            otherUser2
+          </label>
+          <section
+            className="inline float-right pr-6 justify-end"
+          >
+            <time
+              dateTime={"2021-01-07T07:42:39.005Z"}
+            >
+              Jan 7, 2021
+            </time>
+          </section>
+        </div>
+        <div
+          className="ml-6 mt-4 flex"
+        >
+          <label
+            className="w-full font-light"
+          >
+             
+            message content with lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots of padding 42
+             
+          </label>
+        </div>
+      </section>
+    </a>
+    <a
+      href="/members/undefined"
+      onClick={[Function]}
+    >
+      <section
+        className="card-container mt-0"
+      >
+        <div
+          className="inline ml-6 align-middle "
+        >
+          <label
+            className="font-semibold justify-between"
+          >
+             
+            otherUser3
+          </label>
+          <section
+            className="inline float-right pr-6 justify-end"
+          >
+            <time
+              dateTime={"2021-02-14T08:42:39.005Z"}
+            >
+              Feb 14, 2021
+            </time>
+          </section>
+        </div>
+        <div
+          className="ml-6 mt-4 flex"
+        >
+          <label
+            className="w-full font-light"
+          >
+             
+            message content 3
+             
+          </label>
+        </div>
+      </section>
+    </a>
+    <a
+      href="/members/undefined"
+      onClick={[Function]}
+    >
+      <section
+        className="card-container mt-0"
+      >
+        <div
+          className="inline ml-6 align-middle "
+        >
+          <label
+            className="font-semibold justify-between"
+          >
+             
+            otherUser4
+          </label>
+          <section
+            className="inline float-right pr-6 justify-end"
+          >
+            <time
+              dateTime={"2021-01-12T02:42:39.005Z"}
+            >
+              Jan 12, 2021
+            </time>
+          </section>
+        </div>
+        <div
+          className="ml-6 mt-4 flex"
+        >
+          <label
+            className="w-full font-light"
+          >
+             
+            message content 4
+             
+          </label>
+        </div>
+      </section>
+    </a>
+    <a
+      href="/members/undefined"
+      onClick={[Function]}
+    >
+      <section
+        className="card-container mt-0"
+      >
+        <div
+          className="inline ml-6 align-middle "
+        >
+          <label
+            className="font-semibold justify-between"
+          >
+             
+            otherUser5
+          </label>
+          <section
+            className="inline float-right pr-6 justify-end"
+          >
+            <time
+              dateTime={"2020-03-13T02:42:39.075Z"}
+            >
+              Mar 13, 2020
+            </time>
+          </section>
+        </div>
+        <div
+          className="ml-6 mt-4 flex"
+        >
+          <label
+            className="w-full font-light"
+          >
+             
+            message content 5
+             
+          </label>
+        </div>
+      </section>
+    </a>
+    <a
+      href="/members/undefined"
+      onClick={[Function]}
+    >
+      <section
+        className="card-container mt-0"
+      >
+        <div
+          className="inline ml-6 align-middle "
+        >
+          <label
+            className="font-semibold justify-between"
+          >
+             
+            otherUser6
+          </label>
+          <section
+            className="inline float-right pr-6 justify-end"
+          >
+            <time
+              dateTime={"2021-02-17T02:43:39.005Z"}
+            >
+              Feb 17, 2021
+            </time>
+          </section>
+        </div>
+        <div
+          className="ml-6 mt-4 flex"
+        >
+          <label
+            className="w-full font-light"
+          >
+             
+            message content 6
+             
+          </label>
+        </div>
+      </section>
+    </a>
+    <a
+      href="/members/undefined"
+      onClick={[Function]}
+    >
+      <section
+        className="card-container mt-0"
+      >
+        <div
+          className="inline ml-6 align-middle "
+        >
+          <label
+            className="font-semibold justify-between"
+          >
+             
+            otherUser7
+          </label>
+          <section
+            className="inline float-right pr-6 justify-end"
+          >
+            <time
+              dateTime={"2021-01-19T09:42:39.005Z"}
+            >
+              Jan 19, 2021
+            </time>
+          </section>
+        </div>
+        <div
+          className="ml-6 mt-4 flex"
+        >
+          <label
+            className="w-full font-light"
+          >
+             
+            message content 7
+             
+          </label>
+        </div>
+      </section>
+    </a>
+    <ul
+      className="flex m-auto w-2/3"
+    >
+      <li
+        className="next-prev-text disabled"
+      >
+        <a
+          aria-disabled="true"
+          aria-label="Previous page"
+          className="next-prev-link"
+          onClick={[Function]}
+          onKeyPress={[Function]}
+          rel="prev"
+          role="button"
+          tabIndex="0"
+        >
+          Previous
+        </a>
+      </li>
+      <li
+        className="selected"
+      >
+        <a
+          aria-current="page"
+          aria-label="Page 1 is your current page"
+          className="page-numbers current-page"
+          onClick={[Function]}
+          onKeyPress={[Function]}
+          role="button"
+          tabIndex="0"
+        >
+          1
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={null}
+          aria-label="Page 2"
+          className="page-numbers"
+          onClick={[Function]}
+          onKeyPress={[Function]}
+          role="button"
+          tabIndex="0"
+        >
+          2
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={null}
+          aria-label="Page 3"
+          className="page-numbers"
+          onClick={[Function]}
+          onKeyPress={[Function]}
+          role="button"
+          tabIndex="0"
+        >
+          3
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={null}
+          aria-label="Page 4"
+          className="page-numbers"
+          onClick={[Function]}
+          onKeyPress={[Function]}
+          role="button"
+          tabIndex="0"
+        >
+          4
+        </a>
+      </li>
+      <li
+        className="next-prev-text"
+      >
+        <a
+          aria-disabled="false"
+          aria-label="Next page"
+          className="next-prev-link"
+          onClick={[Function]}
+          onKeyPress={[Function]}
+          rel="next"
+          role="button"
+          tabIndex="0"
+        >
+          Next
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

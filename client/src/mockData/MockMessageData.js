@@ -12,7 +12,7 @@ export const mockMessages = [
         messageContent: "message content 1 all on different days and times",
         senderId: "messageMember1",
         receiverId: "otherUser1",
-        dateSent: "2021-01-13T02:42:39.005Z"
+        dateSent: "2021-01-12T02:42:39.005Z"
     },
     {
         id: 2,
@@ -26,7 +26,7 @@ export const mockMessages = [
         messageContent: "message content 3",
         senderId: "messageMember1",
         receiverId: "otherUser3",
-        dateSent: "2021-02-14T02:42:39.005Z"
+        dateSent: "2021-02-14T08:42:39.005Z"
     },
     {
         id: 4,
@@ -40,14 +40,14 @@ export const mockMessages = [
         messageContent: "message content 5",
         senderId: "messageMember1",
         receiverId: "otherUser5",
-        dateSent: "2020-01-14T02:42:39.075Z"
+        dateSent: "2020-03-13T02:42:39.075Z"
     },
     {
         id: 6,
         messageContent: "message content 6",
         senderId: "messageMember1",
         receiverId: "otherUser6",
-        dateSent: "2021-01-18T02:41:39.005Z"
+        dateSent: "2021-02-17T02:43:39.005Z"
     },
     {
         id: 7,
@@ -299,21 +299,21 @@ export const mockMessages = [
         messageContent: "message content with lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots of padding 42",
         senderId: "otherUser2",
         receiverId: "messageMember1",
-        dateSent: "2021-01-07T02:42:39.005Z"
+        dateSent: "2021-01-07T07:42:39.005Z"
     },
     {
         id: 43,
         messageContent: "message content 43 has same timestamp as message 1 and 44",
         senderId: "messageMember1",
         receiverId: "otherUser4",
-        dateSent: "2021-01-13T02:42:39.005Z"
+        dateSent: "2021-01-12T02:42:39.005Z"
     },
     {
         id: 44,
         messageContent: "message content 44 has same timestamp as message 1 and 43",
         senderId: "otherUser4",
         receiverId: "messageMember1",
-        dateSent: "2021-01-13T02:42:39.005Z"
+        dateSent: "2021-01-12T02:42:39.005Z"
     },
     {
         id: 45,
