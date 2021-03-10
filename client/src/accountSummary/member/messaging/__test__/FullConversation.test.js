@@ -16,7 +16,7 @@ jest.mock("react-tooltip/node_modules/uuid", () => ({
         }
     )
 );
-describe('ConversationList', () => {
+describe('FullConversation', () => {
     describe('Snapshot test', () => {
         it('should match snapshot test if listing is NOT empty for userName', () => {
             //given
