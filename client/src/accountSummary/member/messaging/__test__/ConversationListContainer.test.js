@@ -6,10 +6,10 @@
  *
  */
 import React from 'react';
-import renderer from 'react-test-renderer'
-import {BrowserRouter as Router} from "react-router-dom";
 import ConversationListContainer from "../ConversationList";
 import {mockMessages} from "../../../../mockData/MockMessageData";
+import ShallowRenderer from "react-test-renderer/shallow";
+
 
 jest.mock("react-tooltip/node_modules/uuid", () => ({
             v4: () => "00000000-0000-0000-0000-000000000000"
@@ -25,10 +25,11 @@ describe('ConversationList', () => {
                 messageUser: "messageMember1",
             }
             //when
-            const component = renderer.create(<Router><ConversationListContainer {...props}/></Router>);
-            const tree = component.toJSON();
+            const renderer = new ShallowRenderer();
+            renderer.render(<ConversationListContainer {...props}/>);
+            const result = renderer.getRenderOutput();
             //then
-            expect(tree).toMatchSnapshot();
+            expect(result).toMatchSnapshot();
         });
     });
 });
