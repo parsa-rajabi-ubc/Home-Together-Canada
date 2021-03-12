@@ -56,7 +56,7 @@ router.post('/create/',
 );
 
 // list of usernames for all admins
-router.post('/all/',
+router.get('/all/',
     isLoggedIn,
     userIsAdmin,
     function (req, res, next) {
