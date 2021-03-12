@@ -11,6 +11,7 @@ const router = express.Router();
 
 const { isLoggedIn, userIsMember, userIsAdmin } = require('./routeUtils');
 const memberAccounts = require('../controllers/memberAccountController');
+const { getUsernameFromAbstractUser } = require('../controllers/utils/accountControllerUtils');
 
 // NOTE: this route is only for development purposes as a means to make the first admin
 router.get('/dev/create/',
@@ -51,6 +52,22 @@ router.post('/create/',
             .catch(err => {
                 res.status(500).json({ err });
             });
+    }
+);
+
+// list of usernames for all admins
+router.get('/all/',
+    isLoggedIn,
+    userIsAdmin,
+    function (req, res, next) {
+        memberAccounts.getAllAdminUsernames()
+            .then(admins => {
+                const formattedListAdmins = admins.map(admin => getUsernameFromAbstractUser(admin.AbstractUser));
+                res.status(200).json({ admins: formattedListAdmins });
+            })
+            .catch(err => {
+                res.status(500).json({ err: err.message });
+            })
     }
 );
 

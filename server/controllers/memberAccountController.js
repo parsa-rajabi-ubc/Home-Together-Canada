@@ -513,6 +513,21 @@ const giveAdminPrivileges = uid => {
     });
 }
 
+const getAllAdminUsernames = () => {
+    return MemberAccount.findAll({
+        attributes: [],
+        include: [
+            {
+                model: AbstractUser,
+                attributes: ['username']
+            }
+        ],
+        where: {
+            isAdmin: true
+        }
+    });
+}
+
 module.exports = {
     createMemberAccount,
     findAllMemberAccounts,
@@ -528,5 +543,6 @@ module.exports = {
     getMemberProfilesMatchingSearchFilters,
     activateAccount,
     deactivateAccount,
-    giveAdminPrivileges
+    giveAdminPrivileges,
+    getAllAdminUsernames
 }
