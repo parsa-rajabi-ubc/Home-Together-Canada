@@ -551,5 +551,14 @@ exports.validate = (method) => {
                     .custom(username => usernameShouldExist(username))
             ]
         }
+        case 'grantAdminPrivileges': {
+            return [
+                body('username')
+                    .exists()
+                    .trim()
+                    .stripLow()
+                    .custom(username => usernameShouldExistAndBeAMember(username))
+            ]
+        }
     }
 }

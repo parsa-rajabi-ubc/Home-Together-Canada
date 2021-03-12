@@ -32,6 +32,14 @@ async function userIsMember(req, res, next) {
     res.json({ err: 'User is not a member' });
 }
 
+async function userIsAdmin(req, res, next) {
+    const member = await memberAccounts.findMemberAccountByUid(req.user.uid);
+    if (member.isAdmin) {
+        return next();
+    }
+    res.json({ err: 'User is not an admin' });
+}
+
 function userIsInactive (req, res, next) {
     memberAccounts.findMemberAccountByUid(req.user.uid)
         .then(member => {
@@ -56,6 +64,7 @@ module.exports = {
     isLoggedIn,
     userIsBusiness,
     userIsMember,
+    userIsAdmin,
     userIsInactive,
     userIsActive
 }
