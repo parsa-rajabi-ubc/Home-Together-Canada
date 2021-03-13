@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AdminContainer Container test should match snapshot test regardless of the props 1`] = `
+<div
+  className="sideBar-container"
+>
+  <div
+    className="sideBar"
+  >
+    <div
+      className="sticky top-0"
+    >
+      <div
+        className="sub-page-items "
+        onClick={[Function]}
+      >
+        Manage Users
+      </div>
+      <div
+        className="sub-page-items "
+        onClick={[Function]}
+      >
+        Manage Admins
+      </div>
+      <div
+        className="sub-page-items "
+        onClick={[Function]}
+      >
+        Pending Businesses
+      </div>
+      <div
+        className="sub-page-items "
+        onClick={[Function]}
+      >
+        Pending Listings
+      </div>
+      <div
+        className="sub-page-items "
+        onClick={[Function]}
+      >
+        Export
+      </div>
+    </div>
+  </div>
+  <div
+    className="sideBar-selected-component"
+  />
+</div>
+`;
