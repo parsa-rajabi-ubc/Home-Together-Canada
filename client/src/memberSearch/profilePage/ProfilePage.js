@@ -67,9 +67,7 @@ function ProfilePage(props) {
     const [sendingMessage, setSendingMessage] = useState(false);
 
     const handleMessageClick = () => {
-        console.log(username);
         setSendingMessage(true);
-        console.log(sendingMessage);
     }
 
     return (
