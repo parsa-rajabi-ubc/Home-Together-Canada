@@ -6,10 +6,11 @@
  *
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from "prop-types";
 import {AiOutlineCheckCircle as Check} from "react-icons/ai";
-import {AiOutlineCloseCircle as Ex} from "react-icons/ai";
+import {AiOutlineCloseCircle as Ex} from "react-icons/ai"
+import SendMessage from "../../accountSummary/member/messaging/SendMessage";
 
 
 function ProfilePage(props) {
@@ -63,6 +64,13 @@ function ProfilePage(props) {
 
     } = props;
 
+    const [sendingMessage, setSendingMessage] = useState(false);
+
+    const handleMessageClick = () => {
+        console.log(username);
+        setSendingMessage(true);
+        console.log(sendingMessage);
+    }
 
     return (
         <div className="selected-component-grid-outer">
@@ -103,7 +111,7 @@ function ProfilePage(props) {
                             <span className={"label mr-3"}> {prefLocationText} </span>
                             <div className={"whitespace-pre mt-1"}>{preferredLocations}</div>
                         </section>
-                        <button className={"btn btn-green mb-6 w-1/2 text-base py-2"}>Send Message
+                        <button className={"btn btn-green mb-6 w-1/2 text-base py-2"} onClick={handleMessageClick}>Send Message
                         </button>
                     </div>
                     <div className={"col-start-2"}>
@@ -200,6 +208,7 @@ function ProfilePage(props) {
                     </div>
 
                 </div>
+                {sendingMessage && <SendMessage otherUser={username} username={"messageMember1"}/>}
             </div>
         </div>
     );
