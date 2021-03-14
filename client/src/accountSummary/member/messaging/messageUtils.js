@@ -35,3 +35,16 @@ export function isMoreRecentMessageTime(time1, time2){
 export function isSameConversation(message1, message2){
     return ((message1.senderId==message2.senderId && message1.receiverId==message2.receiverId)||(message1.senderId==message2.receiverId && message1.receiverId==message2.senderId));
 }
+
+export function sortMessageByTime(myMessage){
+    for(let i = 0; i < myMessage.length; i++){
+        for(let j = i + 1; j<myMessage.length; j++){
+            if(myMessage[i].dateSent > myMessage[j].dateSent){
+                let temp = myMessage[i];
+                myMessage[i] = myMessage[j];
+                myMessage[j] = temp;
+            }
+        }
+    }
+    return myMessage;
+}

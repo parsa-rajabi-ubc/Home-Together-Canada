@@ -27,7 +27,7 @@ exports[`FullConversation Snapshot test should match snapshot test if listing is
   />
   <ChatBoxContainer
     datePosted="2021-01-17T05:42:39.005Z"
-    leftOrRight="Left"
+    leftOrRight="left"
     messageContent="message content 23"
     userName="otherUser1"
   />
@@ -39,7 +39,7 @@ exports[`FullConversation Snapshot test should match snapshot test if listing is
   />
   <ChatBoxContainer
     datePosted="2021-01-19T07:42:39.005Z"
-    leftOrRight="Left"
+    leftOrRight="left"
     messageContent="message content 25"
     userName="otherUser1"
   />
@@ -81,7 +81,7 @@ exports[`FullConversation Snapshot test should match snapshot test if listing is
   />
   <ChatBoxContainer
     datePosted="2021-01-26T14:42:39.005Z"
-    leftOrRight="Left"
+    leftOrRight="left"
     messageContent="message content 32"
     userName="otherUser1"
   />
@@ -111,12 +111,14 @@ exports[`FullConversation Snapshot test should match snapshot test if listing is
   />
    
   <br />
-  <TextArea
+  <LargeTextArea
+    label=""
     placeholder="type a message..."
   />
    
   <br />
   <Button
+    className="btn btn-green mb-6 w-1/2 text-base py-2"
     value="Send"
   />
 </div>

@@ -9,9 +9,10 @@
 
 import React,{useState} from 'react';
 import PropTypes from "prop-types";
-import TextArea from "../../../common/forms/TextArea";
+import LargeTextArea from "../../../common/forms/LargeTextArea";
 import Button from "../../../common/forms/Button";
 import ChatBoxContainer from "./ChatBoxContainer";
+import {sortMessageByTime} from "./messageUtils";
 
 function FullConversation(props) {
     const{senderId,myUserName,messageData} = props;
@@ -22,15 +23,7 @@ function FullConversation(props) {
     const myMessage = messageData.filter(messageData => (messageData.senderId === senderId && messageData.receiverId === myUserName) || (messageData.senderId === myUserName && messageData.receiverId === senderId));
 
     // sort the messages by time
-    for(let i = 0; i < myMessage.length; i++){
-        for(let j = i + 1; j<myMessage.length; j++){
-            if(myMessage[i].dateSent > myMessage[j].dateSent){
-                let temp = myMessage[i];
-                myMessage[i] = myMessage[j];
-                myMessage[j] = temp;
-            }
-        }
-    }
+    sortMessageByTime(myMessage);
 
     // By using "leftOrRight" to define messages to display either on left-side or right-side
     for(let i = 0; i < myMessage.length; i++){
@@ -39,7 +32,7 @@ function FullConversation(props) {
                                                     userName={myMessage[i].senderId}
                                                     messageContent={myMessage[i].messageContent}
                                                     datePosted={myMessage[i].dateSent}
-                                                    leftOrRight={"Left"}
+                                                    leftOrRight={"left"}
             />);
         }
         else{
@@ -58,8 +51,8 @@ function FullConversation(props) {
 
             {conversationData} <br/>
 
-            <TextArea placeholder={"type a message..."}/> <br/>
-            <Button value={"Send"}/>
+            <LargeTextArea placeholder={"type a message..."} label={""}/> <br/>
+            <Button className={"btn btn-green mb-6 w-1/2 text-base py-2"} value={"Send"}/>
         </div>
     );
 }
