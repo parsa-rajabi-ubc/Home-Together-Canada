@@ -15,7 +15,6 @@ import GenericInput from "../../common/forms/GenericInput";
 const ADMIN_TEXT = {
     TITLE: "Manage Admins",
     INFO: "Use the field below to search for members and provide them with admin privileges",
-    SEARCH_MEMBER: "Search for Member to Make Admin",
     CURRENT_ADMINS: "Current Website Admins",
 }
 
@@ -28,7 +27,6 @@ function ManageAdmins(props) {
         onSubmit
     } = props;
 
-    console.log("hello ", searchUsername);
 
     const admins = currentAdmins.map(
         (person) =>
