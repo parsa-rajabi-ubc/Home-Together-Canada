@@ -26,13 +26,15 @@ function ConversationList(props) {
     const cardData = [];
 
     for (let i = 0; i < recentMessages.length; i++) {
-        if (recentMessages[i].senderId==messageUser) {
+        if (recentMessages[i].senderId===messageUser) {
             cardData.push(
                 <Link
                     to={{
-                        pathname: `/members/${recentMessages[i].userName}`,
+                        pathname: `/message`,
                         state: {
-                            profile: cardData[i]
+                            senderId: recentMessages[i].receiverId,
+                            myUserName: messageUser,
+                            messageData: messageData
                         }
                     }}
                     key={i}
@@ -45,13 +47,15 @@ function ConversationList(props) {
                 </Link>
             );
         }
-        else if (recentMessages[i].receiverId==messageUser) {
+        else if (recentMessages[i].receiverId===messageUser) {
             cardData.push(
                 <Link
                     to={{
-                        pathname: `/members/${recentMessages[i].userName}`,
+                        pathname: `/message`,
                         state: {
-                            profile: cardData[i]
+                            senderId: recentMessages[i].senderId,
+                            myUserName: messageUser,
+                            messageData: messageData
                         }
                     }}
                     key={i}
@@ -67,8 +71,6 @@ function ConversationList(props) {
     }
 
     return (
-
-
         <div>
             {(!cardData.length) ? <Confirmation displayButton={false} errorColor={true} message={MESSAGE.NO_RESULTS}/>
                 : <Paginate data={cardData} resultsPerPage={NUM_RESULTS}/>}
