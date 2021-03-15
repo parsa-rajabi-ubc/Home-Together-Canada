@@ -560,5 +560,14 @@ exports.validate = (method) => {
                     .custom(username => usernameShouldExistAndBeAMember(username))
             ]
         }
+        case 'banUser': {
+            return [
+                body('username')
+                    .exists()
+                    .trim()
+                    .stripLow()
+                    .custom(username => usernameShouldExist(username))
+            ]
+        }
     }
 }

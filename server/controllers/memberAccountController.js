@@ -469,7 +469,10 @@ const getMemberProfilesMatchingSearchFilters = async (uid, searchFilters, filter
         include: [
             {
                 model: AbstractUser,
-                attributes: ['username']
+                attributes: ['username'],
+                where: {
+                    isBanned: false
+                }
             },
             {
                 model: AreaOfInterest
