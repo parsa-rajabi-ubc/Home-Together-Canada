@@ -203,10 +203,21 @@ const searchBusinessListings = async (searchArea, categoryName, subcategoryNames
     });
 }
 
+const softDeleteListings = uid => {
+    return Listing.update({
+        isDeleted: true
+    }, {
+        where: {
+            uid: uid
+        }
+    })
+}
+
 module.exports = {
     createListing,
     findAllListings,
     searchMemberServiceListings,
-    searchBusinessListings
+    searchBusinessListings,
+    softDeleteListings
 }
 
