@@ -113,6 +113,16 @@ const updateAbstractUser = (req, res) => {
     });
 }
 
+const banUser = uid => {
+    return AbstractUser.update({
+        isBanned: true
+    }, {
+        where: {
+            uid: uid
+        }
+    });
+}
+
 module.exports = {
     createAbstractUser,
     findAllAbstractUsers,
@@ -122,5 +132,6 @@ module.exports = {
     findUserByEmail,
     changePassword,
     updateAbstractUser,
-    deleteAccount
+    deleteAccount,
+    banUser
 }
