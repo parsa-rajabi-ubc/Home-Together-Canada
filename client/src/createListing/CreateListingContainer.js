@@ -135,7 +135,7 @@ const CreateListingContainer = (props) => {
                             UploadService.uploadPictures(listing.pictures, data.listing.id)
                                 .then(res => res.json())
                                 .then(data => {
-                                    if ((has('authenticated') && !data.authenticated) || data.err) {
+                                    if ((has(listing, 'authenticated') && !data.authenticated) || data.err) {
                                         alert(IMAGE_UPLOAD_ERROR);
                                     }
                                 })
