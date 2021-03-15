@@ -65,3 +65,11 @@ export const ALL_SUBPAGES = {
     DEACTIVATE: 'Deactivate Account',
     DELETE: 'Delete Account'
 };
+
+export const ADMIN_SUBPAGES = {
+    MANAGE_USERS: 'Manage Users',
+    MANAGE_ADMINS: 'Manage Admins',
+    PENDING_BUSINESSES: 'Pending Businesses',
+    PENDING_LISTINGS: 'Pending Listings',
+    EXPORT_PAGE: 'Export'
+}

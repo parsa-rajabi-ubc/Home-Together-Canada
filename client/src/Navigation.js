@@ -30,9 +30,10 @@ import ListingContainer from "./searchServicesClassifieds/ListingContainer";
 import FAQ from "./FAQ/FAQ";
 import SearchServiceListings from "./searchServicesClassifieds/SearchServiceListings";
 import SearchClassifiedListings from "./searchServicesClassifieds/SearchClassifiedListings";
+import AdminContainer from "./admin/AdminContainer";
 
 const Navigation = (props) => {
-    const {authenticated, accountType} = props;
+    const {authenticated, accountType, isAdmin} = props;
 
     return (
         <Router>
@@ -58,6 +59,9 @@ const Navigation = (props) => {
                     {(authenticated && accountType !== USER_TYPES.UNREGISTERED) &&
                         <Route path={"/account"} component={AccountSummaryContainer}/>
                     }
+                    {(authenticated && isAdmin) &&
+                        <Route path={"/admin"} component={AdminContainer}/>
+                    }
                     <Route path={"/tos"} component={TermsOfService}/>
                     <Route path={"/privacy"} component={PrivacyPolicy}/>
                     <Route path={"/faq"} component={FAQ}/>
@@ -70,12 +74,13 @@ const Navigation = (props) => {
 }
 
 Navigation.propTypes = {
+    isAdmin: PropTypes.bool.isRequired,
     authenticated: PropTypes.bool.isRequired,
     accountType: PropTypes.string,
-
 }
 
 const mapStateToProps = (state) => ({
+    isAdmin: state.userPrivileges.isAdmin,
     accountType: state.userPrivileges.accountType,
     authenticated: state.userPrivileges.authenticated
 });
