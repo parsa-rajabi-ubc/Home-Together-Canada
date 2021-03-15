@@ -123,6 +123,15 @@ const banUser = uid => {
     });
 }
 
+const listBannedUsers = () => {
+    return AbstractUser.findAll({
+        attributes: ['username'],
+        where: {
+            isBanned: true
+        }
+    });
+}
+
 module.exports = {
     createAbstractUser,
     findAllAbstractUsers,
@@ -133,5 +142,6 @@ module.exports = {
     changePassword,
     updateAbstractUser,
     deleteAccount,
-    banUser
+    banUser,
+    listBannedUsers
 }
