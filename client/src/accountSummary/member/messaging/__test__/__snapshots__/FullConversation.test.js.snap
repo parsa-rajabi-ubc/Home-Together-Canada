@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FullConversation Snapshot test should match snapshot test if listing is NOT empty for userName 1`] = `
+<div>
+  <h1>
+    otherUser1
+  </h1>
+   
+  <br />
+  <ChatBoxContainer
+    datePosted="2021-01-12T02:42:39.005Z"
+    leftOrRight="right"
+    messageContent="message content 1 all on different days and times"
+    userName="messageMember1"
+  />
+  <ChatBoxContainer
+    datePosted="2021-01-15T03:42:39.005Z"
+    leftOrRight="right"
+    messageContent="message content 21"
+    userName="messageMember1"
+  />
+  <ChatBoxContainer
+    datePosted="2021-01-16T04:42:39.005Z"
+    leftOrRight="right"
+    messageContent="message content 22"
+    userName="messageMember1"
+  />
+  <ChatBoxContainer
+    datePosted="2021-01-17T05:42:39.005Z"
+    leftOrRight="left"
+    messageContent="message content 23"
+    userName="otherUser1"
+  />
+  <ChatBoxContainer
+    datePosted="2021-01-18T06:42:39.005Z"
+    leftOrRight="right"
+    messageContent="message content 24"
+    userName="messageMember1"
+  />
+  <ChatBoxContainer
+    datePosted="2021-01-19T07:42:39.005Z"
+    leftOrRight="left"
+    messageContent="message content 25"
+    userName="otherUser1"
+  />
+  <ChatBoxContainer
+    datePosted="2021-01-20T08:42:39.005Z"
+    leftOrRight="right"
+    messageContent="message content 26"
+    userName="messageMember1"
+  />
+  <ChatBoxContainer
+    datePosted="2021-01-21T09:42:39.005Z"
+    leftOrRight="right"
+    messageContent="message content 27"
+    userName="messageMember1"
+  />
+  <ChatBoxContainer
+    datePosted="2021-01-22T10:42:39.005Z"
+    leftOrRight="right"
+    messageContent="message content 28"
+    userName="messageMember1"
+  />
+  <ChatBoxContainer
+    datePosted="2021-01-23T11:42:39.005Z"
+    leftOrRight="right"
+    messageContent="message content 29"
+    userName="messageMember1"
+  />
+  <ChatBoxContainer
+    datePosted="2021-01-24T12:42:39.005Z"
+    leftOrRight="right"
+    messageContent="message content 30"
+    userName="messageMember1"
+  />
+  <ChatBoxContainer
+    datePosted="2021-01-25T13:42:39.005Z"
+    leftOrRight="right"
+    messageContent="message content 31"
+    userName="messageMember1"
+  />
+  <ChatBoxContainer
+    datePosted="2021-01-26T14:42:39.005Z"
+    leftOrRight="left"
+    messageContent="message content 32"
+    userName="otherUser1"
+  />
+  <ChatBoxContainer
+    datePosted="2021-01-27T15:42:39.005Z"
+    leftOrRight="right"
+    messageContent="message content 33"
+    userName="messageMember1"
+  />
+  <ChatBoxContainer
+    datePosted="2021-01-28T16:42:39.005Z"
+    leftOrRight="right"
+    messageContent="message content 34"
+    userName="messageMember1"
+  />
+  <ChatBoxContainer
+    datePosted="2021-01-29T17:42:39.005Z"
+    leftOrRight="right"
+    messageContent="message content 35"
+    userName="messageMember1"
+  />
+  <ChatBoxContainer
+    datePosted="2021-01-30T18:42:39.005Z"
+    leftOrRight="right"
+    messageContent="message content 36 all on different days and times"
+    userName="messageMember1"
+  />
+   
+  <br />
+  <LargeTextArea
+    label=""
+    placeholder="type a message..."
+  />
+   
+  <br />
+  <Button
+    className="btn btn-green mb-6 w-1/2 text-base py-2"
+    value="Send"
+  />
+</div>
+`;

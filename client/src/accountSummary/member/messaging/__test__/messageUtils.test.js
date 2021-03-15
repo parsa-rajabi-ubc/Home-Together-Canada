@@ -6,7 +6,7 @@
  *
  */
 
-import {mostRecentMessages, isMoreRecentMessageTime, isSameConversation} from "../messageUtils";
+import {mostRecentMessages, isMoreRecentMessageTime, isSameConversation, sortMessageByTime} from "../messageUtils";
 import {
     isValueInArray,
     resolveBooleanToYesNo,
@@ -141,6 +141,65 @@ describe('messageUtils', () => {
             expect(result).toBe(false);
         });
     });
+
+
+    describe('sortMessageByTime',() => {
+        it('should return the message by the time order', () => {
+            // given
+            const messageData =[
+                {
+                    id: 23,
+                    messageContent: "message content 23",
+                    senderId: "otherUser11",
+                    receiverId: "messageMember3",
+                    dateSent: "2021-01-17T05:42:39.005Z"
+                },
+                {
+                    id: 21,
+                    messageContent: "message content 21",
+                    senderId: "messageMember1",
+                    receiverId: "otherUser1",
+                    dateSent: "2021-01-15T03:42:39.005Z"
+                },
+                {
+                    id: 22,
+                    messageContent: "message content 22",
+                    senderId: "messageMember1",
+                    receiverId: "otherUser1",
+                    dateSent: "2021-01-16T04:42:39.005Z"
+                },
+            ];
+
+            // when
+            const result = sortMessageByTime(messageData)
+
+            // then
+            expect(result).toStrictEqual([{
+                id: 21,
+                messageContent: "message content 21",
+                senderId: "messageMember1",
+                receiverId: "otherUser1",
+                dateSent: "2021-01-15T03:42:39.005Z"
+            },{
+                id: 22,
+                messageContent: "message content 22",
+                senderId: "messageMember1",
+                receiverId: "otherUser1",
+                dateSent: "2021-01-16T04:42:39.005Z"
+            },{
+                id: 23,
+                messageContent: "message content 23",
+                senderId: "otherUser11",
+                receiverId: "messageMember3",
+                dateSent: "2021-01-17T05:42:39.005Z"
+            }]);
+        });
+    });
+
+
+
+
+
     describe('mostRecentMessages', () => {
         it('should return one message when all messages are from same two people', () => {
             // given
