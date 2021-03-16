@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExportUsers Container test should match snapshot test regardless of the props 1`] = `
+<div>
+  <h3
+    className="account-summary-info-header"
+  >
+     
+    Export Users
+     
+  </h3>
+  <p
+    className="account-summary-info-text"
+  >
+     
+    Use the button below to export user data
+     
+  </p>
+  <button
+    className="btn btn-green mx-auto w-1/3 mt-24"
+    onClick={[Function]}
+  >
+    Export Users
+  </button>
+</div>
+`;
