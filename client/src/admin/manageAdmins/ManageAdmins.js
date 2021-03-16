@@ -20,7 +20,6 @@ const ADMIN_TEXT = {
 
 function ManageAdmins(props) {
     const {
-        searchUsername,
         setSearchUsername,
         searchUsernameError,
         currentAdmins,
@@ -55,7 +54,6 @@ function ManageAdmins(props) {
                     placeholder="Search Member Username"
                     onChange={e => setSearchUsername(e.target.value)}
                     onKeyDown={onKeyPress}
-                    value={searchUsername}
                     inputType={"text"}
                 />
                 <SubmitButton
@@ -74,7 +72,6 @@ function ManageAdmins(props) {
 
 ManageAdmins.propTypes = {
     onSubmit: PropTypes.func.isRequired,
-    searchUsername: PropTypes.string,
     setSearchUsername: PropTypes.func.isRequired,
     searchUsernameError: PropTypes.bool,
     currentAdmins: PropTypes.array

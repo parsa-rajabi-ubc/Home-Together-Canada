@@ -69,7 +69,7 @@ function ManageAdminsContainer() {
                             .then(res => res.json())
                             .then(data => {
                                 if (data.adminPrivileges) {
-                                    toast.success(ADMIN_TOAST.MANAGE_ADMIN_SUCCESS, {
+                                    toast.success(searchUsername + ADMIN_TOAST.MANAGE_ADMIN_SUCCESS, {
                                         toastId: "successToast",
                                         position: "bottom-center",
                                         autoClose: 10000,
@@ -126,7 +126,6 @@ function ManageAdminsContainer() {
         <div>
             <ManageAdmins
                 onSubmit={onSearch}
-                searchUsername={searchUsername}
                 setSearchUsername={setSearchUsername}
                 searchUsernameError={searchUsernameError}
                 currentAdmins={currentAdmins}

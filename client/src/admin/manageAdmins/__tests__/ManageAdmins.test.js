@@ -16,7 +16,6 @@ describe('ManageAdmins', () => {
             //given
             const props = {
                 onSubmit: jest.fn(),
-                searchUsername: "hello",
                 setSearchUsername: jest.fn(),
                 searchUsernameError: true,
                 currentAdmins: ["Jack", "John"]

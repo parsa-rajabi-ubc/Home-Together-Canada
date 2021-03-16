@@ -14,5 +14,5 @@ export const REGISTRATION_TOAST = {
 export const ADMIN_TOAST = {
     MANAGE_ADMIN_EMPTY_USERNAME: "Please enter a username.",
     MANAGE_ADMIN_USERNAME_DNE: "Username does not exist.",
-    MANAGE_ADMIN_SUCCESS: "has been given admin privileges.",
+    MANAGE_ADMIN_SUCCESS: " has been given admin privileges.",
 }
