@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ManageUsersContainer Container test should match snapshot test regardless of the props 1`] = `
+<div>
+  <div>
+    <h3
+      className="account-summary-info-header"
+    >
+       
+      Manage Users
+       
+    </h3>
+    <p
+      className="account-summary-info-text"
+    >
+       
+      Use the field below to search for users and ban them. Please note all the user's listings will also be removed from the website.
+       
+    </p>
+    <div
+      className="p-4 flex mx-auto w-1/2 items-center"
+    >
+      <label>
+        <label />
+        <input
+          className="undefined input m-auto mr-20 py-2"
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          placeholder="Search Username"
+          type="text"
+        />
+      </label>
+      <label>
+        <input
+          className="btn btn-red ml-10 w-2/3 py-2"
+          onClick={[Function]}
+          type="submit"
+          value="Ban User"
+        />
+      </label>
+    </div>
+    <label
+      className="label text-lg mx-10"
+    >
+       
+      Current Banned Users
+       
+    </label>
+    <div
+      className="mx-20 my-3"
+    />
+  </div>
+</div>
+`;
