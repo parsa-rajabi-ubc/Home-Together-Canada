@@ -43,7 +43,7 @@ function ManageUsersContainer() {
         AdminService.getAllBannedUsers()
             .then(res => res.json())
             .then(data => {
-                setBannedUsers(data.admins);
+                setBannedUsers(data.bannedUsers);
             })
     }
     const isSearchValid = () => {
@@ -56,7 +56,7 @@ function ManageUsersContainer() {
         return !checkIfErrorsExistInMapping(searchErrors);
     }
     const onSearch = () => {
-        const promoteMemberBodyRequest = {
+        const banUserBodyRequest = {
             username: searchUsername
         }
         if (isSearchValid()) {
@@ -65,10 +65,10 @@ function ManageUsersContainer() {
                 .then(res => res.json())
                 .then(data => {
                     if (data.profile) {
-                        AdminService.banUsername(promoteMemberBodyRequest)
+                        AdminService.banUsername(banUserBodyRequest)
                             .then(res => res.json())
                             .then(data => {
-                                if (data.adminPrivileges) {
+                                if (data.success) {
                                     toast.success(searchUsername + ADMIN_TOAST.MANAGE_USER_SUCCESS, {
                                         toastId: "successToast",
                                         position: "bottom-center",
