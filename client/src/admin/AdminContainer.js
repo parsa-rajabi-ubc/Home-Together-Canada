@@ -10,9 +10,10 @@
 import React, {useState} from "react";
 import SubPages from "../accountSummary/SubPages";
 import {ADMIN_SUBPAGES} from "../common/constants/users";
+import ManageAdminsContainer from "./manageAdmins/ManageAdminsContainer";
+import Confirmation from "../common/listings/Confirmation";
 
-
-
+const WELCOME_MESSAGE = "Welcome to the Admin Portal! Use the sidebar to navigate";
 
 function AdminContainer() {
 
@@ -47,7 +48,7 @@ function AdminContainer() {
             case ADMIN_SUBPAGES.MANAGE_USERS:
                 return <div>Manage Users</div>;
             case ADMIN_SUBPAGES.MANAGE_ADMINS:
-                return <div>Manage Admins</div>;
+                return <ManageAdminsContainer/>
             case ADMIN_SUBPAGES.PENDING_BUSINESSES:
                 return <div>Pending Businesses</div>;
             case ADMIN_SUBPAGES.PENDING_LISTINGS:
@@ -63,12 +64,16 @@ function AdminContainer() {
                 <SubPages options={ADMIN_SIDEBAR} selected={selectedSubpage} onClick={setSelectedSubpage}/>
             </div>
             <div className={"sideBar-selected-component"}>
-                {subpageComponent(selectedSubpage)}
+                {selectedSubpage ? subpageComponent(selectedSubpage)
+                    : <Confirmation
+                        message={WELCOME_MESSAGE}
+                        displayButton={false}
+                    />
+                }
             </div>
         </div>
     );
 }
-
 
 
 export default AdminContainer;
