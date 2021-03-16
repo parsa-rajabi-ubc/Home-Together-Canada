@@ -13,6 +13,7 @@ import {ADMIN_SUBPAGES} from "../common/constants/users";
 import ManageAdminsContainer from "./manageAdmins/ManageAdminsContainer";
 import Confirmation from "../common/listings/Confirmation";
 import ManageUsersContainer from "./manageUsers/ManageUsersContainer";
+import ExportUsers from "./exportUsers/exportUsers";
 
 const WELCOME_MESSAGE = "Welcome to the Admin Portal! Use the sidebar to navigate";
 
@@ -55,7 +56,7 @@ function AdminContainer() {
             case ADMIN_SUBPAGES.PENDING_LISTINGS:
                 return <div>Pending Listings</div>;
             case ADMIN_SUBPAGES.EXPORT_PAGE:
-                return <div>Export Page</div>;
+                return <ExportUsers/>;
         }
     }
 
