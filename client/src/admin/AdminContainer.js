@@ -13,7 +13,7 @@ import {ADMIN_SUBPAGES} from "../common/constants/users";
 import ManageAdminsContainer from "./manageAdmins/ManageAdminsContainer";
 import Confirmation from "../common/listings/Confirmation";
 import ManageUsersContainer from "./manageUsers/ManageUsersContainer";
-import ExportUsers from "./exportUsers/exportUsers";
+import ExportUsers from "./exportUsers/ExportUsers";
 
 const WELCOME_MESSAGE = "Welcome to the Admin Portal! Use the sidebar to navigate";
 
