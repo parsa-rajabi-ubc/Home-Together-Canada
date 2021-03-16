@@ -27,7 +27,6 @@ exports[`ManageAdmins Container test should match snapshot test regardless of th
         onKeyDown={[Function]}
         placeholder="Search Member Username"
         type="text"
-        value="hello"
       />
     </label>
     <label>
