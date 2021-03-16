@@ -71,7 +71,7 @@ router.get('/all/',
             })
             .catch(err => {
                 res.status(500).json({ err: err.message });
-            })
+            });
     }
 );
 
@@ -98,5 +98,22 @@ router.post('/ban/user/',
             });
     }
 );
+
+router.get('/banned/users/',
+    isLoggedIn,
+    userIsAdmin,
+    function (req, res, next) {
+        abstractUsers.listBannedUsers()
+            .then(bannedUsers => {
+                const formattedListBannedUsers = bannedUsers.map(bannedUser => bannedUser.username);
+                res.status(200).json({ bannedUsers: formattedListBannedUsers });
+            })
+            .catch(err => {
+                res.status(500).json({ err: err.message });
+            });
+    }
+);
+
+
 
 module.exports = router;
