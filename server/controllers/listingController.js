@@ -27,6 +27,7 @@ const memberController = require('./memberAccountController');
 const memberListingLocationController = require('./memberListingLocationController');
 const {PROVINCE_MAP, DEFAULT_COUNTRY} = require("./configConstants");
 const { getGeographicalCoordinatesFromAddress, getCircularFeatureFromLocation } = require('./utils/locationUtils');
+const { MEMBER_SERVICE_CATEGORIES } = require('../constants/listingConstants');
 
 const createListing = async (req, res) => {
     try {
@@ -227,7 +228,12 @@ const getAllPendingListings = () => {
                 ]
             },
             {
-                model: ListingCategory
+                model: ListingCategory,
+                where: {
+                    name: {
+                        [Op.not]: MEMBER_SERVICE_CATEGORIES.MEMBER_HOME
+                    }
+                }
             },
             {
                 model: ListingSubcategory
