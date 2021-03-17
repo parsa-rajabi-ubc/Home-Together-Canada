@@ -34,7 +34,7 @@ async function userIsMember(req, res, next) {
 
 async function userIsAdmin(req, res, next) {
     const member = await memberAccounts.findMemberAccountByUid(req.user.uid);
-    if (member.isAdmin) {
+    if (member && member.isAdmin) {
         return next();
     }
     res.json({ err: 'User is not an admin' });
