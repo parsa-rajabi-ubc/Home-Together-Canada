@@ -128,7 +128,6 @@ router.get('/pending/listings/',
                         [
                             'id',
                             'uid',
-                            'fields',
                             'isDeleted',
                             'dateExpired',
                             'dateAdminApproved',
@@ -138,6 +137,9 @@ router.get('/pending/listings/',
                             'updatedAt'
                         ]
                     );
+
+                    const listingFields = JSON.parse(get(listing.dataValues, 'fields'));
+
                     const abstractUser = pick(
                         listing.dataValues.AbstractUser.dataValues,
                         [
@@ -183,6 +185,7 @@ router.get('/pending/listings/',
 
                     return {
                         ...listingDetails,
+                        ...listingFields,
                         ...abstractUser,
                         ...businessAccount,
                         category,
