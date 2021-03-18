@@ -5,7 +5,6 @@
  * @Description: functions to validate input to controller functions to create listings
  *
  */
-const {validMapAddress} = require("./userControllerValidatorUtils");
 const { body } = require('express-validator/check');
 const {isValidRadius} = require("./userControllerValidatorUtils");
 const {PROVINCES_LIST} = require("../configConstants");
@@ -15,10 +14,10 @@ const {isPositiveInteger} = require("./userControllerValidatorUtils");
 const {isValidPhoneNumber} = require("./userControllerValidatorUtils");
 const {isValidCanadianPostalCode} = require("./userControllerValidatorUtils");
 const {removeAllWhiteSpace} = require("../utils/stringUtils");
+const { LISTING_TYPES } = require('../../constants/listingConstants');
 
 const {
     LISTING_VALIDATION_METHODS,
-    LISTING_TYPES,
     isValidListingTypeForUser,
     isValidCategoryForUser,
     isValidCategoryForListingType,
@@ -26,6 +25,7 @@ const {
     listingShouldHaveCategories,
     shouldOrderIdBeDefined,
     LISTING_FIELDS_ERRORS,
+    listingShouldExist
 } = require('./listingControllerValidatorUtils');
 
 const commonListingInfo = [
@@ -246,6 +246,17 @@ exports.validate = method => {
                 body('searchArea', 'Invalid location for search area')
                     .exists()
                     .custom(searchArea => isValidLocation(searchArea))
+            ]
+        }
+        case LISTING_VALIDATION_METHODS.ADMIN_APPROVE_LISTING: {
+            return [
+                body('listingId')
+                    .exists()
+                    .isNumeric()
+                    .custom(listingId => listingShouldExist(listingId)),
+                body('approve')
+                    .exists()
+                    .isBoolean()
             ]
         }
     }

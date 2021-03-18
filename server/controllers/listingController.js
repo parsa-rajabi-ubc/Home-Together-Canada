@@ -19,7 +19,6 @@ const ListingSubcategory = db.listingSubcategory;
 const AbstractUser = db.abstractUser;
 const BusinessAccount = db.businessAccount;
 
-const { LISTING_TYPES } = require('../controllers/validators/listingControllerValidatorUtils');
 const { getListingFields } = require('./utils/listingControllerUtils');
 const listingCategoryController = require('./listingCategoryController');
 const listingSubcategoryController = require('./listingSubcategoryController');
@@ -27,7 +26,7 @@ const memberController = require('./memberAccountController');
 const memberListingLocationController = require('./memberListingLocationController');
 const {PROVINCE_MAP, DEFAULT_COUNTRY} = require("./configConstants");
 const { getGeographicalCoordinatesFromAddress, getCircularFeatureFromLocation } = require('./utils/locationUtils');
-const { MEMBER_SERVICE_CATEGORIES } = require('../constants/listingConstants');
+const { LISTING_TYPES, MEMBER_SERVICE_CATEGORIES } = require('../constants/listingConstants');
 
 const createListing = async (req, res) => {
     try {
@@ -77,6 +76,10 @@ const findAllListings = (req, res) => {
                     err.message || "Some error occurred while retrieving tutorials."
             });
         });
+}
+
+const findListing = listingId => {
+    return Listing.findByPk(listingId);
 }
 
 const searchMemberServiceListings = async (searchArea, categoryName) => {
@@ -216,7 +219,8 @@ const softDeleteListings = uid => {
 const getAllPendingListings = () => {
     return Listing.findAll({
         where: {
-            dateAdminApproved: null
+            dateAdminApproved: null,
+            isDeleted: false
         },
         include: [
             {
@@ -243,12 +247,35 @@ const getAllPendingListings = () => {
     });
 }
 
+const approveListing = id => {
+    return Listing.update({
+        dateAdminApproved: Date.now()
+    }, {
+        where: {
+            id: id
+        }
+    })
+}
+
+const rejectListing = id => {
+    return Listing.update({
+        isDeleted: true
+    }, {
+        where: {
+            id: id
+        }
+    })
+}
+
 module.exports = {
     createListing,
     findAllListings,
+    findListing,
     searchMemberServiceListings,
     searchBusinessListings,
     softDeleteListings,
-    getAllPendingListings
+    getAllPendingListings,
+    approveListing,
+    rejectListing
 }
 
