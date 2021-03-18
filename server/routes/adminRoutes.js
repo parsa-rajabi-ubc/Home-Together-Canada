@@ -17,6 +17,8 @@ const abstractUsers = require('../controllers/abstractUserController');
 const listings = require('../controllers/listingController');
 const usersValidator = require('../controllers/validators/userControllerValidator');
 const { getUsernameFromAbstractUser } = require('../controllers/utils/accountControllerUtils');
+const listingValidator = require('../controllers/validators/listingControllerValidator');
+const { LISTING_VALIDATION_METHODS } = require('../controllers/validators/listingControllerValidatorUtils');
 
 // NOTE: this route is only for development purposes as a means to make the first admin
 router.get('/dev/create/',
@@ -198,6 +200,31 @@ router.get('/pending/listings/',
             .catch(err => {
                 res.status(500).json({ err: err.message });
             });
+    }
+);
+
+router.post('/listing/approve/',
+    isLoggedIn,
+    userIsAdmin,
+    listingValidator.validate(LISTING_VALIDATION_METHODS.ADMIN_APPROVE_LISTING),
+    function (req, res, next) {
+        if (req.body.approve) {
+            listings.approveListing(req.body.listingId)
+                .then(() => {
+                    res.status(200).json({ success: true });
+                })
+                .catch(err => {
+                    res.status(200).json({ success: false, err: err.message });
+                });
+        } else {
+            listings.rejectListing(req.body.listingId)
+                .then(() => {
+                    res.status(200).json({ success: true });
+                })
+                .catch(err => {
+                    res.status(200).json({ success: false, err: err.message });
+                });
+        }
     }
 );
 

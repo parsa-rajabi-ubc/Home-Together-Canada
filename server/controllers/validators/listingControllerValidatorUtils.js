@@ -8,12 +8,14 @@
 const includes = require('lodash/includes');
 
 const {
+    LISTING_TYPES,
     BUSINESS_SERVICES_CATEGORIES,
     MEMBER_SERVICE_CATEGORIES,
     BUSINESS_CLASSIFIEDS_CATEGORIES,
 } = require('../../constants/listingConstants');
 const {resolveCategoryToSubcategory} = require ("../utils/listingControllerUtils");
 const memberAccounts = require('../memberAccountController');
+const listings = require('../listingController');
 
 const LISTING_VALIDATION_METHODS = {
     BASIC_LISTING_INFO: 'basicListingInfo',
@@ -26,12 +28,8 @@ const LISTING_VALIDATION_METHODS = {
     HOUSE_YARD_FORM: 'houseAndYardServicesForm',
     LEGAL_SALES_FORM: 'legalAndSalesForm',
     CLASSES_EVENTS_CLUBS_FORM: 'classesClubsEventsForm',
-    SEARCH_LISTINGS: 'searchListings'
-}
-
-const LISTING_TYPES = {
-    SERVICE: 'service',
-    CLASSIFIED: 'classified'
+    SEARCH_LISTINGS: 'searchListings',
+    ADMIN_APPROVE_LISTING: 'adminApproveListing'
 }
 
 const CATEGORY_FORM_VALIDATION_DICT = new Map([
@@ -138,6 +136,14 @@ const shouldOrderIdBeDefined = (orderId, type) => {
     return true;
 }
 
+const listingShouldExist = listingId => {
+    return listings.findListing(listingId)
+        .then(listing => {
+            if (!listing) {
+                return Promise.reject(`Listing does not exist`);
+            }
+        })
+}
 
 module.exports = {
     LISTING_VALIDATION_METHODS,
@@ -153,4 +159,5 @@ module.exports = {
     isValidSubcategoryForSelectedCategory,
     listingShouldHaveCategories,
     shouldOrderIdBeDefined,
+    listingShouldExist
 }
