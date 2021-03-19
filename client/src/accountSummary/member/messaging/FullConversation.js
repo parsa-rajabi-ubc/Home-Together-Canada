@@ -16,6 +16,7 @@ import {sortMessageByTimeIncreasing} from "./messageUtils";
 
 function FullConversation(props) {
     const{senderId,myUserName,messageData} = props;
+    // Will be implemented for sending Messages:
     // const [newMessage, setNewMessage] = useState('');
     const conversationData = [];
 
