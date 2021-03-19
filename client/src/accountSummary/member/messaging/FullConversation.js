@@ -12,7 +12,7 @@ import PropTypes from "prop-types";
 import LargeTextArea from "../../../common/forms/LargeTextArea";
 import Button from "../../../common/forms/Button";
 import ChatBoxContainer from "./ChatBoxContainer";
-import {sortMessageByTime} from "./messageUtils";
+import {sortMessageByTimeIncreasing} from "./messageUtils";
 
 function FullConversation(props) {
     const{senderId,myUserName,messageData} = props;
@@ -23,7 +23,7 @@ function FullConversation(props) {
     const myMessage = messageData.filter(messageData => (messageData.senderId === senderId && messageData.receiverId === myUserName) || (messageData.senderId === myUserName && messageData.receiverId === senderId));
 
     // sort the messages by time
-    sortMessageByTime(myMessage);
+    sortMessageByTimeIncreasing(myMessage);
 
     // By using "leftOrRight" to define messages to display either on left-side or right-side
     for(let i = 0; i < myMessage.length; i++){
