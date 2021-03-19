@@ -201,18 +201,18 @@ describe('messageUtils', () => {
             // given
             const messageData =[
                 {
-                    id: 23,
-                    messageContent: "message content 23",
-                    senderId: "otherUser11",
-                    receiverId: "messageMember3",
-                    dateSent: "2021-01-17T05:42:39.005Z"
-                },
-                {
                     id: 21,
                     messageContent: "message content 21",
                     senderId: "messageMember1",
                     receiverId: "otherUser1",
                     dateSent: "2021-01-15T03:42:39.005Z"
+                },
+                {
+                    id: 23,
+                    messageContent: "message content 23",
+                    senderId: "otherUser11",
+                    receiverId: "messageMember3",
+                    dateSent: "2021-01-17T05:42:39.005Z"
                 },
                 {
                     id: 22,
