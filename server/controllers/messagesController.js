@@ -9,7 +9,7 @@
 const db = require('../models');
 const Message = db.message;
 
-const createMessage = async (message, uid) => {
+const createMessage = (message, uid) => {
 
     const messageEntry = {
         uid: uid,

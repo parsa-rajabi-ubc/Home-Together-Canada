@@ -11,10 +11,6 @@ module.exports = (DataTypes, sequelize) => {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        dateSent: {
-            type: DataTypes.DATE,
-            allowNull: false,
-        },
         senderId: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -24,7 +20,8 @@ module.exports = (DataTypes, sequelize) => {
             allowNull: false,
         },
         content: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING(1000),
+            allowNull: false,
         }
     });
 }
