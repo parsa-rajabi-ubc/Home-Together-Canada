@@ -13,6 +13,7 @@ const memberRoutes = require('./routes/memberRoutes');
 const userRoutes = require('./routes/userRoutes');
 const listingRoutes = require('./routes/listingRoutes');
 const adminRoutes = require('./routes/adminRoutes');
+const messageRoutes = require('./routes/messageRoutes');
 const db = require("./models");
 const listingCategories = require('./controllers/listingCategoryController');
 const listingSubcategories = require('./controllers/listingSubcategoryController');
@@ -49,6 +50,7 @@ app.use('/business', businessRoutes);
 app.use('/member', memberRoutes);
 app.use('/listing', listingRoutes);
 app.use('/admin', adminRoutes);
+app.use('/message', messageRoutes);
 app.use('/', routes);
 
 //load passport strategies
