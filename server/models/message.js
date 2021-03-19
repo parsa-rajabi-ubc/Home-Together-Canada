@@ -7,10 +7,6 @@
  */
 module.exports = (DataTypes, sequelize) => {
     return sequelize.define("Message", {
-        uid: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
         senderId: {
             type: DataTypes.INTEGER,
             allowNull: false,

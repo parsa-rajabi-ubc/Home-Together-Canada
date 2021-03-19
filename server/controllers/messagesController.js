@@ -12,8 +12,6 @@ const Message = db.message;
 const createMessage = (message, uid) => {
 
     const messageEntry = {
-        uid: uid,
-        dateSent: message.dateSent,
         senderId: message.senderId,
         receiverId: message.receiverId,
         content: message.content
@@ -24,9 +22,13 @@ const createMessage = (message, uid) => {
 
 const findMessagesForUser = uid => {
     return Message.findAll({
-        where: {
-            uid: uid
-        }
+        where: (
+            {
+                senderId: uid
+            }
+        || {
+                receiverId: uid
+            })
     });
 }
 const findAllMessagesForAllUsers = (req, res) => {
