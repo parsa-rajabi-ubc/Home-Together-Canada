@@ -11,10 +11,10 @@ import PropTypes from "prop-types";
 import Moment from 'react-moment';
 
 function ConversationCard(props) {
-    const {userName, messageContent, datePosted} = props;
+    const {userName, messageContent, datePosted,onClick} = props;
 
     return (
-        <section className={"card-container mt-0"}>
+        <section className={"card-container mt-0"} onClick={onClick}>
             <div className={"inline ml-6 align-middle "}>
                 <label className={"font-semibold justify-between"}> {userName}</label>
 
@@ -33,6 +33,7 @@ ConversationCard.propTypes = {
     userName: PropTypes.string.isRequired,
     messageContent: PropTypes.string.isRequired,
     datePosted: PropTypes.string.isRequired,
+    onClick: PropTypes.func
 }
 
 
