@@ -8,6 +8,8 @@
 
 const express = require('express');
 const router = express.Router();
+const pick = require('lodash/pick');
+const get = require('lodash/get');
 
 const { isLoggedIn, userIsMember, userIsAdmin } = require('./routeUtils');
 const memberAccounts = require('../controllers/memberAccountController');
@@ -114,6 +116,89 @@ router.get('/banned/users/',
     }
 );
 
+router.get('/pending/listings/',
+    isLoggedIn,
+    userIsAdmin,
+    function (req, res, next) {
+        listings.getAllPendingListings()
+            .then(data => {
+                const compiledListingInfo = data.map(listing => {
+                    const listingDetails = pick(
+                        listing,
+                        [
+                            'id',
+                            'uid',
+                            'isDeleted',
+                            'dateExpired',
+                            'dateAdminApproved',
+                            'isClassified',
+                            'orderId',
+                            'createdAt',
+                            'updatedAt'
+                        ]
+                    );
 
+                    const listingFields = JSON.parse(get(listing.dataValues, 'fields'));
+
+                    const abstractUser = pick(
+                        listing.dataValues.AbstractUser.dataValues,
+                        [
+                            'username',
+                            'email',
+                            'firstName',
+                            'lastName',
+                            'phoneNumber',
+                            'addressLine1',
+                            'addressLine2',
+                            'city',
+                            'province',
+                            'postalCode'
+                        ]
+                    );
+                    const businessAccount = pick(
+                        listing.dataValues.AbstractUser.dataValues.BusinessAccount,
+                        [
+                            'businessName',
+                            'logo',
+                            'isIncorporated',
+                            'incorporatedOwnersNames',
+                            'businessPhoneNumber',
+                            'businessCellPhoneNumber',
+                            'isNationWide',
+                            'mapAddressLine1',
+                            'mapAddressLine2',
+                            'mapCity',
+                            'mapProvince',
+                            'mapPostalCode',
+                            'website'
+                        ]
+                    );
+
+                    const category = get(
+                        listing.dataValues.ListingCategory,
+                        'name'
+                    );
+
+                    const subcategories = listing.dataValues.ListingSubcategories.map(subcategory => {
+                        return get(subcategory, 'name');
+                    });
+
+                    return {
+                        ...listingDetails,
+                        ...listingFields,
+                        ...abstractUser,
+                        ...businessAccount,
+                        category,
+                        subcategories
+                    }
+                });
+
+                res.status(200).json({ compiledListingInfo });
+            })
+            .catch(err => {
+                res.status(500).json({ err: err.message });
+            });
+    }
+);
 
 module.exports = router;

@@ -9,13 +9,6 @@
 const db = require('../models');
 const ListingAssignedSubcategory = db.listingAssignedSubcategory;
 
-const addListingAssignedSubcategoryEntry = (listingId, subcategoryId) => {
-    return ListingAssignedSubcategory.create({
-        ListingSubcategoryId: subcategoryId,
-        ListingId: listingId
-    });
-}
-
 const findAllEntries = (req, res) => {
     ListingAssignedSubcategory.findAll()
         .then(data => {
@@ -30,6 +23,5 @@ const findAllEntries = (req, res) => {
 }
 
 module.exports = {
-    addListingAssignedSubcategoryEntry,
     findAllEntries
 }

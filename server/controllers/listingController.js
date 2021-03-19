@@ -23,11 +23,11 @@ const { LISTING_TYPES } = require('../controllers/validators/listingControllerVa
 const { getListingFields } = require('./utils/listingControllerUtils');
 const listingCategoryController = require('./listingCategoryController');
 const listingSubcategoryController = require('./listingSubcategoryController');
-const listingAssignedSubcategoryController = require('./listingAssignedSubcategoryController');
 const memberController = require('./memberAccountController');
 const memberListingLocationController = require('./memberListingLocationController');
 const {PROVINCE_MAP, DEFAULT_COUNTRY} = require("./configConstants");
 const { getGeographicalCoordinatesFromAddress, getCircularFeatureFromLocation } = require('./utils/locationUtils');
+const { MEMBER_SERVICE_CATEGORIES } = require('../constants/listingConstants');
 
 const createListing = async (req, res) => {
     try {
@@ -46,7 +46,7 @@ const createListing = async (req, res) => {
         const subcategories = await listingSubcategoryController.findListingSubcategoryIds(req.body.subcategories, category.id);
 
         subcategories.forEach(subcategory => {
-            listingAssignedSubcategoryController.addListingAssignedSubcategoryEntry(listing.id, subcategory.id);
+            listing.addListingSubcategory(subcategory);
         });
 
         if (await memberController.findMemberAccountByUid(req.user.uid)) {
@@ -210,7 +210,37 @@ const softDeleteListings = uid => {
         where: {
             uid: uid
         }
-    })
+    });
+}
+
+const getAllPendingListings = () => {
+    return Listing.findAll({
+        where: {
+            dateAdminApproved: null
+        },
+        include: [
+            {
+                model: AbstractUser,
+                include: [
+                    {
+                        model: BusinessAccount
+                    }
+                ]
+            },
+            {
+                model: ListingCategory,
+                where: {
+                    name: {
+                        [Op.not]: MEMBER_SERVICE_CATEGORIES.MEMBER_HOME
+                    }
+                }
+            },
+            {
+                model: ListingSubcategory
+            }
+
+        ]
+    });
 }
 
 module.exports = {
@@ -218,6 +248,7 @@ module.exports = {
     findAllListings,
     searchMemberServiceListings,
     searchBusinessListings,
-    softDeleteListings
+    softDeleteListings,
+    getAllPendingListings
 }
 
