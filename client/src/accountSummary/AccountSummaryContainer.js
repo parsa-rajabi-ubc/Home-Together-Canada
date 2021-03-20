@@ -20,7 +20,7 @@ import Error404 from "../common/error/Error404";
 import SearchCriteriaContainer from "./member/SearchCriteriaContainer";
 import DeactivateAccountContainer from './accountDeactivateAndDelete/DeactivateAccountContainer'
 import DeleteAccountContainer from "./accountDeactivateAndDelete/DeleteAccountContainer";
-import ConversationListContainer from "./member/messaging/ConversationListContainer";
+import MessagingContainer from "./member/messaging/MessagingContainer";
 import {mockMessages} from "../mockData/MockMessageData"
 
 const AccountSummaryContainer = props => {
@@ -69,7 +69,7 @@ const AccountSummaryContainer = props => {
             case ALL_SUBPAGES.PASSWORD:
                 return <ChangePasswordContainer/>
             case ALL_SUBPAGES.MESSAGING:
-                return <ConversationListContainer messageData={mockMessages} messageUser="messageMember1"/>
+                return <MessagingContainer messageData={mockMessages} messageUser="messageMember1"/>
             case ALL_SUBPAGES.MANAGE_LISTINGS:
                 return <div>Manage Listings Component</div>
             case ALL_SUBPAGES.ACTIVATE:

@@ -20,7 +20,7 @@ const MESSAGE = {
     NO_RESULTS: "No results found"
 }
 
-function ConversationList(props) {
+function SelectConversation(props) {
     const {messageData, messageUser} = props;
     const recentMessages = mostRecentMessages(messageData);
     sortMessageByTimeDecreasing(recentMessages);
@@ -60,9 +60,9 @@ function ConversationList(props) {
     );
 }
 
-ConversationList.propTypes = {
+SelectConversation.propTypes = {
     messageUser: PropTypes.string.isRequired,
     messageData: PropTypes.array.isRequired,
 };
 
-export default ConversationList;
+export default SelectConversation;

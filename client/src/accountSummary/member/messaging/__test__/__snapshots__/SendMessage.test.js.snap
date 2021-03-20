@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ConversationList Snapshot test should match snapshot test if listing is NOT empty for userName 1`] = `
+exports[`SendMessage Snapshot test should match snapshot test of SendMessage 1`] = `
 <div>
   <p>
     To 

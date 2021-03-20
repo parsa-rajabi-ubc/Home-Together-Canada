@@ -10,25 +10,25 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import Confirmation from "../../../common/listings/Confirmation";
-import ConversationList from "./ConversationList";
+import SelectConversation from "./SelectConversation";
 
 const MESSAGE = {
     NO_RESULTS: "No results found"
 }
 
-function ConversationListContainer(props){
+function MessagingContainer(props){
     const {messageData, messageUser} = props;
     return (
         <div className={"m-6"}>
             {(!messageData.length) ? <Confirmation displayButton={false} errorColor={true} message={MESSAGE.NO_RESULTS}/>
-                : <ConversationList messageUser={messageUser} messageData={messageData}/>}
+                : <SelectConversation messageUser={messageUser} messageData={messageData}/>}
         </div>
     );
 }
 
-ConversationListContainer.propTypes = {
+MessagingContainer.propTypes = {
     messageUser: PropTypes.string.isRequired,
     messageData: PropTypes.array.isRequired,
 };
 
-export default ConversationListContainer;
+export default MessagingContainer;
