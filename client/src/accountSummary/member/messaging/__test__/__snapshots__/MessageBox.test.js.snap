@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ChatBoxContainer Snapshot test should match snapshot test 1`] = `
+exports[`MessageBox Snapshot test should match snapshot test 1`] = `
 <div>
   <p>
     left

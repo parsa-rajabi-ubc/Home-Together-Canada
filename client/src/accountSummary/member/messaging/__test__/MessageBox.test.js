@@ -2,15 +2,15 @@
  * @Author:     Alex Qin
  * @Created:    2021.3.09
  *
- * @Description: ChatBoxContainer Test
+ * @Description: MessageBox Test
  *
  */
 
 import React from 'react';
 import ShallowRenderer from "react-test-renderer/shallow";
-import ChatBoxContainer from "../ChatBoxContainer";
+import MessageBox from "../MessageBox";
 
-describe('ChatBoxContainer', () => {
+describe('MessageBox', () => {
     describe('Snapshot test', () => {
         it('should match snapshot test', () => {
             //given
@@ -23,7 +23,7 @@ describe('ChatBoxContainer', () => {
 
             //when
             const renderer = new ShallowRenderer();
-            renderer.render(<ChatBoxContainer {...props}/>);
+            renderer.render(<MessageBox {...props}/>);
             const result = renderer.getRenderOutput();
             //then
             expect(result).toMatchSnapshot();

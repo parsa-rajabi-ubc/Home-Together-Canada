@@ -11,7 +11,7 @@ import React,{useState} from 'react';
 import PropTypes from "prop-types";
 import LargeTextArea from "../../../common/forms/LargeTextArea";
 import Button from "../../../common/forms/Button";
-import ChatBoxContainer from "./ChatBoxContainer";
+import MessageBox from "./MessageBox";
 import {sortMessageByTimeIncreasing} from "./messageUtils";
 
 function FullConversation(props) {
@@ -29,19 +29,19 @@ function FullConversation(props) {
     // By using "leftOrRight" to define messages to display either on left-side or right-side
     for(let i = 0; i < myMessage.length; i++){
         if (myMessage[i].senderId !== myUserName) {
-            conversationData.push(<ChatBoxContainer key={i}
-                                                    userName={myMessage[i].senderId}
-                                                    messageContent={myMessage[i].messageContent}
-                                                    datePosted={myMessage[i].dateSent}
-                                                    leftOrRight={"left"}
+            conversationData.push(<MessageBox key={i}
+                                              userName={myMessage[i].senderId}
+                                              messageContent={myMessage[i].messageContent}
+                                              datePosted={myMessage[i].dateSent}
+                                              leftOrRight={"left"}
             />);
         }
         else{
-            conversationData.push(<ChatBoxContainer key={i}
-                                                    userName={myMessage[i].senderId}
-                                                    messageContent={myMessage[i].messageContent}
-                                                    datePosted={myMessage[i].dateSent}
-                                                    leftOrRight={"right"}
+            conversationData.push(<MessageBox key={i}
+                                              userName={myMessage[i].senderId}
+                                              messageContent={myMessage[i].messageContent}
+                                              datePosted={myMessage[i].dateSent}
+                                              leftOrRight={"right"}
             />);
         }
     }

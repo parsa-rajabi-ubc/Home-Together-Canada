@@ -1,13 +1,12 @@
 /**
- * @Author:     Jeff Hatton
+ * @Author:     Alex Qin
  * @Created:    2021.3.12
  *
- * @Description: Conversation List Snapshot Test
+ * @Description: Send Message Snapshot Test
  *
  */
 import React from 'react';
 import renderer from 'react-test-renderer'
-import ConversationList from "../ConversationList";
 import SendMessage from "../SendMessage";
 
 jest.mock("react-tooltip/node_modules/uuid", () => ({
@@ -15,9 +14,9 @@ jest.mock("react-tooltip/node_modules/uuid", () => ({
         }
     )
 );
-describe('ConversationList', () => {
+describe('SendMessage', () => {
     describe('Snapshot test', () => {
-        it('should match snapshot test if listing is NOT empty for userName', () => {
+        it('should match snapshot test of SendMessage', () => {
             //given
             const props = {
                 username: "messageMember1",
