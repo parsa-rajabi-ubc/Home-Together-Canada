@@ -6,6 +6,7 @@
  *
  */
 const filter = require('lodash/filter');
+const includes = require('lodash/includes');
 const booleanPointInPolygon = require('@turf/boolean-point-in-polygon').default;
 const point = require('@turf/helpers').point;
 const polygon = require('@turf/helpers').polygon;
@@ -37,7 +38,8 @@ const createListing = async (req, res) => {
             isClassified: req.body.type === LISTING_TYPES.CLASSIFIED,
             ...(req.body.type === LISTING_TYPES.CLASSIFIED && { orderId: req.body.orderId }),
             fields: JSON.stringify(getListingFields(req)),
-            ListingCategoryId: category.id
+            ListingCategoryId: category.id,
+            ...(includes(MEMBER_SERVICE_CATEGORIES, category) && { dateAdminApproved: Date.now() })
         };
 
         const listing = await Listing.create(listingData);
@@ -129,12 +131,8 @@ const searchBusinessListings = async (searchArea, categoryName, subcategoryNames
     const businessListings = await Listing.findAll({
         where: {
             isDeleted: false,
-            // TODO:  remove equal null option when implementing admin portal
             dateAdminApproved: {
-                [Op.or]: {
-                    [Op.gt]: new Date(),
-                    [Op.eq]: null
-                }
+                [Op.gt]: new Date()
             },
             dateExpired: {
                 [Op.or]: {
