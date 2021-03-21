@@ -7,9 +7,10 @@
  */
 
 const db = require('../models');
+const {Op} = require("sequelize");
 const Message = db.message;
 
-const createMessage = (message, uid) => {
+const createMessage = (message) => {
 
     const messageEntry = {
         senderId: message.senderId,
@@ -22,13 +23,12 @@ const createMessage = (message, uid) => {
 
 const findMessagesForUser = uid => {
     return Message.findAll({
-        where: (
-            {
-                senderId: uid
-            }
-        || {
-                receiverId: uid
-            })
+        where: {
+            [Op.or]: [
+                {senderId: uid},
+                {receiverId: uid}
+            ]
+        }
     });
 }
 const findAllMessagesForAllUsers = (req, res) => {
