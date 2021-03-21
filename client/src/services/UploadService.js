@@ -27,10 +27,7 @@ export const uploadLogo = image => {
 
 export const uploadPictures = (images, listingId) => {
     const fd = new FormData();
-    console.log('uploadPictures called...');
-    console.log('images: ', images);
-    console.log('listingId: ', listingId);
-    images.forEach((image, index, array) => {
+    images.forEach((image) => {
         fd.append('images', image);
     });
     fd.set('listingId', listingId);
@@ -41,8 +38,6 @@ export const uploadPictures = (images, listingId) => {
         withCredentials: true,
         body: fd
     }
-    console.log('fd: ', FormData);
-    console.log('request: ', request);
 
     return fetch(`${DEV_URL}/listing/pictures/upload/`, request);
 }
