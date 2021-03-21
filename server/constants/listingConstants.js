@@ -6,6 +6,11 @@
  *
  */
 
+const LISTING_TYPES = {
+    SERVICE: 'service',
+    CLASSIFIED: 'classified'
+}
+
 const BUSINESS_SERVICES_CATEGORIES = {
     CO_HOUSING: 'Co-housing, Co-ops, Intergenerational & Planned Neighbourhoods',
     SHARED_HOME_SERVICES: "Home Share Facilitation & Supporting Services",
@@ -206,6 +211,7 @@ const LISTING_CATEGORY_SUBCATEGORY_MAP = new Map([
 
 
 module.exports = {
+    LISTING_TYPES,
     BUSINESS_SERVICES_CATEGORIES,
     MEMBER_SERVICE_CATEGORIES,
     BUSINESS_CLASSIFIEDS_CATEGORIES,
