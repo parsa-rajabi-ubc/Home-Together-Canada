@@ -15,5 +15,8 @@ export const ADMIN_TOAST = {
     MANAGE_ADMIN_EMPTY_USERNAME: "Please enter a username.",
     MANAGE_ADMIN_USERNAME_DNE: "Username does not exist.",
     MANAGE_ADMIN_SUCCESS: " has been given admin privileges.",
-    MANAGE_USER_SUCCESS: " has been banned from the website."
+    MANAGE_USER_SUCCESS: " has been banned from the website.",
+    LISTING_ID: "Listing #",
+    PENDING_LISTING_APPROVED: " has been approved and is now live on the website.",
+    PENDING_LISTING_REJECTED: " has been reject and deleted from the website."
 }
