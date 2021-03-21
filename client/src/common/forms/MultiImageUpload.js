@@ -18,6 +18,7 @@ const MultiImageUpload = (props) => {
             const files = event.target.files;
             if (files.length > maxNumImages) {
                 alert(`Cannot upload more than ${maxNumImages}`);
+                event.target.value = '';
                 return false;
             }
         }
