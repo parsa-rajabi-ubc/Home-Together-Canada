@@ -60,6 +60,14 @@ db.memberAccount.belongsTo(db.abstractUser, {
     onDelete: 'CASCADE'
 });
 
+db.abstractUser.hasOne(db.memberAccount, {
+    foreignKey: {
+        name: 'uid',
+        allowNull: false
+    },
+    onDelete: 'CASCADE'
+});
+
 db.memberAccount.belongsToMany(db.memberAccount, { as: "Roommates", through: db.livesWith });
 
 db.memberAccount.hasMany(db.areaOfInterest, {
@@ -90,6 +98,10 @@ db.listing.belongsTo(db.abstractUser, {
     onDelete: 'CASCADE'
 });
 db.abstractUser.hasMany(db.listing, {
+    foreignKey: {
+        name: 'uid',
+        allowNull: false
+    },
     onDelete: 'CASCADE'
 });
 
@@ -105,9 +117,9 @@ db.listingCategory.hasMany(db.listing, {
 db.listingSubcategory.belongsTo(db.listingCategory, {
     onDelete: 'CASCADE'
 });
-db.listingCategory.hasMany(db.listingSubcategory), {
+db.listingCategory.hasMany(db.listingSubcategory, {
     onDelete: 'CASCADE'
-};
+});
 
 // Through table for listings and subcategories
 db.listingSubcategory.belongsToMany(db.listing, {

@@ -10,6 +10,8 @@ const express = require('express');
 const router = express.Router();
 const pick = require('lodash/pick');
 const get = require('lodash/get');
+const Json2csvParser = require("json2csv").Parser;
+const fs = require("fs");
 
 const { isLoggedIn, userIsMember, userIsAdmin } = require('./routeUtils');
 const memberAccounts = require('../controllers/memberAccountController');
@@ -225,6 +227,28 @@ router.post('/listing/approve/',
                     res.status(200).json({ success: false, err: err.message });
                 });
         }
+    }
+);
+
+router.get('/export/all/',
+    isLoggedIn,
+    userIsAdmin,
+    function (req, res, next) {
+        abstractUsers.exportAllUserData()
+            .then(data => {
+                const jsonData = JSON.parse(JSON.stringify(data));
+
+                const json2csvParser = new Json2csvParser({ header: true});
+                const csv = json2csvParser.parse(jsonData);
+
+                fs.writeFile("home_together_info.csv", csv, function(error) {
+                    if (error) throw error;
+                    res.attachment('home_together_info.csv').send(csv)
+                });
+            })
+            .catch(err => {
+                res.status(500).json({ err: err.message });
+            });
     }
 );
 

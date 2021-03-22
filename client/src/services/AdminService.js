@@ -75,3 +75,11 @@ export const updateListingStatus = (listingStatus) => {
     }
     return fetch(`${DEV_URL}/admin/listing/approve/`, request);
 }
+
+export const exportUserData = () => {
+    return fetch(`${DEV_URL}/admin/export/all/`, {
+        method: 'GET',
+        withCredentials: true,
+        credentials: 'include'
+    });
+}
