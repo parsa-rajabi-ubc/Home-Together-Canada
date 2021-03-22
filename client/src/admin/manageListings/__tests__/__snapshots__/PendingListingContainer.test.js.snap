@@ -19,7 +19,46 @@ exports[`PendingListingContainer Container test should match snapshot test regar
     </p>
     <div
       className="ml-10 my-3"
-    />
+    >
+      <div>
+        <ul
+          className="flex m-auto w-2/3"
+        >
+          <li
+            className="next-prev-text disabled"
+          >
+            <a
+              aria-disabled="true"
+              aria-label="Previous page"
+              className="next-prev-link"
+              onClick={[Function]}
+              onKeyPress={[Function]}
+              rel="prev"
+              role="button"
+              tabIndex="0"
+            >
+              Previous
+            </a>
+          </li>
+          <li
+            className="next-prev-text"
+          >
+            <a
+              aria-disabled="false"
+              aria-label="Next page"
+              className="next-prev-link"
+              onClick={[Function]}
+              onKeyPress={[Function]}
+              rel="next"
+              role="button"
+              tabIndex="0"
+            >
+              Next
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 `;
