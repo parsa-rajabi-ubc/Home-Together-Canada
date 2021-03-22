@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PendingListingContainer Container test should match snapshot test regardless of the props 1`] = `
+<div>
+  <div>
+    <h3
+      className="account-summary-info-header"
+    >
+       
+      Pending Listings
+       
+    </h3>
+    <p
+      className="account-summary-info-text"
+    >
+       
+      Use the icons to the right of each listing to approve or reject them
+       
+    </p>
+    <div
+      className="ml-10 my-3"
+    />
+  </div>
+</div>
+`;
