@@ -35,6 +35,7 @@ db.listingCategory = require('./listingCategory')(DataTypes, sequelize);
 db.listingSubcategory = require('./listingSubcategory')(DataTypes, sequelize);
 db.listingAssignedSubcategory = require('./listingAssignedSubcategory')(DataTypes, sequelize);
 db.memberListingLocation = require('./memberListingLocation')(DataTypes, sequelize);
+db.message = require('./message')(DataTypes, sequelize);
 
 db.businessAccount.belongsTo(db.abstractUser, {
     foreignKey: {
