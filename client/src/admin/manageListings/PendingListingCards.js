@@ -22,7 +22,7 @@ const ADMIN_TEXT = {
     CONFIRM_DECLINE: "Are you sure you want to reject listing #"
 }
 
-Modal.setAppElement('#root')
+Modal.setAppElement('body')
 const customModalStyles = {
     content: {
         top: '50%',
