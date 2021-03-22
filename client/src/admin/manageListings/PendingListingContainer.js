@@ -29,7 +29,6 @@ function PendingListingContainer() {
     // useEffects
     useEffect(() => {
         getAllPendingListings();
-        console.log("listingStatus is ", listingStatus);
     }, [])
 
 
@@ -38,49 +37,57 @@ function PendingListingContainer() {
             .then(res => res.json())
             .then(data => {
                 setPendingListings(data.compiledListingInfo);
-                console.table(data.compiledListingInfo);
             })
     }
-    const isSearchValid = () => {
 
-    }
     const onSubmit = () => {
 
         const listingStatusBody = {
-            listingID: listingID,
+            listingId: listingID,
             approve: listingStatus,
         }
 
-        console.log(JSON.stringify(listingStatusBody));
-        toast.success(ADMIN_TOAST.LISTING_ID + listingID + ADMIN_TOAST.PENDING_LISTING_APPROVED, {
-            toastId: "successToast",
-            position: "bottom-center",
-            autoClose: 10000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: false,
-            transition: Flip
-        });
-        // AdminService.updateListingStatus(listingStatusBody)
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (data) {
-        //             console.log("approved!")
-        //
-        //         } else if (data.err) {
-        //             alert('Error: ' + data.err);
-        //
-        //         } else if (data.errors) {
-        //             const errorMessage = getConcatenatedErrorMessage(data.errors);
-        //             // show list of all errors
-        //             alert(errorMessage);
-        //         }
-        //     })
-        //     .catch(err => {
-        //         alert('Error: ' + err.message);
-        //     });
+        AdminService.updateListingStatus(listingStatusBody)
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    getAllPendingListings();
+                    if (listingStatus) {
+                        toast.success(ADMIN_TOAST.LISTING_ID + listingID + ADMIN_TOAST.PENDING_LISTING_APPROVED, {
+                            position: "bottom-center",
+                            autoClose: 8000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: false,
+                            transition: Flip
+                        });
+                    } else {
+                        toast.info(ADMIN_TOAST.LISTING_ID + listingID + ADMIN_TOAST.PENDING_LISTING_REJECTED, {
+                            position: "bottom-center",
+                            autoClose: 8000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: false,
+                            transition: Flip
+                        });
+                    }
+
+                } else if (data.err) {
+                    alert('Error: ' + data.err);
+
+                } else if (data.errors) {
+                    const errorMessage = getConcatenatedErrorMessage(data.errors);
+                    // show list of all errors
+                    alert(errorMessage);
+                }
+            })
+            .catch(err => {
+                alert('Error: ' + err.message);
+            });
 
     }
     return (
@@ -92,7 +99,6 @@ function PendingListingContainer() {
                 listingStatus={listingStatus}
                 setListingStatus={setListingStatus}
                 pendingListings={pendingListings}
-
             />
         </div>
     );
