@@ -13,6 +13,7 @@ import BusinessListingCard from "../../searchServicesClassifieds/listingCards/Bu
 import {AiFillCheckCircle} from "react-icons/ai";
 import {AiFillCloseCircle} from "react-icons/ai";
 import Modal from 'react-modal';
+import Paginate from "../../common/forms/Paginate";
 
 
 const ADMIN_TEXT = {
@@ -104,7 +105,9 @@ function PendingListingCards(props) {
             <h3 className={"account-summary-info-header"}> {ADMIN_TEXT.TITLE} </h3>
             <p className="account-summary-info-text"> {ADMIN_TEXT.INFO} </p>
 
-            <div className={"ml-10 my-3"}>{listingCards}</div>
+            <div className={"ml-10 my-3"}>
+                <Paginate data={listingCards} resultsPerPage={5}/>
+            </div>
             <Modal
                 isOpen={IsModalOpen}
                 onRequestClose={closeModal}
