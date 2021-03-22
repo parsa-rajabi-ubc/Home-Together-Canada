@@ -73,5 +73,5 @@ export const updateListingStatus = (listingStatus) => {
         withCredentials: true,
         body: JSON.stringify(listingStatus)
     }
-    return fetch(`${DEV_URL}/admin/pending/listings/`, request);
+    return fetch(`${DEV_URL}/admin/listing/approve/`, request);
 }
