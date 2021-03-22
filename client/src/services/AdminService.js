@@ -53,3 +53,11 @@ export const banUsername = (username) => {
     }
     return fetch(`${DEV_URL}/admin/ban/user/`, request);
 }
+
+export const exportUserData = () => {
+    return fetch(`${DEV_URL}/admin/export/all/`, {
+        method: 'GET',
+        withCredentials: true,
+        credentials: 'include'
+    });
+}

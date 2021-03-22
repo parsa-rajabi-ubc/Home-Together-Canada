@@ -132,6 +132,12 @@ const listBannedUsers = () => {
     });
 }
 
+const exportAllUserData = () => {
+    return AbstractUser.findAll({
+        include: { all: true }
+    });
+}
+
 module.exports = {
     createAbstractUser,
     findAllAbstractUsers,
@@ -143,5 +149,6 @@ module.exports = {
     updateAbstractUser,
     deleteAccount,
     banUser,
-    listBannedUsers
+    listBannedUsers,
+    exportAllUserData
 }

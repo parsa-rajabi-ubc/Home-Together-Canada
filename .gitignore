@@ -26,6 +26,7 @@ src/tailwind.output.css
 .env.test.local
 .env.production.local
 .idea
+home_together_info.csv
 
 npm-debug.log*
 yarn-debug.log*

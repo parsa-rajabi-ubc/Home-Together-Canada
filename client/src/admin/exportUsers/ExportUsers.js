@@ -8,6 +8,7 @@
  */
 
 import React from "react";
+import * as AdminService from '../../services/AdminService';
 
 const ADMIN_TEXT = {
     TITLE: "Export Users",
@@ -16,8 +17,21 @@ const ADMIN_TEXT = {
 
 function ExportUsers() {
 
-    const onSubmit = () => {
-
+    const onSubmit = async () => {
+        AdminService.exportUserData()
+            .then(res => res.blob())
+            .then(blob => {
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = "home_together_info.csv";
+                document.body.appendChild(a); // we need to append the element to the dom -> otherwise it will not work in firefox
+                a.click();
+                a.remove();  //afterwards we remove the element again
+            })
+            .catch(err => {
+                alert('Error: ' + err.message);
+            });
     }
 
     return (
