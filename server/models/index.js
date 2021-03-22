@@ -72,13 +72,13 @@ db.memberAccount.hasMany(db.areaOfInterest, {
 //relationship for messages to members
 db.memberAccount.hasMany(db.message, {
     foreignKey: {
-        name: 'uid'
-    },
-    sourceKey: {
         name: 'receiverId'
     },
     onDelete: 'CASCADE'
 });
+db.message.belongsTo(db.memberAccount, {
+    onDelete: 'CASCADE'
+})
 
 
 // relationship between listings and abstract users
