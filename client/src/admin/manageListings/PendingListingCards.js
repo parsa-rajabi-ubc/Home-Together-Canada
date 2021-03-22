@@ -13,7 +13,6 @@ import BusinessListingCard from "../../searchServicesClassifieds/listingCards/Bu
 import {AiFillCheckCircle} from "react-icons/ai";
 import {AiFillCloseCircle} from "react-icons/ai";
 import Modal from 'react-modal';
-import SubmitButton from "../../common/forms/SubmitButton";
 
 
 const ADMIN_TEXT = {
@@ -22,6 +21,21 @@ const ADMIN_TEXT = {
     CONFIRM_APPROVE: "Are you sure you want to approve listing #",
     CONFIRM_DECLINE: "Are you sure you want to reject listing #"
 }
+
+Modal.setAppElement('#root')
+const customModalStyles = {
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        padding: '60px',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+        backgroundColor: 'white',
+        borderRadius: '10px',
+    }
+};
 
 function PendingListingCards(props) {
     const {
@@ -33,46 +47,25 @@ function PendingListingCards(props) {
         pendingListings,
     } = props;
 
-    const customStyles = {
-        content: {
-            top: '50%',
-            left: '50%',
-            right: 'auto',
-            bottom: 'auto',
-            marginRight: '-50%',
-            transform: 'translate(-50%, -50%)'
-        }
-    };
-    var subtitle;
-
-    const [modalIsOpen, setIsOpen] = React.useState(false);
-
-    Modal.setAppElement('#root')
+    const [IsModalOpen, setIsModalOpen] = React.useState(false);
 
     function openModal() {
-        setIsOpen(true);
-    }
-
-    function afterOpenModal() {
-        // references are now sync'd and can be accessed.
-        subtitle.style.color = '#f00';
+        setIsModalOpen(true);
     }
 
     function closeModal() {
-        setIsOpen(false);
+        setIsModalOpen(false);
     }
 
-    function approveListing(){
-        setIsOpen(false);
+    function approveListing() {
+        closeModal();
         onSubmit();
     }
 
     const onClickDecision = (decision, listingID) => {
-        console.log(decision, listingID);
         setListingID(listingID);
         setListingStatus(decision);
         openModal();
-
     }
 
     const listingCards = pendingListings.map(
@@ -87,15 +80,17 @@ function PendingListingCards(props) {
                         datePosted={listing.createdAt}/>
                 </section>
                 <section className={"my-8"}>
-                    <button className={"focus:outline-none"} type="button"
-                            onClick={e => onClickDecision(true, listing.id)}>
+                    <button
+                        className={"focus:outline-none"} type="button"
+                        onClick={e => onClickDecision(true, listing.id, e)}>
                         <AiFillCheckCircle
+                            id={"approve"}
                             className={"text-green-600 hover:text-green-700 hover:cursor-pointer align-top"}
                             size="40"
                         />
                     </button>
                     <button className={"focus:outline-none"} type="button"
-                            onClick={e => onClickDecision(false, listing.id)}>
+                            onClick={e => onClickDecision(false, listing.id, e)}>
                         <AiFillCloseCircle
                             className={"text-red-600 hover:text-red-700 hover:cursor-pointer align-bottom"}
                             size="40"/>
@@ -106,28 +101,29 @@ function PendingListingCards(props) {
 
     return (
         <div>
-            <h2 ref={_subtitle => (subtitle = _subtitle)}>Hello</h2>
-
             <h3 className={"account-summary-info-header"}> {ADMIN_TEXT.TITLE} </h3>
             <p className="account-summary-info-text"> {ADMIN_TEXT.INFO} </p>
 
             <div className={"ml-10 my-3"}>{listingCards}</div>
             <Modal
-                isOpen={modalIsOpen}
-                onAfterOpen={afterOpenModal}
+                isOpen={IsModalOpen}
                 onRequestClose={closeModal}
-                style={customStyles}
-                contentLabel="Example Modal"
+                style={customModalStyles}
+                contentLabel="Confirm Decision for Listing"
             >
-                <p>{listingStatus ? ADMIN_TEXT.CONFIRM_APPROVE : ADMIN_TEXT.CONFIRM_DECLINE}{listingID + "?"} </p>
-                <button type={"button"} className="btn bg-gray-500 ml-10 w-2/3 py-2" onClick={closeModal}>
-                    Cancel
-                </button>
-                <SubmitButton
-                    inputValue={listingStatus ? "Approve" : "Reject"}
-                    className={`${listingStatus ? "btn-green" : "btn-red"} btn ml-10 w-2/3 py-2`}
-                    onClick={approveListing}
-                />
+                <h1 className={"text-gray-800 h1"}>{listingStatus ? ADMIN_TEXT.CONFIRM_APPROVE : ADMIN_TEXT.CONFIRM_DECLINE}{listingID + "?"} </h1>
+                <section className={"flex pt-10 space-x-10"}>
+                    <button type={"button"} className="py-2 w-1/2 bg-gray-500 btn" onClick={closeModal}>
+                        Cancel
+                    </button>
+                    <button type={"submit"}
+                            className={`${listingStatus ? "btn-green" : "btn-red"} btn w-1/2 py-2`}
+                            onClick={approveListing}
+                            value={listingStatus ? "Approve" : "Reject"}
+                    >
+                        {listingStatus ? "Approve" : "Reject"}
+                    </button>
+                </section>
             </Modal>
         </div>
     );
