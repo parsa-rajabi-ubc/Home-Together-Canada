@@ -53,3 +53,25 @@ export const banUsername = (username) => {
     }
     return fetch(`${DEV_URL}/admin/ban/user/`, request);
 }
+
+export const getAllPendingListings = () => {
+    return fetch(`${DEV_URL}/admin/pending/listings/`, {
+        method: 'GET',
+        withCredentials: true,
+        credentials: 'include'
+    });
+}
+
+export const updateListingStatus = (listingStatus) => {
+    const request = {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        withCredentials: true,
+        body: JSON.stringify(listingStatus)
+    }
+    return fetch(`${DEV_URL}/admin/listing/approve/`, request);
+}
