@@ -112,7 +112,10 @@ export const TERMS_OF_SERVICE_TEXT =
     '27.   Jurisdiction\n' +
     'The laws of the Provinces of Canada and the federal laws of Canada applicable therein govern these Terms and any dispute of any sort that might arise between you and us. Except as otherwise provided herein, you agree that any claim, whether at law or equity, arising out of or related to the provision of Services by us, regardless of the date or location of accrual of such dispute, will be within the exclusive jurisdiction of the courts of Canada.\n' +
     " \n" +
-    '28.   Contact\n' +
+    '28.   Refund Policy\n' +
+    'Once an ad has been approved and posted the fees paid for that ad are not refundable. The rates to run an ad for extended lengths of time are offered at a bundled lower rate and  you are responsible for selecting the correct length of time your ad will run.  If due to unforeseen dire circumstances you need to cancel an ad that was intended to run for a longer term you can contact us by email and if the board deems the circumstances to be accurate and unavoidable they may refund a portion of the fee paid.  Note that if a refund is given it will be made through the original Paypal invoice.\n' +
+    " \n" +
+    '29.   Contact\n' +
     'If you have any questions or concerns about our Terms, please contact us by e-mail. Our email can be found under contacts. \n';
 
 export const TERMS_OF_SERVICE = {
@@ -235,6 +238,9 @@ export const TERMS_OF_SERVICE = {
     point27Title: '27. Jurisdiction',
     point27Text: 'The laws of the Provinces of Canada and the federal laws of Canada applicable therein govern these Terms and any dispute of any sort that might arise between you and us. Except as otherwise provided herein, you agree that any claim, whether at law or equity, arising out of or related to the provision of Services by us, regardless of the date or location of accrual of such dispute, will be within the exclusive jurisdiction of the courts of Canada.',
 
-    point28Title: '28. Contact',
-    point28Text: 'If you have any questions or concerns about our Terms, please contact us by e-mail. Our email can be found under contacts.',
+    point28Title: '28. Refund Policy',
+    point28Text: 'Once an ad has been approved and posted the fees paid for that ad are not refundable. The rates to run an ad for extended lengths of time are offered at a bundled lower rate and  you are responsible for selecting the correct length of time your ad will run.  If due to unforeseen dire circumstances you need to cancel an ad that was intended to run for a longer term you can contact us by email and if the board deems the circumstances to be accurate and unavoidable they may refund a portion of the fee paid.  Note that if a refund is given it will be made through the original Paypal invoice.',
+
+    point29Title: '29. Contact',
+    point29Text: 'If you have any questions or concerns about our Terms, please contact us by e-mail. Our email can be found under contacts.',
 }
