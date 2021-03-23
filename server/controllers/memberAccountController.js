@@ -531,6 +531,16 @@ const getAllAdminUsernames = () => {
     });
 }
 
+const getAllMemberData = () => {
+    return MemberAccount.findAll({
+        include: [
+            {
+                model: AbstractUser
+            }
+        ]
+    });
+}
+
 module.exports = {
     createMemberAccount,
     findAllMemberAccounts,
@@ -547,5 +557,6 @@ module.exports = {
     activateAccount,
     deactivateAccount,
     giveAdminPrivileges,
-    getAllAdminUsernames
+    getAllAdminUsernames,
+    getAllMemberData
 }

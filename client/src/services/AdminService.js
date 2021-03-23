@@ -75,3 +75,19 @@ export const updateListingStatus = (listingStatus) => {
     }
     return fetch(`${DEV_URL}/admin/listing/approve/`, request);
 }
+
+export const exportMemberData = () => {
+    return fetch(`${DEV_URL}/admin/export/members/`, {
+        method: 'GET',
+        withCredentials: true,
+        credentials: 'include'
+    });
+}
+
+export const exportBusinessData = () => {
+    return fetch(`${DEV_URL}/admin/export/businesses/`, {
+        method: 'GET',
+        withCredentials: true,
+        credentials: 'include'
+    });
+}

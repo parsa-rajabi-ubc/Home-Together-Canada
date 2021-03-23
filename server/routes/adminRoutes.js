@@ -10,10 +10,13 @@ const express = require('express');
 const router = express.Router();
 const pick = require('lodash/pick');
 const get = require('lodash/get');
+const Json2csvParser = require("json2csv").Parser;
+const fs = require("fs");
 
 const { isLoggedIn, userIsMember, userIsAdmin } = require('./routeUtils');
 const memberAccounts = require('../controllers/memberAccountController');
 const abstractUsers = require('../controllers/abstractUserController');
+const businessAccounts = require('../controllers/businessAccountController');
 const listings = require('../controllers/listingController');
 const usersValidator = require('../controllers/validators/userControllerValidator');
 const { getUsernameFromAbstractUser } = require('../controllers/utils/accountControllerUtils');
@@ -225,6 +228,68 @@ router.post('/listing/approve/',
                     res.status(200).json({ success: false, err: err.message });
                 });
         }
+    }
+);
+
+router.get('/export/members/',
+    isLoggedIn,
+    userIsAdmin,
+    function (req, res, next) {
+        memberAccounts.getAllMemberData()
+            .then(data => {
+                const formattedMembersList = data.map(member => {
+                    const formattedMember = {
+                        ...member.dataValues,
+                        ...member.AbstractUser.dataValues,
+                        AbstractUser: undefined
+                    }
+                    return formattedMember;
+                });
+
+                const jsonData = JSON.parse(JSON.stringify(formattedMembersList));
+
+                const json2csvParser = new Json2csvParser({ header: true});
+                const csv = json2csvParser.parse(jsonData);
+
+                fs.writeFile("home_together_members.csv", csv, function(error) {
+                    if (error) throw error;
+                    res.attachment('home_together_members.csv').send(csv)
+                });
+            })
+            .catch(err => {
+                res.status(500).json({ err: err.message });
+            });
+    }
+);
+
+router.get('/export/businesses/',
+    isLoggedIn,
+    userIsAdmin,
+    function (req, res, next) {
+        businessAccounts.getAllBusinessData()
+            .then(data => {
+                const formattedBusinessesList = data.map(business => {
+                    const formattedBusiness = {
+                        ...business.dataValues,
+                        ...business.AbstractUser.dataValues,
+                        AbstractUser: undefined
+                    }
+                    return formattedBusiness;
+                });
+
+                const jsonData = JSON.parse(JSON.stringify(formattedBusinessesList));
+
+                const json2csvParser = new Json2csvParser({ header: true});
+                const csv = json2csvParser.parse(jsonData);
+
+                fs.writeFile("home_together_businesses.csv", csv, function(error) {
+                    if (error) throw error;
+                    res.attachment('home_together_businesses.csv').send(csv)
+                });
+            })
+            .catch(err => {
+                res.status(500).json({ err: err.message });
+            });
     }
 );
 
