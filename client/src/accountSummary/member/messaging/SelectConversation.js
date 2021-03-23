@@ -6,79 +6,63 @@
  * @Description: Member Messaging Conversation Card List
  *
  */
-import React from 'react';
+import React, {useState}from 'react';
 import PropTypes from "prop-types";
 import Paginate from "../../../common/forms/Paginate";
 import ConversationCard from "./ConversationCard";
-import {Link} from "react-router-dom";
-import {mostRecentMessages} from "./messageUtils";
+import {mostRecentMessages,sortMessageByTimeDecreasing} from "./messageUtils";
 import Confirmation from "../../../common/listings/Confirmation";
+import EmptySelection from "./EmptySelection";
+import FullConversation from "./FullConversation";
 
 const NUM_RESULTS = 7;
 const MESSAGE = {
     NO_RESULTS: "No results found"
 }
 
-
-function ConversationList(props) {
+function SelectConversation(props) {
     const {messageData, messageUser} = props;
     const recentMessages = mostRecentMessages(messageData);
+    sortMessageByTimeDecreasing(recentMessages);
     const cardData = [];
+    const [isSelect,setIsSelect] = useState(false);
+    const [senderId,setSenderId] = useState("");
 
     for (let i = 0; i < recentMessages.length; i++) {
-        if (recentMessages[i].senderId==messageUser) {
+        if (recentMessages[i].senderId===messageUser) {
             cardData.push(
-                <Link
-                    to={{
-                        pathname: `/members/${recentMessages[i].userName}`,
-                        state: {
-                            profile: cardData[i]
-                        }
-                    }}
-                    key={i}
-                >
                     <ConversationCard key={i}
+                                      onClick={()=>{setIsSelect(true);setSenderId(recentMessages[i].receiverId)}}
                                       userName={recentMessages[i].receiverId}
                                       messageContent={recentMessages[i].messageContent}
                                       datePosted={recentMessages[i].dateSent}
                     />
-                </Link>
             );
         }
-        else if (recentMessages[i].receiverId==messageUser) {
+        else if (recentMessages[i].receiverId===messageUser) {
             cardData.push(
-                <Link
-                    to={{
-                        pathname: `/members/${recentMessages[i].userName}`,
-                        state: {
-                            profile: cardData[i]
-                        }
-                    }}
-                    key={i}
-                >
                     <ConversationCard key={i}
+                                      onClick={()=>{setIsSelect(true);setSenderId(recentMessages[i].senderId)}}
                                       userName={recentMessages[i].senderId}
                                       messageContent={recentMessages[i].messageContent}
                                       datePosted={recentMessages[i].dateSent}
                     />
-                </Link>
             );
         }
     }
 
     return (
-
-
         <div>
             {(!cardData.length) ? <Confirmation displayButton={false} errorColor={true} message={MESSAGE.NO_RESULTS}/>
                 : <Paginate data={cardData} resultsPerPage={NUM_RESULTS}/>}
+            {(!isSelect || senderId ==="") ? <EmptySelection/>:<FullConversation messageData={messageData} myUserName={messageUser} senderId={senderId}/>}
         </div>
     );
 }
 
-ConversationList.propTypes = {
+SelectConversation.propTypes = {
     messageUser: PropTypes.string.isRequired,
     messageData: PropTypes.array.isRequired,
 };
 
-export default ConversationList;
+export default SelectConversation;

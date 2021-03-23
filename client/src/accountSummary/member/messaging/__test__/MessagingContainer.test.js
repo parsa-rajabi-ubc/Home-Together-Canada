@@ -6,7 +6,7 @@
  *
  */
 import React from 'react';
-import ConversationList from "../ConversationList";
+import MessagingContainer from "../MessagingContainer";
 import {mockMessages} from "../../../../mockData/MockMessageData";
 import ShallowRenderer from "react-test-renderer/shallow";
 
@@ -16,7 +16,7 @@ jest.mock("react-tooltip/node_modules/uuid", () => ({
         }
     )
 );
-describe('ConversationList', () => {
+describe('MessagingContainer', () => {
     describe('Snapshot test', () => {
         it('should match snapshot test if listing is NOT empty for userName', () => {
             //given
@@ -26,7 +26,7 @@ describe('ConversationList', () => {
             }
             //when
             const renderer = new ShallowRenderer();
-            renderer.render(<ConversationList {...props}/>);
+            renderer.render(<MessagingContainer {...props}/>);
             const result = renderer.getRenderOutput();
             //then
             expect(result).toMatchSnapshot();

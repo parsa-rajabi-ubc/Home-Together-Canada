@@ -1,0 +1,152 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectConversation Snapshot test should match snapshot test if listing is NOT empty for userName 1`] = `
+<div>
+  <Paginate
+    data={
+      Array [
+        <ConversationCard
+          datePosted="2021-03-01T02:42:39.005Z"
+          messageContent="message content 55"
+          onClick={[Function]}
+          userName="otherUser24"
+        />,
+        <ConversationCard
+          datePosted="2021-02-19T02:42:39.005Z"
+          messageContent="message content 53"
+          onClick={[Function]}
+          userName="otherUser22"
+        />,
+        <ConversationCard
+          datePosted="2021-02-17T02:43:39.005Z"
+          messageContent="message content 6"
+          onClick={[Function]}
+          userName="otherUser6"
+        />,
+        <ConversationCard
+          datePosted="2021-02-14T08:42:39.005Z"
+          messageContent="message content 3"
+          onClick={[Function]}
+          userName="otherUser3"
+        />,
+        <ConversationCard
+          datePosted="2021-02-14T02:42:39.005Z"
+          messageContent="message content 16 other month"
+          onClick={[Function]}
+          userName="otherUser16"
+        />,
+        <ConversationCard
+          datePosted="2021-02-10T02:42:39.005Z"
+          messageContent="message content 10"
+          onClick={[Function]}
+          userName="otherUser10"
+        />,
+        <ConversationCard
+          datePosted="2021-01-30T18:42:39.005Z"
+          messageContent="message content 36 all on different days and times"
+          onClick={[Function]}
+          userName="otherUser1"
+        />,
+        <ConversationCard
+          datePosted="2021-01-19T09:42:39.005Z"
+          messageContent="message content 7"
+          onClick={[Function]}
+          userName="otherUser7"
+        />,
+        <ConversationCard
+          datePosted="2021-01-17T02:42:39.005Z"
+          messageContent="message content 17 other day"
+          onClick={[Function]}
+          userName="otherUser17"
+        />,
+        <ConversationCard
+          datePosted="2021-01-14T07:42:39.005Z"
+          messageContent="message content 51 all on different hours"
+          onClick={[Function]}
+          userName="otherUser11"
+        />,
+        <ConversationCard
+          datePosted="2021-01-14T02:47:39.005Z"
+          messageContent="message content 19 other minute"
+          onClick={[Function]}
+          userName="otherUser19"
+        />,
+        <ConversationCard
+          datePosted="2021-01-14T02:42:55.005Z"
+          messageContent="message content 20 other second"
+          onClick={[Function]}
+          userName="otherUser20"
+        />,
+        <ConversationCard
+          datePosted="2021-01-14T02:42:39.777Z"
+          messageContent="message content 14 other millisecond"
+          onClick={[Function]}
+          userName="otherUser14"
+        />,
+        <ConversationCard
+          datePosted="2021-01-14T02:42:39.005Z"
+          messageContent="message content 13"
+          onClick={[Function]}
+          userName="otherUser13"
+        />,
+        <ConversationCard
+          datePosted="2021-01-14T02:42:39.005Z"
+          messageContent="message content 45 has same timestamp as message 2 and 46"
+          onClick={[Function]}
+          userName="otherUser8"
+        />,
+        <ConversationCard
+          datePosted="2021-01-14T02:42:39.005Z"
+          messageContent="message content 52"
+          onClick={[Function]}
+          userName="otherUser21"
+        />,
+        <ConversationCard
+          datePosted="2021-01-14T02:42:39.005Z"
+          messageContent="message content 46 has same timestamp as message 2 and 45"
+          onClick={[Function]}
+          userName="otherUser9"
+        />,
+        <ConversationCard
+          datePosted="2021-01-14T02:42:39.005Z"
+          messageContent="message content 54"
+          onClick={[Function]}
+          userName="otherUser23"
+        />,
+        <ConversationCard
+          datePosted="2021-01-14T01:42:39.005Z"
+          messageContent="message content 18 other hour"
+          onClick={[Function]}
+          userName="otherUser18"
+        />,
+        <ConversationCard
+          datePosted="2021-01-12T02:42:39.005Z"
+          messageContent="message content 4"
+          onClick={[Function]}
+          userName="otherUser4"
+        />,
+        <ConversationCard
+          datePosted="2021-01-07T07:42:39.005Z"
+          messageContent="message content with lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots of padding 42"
+          onClick={[Function]}
+          userName="otherUser2"
+        />,
+        <ConversationCard
+          datePosted="2020-03-13T02:42:39.075Z"
+          messageContent="message content 5"
+          onClick={[Function]}
+          userName="otherUser5"
+        />,
+        <ConversationCard
+          datePosted="2020-01-14T02:42:39.005Z"
+          messageContent="message content 15 other year"
+          onClick={[Function]}
+          userName="otherUser15"
+        />,
+      ]
+    }
+    resultsPerPage={7}
+  />
+  <EmptySelection />
+</div>
+`;
