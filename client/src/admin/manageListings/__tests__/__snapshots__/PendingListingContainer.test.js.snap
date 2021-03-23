@@ -2,61 +2,24 @@
 
 exports[`PendingListingContainer Container test should match snapshot test regardless of the props 1`] = `
 <div>
-  <div>
-    <h3
-      className="account-summary-info-header"
-    >
-       
-      Pending Listings
-       
-    </h3>
-    <p
-      className="account-summary-info-text"
-    >
-       
-      Use the icons to the right of each listing to approve or reject them
-       
-    </p>
+  <div
+    className="w-2/3 flex justify-center items-center mx-auto min-h-screen text-center bg-white"
+  >
     <div
-      className="ml-10 my-3"
+      className="bg-white rounded-lg shadow-2xl"
     >
-      <div>
-        <ul
-          className="flex m-auto w-2/3"
+      <div
+        className="border-red-600 flex w-96 rounded-lg border-t-8"
+      >
+        <div
+          className="mt-5 p-10 mx-auto w-full"
         >
-          <li
-            className="next-prev-text disabled"
+          <h1
+            className="text-gray-800 h1"
           >
-            <a
-              aria-disabled="true"
-              aria-label="Previous page"
-              className="next-prev-link"
-              onClick={[Function]}
-              onKeyPress={[Function]}
-              rel="prev"
-              role="button"
-              tabIndex="0"
-            >
-              Previous
-            </a>
-          </li>
-          <li
-            className="next-prev-text"
-          >
-            <a
-              aria-disabled="false"
-              aria-label="Next page"
-              className="next-prev-link"
-              onClick={[Function]}
-              onKeyPress={[Function]}
-              rel="next"
-              role="button"
-              tabIndex="0"
-            >
-              Next
-            </a>
-          </li>
-        </ul>
+            No pending listings available
+          </h1>
+        </div>
       </div>
     </div>
   </div>

@@ -16,9 +16,12 @@ import {
 import {Flip, toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
 import {ADMIN_TOAST} from "../../common/constants/ToastText";
+import Confirmation from "../../common/listings/Confirmation";
 
 
 toast.configure()
+
+const NO_LISTINGS = "No pending listings available";
 
 function PendingListingContainer() {
     const [listingID, setListingID] = useState();
@@ -92,14 +95,18 @@ function PendingListingContainer() {
     }
     return (
         <div>
-            <PendingListingCards
-                onSubmit={onSubmit}
-                listingID={listingID}
-                setListingID={setListingID}
-                listingStatus={listingStatus}
-                setListingStatus={setListingStatus}
-                pendingListings={pendingListings}
-            />
+            {!pendingListings.length ?
+                <Confirmation message={NO_LISTINGS} displayButton={false} errorColor={true}/>
+                :
+                <PendingListingCards
+                    onSubmit={onSubmit}
+                    listingID={listingID}
+                    setListingID={setListingID}
+                    listingStatus={listingStatus}
+                    setListingStatus={setListingStatus}
+                    pendingListings={pendingListings}
+                />
+            }
         </div>
     );
 }
