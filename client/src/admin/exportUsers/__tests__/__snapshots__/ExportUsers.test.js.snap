@@ -20,7 +20,13 @@ exports[`ExportUsers Container test should match snapshot test regardless of the
     className="btn btn-green mx-auto w-1/3 mt-24"
     onClick={[Function]}
   >
-    Export Users
+    Export Members
+  </button>
+  <button
+    className="btn btn-green mx-auto w-1/3 mt-24"
+    onClick={[Function]}
+  >
+    Export Businesses
   </button>
 </div>
 `;

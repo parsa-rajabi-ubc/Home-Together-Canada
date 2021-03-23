@@ -54,8 +54,16 @@ export const banUsername = (username) => {
     return fetch(`${DEV_URL}/admin/ban/user/`, request);
 }
 
-export const exportUserData = () => {
-    return fetch(`${DEV_URL}/admin/export/all/`, {
+export const exportMemberData = () => {
+    return fetch(`${DEV_URL}/admin/export/members/`, {
+        method: 'GET',
+        withCredentials: true,
+        credentials: 'include'
+    });
+}
+
+export const exportBusinessData = () => {
+    return fetch(`${DEV_URL}/admin/export/businesses/`, {
         method: 'GET',
         withCredentials: true,
         credentials: 'include'
