@@ -11,9 +11,9 @@ exports[`SearchListingFilters Container test should match snapshot test with Cla
       className="col-span-3 sm:col-span-2"
     >
       <label
-        className="text-2xl font-medium"
+        className="page-title"
       >
-        Search Filtering
+        Search Filter
       </label>
       <SubmitButton
         className="btn btn-green w-1/4 float-right py-2"
@@ -111,9 +111,9 @@ exports[`SearchListingFilters Container test should match snapshot test with Cla
       className="col-span-3 sm:col-span-2"
     >
       <label
-        className="text-2xl font-medium"
+        className="page-title"
       >
-        Search Filtering
+        Search Filter
       </label>
       <SubmitButton
         className="btn btn-green w-1/4 float-right py-2"
@@ -211,9 +211,9 @@ exports[`SearchListingFilters Container test should match snapshot test with Ser
       className="col-span-3 sm:col-span-2"
     >
       <label
-        className="text-2xl font-medium"
+        className="page-title"
       >
-        Search Filtering
+        Search Filter
       </label>
       <SubmitButton
         className="btn btn-green w-1/4 float-right py-2"
@@ -311,9 +311,9 @@ exports[`SearchListingFilters Container test should match snapshot test with Ser
       className="col-span-3 sm:col-span-2"
     >
       <label
-        className="text-2xl font-medium"
+        className="page-title"
       >
-        Search Filtering
+        Search Filter
       </label>
       <SubmitButton
         className="btn btn-green w-1/4 float-right py-2"

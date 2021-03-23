@@ -65,7 +65,7 @@ function SearchListingFilters(props) {
         <div className="col-start-1 col-end-7 py-5 px-5 my-6 ml-6 bg-white shadow-lg rounded-xl">
             <div className="grid grid-cols-2 gap-6">
                 <div className="col-span-3 sm:col-span-2">
-                    <label className="text-2xl font-medium">Search Filtering</label>
+                    <label className="page-title">Search Filter</label>
                     <SubmitButton
                         inputValue={"Search"}
                         className="btn btn-green w-1/4 float-right py-2"
