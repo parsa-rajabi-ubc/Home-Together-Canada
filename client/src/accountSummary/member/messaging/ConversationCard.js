@@ -33,7 +33,7 @@ ConversationCard.propTypes = {
     userName: PropTypes.string.isRequired,
     messageContent: PropTypes.string.isRequired,
     datePosted: PropTypes.string.isRequired,
-    onClick: PropTypes.func
+    onClick: PropTypes.func.isRequired
 }
 
 
