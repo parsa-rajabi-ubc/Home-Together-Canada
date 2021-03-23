@@ -47,10 +47,10 @@ exports[`CreateListingContainer Container test should match snapshot test 1`] = 
 exports[`CreateListingContainer Container test should match snapshot test if the user is a business 1`] = `
 <div>
   <div
-    className="sideBar-container grid-cols-8"
+    className="flex"
   >
     <div
-      className="sideBar col-end-3"
+      className="flex-none w-1/4 m-6 rounded-xl shadow-xl"
     >
       <div>
         <div
@@ -105,7 +105,7 @@ exports[`CreateListingContainer Container test should match snapshot test if the
       </div>
     </div>
     <div
-      className="sideBar-selected-component col-start-3 col-end-10"
+      className="flex-1"
     >
       <div
         className="flex justify-center items-center h-64 bg-white"
@@ -136,10 +136,10 @@ exports[`CreateListingContainer Container test should match snapshot test if the
 exports[`CreateListingContainer Container test should match snapshot test if the user is a member 1`] = `
 <div>
   <div
-    className="sideBar-container grid-cols-8"
+    className="flex"
   >
     <div
-      className="sideBar col-end-3"
+      className="flex-none w-1/4 m-6 rounded-xl shadow-xl"
     >
       <div>
         <div
@@ -308,7 +308,7 @@ exports[`CreateListingContainer Container test should match snapshot test if the
       </div>
     </div>
     <div
-      className="sideBar-selected-component col-start-3 col-end-10"
+      className="flex-1"
     >
       <div
         className="flex justify-center items-center h-64 bg-white"
@@ -339,10 +339,10 @@ exports[`CreateListingContainer Container test should match snapshot test if the
 exports[`CreateListingContainer Container test should match snapshot test if the user is not logged in 1`] = `
 <div>
   <div
-    className="sideBar-container grid-cols-8"
+    className="flex"
   >
     <div
-      className="sideBar col-end-3"
+      className="flex-none w-1/4 m-6 rounded-xl shadow-xl"
     >
       <div>
         <div
@@ -397,7 +397,7 @@ exports[`CreateListingContainer Container test should match snapshot test if the
       </div>
     </div>
     <div
-      className="sideBar-selected-component col-start-3 col-end-10"
+      className="flex-1"
     >
       <div
         className="flex justify-center items-center h-64 bg-white"

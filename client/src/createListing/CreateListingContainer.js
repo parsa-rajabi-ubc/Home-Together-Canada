@@ -220,8 +220,8 @@ const CreateListingContainer = (props) => {
 
                 // Display confirmation if payment went through or services positing is submitted
                 !showConfirmation ?
-                    <div className={"sideBar-container grid-cols-8"}>
-                        <div className={"sideBar col-end-3"}>
+                    <div className={"flex"}>
+                        <div className={"flex-none w-1/4 m-6 rounded-xl shadow-xl"}>
                             <CreateListingControls
                                 isUserMember={isUserMember}
                                 chosenCategory={handleSelectedCategory}
@@ -231,7 +231,7 @@ const CreateListingContainer = (props) => {
                             />
                         </div>
 
-                        <div className={"sideBar-selected-component col-start-3 col-end-10"}>
+                        <div className={"flex-1"}>
                             {showAppropriateResultsPanel()}
                             {displayPayment &&
                             <Paypal
