@@ -11,6 +11,7 @@ src/tailwind.output.css
 
 # testing
 /client/coverage
+/coverage
 
 # production
 /client/build
@@ -26,7 +27,8 @@ src/tailwind.output.css
 .env.test.local
 .env.production.local
 .idea
-home_together_info.csv
+home_together_members.csv
+home_together_businesses.csv
 
 npm-debug.log*
 yarn-debug.log*

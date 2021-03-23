@@ -58,7 +58,7 @@ require("./config/passport.js")(passport);
 
 
 // force false will prevent the database from being cleared everytime the server starts up
-db.sequelize.sync({ force: true })
+db.sequelize.sync({ force: false })
     // populate DB with categories and subcategories
     .then(() => {
         return listingCategories.populateDBWithCategories();
