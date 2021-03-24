@@ -265,6 +265,14 @@ const rejectListing = id => {
     })
 }
 
+const findAllListingsForUser = uid => {
+    return Listing.findAll({
+        where: {
+            uid: uid
+        }
+    });
+}
+
 module.exports = {
     createListing,
     findAllListings,
@@ -274,6 +282,7 @@ module.exports = {
     softDeleteListings,
     getAllPendingListings,
     approveListing,
-    rejectListing
+    rejectListing,
+    findAllListingsForUser
 }
 
