@@ -11,7 +11,6 @@ const router = express.Router();
 const passport = require('passport');
 const { validationResult } = require('express-validator/check');
 const multer = require('multer');
-const path = require('path');
 
 const businessAccounts = require('../controllers/businessAccountController');
 const abstractUsers = require('../controllers/abstractUserController');

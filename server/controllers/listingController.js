@@ -60,7 +60,7 @@ const createListing = async (req, res) => {
             );
         }
 
-        res.status(200).json({ success: true });
+        res.status(200).json({ success: true, listing: listing });
     }
     catch (err) {
         res.status(500).json({ err: err.message });
@@ -265,6 +265,14 @@ const rejectListing = id => {
     })
 }
 
+const findAllListingsForUser = uid => {
+    return Listing.findAll({
+        where: {
+            uid: uid
+        }
+    });
+}
+
 module.exports = {
     createListing,
     findAllListings,
@@ -274,6 +282,7 @@ module.exports = {
     softDeleteListings,
     getAllPendingListings,
     approveListing,
-    rejectListing
+    rejectListing,
+    findAllListingsForUser
 }
 

@@ -10,16 +10,57 @@ const express = require('express');
 const router = express.Router();
 const { validationResult } = require('express-validator/check');
 const includes = require('lodash/includes');
+const last = require('lodash/last');
+const fs = require('fs');
 
 const listingValidator = require('../controllers/validators/listingControllerValidator');
 const { LISTING_VALIDATION_METHODS, CATEGORY_FORM_VALIDATION_DICT } = require('../controllers/validators/listingControllerValidatorUtils');
-const { isLoggedIn } = require('./routeUtils');
+const { isLoggedIn, userIsBusiness } = require('./routeUtils');
 const listingCategoryController = require('../controllers/listingCategoryController');
 const listingSubcategoryController = require('../controllers/listingSubcategoryController');
 const listingController = require('../controllers/listingController');
 const listingAssignedSubcategoryController = require('../controllers/listingAssignedSubcategoryController');
 const memberListingLocationController = require('../controllers/memberListingLocationController');
+const multer = require("multer");
 const { MEMBER_SERVICE_CATEGORIES } = require('../constants/listingConstants');
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'server/public/uploads/listings');
+    },
+    filename: function (req, file, cb) {
+        listingController.findAllListingsForUser(req.user.uid)
+            .then(listings => {
+                const mostRecentListing = last(listings);
+                const listingId = mostRecentListing.id;
+                const ext = file.originalname.substring(file.originalname.lastIndexOf('.'), file.originalname.length);
+                cb(null, (listingId + '-' + Date.now() + ext));
+            });
+    }
+});
+
+const uploads = multer({
+    storage,
+    limits: {
+        fileSize: 2 * 1024 * 1024  // 2 MB
+    }
+}).array('images', 6);
+
+router.post('/pictures/upload/',
+    isLoggedIn,
+    (req, res) => {
+        uploads(req, res, (err) => {
+            if (err instanceof multer.MulterError) {
+                res.status(403).json({ err });
+            } else if (err) {
+                res.status(403).json({ err });
+            } else if (!req.files) {
+                res.status(403).json({ err: 'No file to upload' });
+            } else {
+                res.status(200).json({ success: true });
+            }
+    });
+});
 
 router.post('/create/',
     isLoggedIn,

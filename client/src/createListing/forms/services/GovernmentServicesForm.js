@@ -2,7 +2,7 @@
  * @Author:     Jeff Hatton
  * @Created:    2021.02.10
  *
- * @Description: Government services listing form
+ * @Description: Form to create a listing in Government services category
  *
  */
 

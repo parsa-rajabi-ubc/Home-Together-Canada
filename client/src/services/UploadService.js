@@ -11,7 +11,7 @@ if (process.env.NODE_ENV === 'development') {
     DEV_URL = 'http://localhost:3001';
 }
 
-const uploadLogo = image => {
+export const uploadLogo = image => {
     const fd = new FormData();
     fd.append('image', image);
 
@@ -25,6 +25,20 @@ const uploadLogo = image => {
     return fetch(`${DEV_URL}/business/logo/upload/`, request);
 }
 
-module.exports = {
-    uploadLogo
+export const uploadPictures = (images, listingId) => {
+    const fd = new FormData();
+    images.forEach((image) => {
+        fd.append('images', image);
+    });
+    fd.set('listingId', listingId);
+
+    const request = {
+        method: 'POST',
+        credentials: 'include',
+        withCredentials: true,
+        body: fd
+    }
+
+    return fetch(`${DEV_URL}/listing/pictures/upload/`, request);
 }
+

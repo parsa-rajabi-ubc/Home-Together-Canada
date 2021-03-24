@@ -310,6 +310,7 @@ exports[`HouseServicesForm Snapshot test should render correctly regardless of p
             <input
               accept="image/png, image/jpg, image/jpeg, image/JPG, image/JPEG"
               className="photo-upload-width photo-upload hover:text-indigo-500"
+              multiple={true}
               name="logo"
               onChange={[Function]}
               type="file"

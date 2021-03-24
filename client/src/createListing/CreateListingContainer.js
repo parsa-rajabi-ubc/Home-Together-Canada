@@ -13,6 +13,7 @@ import {withRouter} from "react-router-dom";
 import PropTypes from "prop-types";
 import {compose} from "redux";
 import {connect} from "react-redux";
+import has from 'lodash/has';
 import {USER_TYPES} from "../common/constants/users";
 import InvalidUser from "../common/error/InvalidUser";
 import {BUSINESS_SERVICE_CATEGORIES} from "./constants/serviceListingCategoriesText";
@@ -29,6 +30,7 @@ import Paypal, {PAYMENT_STATUS} from "./Paypal";
 import {animateScroll as scroll} from 'react-scroll'
 import Confirmation from "../common/listings/Confirmation";
 import * as ListingService from "../services/ListingService";
+import * as UploadService from '../services/UploadService';
 import {reset} from "../redux/actionCreators";
 import {SESSION_ERR} from "../common/constants/errors";
 import {
@@ -45,6 +47,9 @@ const CONFIRMATION_TEXT = {
     SESSION_ERR: SESSION_ERR,
     GENERIC_ERROR: 'There was an error creating you listing. Please try again.'
 }
+
+const IMAGE_UPLOAD_ERROR = 'An error occurred when uploading the pictures for your listing. Remember files have a ' +
+    'maximum size of 2MB';
 
 const mapDispatchToProps = {
     reset,
@@ -63,7 +68,7 @@ const CreateListingContainer = (props) => {
     const [selectedSubcategories, setSelectedSubcategories] = useState();
     const [listingOrderID, setListingOrderID] = useState();
     const [isSelectedSubcategoryEmpty, setIsSelectedSubcategoryEmpty] = useState(true);
-    const [submitted, setSubmitted] = useState();
+    const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
 
     const isUserMember = (accountType === USER_TYPES.MEMBER);
@@ -126,6 +131,18 @@ const CreateListingContainer = (props) => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.success) {
+                        if (listing.pictures) {
+                            UploadService.uploadPictures(listing.pictures, data.listing.id)
+                                .then(res => res.json())
+                                .then(data => {
+                                    if (!data.success) {
+                                        alert(IMAGE_UPLOAD_ERROR);
+                                    }
+                                })
+                                .catch(() => {
+                                    alert(IMAGE_UPLOAD_ERROR);
+                                });
+                        }
                         setIsListingValid(true);
                         setLoading(false);
                     } else if (data.authenticated === false) {
