@@ -203,10 +203,19 @@ const searchBusinessListings = async (searchArea, categoryName, subcategoryNames
     });
 }
 
+const findAllListingsForUser = uid => {
+    return Listing.findAll({
+        where: {
+            uid: uid
+        }
+    });
+}
+
 module.exports = {
     createListing,
     findAllListings,
     searchMemberServiceListings,
-    searchBusinessListings
+    searchBusinessListings,
+    findAllListingsForUser
 }
 

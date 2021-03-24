@@ -10,6 +10,7 @@ const express = require('express');
 const router = express.Router();
 const { validationResult } = require('express-validator/check');
 const includes = require('lodash/includes');
+const last = require('lodash/last');
 const fs = require('fs');
 
 const listingValidator = require('../controllers/validators/listingControllerValidator');
@@ -28,8 +29,13 @@ const storage = multer.diskStorage({
         cb(null, 'server/public/uploads/listings');
     },
     filename: function (req, file, cb) {
-        const ext = file.originalname.substring(file.originalname.lastIndexOf('.'), file.originalname.length);
-        cb(null, (req.body.listingId + '-' + Date.now() + ext));
+        listingController.findAllListingsForUser(req.user.uid)
+            .then(listings => {
+                const mostRecentListing = last(listings);
+                const listingId = mostRecentListing.id;
+                const ext = file.originalname.substring(file.originalname.lastIndexOf('.'), file.originalname.length);
+                cb(null, (listingId + '-' + Date.now() + ext));
+            });
     }
 });
 
@@ -40,23 +46,19 @@ const uploads = multer({
     }
 }).array('images', 6);
 
-router.post('/pictures/upload/', (req, res) => {
-    uploads(req, res, (err) => {
-        if (err instanceof multer.MulterError) {
-            res.status(403).json({ err });
-        } else if (err) {
-            res.status(403).json({ err });
-        } else if (!req.files) {
-            res.status(403).json({ err: 'No file to upload' });
-        } else {
-            const images = req.files;
-
-            // rename images with listing id
-            // see https://stackoverflow.com/questions/52131922/multer-custom-file-name-req-body-inputtextfield-as-the-name-of-the-file
-            images.forEach(image => {
-                fs.renameSync(image.path, image.path.replace('undefined', req.body.listingId));
-            });
-        }
+router.post('/pictures/upload/',
+    isLoggedIn,
+    (req, res) => {
+        uploads(req, res, (err) => {
+            if (err instanceof multer.MulterError) {
+                res.status(403).json({ err });
+            } else if (err) {
+                res.status(403).json({ err });
+            } else if (!req.files) {
+                res.status(403).json({ err: 'No file to upload' });
+            } else {
+                res.status(200).json({ success: true });
+            }
     });
 });
 
