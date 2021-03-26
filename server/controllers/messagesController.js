@@ -13,10 +13,12 @@ const Message = db.message;
 const createMessage = (message) => {
 
     const messageEntry = {
-        senderId: message.senderId,
-        receiverId: message.receiverId,
-        content: message.content
+        senderId: message.body.senderId,
+        receiverId: message.body.receiverId,
+        content: message.body.content
     }
+
+    // Maybe error message or success message
 
     return Message.create(messageEntry);
 }
