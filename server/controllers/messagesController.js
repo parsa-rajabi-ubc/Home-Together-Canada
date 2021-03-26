@@ -28,7 +28,7 @@ const findMessagesForUser = uid => {
                 {receiverId: uid}
             ]
         }
-    })
+    });
 }
 
 const findAllMessagesForAllUsers = (req, res) => {
