@@ -2,7 +2,7 @@
  * @Author:     Alex Qin
  * @Created:    2020.03.24
  *
- * @Description: Message services
+ * @Description: Message services for connect backend to frontend
  *
  */
 let DEV_URL = '';
@@ -10,7 +10,7 @@ if (process.env.NODE_ENV === 'development') {
     DEV_URL = 'http://localhost:3001';
 }
 
-export const sendMessage = (message) => {
+export const sendMessage = (newMessage) => {
     const request = {
         method: 'POST',
         headers: {
@@ -19,8 +19,24 @@ export const sendMessage = (message) => {
         },
         credentials: 'include',
         withCredentials: true,
-        body: JSON.stringify(message)
+        body: JSON.stringify(newMessage)
     }
 
     return fetch(`${DEV_URL}/message/create/`, request);
+}
+
+export const getAllMessagesForOneUser = () => {
+    return fetch(`${DEV_URL}/message/oneUserMessages/`, {
+        method: 'GET',
+        withCredentials: true,
+        credentials: 'include'
+    });
+}
+
+export const getAllMessagesForAllUser = () => {
+    return fetch(`${DEV_URL}/message/allUserMessages/`, {
+        method: 'GET',
+        withCredentials: true,
+        credentials: 'include'
+    });
 }

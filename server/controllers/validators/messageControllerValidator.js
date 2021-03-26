@@ -5,25 +5,23 @@
  * @Description: functions to validate input to controller functions to send a message
  *
  */
-import {isStringEmpty} from "../../../client/src/common/utils/stringUtils";
 
 const { body } = require('express-validator/check');
-// const {
-//     isValidMessage
-// } = require('./messageControllerValidatorUtils');
-
-const { userIsMember } = require('../../routes/routeUtils');
+const {
+    isValidMessage,
+    uidShouldExistAndBeForAMember
+} = require('./messageControllerValidatorUtils');
 
 const messageContentValidation = [
     body('content', "A message must be provided")
         .exists()
-        .custom(content => isStringEmpty(content)),
+        .custom(content => isValidMessage(content)),
     body('receiverId',"ReceiverId must be a user")
         .exists()
-        .custom(receiverId => userIsMember(receiverId)),
+        .custom(receiverId => uidShouldExistAndBeForAMember(receiverId)),
 ];
 
-exports.validate = (method) =>{
+exports.validate = (method) => {
     switch (method) {
         case 'checkMessage': {
             return [

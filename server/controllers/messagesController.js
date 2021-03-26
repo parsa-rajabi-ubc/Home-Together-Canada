@@ -10,15 +10,12 @@ const db = require('../models');
 const {Op} = require("sequelize");
 const Message = db.message;
 
-const createMessage = (message) => {
-
+const createMessage = (message,uid) => {
     const messageEntry = {
-        senderId: message.body.senderId,
+        senderId: uid,
         receiverId: message.body.receiverId,
         content: message.body.content
     }
-
-    // Maybe error message or success message
 
     return Message.create(messageEntry);
 }
@@ -31,10 +28,11 @@ const findMessagesForUser = uid => {
                 {receiverId: uid}
             ]
         }
-    });
+    })
 }
+
 const findAllMessagesForAllUsers = (req, res) => {
-    Message.findAll()
+    Message.findAll({include: { all: true }})
         .then(data => res.send(data))
         .catch(err => {
             res.status(500).send({ message: err.message || "Something went wrong getting messages"})

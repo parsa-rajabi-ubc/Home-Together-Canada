@@ -85,9 +85,11 @@ db.memberAccount.hasMany(db.message, {
     onDelete: 'CASCADE'
 });
 db.message.belongsTo(db.memberAccount, {
+    foreignKey: {
+        name: 'receiverId'
+    },
     onDelete: 'CASCADE'
 })
-
 
 // relationship between listings and abstract users
 db.listing.belongsTo(db.abstractUser, {

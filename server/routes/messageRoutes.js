@@ -13,7 +13,6 @@ const { isLoggedIn, userIsMember } = require('./routeUtils');
 const message = require('../controllers/messagesController');
 const messageValidator = require('../controllers/validators/messageControllerValidator');
 
-
 router.post('/create/',
     isLoggedIn,
     userIsMember,
@@ -24,9 +23,36 @@ router.post('/create/',
         if (!errors.isEmpty()) {
             res.status(202).json({ errors: errors.array()});
         } else {
-            message.createMessage(req)
-                .then( response => res.json({...response}));
+            message.createMessage(req,req.user.uid)
+                .then( (message) => res.status(200).json({
+                    senderId: message.senderId,
+                    receiverId:message.receiverId,
+                    content: message.content,
+                }))
+                .catch(err => {
+                    res.status(500).json({ err: err.message });
+                });
         }
+    }
+);
+
+router.get('/allUserMessages/',
+    isLoggedIn,
+    userIsMember,
+    function (req, res){
+        message.findAllMessagesForAllUsers(req,res);
+    }
+);
+
+router.get('/oneUserMessages/',
+    isLoggedIn,
+    userIsMember,
+    function (req, res){
+        message.findMessagesForUser(req.user.uid)
+            .then(data => res.send(data))
+            .catch(err => {
+                res.status(500).send({ message: err.message || "Something went wrong getting messages"})
+            });
     }
 );
 
