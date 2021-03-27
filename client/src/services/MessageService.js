@@ -26,7 +26,7 @@ export const sendMessage = (newMessage) => {
 }
 
 export const getAllMessagesForOneUser = () => {
-    return fetch(`${DEV_URL}/message/oneUserMessages/`, {
+    return fetch(`${DEV_URL}/message/one/`, {
         method: 'GET',
         withCredentials: true,
         credentials: 'include'
@@ -34,7 +34,7 @@ export const getAllMessagesForOneUser = () => {
 }
 
 export const getAllMessagesForAllUser = () => {
-    return fetch(`${DEV_URL}/message/allUserMessages/`, {
+    return fetch(`${DEV_URL}/message/all/`, {
         method: 'GET',
         withCredentials: true,
         credentials: 'include'

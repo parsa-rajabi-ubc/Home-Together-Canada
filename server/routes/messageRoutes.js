@@ -24,11 +24,7 @@ router.post('/create/',
             res.status(202).json({ errors: errors.array()});
         } else {
             message.createMessage(req,req.user.uid)
-                .then( (message) => res.status(200).json({
-                    senderId: message.senderId,
-                    receiverId:message.receiverId,
-                    content: message.content,
-                }))
+                .then( () => res.status(200).json({ sent: true}))
                 .catch(err => {
                     res.status(500).json({ err: err.message });
                 });
@@ -36,7 +32,7 @@ router.post('/create/',
     }
 );
 
-router.get('/allUserMessages/',
+router.get('/all/',
     isLoggedIn,
     userIsMember,
     function (req, res){
@@ -44,12 +40,12 @@ router.get('/allUserMessages/',
     }
 );
 
-router.get('/oneUserMessages/',
+router.get('/one/',
     isLoggedIn,
     userIsMember,
     function (req, res){
         message.findMessagesForUser(req.user.uid)
-            .then(data => res.send(data))
+            .then(data => res.status(200).json({ data }))
             .catch(err => {
                 res.status(500).send({ message: err.message || "Something went wrong getting messages"})
             });
