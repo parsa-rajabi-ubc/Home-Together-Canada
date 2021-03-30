@@ -19,8 +19,8 @@ describe('SendMessage', () => {
         it('should match snapshot test of SendMessage', () => {
             //given
             const props = {
-                username: "messageMember1",
-                otherUser: "otherUser1",
+                receiverName: "otherUser1",
+                receiverId: 2,
             }
             //when
             const component = renderer.create(<SendMessage {...props}/>);

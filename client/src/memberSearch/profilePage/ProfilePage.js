@@ -15,6 +15,8 @@ import SendMessage from "../../accountSummary/member/messaging/SendMessage";
 
 function ProfilePage(props) {
     const {
+        uid,
+
         username,
         age,
 
@@ -206,7 +208,7 @@ function ProfilePage(props) {
                     </div>
 
                 </div>
-                {sendingMessage && <SendMessage otherUser={username} username={"messageMember1"}/>}
+                {sendingMessage && <SendMessage receiverName={username} receiverId={uid}/>}
             </div>
         </div>
     );
@@ -215,6 +217,7 @@ function ProfilePage(props) {
 
 ProfilePage.propTypes =
     {
+        uid: PropTypes.number.isRequired,
         username: PropTypes.string.isRequired,
         age: PropTypes.number.isRequired,
 
