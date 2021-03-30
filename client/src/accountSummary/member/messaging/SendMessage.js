@@ -8,7 +8,7 @@
 
 import React, {useState} from 'react';
 import PropTypes from "prop-types";
-import {sendMessage} from "../../../services/MessageService"
+import MessageService from "../../../services/MessageService"
 import LargeTextArea from "../../../common/forms/LargeTextArea";
 import SubmitButton from "../../../common/forms/SubmitButton";
 import {useEffect} from "react";
@@ -41,7 +41,7 @@ function SendMessage(props) {
                 receiverId: receiverId,
                 content: content
             }
-            sendMessage(message)
+            MessageService.sendMessage(message)
                 .then(res => res.json())
                 .then(data => {
                     if (data.sent) {

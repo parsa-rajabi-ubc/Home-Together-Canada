@@ -10,7 +10,7 @@ if (process.env.NODE_ENV === 'development') {
     DEV_URL = 'http://localhost:3001';
 }
 
-export const sendMessage = (newMessage) => {
+const sendMessage = (newMessage) => {
     const request = {
         method: 'POST',
         headers: {
@@ -25,7 +25,7 @@ export const sendMessage = (newMessage) => {
     return fetch(`${DEV_URL}/message/create/`, request);
 }
 
-export const getAllMessagesForOneUser = () => {
+const getAllMessagesForOneUser = () => {
     return fetch(`${DEV_URL}/message/one/`, {
         method: 'GET',
         withCredentials: true,
@@ -33,10 +33,16 @@ export const getAllMessagesForOneUser = () => {
     });
 }
 
-export const getAllMessagesForAllUser = () => {
+const getAllMessagesForAllUser = () => {
     return fetch(`${DEV_URL}/message/all/`, {
         method: 'GET',
         withCredentials: true,
         credentials: 'include'
     });
+}
+
+module.exports = {
+    sendMessage,
+    getAllMessagesForOneUser,
+    getAllMessagesForAllUser
 }
