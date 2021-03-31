@@ -10,9 +10,9 @@ const db = require('../models');
 const {Op} = require("sequelize");
 const Message = db.message;
 
-const createMessage = (req,uid) => {
+const createMessage = (req) => {
     const messageEntry = {
-        senderId: uid,
+        senderId: req.user.uid,
         receiverId: req.body.receiverId,
         content: req.body.content
     }

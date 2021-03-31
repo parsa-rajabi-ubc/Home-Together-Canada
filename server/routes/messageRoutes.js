@@ -23,7 +23,7 @@ router.post('/create/',
         if (!errors.isEmpty()) {
             res.status(202).json({ errors: errors.array()});
         } else {
-            message.createMessage(req,req.user.uid)
+            message.createMessage(req)
                 .then( () => res.status(200).json({ sent: true}))
                 .catch(err => {
                     res.status(500).json({ err: err.message });

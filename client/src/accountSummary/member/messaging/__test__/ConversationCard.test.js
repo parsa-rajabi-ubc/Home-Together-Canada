@@ -22,7 +22,7 @@ describe('ConversationCard', () => {
 
             //when
             const renderer = new ShallowRenderer();
-            renderer.render(<ConversationCard {...props}/>);
+            renderer.render(<ConversationCard onClick={jest.fn()} {...props}/>);
             const result = renderer.getRenderOutput();
             //then
             expect(result).toMatchSnapshot();

@@ -15,8 +15,9 @@ exports[`SendMessage Snapshot test should match snapshot test of SendMessage 1`]
     </label>
     
     <textarea
-      className="undefined undefined input"
+      className="undefined undefined undefined input"
       cols="50"
+      onChange={[Function]}
     />
   </div>
   <label>

@@ -3,6 +3,7 @@
 exports[`ConversationCard Snapshot test should match snapshot test 1`] = `
 <section
   className="card-container mt-0"
+  onClick={[MockFunction]}
 >
   <div
     className="inline ml-6 align-middle "
