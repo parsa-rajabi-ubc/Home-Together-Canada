@@ -26,12 +26,6 @@ exports[`AdminContainer Container test should match snapshot test regardless of 
         className="sub-page-items "
         onClick={[Function]}
       >
-        Pending Businesses
-      </div>
-      <div
-        className="sub-page-items "
-        onClick={[Function]}
-      >
         Pending Listings
       </div>
       <div

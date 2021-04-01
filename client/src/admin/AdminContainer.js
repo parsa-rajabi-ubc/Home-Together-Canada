@@ -32,10 +32,6 @@ function AdminContainer() {
             value: 'Manage Admins'
         },
         {
-            label: 'Pending Businesses',
-            value: 'Pending Businesses'
-        },
-        {
             label: 'Pending Listings',
             value: 'Pending Listings'
         },
@@ -52,8 +48,6 @@ function AdminContainer() {
                 return <ManageUsersContainer/>;
             case ADMIN_SUBPAGES.MANAGE_ADMINS:
                 return <ManageAdminsContainer/>
-            case ADMIN_SUBPAGES.PENDING_BUSINESSES:
-                return <div>Pending Businesses</div>;
             case ADMIN_SUBPAGES.PENDING_LISTINGS:
                 return <PendingListingContainer/>;
             case ADMIN_SUBPAGES.EXPORT_PAGE:
