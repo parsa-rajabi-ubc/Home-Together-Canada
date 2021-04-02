@@ -15,22 +15,21 @@ import MessageBox from "./MessageBox";
 import {sortMessageByTimeIncreasing} from "./messageUtils";
 
 function FullConversation(props) {
-    const{senderId,myUserName,messageData} = props;
-    // Will be implemented for sending Messages:
-    // const [newMessage, setNewMessage] = useState('');
+    const{senderId,myUserId,messageData} = props;
+
     const conversationData = [];
 
     // get all the messages between 2 users
-    const myMessage = messageData.filter(messageData => (messageData.senderId === senderId && messageData.receiverId === myUserName) || (messageData.senderId === myUserName && messageData.receiverId === senderId));
+    const myMessage = messageData.filter(messageData => (messageData.senderId === senderId && messageData.receiverId === myUserId) || (messageData.senderId === myUserId && messageData.receiverId === senderId));
 
     // sort the messages by time
     sortMessageByTimeIncreasing(myMessage);
 
     // By using "leftOrRight" to define messages to display either on left-side or right-side
     for(let i = 0; i < myMessage.length; i++){
-        if (myMessage[i].senderId !== myUserName) {
+        if (myMessage[i].senderId !== myUserId) {
             conversationData.push(<MessageBox key={i}
-                                              userName={myMessage[i].senderId}
+                                              userId={myMessage[i].senderId}
                                               messageContent={myMessage[i].messageContent}
                                               datePosted={myMessage[i].dateSent}
                                               leftOrRight={"left"}
@@ -38,7 +37,7 @@ function FullConversation(props) {
         }
         else{
             conversationData.push(<MessageBox key={i}
-                                              userName={myMessage[i].senderId}
+                                              userId={myMessage[i].senderId}
                                               messageContent={myMessage[i].messageContent}
                                               datePosted={myMessage[i].dateSent}
                                               leftOrRight={"right"}
@@ -60,7 +59,7 @@ function FullConversation(props) {
 
 FullConversation.propTypes = {
     senderId:PropTypes.string.isRequired,
-    myUserName:PropTypes.string.isRequired,
+    myUserId:PropTypes.number.isRequired,
     messageData: PropTypes.array.isRequired
 }
 

@@ -47,6 +47,14 @@ const findUsersByUsernames = (usernames) =>
         }
     });
 
+// added
+const findUserByUserId = uid =>
+    AbstractUser.findOne({
+        where: {
+            uid: uid
+        }
+    })
+
 const findUserByUsername = username =>
     AbstractUser.findOne({
         where: {
@@ -142,6 +150,7 @@ module.exports = {
     createAbstractUser,
     findAllAbstractUsers,
     findAbstractUser,
+    findUserByUserId,
     findUserByUsername,
     findUsersByUsernames,
     findUserByEmail,

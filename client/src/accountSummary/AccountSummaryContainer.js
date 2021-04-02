@@ -22,6 +22,7 @@ import DeactivateAccountContainer from './accountDeactivateAndDelete/DeactivateA
 import DeleteAccountContainer from "./accountDeactivateAndDelete/DeleteAccountContainer";
 import MessagingContainer from "./member/messaging/MessagingContainer";
 import {mockMessages} from "../mockData/MockMessageData"
+import SelectConversation from "./member/messaging/SelectConversation";
 
 const AccountSummaryContainer = props => {
     const { active } = props;
@@ -73,7 +74,7 @@ const AccountSummaryContainer = props => {
             case ALL_SUBPAGES.PASSWORD:
                 return <ChangePasswordContainer/>
             case ALL_SUBPAGES.MESSAGING:
-                return <MessagingContainer messageData={mockMessages} messageUser="messageMember1"/>
+                return <MessagingContainer/>
             case ALL_SUBPAGES.MANAGE_LISTINGS:
                 return <div>Manage Listings Component</div>
             case ALL_SUBPAGES.ACTIVATE:

@@ -41,7 +41,16 @@ const getAllMessagesForAllUser = () => {
     });
 }
 
+const getCurrentRegisteredUId = () => {
+    return fetch(`${DEV_URL}/message/uid/`, {
+        method: 'GET',
+        withCredentials: true,
+        credentials: 'include'
+    });
+}
+
 module.exports = {
+    getCurrentRegisteredUId,
     sendMessage,
     getAllMessagesForOneUser,
     getAllMessagesForAllUser
