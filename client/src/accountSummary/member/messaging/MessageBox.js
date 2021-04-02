@@ -6,12 +6,14 @@
  * @Description: Member Messaging MessageBox
  *
  */
-import React from 'react';
+import React,{useState} from 'react';
 import PropTypes from "prop-types";
 import Moment from 'react-moment';
 
 function MessageBox(props) {
-    const {userName, messageContent, datePosted,leftOrRight} = props;
+    const {userId, messageContent, datePosted,leftOrRight} = props;
+
+    const [userName,setUserName] = useState("");
 
     return (
         <div>
@@ -24,7 +26,7 @@ function MessageBox(props) {
 }
 
 MessageBox.propTypes = {
-    userName: PropTypes.string.isRequired,
+    userId: PropTypes.number.isRequired,
     messageContent: PropTypes.string.isRequired,
     datePosted: PropTypes.string.isRequired,
     leftOrRight: PropTypes.string.isRequired,

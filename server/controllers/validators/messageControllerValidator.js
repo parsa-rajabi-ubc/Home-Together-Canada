@@ -22,6 +22,8 @@ const messageContentValidation = [
         .custom(receiverId => uidShouldExistAndBeForAMember(receiverId)),
 ];
 
+
+
 exports.validate = (method) => {
     switch (method) {
         case 'checkMessage': {
