@@ -47,7 +47,7 @@ function SendMessage(props) {
                     if (data.sent) {
                         alert("Message sent successfully");
                     } else {
-                        alert("Sorry, the person you are trying to reach has deleted his/her account.")
+                        alert("Sorry, the person you are trying to reach has deleted their account.")
                     }
                 })
                 .catch(err => {
