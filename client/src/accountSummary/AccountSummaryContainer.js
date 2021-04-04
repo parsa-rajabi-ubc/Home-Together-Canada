@@ -21,8 +21,6 @@ import SearchCriteriaContainer from "./member/SearchCriteriaContainer";
 import DeactivateAccountContainer from './accountDeactivateAndDelete/DeactivateAccountContainer'
 import DeleteAccountContainer from "./accountDeactivateAndDelete/DeleteAccountContainer";
 import MessagingContainer from "./member/messaging/MessagingContainer";
-import {mockMessages} from "../mockData/MockMessageData"
-import SelectConversation from "./member/messaging/SelectConversation";
 
 const AccountSummaryContainer = props => {
     const { active } = props;

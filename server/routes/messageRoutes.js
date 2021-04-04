@@ -34,18 +34,6 @@ router.post('/create/',
     }
 );
 
-router.post('/uname/',
-    isLoggedIn,
-    userIsMember,
-    function (req, res){
-        abstractUsers.findUserByUserId(req.uid)
-            .then((account) => res.status(200).json({ uname:account.body.uname }))
-            .catch(err => {
-                res.status(500).send({ message: err.message || "Something went wrong getting user name"})
-            });
-    }
-);
-
 router.get('/uid/',
     isLoggedIn,
     userIsMember,

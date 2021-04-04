@@ -22,15 +22,7 @@ const MESSAGE = {
 
 function SelectConversation(props) {
     const {messageData, myUserId} = props;
-
-    // console.log(messageData);
-
     const recentMessages = mostRecentMessages(messageData);
-
-    // console.log(recentMessages);
-
-
-
     sortMessageByTimeDecreasing(recentMessages);
     const cardData = [];
     const [isSelect,setIsSelect] = useState(false);
@@ -41,9 +33,9 @@ function SelectConversation(props) {
             cardData.push(
                     <ConversationCard key={i}
                                       onClick={()=>{setIsSelect(true);setSenderId(recentMessages[i].receiverId)}}
-                                      userId={recentMessages[i].receiverId}
-                                      messageContent={recentMessages[i].messageContent}
-                                      datePosted={recentMessages[i].dateSent}
+                                      userName={recentMessages[i].receiverName}
+                                      messageContent={recentMessages[i].content}
+                                      datePosted={recentMessages[i].createdAt}
                     />
             );
         }
@@ -51,9 +43,9 @@ function SelectConversation(props) {
             cardData.push(
                     <ConversationCard key={i}
                                       onClick={()=>{setIsSelect(true);setSenderId(recentMessages[i].senderId)}}
-                                      userId={recentMessages[i].senderId}
-                                      messageContent={recentMessages[i].messageContent}
-                                      datePosted={recentMessages[i].dateSent}
+                                      userName={recentMessages[i].senderName}
+                                      messageContent={recentMessages[i].content}
+                                      datePosted={recentMessages[i].createdAt}
                     />
             );
         }
@@ -63,7 +55,7 @@ function SelectConversation(props) {
         <div>
             {(!cardData.length) ? <Confirmation displayButton={false} errorColor={true} message={MESSAGE.NO_RESULTS}/>
                 : <Paginate data={cardData} resultsPerPage={NUM_RESULTS}/>}
-            {(!isSelect || senderId ==="") ? <EmptySelection/>:<FullConversation messageData={messageData} myUserId={myUserId} senderId={senderId}/>}
+            {(!isSelect || senderId ==="") ? <EmptySelection/>:<FullConversation messageData={messageData} myUserId={myUserId} otherId={senderId}/>}
         </div>
     );
 }

@@ -6,7 +6,6 @@
  * @Description: Member Messaging Conversation Card List Container
  *
  */
-
 import React, {useEffect, useState} from 'react';
 import Confirmation from "../../../common/listings/Confirmation";
 import SelectConversation from "./SelectConversation";
@@ -17,31 +16,29 @@ const MESSAGE = {
 }
 
 function MessagingContainer(){
-    const messageData = [];
+    const [messageData,setMessageData] = useState([]);
     const [myUserId,setMyUserId] = useState(-1);
     const [loading, setLoading] = useState(true);
+    const [newLoading, setNewLoading] = useState(true);
 
     useEffect(() => {
-        MessageService.getAllMessagesForAllUser()
-            .then(res => res.json())
-            .then(data => {
-                for(let i = 0; i < data.message.length; i++){
-                    messageData.push( data.message[i] );
-                }
-                setLoading(false);
-            })
-            .catch(err => {
-                alert('error getting message: ' + err.message);
-                setLoading(false);
-            });
-    }, [])
-
-    useEffect(() => {
-        setLoading(true);
         MessageService.getCurrentRegisteredUId()
             .then(res => res.json())
             .then(data => {
                 setMyUserId(data.uid);
+                setNewLoading(false);
+            })
+            .catch(err => {
+                alert('error getting message: ' + err.message);
+                setNewLoading(false);
+            });
+    }, [])
+
+    useEffect(() => {
+        MessageService.getAllMessagesForOneUser()
+            .then(res => res.json())
+            .then(data => {
+                setMessageData(data.message);
                 setLoading(false);
             })
             .catch(err => {
@@ -51,9 +48,8 @@ function MessagingContainer(){
     }, [])
 
     return (
-
         <div>
-            {!loading &&
+            {(!loading && !newLoading ) &&
                 <div className={"m-6"}>
                     {(!messageData.length) ?
                         <Confirmation displayButton={false} errorColor={true} message={MESSAGE.NO_RESULTS}/>
@@ -63,10 +59,5 @@ function MessagingContainer(){
         </div>
     );
 }
-
-// MessagingContainer.propTypes = {
-//     messageUser: PropTypes.string.isRequired,
-//     messageData: PropTypes.array.isRequired,
-// };
 
 export default MessagingContainer;

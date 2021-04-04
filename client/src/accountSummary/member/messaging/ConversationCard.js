@@ -6,22 +6,18 @@
  * @Description: Member Messaging Conversation Card
  *
  */
-import React,{useState} from 'react';
+import React from 'react';
 import PropTypes from "prop-types";
 import Moment from 'react-moment';
 
 function ConversationCard(props) {
-    const {userId, messageContent, datePosted,onClick} = props;
-
-    const [userName,setUserName] = useState("");
-
-
+    const {userName, messageContent, datePosted,onClick} = props;
 
     return (
+        <div>
         <section className={"card-container mt-0"} onClick={onClick}>
             <div className={"inline ml-6 align-middle "}>
-                {/*need to be fix*/}
-                <label className={"font-semibold justify-between"}> {userId}</label>
+                <label className={"font-semibold justify-between"}> {userName}</label>
 
                 <section className={"inline float-right pr-6 justify-end"}>
                     <Moment format="MMM D, YYYY">{datePosted}</Moment>
@@ -31,15 +27,15 @@ function ConversationCard(props) {
                 <label className={"w-full font-light"}> {messageContent} </label>
             </div>
         </section>
+        </div>
     );
 }
 
 ConversationCard.propTypes = {
-    userId: PropTypes.number.isRequired,
+    userName: PropTypes.string.isRequired,
     messageContent: PropTypes.string.isRequired,
     datePosted: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired
 }
-
 
 export default ConversationCard;
