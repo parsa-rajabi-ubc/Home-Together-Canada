@@ -7,20 +7,19 @@
  *
  */
 
-import React,{useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import PropTypes from "prop-types";
-import LargeTextArea from "../../../common/forms/LargeTextArea";
-import Button from "../../../common/forms/Button";
 import MessageBox from "./MessageBox";
 import {sortMessageByTimeIncreasing} from "./messageUtils";
+import SendMessage from "./SendMessage";
 
 function FullConversation(props) {
-    const{senderId,myUserId,messageData} = props;
-
+    const{otherId,myUserId,messageData} = props;
+    const [otherName,setOtherName] = useState("");
     const conversationData = [];
 
     // get all the messages between 2 users
-    const myMessage = messageData.filter(messageData => (messageData.senderId === senderId && messageData.receiverId === myUserId) || (messageData.senderId === myUserId && messageData.receiverId === senderId));
+    const myMessage = messageData.filter(messageData => (messageData.senderId === otherId && messageData.receiverId === myUserId) || (messageData.senderId === myUserId && messageData.receiverId === otherId));
 
     // sort the messages by time
     sortMessageByTimeIncreasing(myMessage);
@@ -29,36 +28,39 @@ function FullConversation(props) {
     for(let i = 0; i < myMessage.length; i++){
         if (myMessage[i].senderId !== myUserId) {
             conversationData.push(<MessageBox key={i}
-                                              userId={myMessage[i].senderId}
-                                              messageContent={myMessage[i].messageContent}
-                                              datePosted={myMessage[i].dateSent}
+                                              userName={myMessage[i].senderName}
+                                              messageContent={myMessage[i].content}
+                                              datePosted={myMessage[i].createdAt}
                                               leftOrRight={"left"}
             />);
         }
         else{
             conversationData.push(<MessageBox key={i}
-                                              userId={myMessage[i].senderId}
-                                              messageContent={myMessage[i].messageContent}
-                                              datePosted={myMessage[i].dateSent}
+                                              userName={myMessage[i].senderName}
+                                              messageContent={myMessage[i].content}
+                                              datePosted={myMessage[i].createdAt}
                                               leftOrRight={"right"}
             />);
         }
     }
 
+    useEffect(() => {
+        if (myMessage[0].senderId !== myUserId) setOtherName(myMessage[0].senderName);
+        else setOtherName(myMessage[0].receiverName);
+    }, [otherId]);
+
     return (
-        <div>
-            <h1>{senderId}</h1> <br/>
+                <div>
+                    <h1>{otherName}</h1> <br/>
 
-            {conversationData} <br/>
-
-            <LargeTextArea placeholder={"type a message..."} label={""}/> <br/>
-            <Button className={"btn btn-green mb-6 w-1/2 text-base py-2"} value={"Send"}/>
-        </div>
-    );
+                    {conversationData} <br/>
+                    <SendMessage receiverId={otherId} receiverName={otherName}/>
+                </div>
+    )
 }
 
 FullConversation.propTypes = {
-    senderId:PropTypes.string.isRequired,
+    otherId:PropTypes.number.isRequired,
     myUserId:PropTypes.number.isRequired,
     messageData: PropTypes.array.isRequired
 }

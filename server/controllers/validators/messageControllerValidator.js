@@ -8,6 +8,7 @@
 
 const { body } = require('express-validator/check');
 const {uidShouldExistAndBeForAMember} = require('./messageControllerValidatorUtils');
+const {usernameShouldExistAndBeAMember} = require('./userControllerValidatorUtils');
 
 const messageContentValidation = [
     body('content', "A message must be provided")
@@ -20,9 +21,11 @@ const messageContentValidation = [
         .exists()
         .isNumeric()
         .custom(receiverId => uidShouldExistAndBeForAMember(receiverId)),
+    body('receiverName',"ReceiverName must be a user")
+        .exists()
+        .isString()
+        .custom(username => usernameShouldExistAndBeAMember(username))
 ];
-
-
 
 exports.validate = (method) => {
     switch (method) {

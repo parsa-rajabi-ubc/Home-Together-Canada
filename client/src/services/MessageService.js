@@ -53,5 +53,5 @@ module.exports = {
     getCurrentRegisteredUId,
     sendMessage,
     getAllMessagesForOneUser,
-    getAllMessagesForAllUser
+    getAllMessagesForAllUser,
 }

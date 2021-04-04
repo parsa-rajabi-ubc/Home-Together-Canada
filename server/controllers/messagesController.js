@@ -10,11 +10,12 @@ const db = require('../models');
 const {Op} = require("sequelize");
 const Message = db.message;
 
-
 const createMessage = (req) => {
     const messageEntry = {
         senderId: req.user.uid,
+        senderName:req.user.username,
         receiverId: req.body.receiverId,
+        receiverName: req.body.receiverName,
         content: req.body.content
     }
 
