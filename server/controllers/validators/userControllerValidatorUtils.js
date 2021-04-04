@@ -93,6 +93,16 @@ const shouldMailingAddressBeDefined = (addressPart, req) => {
         return true;
     }
 };
+const isValidBirthYear = (birthyear) => {
+    const currentYear = new Date().getFullYear();
+    const minAge = 16;
+    if (currentYear - minAge < birthyear) {
+        throw new Error('BirthYear must be for a 16 years old or more')
+    }
+    else {
+        return true;
+    }
+};
 
 const validateMailingPostalCode = (postalCode, req) => {
     if (req.body.hasDifferentMailingAddress && !isCanadianPostalCode(postalCode)) {
@@ -370,6 +380,7 @@ module.exports = {
     SHARE_LIMITS,
     DEACTIVATION_REASONS,
     isValidPassword,
+    isValidBirthYear,
     isValidPhoneNumber,
     isValidCanadianPostalCode,
     shouldMailingAddressBeDefined,

@@ -77,6 +77,28 @@ describe('userControllerValidatorUtils', () => {
         })
     });
 
+    describe('isValidBirthYear', () => {
+        it('should throw an error if birth year is not 16 years less than current year', () => {
+            // given
+            const currentYear = new Date().getFullYear();
+            const invalidYear = currentYear - 15
+
+            // then
+            expect(() => userControllerValidatorUtils.isValidBirthYear(invalidYear)).toThrowError('BirthYear must be for a 16 years old or more');
+        });
+        it('should return true if birthyear is 16 or more', () => {
+            // given
+            const currentYear = new Date().getFullYear();
+            const validYear = currentYear - 16
+
+            // when
+            const result = userControllerValidatorUtils.isValidBirthYear(validYear);
+
+            // then
+            expect(result).toBe(true);
+        })
+    });
+
     describe('isValidCanadianPostalCode', () => {
         it('should throw an error if the postal code is invalid', () => {
             // given
