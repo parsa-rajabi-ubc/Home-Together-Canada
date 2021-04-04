@@ -6,7 +6,7 @@
  *
  */
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useLocation} from 'react-router-dom';
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
@@ -26,6 +26,11 @@ import {mockMessages} from "../mockData/MockMessageData"
 const AccountSummaryContainer = props => {
     const { active } = props;
     const {accountType, selected} = useLocation().state;
+    const [selectedSubpage, setSelectedSubpage] = useState(selected);
+
+    useEffect(() => {
+        setSelectedSubpage(selected);
+    }, [selected])
 
     const MEMBER_SIDEBAR = [
         ...MEMBER_SUBPAGES,
@@ -54,7 +59,6 @@ const AccountSummaryContainer = props => {
 
     const options = accountType === USER_TYPES.MEMBER ? MEMBER_SIDEBAR : BUSINESS_SIDEBAR;
 
-    const [selectedSubpage, setSelectedSubpage] = useState(selected);
 
     const subpageComponent = (subpage) => {
         switch (subpage) {
