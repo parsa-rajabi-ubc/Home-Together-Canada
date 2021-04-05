@@ -31,6 +31,7 @@ const {
     isValidShareLimitArray,
     validStatusPreferences,
     validGenderPreferences,
+    isValidBirthYear,
     isValidRadius,
     isValidAreasOfInterestList,
     isValidLocation,
@@ -198,7 +199,8 @@ const memberProfileBasicFieldsValidation = [
         .stripLow(),
     body('birthYear', 'A valid integer must be provided as year of birth')
         .exists()
-        .isNumeric(),
+        .isNumeric()
+        .custom(birthyear => isValidBirthYear(birthyear)),
     body('minMonthlyBudget', 'A valid positive integer must be provided for rent')
         .exists()
         .isNumeric()
