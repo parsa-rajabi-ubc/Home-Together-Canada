@@ -14,8 +14,7 @@ exports[`ListingResultsContainer Snapshot test should match snapshot test if lis
           className="card-container mt-0"
         >
           <img
-            alt=""
-            className="float-left w-24 h-auto mx-4 "
+            className="float-left w-24 h-24 mx-4 "
             src="HTC_Logo.jpg"
           />
           <div

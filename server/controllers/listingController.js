@@ -132,7 +132,7 @@ const searchBusinessListings = async (searchArea, categoryName, subcategoryNames
         where: {
             isDeleted: false,
             dateAdminApproved: {
-                [Op.gt]: new Date()
+                [Op.lt]: new Date()
             },
             dateExpired: {
                 [Op.or]: {
