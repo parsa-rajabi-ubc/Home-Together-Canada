@@ -12,7 +12,7 @@ exports[`ListingResultsContainer Snapshot test should match snapshot test if lis
       >
         <img
           className="float-left w-24 h-24 mx-4 "
-          src={null}
+          src="HTC_Logo.jpg"
         />
         <div
           className="inline align-middle "

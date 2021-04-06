@@ -10,14 +10,14 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import Moment from 'react-moment';
-
+import HTC_Logo from "../../images/HTC_Logo.jpg";
 
 function BusinessListingCard(props) {
     const {logo, title, businessName, shortDescription, datePosted} = props;
 
     return (
         <section className={"card-container mt-0"}>
-            <img className={"float-left w-24 h-24 mx-4 "} src={logo}/>
+            <img className={"float-left w-24 h-24 mx-4 "} src={logo ? logo : HTC_Logo}/>
             <div className={"inline align-middle "}>
                 <label className={"font-semibold justify-between"}> {title} </label>
                 {/*{shortDescription}*/}

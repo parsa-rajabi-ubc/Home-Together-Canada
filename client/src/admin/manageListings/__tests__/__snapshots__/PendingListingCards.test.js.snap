@@ -31,7 +31,7 @@ exports[`PendingListingCards Container test should match snapshot test regardles
           >
             <img
               className="float-left w-24 h-24 mx-4 "
-              src="20"
+              src="HTC_Logo.jpg"
             />
             <div
               className="inline align-middle "
@@ -214,7 +214,7 @@ exports[`PendingListingCards Container test should match snapshot test regardles
           >
             <img
               className="float-left w-24 h-24 mx-4 "
-              src="30"
+              src="HTC_Logo.jpg"
             />
             <div
               className="inline align-middle "
