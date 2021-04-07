@@ -5,13 +5,14 @@
  * @Description: model for a member's messages
  *
  */
+
 module.exports = (DataTypes, sequelize) => {
     return sequelize.define("Message", {
         senderId: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        senderName: {
+        senderUsername: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -19,7 +20,7 @@ module.exports = (DataTypes, sequelize) => {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        receiverName: {
+        receiverUsername: {
             type: DataTypes.STRING,
             allowNull: false,
         },

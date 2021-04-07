@@ -22,7 +22,8 @@ describe('FullConversation', () => {
             const props = {
                 messageData: mockMessages,
                 otherId: 2,
-                myUserId:1
+                myUserId:1,
+                isDeletedUser:false
             }
             //when
             const renderer = new ShallowRenderer();

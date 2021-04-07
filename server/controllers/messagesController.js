@@ -13,9 +13,9 @@ const Message = db.message;
 const createMessage = (req) => {
     const messageEntry = {
         senderId: req.user.uid,
-        senderName:req.user.username,
+        senderUsername:req.user.username,
         receiverId: req.body.receiverId,
-        receiverName: req.body.receiverName,
+        receiverUsername: req.body.receiverUsername,
         content: req.body.content
     }
 

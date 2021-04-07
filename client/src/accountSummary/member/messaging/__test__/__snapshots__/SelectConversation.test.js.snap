@@ -6,6 +6,7 @@ exports[`SelectConversation Snapshot test should match snapshot test if listing 
     data={
       Array [
         <ConversationCard
+          isDeletedUser={true}
           onClick={[Function]}
           userName="member2"
         />,

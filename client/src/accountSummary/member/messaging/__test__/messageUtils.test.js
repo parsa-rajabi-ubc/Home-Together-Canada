@@ -22,18 +22,18 @@ describe('messageUtils', () => {
                 id: 1,
                 messageContent: "message content 1 all on different days and times",
                 senderId: 1,
-                senderName: "member1",
+                senderUsername: "member1",
                 receiverId: 2,
-                receiverName: "member2",
+                receiverUsername: "member2",
                 createdAt: "2021-01-13T02:42:39.005Z"
             };
             const message2 = {
                 id: 21,
                 messageContent: "message content 21",
                 senderId: 1,
-                senderName: "member1",
+                senderUsername: "member1",
                 receiverId: 2,
-                receiverName: "member2",
+                receiverUsername: "member2",
                 createdAt: "2021-01-15T03:42:39.005Z"
             };
 
@@ -49,18 +49,18 @@ describe('messageUtils', () => {
                 id: 1,
                 messageContent: "message content 1 all on different days and times",
                 senderId: 1,
-                senderName: "member1",
+                senderUsername: "member1",
                 receiverId: 2,
-                receiverName: "member2",
+                receiverUsername: "member2",
                 createdAt: "2021-01-13T02:42:39.005Z"
             };
             const message2 = {
                 id: 21,
                 messageContent: "message content 21",
                 senderId: 2,
-                senderName: "member2",
+                senderUsername: "member2",
                 receiverId: 1,
-                receiverName: "member1",
+                receiverUsername: "member1",
                 createdAt: "2021-01-15T03:42:39.005Z"
             };
 
@@ -76,18 +76,18 @@ describe('messageUtils', () => {
                 id: 1,
                 messageContent: "message content 1 all on different days and times",
                 senderId: 1,
-                senderName: "member1",
+                senderUsername: "member1",
                 receiverId: 2,
-                receiverName: "member2",
+                receiverUsername: "member2",
                 createdAt: "2021-01-13T02:42:39.005Z"
             };
             const message2 = {
                 id: 21,
                 messageContent: "message content 21",
                 senderId: 3,
-                senderName: "member3",
+                senderUsername: "member3",
                 receiverId: 4,
-                receiverName: "member4",
+                receiverUsername: "member4",
                 createdAt: "2021-01-15T03:42:39.005Z"
             };
 
@@ -103,18 +103,18 @@ describe('messageUtils', () => {
                 id: 1,
                 messageContent: "message content 1 all on different days and times",
                 senderId: 1,
-                senderName: "member1",
+                senderUsername: "member1",
                 receiverId: 2,
-                receiverName: "member2",
+                receiverUsername: "member2",
                 createdAt: "2021-01-13T02:42:39.005Z"
             };
             const message2 = {
                 id: 21,
                 messageContent: "message content 21",
                 senderId: 2,
-                senderName: "member2",
+                senderUsername: "member2",
                 receiverId: 3,
-                receiverName: "member3",
+                receiverUsername: "member3",
                 createdAt: "2021-01-15T03:42:39.005Z"
             };
 
@@ -167,27 +167,27 @@ describe('messageUtils', () => {
                     id: 23,
                     messageContent: "message content 23",
                     senderId: 3,
-                    senderName: "member3",
+                    senderUsername: "member3",
                     receiverId: 4,
-                    receiverName: "member4",
+                    receiverUsername: "member4",
                     createdAt: "2021-01-17T05:42:39.005Z"
                 },
                 {
                     id: 21,
                     messageContent: "message content 21",
                     senderId: 1,
-                    senderName: "member1",
+                    senderUsername: "member1",
                     receiverId: 2,
-                    receiverName: "member2",
+                    receiverUsername: "member2",
                     createdAt: "2021-01-15T03:42:39.005Z"
                 },
                 {
                     id: 22,
                     messageContent: "message content 22",
                     senderId: 1,
-                    senderName: "member1",
+                    senderUsername: "member1",
                     receiverId: 2,
-                    receiverName: "member2",
+                    receiverUsername: "member2",
                     createdAt: "2021-01-16T04:42:39.005Z"
                 },
             ];
@@ -200,25 +200,25 @@ describe('messageUtils', () => {
                 id: 21,
                 messageContent: "message content 21",
                 senderId: 1,
-                senderName: "member1",
+                senderUsername: "member1",
                 receiverId: 2,
-                receiverName: "member2",
+                receiverUsername: "member2",
                 createdAt: "2021-01-15T03:42:39.005Z"
             },{
                 id: 22,
                 messageContent: "message content 22",
                 senderId: 1,
-                senderName: "member1",
+                senderUsername: "member1",
                 receiverId: 2,
-                receiverName: "member2",
+                receiverUsername: "member2",
                 createdAt: "2021-01-16T04:42:39.005Z"
             },{
                 id: 23,
                 messageContent: "message content 23",
                 senderId: 3,
-                senderName: "member3",
+                senderUsername: "member3",
                 receiverId: 4,
-                receiverName: "member4",
+                receiverUsername: "member4",
                 createdAt: "2021-01-17T05:42:39.005Z"
             }]);
         });
@@ -232,27 +232,27 @@ describe('messageUtils', () => {
                     id: 21,
                     messageContent: "message content 21",
                     senderId: 1,
-                    senderName: "member1",
+                    senderUsername: "member1",
                     receiverId: 2,
-                    receiverName: "member2",
+                    receiverUsername: "member2",
                     createdAt: "2021-01-15T03:42:39.005Z"
                 },
                 {
                     id: 23,
                     messageContent: "message content 23",
                     senderId: 3,
-                    senderName: "member3",
+                    senderUsername: "member3",
                     receiverId: 4,
-                    receiverName: "member4",
+                    receiverUsername: "member4",
                     createdAt: "2021-01-17T05:42:39.005Z"
                 },
                 {
                     id: 22,
                     messageContent: "message content 22",
                     senderId: 1,
-                    senderName: "member1",
+                    senderUsername: "member1",
                     receiverId: 2,
-                    receiverName: "member2",
+                    receiverUsername: "member2",
                     createdAt: "2021-01-16T04:42:39.005Z"
                 },
             ];
@@ -265,25 +265,25 @@ describe('messageUtils', () => {
                 id: 23,
                 messageContent: "message content 23",
                 senderId: 3,
-                senderName: "member3",
+                senderUsername: "member3",
                 receiverId: 4,
-                receiverName: "member4",
+                receiverUsername: "member4",
                 createdAt: "2021-01-17T05:42:39.005Z"
             },{
                 id: 22,
                 messageContent: "message content 22",
                 senderId: 1,
-                senderName: "member1",
+                senderUsername: "member1",
                 receiverId: 2,
-                receiverName: "member2",
+                receiverUsername: "member2",
                 createdAt: "2021-01-16T04:42:39.005Z"
             },{
                 id: 21,
                 messageContent: "message content 21",
                 senderId: 1,
-                senderName: "member1",
+                senderUsername: "member1",
                 receiverId: 2,
-                receiverName: "member2",
+                receiverUsername: "member2",
                 createdAt: "2021-01-15T03:42:39.005Z"
             }]);
         });
@@ -297,63 +297,63 @@ describe('messageUtils', () => {
                     id: 21,
                     messageContent: "message content 21",
                     senderId: 1,
-                    senderName: "member1",
+                    senderUsername: "member1",
                     receiverId: 2,
-                    receiverName: "member2",
+                    receiverUsername: "member2",
                     createdAt: "2021-01-15T03:42:39.005Z"
                 },
                 {
                     id: 22,
                     messageContent: "message content 22",
                     senderId: 1,
-                    senderName: "member1",
+                    senderUsername: "member1",
                     receiverId: 2,
-                    receiverName: "member2",
+                    receiverUsername: "member2",
                     createdAt: "2021-01-16T04:42:39.005Z"
                 },
                 {
                     id: 23,
                     messageContent: "message content 23",
                     senderId: 2,
-                    senderName: "member2",
+                    senderUsername: "member2",
                     receiverId: 1,
-                    receiverName: "member1",
+                    receiverUsername: "member1",
                     createdAt: "2021-01-17T05:42:39.005Z"
                 },
                 {
                     id: 24,
                     messageContent: "message content 24",
                     senderId: 1,
-                    senderName: "member1",
+                    senderUsername: "member1",
                     receiverId: 2,
-                    receiverName: "member2",
+                    receiverUsername: "member2",
                     createdAt: "2021-01-18T06:42:39.005Z"
                 },
                 {
                     id: 25,
                     messageContent: "message content 25",
                     senderId: 2,
-                    senderName: "member2",
+                    senderUsername: "member2",
                     receiverId: 1,
-                    receiverName: "member1",
+                    receiverUsername: "member1",
                     createdAt: "2021-01-19T07:42:39.005Z"
                 },
                 {
                     id: 26,
                     messageContent: "message content 26",
                     senderId: 1,
-                    senderName: "member1",
+                    senderUsername: "member1",
                     receiverId: 2,
-                    receiverName: "member2",
+                    receiverUsername: "member2",
                     createdAt: "2021-01-20T08:42:39.005Z"
                 },
                 {
                     id: 27,
                     messageContent: "message content 27",
                     senderId: 1,
-                    senderName: "member1",
+                    senderUsername: "member1",
                     receiverId: 2,
-                    receiverName: "member2",
+                    receiverUsername: "member2",
                     createdAt: "2021-01-21T09:42:39.005Z"
                 }
             ];
@@ -366,9 +366,9 @@ describe('messageUtils', () => {
                 id: 27,
                 messageContent: "message content 27",
                 senderId: 1,
-                senderName: "member1",
+                senderUsername: "member1",
                 receiverId: 2,
-                receiverName: "member2",
+                receiverUsername: "member2",
                 createdAt: "2021-01-21T09:42:39.005Z"
             }]);
         });
@@ -378,25 +378,25 @@ describe('messageUtils', () => {
                 id: 21,
                 messageContent: "message content 21",
                 senderId: 1,
-                senderName: "member1",
+                senderUsername: "member1",
                 receiverId: 2,
-                receiverName: "member2",
+                receiverUsername: "member2",
                 createdAt: "2021-01-15T03:42:39.005Z"
             },{
                 id: 19,
                 messageContent: "message content 19 other minute",
                 senderId: 4,
-                senderName: "member4",
+                senderUsername: "member4",
                 receiverId: 1,
-                receiverName: "member1",
+                receiverUsername: "member1",
                 createdAt: "2021-01-14T02:47:39.005Z"
             }, {
                 id: 7,
                 messageContent: "message content 7",
                 senderId: 1,
-                senderName: "member1",
+                senderUsername: "member1",
                 receiverId: 3,
-                receiverName: "member3",
+                receiverUsername: "member3",
                 createdAt: "2021-01-19T09:42:39.005Z"
             }];
 
@@ -413,45 +413,45 @@ describe('messageUtils', () => {
                     id: 20,
                     messageContent: "message content 20 other second",
                     senderId: 3,
-                    senderName: "member3",
+                    senderUsername: "member3",
                     receiverId: 1,
-                    receiverName: "member1",
+                    receiverUsername: "member1",
                     createdAt: "2021-01-14T02:42:55.005Z"
                 },
                 {
                     id: 21,
                     messageContent: "message content 21",
                     senderId: 1,
-                    senderName: "member1",
+                    senderUsername: "member1",
                     receiverId: 2,
-                    receiverName: "member2",
+                    receiverUsername: "member2",
                     createdAt: "2021-01-15T03:42:39.005Z"
                 },
                 {
                     id: 24,
                     messageContent: "message content 24",
                     senderId: 1,
-                    senderName: "member1",
+                    senderUsername: "member1",
                     receiverId: 3,
-                    receiverName: "member3",
+                    receiverUsername: "member3",
                     createdAt: "2021-01-17T05:42:39.005Z"
                 },
                 {
                     id: 22,
                     messageContent: "message content 22",
                     senderId: 1,
-                    senderName: "member1",
+                    senderUsername: "member1",
                     receiverId: 2,
-                    receiverName: "member2",
+                    receiverUsername: "member2",
                     createdAt: "2021-01-16T04:42:39.005Z"
                 },
                 {
                     id: 23,
                     messageContent: "message content 23",
                     senderId: 2,
-                    senderName: "member2",
+                    senderUsername: "member2",
                     receiverId: 1,
-                    receiverName: "member1",
+                    receiverUsername: "member1",
                     createdAt: "2021-01-17T05:42:39.005Z"
                 },
             ];
@@ -464,17 +464,17 @@ describe('messageUtils', () => {
                 id: 24,
                 messageContent: "message content 24",
                 senderId: 1,
-                senderName: "member1",
+                senderUsername: "member1",
                 receiverId: 3,
-                receiverName: "member3",
+                receiverUsername: "member3",
                 createdAt: "2021-01-17T05:42:39.005Z"
             },{
                 id: 23,
                 messageContent: "message content 23",
                 senderId: 2,
-                senderName: "member2",
+                senderUsername: "member2",
                 receiverId: 1,
-                receiverName: "member1",
+                receiverUsername: "member1",
                 createdAt: "2021-01-17T05:42:39.005Z"
             }]);
         });

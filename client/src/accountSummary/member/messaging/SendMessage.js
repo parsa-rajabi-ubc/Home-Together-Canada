@@ -16,7 +16,7 @@ import {checkIfErrorsExistInMapping, validateInput} from "../../../registration/
 
 function SendMessage(props) {
     //username currently unused, but intended as component which will handle post request to add message to database
-    const {receiverName, receiverId} = props;
+    const {receiverUsername, receiverId} = props;
     const [content, setContent] = useState(undefined);
     const [contentError, setContentError] = useState(undefined);
 
@@ -37,7 +37,7 @@ function SendMessage(props) {
         e.preventDefault();
         if (isFormValid()) {
             const message = {
-                receiverName: receiverName,
+                receiverUsername: receiverUsername,
                 receiverId: receiverId,
                 content: content
             }
@@ -58,7 +58,7 @@ function SendMessage(props) {
 
     return(
         <div>
-            <p>To {receiverName}: </p>
+            <br/><p>To {receiverUsername}: </p>
             <LargeTextArea className={`${contentError && "border-red-500"} input`}
                            label={"What would you like to contact this member about? "}
                            onChange={(e) => setContent(e.target.value)}
@@ -72,7 +72,7 @@ function SendMessage(props) {
 }
 
 SendMessage.propTypes = {
-    receiverName: PropTypes.string.isRequired,
+    receiverUsername: PropTypes.string.isRequired,
     receiverId: PropTypes.number.isRequired
 };
 

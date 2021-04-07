@@ -19,7 +19,7 @@ describe('SendMessage', () => {
         it('should match snapshot test of SendMessage', () => {
             //given
             const props = {
-                receiverName: "member2",
+                receiverUsername: "member2",
                 receiverId: 2,
             }
             //when

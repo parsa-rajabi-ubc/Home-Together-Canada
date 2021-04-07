@@ -2,6 +2,7 @@
 
 exports[`SendMessage Snapshot test should match snapshot test of SendMessage 1`] = `
 <div>
+  <br />
   <p>
     To 
     member2

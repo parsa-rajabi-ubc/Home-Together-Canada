@@ -2,56 +2,58 @@
 
 exports[`FullConversation Snapshot test should match snapshot test if listing is NOT empty for userName 1`] = `
 <div>
-  <h1>
-    
-  </h1>
-   
-  <br />
-  <MessageBox
-    leftOrRight="right"
-    userName="member1"
-  />
-  <MessageBox
-    leftOrRight="right"
-    userName="member1"
-  />
-  <MessageBox
-    leftOrRight="right"
-    userName="member1"
-  />
-  <MessageBox
-    leftOrRight="right"
-    userName="member1"
-  />
-  <MessageBox
-    leftOrRight="left"
-    userName="member2"
-  />
-  <MessageBox
-    leftOrRight="right"
-    userName="member1"
-  />
-  <MessageBox
-    leftOrRight="left"
-    userName="member2"
-  />
-  <MessageBox
-    leftOrRight="left"
-    userName="member2"
-  />
-  <MessageBox
-    leftOrRight="right"
-    userName="member1"
-  />
-  <MessageBox
-    leftOrRight="left"
-    userName="member2"
-  />
-   
-  <br />
-  <SendMessage
-    receiverId={2}
-    receiverName=""
-  />
+  <div>
+    <div>
+      <h1>
+        
+      </h1>
+       
+      <br />
+      <MessageBox
+        leftOrRight="right"
+        userName="member1"
+      />
+      <MessageBox
+        leftOrRight="right"
+        userName="member1"
+      />
+      <MessageBox
+        leftOrRight="right"
+        userName="member1"
+      />
+      <MessageBox
+        leftOrRight="right"
+        userName="member1"
+      />
+      <MessageBox
+        leftOrRight="left"
+        userName="member2"
+      />
+      <MessageBox
+        leftOrRight="right"
+        userName="member1"
+      />
+      <MessageBox
+        leftOrRight="left"
+        userName="member2"
+      />
+      <MessageBox
+        leftOrRight="left"
+        userName="member2"
+      />
+      <MessageBox
+        leftOrRight="right"
+        userName="member1"
+      />
+      <MessageBox
+        leftOrRight="left"
+        userName="member2"
+      />
+      <SendMessage
+        receiverId={2}
+        receiverUsername=""
+      />
+    </div>
+  </div>
 </div>
 `;

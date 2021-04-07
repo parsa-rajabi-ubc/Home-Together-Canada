@@ -25,6 +25,14 @@ const sendMessage = (newMessage) => {
     return fetch(`${DEV_URL}/message/create/`, request);
 }
 
+const findAllMembers = () => {
+    return fetch(`${DEV_URL}/member/all/`, {
+        method: 'GET',
+        withCredentials: true,
+        credentials: 'include'
+    });
+}
+
 const getAllMessagesForOneUser = () => {
     return fetch(`${DEV_URL}/message/one/`, {
         method: 'GET',
@@ -54,4 +62,5 @@ module.exports = {
     sendMessage,
     getAllMessagesForOneUser,
     getAllMessagesForAllUser,
+    findAllMembers
 }

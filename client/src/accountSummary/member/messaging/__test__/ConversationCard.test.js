@@ -17,7 +17,8 @@ describe('ConversationCard', () => {
             const props = {
                 messageContent: "message content 18 other hour",
                 userName: "otherUser18",
-                datePosted: "2021-01-14T01:42:39.005Z"
+                datePosted: "2021-01-14T01:42:39.005Z",
+                isDeletedUser: false
             }
 
             //when

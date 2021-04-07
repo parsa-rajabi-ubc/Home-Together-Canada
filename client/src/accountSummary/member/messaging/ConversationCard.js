@@ -11,13 +11,20 @@ import PropTypes from "prop-types";
 import Moment from 'react-moment';
 
 function ConversationCard(props) {
-    const {userName, messageContent, datePosted,onClick} = props;
+    const {userName, messageContent, datePosted,onClick,isDeletedUser} = props;
 
     return (
         <div>
         <section className={"card-container mt-0"} onClick={onClick}>
             <div className={"inline ml-6 align-middle "}>
-                <label className={"font-semibold justify-between"}> {userName}</label>
+                {(isDeletedUser) ?
+                    (
+                        <label className={"font-semibold justify-between"}> {userName + " (Deleted user)"}</label>
+                    ) :
+                    (
+                        <label className={"font-semibold justify-between"}> {userName}</label>
+                    )
+                }
 
                 <section className={"inline float-right pr-6 justify-end"}>
                     <Moment format="MMM D, YYYY">{datePosted}</Moment>
@@ -35,7 +42,8 @@ ConversationCard.propTypes = {
     userName: PropTypes.string.isRequired,
     messageContent: PropTypes.string.isRequired,
     datePosted: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired
+    onClick: PropTypes.func.isRequired,
+    isDeletedUser:PropTypes.bool.isRequired
 }
 
 export default ConversationCard;

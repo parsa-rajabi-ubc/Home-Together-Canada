@@ -41,7 +41,7 @@ router.get('/uid/',
         abstractUsers.findAbstractUser(req.user.uid)
             .then(() => res.status(200).json({ uid:req.user.uid }))
             .catch(err => {
-                res.status(500).send({ message: err.message || "Something went wrong getting messages"})
+                res.status(500).send({ message: err.message || "User ID does not exit."})
             });
     }
 );

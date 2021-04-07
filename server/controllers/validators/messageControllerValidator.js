@@ -21,7 +21,7 @@ const messageContentValidation = [
         .exists()
         .isNumeric()
         .custom(receiverId => uidShouldExistAndBeForAMember(receiverId)),
-    body('receiverName',"ReceiverName must be a user")
+    body('receiverUsername',"ReceiverUsername must be a user")
         .exists()
         .isString()
         .custom(username => usernameShouldExistAndBeAMember(username))
