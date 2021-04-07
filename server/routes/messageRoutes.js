@@ -12,7 +12,6 @@ const { validationResult } = require('express-validator/check');
 const { isLoggedIn, userIsMember } = require('./routeUtils');
 const abstractUsers = require('../controllers/abstractUserController');
 const message = require('../controllers/messagesController');
-
 const messageValidator = require('../controllers/validators/messageControllerValidator');
 
 router.post('/create/',
