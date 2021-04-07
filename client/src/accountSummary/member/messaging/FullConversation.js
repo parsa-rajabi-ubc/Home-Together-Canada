@@ -62,7 +62,7 @@ function FullConversation(props) {
                             <h1 style={{fontWeight:"bold",float:"left"}}>{otherUsername + " (Deleted User)"}</h1>
                             <h1 style={{fontWeight:"bold",float:"right", textAlign: 'right', alignSelf: 'stretch'}}>{myUsername}</h1> <br/> <br/>
                             {conversationData}
-                            <br/><h1>Sorry, the person you are trying to reach has deleted their account.</h1>
+                            <br/><h1 style={{fontWeight:"bold"}}>* Sorry, the person you are trying to reach has deleted their account.</h1>
                         </div>) :
                         (<div>
                             <h1 style={{fontWeight:"bold",float:"left"}}>{otherUsername}</h1>
