@@ -208,7 +208,7 @@ function ProfilePage(props) {
                     </div>
 
                 </div>
-                {sendingMessage && <SendMessage receiverName={username} receiverId={uid}/>}
+                {sendingMessage && <SendMessage receiverUsername={username} receiverId={uid}/>}
             </div>
         </div>
     );
