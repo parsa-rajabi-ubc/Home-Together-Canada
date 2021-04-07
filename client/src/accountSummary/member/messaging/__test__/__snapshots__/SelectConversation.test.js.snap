@@ -2,18 +2,38 @@
 
 exports[`SelectConversation Snapshot test should match snapshot test if listing is NOT empty for userName 1`] = `
 <div>
-  <Paginate
-    data={
-      Array [
-        <ConversationCard
-          isDeletedUser={true}
-          onClick={[Function]}
-          userName="member2"
-        />,
-      ]
+  <div
+    style={
+      Object {
+        "display": "inline-block",
+        "verticalAlign": "top",
+        "width": "37%",
+      }
     }
-    resultsPerPage={7}
-  />
-  <EmptySelection />
+  >
+    <Paginate
+      data={
+        Array [
+          <ConversationCard
+            isDeletedUser={true}
+            onClick={[Function]}
+            userName="member2"
+          />,
+        ]
+      }
+      resultsPerPage={7}
+    />
+  </div>
+  <div
+    style={
+      Object {
+        "display": "inline-block",
+        "verticalAlign": "top",
+        "width": "60%",
+      }
+    }
+  >
+    <EmptySelection />
+  </div>
 </div>
 `;

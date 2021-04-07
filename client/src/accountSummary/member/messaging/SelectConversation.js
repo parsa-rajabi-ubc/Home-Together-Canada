@@ -75,9 +75,13 @@ function SelectConversation(props) {
 
     return (
         <div>
-            {(!cardData.length) ? <Confirmation displayButton={false} errorColor={true} message={MESSAGE.NO_RESULTS}/>
+            <div style={{width:"37%",display: "inline-block",verticalAlign:"top"}}>
+                {(!cardData.length) ? <Confirmation displayButton={false} errorColor={true} message={MESSAGE.NO_RESULTS}/>
                 : <Paginate data={cardData} resultsPerPage={NUM_RESULTS}/>}
-            {(!isSelect || senderId ==="") ? <EmptySelection/>:<FullConversation messageData={messageData} myUserId={myUserId} otherId={senderId} isDeletedUser={isDeletedUser(senderId)}/>}
+            </div>
+            <div style={{width:"60%",display: "inline-block",verticalAlign:"top"}}>
+                {(!isSelect || senderId ==="") ? <EmptySelection/>:<FullConversation messageData={messageData} myUserId={myUserId} otherId={senderId} isDeletedUser={isDeletedUser(senderId)}/>}
+            </div>
         </div>
     );
 }

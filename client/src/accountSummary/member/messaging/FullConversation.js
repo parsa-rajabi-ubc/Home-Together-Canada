@@ -15,8 +15,10 @@ import SendMessage from "./SendMessage";
 
 function FullConversation(props) {
     const{otherId,isDeletedUser,myUserId,messageData} = props;
-    const [otherName,setOtherName] = useState("");
+    const [otherUsername,setOtherUsername] = useState("");
+    const [myUsername,setMyUsername] = useState("")
     const conversationData = [];
+
 
     // get all the messages between 2 users
     const myMessage = messageData.filter(messageData => (messageData.senderId === otherId && messageData.receiverId === myUserId) || (messageData.senderId === myUserId && messageData.receiverId === otherId));
@@ -28,7 +30,6 @@ function FullConversation(props) {
     for(let i = 0; i < myMessage.length; i++){
         if (myMessage[i].senderId !== myUserId) {
             conversationData.push(<MessageBox key={i}
-                                              userName={myMessage[i].senderUsername}
                                               messageContent={myMessage[i].content}
                                               datePosted={myMessage[i].createdAt}
                                               leftOrRight={"left"}
@@ -36,7 +37,6 @@ function FullConversation(props) {
         }
         else{
             conversationData.push(<MessageBox key={i}
-                                              userName={myMessage[i].senderUsername}
                                               messageContent={myMessage[i].content}
                                               datePosted={myMessage[i].createdAt}
                                               leftOrRight={"right"}
@@ -45,8 +45,13 @@ function FullConversation(props) {
     }
 
     useEffect(() => {
-        if (myMessage[0].senderId !== myUserId) setOtherName(myMessage[0].senderUsername);
-        else setOtherName(myMessage[0].receiverUsername);
+        if (myMessage[0].senderId !== myUserId) {
+            setOtherUsername(myMessage[0].senderUsername);
+            setMyUsername(myMessage[0].receiverUsername);
+        } else{
+            setOtherUsername(myMessage[0].receiverUsername);
+            setMyUsername(myMessage[0].senderUsername);
+        }
     }, [otherId]);
 
     return (
@@ -54,14 +59,16 @@ function FullConversation(props) {
                 <div>
                     {(isDeletedUser) ?
                         (<div>
-                            <h1>{otherName + " (Deleted User)"}</h1> <br/>
+                            <h1 style={{fontWeight:"bold",float:"left"}}>{otherUsername + " (Deleted User)"}</h1>
+                            <h1 style={{fontWeight:"bold",float:"right", textAlign: 'right', alignSelf: 'stretch'}}>{myUsername}</h1> <br/> <br/>
                             {conversationData}
-                            <h1>Sorry, the person you are trying to reach has deleted their account.</h1>
+                            <br/><h1>Sorry, the person you are trying to reach has deleted their account.</h1>
                         </div>) :
                         (<div>
-                            <h1>{otherName}</h1> <br/>
+                            <h1 style={{fontWeight:"bold",float:"left"}}>{otherUsername}</h1>
+                            <h1 style={{fontWeight:"bold", float:"right",textAlign: 'right', alignSelf: 'stretch'}}>{myUsername}</h1> <br/> <br/>
                             {conversationData}
-                            <SendMessage receiverId={otherId} receiverUsername={otherName}/>
+                            <SendMessage receiverId={otherId} receiverUsername={otherUsername}/>
                         </div>)
                     }
                 </div>

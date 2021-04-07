@@ -4,50 +4,61 @@ exports[`FullConversation Snapshot test should match snapshot test if listing is
 <div>
   <div>
     <div>
-      <h1>
+      <h1
+        style={
+          Object {
+            "float": "left",
+            "fontWeight": "bold",
+          }
+        }
+      >
+        
+      </h1>
+      <h1
+        style={
+          Object {
+            "alignSelf": "stretch",
+            "float": "right",
+            "fontWeight": "bold",
+            "textAlign": "right",
+          }
+        }
+      >
         
       </h1>
        
       <br />
+       
+      <br />
       <MessageBox
         leftOrRight="right"
-        userName="member1"
       />
       <MessageBox
         leftOrRight="right"
-        userName="member1"
       />
       <MessageBox
         leftOrRight="right"
-        userName="member1"
       />
       <MessageBox
         leftOrRight="right"
-        userName="member1"
       />
       <MessageBox
         leftOrRight="left"
-        userName="member2"
       />
       <MessageBox
         leftOrRight="right"
-        userName="member1"
       />
       <MessageBox
         leftOrRight="left"
-        userName="member2"
       />
       <MessageBox
         leftOrRight="left"
-        userName="member2"
       />
       <MessageBox
         leftOrRight="right"
-        userName="member1"
       />
       <MessageBox
         leftOrRight="left"
-        userName="member2"
       />
       <SendMessage
         receiverId={2}

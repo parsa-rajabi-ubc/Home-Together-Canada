@@ -11,20 +11,27 @@ import PropTypes from "prop-types";
 import Moment from 'react-moment';
 
 function MessageBox(props) {
-    const {userName, messageContent, datePosted, leftOrRight} = props;
+    const {messageContent, datePosted, leftOrRight} = props;
 
     return (
-                <div>
-                    <p>{leftOrRight}</p>
-                    <p><Moment format="MMM D, YYYY">{datePosted}</Moment></p>
-                    <p>{userName}: {messageContent}</p>
-                    <hr/>
-                </div>
+        <div>
+            {(leftOrRight==="right")?
+                (<div style={{textAlign: 'right', alignSelf: 'stretch'}}>
+                        <p><Moment format="MMM D, YYYY">{datePosted}</Moment></p>
+                        <p>{messageContent}</p>
+                        <hr/>
+                </div>) :
+                (<div>
+                        <p><Moment format="MMM D, YYYY">{datePosted}</Moment></p>
+                        <p>{messageContent}</p>
+                        <hr/>
+                </div>)
+            }
+        </div>
     );
 }
 
 MessageBox.propTypes = {
-    userName: PropTypes.string.isRequired,
     messageContent: PropTypes.string.isRequired,
     datePosted: PropTypes.string.isRequired,
     leftOrRight: PropTypes.string.isRequired,
