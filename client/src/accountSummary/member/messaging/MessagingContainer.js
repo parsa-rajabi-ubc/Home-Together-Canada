@@ -21,6 +21,8 @@ function MessagingContainer(){
     const [loading, setLoading] = useState(true);
     const [newLoading, setNewLoading] = useState(true);
 
+    // TODO: Save the user's uid in the redux store.
+
     useEffect(() => {
         MessageService.getCurrentRegisteredUId()
             .then(res => res.json())
