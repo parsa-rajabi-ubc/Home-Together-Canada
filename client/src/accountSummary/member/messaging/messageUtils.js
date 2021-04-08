@@ -16,7 +16,7 @@ export function mostRecentMessages(messageData){
             for (let j = 0; j < mostRecentMessages.length; j++){
                 if (isSameConversation(messageData[i], mostRecentMessages[j])){
                     conversationExists=true;
-                    if (isMoreRecentMessageTime(mostRecentMessages[j].dateSent, messageData[i].dateSent)){
+                    if (isMoreRecentMessageTime(mostRecentMessages[j].createdAt, messageData[i].createdAt)){
                         mostRecentMessages[j] = messageData[i];
                     }
                 }
@@ -39,7 +39,7 @@ export function isSameConversation(message1, message2){
 export function sortMessageByTimeIncreasing(myMessage){
     for(let i = 0; i < myMessage.length; i++){
         for(let j = i + 1; j < myMessage.length; j++){
-            if(myMessage[i].dateSent > myMessage[j].dateSent){
+            if(myMessage[i].createdAt > myMessage[j].createdAt){
                 let temp = myMessage[i];
                 myMessage[i] = myMessage[j];
                 myMessage[j] = temp;
@@ -52,7 +52,7 @@ export function sortMessageByTimeIncreasing(myMessage){
 export function sortMessageByTimeDecreasing(myMessage){
     for(let i = 0; i < myMessage.length; i++){
         for(let j = i + 1; j < myMessage.length; j++){
-            if(myMessage[i].dateSent < myMessage[j].dateSent){
+            if(myMessage[i].createdAt < myMessage[j].createdAt){
                 let temp = myMessage[i];
                 myMessage[i] = myMessage[j];
                 myMessage[j] = temp;

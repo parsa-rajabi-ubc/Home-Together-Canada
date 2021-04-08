@@ -13,7 +13,9 @@ const Message = db.message;
 const createMessage = (req) => {
     const messageEntry = {
         senderId: req.user.uid,
+        senderUsername:req.user.username,
         receiverId: req.body.receiverId,
+        receiverUsername: req.body.receiverUsername,
         content: req.body.content
     }
 
@@ -33,7 +35,7 @@ const findMessagesForUser = uid => {
 
 const findAllMessagesForAllUsers = (req, res) => {
     Message.findAll({include: { all: true }})
-        .then(data => res.status(200).json({ data }))
+        .then(message => res.status(200).json({ message }))
         .catch(err => {
             res.status(500).send({ message: err.message || "Something went wrong getting messages"})
         });

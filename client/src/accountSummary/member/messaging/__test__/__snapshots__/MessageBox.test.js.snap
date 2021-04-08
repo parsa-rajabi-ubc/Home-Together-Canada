@@ -2,37 +2,34 @@
 
 exports[`MessageBox Snapshot test should match snapshot test 1`] = `
 <div>
-  <p>
-    left
-  </p>
-  <p>
-    <n
-      ago={false}
-      calendar={false}
-      decimal={false}
-      element={null}
-      filter={[Function]}
-      format="MMM D, YYYY"
-      fromNow={false}
-      interval={60000}
-      local={false}
-      onChange={[Function]}
-      titleFormat=""
-      toNow={false}
-      trim={false}
-      unit={null}
-      unix={false}
-      utc={false}
-      withTitle={false}
-    >
-      2021-01-14T01:42:39.005Z
-    </n>
-  </p>
-  <p>
-    otherUser18
-    : 
-    message content 18 other hour
-  </p>
-  <hr />
+  <div>
+    <p>
+      <n
+        ago={false}
+        calendar={false}
+        decimal={false}
+        element={null}
+        filter={[Function]}
+        format="MMM D, YYYY"
+        fromNow={false}
+        interval={60000}
+        local={false}
+        onChange={[Function]}
+        titleFormat=""
+        toNow={false}
+        trim={false}
+        unit={null}
+        unix={false}
+        utc={false}
+        withTitle={false}
+      >
+        2021-01-14T01:42:39.005Z
+      </n>
+    </p>
+    <p>
+      message content 18 other hour
+    </p>
+    <hr />
+  </div>
 </div>
 `;

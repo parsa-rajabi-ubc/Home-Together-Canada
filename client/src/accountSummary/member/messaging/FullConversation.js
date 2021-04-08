@@ -7,60 +7,79 @@
  *
  */
 
-import React,{useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import PropTypes from "prop-types";
-import LargeTextArea from "../../../common/forms/LargeTextArea";
-import Button from "../../../common/forms/Button";
 import MessageBox from "./MessageBox";
 import {sortMessageByTimeIncreasing} from "./messageUtils";
+import SendMessage from "./SendMessage";
 
 function FullConversation(props) {
-    const{senderId,myUserName,messageData} = props;
-    // Will be implemented for sending Messages:
-    // const [newMessage, setNewMessage] = useState('');
+    const{otherId,isDeletedUser,myUserId,messageData} = props;
+    const [otherUsername,setOtherUsername] = useState("");
+    const [myUsername,setMyUsername] = useState("")
     const conversationData = [];
 
+
     // get all the messages between 2 users
-    const myMessage = messageData.filter(messageData => (messageData.senderId === senderId && messageData.receiverId === myUserName) || (messageData.senderId === myUserName && messageData.receiverId === senderId));
+    const myMessage = messageData.filter(messageData => (messageData.senderId === otherId && messageData.receiverId === myUserId) || (messageData.senderId === myUserId && messageData.receiverId === otherId));
 
     // sort the messages by time
     sortMessageByTimeIncreasing(myMessage);
 
     // By using "leftOrRight" to define messages to display either on left-side or right-side
     for(let i = 0; i < myMessage.length; i++){
-        if (myMessage[i].senderId !== myUserName) {
+        if (myMessage[i].senderId !== myUserId) {
             conversationData.push(<MessageBox key={i}
-                                              userName={myMessage[i].senderId}
-                                              messageContent={myMessage[i].messageContent}
-                                              datePosted={myMessage[i].dateSent}
+                                              messageContent={myMessage[i].content}
+                                              datePosted={myMessage[i].createdAt}
                                               leftOrRight={"left"}
             />);
         }
         else{
             conversationData.push(<MessageBox key={i}
-                                              userName={myMessage[i].senderId}
-                                              messageContent={myMessage[i].messageContent}
-                                              datePosted={myMessage[i].dateSent}
+                                              messageContent={myMessage[i].content}
+                                              datePosted={myMessage[i].createdAt}
                                               leftOrRight={"right"}
             />);
         }
     }
 
+    useEffect(() => {
+        if (myMessage[0].senderId !== myUserId) {
+            setOtherUsername(myMessage[0].senderUsername);
+            setMyUsername(myMessage[0].receiverUsername);
+        } else{
+            setOtherUsername(myMessage[0].receiverUsername);
+            setMyUsername(myMessage[0].senderUsername);
+        }
+    }, [otherId]);
+
     return (
         <div>
-            <h1>{senderId}</h1> <br/>
-
-            {conversationData} <br/>
-
-            <LargeTextArea placeholder={"type a message..."} label={""}/> <br/>
-            <Button className={"btn btn-green mb-6 w-1/2 text-base py-2"} value={"Send"}/>
+                <div>
+                    {(isDeletedUser) ?
+                        (<div>
+                            <h1 style={{fontWeight:"bold",float:"left"}}>{otherUsername + " (Deleted User)"}</h1>
+                            <h1 style={{fontWeight:"bold",float:"right", textAlign: 'right', alignSelf: 'stretch'}}>{myUsername}</h1> <br/> <br/>
+                            {conversationData}
+                            <br/><h1 style={{fontWeight:"bold"}}>* Sorry, the person you are trying to reach has deleted their account.</h1>
+                        </div>) :
+                        (<div>
+                            <h1 style={{fontWeight:"bold",float:"left"}}>{otherUsername}</h1>
+                            <h1 style={{fontWeight:"bold", float:"right",textAlign: 'right', alignSelf: 'stretch'}}>{myUsername}</h1> <br/> <br/>
+                            {conversationData}
+                            <SendMessage receiverId={otherId} receiverUsername={otherUsername}/>
+                        </div>)
+                    }
+                </div>
         </div>
-    );
+    )
 }
 
 FullConversation.propTypes = {
-    senderId:PropTypes.string.isRequired,
-    myUserName:PropTypes.string.isRequired,
+    isDeletedUser:PropTypes.bool.isRequired,
+    otherId:PropTypes.number.isRequired,
+    myUserId:PropTypes.number.isRequired,
     messageData: PropTypes.array.isRequired
 }
 

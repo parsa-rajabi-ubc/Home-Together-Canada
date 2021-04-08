@@ -2,9 +2,10 @@
 
 exports[`SendMessage Snapshot test should match snapshot test of SendMessage 1`] = `
 <div>
+  <br />
   <p>
     To 
-    otherUser1
+    member2
     : 
   </p>
   <div>

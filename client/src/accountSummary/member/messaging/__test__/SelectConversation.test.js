@@ -22,7 +22,7 @@ describe('SelectConversation', () => {
             //given
             const props = {
                 messageData: mockMessages,
-                messageUser: "messageMember1",
+                myUserId: 1,
             }
             //when
             const renderer = new ShallowRenderer();

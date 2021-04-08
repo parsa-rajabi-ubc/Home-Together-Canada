@@ -16,28 +16,28 @@ import {checkIfErrorsExistInMapping, validateInput} from "../../../registration/
 
 function SendMessage(props) {
     //username currently unused, but intended as component which will handle post request to add message to database
-    const {receiverName, receiverId} = props;
+    const {receiverUsername, receiverId} = props;
     const [content, setContent] = useState(undefined);
     const [contentError, setContentError] = useState(undefined);
+
     useEffect(() => {
         content !== undefined && validateInput(content, setContentError);
     }, [content]);
 
     const isFormValid = () => {
-
         const errors = {
             content: false,
         }
-
         errors.fullDes = validateInput(content, setContentError);
-
         return !(checkIfErrorsExistInMapping(errors));
     }
 
     //function for input checks on submit
-    function onSubmitMessage() {
+    function onSubmitMessage(e) {
+        e.preventDefault();
         if (isFormValid()) {
             const message = {
+                receiverUsername: receiverUsername,
                 receiverId: receiverId,
                 content: content
             }
@@ -47,7 +47,7 @@ function SendMessage(props) {
                     if (data.sent) {
                         alert("Message sent successfully");
                     } else {
-                        alert("Message not sent successfully")
+                        alert("Sorry, the person you are trying to reach has deleted their account.")
                     }
                 })
                 .catch(err => {
@@ -58,19 +58,21 @@ function SendMessage(props) {
 
     return(
         <div>
-            <p>To {receiverName}: </p>
+            <br/><p>To {receiverUsername}: </p>
             <LargeTextArea className={`${contentError && "border-red-500"} input`}
                            label={"What would you like to contact this member about? "}
-                           onChange={(e) => setContent(e.target.value)}/>
+                           onChange={(e) => setContent(e.target.value)}
+            />
             <SubmitButton   className={"btn btn-green mb-6 w-1/2 text-base py-2"}
                             onClick={onSubmitMessage}
-                            onSubmit={onSubmitMessage}/>
+                            onSubmit={onSubmitMessage}
+            />
         </div>
     )
 }
 
 SendMessage.propTypes = {
-    receiverName: PropTypes.string.isRequired,
+    receiverUsername: PropTypes.string.isRequired,
     receiverId: PropTypes.number.isRequired
 };
 
