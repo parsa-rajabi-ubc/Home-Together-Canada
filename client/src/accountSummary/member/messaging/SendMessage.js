@@ -19,6 +19,7 @@ function SendMessage(props) {
     const {receiverUsername, receiverId} = props;
     const [content, setContent] = useState(undefined);
     const [contentError, setContentError] = useState(undefined);
+    const [messageIsSent,setMessageIsSent] =useState(false);
 
     useEffect(() => {
         content !== undefined && validateInput(content, setContentError);
@@ -35,6 +36,7 @@ function SendMessage(props) {
     //function for input checks on submit
     function onSubmitMessage(e) {
         e.preventDefault();
+        setMessageIsSent(false);
         if (isFormValid()) {
             const message = {
                 receiverUsername: receiverUsername,
@@ -49,6 +51,8 @@ function SendMessage(props) {
                     } else {
                         alert("Sorry, the person you are trying to reach has deleted their account.")
                     }
+                    setContent("");
+                    setMessageIsSent(true);
                 })
                 .catch(err => {
                     alert('error sending message: ' + err.message);
@@ -59,8 +63,9 @@ function SendMessage(props) {
     return(
         <div>
             <br/><p>To {receiverUsername}: </p>
-            <LargeTextArea className={`${contentError && "border-red-500"} input`}
+            <LargeTextArea className={ `${contentError && !messageIsSent && "border-red-500"} input`}
                            label={"What would you like to contact this member about? "}
+                           value={content}
                            onChange={(e) => setContent(e.target.value)}
             />
             <SubmitButton   className={"btn btn-green mb-6 w-1/2 text-base py-2"}
