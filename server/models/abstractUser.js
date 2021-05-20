@@ -17,7 +17,7 @@ module.exports = (DataTypes, sequelize) => {
             unique: true
         },
         username: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(50),
             allowNull: false,
             unique: true,
         },
@@ -35,15 +35,15 @@ module.exports = (DataTypes, sequelize) => {
             unique: true
         },
         firstName: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(100),
             allowNull: false
         },
         lastName: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(100),
             allowNull: false
         },
         phoneNumber: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(16),
             allowNull: false
         },
         isBanned: {
@@ -55,22 +55,22 @@ module.exports = (DataTypes, sequelize) => {
             type: DataTypes.STRING,
         },
         addressLine1: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(100),
             allowNull: false
         },
         addressLine2: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING(100)
         },
         city: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(60),
             allowNull: false
         },
         province: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(4),
             allowNull: false
         },
         postalCode: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(6),
             allowNull: false
         },
         hasDifferentMailingAddress: {
@@ -79,22 +79,22 @@ module.exports = (DataTypes, sequelize) => {
             defaultValue: false
         },
         mailingAddressLine1: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(100),
             allowNull: false
         },
         mailingAddressLine2: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING(100)
         },
         mailingCity: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(60),
             allowNull: false
         },
         mailingProvince: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(4),
             allowNull: false
         },
         mailingPostalCode: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(6),
             allowNull: false
         }
     });

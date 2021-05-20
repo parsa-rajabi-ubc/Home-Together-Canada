@@ -15,7 +15,7 @@ module.exports = (DataTypes, sequelize) => {
             autoIncrement: false
         },
         name: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(100),
             allowNull: false
         },
         isClassified: {

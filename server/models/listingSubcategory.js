@@ -9,7 +9,7 @@
 module.exports = (DataTypes, sequelize) => {
     return sequelize.define('ListingSubcategory', {
         name: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(100),
             allowNull: false
         }
     });

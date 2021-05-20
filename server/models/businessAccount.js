@@ -15,7 +15,7 @@ module.exports = (DataTypes, sequelize) => {
             unique: true
         },
         businessName: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(100),
             allowNull: false
         },
         logo: {
@@ -30,11 +30,11 @@ module.exports = (DataTypes, sequelize) => {
             type: DataTypes.STRING
         },
         businessPhoneNumber: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(16),
             allowNull: false
         },
         businessCellPhoneNumber: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(16),
             allowNull: false
         },
         isNationWide: {
@@ -43,19 +43,19 @@ module.exports = (DataTypes, sequelize) => {
             defaultValue: false
         },
         mapAddressLine1: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING(100)
         },
         mapAddressLine2: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING(100)
         },
         mapCity: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING(60)
         },
         mapProvince: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING(4)
         },
         mapPostalCode: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING(6)
         },
         mapLatitude: {
             type: DataTypes.DECIMAL(10,7)   // 10 total digits, 7 digit decimal accuracy
