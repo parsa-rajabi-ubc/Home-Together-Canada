@@ -36,6 +36,9 @@ db.listingSubcategory = require('./listingSubcategory')(DataTypes, sequelize);
 db.listingAssignedSubcategory = require('./listingAssignedSubcategory')(DataTypes, sequelize);
 db.memberListingLocation = require('./memberListingLocation')(DataTypes, sequelize);
 db.message = require('./message')(DataTypes, sequelize);
+db.listingBookmark = require('./listingBookmark')(DataTypes, sequelize);
+db.profileBookmark = require('./profileBookmark')(DataTypes, sequelize);
+db.review = require('./review')(DataTypes, sequelize);
 
 db.businessAccount.belongsTo(db.abstractUser, {
     foreignKey: {
@@ -137,6 +140,29 @@ db.listing.hasOne(db.memberListingLocation, {
 });
 db.memberListingLocation.belongsTo(db.listing, {
     onDelete: 'CASCADE'
+});
+
+// Through table containing listings bookmarked by members (bookmarks table)
+db.memberAccount.belongsToMany(db.listing, {
+    foreignKey: 'bookmarkerUid',
+    through: db.listingBookmark
+});
+db.listing.belongsToMany(db.memberAccount, {
+    foreignKey: 'bookmarkedListingId',
+    through: db.listingBookmark
+});
+
+// Through table containing the members that other members have bookmarked
+db.memberAccount.belongsToMany(db.memberAccount, { as: "BookmarkedProfiles", through: db.profileBookmark });
+
+// Through table containing reviews
+db.memberAccount.belongsToMany(db.abstractUser, {
+    foreignKey: 'reviewerUid',
+    through: db.review
+});
+db.abstractUser.belongsToMany(db.memberAccount, {
+    foreignKey: 'revieweeUid',
+    through: db.review
 });
 
 module.exports = db;
