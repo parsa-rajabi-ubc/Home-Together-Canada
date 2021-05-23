@@ -13,7 +13,7 @@ module.exports = (DataTypes, sequelize) => {
             allowNull: false,
         },
         senderUsername: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(50),
             allowNull: false,
         },
         receiverId: {
@@ -21,11 +21,11 @@ module.exports = (DataTypes, sequelize) => {
             allowNull: false,
         },
         receiverUsername: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(50),
             allowNull: false,
         },
         content: {
-            type: DataTypes.STRING(1000),
+            type: DataTypes.STRING(2000),
             allowNull: false,
         }
     });

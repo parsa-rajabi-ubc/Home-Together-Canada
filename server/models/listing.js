@@ -14,7 +14,7 @@ module.exports = (DataTypes, sequelize) => {
         },
         // stringified JSON object with all listing fields
         fields: {
-            type: DataTypes.TEXT, // set a character limit on this
+            type: DataTypes.TEXT, // TODO: set a character limit on this after adding server-side validation
             allowNull: false
         },
         isDeleted: {
