@@ -24,7 +24,6 @@ router.post('/create/', function (req, res, next) {
 
 // get all abstract users
 router.get('/all/', function (req, res, next) {
-    console.log('req.user: ', req.user);
     abstractUsers.findAllAbstractUsers(req, res);
 });
 

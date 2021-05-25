@@ -6,6 +6,8 @@
  *
  */
 
+const { AREA_OF_INTEREST_FIELD_LENGTHS } = require('../constants/fieldLengthsConstants');
+
 module.exports = (DataTypes, sequelize) => {
     return sequelize.define('AreaOfInterest', {
         uid: {
@@ -13,11 +15,11 @@ module.exports = (DataTypes, sequelize) => {
             allowNull: false
         },
         province: {
-            type: DataTypes.STRING(4),
+            type: DataTypes.STRING(AREA_OF_INTEREST_FIELD_LENGTHS.PROVINCE),
             allowNull: false
         },
         city: {
-            type: DataTypes.STRING(60),
+            type: DataTypes.STRING(AREA_OF_INTEREST_FIELD_LENGTHS.CITY),
             allowNull: false
         },
         radius: {

@@ -15,7 +15,7 @@ const fs = require('fs');
 
 const listingValidator = require('../controllers/validators/listingControllerValidator');
 const { LISTING_VALIDATION_METHODS, CATEGORY_FORM_VALIDATION_DICT } = require('../controllers/validators/listingControllerValidatorUtils');
-const { isLoggedIn, userIsBusiness } = require('./routeUtils');
+const { isLoggedIn } = require('./routeUtils');
 const listingCategoryController = require('../controllers/listingCategoryController');
 const listingSubcategoryController = require('../controllers/listingSubcategoryController');
 const listingController = require('../controllers/listingController');

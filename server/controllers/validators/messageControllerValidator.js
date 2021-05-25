@@ -8,7 +8,8 @@
 
 const { body } = require('express-validator/check');
 const {uidShouldExistAndBeForAMember} = require('./messageControllerValidatorUtils');
-const {usernameShouldExistAndBeAMember} = require('./userControllerValidatorUtils');
+const {usernameShouldExistAndBeAMember, isValidStringLength} = require('./userControllerValidatorUtils');
+const { MESSAGE_FIELD_LENGTHS } = require('../../constants/fieldLengthsConstants');
 
 const messageContentValidation = [
     body('content', "A message must be provided")
@@ -16,7 +17,12 @@ const messageContentValidation = [
         .trim()
         .stripLow()
         .isString()
-        .not().isEmpty(),
+        .not().isEmpty()
+        .custom(content => isValidStringLength(
+            content,
+            MESSAGE_FIELD_LENGTHS.CONTENT,
+            'Message content'
+        )),
     body('receiverId',"ReceiverId must be a user")
         .exists()
         .isNumeric()
@@ -25,6 +31,11 @@ const messageContentValidation = [
         .exists()
         .isString()
         .custom(username => usernameShouldExistAndBeAMember(username))
+        .custom(username => isValidStringLength(
+            username,
+            MESSAGE_FIELD_LENGTHS.RECEIVER_USERNAME,
+            'Receiver username'
+        ))
 ];
 
 exports.validate = (method) => {

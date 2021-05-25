@@ -905,4 +905,102 @@ describe('userControllerValidatorUtils', () => {
                 .toThrowError('At least one area of interest must be provided');
         });
     });
+
+    describe('isValidStringLength', () => {
+        it('should true if string is less than max length', () => {
+            // given
+            const str = 'hello';
+            const maxLength = 10;
+            const fieldName = 'string';
+
+            // when
+            const isValid = userControllerValidatorUtils.isValidStringLength(str, maxLength, fieldName);
+
+            // then
+            expect(isValid).toBeTruthy();
+        });
+        it('should true if string is equal to max length', () => {
+            // given
+            const str = 'hello';
+            const maxLength = 5;
+            const fieldName = 'string';
+
+            // when
+            const isValid = userControllerValidatorUtils.isValidStringLength(str, maxLength, fieldName);
+
+            // then
+            expect(isValid).toBeTruthy();
+        });
+        it('show throw error if string is undefined', () => {
+            // given
+            const str = undefined;
+            const maxLength = 5;
+            const fieldName = 'string';
+
+            // then
+            expect(() => userControllerValidatorUtils.isValidStringLength(str, maxLength, fieldName))
+                .toThrowError(`string must be provided`);
+        });
+        it('show throw error if string is greater than max length', () => {
+            // given
+            const str = 'aStringThatIsMoreThanFiveCharacters';
+            const maxLength = 5;
+            const fieldName = 'string';
+
+            // then
+            expect(() => userControllerValidatorUtils.isValidStringLength(str, maxLength, fieldName))
+                .toThrowError(`string cannot be more than 5 characters`);
+        });
+    });
+
+    describe('isOptionalFieldAValidStringLength', () => {
+        it('should return true when fieldIsDefined is true and string is less than max length', () => {
+            // given
+            const fieldIsDefined = true;
+            const str = 'hello';
+            const maxLength = 10;
+            const fieldName = 'string';
+
+            // when
+            const isValid = userControllerValidatorUtils.isOptionalFieldAValidStringLength(fieldIsDefined, str, maxLength, fieldName);
+
+            // then
+            expect(isValid).toBeTruthy();
+        });
+        it('should return true when fieldIsDefined is false and string is undefined', () => {
+            // given
+            const fieldIsDefined = false;
+            const str = undefined;
+            const maxLength = 10;
+            const fieldName = 'string';
+
+            // when
+            const isValid = userControllerValidatorUtils.isOptionalFieldAValidStringLength(fieldIsDefined, str, maxLength, fieldName);
+
+            // then
+            expect(isValid).toBeTruthy();
+        });
+        it('should throw an error when fieldIsDefined is true and string is undefined', () => {
+            // given
+            const fieldIsDefined = true;
+            const str = undefined;
+            const maxLength = 10;
+            const fieldName = 'string';
+
+            // then
+            expect(() => userControllerValidatorUtils.isOptionalFieldAValidStringLength(fieldIsDefined, str, maxLength, fieldName))
+                .toThrowError(`string must be defined`);
+        });
+        it('should throw an error when fieldIsDefined is true and string is greater than max length', () => {
+            // given
+            const fieldIsDefined = true;
+            const str = 'aReallyBigWordGreaterThan10Characters';
+            const maxLength = 10;
+            const fieldName = 'string';
+
+            // then
+            expect(() => userControllerValidatorUtils.isOptionalFieldAValidStringLength(fieldIsDefined, str, maxLength, fieldName))
+                .toThrowError(`string cannot be more than 10 characters`);
+        });
+    });
 });
