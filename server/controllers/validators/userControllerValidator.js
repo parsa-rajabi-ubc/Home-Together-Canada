@@ -52,7 +52,8 @@ const {
     ABSTRACT_USER_FIELD_LENGTHS,
     MEMBER_FIELD_LENGTHS,
     BUSINESS_FIELD_LENGTHS
-} = require('../../constants/fieldLengthsConstants')
+} = require('../../constants/fieldLengthsConstants');
+const { ZERO, SIGNED_INTEGER_UPPER_BOUND } = require('../../constants/numberConstants');
 
 const registrationSigninDetailsValidation = [
     body('username', 'A username must be provided')
@@ -349,13 +350,14 @@ const memberProfileBasicFieldsValidation = [
         .custom(birthyear => isValidBirthYear(birthyear)),
     body('minMonthlyBudget', 'A valid positive integer must be provided for rent')
         .exists()
-        .isNumeric()
         .customSanitizer(rent => parseInt(rent))
-        .custom(rent => isPositiveInteger(rent)),
+        .isFloat({ min: ZERO, max: SIGNED_INTEGER_UPPER_BOUND })
+        .withMessage('Value for minimum monthly budget is out of bounds.'),
     body('maxMonthlyBudget', 'A valid positive integer must be provided for rent')
         .exists()
-        .isNumeric()
         .customSanitizer(rent => parseInt(rent))
+        .isFloat({ min: ZERO, max: SIGNED_INTEGER_UPPER_BOUND })
+        .withMessage('Value for maximum monthly budget is out of bounds.')
         .custom(rent => isPositiveInteger(rent))
         .custom((rent, {req}) => validateMinAndMax(req.body.minMonthlyBudget, rent)),
     body('hasHomeToShare', 'A boolean value must be provided')
@@ -488,7 +490,8 @@ const memberProfileBasicFieldsValidation = [
         )),
     body('numRoommates', 'Must provide a valid value for numRoommates')
         .exists()
-        .isNumeric()
+        .isFloat({ min: ZERO, max: SIGNED_INTEGER_UPPER_BOUND })
+        .withMessage('Value for maximum number of roommates is out of bounds.')
         .custom(limit => isValidShareLimit(limit)),
     body('bio', 'Must provide a valid bio')
         .optional()
@@ -510,22 +513,26 @@ const memberProfileBasicFieldsValidation = [
 const memberSearchFiltersValidation = [
     body('minAgePreference')
         .exists()
-        .isNumeric()
-        .custom(age => isPositiveInteger(age)),
+        .isFloat({ min: ZERO, max: SIGNED_INTEGER_UPPER_BOUND })
+        .withMessage('Value for minimum age preference is out of bounds.')
+        .customSanitizer(minAgePreference => parseInt(minAgePreference)),
     body('maxAgePreference')
         .exists()
-        .isNumeric()
-        .custom(age => isPositiveInteger(age))
-        .custom((age, { req }) => validateMinAndMax(req.body.minAgePreference, age)),
+        .isFloat({ min: ZERO, max: SIGNED_INTEGER_UPPER_BOUND })
+        .withMessage('Value for maximum age preference is out of bounds.')
+        .custom((age, { req }) => validateMinAndMax(req.body.minAgePreference, age))
+        .customSanitizer(maxAgePreference => parseInt(maxAgePreference)),
     body('minBudgetPreference')
         .exists()
-        .isNumeric()
-        .custom(budget => isPositiveInteger(budget)),
+        .isFloat({ min: ZERO, max: SIGNED_INTEGER_UPPER_BOUND })
+        .withMessage('Value for minimum budget preference is out of bounds.')
+        .customSanitizer(minBudgetPreference => parseInt(minBudgetPreference)),
     body('maxBudgetPreference')
         .exists()
-        .isNumeric()
-        .custom(budget => isPositiveInteger(budget))
-        .custom((budget, {req}) => validateMinAndMax(req.body.minBudgetPreference, budget)),
+        .isFloat({ min: ZERO, max: SIGNED_INTEGER_UPPER_BOUND })
+        .withMessage('Value for maximum budget preference is out of bounds.')
+        .custom((budget, {req}) => validateMinAndMax(req.body.minBudgetPreference, budget))
+        .customSanitizer(maxBudgetPreference => parseInt(maxBudgetPreference)),
     body('statusPreference')
         .exists()
         .isArray()

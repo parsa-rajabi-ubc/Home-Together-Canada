@@ -15,7 +15,6 @@ const {
     isOptionalFieldAValidStringLength
 } = require("./userControllerValidatorUtils");
 
-const {isPositiveInteger} = require("./userControllerValidatorUtils");
 const {isValidPhoneNumber} = require("./userControllerValidatorUtils");
 const {isValidCanadianPostalCode} = require("./userControllerValidatorUtils");
 const {removeAllWhiteSpace} = require("../utils/stringUtils");
@@ -34,6 +33,8 @@ const {
 } = require('./listingControllerValidatorUtils');
 
 const { LISTING_FIELD_LENGTHS } = require('../../constants/fieldLengthsConstants');
+
+const { ZERO, SIGNED_INTEGER_UPPER_BOUND } = require('../../constants/numberConstants');
 
 const commonListingInfo = [
     body('title', LISTING_FIELDS_ERRORS.TITLE)
@@ -72,18 +73,23 @@ const monthlyCostValidation = [
         .exists()
         .isNumeric()
         .customSanitizer(monthlyCost => parseInt(monthlyCost))
-        .custom(monthlyCost => isPositiveInteger(monthlyCost)),
+        .isFloat({ min: ZERO, max: SIGNED_INTEGER_UPPER_BOUND })
+        .withMessage('Value for monthly cost is out of bounds.')
+    ,
 ];
 
 const numBedBathValidation = [
     body('numBed', LISTING_FIELDS_ERRORS.NUM_BEDROOMS)
         .exists()
-        .isNumeric()
-        .custom(numBed => isPositiveInteger(numBed)),
+        .isFloat({ min: ZERO, max: SIGNED_INTEGER_UPPER_BOUND })
+        .withMessage('Value for number of beds is out of bounds.')
+        .customSanitizer(numBed => parseInt(numBed)),
     body('numBath', LISTING_FIELDS_ERRORS.NUM_BATHROOMS)
         .exists()
         .isNumeric()
-        .custom(numBath => isPositiveInteger(numBath))
+        .isFloat({ min: ZERO, max: SIGNED_INTEGER_UPPER_BOUND })
+        .withMessage('Value for number of bathrooms is out of bounds.')
+        .customSanitizer(numBath => parseInt(numBath))
 ]
 
 const petFriendlyValidation = [
@@ -230,12 +236,16 @@ exports.validate = method => {
                 ...contactNameValidation,
                 body('unitsForSale', LISTING_FIELDS_ERRORS.UNITS_FOR_SALE)
                     .exists()
-                    .isNumeric()
-                    .custom(numUnits => isPositiveInteger(numUnits)),
+                    .isFloat({ min: ZERO, max: SIGNED_INTEGER_UPPER_BOUND })
+                    .withMessage('Value for units for sale is out of bounds.')
+                    .customSanitizer(unitsForSale => parseInt(unitsForSale))
+                ,
                 body('unitsForRent', LISTING_FIELDS_ERRORS.UNITS_FOR_RENT)
                     .exists()
-                    .isNumeric()
-                    .custom(numUnits => isPositiveInteger(numUnits)),
+                    .isFloat({ min: ZERO, max: SIGNED_INTEGER_UPPER_BOUND })
+                    .withMessage('Value for units for rent is out of bounds.')
+                    .customSanitizer(unitsForRent => parseInt(unitsForRent))
+
             ]
         }
         case LISTING_VALIDATION_METHODS.HOME_SHARE_FACILITATION_BUSINESS_FORM: {
