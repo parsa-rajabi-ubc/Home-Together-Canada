@@ -6,6 +6,8 @@
  *
  */
 
+const { MESSAGE_FIELD_LENGTHS } = require('../constants/fieldLengthsConstants');
+
 module.exports = (DataTypes, sequelize) => {
     return sequelize.define("Message", {
         senderId: {
@@ -13,7 +15,7 @@ module.exports = (DataTypes, sequelize) => {
             allowNull: false,
         },
         senderUsername: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.STRING(MESSAGE_FIELD_LENGTHS.SENDER_USERNAME),
             allowNull: false,
         },
         receiverId: {
@@ -21,11 +23,11 @@ module.exports = (DataTypes, sequelize) => {
             allowNull: false,
         },
         receiverUsername: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.STRING(MESSAGE_FIELD_LENGTHS.RECEIVER_USERNAME),
             allowNull: false,
         },
         content: {
-            type: DataTypes.STRING(2000),
+            type: DataTypes.STRING(MESSAGE_FIELD_LENGTHS.CONTENT),
             allowNull: false,
         }
     });

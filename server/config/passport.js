@@ -46,7 +46,6 @@ module.exports = function (passport) {
         }
     ));
 
-    // TODO: add strategy for member user
     passport.use('local-signup-member', new LocalStrategy(
         {
             usernameField: 'username',

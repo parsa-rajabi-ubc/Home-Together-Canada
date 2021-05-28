@@ -6,11 +6,15 @@
  *
  */
 const { body } = require('express-validator/check');
-const {isValidRadius} = require("./userControllerValidatorUtils");
 const {PROVINCES_LIST} = require("../configConstants");
-const {isValidLocation, validAddress} = require("./userControllerValidatorUtils");
+const {
+    isValidRadius,
+    isValidLocation,
+    validAddress,
+    isValidStringLength,
+    isOptionalFieldAValidStringLength
+} = require("./userControllerValidatorUtils");
 
-const {isPositiveInteger} = require("./userControllerValidatorUtils");
 const {isValidPhoneNumber} = require("./userControllerValidatorUtils");
 const {isValidCanadianPostalCode} = require("./userControllerValidatorUtils");
 const {removeAllWhiteSpace} = require("../utils/stringUtils");
@@ -28,22 +32,40 @@ const {
     listingShouldExist
 } = require('./listingControllerValidatorUtils');
 
+const { LISTING_FIELD_LENGTHS } = require('../../constants/fieldLengthsConstants');
+
+const { ZERO, SIGNED_INTEGER_UPPER_BOUND } = require('../../constants/numberConstants');
+
 const commonListingInfo = [
     body('title', LISTING_FIELDS_ERRORS.TITLE)
         .exists()
         .trim()
         .stripLow()
-        .not().isEmpty(),
+        .isString()
+        .not().isEmpty()
+        .custom(title => isValidStringLength(title, LISTING_FIELD_LENGTHS.TITLE, 'Title')),
     body('shortDescription', LISTING_FIELDS_ERRORS.SHORT_DESCRIPTION)
         .exists()
         .trim()
         .stripLow()
-        .not().isEmpty(),
+        .isString()
+        .not().isEmpty()
+        .custom(shortDescription => isValidStringLength(
+            shortDescription,
+            LISTING_FIELD_LENGTHS.SHORT_DESCRIPTION,
+            'Short Description'
+        )),
     body('fullDescription', LISTING_FIELDS_ERRORS.FULL_DESCRIPTION)
         .exists()
         .trim()
         .stripLow()
+        .isString()
         .not().isEmpty()
+        .custom(fullDescription => isValidStringLength(
+            fullDescription,
+            LISTING_FIELD_LENGTHS.FULL_DESCRIPTION,
+            'Full description'
+        ))
 ];
 
 const monthlyCostValidation = [
@@ -51,18 +73,23 @@ const monthlyCostValidation = [
         .exists()
         .isNumeric()
         .customSanitizer(monthlyCost => parseInt(monthlyCost))
-        .custom(monthlyCost => isPositiveInteger(monthlyCost)),
+        .isFloat({ min: ZERO, max: SIGNED_INTEGER_UPPER_BOUND })
+        .withMessage('Value for monthly cost is out of bounds.')
+    ,
 ];
 
 const numBedBathValidation = [
     body('numBed', LISTING_FIELDS_ERRORS.NUM_BEDROOMS)
         .exists()
-        .isNumeric()
-        .custom(numBed => isPositiveInteger(numBed)),
+        .isFloat({ min: ZERO, max: SIGNED_INTEGER_UPPER_BOUND })
+        .withMessage('Value for number of beds is out of bounds.')
+        .customSanitizer(numBed => parseInt(numBed)),
     body('numBath', LISTING_FIELDS_ERRORS.NUM_BATHROOMS)
         .exists()
         .isNumeric()
-        .custom(numBath => isPositiveInteger(numBath))
+        .isFloat({ min: ZERO, max: SIGNED_INTEGER_UPPER_BOUND })
+        .withMessage('Value for number of bathrooms is out of bounds.')
+        .customSanitizer(numBath => parseInt(numBath))
 ]
 
 const petFriendlyValidation = [
@@ -82,7 +109,13 @@ const contactNameValidation = [
         .exists()
         .trim()
         .stripLow()
+        .isString()
         .not().isEmpty()
+        .custom(contactName => isValidStringLength(
+            contactName,
+            LISTING_FIELD_LENGTHS.CONTACT_NAME,
+            'Contact name'
+        ))
 ];
 
 const contactNumberValidation = [
@@ -97,7 +130,13 @@ const ratesAndFeesValidation = [
         .exists()
         .trim()
         .stripLow()
+        .isString()
         .not().isEmpty()
+        .custom(rateAndFees => isValidStringLength(
+            rateAndFees,
+            LISTING_FIELD_LENGTHS.RATES_AND_FEES,
+            'Rates and fees'
+        ))
 ];
 
 exports.validate = method => {
@@ -118,6 +157,12 @@ exports.validate = method => {
                     .custom((subcategory, { req }) => isValidSubcategoryForSelectedCategory(subcategory, req.body.category)),
                 body('orderId')
                     .custom((orderId, { req }) => shouldOrderIdBeDefined(orderId, req.body.type))
+                    .custom((orderId, { req }) => isOptionalFieldAValidStringLength(
+                        (req.body.type === LISTING_TYPES.CLASSIFIED),
+                        orderId,
+                        LISTING_FIELD_LENGTHS.ORDER_ID,
+                        'Order ID'
+                    ))
             ]
         }
         case LISTING_VALIDATION_METHODS.MEMBER_HOME_FORM: {
@@ -131,26 +176,55 @@ exports.validate = method => {
                     .exists()
                     .trim()
                     .stripLow()
+                    .isString()
                     .not().isEmpty()
-                    .custom((addressLine1, { req }) => validAddress(addressLine1, req)),
+                    .custom((addressLine1, { req }) => validAddress(addressLine1, req))
+                    .custom(addressLine1 => isValidStringLength(
+                        addressLine1,
+                        LISTING_FIELD_LENGTHS.ADDRESS_LINE_1,
+                        'Address Line 1'
+                    )),
                 body('addressLine2', 'Address line 2 is invalid')
                     .optional()
                     .trim()
-                    .stripLow(),
+                    .stripLow()
+                    .isString()
+                    .custom(addressLine2 => isValidStringLength(
+                        addressLine2,
+                        LISTING_FIELD_LENGTHS.ADDRESS_LINE_2,
+                        'Address Line 2'
+                    )),
                 body('city', 'A valid city must be provided')
                     .exists()
                     .trim()
                     .stripLow()
-                    .not().isEmpty(),
+                    .isString()
+                    .not().isEmpty()
+                    .custom(city => isValidStringLength(
+                        city,
+                        LISTING_FIELD_LENGTHS.CITY,
+                        'City'
+                    )),
                 body('province', 'A valid province must be provided')
                     .exists()
-                    .isIn(PROVINCES_LIST),
+                    .isIn(PROVINCES_LIST)
+                    .isString()
+                    .custom(province => isValidStringLength(
+                        province,
+                        LISTING_FIELD_LENGTHS.PROVINCE,
+                        'Province'
+                    )),
                 body('postalCode', 'A valid postal code must be provided')
                     .exists()
                     .trim()
                     .stripLow()
                     .customSanitizer(postalCode => removeAllWhiteSpace(postalCode))
-                    .custom(postalCode => isValidCanadianPostalCode(postalCode)),
+                    .custom(postalCode => isValidCanadianPostalCode(postalCode))
+                    .custom(postalCode => isValidStringLength(
+                        postalCode,
+                        LISTING_FIELD_LENGTHS.POSTAL_CODE,
+                        'Postal code'
+                    )),
                 body('utilitiesIncluded', LISTING_FIELDS_ERRORS.UTILITIES_INCLUDED)
                     .exists()
                     .isBoolean()
@@ -162,12 +236,16 @@ exports.validate = method => {
                 ...contactNameValidation,
                 body('unitsForSale', LISTING_FIELDS_ERRORS.UNITS_FOR_SALE)
                     .exists()
-                    .isNumeric()
-                    .custom(numUnits => isPositiveInteger(numUnits)),
+                    .isFloat({ min: ZERO, max: SIGNED_INTEGER_UPPER_BOUND })
+                    .withMessage('Value for units for sale is out of bounds.')
+                    .customSanitizer(unitsForSale => parseInt(unitsForSale))
+                ,
                 body('unitsForRent', LISTING_FIELDS_ERRORS.UNITS_FOR_RENT)
                     .exists()
-                    .isNumeric()
-                    .custom(numUnits => isPositiveInteger(numUnits)),
+                    .isFloat({ min: ZERO, max: SIGNED_INTEGER_UPPER_BOUND })
+                    .withMessage('Value for units for rent is out of bounds.')
+                    .customSanitizer(unitsForRent => parseInt(unitsForRent))
+
             ]
         }
         case LISTING_VALIDATION_METHODS.HOME_SHARE_FACILITATION_BUSINESS_FORM: {
@@ -217,7 +295,13 @@ exports.validate = method => {
                     .exists()
                     .trim()
                     .stripLow()
+                    .isString()
                     .not().isEmpty()
+                    .custom(eventDateTime => isValidStringLength(
+                        eventDateTime,
+                        LISTING_FIELD_LENGTHS.EVENT_DATE_TIME,
+                        'Event dates and times'
+                    ))
             ];
         }
         case LISTING_VALIDATION_METHODS.SEARCH_LISTINGS: {

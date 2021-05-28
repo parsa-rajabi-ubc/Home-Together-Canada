@@ -86,9 +86,9 @@ const isValidCanadianPostalCode = (postalCode) => {
     }
 };
 
-const shouldMailingAddressBeDefined = (addressPart, req) => {
+const shouldMailingAddressBeDefined = (addressPart, req, fieldName) => {
     if (req.body.hasDifferentMailingAddress && !addressPart) {
-        throw new Error('Address must be defined');
+        throw new Error(`${fieldName} for mailing address must be defined if use different mailing address is selected`);
     } else {
         return true;
     }
@@ -158,7 +158,7 @@ const validMapAddress = (addressLine1, req) => {
         return geoCoder.geocode(address)
             .then(locations => {
                 if (!locations.length) {
-                    return Promise.reject('Invalid map address');
+                    return Promise.reject('Invalid searchable address');
                 }
             });
     } else {
@@ -275,13 +275,42 @@ const isValidLocation = area => {
         });
 }
 
-const usernameShouldNotAlreadyExist = (username) =>
-    abstractUserController.findUserByUsername(username)
-        .then(user => {
-            if (user) {
-                return Promise.reject('User already exists');
-            }
-        });
+/**
+ *
+ * @param maxLength maximum number of characters in string (inclusive)
+ */
+const isValidStringLength = (str, maxLength, fieldName) => {
+    if (!str) {
+        throw new Error(`${fieldName} must be provided`)
+    } else if (str.length > maxLength) {
+        throw new Error(`${fieldName} cannot be more than ${maxLength} characters`);
+    }
+    return true;
+}
+
+const isOptionalFieldAValidStringLength = (fieldIsDefined, str, maxLength, fieldName) => {
+    if (fieldIsDefined && !str) {
+        throw new Error(`${fieldName} must be defined`);
+    } else if (fieldIsDefined && (str.length > maxLength)) {
+        throw new Error(`${fieldName} cannot be more than ${maxLength} characters`);
+    } else {
+        return true;
+    }
+}
+
+const usernameShouldNotAlreadyExist = (username) => {
+    if (!username) {
+        return Promise.reject('Username must be provided');
+    } else {
+        return abstractUserController.findUserByUsername(username)
+            .then(user => {
+                if (user) {
+                    return Promise.reject('User already exists');
+                }
+            });
+    }
+}
+
 
 const emailShouldNotAlreadyBeInUse = (email) =>
     abstractUserController.findUserByEmail(email)
@@ -401,6 +430,8 @@ module.exports = {
     isValidRadius,
     isValidAreasOfInterestList,
     isValidLocation,
+    isValidStringLength,
+    isOptionalFieldAValidStringLength,
     usernameShouldNotAlreadyExist,
     emailShouldNotAlreadyBeInUse,
     updatedEmailShouldNotAlreadyBeInUse,
