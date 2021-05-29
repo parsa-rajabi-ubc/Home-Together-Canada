@@ -28,5 +28,5 @@ describe('SignInInfo', () => {
                         // then
                         expect(component).toMatchSnapshot();
                 });
-        })
-})
+        });
+});
