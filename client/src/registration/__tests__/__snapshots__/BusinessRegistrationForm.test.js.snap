@@ -88,6 +88,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 autoComplete="organization"
                 className="false undefined mb-0 input"
                 disabled={false}
+                maxLength={100}
                 onChange={[Function]}
                 type="text"
               />
@@ -256,6 +257,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 autoComplete="email"
                 className="false undefined input"
                 disabled={false}
+                maxLength={255}
                 onChange={[Function]}
                 placeholder="business@email.ca"
                 type="text"
@@ -272,6 +274,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 autoComplete="url"
                 className="false input"
                 disabled={false}
+                maxLength={255}
                 onChange={[Function]}
                 placeholder="http://www.your-website.com"
                 type="text"
@@ -433,6 +436,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 <input
                   autoComplete="address-line1"
                   className="undefined input"
+                  maxLength={100}
                   name="street"
                   onChange={[Function]}
                   placeholder="Address Line 1"
@@ -446,6 +450,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 <input
                   autoComplete="address-line2"
                   className="input"
+                  maxLength={100}
                   name="aptNum"
                   onChange={[Function]}
                   placeholder="Address Line 2: Apt, suite, etc. (optional)"
@@ -459,6 +464,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 <input
                   autoComplete="address-level2"
                   className="undefined input"
+                  maxLength={60}
                   name="city"
                   onChange={[Function]}
                   placeholder="City"
@@ -581,6 +587,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 <input
                   autoComplete="postal-code"
                   className="undefined input"
+                  maxLength={6}
                   name="postalCode"
                   onChange={[Function]}
                   placeholder="Postal Code"
@@ -1000,6 +1007,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                   <input
                     autoComplete="address-line1"
                     className="undefined input"
+                    maxLength={100}
                     name="street"
                     onChange={[Function]}
                     placeholder="Address Line 1"
@@ -1013,6 +1021,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                   <input
                     autoComplete="address-line2"
                     className="input"
+                    maxLength={100}
                     name="aptNum"
                     onChange={[Function]}
                     placeholder="Address Line 2: Apt, suite, etc. (optional)"
@@ -1026,6 +1035,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                   <input
                     autoComplete="address-level2"
                     className="undefined input"
+                    maxLength={60}
                     name="city"
                     onChange={[Function]}
                     placeholder="City"
@@ -1148,6 +1158,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                   <input
                     autoComplete="postal-code"
                     className="undefined input"
+                    maxLength={6}
                     name="postalCode"
                     onChange={[Function]}
                     placeholder="Postal Code"
@@ -1381,6 +1392,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
               autoComplete="given-name"
               className="false undefined input"
               disabled={false}
+              maxLength={100}
               onChange={[Function]}
               type="text"
             />
@@ -1419,6 +1431,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
               autoComplete="family-name"
               className="false undefined input"
               disabled={false}
+              maxLength={100}
               onChange={[Function]}
               type="text"
             />
@@ -1680,6 +1693,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                     </span>
                     <input
                       className="undefined input"
+                      maxLength={50}
                       onChange={[Function]}
                       type="text"
                     />
@@ -1829,6 +1843,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                     </span>
                     <input
                       className="undefined input"
+                      maxLength={255}
                       onChange={[Function]}
                       type="password"
                     />
@@ -1862,6 +1877,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                     </label>
                     <input
                       className="undefined input"
+                      maxLength={255}
                       onChange={[Function]}
                       type="password"
                     />
