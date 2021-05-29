@@ -808,6 +808,21 @@ describe('userControllerValidatorUtils', () => {
             // then
             expect(result).toBe(true);
         });
+        it('should throw an error if more than 5 areas of interest are provided', () => {
+            // given
+            const areasOfInterest = [
+                { province: 'AB', city: 'Calgary', radius: 50 },
+                { province: 'BC', city: 'Kelowna', radius: 100 },
+                { province: 'MB', city: 'Churchill', radius: 25 },
+                { province: 'AB', city: 'Edmonton', radius: 25 },
+                { province: 'BC', city: 'Vancouver', radius: 25 },
+                { province: 'BC', city: 'Kamloops', radius: 25 }
+            ];
+
+            // then
+            expect(() => userControllerValidatorUtils.isValidAreasOfInterestList(areasOfInterest))
+                .toThrowError('No more than 5 areas of interest can be provided');
+        });
         it('should throw an error if a province is undefined in an area of interest', () => {
             // given
             const areasOfInterest = [{ province: undefined, city: 'Calgary', radius: 50 }];

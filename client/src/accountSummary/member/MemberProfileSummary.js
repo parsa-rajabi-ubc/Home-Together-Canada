@@ -29,7 +29,7 @@ import {
 } from "../../registration/registrationUtils";
 import Asterisk from "../../common/forms/Asterisk";
 import {memberHasCoupleStatus, memberHasExistingGroupStatus} from "./memberAccountSummaryUtils";
-import {STATUSES} from "../../common/constants/memberConstants";
+import {MAX_AREAS_OF_INTEREST, STATUSES} from "../../common/constants/memberConstants";
 import * as MemberService from '../../services/MemberService';
 import { useHistory } from "react-router-dom";
 import {connect} from "react-redux";
@@ -444,8 +444,12 @@ function MemberProfileSummary(props) {
                             </div>
                             <LabelAsterisk label={"Preferred Living Location(s)"}/>
                             <Tooltip text={MEMBER_PROFILE_INFO_TEXT.INTERESTED_AREA} toolTipID="interestedArea"/>
-                            <InterestedArea givenAreasOfInterest={areasOfInterest} onChange={setAreasOfInterest}
-                                            areasOfInterestError={areasOfInterestError}/>
+                            <InterestedArea
+                                givenAreasOfInterest={areasOfInterest}
+                                onChange={setAreasOfInterest}
+                                areasOfInterestError={areasOfInterestError}
+                                max={MAX_AREAS_OF_INTEREST}
+                            />
                             <div className="grid grid-cols-6 gap-x-6 mt-8">
                                 <div className="column-span-6-layout">
                                     <section
