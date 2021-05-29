@@ -594,7 +594,7 @@ const memberStatusValidation = [
 ];
 
 const areasOfInterestValidation = [
-    body('areasOfInterest')
+    body('areasOfInterest', 'Invalid list of areas of interest')
         .exists()
         .isArray()
         .custom(areasOfInterest => isValidAreasOfInterestList(areasOfInterest)),

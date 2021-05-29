@@ -56,13 +56,13 @@ import {PRIVACY_POLICY_TEXT} from "../common/constants/privacyPolicyText";
 import {toast, Flip} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
 import {REGISTRATION_TOAST} from "../common/constants/ToastText";
+import {MAX_AREAS_OF_INTEREST} from "../common/constants/memberConstants";
 import {MEMBER_FIELD_LENGTHS, USER_FIELD_LENGTHS} from "../common/constants/fieldLengths";
 
 toast.configure()
 
 const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated, setActive, setMemberSearchFilters};
 
-//Returns a Form with fields
 function MemberRegistrationForm(props) {
     const {history, setIsAdmin, setAccountType, setAuthenticated, setActive, setMemberSearchFilters} = props;
     const [firstName, setFirstName] = useState(undefined);
@@ -883,11 +883,12 @@ function MemberRegistrationForm(props) {
                                         <LabelAsterisk label={"Preferred Living Location(s)"}/>
                                         <Tooltip
                                             text={MEMBER_PROFILE_INFO_TEXT.INTERESTED_AREA}
-                                            toolTipID="interestedArea"
+                                             toolTipID="interestedArea"
                                         />
                                         <InterestedArea
                                             onChange={setAreasOfInterest}
                                             areasOfInterestError={areasOfInterestError}
+                                            max={MAX_AREAS_OF_INTEREST}
                                         />
                                         <div className="grid grid-cols-6 gap-x-6 mt-5">
                                             <div className="column-span-6-layout">
