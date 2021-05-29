@@ -155,14 +155,14 @@ exports.validate = method => {
                     .custom((subcategories, { req }) => listingShouldHaveCategories(subcategories, req.body.category)),
                 body('subcategories.*')
                     .custom((subcategory, { req }) => isValidSubcategoryForSelectedCategory(subcategory, req.body.category)),
-                body('orderId')
-                    .custom((orderId, { req }) => shouldOrderIdBeDefined(orderId, req.body.type))
-                    .custom((orderId, { req }) => isOptionalFieldAValidStringLength(
-                        (req.body.type === LISTING_TYPES.CLASSIFIED),
-                        orderId,
-                        LISTING_FIELD_LENGTHS.ORDER_ID,
-                        'Order ID'
-                    ))
+                // body('orderId')
+                //     .custom((orderId, { req }) => shouldOrderIdBeDefined(orderId, req.body.type))
+                //     .custom((orderId, { req }) => isOptionalFieldAValidStringLength(
+                //         (req.body.type === LISTING_TYPES.CLASSIFIED),
+                //         orderId,
+                //         LISTING_FIELD_LENGTHS.ORDER_ID,
+                //         'Order ID'
+                //     ))
             ]
         }
         case LISTING_VALIDATION_METHODS.MEMBER_HOME_FORM: {
