@@ -47,6 +47,7 @@ exports[`GovernmentServicesForm Snapshot test should render correctly regardless
           <input
             className="false undefined input"
             disabled={false}
+            maxLength={75}
             onChange={[Function]}
             type="text"
           />
@@ -86,7 +87,7 @@ exports[`GovernmentServicesForm Snapshot test should render correctly regardless
               <input
                 className="false undefined input"
                 disabled={false}
-                maxLength="50"
+                maxLength={50}
                 onChange={[Function]}
                 type="text"
               />
@@ -124,6 +125,7 @@ exports[`GovernmentServicesForm Snapshot test should render correctly regardless
               <input
                 className="false undefined input"
                 disabled={false}
+                maxLength={200}
                 onChange={[Function]}
                 type="text"
               />
@@ -224,6 +226,7 @@ exports[`GovernmentServicesForm Snapshot test should render correctly regardless
           <textarea
             className="undefined undefined undefined input"
             cols="50"
+            maxLength={2000}
             onChange={[Function]}
             rows="6"
           />

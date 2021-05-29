@@ -28,6 +28,7 @@ import {SHORT_DESC_CHAR_COUNT} from "../../../common/constants/listingsConstants
 import Address from "../../../common/forms/Address";
 import MultiImageUpload from "../../../common/forms/MultiImageUpload";
 import {DEFAULT_MAX_NUM_IMAGES} from "../../constants/createListingConfig";
+import {LISTING_FIELD_LENGTHS} from "../../../common/constants/fieldLengths";
 
 
 const MemberHomeShareForm = (props) => {
@@ -198,6 +199,7 @@ const MemberHomeShareForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setTitle(e.target.value)}
+                            charLimit={LISTING_FIELD_LENGTHS.TITLE}
                         />
 
                         <div className={"grid grid-cols-9"}>
@@ -307,8 +309,8 @@ const MemberHomeShareForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setFullDescription(e.target.value)}
+                            charLimit={LISTING_FIELD_LENGTHS.FULL_DESCRIPTION}
                         />
-
 
                         <label className="label"> Photos </label>
                         <Tooltip
@@ -320,10 +322,12 @@ const MemberHomeShareForm = (props) => {
                     </div>
                 </div>
             </div>
-            <SubmitButton className={"btn btn-green form-btn w-1/2"} onClick={onCreateListing}
-                          onSubmit={onCreateListing}/>
+            <SubmitButton
+                className={"btn btn-green form-btn w-1/2"}
+                onClick={onCreateListing}
+            />
         </div>
-    )
+    );
 }
 
 MemberHomeShareForm.propTypes = {

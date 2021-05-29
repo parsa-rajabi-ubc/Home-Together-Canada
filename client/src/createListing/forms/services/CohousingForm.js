@@ -19,6 +19,7 @@ import {
     validateInput,
 } from "../../../registration/registrationUtils";
 import {validatePositiveNumber} from "../../../common/utils/generalUtils";
+import {LISTING_FIELD_LENGTHS} from "../../../common/constants/fieldLengths";
 
 const CohousingForm = (props) => {
     const { onSubmit } = props;
@@ -96,21 +97,17 @@ const CohousingForm = (props) => {
             <div className="col-start-1 col-end-7 py-5 px-5 m-6 bg-white shadow-lg rounded-xl">
                 <div className="grid grid-cols-2 gap-6">
                     <div className="col-span-3 sm:col-span-2">
-
                         <h1 className={"page-title mb-5"}> {TEXT.form_title} </h1>
-
                         <TextArea
                             className={`${titleError && "border-red-500"} input`}
                             label={TEXT.title}
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setTitle(e.target.value)}
+                            charLimit={LISTING_FIELD_LENGTHS.TITLE}
                         />
-
                         <div className={"grid grid-cols-9 gap-x-6"}>
-
                             <section className={"col-start-1 col-end-5"}>
-
                                 <TextArea
                                     className={`${shortDescriptionError && "border-red-500"} input`}
                                     label={TEXT.short_des + " (" + SHORT_DESC_CHAR_COUNT + " Characters)"}
@@ -121,7 +118,6 @@ const CohousingForm = (props) => {
                                 />
                             </section>
                             <section className={"col-start-6 col-end-9"}>
-
                                 <LabelAsterisk
                                     label={TEXT.units_for_sale}
                                     className={"label"}
@@ -133,7 +129,6 @@ const CohousingForm = (props) => {
                                     step="1"
                                     onChange={(e) => setUnitsForSale(e.target.value)}
                                 />
-
                             </section>
                             <section className={"col-start-1 col-end-5"}>
                                 <TextArea
@@ -142,10 +137,9 @@ const CohousingForm = (props) => {
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setContactName(e.target.value)}
+                                    charLimit={LISTING_FIELD_LENGTHS.CONTACT_NAME}
                                 />
                             </section>
-
-
                             <section className={"col-start-6 col-end-9"}>
                                 <LabelAsterisk
                                     label={TEXT.units_for_rent}
@@ -160,7 +154,6 @@ const CohousingForm = (props) => {
                                 />
                             </section>
                         </div>
-
                         <LargeTextArea
                             className={`${fullDescriptionError && "border-red-500"} input`}
                             rows={"6"}
@@ -168,15 +161,17 @@ const CohousingForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setFullDescription(e.target.value)}
+                            charLimit={LISTING_FIELD_LENGTHS.FULL_DESCRIPTION}
                         />
                     </div>
                 </div>
             </div>
-            <SubmitButton className={"btn btn-green form-btn w-1/2"} onClick={onCreateListing}
-                          onSubmit={onCreateListing}/>
+            <SubmitButton
+                className={"btn btn-green form-btn w-1/2"}
+                onClick={onCreateListing}
+            />
         </div>
-    )
-
+    );
 }
 CohousingForm.propTypes = {
     onSubmit: PropTypes.func.isRequired
