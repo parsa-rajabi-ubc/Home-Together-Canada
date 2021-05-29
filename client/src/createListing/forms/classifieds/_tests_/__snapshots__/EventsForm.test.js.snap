@@ -47,6 +47,7 @@ exports[`EventsForm Snapshot test should render correctly regardless of properti
           <input
             className="false undefined input"
             disabled={false}
+            maxLength={75}
             onChange={[Function]}
             type="text"
           />
@@ -86,7 +87,7 @@ exports[`EventsForm Snapshot test should render correctly regardless of properti
               <input
                 className="false undefined input"
                 disabled={false}
-                maxLength="50"
+                maxLength={50}
                 onChange={[Function]}
                 type="text"
               />
@@ -124,6 +125,7 @@ exports[`EventsForm Snapshot test should render correctly regardless of properti
               <input
                 className="false undefined input"
                 disabled={false}
+                maxLength={200}
                 onChange={[Function]}
                 type="text"
               />
@@ -161,6 +163,7 @@ exports[`EventsForm Snapshot test should render correctly regardless of properti
               <input
                 className="false undefined input"
                 disabled={false}
+                maxLength={255}
                 onChange={[Function]}
                 type="text"
               />
@@ -263,6 +266,7 @@ exports[`EventsForm Snapshot test should render correctly regardless of properti
               <input
                 className="false undefined input"
                 disabled={false}
+                maxLength={255}
                 onChange={[Function]}
                 type="text"
               />
@@ -299,6 +303,7 @@ exports[`EventsForm Snapshot test should render correctly regardless of properti
             className="false undefined undefined input"
             cols="50"
             disabled={false}
+            maxLength={2000}
             onChange={[Function]}
             rows="6"
           />
