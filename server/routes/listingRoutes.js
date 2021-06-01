@@ -11,7 +11,6 @@ const router = express.Router();
 const { validationResult } = require('express-validator/check');
 const includes = require('lodash/includes');
 const last = require('lodash/last');
-const fs = require('fs');
 
 const listingValidator = require('../controllers/validators/listingControllerValidator');
 const { LISTING_VALIDATION_METHODS, CATEGORY_FORM_VALIDATION_DICT } = require('../controllers/validators/listingControllerValidatorUtils');
@@ -210,24 +209,26 @@ router.post('/search/', listingValidator.validate(LISTING_VALIDATION_METHODS.SEA
     }
 );
 
-router.get('/categories/', function(req, res, next) {
-    listingCategoryController.findAllListingCategories(req, res);
-});
+if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
+    router.get('/categories/', function(req, res, next) {
+        listingCategoryController.findAllListingCategories(req, res);
+    });
 
-router.get('/subcategories/', function(req, res, next) {
-    listingSubcategoryController.findAllListingSubcategories(req, res);
-});
+    router.get('/subcategories/', function(req, res, next) {
+        listingSubcategoryController.findAllListingSubcategories(req, res);
+    });
 
-router.get('/listings/', function(req, res, next) {
-    listingController.findAllListings(req, res);
-});
+    router.get('/listings/', function(req, res, next) {
+        listingController.findAllListings(req, res);
+    });
 
-router.get('/listingAssignedSubcategories/', function (req, res){
-    listingAssignedSubcategoryController.findAllEntries(req, res);
-});
+    router.get('/listingAssignedSubcategories/', function (req, res){
+        listingAssignedSubcategoryController.findAllEntries(req, res);
+    });
 
-router.get('/memberListingLocations/', function (req, res){
-    memberListingLocationController.findAllMemberListingLocationEntries(req, res);
-});
+    router.get('/memberListingLocations/', function (req, res){
+        memberListingLocationController.findAllMemberListingLocationEntries(req, res);
+    });
+}
 
 module.exports = router;

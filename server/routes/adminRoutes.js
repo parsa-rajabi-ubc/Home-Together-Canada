@@ -66,21 +66,6 @@ router.post('/create/',
     }
 );
 
-// list of usernames for all admins
-router.get('/all/',
-    isLoggedIn,
-    userIsAdmin,
-    function (req, res, next) {
-        memberAccounts.getAllAdminUsernames()
-            .then(admins => {
-                const formattedListAdmins = admins.map(admin => getUsernameFromAbstractUser(admin.AbstractUser));
-                res.status(200).json({ admins: formattedListAdmins });
-            })
-            .catch(err => {
-                res.status(500).json({ err: err.message });
-            });
-    }
-);
 
 router.post('/ban/user/',
     isLoggedIn,
@@ -292,5 +277,23 @@ router.get('/export/businesses/',
             });
     }
 );
+
+if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
+    // list of usernames for all admins
+    router.get('/all/',
+        isLoggedIn,
+        userIsAdmin,
+        function (req, res, next) {
+            memberAccounts.getAllAdminUsernames()
+                .then(admins => {
+                    const formattedListAdmins = admins.map(admin => getUsernameFromAbstractUser(admin.AbstractUser));
+                    res.status(200).json({ admins: formattedListAdmins });
+                })
+                .catch(err => {
+                    res.status(500).json({ err: err.message });
+                });
+        }
+    );
+}
 
 module.exports = router;

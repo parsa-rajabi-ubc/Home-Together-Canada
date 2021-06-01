@@ -33,6 +33,8 @@ if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
     app.use(cors(corsOptions));
 }
 
+console.log('NODE_ENV: ', process.env.NODE_ENV);
+
 app.use(expressValidator());
 
 // Sets up the Express app to handle data parsing

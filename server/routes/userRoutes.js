@@ -17,15 +17,15 @@ const businessAccounts = require('../controllers/businessAccountController');
 const memberAccounts = require('../controllers/memberAccountController');
 const { isLoggedIn } = require('./routeUtils');
 
-// Create abstract user
-router.post('/create/', function (req, res, next) {
-    abstractUsers.createAbstractUser(req, res);
-});
+// TODO: Take out after confirming output on production
+console.log('NODE_ENV: ', process.env.NODE_ENV);
 
-// get all abstract users
-router.get('/all/', function (req, res, next) {
-    abstractUsers.findAllAbstractUsers(req, res);
-});
+if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
+    // get all abstract users
+    router.get('/all/', function (req, res, next) {
+        abstractUsers.findAllAbstractUsers(req, res);
+    });
+}
 
 // check if user is authenticated
 router.get('/checkAuth/',isLoggedIn, function(req, res, next) {
@@ -115,12 +115,6 @@ router.get('/delete/',
             .catch(err => {
                 res.status(500).json({ err: err.message });
             });
-});
-
-// Get a specific abstract user
-// This route MUST BE LAST
-router.get('/:id', function (req, res, next) {
-    abstractUsers.findAbstractUser(req, res);
 });
 
 module.exports = router;

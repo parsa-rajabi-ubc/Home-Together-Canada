@@ -22,11 +22,12 @@ const { getCircularFeatureFromLocation } = require('../controllers/utils/locatio
 const { getListOfAreaOfInterestObjects } = require('../controllers/utils/areaOfInterestUtils');
 const { isLoggedIn, userIsMember, userIsInactive, userIsActive } = require('./routeUtils');
 
-
-// Get all member accounts
-router.get('/all/', function (req, res, next) {
-    memberAccounts.findAllMemberAccounts(req, res);
-});
+if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
+    // Get all member accounts
+    router.get('/all/', function (req, res, next) {
+        memberAccounts.findAllMemberAccounts(req, res);
+    });
+}
 
 // add validation to isInterestedInBuyingHome fields
 router.post('/create/', usersValidator.validate('createMemberUser'),
