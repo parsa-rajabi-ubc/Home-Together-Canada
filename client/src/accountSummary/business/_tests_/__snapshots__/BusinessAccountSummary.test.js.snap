@@ -75,6 +75,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
               autoComplete="organization"
               className="false undefined mb-0 input"
               disabled={false}
+              maxLength={100}
               onChange={[Function]}
               type="text"
               value="Sal's Homesharing Service"
@@ -222,6 +223,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
               <input
                 className="false input"
                 disabled={false}
+                maxLength={255}
                 onChange={[Function]}
                 placeholder="Names of Inc. Owners (separated by comma)"
                 type="text"
@@ -259,6 +261,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
               autoComplete="email"
               className="false undefined input"
               disabled={false}
+              maxLength={255}
               onChange={[Function]}
               placeholder="business@email.ca"
               type="text"
@@ -276,6 +279,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
               autoComplete="url"
               className="false input"
               disabled={false}
+              maxLength={255}
               onChange={[Function]}
               placeholder="http://www.your-website.com"
               type="text"
@@ -444,6 +448,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
               <input
                 autoComplete="address-line1"
                 className="undefined input"
+                maxLength={100}
                 name="street"
                 onChange={[Function]}
                 placeholder="Address Line 1"
@@ -457,6 +462,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
               <input
                 autoComplete="address-line2"
                 className="input"
+                maxLength={100}
                 name="aptNum"
                 onChange={[Function]}
                 placeholder="Address Line 2: Apt, suite, etc. (optional)"
@@ -470,6 +476,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
               <input
                 autoComplete="address-level2"
                 className="undefined input"
+                maxLength={60}
                 name="city"
                 onChange={[Function]}
                 placeholder="City"
@@ -592,6 +599,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
               <input
                 autoComplete="postal-code"
                 className="undefined input"
+                maxLength={6}
                 name="postalCode"
                 onChange={[Function]}
                 placeholder="Postal Code"
@@ -765,6 +773,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
               <input
                 autoComplete="address-line1"
                 className="undefined input"
+                maxLength={100}
                 name="street"
                 onChange={[Function]}
                 placeholder="Address Line 1"
@@ -778,6 +787,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
               <input
                 autoComplete="address-line2"
                 className="input"
+                maxLength={100}
                 name="aptNum"
                 onChange={[Function]}
                 placeholder="Address Line 2: Apt, suite, etc. (optional)"
@@ -791,6 +801,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
               <input
                 autoComplete="address-level2"
                 className="undefined input"
+                maxLength={60}
                 name="city"
                 onChange={[Function]}
                 placeholder="City"
@@ -913,6 +924,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
               <input
                 autoComplete="postal-code"
                 className="undefined input"
+                maxLength={6}
                 name="postalCode"
                 onChange={[Function]}
                 placeholder="Postal Code"
@@ -1203,6 +1215,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
                 <input
                   autoComplete="address-line1"
                   className="undefined input"
+                  maxLength={100}
                   name="street"
                   onChange={[Function]}
                   placeholder="Address Line 1"
@@ -1216,6 +1229,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
                 <input
                   autoComplete="address-line2"
                   className="input"
+                  maxLength={100}
                   name="aptNum"
                   onChange={[Function]}
                   placeholder="Address Line 2: Apt, suite, etc. (optional)"
@@ -1229,6 +1243,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
                 <input
                   autoComplete="address-level2"
                   className="undefined input"
+                  maxLength={60}
                   name="city"
                   onChange={[Function]}
                   placeholder="City"
@@ -1351,6 +1366,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
                 <input
                   autoComplete="postal-code"
                   className="undefined input"
+                  maxLength={6}
                   name="postalCode"
                   onChange={[Function]}
                   placeholder="Postal Code"
@@ -1572,6 +1588,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
               autoComplete="given-name"
               className="false undefined input"
               disabled={false}
+              maxLength={100}
               onChange={[Function]}
               type="text"
               value="Jack"
@@ -1611,6 +1628,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
               autoComplete="family-name"
               className="false undefined input"
               disabled={false}
+              maxLength={100}
               onChange={[Function]}
               type="text"
               value="Lee"

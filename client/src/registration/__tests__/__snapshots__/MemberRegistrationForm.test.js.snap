@@ -95,6 +95,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
               autoComplete="given-name"
               className="false undefined input"
               disabled={false}
+              maxLength={100}
               onChange={[Function]}
               type="text"
             />
@@ -129,6 +130,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
               autoComplete="family-name"
               className="false undefined input"
               disabled={false}
+              maxLength={100}
               onChange={[Function]}
               type="text"
             />
@@ -163,6 +165,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
               autoComplete="email"
               className="false undefined input"
               disabled={false}
+              maxLength={255}
               onChange={[Function]}
               placeholder="personal@email.ca"
               type="text"
@@ -263,6 +266,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
               <input
                 autoComplete="address-line1"
                 className="undefined input"
+                maxLength={100}
                 name="street"
                 onChange={[Function]}
                 placeholder="Address Line 1"
@@ -276,6 +280,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
               <input
                 autoComplete="address-line2"
                 className="input"
+                maxLength={100}
                 name="aptNum"
                 onChange={[Function]}
                 placeholder="Address Line 2: Apt, suite, etc. (optional)"
@@ -289,6 +294,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
               <input
                 autoComplete="address-level2"
                 className="undefined input"
+                maxLength={60}
                 name="city"
                 onChange={[Function]}
                 placeholder="City"
@@ -411,6 +417,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
               <input
                 autoComplete="postal-code"
                 className="undefined input"
+                maxLength={6}
                 name="postalCode"
                 onChange={[Function]}
                 placeholder="Postal Code"
@@ -3418,6 +3425,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                     <textarea
                       className="undefined undefined input"
                       cols="50"
+                      maxLength={2000}
                       name="aboutSelf"
                       onChange={[Function]}
                       placeholder="Let others know more about your lifestyle, values and why you want to home share"
@@ -5664,6 +5672,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                     </span>
                     <input
                       className="undefined input"
+                      maxLength={50}
                       onChange={[Function]}
                       type="text"
                     />
@@ -5813,6 +5822,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                     </span>
                     <input
                       className="undefined input"
+                      maxLength={255}
                       onChange={[Function]}
                       type="password"
                     />
@@ -5846,6 +5856,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                     </label>
                     <input
                       className="null input"
+                      maxLength={255}
                       onChange={[Function]}
                       type="password"
                     />

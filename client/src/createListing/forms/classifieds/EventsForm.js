@@ -22,6 +22,7 @@ import {CREATE_LISTING_MEMBER_SHARE_HOME as ToolTipText} from "../../../common/c
 import PhoneNumInput from "../../../common/forms/PhoneNumInput";
 import MultiImageUpload from "../../../common/forms/MultiImageUpload";
 import {DEFAULT_MAX_NUM_IMAGES} from "../../constants/createListingConfig";
+import {LISTING_FIELD_LENGTHS} from "../../../common/constants/fieldLengths";
 
 const EventsForm = (props) => {
     const {onSubmit} = props;
@@ -124,9 +125,7 @@ const EventsForm = (props) => {
             <div className="col-start-1 col-end-7 py-5 px-5 m-6 bg-white shadow-lg rounded-xl">
                 <div className="grid grid-cols-2 gap-6">
                     <div className="col-span-3 sm:col-span-2">
-
                         <h1 className={"page-title mb-5"}> {TEXT.form_title} </h1>
-
                         <TextArea
                             className={`${titleError && "border-red-500"} input`}
                             label={TEXT.title}
@@ -134,12 +133,10 @@ const EventsForm = (props) => {
                             required={true}
                             onChange={(e) => setTitle(e.target.value)}
                             disabled={submitted}
+                            charLimit={LISTING_FIELD_LENGTHS.TITLE}
                         />
-
                         <div className={"grid grid-cols-9"}>
-
                             <section className={"col-start-1 col-end-5"}>
-
                                 <TextArea
                                     className={`${shortDescriptionError && "border-red-500"} input`}
                                     label={TEXT.short_des + " (" + SHORT_DESC_CHAR_COUNT + " Characters)"}
@@ -150,7 +147,6 @@ const EventsForm = (props) => {
                                     disabled={submitted}
                                 />
                             </section>
-
                             <section className={"col-start-6 col-end-10"}>
                                 <TextArea
                                     className={`${contactNameError && "border-red-500"} input`}
@@ -159,9 +155,9 @@ const EventsForm = (props) => {
                                     required={true}
                                     onChange={(e) => setContactName(e.target.value)}
                                     disabled={submitted}
+                                    charLimit={LISTING_FIELD_LENGTHS.CONTACT_NAME}
                                 />
                             </section>
-
                             <section className={"col-start-1 col-end-5"}>
                                 <TextArea
                                     className={`${rateAndFeeError && "border-red-500"} input`}
@@ -170,9 +166,9 @@ const EventsForm = (props) => {
                                     required={true}
                                     onChange={(e) => setRateAndFees(e.target.value)}
                                     disabled={submitted}
+                                    charLimit={LISTING_FIELD_LENGTHS.RATES_AND_FEES}
                                 />
                             </section>
-
                             <section className={"col-start-6 col-end-10"}>
                                 <PhoneNumInput
                                     className={`${contactPhoneNumberError && "border-red-500"} phone`}
@@ -180,11 +176,9 @@ const EventsForm = (props) => {
                                     value={contactPhoneNumber || {}}
                                     labelClassName={"label"}
                                     label={TEXT.contactPhoneNumber}
-                                    onChange={handleContactPhoneChange}/>
-
+                                    onChange={handleContactPhoneChange}
+                                />
                             </section>
-
-
                             <section className={"col-start-1 col-end-5"}>
                                 <TextArea
                                     className={`${dateAndTimeError && "border-red-500"} input`}
@@ -193,12 +187,10 @@ const EventsForm = (props) => {
                                     required={true}
                                     onChange={(e) => setEventDateTime(e.target.value)}
                                     disabled={submitted}
+                                    charLimit={LISTING_FIELD_LENGTHS.EVENT_DATE_TIME}
                                 />
                             </section>
-
-
                         </div>
-
                         <LargeTextArea
                             className={`${fullDescriptionError && "border-red-500"} input`}
                             rows={"6"}
@@ -207,8 +199,8 @@ const EventsForm = (props) => {
                             required={true}
                             onChange={(e) => setFullDescription(e.target.value)}
                             disabled={submitted}
+                            charLimit={LISTING_FIELD_LENGTHS.FULL_DESCRIPTION}
                         />
-
                         <label className="label"> {TEXT.pictures} </label>
                         <Tooltip
                             text={ToolTipText.PHOTOS}
@@ -219,8 +211,10 @@ const EventsForm = (props) => {
                     </div>
                 </div>
             </div>
-            <SubmitButton className={"btn btn-green form-btn w-1/2"} onClick={onCreateListing}
-                          onSubmit={onCreateListing}/>
+            <SubmitButton
+                className={"btn btn-green form-btn w-1/2"}
+                onClick={onCreateListing}
+            />
         </div>
     )
 

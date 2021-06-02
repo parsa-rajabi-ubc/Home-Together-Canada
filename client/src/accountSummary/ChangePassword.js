@@ -8,6 +8,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import GenericInput from "../common/forms/GenericInput";
+import {USER_FIELD_LENGTHS} from "../common/constants/fieldLengths";
 
 function ChangePassword(props) {
     const {
@@ -40,6 +41,7 @@ function ChangePassword(props) {
                         inputType={"password"}
                         value={oldPassword}
                         onChange={e => onOldPasswordChange(e.target.value)}
+                        charLimit={USER_FIELD_LENGTHS.PASSWORD}
                     />
                     <GenericInput
                         className={"input"}
@@ -47,9 +49,8 @@ function ChangePassword(props) {
                         label={"New Password "}
                         inputType={"password"}
                         value={newPassword}
-                        onChange={(e) => {
-                            onNewPasswordChange(e.target.value)
-                        }}
+                        onChange={(e) => onNewPasswordChange(e.target.value)}
+                        charLimit={USER_FIELD_LENGTHS.PASSWORD}
                     />
                     <GenericInput
                         className={"input"}
@@ -57,9 +58,8 @@ function ChangePassword(props) {
                         label={"Confirm New Password "}
                         inputType={"password"}
                         value={confirmedPassword}
-                        onChange={(e) => {
-                            onConfirmedPasswordChange(e.target.value)
-                        }}
+                        onChange={(e) => onConfirmedPasswordChange(e.target.value)}
+                        charLimit={USER_FIELD_LENGTHS.PASSWORD}
                     />
                     {showError && <section className={"error-msg mb-4"}>{errorMessage}</section>}
                     {showSuccess && <section className={"success-msg mb-4"}>{successMessage}</section>}

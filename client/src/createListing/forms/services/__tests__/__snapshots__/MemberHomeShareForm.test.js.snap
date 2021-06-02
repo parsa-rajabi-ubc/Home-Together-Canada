@@ -47,6 +47,7 @@ exports[`MemberHomeShareForm Snapshot test should render correctly regardless of
           <input
             className="false undefined input"
             disabled={false}
+            maxLength={75}
             onChange={[Function]}
             type="text"
           />
@@ -86,7 +87,7 @@ exports[`MemberHomeShareForm Snapshot test should render correctly regardless of
               <input
                 className="false undefined input"
                 disabled={false}
-                maxLength="50"
+                maxLength={50}
                 onChange={[Function]}
                 type="text"
               />
@@ -753,6 +754,7 @@ exports[`MemberHomeShareForm Snapshot test should render correctly regardless of
                 <input
                   autoComplete="address-line1"
                   className="undefined input"
+                  maxLength={100}
                   name="street"
                   onChange={[Function]}
                   placeholder="Address Line 1"
@@ -766,6 +768,7 @@ exports[`MemberHomeShareForm Snapshot test should render correctly regardless of
                 <input
                   autoComplete="address-line2"
                   className="input"
+                  maxLength={100}
                   name="aptNum"
                   onChange={[Function]}
                   placeholder="Address Line 2: Apt, suite, etc. (optional)"
@@ -779,6 +782,7 @@ exports[`MemberHomeShareForm Snapshot test should render correctly regardless of
                 <input
                   autoComplete="address-level2"
                   className="undefined input"
+                  maxLength={60}
                   name="city"
                   onChange={[Function]}
                   placeholder="City"
@@ -901,6 +905,7 @@ exports[`MemberHomeShareForm Snapshot test should render correctly regardless of
                 <input
                   autoComplete="postal-code"
                   className="undefined input"
+                  maxLength={6}
                   name="postalCode"
                   onChange={[Function]}
                   placeholder="Postal Code"
@@ -940,6 +945,7 @@ exports[`MemberHomeShareForm Snapshot test should render correctly regardless of
           <textarea
             className="undefined undefined undefined input"
             cols="50"
+            maxLength={2000}
             onChange={[Function]}
             rows="6"
           />

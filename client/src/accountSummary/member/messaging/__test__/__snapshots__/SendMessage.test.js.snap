@@ -18,6 +18,7 @@ exports[`SendMessage Snapshot test should match snapshot test of SendMessage 1`]
     <textarea
       className="undefined undefined undefined input"
       cols="50"
+      maxLength={2000}
       onChange={[Function]}
     />
   </div>

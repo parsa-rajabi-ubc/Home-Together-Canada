@@ -36,6 +36,7 @@ import {connect} from "react-redux";
 import {SESSION_ERR} from "../../common/constants/errors";
 import {bindActionCreators} from "redux";
 import {reset} from "../../redux/actionCreators";
+import {MEMBER_FIELD_LENGTHS} from "../../common/constants/fieldLengths";
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({ reset }, dispatch);
@@ -389,33 +390,48 @@ function MemberProfileSummary(props) {
                                         onChange={(e) => setGender(e.target.value)}
                                     />
                                     {(gender === "Other") &&
-                                    <TextArea
-                                        className="input"
-                                        labelClassName={"label mt-5"}
-                                        placeholder="What gender do you identify as? (optional)"
-                                        value={genderDescription}
-                                        onChange={(e) => setGenderDescription(e.target.value)}
-                                    />}
+                                        <TextArea
+                                            className="input"
+                                            labelClassName={"label mt-5"}
+                                            placeholder="What gender do you identify as? (optional)"
+                                            value={genderDescription}
+                                            onChange={(e) => setGenderDescription(e.target.value)}
+                                            charLimit={MEMBER_FIELD_LENGTHS.GENDER_DESCRIPTION}
+                                        />
+                                    }
                                 </div>
                             </section>
                             <LabelAsterisk label={"Year of Birth"}/>
                             <Tooltip text={MEMBER_PROFILE_INFO_TEXT.YEAR_OF_BIRTH} toolTipID="yearOfBirth"/>
-                            <BirthYear label={"Year of Birth"} givenYear={yearOfBirth} onChange={handleYearChange}
-                                       dropdownCSS={yearOfBirthError ? dropdownErrorCSS : dropdownDefaultCSS}/>
+                            <BirthYear
+                                label={"Year of Birth"}
+                                givenYear={yearOfBirth}
+                                onChange={handleYearChange}
+                                dropdownCSS={yearOfBirthError ? dropdownErrorCSS : dropdownDefaultCSS}
+                            />
                             <LabelAsterisk label={"Family Status"}/>
                             <Tooltip text={MEMBER_PROFILE_INFO_TEXT.FAMILY_STATUS} toolTipID="familyStatus"/>
-                            <Status givenSelection={selectedFamilyStatus} onChange={handleFamilyStatusChange}
-                                    dropdownCSS={familyStatusError ? dropdownErrorCSS : dropdownDefaultCSS}/>
+                            <Status
+                                givenSelection={selectedFamilyStatus}
+                                onChange={handleFamilyStatusChange}
+                                dropdownCSS={familyStatusError ? dropdownErrorCSS : dropdownDefaultCSS}
+                            />
                             {checkStatus(selectedFamilyStatus)}
 
                             <LabelAsterisk label={"Work Status"}/>
-                            <WorkStatus givenSelection={selectedWorkStatus} onChange={handleWorkStatusChange}
-                                        dropdownCSS={workStatusError ? dropdownErrorCSS : dropdownDefaultCSS}/>
+                            <WorkStatus
+                                givenSelection={selectedWorkStatus}
+                                onChange={handleWorkStatusChange}
+                                dropdownCSS={workStatusError ? dropdownErrorCSS : dropdownDefaultCSS}
+                            />
 
                             <LabelAsterisk label={"Open to Sharing With"}/>
                             <Tooltip text={MEMBER_PROFILE_INFO_TEXT.NUM_PEOPLE_SHARE} toolTipID="numPeopleToShare"/>
-                            <ShareLimit currentSelectedValue={selectedLimit} onChange={handleLimitChange}
-                                        dropdownCSS={limitError ? dropdownErrorCSS : dropdownDefaultCSS}/>
+                            <ShareLimit
+                                currentSelectedValue={selectedLimit}
+                                onChange={handleLimitChange}
+                                dropdownCSS={limitError ? dropdownErrorCSS : dropdownDefaultCSS}
+                            />
                             <LabelAsterisk label={"Monthly Rent"}/>
                             <Tooltip text={MEMBER_PROFILE_INFO_TEXT.RENT} toolTipID="rent"/>
                             <div className="grid grid-cols-6 gap-x-6">
@@ -444,8 +460,11 @@ function MemberProfileSummary(props) {
                             </div>
                             <LabelAsterisk label={"Preferred Living Location(s)"}/>
                             <Tooltip text={MEMBER_PROFILE_INFO_TEXT.INTERESTED_AREA} toolTipID="interestedArea"/>
-                            <InterestedArea givenAreasOfInterest={areasOfInterest} onChange={setAreasOfInterest}
-                                            areasOfInterestError={areasOfInterestError}/>
+                            <InterestedArea
+                                givenAreasOfInterest={areasOfInterest}
+                                onChange={setAreasOfInterest}
+                                areasOfInterestError={areasOfInterestError}
+                            />
                             <div className="grid grid-cols-6 gap-x-6 mt-8">
                                 <div className="column-span-6-layout">
                                     <section
@@ -460,12 +479,14 @@ function MemberProfileSummary(props) {
                                             onChange={(e) => setPetFriendly(e.target.value)}
                                         />
                                         {(petFriendly === "yes" || petFriendly === true) &&
-                                        <TextArea
-                                            className={"input"}
-                                            placeholder="Elaborate (optional)"
-                                            onChange={e => setPetDescription(e.target.value)}
-                                            value={petDescription}
-                                        />}
+                                            <TextArea
+                                                className={"input"}
+                                                placeholder="Elaborate (optional)"
+                                                onChange={e => setPetDescription(e.target.value)}
+                                                value={petDescription}
+                                                charLimit={MEMBER_FIELD_LENGTHS.PETS_DESCRIPTION}
+                                            />
+                                        }
                                     </section>
                                 </div>
                                 <div className="column-span-6-layout">
@@ -481,12 +502,14 @@ function MemberProfileSummary(props) {
                                             onChange={(e) => setSmoking(e.target.value)}
                                         />
                                         {(smoking === "yes" || smoking === true) &&
-                                        <TextArea
-                                            className={"input"}
-                                            placeholder="Elaborate (optional)"
-                                            onChange={e => setSmokingDescription(e.target.value)}
-                                            value={smokingDescription}
-                                        />}
+                                            <TextArea
+                                                className={"input"}
+                                                placeholder="Elaborate (optional)"
+                                                onChange={e => setSmokingDescription(e.target.value)}
+                                                value={smokingDescription}
+                                                charLimit={MEMBER_FIELD_LENGTHS.SMOKING_DESCRIPTION}
+                                            />
+                                        }
                                     </section>
                                 </div>
                                 <div className="column-span-6-layout">
@@ -502,12 +525,14 @@ function MemberProfileSummary(props) {
                                             onChange={(e) => setMobilityIssues(e.target.value)}
                                         />
                                         {(mobilityIssues === "yes" || mobilityIssues === true) &&
-                                        <TextArea
-                                            className={"input"}
-                                            placeholder="Elaborate (optional)"
-                                            onChange={e => setMobilityIssuesDescription(e.target.value)}
-                                            value={mobilityIssuesDescription}
-                                        />}
+                                            <TextArea
+                                                className={"input"}
+                                                placeholder="Elaborate (optional)"
+                                                onChange={e => setMobilityIssuesDescription(e.target.value)}
+                                                value={mobilityIssuesDescription}
+                                                charLimit={MEMBER_FIELD_LENGTHS.HEALTH_MOBILITY_DESCRIPTION}
+                                            />
+                                        }
                                     </section>
                                 </div>
                                 <div className="column-span-6-layout">
@@ -521,12 +546,14 @@ function MemberProfileSummary(props) {
                                             onChange={(e) => setHasAllergies(e.target.value)}
                                         />
                                         {(hasAllergies === "yes" || hasAllergies === true) &&
-                                        <TextArea
-                                            className={"input"}
-                                            placeholder="Elaborate (optional)"
-                                            onChange={e => setAllergiesDescription(e.target.value)}
-                                            value={allergiesDescription}
-                                        />}
+                                            <TextArea
+                                                className={"input"}
+                                                placeholder="Elaborate (optional)"
+                                                onChange={e => setAllergiesDescription(e.target.value)}
+                                                value={allergiesDescription}
+                                                charLimit={MEMBER_FIELD_LENGTHS.ALLERGIES_DESCRIPTION}
+                                            />
+                                        }
                                     </section>
                                 </div>
                                 <div className="column-span-6-layout">
@@ -542,12 +569,14 @@ function MemberProfileSummary(props) {
                                             onChange={(e) => setReligious(e.target.value)}
                                         />
                                         {(religious === "yes" || religious === true) &&
-                                        <TextArea
-                                            className={"input"}
-                                            placeholder="Elaborate (optional)"
-                                            onChange={e => setReligionDescription(e.target.value)}
-                                            value={religionDescription}
-                                        />}
+                                            <TextArea
+                                                className={"input"}
+                                                placeholder="Elaborate (optional)"
+                                                onChange={e => setReligionDescription(e.target.value)}
+                                                value={religionDescription}
+                                                charLimit={MEMBER_FIELD_LENGTHS.RELIGION_DESCRIPTION}
+                                            />
+                                        }
                                     </section>
                                 </div>
                                 <div className="column-span-6-layout">
@@ -563,12 +592,14 @@ function MemberProfileSummary(props) {
                                             onChange={(e) => setHasDiet(e.target.value)}
                                         />
                                         {(hasDiet === "yes" || hasDiet === true) &&
-                                        <TextArea
-                                            className={"input"}
-                                            placeholder="Elaborate (optional)"
-                                            onChange={e => setDietDescription(e.target.value)}
-                                            value={dietDescription}
-                                        />}
+                                            <TextArea
+                                                className={"input"}
+                                                placeholder="Elaborate (optional)"
+                                                onChange={e => setDietDescription(e.target.value)}
+                                                value={dietDescription}
+                                                charLimit={MEMBER_FIELD_LENGTHS.DIET_DESCRIPTION}
+                                            />
+                                        }
                                     </section>
                                 </div>
                                 <div className="column-span-6-layout">
@@ -583,13 +614,15 @@ function MemberProfileSummary(props) {
                                             value={hasHome}
                                             onChange={(e) => setHasHome(e.target.value)}
                                         />
-                                        {(hasHome === "yes" || hasHome === true)
-                                        && <TextArea
-                                            className={"input inline w-11/12 "}
-                                            placeholder="Elaborate (optional)"
-                                            onChange={e => setHomeDescription(e.target.value)}
-                                            value={homeDescription}
-                                        />}
+                                        {(hasHome === "yes" || hasHome === true) &&
+                                            <TextArea
+                                                className={"input inline w-11/12 "}
+                                                placeholder="Elaborate (optional)"
+                                                onChange={e => setHomeDescription(e.target.value)}
+                                                value={homeDescription}
+                                                charLimit={MEMBER_FIELD_LENGTHS.HAS_HOME_TO_SHARE_DESCRIPTION}
+                                            />
+                                        }
                                     </section>
                                 </div>
                                 <div className="column-span-6-layout">
@@ -603,12 +636,14 @@ function MemberProfileSummary(props) {
                                             onChange={(e) => setInterestInBuyingHome(e.target.value)}
                                         />
                                         {(interestInBuyingHome === "yes" || interestInBuyingHome === true) &&
-                                        <TextArea
-                                            className={"input"}
-                                            placeholder="Elaborate (optional)"
-                                            onChange={e => setInterestDescription(e.target.value)}
-                                            value={interestDescription}
-                                        />}
+                                            <TextArea
+                                                className={"input"}
+                                                placeholder="Elaborate (optional)"
+                                                onChange={e => setInterestDescription(e.target.value)}
+                                                value={interestDescription}
+                                                charLimit={MEMBER_FIELD_LENGTHS.INTERESTED_IN_BUYING_HOME_DESCRIPTION}
+                                            />
+                                        }
                                     </section>
                                 </div>
                             </div>
@@ -623,6 +658,7 @@ function MemberProfileSummary(props) {
                                     rows={'5'}
                                     placeholder="Let others know more about your lifestyle, values and why you want to home share"
                                     onChange={(e) => setAboutSelf(e.target.value)}
+                                    charLimit={MEMBER_FIELD_LENGTHS.BIO}
                                 />
                             </div>
                         </div>
@@ -639,7 +675,6 @@ function MemberProfileSummary(props) {
             />
         </div>
     );
-
 }
 
 MemberProfileSummary.propTypes = {

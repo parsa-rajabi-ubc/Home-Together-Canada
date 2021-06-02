@@ -18,6 +18,7 @@ import {
     validateInput, validatePhoneNumber
 } from "../../../registration/registrationUtils";
 import PhoneNumInput from "../../../common/forms/PhoneNumInput";
+import {LISTING_FIELD_LENGTHS} from "../../../common/constants/fieldLengths";
 
 const GovernmentServicesForm = (props) => {
     const {onSubmit} = props;
@@ -96,21 +97,17 @@ const GovernmentServicesForm = (props) => {
             <div className="col-start-1 col-end-7 py-5 px-5 m-6 bg-white shadow-lg rounded-xl">
                 <div className="grid grid-cols-2 gap-6">
                     <div className="col-span-3 sm:col-span-2">
-
                         <h1 className={"page-title mb-5"}> {TEXT.form_title} </h1>
-
                         <TextArea
                             className={`${titleError && "border-red-500"} input`}
                             label={TEXT.title}
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setTitle(e.target.value)}
+                            charLimit={LISTING_FIELD_LENGTHS.TITLE}
                         />
-
                         <div className={"grid grid-cols-9 gap-x-6"}>
-
                             <section className={"col-start-1 col-end-5"}>
-
                                 <TextArea
                                     className={`${shortDescriptionError && "border-red-500"} input`}
                                     label={TEXT.short_des + " (" + SHORT_DESC_CHAR_COUNT + " Characters)"}
@@ -120,7 +117,6 @@ const GovernmentServicesForm = (props) => {
                                     charLimit={SHORT_DESC_CHAR_COUNT}
                                 />
                             </section>
-
                             <section className={"col-start-1 col-end-5"}>
                                 <TextArea
                                     className={`${contactNameError && "border-red-500"} input`}
@@ -128,9 +124,9 @@ const GovernmentServicesForm = (props) => {
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setContactName(e.target.value)}
+                                    charLimit={LISTING_FIELD_LENGTHS.CONTACT_NAME}
                                 />
                             </section>
-
                             <section className={"col-start-1 col-end-5"}>
                                 <PhoneNumInput
                                     className={`${contactPhoneNumberError && "border-red-500"} phone`}
@@ -138,13 +134,10 @@ const GovernmentServicesForm = (props) => {
                                     value={contactPhoneNumber || {}}
                                     labelClassName={"label"}
                                     label={TEXT.contact_phone_number}
-                                    onChange={handleContactPhoneChange}/>
-
+                                    onChange={handleContactPhoneChange}
+                                />
                             </section>
-
-
                         </div>
-
                         <LargeTextArea
                             className={`${fullDescriptionError && "border-red-500"} input`}
                             rows={"6"}
@@ -152,15 +145,17 @@ const GovernmentServicesForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setFullDescription(e.target.value)}
+                            charLimit={LISTING_FIELD_LENGTHS.FULL_DESCRIPTION}
                         />
                     </div>
                 </div>
             </div>
-            <SubmitButton className={"btn btn-green form-btn w-1/2"} onClick={onCreateListing}
-                          onSubmit={onCreateListing}/>
+            <SubmitButton
+                className={"btn btn-green form-btn w-1/2"}
+                onClick={onCreateListing}
+            />
         </div>
-    )
-
+    );
 }
 GovernmentServicesForm.propTypes = {
     onSubmit: PropTypes.func.isRequired
