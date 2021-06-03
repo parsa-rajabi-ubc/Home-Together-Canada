@@ -21,12 +21,14 @@ const { getRoommatesUsernames } = require('../controllers/utils/statusUtils');
 const { getCircularFeatureFromLocation } = require('../controllers/utils/locationUtils');
 const { getListOfAreaOfInterestObjects } = require('../controllers/utils/areaOfInterestUtils');
 const { isLoggedIn, userIsMember, userIsInactive, userIsActive } = require('./routeUtils');
+const { DEVELOPMENT } = require('../constants/environmentConstants');
 
-
-// Get all member accounts
-router.get('/all/', function (req, res, next) {
-    memberAccounts.findAllMemberAccounts(req, res);
-});
+if (process.env.NODE_ENV === DEVELOPMENT || !process.env.NODE_ENV) {
+    // Get all member accounts
+    router.get('/all/', function (req, res, next) {
+        memberAccounts.findAllMemberAccounts(req, res);
+    });
+}
 
 // add validation to isInterestedInBuyingHome fields
 router.post('/create/', usersValidator.validate('createMemberUser'),

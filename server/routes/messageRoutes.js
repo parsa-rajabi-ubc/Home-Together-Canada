@@ -13,6 +13,17 @@ const { isLoggedIn, userIsMember } = require('./routeUtils');
 const abstractUsers = require('../controllers/abstractUserController');
 const message = require('../controllers/messagesController');
 const messageValidator = require('../controllers/validators/messageControllerValidator');
+const { DEVELOPMENT } = require('../constants/environmentConstants');
+
+if (process.env.NODE_ENV === DEVELOPMENT || !process.env.NODE_ENV) {
+    router.get('/all/',
+        isLoggedIn,
+        userIsMember,
+        function (req, res){
+            message.findAllMessagesForAllUsers(req,res);
+        }
+    );
+}
 
 router.post('/create/',
     isLoggedIn,
@@ -42,14 +53,6 @@ router.get('/uid/',
             .catch(err => {
                 res.status(500).send({ message: err.message || "User ID does not exit."})
             });
-    }
-);
-
-router.get('/all/',
-    isLoggedIn,
-    userIsMember,
-    function (req, res){
-        message.findAllMessagesForAllUsers(req,res);
     }
 );
 
