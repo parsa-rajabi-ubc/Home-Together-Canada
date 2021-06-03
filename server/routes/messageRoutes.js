@@ -13,8 +13,9 @@ const { isLoggedIn, userIsMember } = require('./routeUtils');
 const abstractUsers = require('../controllers/abstractUserController');
 const message = require('../controllers/messagesController');
 const messageValidator = require('../controllers/validators/messageControllerValidator');
+const { DEVELOPMENT } = require('../constants/environmentConstants');
 
-if (process.env.NODE_ENV === 'developmental' || !process.env.NODE_ENV) {
+if (process.env.NODE_ENV === DEVELOPMENT || !process.env.NODE_ENV) {
     router.get('/all/',
         isLoggedIn,
         userIsMember,

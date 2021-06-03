@@ -21,8 +21,9 @@ const { getRoommatesUsernames } = require('../controllers/utils/statusUtils');
 const { getCircularFeatureFromLocation } = require('../controllers/utils/locationUtils');
 const { getListOfAreaOfInterestObjects } = require('../controllers/utils/areaOfInterestUtils');
 const { isLoggedIn, userIsMember, userIsInactive, userIsActive } = require('./routeUtils');
+const { DEVELOPMENT } = require('../constants/environmentConstants');
 
-if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
+if (process.env.NODE_ENV === DEVELOPMENT || !process.env.NODE_ENV) {
     // Get all member accounts
     router.get('/all/', function (req, res, next) {
         memberAccounts.findAllMemberAccounts(req, res);

@@ -22,6 +22,7 @@ const listingAssignedSubcategoryController = require('../controllers/listingAssi
 const memberListingLocationController = require('../controllers/memberListingLocationController');
 const multer = require("multer");
 const { MEMBER_SERVICE_CATEGORIES } = require('../constants/listingConstants');
+const { DEVELOPMENT } = require('../constants/environmentConstants');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -209,7 +210,7 @@ router.post('/search/', listingValidator.validate(LISTING_VALIDATION_METHODS.SEA
     }
 );
 
-if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
+if (process.env.NODE_ENV === DEVELOPMENT || !process.env.NODE_ENV) {
     router.get('/categories/', function(req, res, next) {
         listingCategoryController.findAllListingCategories(req, res);
     });

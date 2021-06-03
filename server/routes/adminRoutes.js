@@ -22,6 +22,7 @@ const usersValidator = require('../controllers/validators/userControllerValidato
 const { getUsernameFromAbstractUser } = require('../controllers/utils/accountControllerUtils');
 const listingValidator = require('../controllers/validators/listingControllerValidator');
 const { LISTING_VALIDATION_METHODS } = require('../controllers/validators/listingControllerValidatorUtils');
+const { DEVELOPMENT } = require('../constants/environmentConstants');
 
 // NOTE: this route is only for development purposes as a means to make the first admin
 router.get('/dev/create/',
@@ -278,7 +279,7 @@ router.get('/export/businesses/',
     }
 );
 
-if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
+if (process.env.NODE_ENV === DEVELOPMENT || !process.env.NODE_ENV) {
     // list of usernames for all admins
     router.get('/all/',
         isLoggedIn,

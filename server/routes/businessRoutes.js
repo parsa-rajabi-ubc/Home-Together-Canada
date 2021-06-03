@@ -16,6 +16,7 @@ const businessAccounts = require('../controllers/businessAccountController');
 const abstractUsers = require('../controllers/abstractUserController');
 const usersValidator = require('../controllers/validators/userControllerValidator');
 const { isLoggedIn, userIsBusiness } = require('./routeUtils');
+const { DEVELOPMENT } = require('../constants/environmentConstants');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -34,7 +35,7 @@ const uploads = multer({
     }
 }).single('image');
 
-if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
+if (process.env.NODE_ENV === DEVELOPMENT || !process.env.NODE_ENV) {
     // Get all business users
     router.get('/all/', function(req, res, next) {
         businessAccounts.findAllBusinessAccounts(req, res);

@@ -16,11 +16,12 @@ const abstractUsers = require('../controllers/abstractUserController');
 const businessAccounts = require('../controllers/businessAccountController');
 const memberAccounts = require('../controllers/memberAccountController');
 const { isLoggedIn } = require('./routeUtils');
+const { DEVELOPMENT } = require('../constants/environmentConstants');
 
 // TODO: Take out after confirming output on production
 console.log('NODE_ENV: ', process.env.NODE_ENV);
 
-if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
+if (process.env.NODE_ENV === DEVELOPMENT || !process.env.NODE_ENV) {
     // get all abstract users
     router.get('/all/', function (req, res, next) {
         abstractUsers.findAllAbstractUsers(req, res);

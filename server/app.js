@@ -17,6 +17,7 @@ const messageRoutes = require('./routes/messageRoutes');
 const db = require("./models");
 const listingCategories = require('./controllers/listingCategoryController');
 const listingSubcategories = require('./controllers/listingSubcategoryController');
+const { DEVELOPMENT } = require('./constants/environmentConstants');
 
 const app = express();
 
@@ -25,7 +26,7 @@ app.use(express.static(path.join(__dirname, '../client/build')));
 // Serve static files that are in the public folder
 app.use(express.static(__dirname + '/public'));
 
-if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
+if (process.env.NODE_ENV === DEVELOPMENT || !process.env.NODE_ENV) {
     const corsOptions = {
         origin: 'http://localhost:3002',
         credentials: true
@@ -84,7 +85,8 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
+  console.log('88: ', app.get('env'));
+    // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
