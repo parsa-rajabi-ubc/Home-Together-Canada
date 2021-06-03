@@ -13,7 +13,6 @@ import {withRouter} from "react-router-dom";
 import PropTypes from "prop-types";
 import {compose} from "redux";
 import {connect} from "react-redux";
-import has from 'lodash/has';
 import {USER_TYPES} from "../common/constants/users";
 import InvalidUser from "../common/error/InvalidUser";
 import {BUSINESS_SERVICE_CATEGORIES} from "./constants/serviceListingCategoriesText";
@@ -74,11 +73,11 @@ const CreateListingContainer = (props) => {
     const isUserMember = (accountType === USER_TYPES.MEMBER);
 
     useEffect(() => {
-        if (paymentStatus === PAYMENT_STATUS.APPROVED && !isSelectedSubcategoryEmpty) {
-            submitListing(classifiedListing)
-        }
+        // if (paymentStatus === PAYMENT_STATUS.APPROVED && !isSelectedSubcategoryEmpty) {
+        //     submitListing(classifiedListing)
+        // }
         if (isListingValid) {
-            setShowConfirmation(true)
+            setShowConfirmation(true);
             setConfirmationMsg(isUserMember ? CONFIRMATION_TEXT.MEMBER_LISTINGS : CONFIRMATION_TEXT.BUSINESS_LISTINGS);
         }
     }, [paymentStatus, isListingValid]);
@@ -92,13 +91,14 @@ const CreateListingContainer = (props) => {
     const onSubmitClassifieds = (listing) => {
         setSubmitted(true);
         if (!isSelectedSubcategoryEmpty) {
-            setDisplayPayment(true);
-            scroll.scrollToBottom({
-                    // set smoothness = https://www.npmjs.com/package/react-scroll
-                    smooth: 'easeInOutQuad',
-                }
-            );
-            setClassifiedListing(listing);
+            // setDisplayPayment(true);
+            // scroll.scrollToBottom({
+            //         // set smoothness = https://www.npmjs.com/package/react-scroll
+            //         smooth: 'easeInOutQuad',
+            //     }
+            // );
+            // setClassifiedListing(listing);
+            submitListing(listing); // Remove after implementing PayPal
         }
     };
 
