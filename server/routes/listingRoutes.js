@@ -21,12 +21,22 @@ const listingController = require('../controllers/listingController');
 const listingAssignedSubcategoryController = require('../controllers/listingAssignedSubcategoryController');
 const memberListingLocationController = require('../controllers/memberListingLocationController');
 const multer = require("multer");
+const {LISTING_IMAGE_UPLOADS_PATH} = require("../constants/listingConstants");
 const { MEMBER_SERVICE_CATEGORIES } = require('../constants/listingConstants');
 const { DEVELOPMENT } = require('../constants/environmentConstants');
 
+// store a listings image in its own directory to optimize search speed
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'server/public/uploads/listings');
+        listingController.findAllListingsForUser(req.user.uid)
+            .then(listings => {
+                const mostRecentListing = last(listings);
+                const listingId = mostRecentListing.id;
+                const filepath = LISTING_IMAGE_UPLOADS_PATH + listingId + '/';
+                fs.mkdir(filepath, () => {
+                    cb(null, filepath);
+                });
+            });
     },
     filename: function (req, file, cb) {
         listingController.findAllListingsForUser(req.user.uid)
@@ -60,6 +70,31 @@ router.post('/pictures/upload/',
                 res.status(200).json({ success: true });
             }
     });
+});
+
+router.post('/pictures/filenames/', function (req, res, next) {
+    const listingId = req.body.listingId;
+    const destinationDirectory = LISTING_IMAGE_UPLOADS_PATH + listingId + '/';
+
+    // make sure listing has images
+    if (fs.existsSync(destinationDirectory)) {
+        fs.readdir(destinationDirectory, (err, files) => {
+            if (err) {
+                res.status(500).json({ error: 'Error getting listing images'});
+            } else {
+                const filepaths = [];
+                files.forEach(file => {
+                    filepaths.push(destinationDirectory + file);
+                });
+                res.status(200).json({ imageAddresses: filepaths });
+            }
+        });
+    }
+    // case where listing does not have images
+    else {
+        res.status(200).json({ imageAddresses: [] });
+    }
+
 });
 
 router.post('/create/',

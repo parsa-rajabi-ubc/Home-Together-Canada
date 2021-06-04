@@ -11,7 +11,7 @@ if (process.env.NODE_ENV === 'development') {
     DEV_URL = 'http://localhost:3001';
 }
 
-export const getLogoURL = (address) => {
+export const getImageURL = (address) => {
     const URL = `${DEV_URL}\\${address}`;
     return URL.replaceAll('\\', '/');
 }

@@ -14,7 +14,7 @@ import {AiFillCheckCircle} from "react-icons/ai";
 import {AiFillCloseCircle} from "react-icons/ai";
 import Modal from 'react-modal';
 import Paginate from "../../common/forms/Paginate";
-import {getLogoURL} from "../../common/utils/imageUtils";
+import {getImageURL} from "../../common/utils/imageUtils";
 
 
 const ADMIN_TEXT = {
@@ -75,7 +75,7 @@ function PendingListingCards(props) {
             <div className={"flex"} key={listing.id}>
                 <section className={"w-full"}>
                     <BusinessListingCard
-                        logo={listing.logo && getLogoURL(listing.logo)}
+                        logo={listing.logo && getImageURL(listing.logo)}
                         title={listing.title}
                         businessName={listing.businessName}
                         shortDescription={listing.shortDescription}

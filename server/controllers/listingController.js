@@ -11,6 +11,7 @@ const booleanPointInPolygon = require('@turf/boolean-point-in-polygon').default;
 const point = require('@turf/helpers').point;
 const polygon = require('@turf/helpers').polygon;
 const { Op } = require("sequelize");
+const fs = require('fs');
 
 const db = require('../models');
 const Listing = db.listing;
@@ -25,6 +26,7 @@ const listingCategoryController = require('./listingCategoryController');
 const listingSubcategoryController = require('./listingSubcategoryController');
 const memberController = require('./memberAccountController');
 const memberListingLocationController = require('./memberListingLocationController');
+const {LISTING_IMAGE_UPLOADS_PATH} = require("../constants/listingConstants");
 const {PROVINCE_MAP, DEFAULT_COUNTRY} = require("./configConstants");
 const { getGeographicalCoordinatesFromAddress, getCircularFeatureFromLocation } = require('./utils/locationUtils');
 const { LISTING_TYPES, MEMBER_SERVICE_CATEGORIES } = require('../constants/listingConstants');
@@ -186,7 +188,7 @@ const searchBusinessListings = async (searchArea, categoryName, subcategoryNames
         );
     });
 
-    return businessListingsFilteredByLocation.map(listing => {
+    const formattedListingInfo = businessListingsFilteredByLocation.map(listing => {
         return {
             id: listing.id,
             uid: listing.uid,
@@ -199,9 +201,12 @@ const searchBusinessListings = async (searchArea, categoryName, subcategoryNames
                 username: listing.AbstractUser.dataValues.username,
                 email: listing.AbstractUser.dataValues.email,
                 ...listing.AbstractUser.BusinessAccount.dataValues,
-            }
+            },
+            images: getListingImages(listing.id)
         }
     });
+    console.log('formattedListingInfo: ', formattedListingInfo);
+    return formattedListingInfo;
 }
 
 const softDeleteListings = uid => {
@@ -271,6 +276,19 @@ const findAllListingsForUser = uid => {
             uid: uid
         }
     });
+}
+
+const getListingImages = id => {
+    const destinationDirectory = LISTING_IMAGE_UPLOADS_PATH + id + '/';
+    if (fs.existsSync(destinationDirectory)) {
+        const filenames = fs.readdirSync(destinationDirectory);
+
+        // note when navigating to assets on the server via URL, the application automatically goes to server/public/
+        return filenames ? filenames.map(file => 'uploads/listings/' + id + '/' + file) : [];
+    } else {
+        console.log('folder does not exist');
+        return [];
+    }
 }
 
 module.exports = {
