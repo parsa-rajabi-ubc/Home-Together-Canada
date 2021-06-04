@@ -48,6 +48,7 @@ exports[`HomeServiceBusinessForm Snapshot test should render correctly regardles
             maxLength={75}
             onChange={[Function]}
             type="text"
+            value=""
           />
         </section>
         <div

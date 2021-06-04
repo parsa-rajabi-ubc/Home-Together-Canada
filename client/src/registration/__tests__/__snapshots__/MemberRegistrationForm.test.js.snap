@@ -1875,7 +1875,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                         }
                       }
                     />
-                    Preferred living location(s) across Canada
+                    Preferred living location(s) across Canada (maximum of 5)
                   </div>
                 </span>
                 <div>
