@@ -11,6 +11,7 @@ const router = express.Router();
 const { validationResult } = require('express-validator/check');
 const includes = require('lodash/includes');
 const last = require('lodash/last');
+const fs = require('fs');
 
 const listingValidator = require('../controllers/validators/listingControllerValidator');
 const { LISTING_VALIDATION_METHODS, CATEGORY_FORM_VALIDATION_DICT } = require('../controllers/validators/listingControllerValidatorUtils');
