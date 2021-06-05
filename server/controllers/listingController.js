@@ -11,7 +11,6 @@ const booleanPointInPolygon = require('@turf/boolean-point-in-polygon').default;
 const point = require('@turf/helpers').point;
 const polygon = require('@turf/helpers').polygon;
 const { Op } = require("sequelize");
-const fs = require('fs');
 
 const db = require('../models');
 const Listing = db.listing;
@@ -21,12 +20,11 @@ const ListingSubcategory = db.listingSubcategory;
 const AbstractUser = db.abstractUser;
 const BusinessAccount = db.businessAccount;
 
-const { getListingFields } = require('./utils/listingControllerUtils');
+const { getListingFields, getListingImages, formatMemberListing } = require('./utils/listingControllerUtils');
 const listingCategoryController = require('./listingCategoryController');
 const listingSubcategoryController = require('./listingSubcategoryController');
 const memberController = require('./memberAccountController');
 const memberListingLocationController = require('./memberListingLocationController');
-const {LISTING_IMAGE_UPLOADS_PATH} = require("../constants/listingConstants");
 const {PROVINCE_MAP, DEFAULT_COUNTRY} = require("./configConstants");
 const { getGeographicalCoordinatesFromAddress, getCircularFeatureFromLocation } = require('./utils/locationUtils');
 const { LISTING_TYPES, MEMBER_SERVICE_CATEGORIES } = require('../constants/listingConstants');
@@ -88,6 +86,9 @@ const findListing = listingId => {
 
 const searchMemberServiceListings = async (searchArea, categoryName) => {
     const memberServiceListings = await Listing.findAll({
+        where: {
+            isDeleted: false
+        },
         include: [
             {
                 model: ListingCategory,
@@ -116,18 +117,7 @@ const searchMemberServiceListings = async (searchArea, categoryName) => {
         );
     });
 
-    return filteredLocations.map(listing => {
-        return {
-            id: listing.id,
-            uid: listing.uid,
-            ...(JSON.parse(listing.fields)),
-            isClassified: listing.isClassified,
-            createdAt: listing.createdAt,
-            updatedAt: listing.updatedAt,
-            categoryName: listing.ListingCategory.name,
-            images: getListingImages(listing.id)
-        }
-    });
+    return filteredLocations.map(listing => formatMemberListing(listing));
 }
 
 const searchBusinessListings = async (searchArea, categoryName, subcategoryNames) => {
@@ -140,7 +130,7 @@ const searchBusinessListings = async (searchArea, categoryName, subcategoryNames
             dateExpired: {
                 [Op.or]: {
                     [Op.eq]: null,
-                    [Op.lt]: new Date()
+                    [Op.gt]: new Date()
                 }
             }
         },
@@ -206,7 +196,6 @@ const searchBusinessListings = async (searchArea, categoryName, subcategoryNames
             images: getListingImages(listing.id)
         }
     });
-    console.log('formattedListingInfo: ', formattedListingInfo);
     return formattedListingInfo;
 }
 
@@ -279,16 +268,186 @@ const findAllListingsForUser = uid => {
     });
 }
 
-const getListingImages = id => {
-    const destinationDirectory = LISTING_IMAGE_UPLOADS_PATH + id + '/';
-    if (fs.existsSync(destinationDirectory)) {
-        const filenames = fs.readdirSync(destinationDirectory);
+const getBusinessPendingListings = uid => {
+    return Listing.findAll({
+        where: {
+            dateAdminApproved: null,
+            isDeleted: false,
+            uid: uid
+        },
+        include: [
+            {
+                model: AbstractUser,
+                include: [
+                    {
+                        model: BusinessAccount
+                    }
+                ]
+            },
+            {
+                model: ListingCategory,
+                where: {
+                    name: {
+                        [Op.not]: MEMBER_SERVICE_CATEGORIES.MEMBER_HOME
+                    }
+                }
+            },
+            {
+                model: ListingSubcategory
+            }
 
-        // note when navigating to assets on the server via URL, the application automatically goes to server/public/
-        return filenames ? filenames.map(file => 'uploads/listings/' + id + '/' + file) : [];
-    } else {
-        return [];
-    }
+        ]
+    });
+}
+
+const getBusinessLiveListings = uid => {
+    return Listing.findAll({
+        where: {
+            dateAdminApproved: {
+                [Op.lt]: new Date()
+            },
+            dateExpired: {
+                [Op.or]: {
+                    [Op.eq]: null,
+                    [Op.gt]: new Date()
+                }
+            },
+            isDeleted: false,
+            uid: uid
+        },
+        include: [
+            {
+                model: AbstractUser,
+                include: [
+                    {
+                        model: BusinessAccount
+                    }
+                ]
+            },
+            {
+                model: ListingCategory,
+                where: {
+                    name: {
+                        [Op.not]: MEMBER_SERVICE_CATEGORIES.MEMBER_HOME
+                    }
+                }
+            },
+            {
+                model: ListingSubcategory
+            }
+        ]
+    });
+}
+
+// business listings that were deleted by the user or expired
+const getBusinessInactiveListings = uid => {
+    return Listing.findAll({
+        where: {
+            [Op.or]: {
+                dateExpired: {
+                    [Op.lt]: new Date()
+                },
+                isDeleted: true,
+            },
+            dateAdminApproved: {
+                [Op.not]: null,
+            },
+            uid: uid
+        },
+        include: [
+            {
+                model: AbstractUser,
+                include: [
+                    {
+                        model: BusinessAccount
+                    }
+                ]
+            },
+            {
+                model: ListingCategory,
+                where: {
+                    name: {
+                        [Op.not]: MEMBER_SERVICE_CATEGORIES.MEMBER_HOME
+                    }
+                }
+            },
+            {
+                model: ListingSubcategory
+            }
+        ]
+    });
+}
+
+// business listings that were rejected by the admin
+const getBusinessRejectedListings = uid => {
+    return Listing.findAll({
+        where: {
+            isDeleted: true,
+            dateAdminApproved: null,
+            uid: uid
+        },
+        include: [
+            {
+                model: AbstractUser,
+                include: [
+                    {
+                        model: BusinessAccount
+                    }
+                ]
+            },
+            {
+                model: ListingCategory,
+                where: {
+                    name: {
+                        [Op.not]: MEMBER_SERVICE_CATEGORIES.MEMBER_HOME
+                    }
+                }
+            },
+            {
+                model: ListingSubcategory
+            }
+        ]
+    });
+}
+
+const getMemberLiveListings = uid => {
+    return Listing.findAll({
+        where: {
+            uid: uid,
+            isDeleted: false,
+        },
+        include: [
+            {
+                model: ListingCategory,
+                where: {
+                    name: Object.values(MEMBER_SERVICE_CATEGORIES)
+                }
+            },
+            {
+                model: MemberListingLocation
+            }
+        ]
+    });
+}
+
+const getMemberInactiveListings = uid => {
+    return Listing.findAll({
+        where: {
+            uid: uid,
+            isDeleted: true,
+        },
+        include: [
+            {
+                model: ListingCategory,
+                where: {
+                    name: Object.values(MEMBER_SERVICE_CATEGORIES)
+                }
+            },
+            {
+                model: MemberListingLocation
+            }
+        ]
+    });
 }
 
 module.exports = {
@@ -301,6 +460,12 @@ module.exports = {
     getAllPendingListings,
     approveListing,
     rejectListing,
-    findAllListingsForUser
+    findAllListingsForUser,
+    getBusinessPendingListings,
+    getBusinessLiveListings,
+    getBusinessInactiveListings,
+    getBusinessRejectedListings,
+    getMemberLiveListings,
+    getMemberInactiveListings
 }
 

@@ -95,7 +95,7 @@ function PendingListingContainer() {
     }
     return (
         <div>
-            {!pendingListings.length ?
+            {(!pendingListings || !pendingListings.length) ?
                 <Confirmation message={NO_LISTINGS} displayButton={false} errorColor={true}/>
                 :
                 <PendingListingCards
