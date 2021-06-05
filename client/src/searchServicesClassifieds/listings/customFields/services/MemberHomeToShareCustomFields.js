@@ -8,6 +8,7 @@
 import PropTypes from "prop-types";
 import React from 'react';
 import {AiOutlineCheckCircle as Check, AiOutlineCloseCircle as Ex} from "react-icons/ai";
+import {ImageGallery} from "../../../../common/listings/ImageGallery";
 
 const MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT = {
     GENERAL_LOCATION: "General Location",
@@ -56,8 +57,12 @@ const MemberHomeToShareCustomFields = (props) => {
                 <label className={"label-result"}>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.NUMBER_BATHROOM}</label>
                 <p> {numBath}</p>
 
-                {/*TODO: replace HTC_Logo with picture string from DB*/}
-                {/*<label className={"label-result"}>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.PICTURES}</label>*/}
+                {!!pictures.length &&
+                    <div>
+                        <label className={"label-result"}>{MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT.PICTURES}</label>
+                        <ImageGallery pictures={pictures}/>
+                    </div>
+                }
             </div>
 
 

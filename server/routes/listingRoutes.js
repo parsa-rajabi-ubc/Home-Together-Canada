@@ -11,6 +11,7 @@ const router = express.Router();
 const { validationResult } = require('express-validator/check');
 const includes = require('lodash/includes');
 const last = require('lodash/last');
+const fs = require('fs');
 
 const listingValidator = require('../controllers/validators/listingControllerValidator');
 const { LISTING_VALIDATION_METHODS, CATEGORY_FORM_VALIDATION_DICT } = require('../controllers/validators/listingControllerValidatorUtils');
@@ -21,12 +22,22 @@ const listingController = require('../controllers/listingController');
 const listingAssignedSubcategoryController = require('../controllers/listingAssignedSubcategoryController');
 const memberListingLocationController = require('../controllers/memberListingLocationController');
 const multer = require("multer");
+const {LISTING_IMAGE_UPLOADS_PATH} = require("../constants/listingConstants");
 const { MEMBER_SERVICE_CATEGORIES } = require('../constants/listingConstants');
 const { DEVELOPMENT } = require('../constants/environmentConstants');
 
+// store a listings image in its own directory to optimize search speed
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'server/public/uploads/listings');
+        listingController.findAllListingsForUser(req.user.uid)
+            .then(listings => {
+                const mostRecentListing = last(listings);
+                const listingId = mostRecentListing.id;
+                const filepath = LISTING_IMAGE_UPLOADS_PATH + listingId + '/';
+                fs.mkdir(filepath, () => {
+                    cb(null, filepath);
+                });
+            });
     },
     filename: function (req, file, cb) {
         listingController.findAllListingsForUser(req.user.uid)

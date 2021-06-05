@@ -6,7 +6,7 @@
  *
  */
 import {isStringEmpty} from "../common/utils/stringUtils";
-import {getLogoURL} from "../common/utils/imageUtils";
+import {getImageURL} from "../common/utils/imageUtils";
 
 // seperate the phone number:
 export function splitPhoneNumber(phoneNumber){
@@ -44,7 +44,7 @@ export const prepareBusinessAccountInfo = (business) => {
     return {
         ...business,
         addressLine2: resolveOptionalField(business.addressLine2),
-        ...(!!business.logo && {logo: getLogoURL(business.logo)}),
+        ...(!!business.logo && {logo: getImageURL(business.logo)}),
         ...(prepareMailingAddress(business)),
         mapAddressLine1: resolveOptionalField(business.mapAddressLine1),
         mapAddressLine2: resolveOptionalField(business.mapAddressLine2),

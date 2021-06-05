@@ -7,6 +7,7 @@
  */
 import PropTypes from "prop-types";
 import React from 'react';
+import {ImageGallery} from "../../../../common/listings/ImageGallery";
 
 const EVENTS_CUSTOM_FIELDS_TEXT = {
     RATE_AND_FEES: "Rates and fees (CAD)",
@@ -33,9 +34,12 @@ const EventsCustomFields = (props) => {
             <label className={"label-result"}>{EVENTS_CUSTOM_FIELDS_TEXT.EVENTS_DATE_AND_TIME}</label>
             <p> {eventDateTime}</p>
 
-            {/*TODO: replace HTC_Logo with picture string from DB*/}
-            {/*<label className={"label-result"}>{EVENTS_CUSTOM_FIELDS_TEXT.PICTURES}</label>*/}
-
+            {!!pictures.length &&
+                <div>
+                    <label className={"label-result"}>{EVENTS_CUSTOM_FIELDS_TEXT.PICTURES}</label>
+                    <ImageGallery pictures={pictures}/>
+                </div>
+            }
         </div>
     );
 }

@@ -9,6 +9,7 @@ import PropTypes from "prop-types";
 import React from 'react';
 import HTC_Logo from "../../../../images/HTC_Logo.jpg";
 import {AiOutlineCheckCircle as Check, AiOutlineCloseCircle as Ex} from "react-icons/ai";
+import {ImageGallery} from "../../../../common/listings/ImageGallery";
 
 const RENTALS_CUSTOM_FIELDS_TEXT= {
     PRICE: "Price (CAD)",
@@ -36,10 +37,12 @@ const RentalsCustomFields = (props) =>{
                 <label className={"label-result"}>{RENTALS_CUSTOM_FIELDS_TEXT.NUMBER_BATHROOM}</label>
                 <p> {numBath}</p>
 
-                <label className={"label-result"}>{RENTALS_CUSTOM_FIELDS_TEXT.PICTURES}</label>
-
-                {/*TODO: replace HTC_Logo with picture string from DB*/}
-                <img src={HTC_Logo} alt={""}/>
+                {!!pictures.length &&
+                    <div>
+                        <label className={"label-result"}>{RENTALS_CUSTOM_FIELDS_TEXT.PICTURES}</label>
+                        <ImageGallery pictures={pictures}/>
+                    </div>
+                }
             </div>
 
 

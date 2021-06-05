@@ -19,7 +19,7 @@ export const memberMockCustomFields = {
     utilIncluded: true,
     petFriendly: false,
     smokeFriendly: false,
-    pictures: "pictures"
+    pictures: ['uploads/listings/1/testimage1.png', 'uploads/listings/1/testimage2.png']
 }
 
 export const cohousingMockCustomFields = {
@@ -30,10 +30,10 @@ export const cohousingMockCustomFields = {
 
 export const homeServicesMockCustomFields = {
     rateAndFees: "666 per day",
-    pictures: "pictures"
+    pictures: ['uploads/listings/1/testimage1.png', 'uploads/listings/1/testimage2.png']
 }
 
 export const governmentMockCustomFields = {
     contactPerson: "Alex",
-    phoneNumber:"778-555-5555"
+    phoneNumber: '123-123-1234'
 }
