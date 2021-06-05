@@ -14,6 +14,9 @@ const STATUS = {
     EXISTING_GROUP: 'Existing Group'
 }
 
+const MAX_AREAS_OF_INTEREST = 5;
+
 module.exports = {
-    STATUS
+    STATUS,
+    MAX_AREAS_OF_INTEREST
 }

@@ -12,7 +12,7 @@ export const MEMBER_PROFILE_INFO_TEXT = {
     FAMILY_STATUS: "Select the status that most accurately reflects your living arrangement that you would like to maintain while home-sharing. Choose as many option as you wish, however you must select at least one",
     NUM_PEOPLE_SHARE: "This number of people does not include yourself",
     RENT: "This does NOT include utilities",
-    INTERESTED_AREA: "Preferred living location(s) across Canada",
+    INTERESTED_AREA: "Preferred living location(s) across Canada (maximum of 5)",
     PET: "You either have a pet or are open to living with pets",
     SMOKE: "You either smoke yourself or are open to living with people who smoke",
     HEALTH: "Health and mobility issues that are relevant to roommates",

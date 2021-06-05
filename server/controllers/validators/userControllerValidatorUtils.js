@@ -12,7 +12,7 @@ const abstractUserController = require('../abstractUserController');
 const memberAccountController = require('../memberAccountController');
 const PasswordService = require('../../services/PasswordService');
 const {isCanadianPostalCode} = require('../utils/locationUtils');
-const {STATUS} = require('../../constants/memberConstants');
+const {STATUS, MAX_AREAS_OF_INTEREST} = require('../../constants/memberConstants');
 const { DEFAULT_COUNTRY, PROVINCE_MAP, PROVINCES_LIST } = require('../configConstants');
 
 const geoCoder = nodeGeocoder({
@@ -243,7 +243,7 @@ const isValidRadius = radius => {
 }
 
 const isValidAreasOfInterestList = (areasOfInterest) => {
-    if (!!areasOfInterest && areasOfInterest.length > 0) {
+    if (!!areasOfInterest && areasOfInterest.length > 0 && areasOfInterest.length <= MAX_AREAS_OF_INTEREST) {
         areasOfInterest.forEach(areaOfInterest => {
             if (!areaOfInterest || !areaOfInterest.province || !areaOfInterest.city || !isNumber(areaOfInterest.radius)) {
                 throw new Error('Area of interest must include province, city and radius properties');
@@ -255,6 +255,8 @@ const isValidAreasOfInterestList = (areasOfInterest) => {
         });
     } else if (!areasOfInterest || (!!areasOfInterest && !areasOfInterest.length)) {
         throw new Error('At least one area of interest must be provided');
+    } else if (areasOfInterest.length > MAX_AREAS_OF_INTEREST) {
+        throw new Error(`No more than ${MAX_AREAS_OF_INTEREST} areas of interest can be provided`);
     }
     return true;
 }
