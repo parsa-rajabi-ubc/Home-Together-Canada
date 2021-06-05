@@ -124,7 +124,8 @@ const searchMemberServiceListings = async (searchArea, categoryName) => {
             isClassified: listing.isClassified,
             createdAt: listing.createdAt,
             updatedAt: listing.updatedAt,
-            categoryName: listing.ListingCategory.name
+            categoryName: listing.ListingCategory.name,
+            images: getListingImages(listing.id)
         }
     });
 }
@@ -286,7 +287,6 @@ const getListingImages = id => {
         // note when navigating to assets on the server via URL, the application automatically goes to server/public/
         return filenames ? filenames.map(file => 'uploads/listings/' + id + '/' + file) : [];
     } else {
-        console.log('folder does not exist');
         return [];
     }
 }

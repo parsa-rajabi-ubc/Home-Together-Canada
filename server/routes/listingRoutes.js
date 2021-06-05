@@ -73,31 +73,6 @@ router.post('/pictures/upload/',
     });
 });
 
-router.post('/pictures/filenames/', function (req, res, next) {
-    const listingId = req.body.listingId;
-    const destinationDirectory = LISTING_IMAGE_UPLOADS_PATH + listingId + '/';
-
-    // make sure listing has images
-    if (fs.existsSync(destinationDirectory)) {
-        fs.readdir(destinationDirectory, (err, files) => {
-            if (err) {
-                res.status(500).json({ error: 'Error getting listing images'});
-            } else {
-                const filepaths = [];
-                files.forEach(file => {
-                    filepaths.push(destinationDirectory + file);
-                });
-                res.status(200).json({ imageAddresses: filepaths });
-            }
-        });
-    }
-    // case where listing does not have images
-    else {
-        res.status(200).json({ imageAddresses: [] });
-    }
-
-});
-
 router.post('/create/',
     isLoggedIn,
     listingValidator.validate(LISTING_VALIDATION_METHODS.BASIC_LISTING_INFO),
