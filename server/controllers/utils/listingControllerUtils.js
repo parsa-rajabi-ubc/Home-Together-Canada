@@ -48,8 +48,9 @@ const MEMBER_HOME_FIELDS = [
     'postalCode'
 ];
 
-const getListingFields = (req) => {
-    switch (req.body.category) {
+// TODO: write test for this function
+const getListingFields = (req, category) => {
+    switch (category) {
         case BUSINESS_SERVICES_CATEGORIES.CO_HOUSING: {
             return pick(req.body, CO_HOUSING_FIELDS);
         }

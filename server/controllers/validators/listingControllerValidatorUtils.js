@@ -12,6 +12,7 @@ const {
     BUSINESS_SERVICES_CATEGORIES,
     MEMBER_SERVICE_CATEGORIES,
     BUSINESS_CLASSIFIEDS_CATEGORIES,
+    BUSINESS_LISTING_CATEGORIES
 } = require('../../constants/listingConstants');
 const {resolveCategoryToSubcategory} = require ("../utils/listingControllerUtils");
 const memberAccounts = require('../memberAccountController');
@@ -29,7 +30,8 @@ const LISTING_VALIDATION_METHODS = {
     LEGAL_SALES_FORM: 'legalAndSalesForm',
     CLASSES_EVENTS_CLUBS_FORM: 'classesClubsEventsForm',
     SEARCH_LISTINGS: 'searchListings',
-    ADMIN_APPROVE_LISTING: 'adminApproveListing'
+    ADMIN_APPROVE_LISTING: 'adminApproveListing',
+    LISTING_RELATIONSHIPS: 'listingRelationships'
 }
 
 const CATEGORY_FORM_VALIDATION_DICT = new Map([
@@ -145,6 +147,35 @@ const listingShouldExist = listingId => {
         })
 }
 
+const listingShouldBelongToUser = (listingId, uid) => {
+    return listings.findListing(listingId)
+        .then(listing => {
+            if (!listing || listing.uid !== uid) {
+                return Promise.reject('Listing does not belong to this user.');
+            }
+        });
+}
+
+const listingShouldBeLive = listingId => {
+    return listings.findLiveListing(listingId)
+        .then(listing => {
+            if (!listing) {
+                return Promise.reject('Listings that are not live cannot be edited');
+            }
+        });
+}
+
+const listingShouldHaveSubcategories = (subcategories, listingId) => {
+    return listings.findListingWithCategory(listingId)
+        .then(listing => {
+            const category = listing.ListingCategory.name;
+
+            if (!Array.isArray(subcategories) || (includes(BUSINESS_LISTING_CATEGORIES, category) && !subcategories.length)) {
+                return Promise.reject('Edited listing must have subcategories');
+            }
+        });
+}
+
 module.exports = {
     LISTING_VALIDATION_METHODS,
     LISTING_TYPES,
@@ -159,5 +190,8 @@ module.exports = {
     isValidSubcategoryForSelectedCategory,
     listingShouldHaveCategories,
     shouldOrderIdBeDefined,
-    listingShouldExist
+    listingShouldExist,
+    listingShouldBelongToUser,
+    listingShouldBeLive,
+    listingShouldHaveSubcategories
 }

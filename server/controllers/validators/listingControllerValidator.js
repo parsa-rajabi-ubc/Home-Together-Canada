@@ -29,7 +29,10 @@ const {
     listingShouldHaveCategories,
     shouldOrderIdBeDefined,
     LISTING_FIELDS_ERRORS,
-    listingShouldExist
+    listingShouldExist,
+    listingShouldBelongToUser,
+    listingShouldBeLive,
+    listingShouldHaveSubcategories
 } = require('./listingControllerValidatorUtils');
 
 const { LISTING_FIELD_LENGTHS } = require('../../constants/fieldLengthsConstants');
@@ -341,6 +344,23 @@ exports.validate = method => {
                 body('approve')
                     .exists()
                     .isBoolean()
+            ]
+        }
+        case LISTING_VALIDATION_METHODS.LISTING_RELATIONSHIPS: {
+            return [
+                body('listingId')
+                    .exists()
+                    .isNumeric()
+                    .custom((listingId, { req }) => listingShouldBelongToUser(
+                        listingId,
+                        req.user.uid
+                    ))
+                    .custom(listingId => listingShouldBeLive(listingId)),
+                body('subcategories')
+                    .custom((subcategories, { req }) => listingShouldHaveSubcategories(
+                        subcategories,
+                        req.body.listingId
+                    ))
             ]
         }
     }
