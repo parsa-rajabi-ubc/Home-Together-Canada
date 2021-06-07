@@ -282,7 +282,7 @@ const isValidLocation = area => {
  * @param maxLength maximum number of characters in string (inclusive)
  */
 const isValidStringLength = (str, maxLength, fieldName) => {
-    if (!str) {
+    if (typeof str !== 'string' && !str) {
         throw new Error(`${fieldName} must be provided`)
     } else if (str.length > maxLength) {
         throw new Error(`${fieldName} cannot be more than ${maxLength} characters`);
