@@ -27,6 +27,7 @@ import HouseServicesCustomFields from "./listings/customFields/classifieds/House
 import Confirmation from "../common/listings/Confirmation";
 import {useHistory} from "react-router-dom";
 import {PAGE_NAMES} from "./SearchListingContainer";
+import {getImageURL} from "../common/utils/imageUtils";
 
 const MESSAGE = {
     INVALID_PAGE: "Please click on listing cards on search page to view listings",
@@ -112,7 +113,7 @@ function ListingContainer(props) {
 
     const setBusinessInfo = (listing) => {
         //TODO: replace logo with string of logo address in DB
-        setLogo(HTC_Logo);
+        setLogo(listing.business.logo ? getImageURL(listing.business.logo) : HTC_Logo);
         setBusinessName(listing.business.businessName);
         if (listing.business.mapAddressLine1) {
             setAddress({
