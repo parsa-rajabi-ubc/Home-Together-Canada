@@ -15,7 +15,7 @@ const fs = require('fs');
 
 const listingValidator = require('../controllers/validators/listingControllerValidator');
 const { LISTING_VALIDATION_METHODS, CATEGORY_FORM_VALIDATION_DICT } = require('../controllers/validators/listingControllerValidatorUtils');
-const { isLoggedIn } = require('./routeUtils');
+const { isLoggedIn, userIsMember, userIsBusiness } = require('./routeUtils');
 const listingCategoryController = require('../controllers/listingCategoryController');
 const listingSubcategoryController = require('../controllers/listingSubcategoryController');
 const listingController = require('../controllers/listingController');
@@ -25,6 +25,7 @@ const multer = require("multer");
 const {LISTING_IMAGE_UPLOADS_PATH} = require("../constants/listingConstants");
 const { MEMBER_SERVICE_CATEGORIES } = require('../constants/listingConstants');
 const { DEVELOPMENT } = require('../constants/environmentConstants');
+const { updateListing } = require('./listingRoutesUtils');
 
 // store a listings image in its own directory to optimize search speed
 const storage = multer.diskStorage({
@@ -221,6 +222,85 @@ router.post('/search/', listingValidator.validate(LISTING_VALIDATION_METHODS.SEA
     }
 );
 
+router.post(
+    '/edit/',
+    isLoggedIn,
+    listingValidator.validate(LISTING_VALIDATION_METHODS.LISTING_RELATIONSHIPS),
+    function (req, res, next) {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            res.status(202).json({ errors: errors.array()});
+        } else {
+            // get listing category
+            listingController.findListingWithCategory(req.body.listingId)
+                .then(listing => {
+                    const category = listing.ListingCategory.name;
+                    res.redirect(
+                        307,
+                        `/listing/edit/${CATEGORY_FORM_VALIDATION_DICT.get(category)}?category=${encodeURIComponent(category)}`
+                    );
+                });
+        }
+    },
+);
+
+router.post(
+    `/edit/${LISTING_VALIDATION_METHODS.MEMBER_HOME_FORM}`,
+    isLoggedIn,
+    userIsMember,
+    updateListing
+);
+
+router.post(
+    `/edit/${LISTING_VALIDATION_METHODS.CO_HOUSING_FORM}`,
+    isLoggedIn,
+    userIsBusiness,
+    updateListing
+);
+
+router.post(
+    `/edit/${LISTING_VALIDATION_METHODS.HOME_SHARE_FACILITATION_BUSINESS_FORM}`,
+    isLoggedIn,
+    userIsBusiness,
+    updateListing
+);
+
+router.post(
+    `/edit/${LISTING_VALIDATION_METHODS.GOVERNMENT_SERVICES_FORM}`,
+    isLoggedIn,
+    userIsBusiness,
+    updateListing
+);
+
+router.post(
+    `/edit/${LISTING_VALIDATION_METHODS.RENTALS_FORM}`,
+    isLoggedIn,
+    userIsBusiness,
+    updateListing
+);
+
+router.post(
+    `/edit/${LISTING_VALIDATION_METHODS.HOUSE_YARD_FORM}`,
+    isLoggedIn,
+    userIsBusiness,
+    updateListing
+);
+
+router.post(
+    `/edit/${LISTING_VALIDATION_METHODS.LEGAL_SALES_FORM}`,
+    isLoggedIn,
+    userIsBusiness,
+    updateListing
+);
+
+router.post(
+    `/edit/${LISTING_VALIDATION_METHODS.CLASSES_EVENTS_CLUBS_FORM}`,
+    isLoggedIn,
+    userIsBusiness,
+    updateListing
+);
+
 if (process.env.NODE_ENV === DEVELOPMENT || !process.env.NODE_ENV) {
     router.get('/categories/', function(req, res, next) {
         listingCategoryController.findAllListingCategories(req, res);
@@ -240,6 +320,10 @@ if (process.env.NODE_ENV === DEVELOPMENT || !process.env.NODE_ENV) {
 
     router.get('/memberListingLocations/', function (req, res){
         memberListingLocationController.findAllMemberListingLocationEntries(req, res);
+    });
+
+    router.post('/listingSubcategoriesById/', function (req, res, next) {
+        listingController.findListingSubcategories(req, res);
     });
 }
 

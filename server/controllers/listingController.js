@@ -7,6 +7,7 @@
  */
 const filter = require('lodash/filter');
 const includes = require('lodash/includes');
+const difference = require('lodash/difference');
 const booleanPointInPolygon = require('@turf/boolean-point-in-polygon').default;
 const point = require('@turf/helpers').point;
 const polygon = require('@turf/helpers').polygon;
@@ -27,7 +28,11 @@ const memberController = require('./memberAccountController');
 const memberListingLocationController = require('./memberListingLocationController');
 const {PROVINCE_MAP, DEFAULT_COUNTRY} = require("./configConstants");
 const { getGeographicalCoordinatesFromAddress, getCircularFeatureFromLocation } = require('./utils/locationUtils');
-const { LISTING_TYPES, MEMBER_SERVICE_CATEGORIES } = require('../constants/listingConstants');
+const {
+    LISTING_TYPES,
+    MEMBER_SERVICE_CATEGORIES,
+    BUSINESS_LISTING_CATEGORIES
+} = require('../constants/listingConstants');
 
 const createListing = async (req, res) => {
     try {
@@ -37,18 +42,16 @@ const createListing = async (req, res) => {
             uid: req.user.uid,
             isClassified: req.body.type === LISTING_TYPES.CLASSIFIED,
             ...(req.body.type === LISTING_TYPES.CLASSIFIED && { orderId: req.body.orderId }),
-            fields: JSON.stringify(getListingFields(req)),
+            fields: JSON.stringify(getListingFields(req, req.body.category)),
             ListingCategoryId: category.id,
-            ...(includes(MEMBER_SERVICE_CATEGORIES, category) && { dateAdminApproved: Date.now() })
+            ...(includes(Object.values(MEMBER_SERVICE_CATEGORIES), req.body.category) && { dateAdminApproved: Date.now() })
         };
 
         const listing = await Listing.create(listingData);
 
         const subcategories = await listingSubcategoryController.findListingSubcategoryIds(req.body.subcategories, category.id);
 
-        subcategories.forEach(subcategory => {
-            listing.addListingSubcategory(subcategory);
-        });
+        await listing.addListingSubcategories(subcategories);
 
         if (await memberController.findMemberAccountByUid(req.user.uid)) {
             const fullSearchableAddress = `${req.body.addressLine1} ${req.body.city} ${PROVINCE_MAP.get(req.body.province)} ${DEFAULT_COUNTRY}`;
@@ -82,6 +85,16 @@ const findAllListings = (req, res) => {
 
 const findListing = listingId => {
     return Listing.findByPk(listingId);
+}
+
+const findListingWithCategory = listingId => {
+    return Listing.findByPk(listingId, {
+        include: [
+            {
+                model: ListingCategory
+            }
+        ]
+    });
 }
 
 const searchMemberServiceListings = async (searchArea, categoryName) => {
@@ -450,10 +463,95 @@ const getMemberInactiveListings = uid => {
     });
 }
 
+const findLiveListing = listingId => {
+    return Listing.findOne({
+        where: {
+            id: listingId,
+            isDeleted: false,
+            dateAdminApproved: {
+                [Op.lt]: new Date()
+            },
+            dateExpired: {
+                [Op.or]: {
+                    [Op.eq]: null,
+                    [Op.gt]: new Date()
+                }
+            },
+        }
+    });
+}
+
+const updateListingFields = listing => {
+    return Listing.update(listing, {
+        where: {
+            id: listing.id
+        }
+    });
+}
+
+const editListing = async req => {
+    try {
+        const updatedListingData = {
+            id: req.body.listingId,
+            fields: JSON.stringify(getListingFields(req, req.query.category))
+        };
+
+        // update the listing
+        await updateListingFields(updatedListingData);
+
+        // if the listing a member service listing, update the location
+        if (includes(Object.values(MEMBER_SERVICE_CATEGORIES), req.query.category)) {
+            const fullSearchableAddress = `${req.body.addressLine1} ${req.body.city} ${PROVINCE_MAP.get(req.body.province)} ${DEFAULT_COUNTRY}`;
+            const coordinates = await getGeographicalCoordinatesFromAddress(fullSearchableAddress);
+            await memberListingLocationController.updateMemberListingLocation(
+                parseFloat(coordinates.latitude),
+                parseFloat(coordinates.longitude),
+                req.body.listingId
+            );
+        }
+
+        // if the listing is a business listing, check for updates to the subcategories
+        if (includes(BUSINESS_LISTING_CATEGORIES, req.query.category)) {
+            const listing = await Listing.findByPk(req.body.listingId);
+            const subcategories = await listing.getListingSubcategories();
+            const subcategoryNames = subcategories.map(subcategory => subcategory.name);
+
+            const subcategoriesToRemoveNames = difference(subcategoryNames, req.body.subcategories);
+            const subcategoriesToAddNames = difference(req.body.subcategories, subcategoryNames);
+
+            const subcategoriesToRemove = await listingSubcategoryController.findListingSubcategoryIds(
+                subcategoriesToRemoveNames,
+                listing.ListingCategoryId
+            );
+            const subcategoriesToAdd = await listingSubcategoryController.findListingSubcategoryIds(
+                subcategoriesToAddNames,
+                listing.ListingCategoryId
+            );
+
+            await listing.removeListingSubcategories(subcategoriesToRemove);
+            await listing.addListingSubcategories(subcategoriesToAdd);
+        }
+        return { updated: true };
+    }
+    catch(err) {
+        return { updated: false, err: err.message };
+    }
+}
+
+const findListingSubcategories = async (req, res) => {
+    const listing = await Listing.findByPk(req.body.listingId);
+
+    const subcategories = await listing.getListingSubcategories();
+    const subcategoryNames = subcategories.map(subcategory => subcategory.name);
+
+    res.status(200).json({ subcategories: subcategoryNames });
+}
+
 module.exports = {
     createListing,
     findAllListings,
     findListing,
+    findListingWithCategory,
     searchMemberServiceListings,
     searchBusinessListings,
     softDeleteListings,
@@ -466,6 +564,9 @@ module.exports = {
     getBusinessInactiveListings,
     getBusinessRejectedListings,
     getMemberLiveListings,
-    getMemberInactiveListings
+    getMemberInactiveListings,
+    findLiveListing,
+    editListing,
+    findListingSubcategories
 }
 
