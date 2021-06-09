@@ -301,6 +301,27 @@ router.post(
     updateListing
 );
 
+router.post(
+    '/delete/',
+    isLoggedIn,
+    listingValidator.validate(LISTING_VALIDATION_METHODS.DELETE_LISTING),
+    function (req, res, next) {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            res.status(202).json({ errors: errors.array()});
+        } else {
+            listingController.deleteListing(req.body.listingId)
+                .then(() => {
+                    res.status(200).json({ success: true });
+                })
+                .catch(err => {
+                    res.status(200).json({ success: false, err: err.message });
+                });
+        }
+    }
+);
+
 if (process.env.NODE_ENV === DEVELOPMENT || !process.env.NODE_ENV) {
     router.get('/categories/', function(req, res, next) {
         listingCategoryController.findAllListingCategories(req, res);
