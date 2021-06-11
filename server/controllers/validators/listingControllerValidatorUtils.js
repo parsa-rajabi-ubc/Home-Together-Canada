@@ -31,7 +31,8 @@ const LISTING_VALIDATION_METHODS = {
     CLASSES_EVENTS_CLUBS_FORM: 'classesClubsEventsForm',
     SEARCH_LISTINGS: 'searchListings',
     ADMIN_APPROVE_LISTING: 'adminApproveListing',
-    LISTING_RELATIONSHIPS: 'listingRelationships'
+    LISTING_RELATIONSHIPS: 'listingRelationships',
+    DELETE_LISTING: 'deleteListing'
 }
 
 const CATEGORY_FORM_VALIDATION_DICT = new Map([
@@ -176,6 +177,17 @@ const listingShouldHaveSubcategories = (subcategories, listingId) => {
         });
 }
 
+const listingShouldNotBeDeletedOrExpired = listingId => {
+    return listings.findDeletedListing(listingId)
+        .then(listing => {
+            console.log('listing: ', listing);
+            if (listing) {
+                console.log('ERROR');
+                return Promise.reject('Cannot delete a listing that has already been deleted');
+            }
+        })
+}
+
 module.exports = {
     LISTING_VALIDATION_METHODS,
     LISTING_TYPES,
@@ -193,5 +205,6 @@ module.exports = {
     listingShouldExist,
     listingShouldBelongToUser,
     listingShouldBeLive,
-    listingShouldHaveSubcategories
+    listingShouldHaveSubcategories,
+    listingShouldNotBeDeletedOrExpired
 }

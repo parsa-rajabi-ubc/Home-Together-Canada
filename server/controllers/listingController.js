@@ -212,7 +212,7 @@ const searchBusinessListings = async (searchArea, categoryName, subcategoryNames
     return formattedListingInfo;
 }
 
-const softDeleteListings = uid => {
+const softDeleteUsersListings = uid => {
     return Listing.update({
         isDeleted: true
     }, {
@@ -263,7 +263,7 @@ const approveListing = id => {
     })
 }
 
-const rejectListing = id => {
+const deleteListing = id => {
     return Listing.update({
         isDeleted: true
     }, {
@@ -481,6 +481,20 @@ const findLiveListing = listingId => {
     });
 }
 
+const findDeletedListing = listingId => {
+    return Listing.findOne({
+        where: {
+            id: listingId,
+            [Op.or] : {
+                isDeleted: true,
+                dateExpired: {
+                    [Op.lt]: new Date()
+                }
+            }
+        }
+    });
+}
+
 const updateListingFields = listing => {
     return Listing.update(listing, {
         where: {
@@ -554,10 +568,10 @@ module.exports = {
     findListingWithCategory,
     searchMemberServiceListings,
     searchBusinessListings,
-    softDeleteListings,
+    softDeleteUsersListings,
     getAllPendingListings,
     approveListing,
-    rejectListing,
+    deleteListing,
     findAllListingsForUser,
     getBusinessPendingListings,
     getBusinessLiveListings,
@@ -566,6 +580,7 @@ module.exports = {
     getMemberLiveListings,
     getMemberInactiveListings,
     findLiveListing,
+    findDeletedListing,
     editListing,
     findListingSubcategories
 }

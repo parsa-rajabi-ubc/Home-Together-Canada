@@ -79,7 +79,7 @@ router.post('/ban/user/',
         abstractUsers.banUser(uid)
             .then(() => {
                 // soft delete listings
-                return listings.softDeleteListings(uid);
+                return listings.softDeleteUsersListings(uid);
             })
             .then(() => {
                 res.status(200).json({ success: true });
@@ -135,7 +135,7 @@ router.post('/listing/approve/',
                     res.status(200).json({ success: false, err: err.message });
                 });
         } else {
-            listings.rejectListing(req.body.listingId)
+            listings.deleteListing(req.body.listingId)
                 .then(() => {
                     res.status(200).json({ success: true });
                 })

@@ -32,7 +32,8 @@ const {
     listingShouldExist,
     listingShouldBelongToUser,
     listingShouldBeLive,
-    listingShouldHaveSubcategories
+    listingShouldHaveSubcategories,
+    listingShouldNotBeDeletedOrExpired
 } = require('./listingControllerValidatorUtils');
 
 const { LISTING_FIELD_LENGTHS } = require('../../constants/fieldLengthsConstants');
@@ -361,6 +362,18 @@ exports.validate = method => {
                         subcategories,
                         req.body.listingId
                     ))
+            ]
+        }
+        case LISTING_VALIDATION_METHODS.DELETE_LISTING: {
+            return [
+                body('listingId')
+                    .exists()
+                    .isNumeric()
+                    .custom((listingId, { req }) => listingShouldBelongToUser(
+                        listingId,
+                        req.user.uid
+                    ))
+                    .custom(listingId => listingShouldNotBeDeletedOrExpired(listingId))
             ]
         }
     }
