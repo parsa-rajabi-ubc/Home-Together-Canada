@@ -6,8 +6,15 @@
  *
  */
 import React from 'react';
-import renderer from  'react-test-renderer'
+import renderer from 'react-test-renderer'
 import ManageListing from "../ManageListing";
+
+
+jest.mock("react-tooltip/node_modules/uuid", () => ({
+            v4: () => "00000000-0000-0000-0000-000000000000"
+        }
+    )
+);
 
 describe('ManageListing', () => {
     describe('Snapshot test', () => {

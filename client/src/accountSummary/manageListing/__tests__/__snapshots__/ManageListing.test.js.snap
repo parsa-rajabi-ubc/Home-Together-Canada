@@ -78,7 +78,7 @@ exports[`ManageListing Snapshot test should render correctly regardless of prope
                   </svg>
                 </span>
                 <div
-                  className="__react_component_tooltip t2f8e8a9d-d4ae-406e-861a-6be9ec7477fa place-top type-dark"
+                  className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                   data-id="tooltip"
                   id="PetFriendly"
                 >
@@ -86,19 +86,19 @@ exports[`ManageListing Snapshot test should render correctly regardless of prope
                     dangerouslySetInnerHTML={
                       Object {
                         "__html": "
-  	.t2f8e8a9d-d4ae-406e-861a-6be9ec7477fa {
+  	.t00000000-0000-0000-0000-000000000000 {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
   	}
 
-  	.t2f8e8a9d-d4ae-406e-861a-6be9ec7477fa.place-top {
+  	.t00000000-0000-0000-0000-000000000000.place-top {
         margin-top: -10px;
     }
-    .t2f8e8a9d-d4ae-406e-861a-6be9ec7477fa.place-top::before {
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
         border-top: 8px solid transparent;
     }
-    .t2f8e8a9d-d4ae-406e-861a-6be9ec7477fa.place-top::after {
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         bottom: -6px;
@@ -109,13 +109,13 @@ exports[`ManageListing Snapshot test should render correctly regardless of prope
         border-top-width: 6px;
     }
 
-    .t2f8e8a9d-d4ae-406e-861a-6be9ec7477fa.place-bottom {
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
         margin-top: 10px;
     }
-    .t2f8e8a9d-d4ae-406e-861a-6be9ec7477fa.place-bottom::before {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
         border-bottom: 8px solid transparent;
     }
-    .t2f8e8a9d-d4ae-406e-861a-6be9ec7477fa.place-bottom::after {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         top: -6px;
@@ -126,13 +126,13 @@ exports[`ManageListing Snapshot test should render correctly regardless of prope
         border-bottom-width: 6px;
     }
 
-    .t2f8e8a9d-d4ae-406e-861a-6be9ec7477fa.place-left {
+    .t00000000-0000-0000-0000-000000000000.place-left {
         margin-left: -10px;
     }
-    .t2f8e8a9d-d4ae-406e-861a-6be9ec7477fa.place-left::before {
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
         border-left: 8px solid transparent;
     }
-    .t2f8e8a9d-d4ae-406e-861a-6be9ec7477fa.place-left::after {
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         right: -6px;
@@ -143,13 +143,13 @@ exports[`ManageListing Snapshot test should render correctly regardless of prope
         border-left-width: 6px;
     }
 
-    .t2f8e8a9d-d4ae-406e-861a-6be9ec7477fa.place-right {
+    .t00000000-0000-0000-0000-000000000000.place-right {
         margin-left: 10px;
     }
-    .t2f8e8a9d-d4ae-406e-861a-6be9ec7477fa.place-right::before {
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
         border-right: 8px solid transparent;
     }
-    .t2f8e8a9d-d4ae-406e-861a-6be9ec7477fa.place-right::after {
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         left: -6px;
