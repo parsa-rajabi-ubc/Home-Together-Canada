@@ -13,6 +13,8 @@ import * as ListingServices from "../../services/ListingService";
 import Confirmation from "../../common/listings/Confirmation";
 import ManageListing from "./ManageListing";
 import ManageListingTabs, {TAB_LABELS} from "./ManageListingTabs";
+import {MANAGE_LISTING_TOAST} from "../../common/constants/ToastText";
+import {toast} from "react-toastify";
 
 function ManageListingContainer() {
 
@@ -69,7 +71,11 @@ function ManageListingContainer() {
         ListingServices.deleteListing(deleteListingRequestBody)
             .then(res => res.json())
             .then(data => {
-
+                if(data.success){
+                    toast.success(MANAGE_LISTING_TOAST.LISTING_ID + listingID + MANAGE_LISTING_TOAST.DELETED);
+                } else {
+                    toast.error(MANAGE_LISTING_TOAST.ERROR);
+                }
             })
             .catch(err => {
                 alert('Error' + err.message);
