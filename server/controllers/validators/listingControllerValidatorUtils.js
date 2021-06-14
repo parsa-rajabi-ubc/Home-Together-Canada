@@ -32,7 +32,8 @@ const LISTING_VALIDATION_METHODS = {
     SEARCH_LISTINGS: 'searchListings',
     ADMIN_APPROVE_LISTING: 'adminApproveListing',
     LISTING_RELATIONSHIPS: 'listingRelationships',
-    DELETE_LISTING: 'deleteListing'
+    DELETE_LISTING: 'deleteListing',
+    UPDATE_LISTING_SUBCATEGORIES: 'updateListingSubcategories'
 }
 
 const CATEGORY_FORM_VALIDATION_DICT = new Map([
@@ -157,11 +158,11 @@ const listingShouldBelongToUser = (listingId, uid) => {
         });
 }
 
-const listingShouldBeLive = listingId => {
-    return listings.findLiveListing(listingId)
+const listingShouldBeLiveOrPending = listingId => {
+    return listings.findPendingOrLiveListing(listingId)
         .then(listing => {
             if (!listing) {
-                return Promise.reject('Listings that are not live cannot be edited');
+                return Promise.reject('Listings that are not live or pending cannot be edited');
             }
         });
 }
@@ -171,7 +172,7 @@ const listingShouldHaveSubcategories = (subcategories, listingId) => {
         .then(listing => {
             const category = listing.ListingCategory.name;
 
-            if (!Array.isArray(subcategories) || (includes(BUSINESS_LISTING_CATEGORIES, category) && !subcategories.length)) {
+            if ((includes(BUSINESS_LISTING_CATEGORIES, category)) && (!subcategories || (Array.isArray(subcategories) && !subcategories.length))) {
                 return Promise.reject('Edited listing must have subcategories');
             }
         });
@@ -180,9 +181,7 @@ const listingShouldHaveSubcategories = (subcategories, listingId) => {
 const listingShouldNotBeDeletedOrExpired = listingId => {
     return listings.findDeletedListing(listingId)
         .then(listing => {
-            console.log('listing: ', listing);
             if (listing) {
-                console.log('ERROR');
                 return Promise.reject('Cannot delete a listing that has already been deleted');
             }
         })
@@ -204,7 +203,7 @@ module.exports = {
     shouldOrderIdBeDefined,
     listingShouldExist,
     listingShouldBelongToUser,
-    listingShouldBeLive,
+    listingShouldBeLiveOrPending,
     listingShouldHaveSubcategories,
     listingShouldNotBeDeletedOrExpired
 }

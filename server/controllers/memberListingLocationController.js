@@ -14,7 +14,7 @@ const addMemberListingLocation = (latitude, longitude, id) => {
 
 const updateMemberListingLocation = (latitude, longitude, id) => {
     const memberListingLocation = { latitude, longitude };
-    return MemberListingLocation(memberListingLocation, {
+    return MemberListingLocation.update(memberListingLocation, {
         where: {
             ListingId: id
         }
