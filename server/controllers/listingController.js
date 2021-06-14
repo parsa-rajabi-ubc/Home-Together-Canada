@@ -463,13 +463,16 @@ const getMemberInactiveListings = uid => {
     });
 }
 
-const findLiveListing = listingId => {
+const findPendingOrLiveListing = listingId => {
     return Listing.findOne({
         where: {
             id: listingId,
             isDeleted: false,
             dateAdminApproved: {
-                [Op.lt]: new Date()
+                [Op.or]: {
+                    [Op.lt]: new Date(),
+                    [Op.eq]: null
+                }
             },
             dateExpired: {
                 [Op.or]: {
@@ -524,9 +527,19 @@ const editListing = async req => {
             );
         }
 
+        return { updated: true };
+    }
+    catch(err) {
+        return { updated: false, err: err.message };
+    }
+}
+
+const updateListingSubcategories = async req => {
+    try {
+        const listing = await findListingWithCategory(req.body.listingId);
+        const category = listing.ListingCategory.name;
         // if the listing is a business listing, check for updates to the subcategories
-        if (includes(BUSINESS_LISTING_CATEGORIES, req.query.category)) {
-            const listing = await Listing.findByPk(req.body.listingId);
+        if (includes(BUSINESS_LISTING_CATEGORIES, category)) {
             const subcategories = await listing.getListingSubcategories();
             const subcategoryNames = subcategories.map(subcategory => subcategory.name);
 
@@ -545,9 +558,9 @@ const editListing = async req => {
             await listing.removeListingSubcategories(subcategoriesToRemove);
             await listing.addListingSubcategories(subcategoriesToAdd);
         }
-        return { updated: true };
+        return { updated: true }
     }
-    catch(err) {
+    catch (err) {
         return { updated: false, err: err.message };
     }
 }
@@ -579,9 +592,10 @@ module.exports = {
     getBusinessRejectedListings,
     getMemberLiveListings,
     getMemberInactiveListings,
-    findLiveListing,
+    findPendingOrLiveListing,
     findDeletedListing,
     editListing,
+    updateListingSubcategories,
     findListingSubcategories
 }
 

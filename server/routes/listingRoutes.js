@@ -322,6 +322,28 @@ router.post(
     }
 );
 
+router.post(
+    '/subcategories/update/',
+    isLoggedIn,
+    userIsBusiness,
+    listingValidator.validate(LISTING_VALIDATION_METHODS.UPDATE_LISTING_SUBCATEGORIES),
+    function (req, res, next) {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            res.status(202).json({ errors: errors.array()});
+        } else {
+            listingController.updateListingSubcategories(req)
+                .then(updated => {
+                    res.json(updated);
+                })
+                .catch(err => {
+                    res.status(500).json({ err: err.message });
+                })
+        }
+    }
+);
+
 if (process.env.NODE_ENV === DEVELOPMENT || !process.env.NODE_ENV) {
     router.get('/categories/', function(req, res, next) {
         listingCategoryController.findAllListingCategories(req, res);

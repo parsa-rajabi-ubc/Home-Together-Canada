@@ -31,7 +31,7 @@ const {
     LISTING_FIELDS_ERRORS,
     listingShouldExist,
     listingShouldBelongToUser,
-    listingShouldBeLive,
+    listingShouldBeLiveOrPending,
     listingShouldHaveSubcategories,
     listingShouldNotBeDeletedOrExpired
 } = require('./listingControllerValidatorUtils');
@@ -356,12 +356,7 @@ exports.validate = method => {
                         listingId,
                         req.user.uid
                     ))
-                    .custom(listingId => listingShouldBeLive(listingId)),
-                body('subcategories')
-                    .custom((subcategories, { req }) => listingShouldHaveSubcategories(
-                        subcategories,
-                        req.body.listingId
-                    ))
+                    .custom(listingId => listingShouldBeLiveOrPending(listingId))
             ]
         }
         case LISTING_VALIDATION_METHODS.DELETE_LISTING: {
@@ -374,6 +369,23 @@ exports.validate = method => {
                         req.user.uid
                     ))
                     .custom(listingId => listingShouldNotBeDeletedOrExpired(listingId))
+            ]
+        }
+        case LISTING_VALIDATION_METHODS.UPDATE_LISTING_SUBCATEGORIES: {
+            return [
+                body('listingId')
+                    .exists()
+                    .isNumeric()
+                    .custom((listingId, { req }) => listingShouldBelongToUser(
+                        listingId,
+                        req.user.uid
+                    ))
+                    .custom(listingId => listingShouldNotBeDeletedOrExpired(listingId)),
+                body('subcategories')
+                    .custom((subcategories, { req }) => listingShouldHaveSubcategories(
+                        subcategories,
+                        req.body.listingId
+                    ))
             ]
         }
     }
