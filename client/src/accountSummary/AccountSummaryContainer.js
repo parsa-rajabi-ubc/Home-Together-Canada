@@ -21,6 +21,7 @@ import SearchCriteriaContainer from "./member/SearchCriteriaContainer";
 import DeactivateAccountContainer from './accountDeactivateAndDelete/DeactivateAccountContainer'
 import DeleteAccountContainer from "./accountDeactivateAndDelete/DeleteAccountContainer";
 import MessagingContainer from "./member/messaging/MessagingContainer";
+import ManageListingContainer from "./manageListing/ManageListingContainer";
 
 const AccountSummaryContainer = props => {
     const { active } = props;
@@ -74,7 +75,7 @@ const AccountSummaryContainer = props => {
             case ALL_SUBPAGES.MESSAGING:
                 return <MessagingContainer/>
             case ALL_SUBPAGES.MANAGE_LISTINGS:
-                return <div>Manage Listings Component</div>
+                return <ManageListingContainer/>
             case ALL_SUBPAGES.ACTIVATE:
                 return accountType === USER_TYPES.MEMBER ?
                     <DeactivateAccountContainer/>
