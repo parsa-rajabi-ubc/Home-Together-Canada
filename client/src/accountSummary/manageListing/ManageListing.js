@@ -118,7 +118,7 @@ function ManageListing(props) {
 
 ManageListing.propTypes = {
     onSubmit: PropTypes.func.isRequired,
-    listingData: PropTypes.array.isRequired,
+    listingData: PropTypes.array,
     activeTab: PropTypes.string
 };
 
