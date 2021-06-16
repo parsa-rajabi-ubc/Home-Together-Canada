@@ -50,17 +50,28 @@ function ManageListingContainer() {
         MemberServices.getLiveMemberListings()
             .then(res => res.json())
             .then(data => {
-                setLiveMemberListings(data.liveListings)
-
-            })
+                if (data) {
+                    setLiveMemberListings(data.liveListings);
+                } else if (data.err) {
+                    toast.error(data.err);
+                }
+            }).catch(err => {
+            toast.error(err.message);
+        });
     }
 
     function getInactiveMemberListings() {
         MemberServices.getInactiveMemberListings()
             .then(res => res.json())
             .then(data => {
-                setInactiveMemberListings(data.inactiveListing)
-            })
+                if (data) {
+                    setInactiveMemberListings(data.inactiveListing);
+                } else if (data.err) {
+                    toast.error(data.err);
+                }
+            }).catch(err => {
+            toast.error(err.message);
+        });
     }
 
     const deleteListing = (listingID) => {
@@ -70,7 +81,7 @@ function ManageListingContainer() {
         ListingServices.deleteListing(deleteListingRequestBody)
             .then(res => res.json())
             .then(data => {
-                if(data.success){
+                if (data.success) {
                     toast.success(MANAGE_LISTING_TOAST.LISTING_ID + viewableListingTitle + MANAGE_LISTING_TOAST.DELETED);
                 } else {
                     toast.error(MANAGE_LISTING_TOAST.ERROR);
@@ -79,10 +90,6 @@ function ManageListingContainer() {
             .catch(err => {
                 toast.error(err.message);
             })
-    }
-
-    const onSubmit = (listingID) => {
-        deleteListing(listingID);
     }
 
     return (
@@ -96,7 +103,7 @@ function ManageListingContainer() {
                 <Confirmation displayButton={false} errorColor={true} message={"No " + selectedTab + " Listings"}
                               minHeight={false}/>
                 : <ManageListingResults
-                    onSubmit={onSubmit}
+                    onSubmit={deleteListing}
                     activeTab={selectedTab}
                     viewableListingData={viewableListingData}
                     setViewableListingData={setViewableListingTitle}

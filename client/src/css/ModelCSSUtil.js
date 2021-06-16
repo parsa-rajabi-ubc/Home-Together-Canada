@@ -1,3 +1,12 @@
+/**
+ * @Author:     Parsa Rajabi
+ * @Created:    2021.06.15
+ *
+ * @Description: CSS utility file for Modal Styling
+ *
+ */
+
+
 export const customModalStyles = {
     content: {
         top: '50%',

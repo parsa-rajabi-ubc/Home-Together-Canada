@@ -27,7 +27,7 @@ function ManageListingTabs(props) {
     const {
         setActiveTab,
     } = props;
-    // initialize current tab to 0 ie. live listings
+
     const [currentTab, setCurrentTab] = useState();
 
     // useEffects
@@ -35,12 +35,10 @@ function ManageListingTabs(props) {
         setActiveTab(currentTab);
     }, [currentTab])
 
-
-
     const tabs = Object.values(TAB_LABELS).map(
         (tab) =>
             <button key={tab} type={"button"}
-                    className={tab === currentTab ? "sub-page-items selected w-1/3 rounded-full shadow-md border-2 focus:outline-none" : "sub-page-items w-1/3 rounded-full shadow-md border-2 border-green-300 focus:outline-none"}
+                    className={tab === currentTab ? "sub-page-items selected w-1/3 mx-4 rounded-full shadow-md border-2 focus:outline-none" : "sub-page-items w-1/3 mx-4 rounded-full shadow-md border-2 border-green-300 focus:outline-none"}
                     onClick={() => setCurrentTab(tab)}>
                 {tab + " Listings"}
             </button>
