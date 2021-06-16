@@ -36,7 +36,7 @@ const Footer = () => {
                                           className="text-gray-800 hover:text-orange-500">FAQ</Link>
                                 </li>
                                 <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                                    <Link to={'/report'}
+                                    <Link to={'/contact'}
                                           className="text-gray-800 hover:text-orange-500">Comment
                                         & Concern Form</Link>
                                 </li>
