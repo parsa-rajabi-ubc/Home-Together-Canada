@@ -1068,7 +1068,7 @@ exports[`MemberHomeShareForm Snapshot test should render correctly regardless of
                 }
               }
             />
-            Maximum 6 pictures. Please use SHIFT or CONTROL to select pictures at once. You can NOT upload pictures one a time.
+            Maximum 6 pictures. Please use SHIFT or CONTROL to select pictures at once. You can NOT upload pictures one at a time.
           </div>
         </span>
         <div

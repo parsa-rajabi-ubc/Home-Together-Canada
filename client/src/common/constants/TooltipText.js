@@ -44,7 +44,7 @@ export const BUSINESS_INFO_TEXT = {
 };
 
 export const CREATE_LISTING_MEMBER_SHARE_HOME = {
-    PHOTOS: "Maximum 6 pictures. Please use SHIFT or CONTROL to select pictures at once. You can NOT upload pictures one a time.",
+    PHOTOS: "Maximum 6 pictures. Please use SHIFT or CONTROL to select pictures at once. You can NOT upload pictures one at a time.",
     ADDRESS: "Please enter the general location of the house"
 }
 
