@@ -7,7 +7,7 @@
  */
 import React from 'react';
 import renderer from 'react-test-renderer'
-import ManageListing from "../ManageListing";
+import ManageListingResults from "../ManageListingResults";
 
 
 jest.mock("react-tooltip/node_modules/uuid", () => ({
@@ -48,7 +48,7 @@ describe('ManageListing', () => {
             }
 
             // when
-            const component = renderer.create(<ManageListing {...props} />).toJSON();
+            const component = renderer.create(<ManageListingResults {...props} />).toJSON();
 
             // then
             expect(component).toMatchSnapshot();

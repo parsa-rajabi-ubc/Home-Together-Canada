@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ManageListing Snapshot test should render correctly regardless of properties 1`] = `<div />`;
