@@ -287,7 +287,7 @@ exports[`AgenciesForm Snapshot test should render correctly regardless of proper
                 }
               }
             />
-            Maximum 6 pictures
+            Maximum 6 pictures. Please use SHIFT or CONTROL to select pictures at once. You can NOT upload pictures one a time.
           </div>
         </span>
         <div
