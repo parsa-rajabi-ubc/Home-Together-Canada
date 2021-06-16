@@ -128,7 +128,7 @@ exports[`PendingListingCards Container test should match snapshot test regardles
         </section>
       </div>
       <ul
-        className="flex m-auto w-2/3"
+        className="flex m-auto w-1/4"
       >
         <li
           className="next-prev-text disabled"
@@ -311,7 +311,7 @@ exports[`PendingListingCards Container test should match snapshot test regardles
         </section>
       </div>
       <ul
-        className="flex m-auto w-2/3"
+        className="flex m-auto w-1/4"
       >
         <li
           className="next-prev-text disabled"

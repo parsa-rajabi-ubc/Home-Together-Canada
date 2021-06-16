@@ -20,3 +20,9 @@ export const ADMIN_TOAST = {
     PENDING_LISTING_APPROVED: " has been approved and is now live on the website.",
     PENDING_LISTING_REJECTED: " has been reject and deleted from the website."
 }
+
+export const MANAGE_LISTING_TOAST = {
+    LISTING_ID: "Listing #",
+    DELETED: " has been deleted and is now inactive.",
+    ERROR: "There was an error deleting this listing. Please try again."
+}

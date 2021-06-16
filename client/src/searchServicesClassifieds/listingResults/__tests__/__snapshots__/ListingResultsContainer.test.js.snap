@@ -56,7 +56,7 @@ exports[`ListingResultsContainer Snapshot test should match snapshot test if lis
         </section>
       </a>
       <ul
-        className="flex m-auto w-2/3"
+        className="flex m-auto w-1/4"
       >
         <li
           className="next-prev-text disabled"
