@@ -20,3 +20,7 @@ export const ADMIN_TOAST = {
     PENDING_LISTING_APPROVED: " has been approved and is now live on the website.",
     PENDING_LISTING_REJECTED: " has been reject and deleted from the website."
 }
+
+export const IN_DEVELOPMENT = {
+    MSG: "This feature is currently under development. In the meantime, please contact hometogether.ca@gmail.com"
+}

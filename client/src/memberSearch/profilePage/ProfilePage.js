@@ -11,6 +11,8 @@ import PropTypes from "prop-types";
 import {AiOutlineCheckCircle as Check} from "react-icons/ai";
 import {AiOutlineCloseCircle as Ex} from "react-icons/ai"
 import SendMessage from "../../accountSummary/member/messaging/SendMessage";
+import {toast} from "react-toastify";
+import {IN_DEVELOPMENT} from "../../common/constants/ToastText";
 
 
 function ProfilePage(props) {
@@ -203,7 +205,8 @@ function ProfilePage(props) {
                             </tbody>
                         </table>
 
-                        <button className={"btn btn-red mx-auto my-6 w-1/2 text-base py-2"}>Report User
+                        <button className={"btn btn-red mx-auto my-6 w-1/2 text-base py-2"} onClick={() => toast.error(IN_DEVELOPMENT.MSG)}>
+                            Report User
                         </button>
                     </div>
 
