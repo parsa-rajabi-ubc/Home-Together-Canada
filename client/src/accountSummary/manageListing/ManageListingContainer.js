@@ -7,11 +7,10 @@
  */
 
 import React, {useState, useEffect} from "react";
-import 'react-tabs/style/react-tabs.css';
 import * as MemberServices from "../../services/MemberService";
 import * as ListingServices from "../../services/ListingService";
 import Confirmation from "../../common/listings/Confirmation";
-import ManageListing from "./ManageListing";
+import ManageListingResults from "./ManageListingResults";
 import ManageListingTabs, {TAB_LABELS} from "./ManageListingTabs";
 import {MANAGE_LISTING_TOAST} from "../../common/constants/ToastText";
 import {toast} from "react-toastify";
@@ -20,9 +19,9 @@ function ManageListingContainer() {
 
     const [liveMemberListings, setLiveMemberListings] = useState();
     const [inactiveMemberListings, setInactiveMemberListings] = useState();
-    const [listingStatus, setListingStatus] = useState();
-    const [activeTab, setActiveTab] = useState();
-    const [listingData, setListingData] = useState();
+    const [selectedTab, setSelectedTab] = useState();
+    const [viewableListingData, setViewableListingData] = useState();
+    const [viewableListingTitle, setViewableListingTitle] = useState();
 
     // useEffects
     useEffect(() => {
@@ -33,16 +32,16 @@ function ManageListingContainer() {
     // useEffects
     useEffect(() => {
         updateListingData();
-    }, [activeTab])
+    }, [selectedTab])
 
 
     function updateListingData() {
-        switch (activeTab) {
-            case TAB_LABELS[0]:
-                setListingData(liveMemberListings);
+        switch (selectedTab) {
+            case TAB_LABELS.LIVE:
+                setViewableListingData(liveMemberListings);
                 break;
-            case TAB_LABELS[1]:
-                setListingData(inactiveMemberListings);
+            case TAB_LABELS.INACTIVE:
+                setViewableListingData(inactiveMemberListings);
                 break;
         }
     }
@@ -72,13 +71,13 @@ function ManageListingContainer() {
             .then(res => res.json())
             .then(data => {
                 if(data.success){
-                    toast.success(MANAGE_LISTING_TOAST.LISTING_ID + listingID + MANAGE_LISTING_TOAST.DELETED);
+                    toast.success(MANAGE_LISTING_TOAST.LISTING_ID + viewableListingTitle + MANAGE_LISTING_TOAST.DELETED);
                 } else {
                     toast.error(MANAGE_LISTING_TOAST.ERROR);
                 }
             })
             .catch(err => {
-                alert('Error' + err.message);
+                toast.error(err.message);
             })
     }
 
@@ -89,19 +88,19 @@ function ManageListingContainer() {
     return (
         <div>
             <ManageListingTabs
-                setActiveTab={setActiveTab}
+                setActiveTab={setSelectedTab}
             />
 
-            {/* Display cards once user has selected a tab i.e activeTab has a value */}
-            {(!listingData || !listingData.length) && activeTab ?
-                <Confirmation displayButton={false} errorColor={true} message={"No " + activeTab + " Listings"}
+            {/* Display cards once user has selected a tab i.e selectedTab has a value */}
+            {(!viewableListingData || !viewableListingData.length) && selectedTab ?
+                <Confirmation displayButton={false} errorColor={true} message={"No " + selectedTab + " Listings"}
                               minHeight={false}/>
-                : <ManageListing
+                : <ManageListingResults
                     onSubmit={onSubmit}
-                    listingStatus={listingStatus}
-                    setListingStatus={setListingStatus}
-                    activeTab={activeTab}
-                    listingData={listingData}/>
+                    activeTab={selectedTab}
+                    viewableListingData={viewableListingData}
+                    setViewableListingData={setViewableListingTitle}
+                />
 
             }
         </div>

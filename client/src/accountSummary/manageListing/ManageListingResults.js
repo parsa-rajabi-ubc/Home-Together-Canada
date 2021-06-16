@@ -21,7 +21,7 @@ const MANAGE_LISTING_TEXT = {
     TITLE: "Manage Listings",
     DESCRIPTION: "Use the tabs below to view your listings based on their status.",
     NO_LISTING: "No ",
-    CONFIRM_DELETE: "Are you sure you want to delete listing #",
+    CONFIRM_DELETE: "Are you sure you want to delete listing \"",
     DELETE: "Delete",
     CANCEL: "Cancel"
 }
@@ -29,15 +29,17 @@ const MANAGE_LISTING_TEXT = {
 const NUM_RESULTS = 7;
 Modal.setAppElement('body')
 
-function ManageListing(props) {
+function ManageListingResults(props) {
     const {
         onSubmit,
-        listingData,
-        activeTab
+        viewableListingData,
+        activeTab,
+        setViewableListingData
     } = props;
 
-    const [IsModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const [listingID, setListingID] = useState();
+    const [listingTitle, setListingTitle] = useState();
 
     function openModal() {
         setIsModalOpen(true);
@@ -52,14 +54,16 @@ function ManageListing(props) {
         onSubmit(listingID);
     }
 
-    const onClickDecision = (listingID) => {
+    const onClickDecision = (listingID, listingTitle) => {
         setListingID(listingID);
+        setListingTitle(listingTitle);
+        setViewableListingData(listingTitle);
         openModal();
     }
 
     //TODO: Refactor to handle business cards as well
     function displayListingCards() {
-        const listingCards = listingData.map(
+        const listingCards = viewableListingData.map(
             (listing) =>
                 <div className={"flex"} key={listing.id}>
                     <section className={"w-full"}>
@@ -73,10 +77,13 @@ function ManageListing(props) {
                     </section>
 
                     {/* only show delete button (garbage can) when the listing status is LIVE */}
-                    {activeTab === TAB_LABELS[0] &&
+                    {activeTab === TAB_LABELS.LIVE &&
                     <section className={"my-8"}>
-                        <MdDeleteForever color="#DB4437" size="40"
-                                         onClick={() => onClickDecision(listing.id)}/>
+                        <MdDeleteForever
+                            color="#DB4437"
+                            size="40"
+                            onClick={() => onClickDecision(listing.id, listing.title)}
+                        />
                     </section>
                     }
                 </div>
@@ -87,16 +94,16 @@ function ManageListing(props) {
 
     return (
         <div>
-            {listingData && displayListingCards()}
+            {viewableListingData && displayListingCards()}
 
-            {listingData && <Modal
-                isOpen={IsModalOpen}
+            {viewableListingData && <Modal
+                isOpen={isModalOpen}
                 onRequestClose={closeModal}
                 style={customModalStyles}
                 contentLabel="Confirm Decision for Listing"
             >
-                {/*TODO: Change ListingID to Listing Title to display to user*/}
-                <h1 className={"text-gray-800 h1"}>{MANAGE_LISTING_TEXT.CONFIRM_DELETE}{listingID + "?"} </h1>
+
+                <h1 className={"text-gray-800 h1"}>{MANAGE_LISTING_TEXT.CONFIRM_DELETE}{listingTitle + "\"?"} </h1>
                 <section className={"flex pt-10 space-x-10"}>
                     <button type={"button"} className="py-2 w-1/2 bg-gray-500 btn" onClick={closeModal}>
                         {MANAGE_LISTING_TEXT.CANCEL}
@@ -116,10 +123,11 @@ function ManageListing(props) {
     );
 }
 
-ManageListing.propTypes = {
+ManageListingResults.propTypes = {
     onSubmit: PropTypes.func.isRequired,
-    listingData: PropTypes.array,
-    activeTab: PropTypes.string
+    viewableListingData: PropTypes.array,
+    activeTab: PropTypes.string,
+    setViewableListingData: PropTypes.func,
 };
 
-export default ManageListing;
+export default ManageListingResults;
