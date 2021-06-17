@@ -31,6 +31,7 @@ import FAQ from "./FAQ/FAQ";
 import SearchServiceListings from "./searchServicesClassifieds/SearchServiceListings";
 import SearchClassifiedListings from "./searchServicesClassifieds/SearchClassifiedListings";
 import AdminContainer from "./admin/AdminContainer";
+import ListingDisplayContainer from "./accountSummary/manageListings/EditListingContainer";
 
 const Navigation = (props) => {
     const {authenticated, accountType, isAdmin} = props;
@@ -62,6 +63,7 @@ const Navigation = (props) => {
                     {(authenticated && isAdmin) &&
                         <Route path={"/admin"} component={AdminContainer}/>
                     }
+                    <Route path={'/manageListings'} component={ListingDisplayContainer}/>
                     <Route path={"/tos"} component={TermsOfService}/>
                     <Route path={"/privacy"} component={PrivacyPolicy}/>
                     <Route path={"/faq"} component={FAQ}/>

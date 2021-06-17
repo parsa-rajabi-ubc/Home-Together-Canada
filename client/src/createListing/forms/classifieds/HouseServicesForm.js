@@ -2,7 +2,7 @@
  * @Author:     Alex Qin
  * @Created:    2021.02.12
  *
- * @Description: Form to create a listing in House Services category
+ * @Description: Form to create a listing in House and Yard Services category in Classifieds
  *
  */
 
@@ -24,12 +24,19 @@ import {DEFAULT_MAX_NUM_IMAGES} from "../../constants/createListingConfig";
 import {LISTING_FIELD_LENGTHS} from "../../../common/constants/fieldLengths";
 
 const HouseServicesForm = (props) => {
-    const { onSubmit } = props;
+    const {
+        onSubmit,
+        listingExists = false,
+        existingTitle,
+        existingShortDescription,
+        existingFullDescription,
+        existingRateAndFees
+    } = props;
 
-    const [title, setTitle] = useState(undefined);
-    const [shortDescription, setShortDescription] = useState(undefined);
-    const [fullDescription, setFullDescription] = useState(undefined);
-    const [rateAndFees, setRateAndFees] = useState(undefined);
+    const [title, setTitle] = useState(existingTitle || undefined);
+    const [shortDescription, setShortDescription] = useState(existingShortDescription || undefined);
+    const [fullDescription, setFullDescription] = useState(existingFullDescription || undefined);
+    const [rateAndFees, setRateAndFees] = useState(existingRateAndFees || undefined);
     const [pictures, setPictures] = useState(undefined);
 
     const [submitted, setSubmitted] = useState(false);
@@ -99,6 +106,7 @@ const HouseServicesForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setTitle(e.target.value)}
+                            value={title || ''}
                             disabled={submitted}
                             charLimit={LISTING_FIELD_LENGTHS.TITLE}
                         />
@@ -110,6 +118,7 @@ const HouseServicesForm = (props) => {
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setShortDescription(e.target.value)}
+                                    value={shortDescription || ''}
                                     charLimit={SHORT_DESC_CHAR_COUNT}
                                     disabled={submitted}
                                 />
@@ -121,6 +130,7 @@ const HouseServicesForm = (props) => {
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setRateAndFees(e.target.value)}
+                                    value={rateAndFees || ''}
                                     disabled={submitted}
                                     charLimit={LISTING_FIELD_LENGTHS.RATES_AND_FEES}
                                 />
@@ -133,15 +143,20 @@ const HouseServicesForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setFullDescription(e.target.value)}
+                            value={fullDescription || ''}
                             disabled={submitted}
                             charLimit={LISTING_FIELD_LENGTHS.FULL_DESCRIPTION}
                         />
-                        <label className="label"> {TEXT.pictures} </label>
-                        <Tooltip
-                            text={ToolTipText.PHOTOS}
-                            toolTipID={"UploadPhotos"}
-                        />
-                        <MultiImageUpload handleImageUpload={handleImageUpload} maxNumImages={DEFAULT_MAX_NUM_IMAGES}/>
+                        {!listingExists &&
+                            <div>
+                                <label className="label"> {TEXT.pictures} </label>
+                                <Tooltip
+                                    text={ToolTipText.PHOTOS}
+                                    toolTipID={"UploadPhotos"}
+                                />
+                                <MultiImageUpload handleImageUpload={handleImageUpload} maxNumImages={DEFAULT_MAX_NUM_IMAGES}/>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
@@ -153,7 +168,12 @@ const HouseServicesForm = (props) => {
     );
 }
 HouseServicesForm.propTypes = {
-    onSubmit: PropTypes.func.isRequired
+    onSubmit: PropTypes.func.isRequired,
+    listingExists: PropTypes.bool,
+    existingTitle: PropTypes.string,
+    existingShortDescription: PropTypes.string,
+    existingFullDescription: PropTypes.string,
+    existingRateAndFees: PropTypes.string,
 }
 
 export default HouseServicesForm;
