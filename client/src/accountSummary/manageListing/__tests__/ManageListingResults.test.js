@@ -8,6 +8,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer'
 import ManageListingResults from "../ManageListingResults";
+import ManageListingContainer from "../ManageListingContainer";
+import {BrowserRouter} from "react-router-dom";
 
 
 jest.mock("react-tooltip/node_modules/uuid", () => ({
@@ -15,6 +17,14 @@ jest.mock("react-tooltip/node_modules/uuid", () => ({
         }
     )
 );
+
+jest.mock('react-redux', () => ({
+    connect: () => {
+        return (component) => {
+            return component
+        };
+    }
+}));
 
 describe('ManageListing', () => {
     describe('Snapshot test', () => {
@@ -44,11 +54,12 @@ describe('ManageListing', () => {
                     "categoryName": "Members with Homes to Share",
                     "images": []
                 }],
-                activeTab: "Live"
+                activeTab: "Live",
+                accountType: 'member'
             }
 
             // when
-            const component = renderer.create(<ManageListingResults {...props} />).toJSON();
+            const component = renderer.create(<BrowserRouter><ManageListingResults {...props} /></BrowserRouter>).toJSON();
 
             // then
             expect(component).toMatchSnapshot();
