@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import PropTypes from "prop-types";
+import get from 'lodash/get';
+import {toast} from "react-toastify";
 import MemberHomeShareForm from "../../createListing/forms/services/MemberHomeShareForm";
 import {
     BUSINESS_SERVICE_CATEGORIES,
@@ -18,16 +20,20 @@ import GovernmentServicesForm from "../../createListing/forms/services/Governmen
 import RentalsForm from "../../createListing/forms/classifieds/RentalsForm";
 import HouseServicesForm from "../../createListing/forms/classifieds/HouseServicesForm";
 import AgenciesForm from "../../createListing/forms/classifieds/AgenciesForm";
+import Loading from "../../common/loading/Loading";
+
+toast.configure();
 
 const EditListingContainer = props => {
-    const { history, listing } = props;
-    console.log('listing: ', listing);
+    const { history } = props;
+    const [listing, setListing] = useState({});
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        if (!listing) {
+        if (!get(props, 'location.state.listing')) {
             history.push('/');
         } else {
+            setListing(get(props, 'location.state.listing'));
             setIsLoading(false);
         }
     }, []);
@@ -36,35 +42,33 @@ const EditListingContainer = props => {
         if (!isLoading) {
             setIsLoading(true);
             const requestBody = {
-                listingId: 48,
+                listingId: listing.id,
                 ...editedListing,
-                ...(listing.category === MEMBER_SERVICE_CATEGORIES.MEMBER_HOME) && {
+                ...(listing.categoryName === MEMBER_SERVICE_CATEGORIES.MEMBER_HOME) && {
                     petFriendly: resolveYesNoToBoolean(editedListing.petFriendly),
                     smokeFriendly: resolveYesNoToBoolean(editedListing.smokeFriendly),
                     utilitiesIncluded: resolveYesNoToBoolean(editedListing.utilIncluded),
                 },
-                ...(listing.category === BUSINESS_SERVICE_CATEGORIES.GOVERNMENT_SERVICES
-                    || listing.category === BUSINESS_CLASSIFIEDS_CATEGORIES.CLASSES_CLUBS) && {
+                ...(listing.categoryName === BUSINESS_SERVICE_CATEGORIES.GOVERNMENT_SERVICES
+                    || listing.categoryName === BUSINESS_CLASSIFIEDS_CATEGORIES.CLASSES_CLUBS) && {
                     contactPhoneNumber: getPhoneNumberFromStrings(listing.contactPhoneNumber.first, listing.contactPhoneNumber.middle, listing.contactPhoneNumber.last),
                 },
             }
-
-            console.log('requestBody: ', requestBody);
 
             ListingService.editListing(requestBody)
                 .then(res => res.json())
                 .then(data => {
                     setIsLoading(false);
                     if (data.updated) {
-                        alert('UPDATE SUCCESSFUL');
+                        toast.success('Listing successfully updated!');
                     } else if (data && data.errors && data.errors.length) {
                         const errorMessage = getConcatenatedErrorMessage(data.errors);
-                        alert(errorMessage);
+                        toast.error(errorMessage);
                     } else if (data.err) {
-                        alert('err: ' + data.err);
+                        toast.error(data.err);
                     } else {
-                        console.log('data: ', data);
-                        alert('something went wrong with: ' + data);
+                        toast.error('There was an error creating your listing. Please contact Home Together ' +
+                            'if the issue persists.');
                     }
                 })
         }
@@ -177,18 +181,22 @@ const EditListingContainer = props => {
 
     return (
         <div>
-            {!isLoading &&
-                <div>
-                    {returnCustomFieldComponent(listing.category)}
-                </div>
+            {isLoading
+                ? <div><Loading isLoading={isLoading}/></div>
+                : <div>{returnCustomFieldComponent(listing.categoryName)}</div>
             }
         </div>
     )
 }
 
 EditListingContainer.propTypes = {
-    listing: PropTypes.any,  // TODO change this
-    history: PropTypes.any,  // TODO change this
+    location: PropTypes.shape({
+        pathname: PropTypes.string,
+        state: PropTypes.object
+    }),
+    history: PropTypes.shape({
+        push: PropTypes.func
+    })
 }
 
 export default EditListingContainer;

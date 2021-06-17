@@ -8,19 +8,32 @@
 import React from 'react';
 import renderer from  'react-test-renderer'
 import ManageListingContainer from "../ManageListingContainer";
+import {BrowserRouter} from "react-router-dom";
+import ShallowRenderer from 'react-test-renderer/shallow';
+
+jest.mock('react-redux', () => ({
+    connect: () => {
+        return (component) => {
+            return component
+        };
+    }
+}));
 
 describe('ManageListingContainer', () => {
     describe('Snapshot test', () => {
         it("should render correctly regardless of properties", () => {
             // given
             const props = {
-            }
+                accountType: 'member'
+            };
+            const renderer = new ShallowRenderer();
 
             // when
-            const component = renderer.create(<ManageListingContainer {...props} />).toJSON();
+            renderer.render(<BrowserRouter><ManageListingContainer {...props} /></BrowserRouter>);
+            const help = renderer.getRenderOutput();
 
             // then
-            expect(component).toMatchSnapshot();
+            expect(help).toMatchSnapshot();
         });
     })
-})
+});
