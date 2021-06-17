@@ -22,6 +22,13 @@ import DeactivateAccountContainer from './accountDeactivateAndDelete/DeactivateA
 import DeleteAccountContainer from "./accountDeactivateAndDelete/DeleteAccountContainer";
 import MessagingContainer from "./member/messaging/MessagingContainer";
 import ManageListingContainer from "./manageListing/ManageListingContainer";
+import {
+    cohousingMock,
+    governmentAgencyMock, houseYardMock,
+    memberHomeShareMock, rentalMock,
+    sharedHomeServicesMock
+} from "./manageListings/mocks/serviceListingMocks";
+import EditListingContainer from "./manageListings/EditListingContainer";
 
 const AccountSummaryContainer = props => {
     const { active } = props;
@@ -59,6 +66,29 @@ const AccountSummaryContainer = props => {
 
     const options = accountType === USER_TYPES.MEMBER ? MEMBER_SIDEBAR : BUSINESS_SIDEBAR;
 
+    const memberHomeShareListing = {
+        ...memberHomeShareMock
+    };
+
+    const cohousingListing = {
+        ...cohousingMock
+    }
+
+    const sharedServiceListing = {
+        ...sharedHomeServicesMock
+    }
+
+    const governmentListing = {
+        ...governmentAgencyMock
+    }
+
+    const rentalListing = {
+        ...rentalMock
+    }
+
+    const houseYardListing = {
+        ...houseYardMock
+    }
 
     const subpageComponent = (subpage) => {
         switch (subpage) {

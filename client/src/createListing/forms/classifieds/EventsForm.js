@@ -23,18 +23,32 @@ import PhoneNumInput from "../../../common/forms/PhoneNumInput";
 import MultiImageUpload from "../../../common/forms/MultiImageUpload";
 import {DEFAULT_MAX_NUM_IMAGES} from "../../constants/createListingConfig";
 import {LISTING_FIELD_LENGTHS} from "../../../common/constants/fieldLengths";
+import {translatePhoneNumberIntToThreeStrings} from "../../../common/utils/stringUtils";
 
 const EventsForm = (props) => {
-    const {onSubmit} = props;
+    const {
+        onSubmit,
+        listingExists = false,
+        existingTitle,
+        existingShortDescription,
+        existingFullDescription,
+        existingRateAndFees,
+        existingContactName,
+        existingContactPhoneNumber,
+        existingEventDateTime
+    } = props;
 
-    const [title, setTitle] = useState(undefined);
-    const [shortDescription, setShortDescription] = useState(undefined);
-    const [fullDescription, setFullDescription] = useState(undefined);
-    const [rateAndFees, setRateAndFees] = useState(undefined);
+    const [title, setTitle] = useState(existingTitle || undefined);
+    const [shortDescription, setShortDescription] = useState(existingShortDescription || undefined);
+    const [fullDescription, setFullDescription] = useState(existingFullDescription || undefined);
+    const [rateAndFees, setRateAndFees] = useState(existingRateAndFees || undefined);
     const [pictures, setPictures] = useState(undefined);
-    const [contactName, setContactName] = useState(undefined);
-    const [contactPhoneNumber, setContactPhoneNumber] = useState(undefined);
-    const [eventDateTime, setEventDateTime] = useState(undefined);
+    const [contactName, setContactName] = useState(existingContactName || undefined);
+    const [contactPhoneNumber, setContactPhoneNumber] = useState(listingExists
+        ? translatePhoneNumberIntToThreeStrings(existingContactPhoneNumber)
+        : undefined
+    );
+    const [eventDateTime, setEventDateTime] = useState(existingEventDateTime || undefined);
 
     const [submitted, setSubmitted] = useState(false);
 
@@ -132,6 +146,7 @@ const EventsForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setTitle(e.target.value)}
+                            value={title || ''}
                             disabled={submitted}
                             charLimit={LISTING_FIELD_LENGTHS.TITLE}
                         />
@@ -143,6 +158,7 @@ const EventsForm = (props) => {
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setShortDescription(e.target.value)}
+                                    value={shortDescription || ''}
                                     charLimit={SHORT_DESC_CHAR_COUNT}
                                     disabled={submitted}
                                 />
@@ -154,6 +170,7 @@ const EventsForm = (props) => {
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setContactName(e.target.value)}
+                                    value={contactName || ''}
                                     disabled={submitted}
                                     charLimit={LISTING_FIELD_LENGTHS.CONTACT_NAME}
                                 />
@@ -165,6 +182,7 @@ const EventsForm = (props) => {
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setRateAndFees(e.target.value)}
+                                    value={rateAndFees || ''}
                                     disabled={submitted}
                                     charLimit={LISTING_FIELD_LENGTHS.RATES_AND_FEES}
                                 />
@@ -186,6 +204,7 @@ const EventsForm = (props) => {
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setEventDateTime(e.target.value)}
+                                    value={eventDateTime || ''}
                                     disabled={submitted}
                                     charLimit={LISTING_FIELD_LENGTHS.EVENT_DATE_TIME}
                                 />
@@ -198,16 +217,20 @@ const EventsForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setFullDescription(e.target.value)}
+                            value={fullDescription || ''}
                             disabled={submitted}
                             charLimit={LISTING_FIELD_LENGTHS.FULL_DESCRIPTION}
                         />
-                        <label className="label"> {TEXT.pictures} </label>
-                        <Tooltip
-                            text={ToolTipText.PHOTOS}
-                            toolTipID={"UploadPhotos"}
-                        />
-                        <MultiImageUpload handleImageUpload={handleImageUpload} maxNumImages={DEFAULT_MAX_NUM_IMAGES}/>
-
+                        {!listingExists &&
+                        <div>
+                            <label className="label"> {TEXT.pictures} </label>
+                            <Tooltip
+                                text={ToolTipText.PHOTOS}
+                                toolTipID={"UploadPhotos"}
+                            />
+                            <MultiImageUpload handleImageUpload={handleImageUpload} maxNumImages={DEFAULT_MAX_NUM_IMAGES}/>
+                        </div>
+                        }
                     </div>
                 </div>
             </div>
@@ -216,11 +239,19 @@ const EventsForm = (props) => {
                 onClick={onCreateListing}
             />
         </div>
-    )
-
+    );
 }
+
 EventsForm.propTypes = {
-    onSubmit: PropTypes.func.isRequired
+    onSubmit: PropTypes.func.isRequired,
+    listingExists: PropTypes.bool,
+    existingTitle: PropTypes.string,
+    existingShortDescription: PropTypes.string,
+    existingFullDescription: PropTypes.string,
+    existingRateAndFees: PropTypes.string,
+    existingContactName: PropTypes.string,
+    existingContactPhoneNumber: PropTypes.number,
+    existingEventDateTime: PropTypes.string
 }
 
 export default EventsForm;

@@ -27,12 +27,20 @@ import {DEFAULT_MAX_NUM_IMAGES} from "../../constants/createListingConfig";
 import {LISTING_FIELD_LENGTHS} from "../../../common/constants/fieldLengths";
 
 const HomeServiceBusinessForm = (props) => {
-    const { onSubmit, category } = props;
+    const {
+        onSubmit,
+        category,
+        listingExists = false,
+        existingTitle,
+        existingShortDescription,
+        existingFullDescription,
+        existingRateAndFees
+    } = props;
 
-    const [title, setTitle] = useState(undefined);
-    const [shortDescription, setShortDescription] = useState(undefined);
-    const [rateAndFees, setRateAndFees] = useState(undefined);
-    const [fullDescription, setFullDescription] = useState(undefined);
+    const [title, setTitle] = useState(existingTitle || undefined);
+    const [shortDescription, setShortDescription] = useState(existingShortDescription || undefined);
+    const [rateAndFees, setRateAndFees] = useState(existingRateAndFees || undefined);
+    const [fullDescription, setFullDescription] = useState(existingFullDescription || undefined);
     const [pictures, setPictures] = useState([]);
 
     const [titleError, setTitleError] = useState(undefined);
@@ -103,6 +111,7 @@ const HomeServiceBusinessForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setTitle(e.target.value)}
+                            value={title || ''}
                             charLimit={LISTING_FIELD_LENGTHS.TITLE}
                         />
 
@@ -114,6 +123,7 @@ const HomeServiceBusinessForm = (props) => {
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setShortDescription(e.target.value)}
+                                    value={shortDescription || ''}
                                     charLimit={SHORT_DESC_CHAR_COUNT}
                                 />
                             </section>
@@ -124,6 +134,7 @@ const HomeServiceBusinessForm = (props) => {
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setRateAndFees(e.target.value)}
+                                    value={rateAndFees || ''}
                                     charLimit={LISTING_FIELD_LENGTHS.RATES_AND_FEES}
                                 />
                             </section>
@@ -135,14 +146,20 @@ const HomeServiceBusinessForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setFullDescription(e.target.value)}
+                            value={fullDescription || ''}
                             charLimit={LISTING_FIELD_LENGTHS.FULL_DESCRIPTION}
                         />
-                        <label className="label"> Photos </label>
-                        <Tooltip
-                            text={ToolTipText.PHOTOS}
-                            toolTipID={"UploadPhotos"}
-                        />
-                        <MultiImageUpload handleImageUpload={handleImageUpload} maxNumImages={DEFAULT_MAX_NUM_IMAGES}/>
+
+                        {!listingExists &&
+                        <div>
+                            <label className="label"> Photos </label>
+                            <Tooltip
+                                text={ToolTipText.PHOTOS}
+                                toolTipID={"UploadPhotos"}
+                            />
+                            <MultiImageUpload handleImageUpload={handleImageUpload} maxNumImages={DEFAULT_MAX_NUM_IMAGES}/>
+                        </div>
+                        }
                     </div>
                 </div>
             </div>
@@ -155,7 +172,12 @@ const HomeServiceBusinessForm = (props) => {
 }
 HomeServiceBusinessForm.propTypes = {
     onSubmit: PropTypes.func.isRequired,
-    category: PropTypes.string.isRequired
+    category: PropTypes.string.isRequired,
+    listingExists: PropTypes.bool,
+    existingTitle: PropTypes.string,
+    existingShortDescription: PropTypes.string,
+    existingFullDescription: PropTypes.string,
+    existingRateAndFees: PropTypes.string,
 }
 
 export default HomeServiceBusinessForm;

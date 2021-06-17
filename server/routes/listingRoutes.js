@@ -249,6 +249,7 @@ router.post(
     `/edit/${LISTING_VALIDATION_METHODS.MEMBER_HOME_FORM}`,
     isLoggedIn,
     userIsMember,
+    listingValidator.validate(LISTING_VALIDATION_METHODS.MEMBER_HOME_FORM),
     updateListing
 );
 
@@ -256,6 +257,7 @@ router.post(
     `/edit/${LISTING_VALIDATION_METHODS.CO_HOUSING_FORM}`,
     isLoggedIn,
     userIsBusiness,
+    listingValidator.validate(LISTING_VALIDATION_METHODS.CO_HOUSING_FORM),
     updateListing
 );
 
@@ -263,6 +265,7 @@ router.post(
     `/edit/${LISTING_VALIDATION_METHODS.HOME_SHARE_FACILITATION_BUSINESS_FORM}`,
     isLoggedIn,
     userIsBusiness,
+    listingValidator.validate(LISTING_VALIDATION_METHODS.HOME_SHARE_FACILITATION_BUSINESS_FORM),
     updateListing
 );
 
@@ -270,6 +273,7 @@ router.post(
     `/edit/${LISTING_VALIDATION_METHODS.GOVERNMENT_SERVICES_FORM}`,
     isLoggedIn,
     userIsBusiness,
+    listingValidator.validate(LISTING_VALIDATION_METHODS.GOVERNMENT_SERVICES_FORM),
     updateListing
 );
 
@@ -277,6 +281,7 @@ router.post(
     `/edit/${LISTING_VALIDATION_METHODS.RENTALS_FORM}`,
     isLoggedIn,
     userIsBusiness,
+    listingValidator.validate(LISTING_VALIDATION_METHODS.RENTALS_FORM),
     updateListing
 );
 
@@ -284,6 +289,7 @@ router.post(
     `/edit/${LISTING_VALIDATION_METHODS.HOUSE_YARD_FORM}`,
     isLoggedIn,
     userIsBusiness,
+    listingValidator.validate(LISTING_VALIDATION_METHODS.HOUSE_YARD_FORM),
     updateListing
 );
 
@@ -291,6 +297,7 @@ router.post(
     `/edit/${LISTING_VALIDATION_METHODS.LEGAL_SALES_FORM}`,
     isLoggedIn,
     userIsBusiness,
+    listingValidator.validate(LISTING_VALIDATION_METHODS.LEGAL_SALES_FORM),
     updateListing
 );
 
@@ -298,6 +305,7 @@ router.post(
     `/edit/${LISTING_VALIDATION_METHODS.CLASSES_EVENTS_CLUBS_FORM}`,
     isLoggedIn,
     userIsBusiness,
+    listingValidator.validate(LISTING_VALIDATION_METHODS.CLASSES_EVENTS_CLUBS_FORM),
     updateListing
 );
 

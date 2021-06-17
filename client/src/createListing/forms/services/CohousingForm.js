@@ -18,18 +18,29 @@ import {
     checkIfErrorsExistInMapping,
     validateInput,
 } from "../../../registration/registrationUtils";
-import {validatePositiveNumber} from "../../../common/utils/generalUtils";
+import {isValueInArray, validatePositiveNumber} from "../../../common/utils/generalUtils";
 import {LISTING_FIELD_LENGTHS} from "../../../common/constants/fieldLengths";
 
 const CohousingForm = (props) => {
-    const { onSubmit } = props;
+    const {
+        onSubmit,
+        listingExists = false,
+        existingTitle,
+        existingShortDescription,
+        existingFullDescription,
+        existingContactName,
+        existingUnitsForSale,
+        existingUnitsForRent,
+        existingSelectedSubcategories
+    } = props;
 
-    const [title, setTitle] = useState(undefined);
-    const [contactName, setContactName] = useState(undefined);
-    const [shortDescription, setShortDescription] = useState(undefined);
-    const [fullDescription, setFullDescription] = useState(undefined);
-    const [unitsForSale, setUnitsForSale] = useState(undefined);
-    const [unitsForRent, setUnitsForRent] = useState(undefined);
+    const [title, setTitle] = useState(existingTitle || undefined);
+    const [shortDescription, setShortDescription] = useState(existingShortDescription || undefined);
+    const [fullDescription, setFullDescription] = useState(existingFullDescription || undefined);
+    const [contactName, setContactName] = useState(existingContactName || undefined);
+    const [unitsForSale, setUnitsForSale] = useState(existingUnitsForSale || undefined);
+    const [unitsForRent, setUnitsForRent] = useState(existingUnitsForRent || undefined);
+    const [selectedSubcategories, setSelectedSubcategories] = useState(existingSelectedSubcategories || []);
 
     const [titleError, setTitleError] = useState(undefined);
     const [contactNameError, setContactNameError] = useState(undefined);
@@ -56,6 +67,20 @@ const CohousingForm = (props) => {
     useEffect(() => {
         unitsForRent !== undefined && validatePositiveNumber(unitsForRent, setUnitsForRentError);
     }, [unitsForRent]);
+
+    function handleSelectedSubcategoryChange(e) {
+        const list = [...selectedSubcategories];
+        const value = e.target.id;
+        // check if the value select already exists in the list
+        if (!isValueInArray(list, value)) {
+            // if not, add the value
+            list.push(value);
+        } else {
+            // if it does, remove it from the array
+            list.splice(list.indexOf(value), 1);
+        }
+        setSelectedSubcategories(list);
+    }
 
     const isFormValid = () => {
 
@@ -104,6 +129,7 @@ const CohousingForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setTitle(e.target.value)}
+                            value={title || ''}
                             charLimit={LISTING_FIELD_LENGTHS.TITLE}
                         />
                         <div className={"grid grid-cols-9 gap-x-6"}>
@@ -114,6 +140,7 @@ const CohousingForm = (props) => {
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setShortDescription(e.target.value)}
+                                    value={shortDescription || ''}
                                     charLimit={SHORT_DESC_CHAR_COUNT}
                                 />
                             </section>
@@ -128,6 +155,7 @@ const CohousingForm = (props) => {
                                     min="0"
                                     step="1"
                                     onChange={(e) => setUnitsForSale(e.target.value)}
+                                    value={unitsForSale}
                                 />
                             </section>
                             <section className={"col-start-1 col-end-5"}>
@@ -137,6 +165,7 @@ const CohousingForm = (props) => {
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setContactName(e.target.value)}
+                                    value={contactName || ''}
                                     charLimit={LISTING_FIELD_LENGTHS.CONTACT_NAME}
                                 />
                             </section>
@@ -151,6 +180,7 @@ const CohousingForm = (props) => {
                                     min="0"
                                     step="1"
                                     onChange={(e) => setUnitsForRent(e.target.value)}
+                                    value={unitsForRent}
                                 />
                             </section>
                         </div>
@@ -161,6 +191,7 @@ const CohousingForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setFullDescription(e.target.value)}
+                            value={fullDescription || ''}
                             charLimit={LISTING_FIELD_LENGTHS.FULL_DESCRIPTION}
                         />
                     </div>
@@ -174,7 +205,15 @@ const CohousingForm = (props) => {
     );
 }
 CohousingForm.propTypes = {
-    onSubmit: PropTypes.func.isRequired
+    onSubmit: PropTypes.func.isRequired,
+    listingExists: PropTypes.bool,
+    existingTitle: PropTypes.string,
+    existingShortDescription: PropTypes.string,
+    existingFullDescription: PropTypes.string,
+    existingContactName: PropTypes.string,
+    existingUnitsForSale: PropTypes.number,
+    existingUnitsForRent: PropTypes.number,
+    existingSelectedSubcategories: PropTypes.arrayOf(PropTypes.string)
 }
 
 export default CohousingForm;

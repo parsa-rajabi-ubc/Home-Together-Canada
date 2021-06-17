@@ -50,6 +50,7 @@ exports[`CohousingForm Snapshot test should render correctly regardless of prope
             maxLength={75}
             onChange={[Function]}
             type="text"
+            value=""
           />
         </section>
         <div
@@ -90,6 +91,7 @@ exports[`CohousingForm Snapshot test should render correctly regardless of prope
                 maxLength={50}
                 onChange={[Function]}
                 type="text"
+                value=""
               />
             </section>
           </section>
@@ -165,6 +167,7 @@ exports[`CohousingForm Snapshot test should render correctly regardless of prope
                 maxLength={200}
                 onChange={[Function]}
                 type="text"
+                value=""
               />
             </section>
           </section>
@@ -238,6 +241,7 @@ exports[`CohousingForm Snapshot test should render correctly regardless of prope
             maxLength={2000}
             onChange={[Function]}
             rows="6"
+            value=""
           />
         </div>
       </div>

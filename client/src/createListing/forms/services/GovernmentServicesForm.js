@@ -19,15 +19,27 @@ import {
 } from "../../../registration/registrationUtils";
 import PhoneNumInput from "../../../common/forms/PhoneNumInput";
 import {LISTING_FIELD_LENGTHS} from "../../../common/constants/fieldLengths";
+import {translatePhoneNumberIntToThreeStrings} from "../../../common/utils/stringUtils";
 
 const GovernmentServicesForm = (props) => {
-    const {onSubmit} = props;
+    const {
+        onSubmit,
+        listingExists = false,
+        existingTitle,
+        existingShortDescription,
+        existingFullDescription,
+        existingContactName,
+        existingContactPhoneNumber
+    } = props;
 
-    const [title, setTitle] = useState(undefined);
-    const [shortDescription, setShortDescription] = useState(undefined);
-    const [contactName, setContactName] = useState(undefined);
-    const [contactPhoneNumber, setContactPhoneNumber] = useState(undefined);
-    const [fullDescription, setFullDescription] = useState(undefined);
+    const [title, setTitle] = useState(existingTitle || undefined);
+    const [shortDescription, setShortDescription] = useState(existingShortDescription || undefined);
+    const [contactName, setContactName] = useState(existingContactName || undefined);
+    const [contactPhoneNumber, setContactPhoneNumber] = useState(listingExists
+        ? translatePhoneNumberIntToThreeStrings(existingContactPhoneNumber)
+        : undefined
+    );
+    const [fullDescription, setFullDescription] = useState(existingFullDescription || undefined);
 
 
     const [titleError, setTitleError] = useState(undefined);
@@ -104,6 +116,7 @@ const GovernmentServicesForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setTitle(e.target.value)}
+                            value={title || ''}
                             charLimit={LISTING_FIELD_LENGTHS.TITLE}
                         />
                         <div className={"grid grid-cols-9 gap-x-6"}>
@@ -114,6 +127,7 @@ const GovernmentServicesForm = (props) => {
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setShortDescription(e.target.value)}
+                                    value={shortDescription || ''}
                                     charLimit={SHORT_DESC_CHAR_COUNT}
                                 />
                             </section>
@@ -124,6 +138,7 @@ const GovernmentServicesForm = (props) => {
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setContactName(e.target.value)}
+                                    value={contactName || ''}
                                     charLimit={LISTING_FIELD_LENGTHS.CONTACT_NAME}
                                 />
                             </section>
@@ -145,6 +160,7 @@ const GovernmentServicesForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setFullDescription(e.target.value)}
+                            value={fullDescription || ''}
                             charLimit={LISTING_FIELD_LENGTHS.FULL_DESCRIPTION}
                         />
                     </div>
@@ -158,7 +174,13 @@ const GovernmentServicesForm = (props) => {
     );
 }
 GovernmentServicesForm.propTypes = {
-    onSubmit: PropTypes.func.isRequired
+    onSubmit: PropTypes.func.isRequired,
+    listingExists: PropTypes.bool,
+    existingTitle: PropTypes.string,
+    existingShortDescription: PropTypes.string,
+    existingFullDescription: PropTypes.string,
+    existingContactName: PropTypes.string,
+    existingContactPhoneNumber: PropTypes.number
 }
 
 export default GovernmentServicesForm;
