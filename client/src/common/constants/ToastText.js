@@ -26,3 +26,7 @@ export const MANAGE_LISTING_TOAST = {
     DELETED: " has been deleted and is now inactive.",
     ERROR: "There was an error deleting this listing. Please try again."
 }
+
+export const IN_DEVELOPMENT = {
+    MSG: "This feature is currently under development. In the meantime, please contact hometogether.ca@gmail.com"
+}

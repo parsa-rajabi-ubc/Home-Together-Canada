@@ -282,7 +282,7 @@ exports[`HomeServiceBusinessForm Snapshot test should render correctly regardles
                 }
               }
             />
-            Maximum 6 pictures
+            Maximum 6 pictures. Please use SHIFT or CONTROL to select pictures at once. You can NOT upload pictures one at a time.
           </div>
         </span>
         <div

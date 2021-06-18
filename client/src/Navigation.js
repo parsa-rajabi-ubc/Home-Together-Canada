@@ -31,6 +31,7 @@ import FAQ from "./FAQ/FAQ";
 import SearchServiceListings from "./searchServicesClassifieds/SearchServiceListings";
 import SearchClassifiedListings from "./searchServicesClassifieds/SearchClassifiedListings";
 import AdminContainer from "./admin/AdminContainer";
+import Contact from "./contact/Contact";
 
 const Navigation = (props) => {
     const {authenticated, accountType, isAdmin} = props;
@@ -64,6 +65,7 @@ const Navigation = (props) => {
                     }
                     <Route path={"/tos"} component={TermsOfService}/>
                     <Route path={"/privacy"} component={PrivacyPolicy}/>
+                    <Route path={"/contact"} component={Contact}/>
                     <Route path={"/faq"} component={FAQ}/>
                     <Route component={Error404}/>
                 </Switch>
