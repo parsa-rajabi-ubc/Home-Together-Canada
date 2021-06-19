@@ -32,6 +32,7 @@ import SearchServiceListings from "./searchServicesClassifieds/SearchServiceList
 import SearchClassifiedListings from "./searchServicesClassifieds/SearchClassifiedListings";
 import AdminContainer from "./admin/AdminContainer";
 import Contact from "./contact/Contact";
+import EditListingContainer from "./accountSummary/manageListings/EditListingContainer";
 
 const Navigation = (props) => {
     const {authenticated, accountType, isAdmin} = props;
