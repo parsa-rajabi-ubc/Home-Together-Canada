@@ -17,7 +17,7 @@ import {
     checkIfErrorsExistInMapping,
     validateInput
 } from "../../../registration/registrationUtils";
-import {validatePositiveNumber} from "../../../common/utils/generalUtils";
+import {resolveBooleanToYesNo, validatePositiveNumber} from "../../../common/utils/generalUtils";
 import {RENTALS_TEXT as TEXT} from "./constants/ClassifiedsListingText";
 import Tooltip from "../../../common/forms/Tooltip";
 import {CREATE_LISTING_MEMBER_SHARE_HOME as ToolTipText} from "../../../common/constants/TooltipText";
@@ -29,18 +29,40 @@ import MultiImageUpload from "../../../common/forms/MultiImageUpload";
 import {DEFAULT_MAX_NUM_IMAGES} from "../../constants/createListingConfig";
 import {LISTING_FIELD_LENGTHS} from "../../../common/constants/fieldLengths";
 
-const HouseServicesForm = (props) => {
-    const {onSubmit} = props;
+const RentalsForm = (props) => {
+    const {
+        onSubmit,
+        listingExists = false,
+        existingTitle,
+        existingShortDescription,
+        existingFullDescription,
+        existingMonthlyCost,
+        existingNumBed,
+        existingNumBath,
+        existingPetFriendly,
+        existingSmokeFriendly,
+        existingFurnished,
+    } = props;
 
-    const [title, setTitle] = useState(undefined);
-    const [shortDescription, setShortDescription] = useState(undefined);
-    const [fullDescription, setFullDescription] = useState(undefined);
-    const [price, setPrice] = useState(undefined);
-    const [furnished, setFurnished] = useState(undefined);
-    const [numBed, setNumBed] = useState(undefined);
-    const [numBath, setNumBath] = useState(undefined);
-    const [petFriendly, setPetFriendly] = useState(undefined);
-    const [smokeFriendly, setSmokeFriendly] = useState(undefined);
+    const [title, setTitle] = useState(existingTitle || undefined);
+    const [shortDescription, setShortDescription] = useState(existingShortDescription || undefined);
+    const [fullDescription, setFullDescription] = useState(existingFullDescription || undefined);
+    const [price, setPrice] = useState(existingMonthlyCost || undefined);
+    const [furnished, setFurnished] = useState(listingExists
+        ? resolveBooleanToYesNo(existingFurnished)
+        : undefined
+    );
+    const [numBed, setNumBed] = useState(existingNumBed || undefined);
+    const [numBath, setNumBath] = useState(existingNumBath || undefined);
+    const [petFriendly, setPetFriendly] = useState(listingExists
+        ? resolveBooleanToYesNo(existingPetFriendly)
+        : undefined
+    );
+    const [smokeFriendly, setSmokeFriendly] = useState(
+        listingExists
+            ? resolveBooleanToYesNo(existingSmokeFriendly)
+            : undefined
+    );
     const [pictures, setPictures] = useState(undefined);
 
     const [submitted, setSubmitted] = useState(false);
@@ -154,6 +176,7 @@ const HouseServicesForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setTitle(e.target.value)}
+                            value={title || ''}
                             disabled={submitted}
                             charLimit={LISTING_FIELD_LENGTHS.TITLE}
                         />
@@ -165,6 +188,7 @@ const HouseServicesForm = (props) => {
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setShortDescription(e.target.value)}
+                                    value={shortDescription || ''}
                                     charLimit={SHORT_DESC_CHAR_COUNT}
                                     disabled={submitted}
                                 />
@@ -177,6 +201,7 @@ const HouseServicesForm = (props) => {
                                     min="0"
                                     step="1"
                                     onChange={(e) => setPrice(e.target.value)}
+                                    value={price}
                                     disabled={submitted}
                                 />
                             </section>
@@ -199,6 +224,7 @@ const HouseServicesForm = (props) => {
                                 <Dropdown
                                     options={options}
                                     onChange={handleNumBedChange}
+                                    initialSelection={(numBed && {label: numBed, value: numBed}) || undefined}
                                     dropdownCSS={numBedError ? dropdownErrorCSS : dropdownDefaultCSS}
                                     isDisabled={submitted}
                                 />
@@ -222,6 +248,7 @@ const HouseServicesForm = (props) => {
                                 <Dropdown
                                     options={options}
                                     onChange={handleNumBathChange}
+                                    initialSelection={(numBath && {label: numBath, value: numBath}) || undefined}
                                     dropdownCSS={numBathError ? dropdownErrorCSS : dropdownDefaultCSS}
                                     isDisabled={submitted}
                                 />
@@ -245,15 +272,20 @@ const HouseServicesForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setFullDescription(e.target.value)}
+                            value={fullDescription || ''}
                             disabled={submitted}
                             charLimit={LISTING_FIELD_LENGTHS.FULL_DESCRIPTION}
                         />
-                        <label className="label"> {TEXT.pictures} </label>
-                        <Tooltip
-                            text={ToolTipText.PHOTOS}
-                            toolTipID={"UploadPhotos"}
-                        />
-                        <MultiImageUpload handleImageUpload={handleImageUpload} maxNumImages={DEFAULT_MAX_NUM_IMAGES}/>
+                        {!listingExists &&
+                            <div>
+                                <label className="label"> {TEXT.pictures} </label>
+                                <Tooltip
+                                    text={ToolTipText.PHOTOS}
+                                    toolTipID={"UploadPhotos"}
+                                />
+                                <MultiImageUpload handleImageUpload={handleImageUpload} maxNumImages={DEFAULT_MAX_NUM_IMAGES}/>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
@@ -265,8 +297,19 @@ const HouseServicesForm = (props) => {
     )
 
 }
-HouseServicesForm.propTypes = {
-    onSubmit: PropTypes.func.isRequired
+RentalsForm.propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+    listingExists: PropTypes.bool,
+    existingTitle: PropTypes.string,
+    existingShortDescription: PropTypes.string,
+    existingFullDescription: PropTypes.string,
+    existingMonthlyCost: PropTypes.number,
+    existingUtilsIncluded: PropTypes.bool,
+    existingNumBed: PropTypes.number,
+    existingNumBath: PropTypes.number,
+    existingPetFriendly: PropTypes.bool,
+    existingSmokeFriendly: PropTypes.bool,
+    existingFurnished: PropTypes.bool,
 }
 
-export default HouseServicesForm;
+export default RentalsForm;

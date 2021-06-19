@@ -22,16 +22,40 @@ function PhoneNumInput(props){
                 </label>
                     {(required ? <Asterisk/> : '')}
                 <br/>
-                <input className={className} type="text" autoComplete="tel-area-code"
-                       name="first" placeholder="222" value={get(value, 'first', undefined)} onChange= {onChange} maxLength="3"/>
+                <input
+                    className={className}
+                    type="text"
+                    autoComplete="tel-area-code"
+                    name="first"
+                    placeholder="222"
+                    value={get(value, 'first', undefined)}
+                    onChange={onChange}
+                    maxLength="3"
+                />
             </label>
             <label>
-                <input className={className} type="text" autoComplete="tel-local-prefix"
-                       name="middle" placeholder="333" value={get(value, 'middle', undefined)} onChange= {onChange} maxLength="3"/>
+                <input
+                    className={className}
+                    type="text"
+                    autoComplete="tel-local-prefix"
+                    name="middle"
+                    placeholder="333"
+                    value={get(value, 'middle', undefined)}
+                    onChange={onChange}
+                    maxLength="3"
+                />
             </label>
             <label>
-                <input className={className} type="text" autoComplete="tel-local-suffix"
-                       name="last" placeholder="4444" value={get(value, 'last', undefined)} onChange= {onChange} maxLength="4"/>
+                <input
+                    className={className}
+                    type="text"
+                    autoComplete="tel-local-suffix"
+                    name="last"
+                    placeholder="4444"
+                    value={get(value, 'last', undefined)}
+                    onChange={onChange}
+                    maxLength="4"
+                />
             </label>
         </div>
     );

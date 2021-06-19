@@ -15,7 +15,11 @@ import {TAB_LABELS} from "./ManageListingTabs";
 import MemberListingCard from "../../searchServicesClassifieds/listingCards/MemberListingCard";
 import Paginate from "../../common/forms/Paginate";
 import {customModalStyles} from "../../css/ModelCSSUtil";
-
+import {USER_TYPES} from "../../common/constants/users";
+import {Link} from "react-router-dom";
+import {connect} from "react-redux";
+import {compose} from "redux";
+import {withRouter} from "react-router-dom";
 
 const MANAGE_LISTING_TEXT = {
     TITLE: "Manage Listings",
@@ -27,14 +31,15 @@ const MANAGE_LISTING_TEXT = {
 }
 
 const NUM_RESULTS = 7;
-Modal.setAppElement('body')
+Modal.setAppElement('body');
 
 function ManageListingResults(props) {
     const {
         onSubmit,
         viewableListingData,
         activeTab,
-        setViewableListingData
+        setViewableListingData,
+        accountType
     } = props;
 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -67,24 +72,37 @@ function ManageListingResults(props) {
             (listing) =>
                 <div className={"flex"} key={listing.id}>
                     <section className={"w-full"}>
-                        <MemberListingCard
-                            title={listing.title}
-                            monthlyCost={listing.monthlyCost}
-                            petFriendly={listing.petFriendly}
-                            smokeFriendly={listing.smokeFriendly}
-                            shortDescription={listing.shortDescription}
-                            datePosted={listing.createdAt}/>
+                        {accountType === USER_TYPES.MEMBER &&
+                            <Link
+                                to={{
+                                    pathname: `/listing/edit/${listing.id}`,
+                                    state: {
+                                        listing: listing
+                                    }
+                                }}
+                                key={listing.id}
+                            >
+                                <MemberListingCard
+                                    title={listing.title}
+                                    monthlyCost={listing.monthlyCost}
+                                    petFriendly={listing.petFriendly}
+                                    smokeFriendly={listing.smokeFriendly}
+                                    shortDescription={listing.shortDescription}
+                                    datePosted={listing.createdAt}
+                                />
+                            </Link>
+                        }
                     </section>
 
                     {/* only show delete button (garbage can) when the listing status is LIVE */}
                     {activeTab === TAB_LABELS.LIVE &&
-                    <section className={"my-8"}>
-                        <MdDeleteForever
-                            color="#DB4437"
-                            size="40"
-                            onClick={() => onClickDecision(listing.id, listing.title)}
-                        />
-                    </section>
+                        <section className={"my-8"}>
+                            <MdDeleteForever
+                                color="#DB4437"
+                                size="40"
+                                onClick={() => onClickDecision(listing.id, listing.title)}
+                            />
+                        </section>
                     }
                 </div>
         );
@@ -123,11 +141,16 @@ function ManageListingResults(props) {
     );
 }
 
+const mapStateToProps = state => ({
+    accountType: state.userPrivileges.accountType
+});
+
 ManageListingResults.propTypes = {
     onSubmit: PropTypes.func.isRequired,
+    accountType: PropTypes.string.isRequired,
     viewableListingData: PropTypes.array,
     activeTab: PropTypes.string,
     setViewableListingData: PropTypes.func,
 };
 
-export default ManageListingResults;
+export default compose(withRouter, connect(mapStateToProps, null)) (ManageListingResults);

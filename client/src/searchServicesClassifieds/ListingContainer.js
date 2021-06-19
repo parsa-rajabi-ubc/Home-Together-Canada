@@ -112,7 +112,6 @@ function ListingContainer(props) {
 
 
     const setBusinessInfo = (listing) => {
-        //TODO: replace logo with string of logo address in DB
         setLogo(listing.business.logo ? getImageURL(listing.business.logo) : HTC_Logo);
         setBusinessName(listing.business.businessName);
         if (listing.business.mapAddressLine1) {
