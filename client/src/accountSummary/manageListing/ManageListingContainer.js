@@ -8,6 +8,7 @@
 
 import React, {useState, useEffect} from "react";
 import * as MemberServices from "../../services/MemberService";
+import * as BusinessServices from "../../services/BusinessService";
 import * as ListingServices from "../../services/ListingService";
 import Confirmation from "../../common/listings/Confirmation";
 import ManageListingResults from "./ManageListingResults";
@@ -19,6 +20,11 @@ function ManageListingContainer() {
 
     const [liveMemberListings, setLiveMemberListings] = useState();
     const [inactiveMemberListings, setInactiveMemberListings] = useState();
+
+    const [liveBusinessListings, setLiveBusinessListings] = useState();
+    const [inactiveBusinessListings, setInactiveBusinessListings] = useState();
+    const [rejectedBusinessListings, setRejectedBusinessListings] = useState();
+
     const [selectedTab, setSelectedTab] = useState();
     const [viewableListingData, setViewableListingData] = useState();
     const [viewableListingTitle, setViewableListingTitle] = useState();
@@ -66,6 +72,48 @@ function ManageListingContainer() {
             .then(data => {
                 if (data) {
                     setInactiveMemberListings(data.inactiveListing);
+                } else if (data.err) {
+                    toast.error(data.err);
+                }
+            }).catch(err => {
+            toast.error(err.message);
+        });
+    }
+
+    function getLiveBusinessListings() {
+        BusinessServices.getLiveBusinessListings()
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    setLiveBusinessListings(data.liveListings);
+                } else if (data.err) {
+                    toast.error(data.err);
+                }
+            }).catch(err => {
+            toast.error(err.message);
+        });
+    }
+
+    function getInactiveBusinessListings() {
+        BusinessServices.getInactiveBusinessListings()
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    setInactiveBusinessListings(data.inactiveListing);
+                } else if (data.err) {
+                    toast.error(data.err);
+                }
+            }).catch(err => {
+            toast.error(err.message);
+        });
+    }
+
+    function getRejectedBusinessListings() {
+        BusinessServices.getRejectedBusinessListings()
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    setRejectedBusinessListings(data.inactiveListing);
                 } else if (data.err) {
                     toast.error(data.err);
                 }
