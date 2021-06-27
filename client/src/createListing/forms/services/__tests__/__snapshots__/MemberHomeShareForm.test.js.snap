@@ -1116,6 +1116,7 @@ exports[`MemberHomeShareForm Snapshot test should render correctly regardless of
   <label>
     <input
       className="btn btn-green form-btn w-1/2"
+      disabled={false}
       onClick={[Function]}
       type="submit"
     />

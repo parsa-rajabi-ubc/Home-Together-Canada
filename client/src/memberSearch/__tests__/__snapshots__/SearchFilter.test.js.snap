@@ -18,6 +18,7 @@ exports[`SearchFilter Snapshot test should render correctly regardless of proper
       <label>
         <input
           className="btn btn-green w-1/4 float-right py-2"
+          disabled={false}
           onClick={[MockFunction]}
           type="submit"
           value="Search"

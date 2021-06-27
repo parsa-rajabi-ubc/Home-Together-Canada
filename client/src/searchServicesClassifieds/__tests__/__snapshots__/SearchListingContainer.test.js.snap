@@ -24,6 +24,7 @@ exports[`SearchListingContainer Container test should match snapshot test 1`] = 
           <label>
             <input
               className="btn btn-green w-1/4 float-right py-2"
+              disabled={false}
               onClick={[Function]}
               type="submit"
               value="Search"

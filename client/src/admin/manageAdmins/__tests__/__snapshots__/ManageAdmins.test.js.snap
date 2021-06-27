@@ -32,6 +32,7 @@ exports[`ManageAdmins Container test should match snapshot test regardless of th
     <label>
       <input
         className="btn btn-green ml-10 w-2/3 py-2"
+        disabled={false}
         onClick={[MockFunction]}
         type="submit"
         value="Make Admin"

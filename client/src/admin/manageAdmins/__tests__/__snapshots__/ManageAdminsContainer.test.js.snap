@@ -33,6 +33,7 @@ exports[`ManageAdminsContainer Container test should match snapshot test regardl
       <label>
         <input
           className="btn btn-green ml-10 w-2/3 py-2"
+          disabled={false}
           onClick={[Function]}
           type="submit"
           value="Make Admin"

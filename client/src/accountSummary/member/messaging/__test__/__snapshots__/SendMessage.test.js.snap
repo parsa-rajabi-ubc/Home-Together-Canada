@@ -25,6 +25,7 @@ exports[`SendMessage Snapshot test should match snapshot test of SendMessage 1`]
   <label>
     <input
       className="btn btn-green mb-6 w-1/2 text-base py-2"
+      disabled={false}
       onClick={[Function]}
       type="submit"
     />
