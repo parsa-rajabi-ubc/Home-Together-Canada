@@ -6,15 +6,17 @@
  *
  */
 const includes = require('lodash/includes');
+const fs = require('fs');
 
 const {
     LISTING_TYPES,
     BUSINESS_SERVICES_CATEGORIES,
     MEMBER_SERVICE_CATEGORIES,
     BUSINESS_CLASSIFIEDS_CATEGORIES,
-    BUSINESS_LISTING_CATEGORIES
+    BUSINESS_LISTING_CATEGORIES,
+    MAX_LISTING_IMAGES
 } = require('../../constants/listingConstants');
-const {resolveCategoryToSubcategory} = require ("../utils/listingControllerUtils");
+const {resolveCategoryToSubcategory, getListingImages} = require ("../utils/listingControllerUtils");
 const memberAccounts = require('../memberAccountController');
 const listings = require('../listingController');
 
@@ -33,7 +35,9 @@ const LISTING_VALIDATION_METHODS = {
     ADMIN_APPROVE_LISTING: 'adminApproveListing',
     LISTING_RELATIONSHIPS: 'listingRelationships',
     DELETE_LISTING: 'deleteListing',
-    UPDATE_LISTING_SUBCATEGORIES: 'updateListingSubcategories'
+    UPDATE_LISTING_SUBCATEGORIES: 'updateListingSubcategories',
+    EDIT_LISTING_IMAGES: 'editListingImages',
+    DELETE_LISTING_IMAGES: 'deleteListingImages'
 }
 
 const CATEGORY_FORM_VALIDATION_DICT = new Map([
@@ -140,6 +144,20 @@ const shouldOrderIdBeDefined = (orderId, type) => {
     return true;
 }
 
+const imageShouldExist = imageFilepath => {
+    if (!fs.existsSync(imageFilepath)) {
+        throw new Error('Cannot delete an image that does not exist');
+    }
+    return true;
+}
+
+const shouldBeAbleToUploadImagesToListing = listingId => {
+    if (getListingImages(listingId).length === MAX_LISTING_IMAGES) {
+        throw new Error('Cannot upload anymore images to this listing');
+    }
+    return true;
+}
+
 const listingShouldExist = listingId => {
     return listings.findListing(listingId)
         .then(listing => {
@@ -182,7 +200,7 @@ const listingShouldNotBeDeletedOrExpired = listingId => {
     return listings.findDeletedListing(listingId)
         .then(listing => {
             if (listing) {
-                return Promise.reject('Cannot delete a listing that has already been deleted');
+                return Promise.reject('Cannot make changes to a listing that has already been deleted');
             }
         })
 }
@@ -205,5 +223,7 @@ module.exports = {
     listingShouldBelongToUser,
     listingShouldBeLiveOrPending,
     listingShouldHaveSubcategories,
-    listingShouldNotBeDeletedOrExpired
+    listingShouldNotBeDeletedOrExpired,
+    imageShouldExist,
+    shouldBeAbleToUploadImagesToListing
 }
