@@ -146,6 +146,23 @@ router.post('/listing/approve/',
     }
 );
 
+router.post(
+    '/listing/live/delete/',
+    isLoggedIn,
+    userIsAdmin,
+    function (req, res, next) {
+        if (req.body.listingId) {
+            listings.deleteListing(req.body.listingId)
+                .then(data => {
+                    res.status(200).json({ data });
+                })
+                .catch(err => {
+                    res.status(500).json({ err });
+                })
+        }
+    }
+);
+
 router.get('/export/members/',
     isLoggedIn,
     userIsAdmin,
