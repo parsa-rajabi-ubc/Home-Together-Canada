@@ -8,6 +8,7 @@ import MultiImageUpload from "../MultiImageUpload";
 import * as UploadService from '../../../services/UploadService';
 import * as ListingService from '../../../services/ListingService';
 import SubmitButton from "../SubmitButton";
+import {getConcatenatedErrorMessage} from "../../../registration/registrationUtils";
 
 toast.configure();
 
@@ -38,8 +39,15 @@ const EditImagesContainer = props => {
         ListingService.deleteListingImages(listingId, [image])
             .then(res => res.json())
             .then(data => {
-                toast.success('Image successfully deleted');
-                setEditableImages(data.images);
+                if (data && data.images && data.success) {
+                    toast.success('Image successfully deleted');
+                    const updatedImages = [...data.images];
+                    setEditableImages(updatedImages);
+                } else if (data && data.errors) {
+                    toast.error(getConcatenatedErrorMessage(data.errors));
+                } else {
+                    toast.error('There was an error that occurred while deleting listing image. Please try again and contact Home Together Canada if the issue persists.');
+                }
             })
             .catch(() => {
                 toast.error('There was an error that occurred while deleting listing image. Please try again and contact Home Together Canada if the issue persists.');
@@ -47,13 +55,19 @@ const EditImagesContainer = props => {
     }
 
     function handleSubmit() {
-        setImageUploadKey(Date.now())
         UploadService.editListingImages(listingId, uploadedImages)
             .then(res => res.json())
             .then(data => {
-                setEditableImages([...data.images]);
-                setImageUploadKey(Date.now());
-                toast.success('Successfully saved images to listing!');
+                if (data && data.images && data.success) {
+                    setUploadedImages([]);
+                    setEditableImages([...data.images]);
+                    setImageUploadKey(Date.now());
+                    toast.success('Successfully saved images to listing!');
+                } else if (data && data.errors) {
+                    toast.error(getConcatenatedErrorMessage(data.errors));
+                } else {
+                    toast.error('There was error uploading your image(s). Please try again and contact Home Together Canada if the issue persists.')
+                }
             })
             .catch(() => {
                 toast.error('There was error uploading your image(s). Please try again and contact Home Together Canada if the issue persists.')
@@ -73,7 +87,7 @@ const EditImagesContainer = props => {
                 <MultiImageUpload
                     handleImageUpload={handleUploadImage}
                     maxNumImages={(DEFAULT_MAX_NUM_IMAGES - editableImages.length)}
-                    key={imageUploadKey}
+                    imageUploadKey={imageUploadKey}
                 />
             }
             <SubmitButton

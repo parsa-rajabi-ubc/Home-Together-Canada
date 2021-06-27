@@ -43,6 +43,7 @@ export const uploadPictures = (images, listingId) => {
 }
 
 export const editListingImages = (listingId, images) => {
+    console.log('listingId: ', listingId);
     const fd = new FormData();
     images.forEach(image => {
         fd.append('images', image);

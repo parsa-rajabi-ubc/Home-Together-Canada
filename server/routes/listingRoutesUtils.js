@@ -31,18 +31,16 @@ function updateListing(req, res, next) {
 // store a listings image in its own directory to optimize search speed
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        console.log('hi');
-        console.log('destination body: ', req.body.listingId);
-        const filepath = LISTING_IMAGE_UPLOADS_PATH + req.body.listingId + '/';
+        const listingId = req.body.listingId || req.query.listingId;
+        const filepath = LISTING_IMAGE_UPLOADS_PATH + listingId + '/';
         fs.mkdir(filepath, () => {
             cb(null, filepath);
         });
     },
     filename: function (req, file, cb) {
-        console.log('hello');
-        console.log('filename body: ', req.body.listingId);
+        const listingId = req.body.listingId || req.query.listingId;
         const ext = file.originalname.substring(file.originalname.lastIndexOf('.'), file.originalname.length);
-        cb(null, (req.body.listingId + '-' + Date.now() + ext));
+        cb(null, (listingId + '-' + Date.now() + ext));
     }
 });
 
@@ -61,7 +59,8 @@ function imagesUploadCallback(req, res, err) {
     } else if (!req.files) {
         res.status(403).json({err: 'No file to upload'});
     } else {
-        res.status(200).json({success: true, images: getListingImages(req.body.listingId)});
+        const listingId = req.body.listingId || req.query.listingId;
+        res.status(200).json({success: true, images: getListingImages(listingId)});
     }
 }
 

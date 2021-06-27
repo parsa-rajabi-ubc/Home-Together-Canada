@@ -11,7 +11,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 const MultiImageUpload = (props) => {
-    const {handleImageUpload, maxNumImages, key} = props;
+    const {handleImageUpload, maxNumImages, imageUploadKey} = props;
 
     const handleImageUploadWithValidation = (event) => {
         if (event && event.target.files) {
@@ -53,7 +53,7 @@ const MultiImageUpload = (props) => {
                     uploadHandler={handleImageUploadWithValidation}
                     accept={'image/png, image/jpg, image/jpeg, image/JPG, image/JPEG'}
                     multipleFiles={true}
-                    key={key}
+                    imageUploadKey={imageUploadKey}
                 />
                 <p className="text-xs text-gray-500">
                     PNG or JPG up to 2MB
@@ -66,7 +66,7 @@ const MultiImageUpload = (props) => {
 MultiImageUpload.propTypes = {
     handleImageUpload: PropTypes.func.isRequired,
     maxNumImages: PropTypes.number.isRequired,
-    key: PropTypes.string
+    imageUploadKey: PropTypes.number
 }
 
 export default MultiImageUpload;

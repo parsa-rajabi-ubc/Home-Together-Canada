@@ -145,7 +145,8 @@ const shouldOrderIdBeDefined = (orderId, type) => {
 }
 
 const imageShouldExist = imageFilepath => {
-    if (!fs.existsSync(imageFilepath)) {
+    const fullFilepath = 'server/public/' + imageFilepath;
+    if (!fs.existsSync(fullFilepath)) {
         throw new Error('Cannot delete an image that does not exist');
     }
     return true;

@@ -10,7 +10,7 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 const FileUploadButton = (props) => {
-    const {className, name, uploadHandler, accept, multipleFiles=false, key = ''} = props;
+    const {className, name, uploadHandler, accept, multipleFiles=false, imageUploadKey = 0} = props;
 
     return (
       <input
@@ -20,7 +20,7 @@ const FileUploadButton = (props) => {
         onChange={uploadHandler}
         accept={accept}
         multiple={multipleFiles}
-        key={key}
+        key={imageUploadKey}
       />
     );
 }
@@ -31,7 +31,7 @@ FileUploadButton.propTypes = {
     className: PropTypes.string,
     accept: PropTypes.string,
     multipleFiles: PropTypes.bool,
-    key: PropTypes.string
+    imageUploadKey: PropTypes.number
 }
 
 export default FileUploadButton;
