@@ -7,11 +7,11 @@
  *
  */
 
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import PropTypes from "prop-types";
 import {MdDeleteForever} from "react-icons/md";
 import Modal from 'react-modal';
-import {TAB_LABELS} from "./ManageListingTabs";
+import {MEMBER_TAB_LABELS, BUSINESS_TAB_LABELS} from "./ManageListingTabs";
 import MemberListingCard from "../../searchServicesClassifieds/listingCards/MemberListingCard";
 import Paginate from "../../common/forms/Paginate";
 import {customModalStyles} from "../../css/ModelCSSUtil";
@@ -20,6 +20,9 @@ import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {withRouter} from "react-router-dom";
+import BusinessListingCard from "../../searchServicesClassifieds/listingCards/BusinessListingCard";
+import {getImageURL} from "../../common/utils/imageUtils";
+import Confirmation from "../../common/listings/Confirmation";
 
 const MANAGE_LISTING_TEXT = {
     TITLE: "Manage Listings",
@@ -38,13 +41,15 @@ function ManageListingResults(props) {
         onSubmit,
         viewableListingData,
         activeTab,
-        setViewableListingData,
+        setViewableListingTitle,
         accountType
     } = props;
 
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [listingID, setListingID] = useState();
     const [listingTitle, setListingTitle] = useState();
+    const [cardData, setCardData] = useState();
 
     function openModal() {
         setIsModalOpen(true);
@@ -62,57 +67,102 @@ function ManageListingResults(props) {
     const onClickDecision = (listingID, listingTitle) => {
         setListingID(listingID);
         setListingTitle(listingTitle);
-        setViewableListingData(listingTitle);
+        setViewableListingTitle(listingTitle);
         openModal();
     }
 
-    //TODO: Refactor to handle business cards as well
-    function displayListingCards() {
-        const listingCards = viewableListingData.map(
-            (listing) =>
-                <div className={"flex"} key={listing.id}>
-                    <section className={"w-full"}>
-                        {accountType === USER_TYPES.MEMBER &&
-                            <Link
-                                to={{
-                                    pathname: `/listing/edit/${listing.id}`,
-                                    state: {
-                                        listing: listing
-                                    }
-                                }}
-                                key={listing.id}
-                            >
-                                <MemberListingCard
-                                    title={listing.title}
-                                    monthlyCost={listing.monthlyCost}
-                                    petFriendly={listing.petFriendly}
-                                    smokeFriendly={listing.smokeFriendly}
-                                    shortDescription={listing.shortDescription}
-                                    datePosted={listing.createdAt}
+
+    useEffect(() => {
+        if (viewableListingData) {
+            if (accountType === USER_TYPES.MEMBER) {
+                setCardData(viewableListingData.map(
+                    (listing) =>
+                        <div className={"flex"} key={listing.id}>
+                            <section className={"w-full"}>
+                                <Link
+                                    to={{
+                                        pathname: `/listing/edit/${listing.id}`,
+                                        state: {
+                                            listing: listing
+                                        }
+                                    }}
+                                    key={listing.id}
+                                >
+                                    <MemberListingCard
+                                        title={listing.title}
+                                        monthlyCost={listing.monthlyCost}
+                                        petFriendly={listing.petFriendly}
+                                        smokeFriendly={listing.smokeFriendly}
+                                        shortDescription={listing.shortDescription}
+                                        datePosted={listing.createdAt}
+                                    />
+                                </Link>
+                            </section>
+
+                            {/* only show delete button (garbage can) when the listing status is LIVE */}
+                            {activeTab === MEMBER_TAB_LABELS.LIVE &&
+                            <section className={"my-8"}>
+                                <MdDeleteForever
+                                    color="#DB4437"
+                                    size="40"
+                                    onClick={() => onClickDecision(listing.id, listing.title)}
                                 />
-                            </Link>
-                        }
-                    </section>
+                            </section>
+                            }
+                        </div>
+                ));
+                setLoading(false);
+            } else if (accountType === USER_TYPES.BUSINESS) {
+                setCardData(viewableListingData.map(
+                    (listing) =>
+                        <div className={"flex"} key={listing.id}>
+                            <section className={"w-full"}>
+                                <Link
+                                    to={{
+                                        pathname: `/listing/edit/${listing.id}`,
+                                        state: {
+                                            listing: listing
+                                        }
+                                    }}
+                                    key={listing.id}
+                                >
+                                    <BusinessListingCard
+                                        logo={listing.logo && getImageURL(listing.logo)}
+                                        title={listing.title}
+                                        businessName={listing.businessName}
+                                        shortDescription={listing.shortDescription}
+                                        datePosted={listing.createdAt}
+                                    />
+                                </Link>
+                            </section>
 
-                    {/* only show delete button (garbage can) when the listing status is LIVE */}
-                    {activeTab === TAB_LABELS.LIVE &&
-                        <section className={"my-8"}>
-                            <MdDeleteForever
-                                color="#DB4437"
-                                size="40"
-                                onClick={() => onClickDecision(listing.id, listing.title)}
-                            />
-                        </section>
-                    }
-                </div>
-        );
-
-        return <Paginate data={listingCards} resultsPerPage={NUM_RESULTS}/>
-    }
+                            {/* only show delete button (garbage can) when the listing status is LIVE */}
+                            {activeTab === BUSINESS_TAB_LABELS.LIVE &&
+                            <section className={"my-8"}>
+                                <MdDeleteForever
+                                    color="#DB4437"
+                                    size="40"
+                                    onClick={() => onClickDecision(listing.id, listing.title)}
+                                />
+                            </section>
+                            }
+                        </div>
+                ));
+                setLoading(false);
+            }
+        }
+    }, [viewableListingData]);
 
     return (
         <div>
-            {viewableListingData && displayListingCards()}
+            {(!viewableListingData || !viewableListingData.length) ?
+                <Confirmation
+                    displayButton={false}
+                    errorColor={true} message={"No " + activeTab + " Listings"}
+                    minHeight={false}
+                />
+                : (!loading && <Paginate data={cardData} resultsPerPage={NUM_RESULTS}/>
+                )}
 
             {viewableListingData && <Modal
                 isOpen={isModalOpen}
@@ -150,7 +200,7 @@ ManageListingResults.propTypes = {
     accountType: PropTypes.string.isRequired,
     viewableListingData: PropTypes.array,
     activeTab: PropTypes.string,
-    setViewableListingData: PropTypes.func,
+    setViewableListingTitle: PropTypes.func,
 };
 
-export default compose(withRouter, connect(mapStateToProps, null)) (ManageListingResults);
+export default compose(withRouter, connect(mapStateToProps, null))(ManageListingResults);
