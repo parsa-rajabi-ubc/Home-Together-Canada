@@ -159,6 +159,8 @@ function ManageListingContainer(props) {
             .then(data => {
                 if (data.success) {
                     toast.success(MANAGE_LISTING_TOAST.LISTING_ID + viewableListingTitle + MANAGE_LISTING_TOAST.DELETED);
+                    // update listing cards after a listing has been deleted
+                    updateListingData();
                 } else {
                     toast.error(MANAGE_LISTING_TOAST.ERROR);
                 }
