@@ -9,6 +9,10 @@
 
 import React, {useState, useEffect} from "react";
 import PropTypes from "prop-types";
+import {compose} from "redux";
+import {withRouter} from "react-router-dom";
+import {connect} from "react-redux";
+import {USER_TYPES} from "../../common/constants/users";
 
 export const MANAGE_LISTING_TAB_TEXT = {
     TITLE: "Manage Listings",
@@ -18,14 +22,21 @@ export const MANAGE_LISTING_TAB_TEXT = {
     NO_LISTING: "No Listings"
 }
 
-export const TAB_LABELS = {
+export const MEMBER_TAB_LABELS = {
     LIVE: "Live",
     INACTIVE: "Inactive",
 };
 
+export const BUSINESS_TAB_LABELS = {
+    ...MEMBER_TAB_LABELS,
+    REJECTED: "Rejected",
+    PENDING: "Pending"
+}
+
 function ManageListingTabs(props) {
     const {
         setActiveTab,
+        accountType
     } = props;
 
     const [currentTab, setCurrentTab] = useState();
@@ -35,11 +46,15 @@ function ManageListingTabs(props) {
         setActiveTab(currentTab);
     }, [currentTab])
 
-    const tabs = Object.values(TAB_LABELS).map(
+    const tabs = Object.values(accountType === USER_TYPES.MEMBER ? MEMBER_TAB_LABELS : BUSINESS_TAB_LABELS).map(
         (tab) =>
-            <button key={tab} type={"button"}
-                    className={tab === currentTab ? "sub-page-items selected w-1/3 mx-4 rounded-full shadow-md border-2 focus:outline-none" : "sub-page-items w-1/3 mx-4 rounded-full shadow-md border-2 border-green-300 focus:outline-none"}
-                    onClick={() => setCurrentTab(tab)}>
+            <button key={tab}
+                    type={"button"}
+                    className={tab === currentTab ?
+                        `${accountType === USER_TYPES.BUSINESS && "w-1/5"} sub-page-items selected manage-listing-tabs`
+                        : `${accountType === USER_TYPES.BUSINESS && "w-1/5"} sub-page-items unselected-tab manage-listing-tabs`}
+                    onClick={() => setCurrentTab(tab)}
+            >
                 {tab + " Listings"}
             </button>
     );
@@ -55,8 +70,13 @@ function ManageListingTabs(props) {
     );
 }
 
+const mapStateToProps = state => ({
+    accountType: state.userPrivileges.accountType
+});
+
 ManageListingTabs.propTypes = {
     setActiveTab: PropTypes.func,
+    accountType: PropTypes.string.isRequired,
 };
 
-export default ManageListingTabs;
+export default compose(withRouter, connect(mapStateToProps, null))(ManageListingTabs);
