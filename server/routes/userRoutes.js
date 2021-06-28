@@ -91,7 +91,7 @@ router.post('/changePassword/', isLoggedIn, usersValidator.validate('changePassw
         if (!errors.isEmpty()) {
             res.status(400).json({ errors: errors.array()});
         } else {
-            abstractUsers.changePassword(req, res);
+            abstractUsers.changeOwnPassword(req, res);
         }
     });
 

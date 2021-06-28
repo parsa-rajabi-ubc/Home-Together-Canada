@@ -224,5 +224,21 @@ router.get('/all/',
     }
 );
 
+router.post(
+    '/password/reset/',
+    isLoggedIn,
+    userIsAdmin,
+    usersValidator.validate('adminHardResetPassword'),
+    function (req, res, next) {
+        abstractUsers.changeUserPassword(req.body.username, req.body.password)
+            .then(data => {
+                res.status(200).json({ data });
+            })
+            .catch(err => {
+                res.status(500).json({ err });
+            });
+    }
+);
+
 
 module.exports = router;

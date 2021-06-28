@@ -801,5 +801,26 @@ exports.validate = (method) => {
                     .custom(username => usernameShouldExist(username))
             ]
         }
+        case 'adminHardResetPassword' : {
+            return [
+                body('username')
+                    .exists()
+                    .trim()
+                    .stripLow()
+                    .custom(username => usernameShouldExist(username)),
+                body('password', "A password must be provided")
+                    .exists()
+                    .isString()
+                    .withMessage('Password must be a string')
+                    .trim()
+                    .stripLow()
+                    .custom(password => isValidStringLength(
+                        password,
+                        ABSTRACT_USER_FIELD_LENGTHS.PASSWORD,
+                        'Password'
+                    ))
+                    .custom(password => isValidPassword(password)),
+            ]
+        }
     }
 }
