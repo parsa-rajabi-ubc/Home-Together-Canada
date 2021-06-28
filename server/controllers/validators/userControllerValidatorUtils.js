@@ -157,8 +157,9 @@ const validMapAddress = (addressLine1, req) => {
         const address = `${addressLine1} ${req.body.mapCity} ${PROVINCE_MAP.get(req.body.mapProvince)} ${DEFAULT_COUNTRY}`;
         return geoCoder.geocode(address)
             .then(locations => {
+                console.log('locations: ', locations);
                 if (!locations.length) {
-                    return Promise.reject('Invalid searchable address');
+                    return Promise.reject('Home Together does not currently support that location. Please try a nearby location that is more well known.');
                 }
             });
     } else {
@@ -262,9 +263,6 @@ const isValidAreasOfInterestList = (areasOfInterest) => {
 }
 
 const isValidLocation = area => {
-    if (!PROVINCES_LIST.includes(area.province)) {
-        throw new Error('Invalid location provided');
-    }
     return geoCoder.geocode({
         country: DEFAULT_COUNTRY,
         state: PROVINCE_MAP.get(area.province),
@@ -272,7 +270,7 @@ const isValidLocation = area => {
     })
         .then(results => {
             if (!results || !results.length) {
-                return Promise.reject('Invalid location provided');
+                return Promise.reject('Home Together does not currently support that location. Please try a nearby location that is more well known.');
             }
         });
 }
