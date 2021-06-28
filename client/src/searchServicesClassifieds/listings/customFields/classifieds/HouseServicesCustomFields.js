@@ -34,7 +34,7 @@ const HouseServicesCustomFields = (props) => {
 
 HouseServicesCustomFields.propTypes = {
     rateAndFees: PropTypes.string.isRequired,
-    pictures: PropTypes.string
+    pictures: PropTypes.arrayOf(PropTypes.string),
 }
 
 export default HouseServicesCustomFields;

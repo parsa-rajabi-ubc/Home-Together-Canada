@@ -17,6 +17,7 @@ const HOME_SERVICE_BUSINESS_CUSTOM_FIELDS_TEXT = {
 
 const HomeServiceBusinessCustomFields = (props) =>{
     const { rateAndFees, pictures } = props;
+    console.log('HomeServiceBusinessCustomFields props: ', props);
 
     return(
         <div>
