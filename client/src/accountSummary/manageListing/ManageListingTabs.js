@@ -39,7 +39,7 @@ function ManageListingTabs(props) {
         accountType
     } = props;
 
-    const [currentTab, setCurrentTab] = useState();
+    const [currentTab, setCurrentTab] = useState(MEMBER_TAB_LABELS.LIVE);
 
     // useEffects
     useEffect(() => {
