@@ -136,7 +136,7 @@ const CreateListingControls = (props) => {
             {(selectedCategory && subcategories && !isUserMember) &&
             <section className={`${selectedSubcategoriesError && "pl-1 pb-2 border rounded-lg border-red-500"} m-4`}>
                 <p className={"label text-lg mb-1"}>{CREATE_LISTING_CONTROLS_TEXT.SELECT_SUBCATEGORIES}</p>
-                <CheckboxesList values={subcategories} onChange={handleSubcategoriesChange}/>
+                <CheckboxesList values={subcategories} selectedValues={selectedSubcategories} onChange={handleSubcategoriesChange}/>
             </section>
             }
 

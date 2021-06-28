@@ -26,50 +26,55 @@ exports[`PendingListingCards Container test should match snapshot test regardles
         <section
           className="w-full"
         >
-          <section
-            className="card-container mt-0"
+          <a
+            href="/listing/pending/20"
+            onClick={[Function]}
           >
-            <img
-              className="float-left w-24 h-24 mx-4 "
-              src="HTC_Logo.jpg"
-            />
-            <div
-              className="inline align-middle "
+            <section
+              className="card-container mt-0"
             >
-              <label
-                className="font-semibold justify-between"
+              <img
+                className="float-left w-24 h-24 mx-4 "
+                src="HTC_Logo.jpg"
+              />
+              <div
+                className="inline align-middle "
               >
-                 
-                Forest Green Co-Living
-                 
-              </label>
-              <section
-                className="inline float-right pr-6 justify-end"
-              >
-                <time
-                  dateTime={"2021-03-21T22:16:06.000Z"}
+                <label
+                  className="font-semibold justify-between"
                 >
-                  Mar 21, 2021
-                </time>
-              </section>
-            </div>
-            <div
-              className="mx-6 inline items-center justify-between leading-tight font-light"
-            >
-              <section
-                className="mb-3"
+                   
+                  Forest Green Co-Living
+                   
+                </label>
+                <section
+                  className="inline float-right pr-6 justify-end"
+                >
+                  <time
+                    dateTime={"2021-03-21T22:16:06.000Z"}
+                  >
+                    Mar 21, 2021
+                  </time>
+                </section>
+              </div>
+              <div
+                className="mx-6 inline items-center justify-between leading-tight font-light"
               >
-                 
-                Bob's Bricks
-                 
-              </section>
-              <section>
-                 
-                Easy, family friendly, & communal living
-                 
-              </section>
-            </div>
-          </section>
+                <section
+                  className="mb-3"
+                >
+                   
+                  Bob's Bricks
+                   
+                </section>
+                <section>
+                   
+                  Easy, family friendly, & communal living
+                   
+                </section>
+              </div>
+            </section>
+          </a>
         </section>
         <section
           className="my-8"
@@ -209,50 +214,55 @@ exports[`PendingListingCards Container test should match snapshot test regardles
         <section
           className="w-full"
         >
-          <section
-            className="card-container mt-0"
+          <a
+            href="/listing/pending/20"
+            onClick={[Function]}
           >
-            <img
-              className="float-left w-24 h-24 mx-4 "
-              src="HTC_Logo.jpg"
-            />
-            <div
-              className="inline align-middle "
+            <section
+              className="card-container mt-0"
             >
-              <label
-                className="font-semibold justify-between"
+              <img
+                className="float-left w-24 h-24 mx-4 "
+                src="HTC_Logo.jpg"
+              />
+              <div
+                className="inline align-middle "
               >
-                 
-                Forest Green Co-Living
-                 
-              </label>
-              <section
-                className="inline float-right pr-6 justify-end"
-              >
-                <time
-                  dateTime={"2021-03-21T22:16:06.000Z"}
+                <label
+                  className="font-semibold justify-between"
                 >
-                  Mar 21, 2021
-                </time>
-              </section>
-            </div>
-            <div
-              className="mx-6 inline items-center justify-between leading-tight font-light"
-            >
-              <section
-                className="mb-3"
+                   
+                  Forest Green Co-Living
+                   
+                </label>
+                <section
+                  className="inline float-right pr-6 justify-end"
+                >
+                  <time
+                    dateTime={"2021-03-21T22:16:06.000Z"}
+                  >
+                    Mar 21, 2021
+                  </time>
+                </section>
+              </div>
+              <div
+                className="mx-6 inline items-center justify-between leading-tight font-light"
               >
-                 
-                Bob's Bricks
-                 
-              </section>
-              <section>
-                 
-                Easy, family friendly, & communal living
-                 
-              </section>
-            </div>
-          </section>
+                <section
+                  className="mb-3"
+                >
+                   
+                  Bob's Bricks
+                   
+                </section>
+                <section>
+                   
+                  Easy, family friendly, & communal living
+                   
+                </section>
+              </div>
+            </section>
+          </a>
         </section>
         <section
           className="my-8"

@@ -8,22 +8,28 @@
  */
 
 import React, {useEffect, useState} from "react";
+import PropTypes from 'prop-types';
+import {Flip, toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import pick from 'lodash/pick';
+import unset from 'lodash/unset';
+
 import PendingListingCards from "./PendingListingCards";
 import * as AdminService from "../../services/AdminService";
 import {
     getConcatenatedErrorMessage,
 } from "../../registration/registrationUtils";
-import {Flip, toast} from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css'
+
 import {ADMIN_TOAST} from "../../common/constants/ToastText";
 import Confirmation from "../../common/listings/Confirmation";
-
+import {BUSINESS_FIELDS} from "../../common/utils/listingsUtils";
 
 toast.configure()
 
 const NO_LISTINGS = "No pending listings available";
 
-function PendingListingContainer() {
+function PendingListingContainer(props) {
+    const { history } = props;
     const [listingID, setListingID] = useState();
     const [listingStatus, setListingStatus] = useState();
     const [pendingListings, setPendingListings] = useState([]);
@@ -39,7 +45,25 @@ function PendingListingContainer() {
         AdminService.getAllPendingListings()
             .then(res => res.json())
             .then(data => {
-                setPendingListings(data.compiledListingInfo);
+                if (data && data.compiledListingInfo) {
+                    const formattedPendingListingData = data.compiledListingInfo.map(listing => {
+                        const businessFields = pick(listing, BUSINESS_FIELDS);
+                        const formattedListing = {
+                            ...listing,
+                            categoryName: listing.category,
+                            business: {
+                                ...businessFields
+                            }
+                        };
+                        BUSINESS_FIELDS.forEach(field => unset(formattedListing, field));
+                        return formattedListing;
+                    });
+                    setPendingListings(formattedPendingListingData);
+                } else {
+                    toast.error('There was an error fetching listings');
+                    history.push('/admin');
+                }
+
             })
     }
 
@@ -111,5 +135,10 @@ function PendingListingContainer() {
     );
 }
 
+PendingListingContainer.propTypes = {
+    history: PropTypes.shape({
+        push: PropTypes.func
+    })
+}
 
 export default PendingListingContainer;
