@@ -56,10 +56,18 @@ const getRejectedBusinessListings = () =>
         credentials: 'include'
     });
 
+const getPendingBusinessListings = () =>
+    fetch(`${DEV_URL}/business/listings/pending/`, {
+        method: 'GET',
+        withCredentials: true,
+        credentials: 'include'
+    });
+
 module.exports = {
     getBusinessAccountInfo,
     updateBusinessAccountInfo,
     getLiveBusinessListings,
     getInactiveBusinessListings,
-    getRejectedBusinessListings
+    getRejectedBusinessListings,
+    getPendingBusinessListings
 }
