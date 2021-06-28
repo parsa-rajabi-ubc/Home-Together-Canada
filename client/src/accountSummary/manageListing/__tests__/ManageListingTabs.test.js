@@ -8,18 +8,28 @@
 import React from 'react';
 import renderer from 'react-test-renderer'
 import ManageListingTabs from "../ManageListingTabs";
+import { BrowserRouter as Router } from 'react-router-dom';
+
+jest.mock('react-redux', () => ({
+    connect: () => {
+        return (component) => {
+            return component
+        };
+    }
+}));
+
 
 describe('ManageListingTabs', () => {
     describe('Snapshot test', () => {
         it("should render correctly regardless of properties (Member)", () => {
             // given
             const props = {
-                activeTab: jest.fn(),
+                setActiveTab: jest.fn(),
                 accountType: 'member'
             }
 
             // when
-            const component = renderer.create(<ManageListingTabs {...props} />).toJSON();
+            const component = renderer.create(<Router><ManageListingTabs {...props} /></Router>).toJSON();
 
             // then
             expect(component).toMatchSnapshot();
@@ -27,12 +37,12 @@ describe('ManageListingTabs', () => {
         it("should render correctly regardless of properties (Business)", () => {
             // given
             const props = {
-                activeTab: jest.fn(),
+                setActiveTab: jest.fn(),
                 accountType: 'business'
             }
 
             // when
-            const component = renderer.create(<ManageListingTabs {...props} />).toJSON();
+            const component = renderer.create(<Router><ManageListingTabs {...props} /></Router>).toJSON();
 
             // then
             expect(component).toMatchSnapshot();

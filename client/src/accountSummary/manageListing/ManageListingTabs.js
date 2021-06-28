@@ -75,7 +75,7 @@ const mapStateToProps = state => ({
 });
 
 ManageListingTabs.propTypes = {
-    setActiveTab: PropTypes.func,
+    setActiveTab: PropTypes.func.isRequired,
     accountType: PropTypes.string.isRequired,
 };
 

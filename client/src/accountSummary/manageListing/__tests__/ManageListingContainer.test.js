@@ -6,7 +6,6 @@
  *
  */
 import React from 'react';
-import renderer from  'react-test-renderer'
 import ManageListingContainer from "../ManageListingContainer";
 import {BrowserRouter} from "react-router-dom";
 import ShallowRenderer from 'react-test-renderer/shallow';

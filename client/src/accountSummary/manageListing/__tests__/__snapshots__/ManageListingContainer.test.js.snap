@@ -23,7 +23,7 @@ exports[`ManageListingContainer Snapshot test should render correctly regardless
     }
   }
 >
-  <ManageListingContainer
+  <withRouter(ManageListingContainer)
     accountType="member"
   />
 </Router>
