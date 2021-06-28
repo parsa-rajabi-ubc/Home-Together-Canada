@@ -490,7 +490,7 @@ const memberProfileBasicFieldsValidation = [
         )),
     body('numRoommates', 'Must provide a valid value for numRoommates')
         .exists()
-        .isFloat({ min: ZERO, max: SIGNED_INTEGER_UPPER_BOUND })
+        .isFloat({ min: -1, max: SIGNED_INTEGER_UPPER_BOUND })
         .withMessage('Value for maximum number of roommates is out of bounds.')
         .custom(limit => isValidShareLimit(limit)),
     body('bio', 'Must provide a valid bio')
