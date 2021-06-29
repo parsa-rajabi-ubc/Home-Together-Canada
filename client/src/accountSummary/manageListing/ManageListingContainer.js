@@ -69,7 +69,7 @@ function ManageListingContainer(props) {
         MemberServices.getLiveMemberListings()
             .then(res => res.json())
             .then(data => {
-                if (data) {
+                if (data.liveListings) {
                     setViewableListingData(data.liveListings);
                 } else if (data.err) {
                     toast.error(data.err);
@@ -83,7 +83,7 @@ function ManageListingContainer(props) {
         MemberServices.getInactiveMemberListings()
             .then(res => res.json())
             .then(data => {
-                if (data) {
+                if (data.inactiveListing) {
                     setViewableListingData(data.inactiveListing);
                 } else if (data.err) {
                     toast.error(data.err);
@@ -97,7 +97,7 @@ function ManageListingContainer(props) {
         BusinessServices.getLiveBusinessListings()
             .then(res => res.json())
             .then(data => {
-                if (data) {
+                if (data.liveListings) {
                     setViewableListingData(data.liveListings);
                 } else if (data.err) {
                     toast.error(data.err);
@@ -111,7 +111,7 @@ function ManageListingContainer(props) {
         BusinessServices.getInactiveBusinessListings()
             .then(res => res.json())
             .then(data => {
-                if (data) {
+                if (data.inactiveListings) {
                     setViewableListingData(data.inactiveListings)
                 } else if (data.err) {
                     toast.error(data.err);
@@ -125,7 +125,7 @@ function ManageListingContainer(props) {
         BusinessServices.getRejectedBusinessListings()
             .then(res => res.json())
             .then(data => {
-                if (data) {
+                if (data.rejectedListings) {
                     setViewableListingData(data.rejectedListings);
                 } else if (data.err) {
                     toast.error(data.err);
@@ -140,7 +140,7 @@ function ManageListingContainer(props) {
         BusinessServices.getPendingBusinessListings()
             .then(res => res.json())
             .then(data => {
-                if (data) {
+                if (data.pendingListings) {
                     setViewableListingData(data.pendingListings);
                 } else if (data.err) {
                     toast.error(data.err);
