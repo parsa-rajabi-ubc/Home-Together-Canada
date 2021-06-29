@@ -90,12 +90,14 @@ const EditImagesContainer = props => {
                     imageUploadKey={imageUploadKey}
                 />
             }
-            <SubmitButton
-                className={"btn btn-green form-btn w-1/2"}
-                onClick={handleSubmit}
-                disabled={!uploadedImages.length}
-                inputValue={'Save Changes'}
-            />
+            {!!numImagesCanUploaded &&
+                <SubmitButton
+                    className={"btn btn-green form-btn w-1/2"}
+                    onClick={handleSubmit}
+                    disabled={!uploadedImages.length}
+                    inputValue={'Save New Images'}
+                />
+            }
         </div>
     );
 }

@@ -411,8 +411,7 @@ exports.validate = method => {
                         listingId,
                         req.user.uid
                     ))
-                    .custom(listingId => listingShouldNotBeDeletedOrExpired(listingId))
-                    .custom(listingId => shouldBeAbleToUploadImagesToListing(listingId)),
+                    .custom(listingId => listingShouldNotBeDeletedOrExpired(listingId)),
                 body('deletedImages')
                     .exists()
                     .isArray(),
