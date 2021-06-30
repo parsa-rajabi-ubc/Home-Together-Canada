@@ -135,7 +135,7 @@ const EditListingContainer = props => {
                 return (
                     <HomeServiceBusinessForm
                         onSubmit={editListing}
-                        category={listing.category}
+                        category={listing.categoryName}
                         listingExists={!!listing}
                         existingTitle={listing.title}
                         existingShortDescription={listing.shortDescription}
