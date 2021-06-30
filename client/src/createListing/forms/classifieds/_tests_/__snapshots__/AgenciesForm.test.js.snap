@@ -337,6 +337,7 @@ exports[`AgenciesForm Snapshot test should render correctly regardless of proper
   <label>
     <input
       className="btn btn-green form-btn w-1/2"
+      disabled={false}
       onClick={[Function]}
       type="submit"
     />

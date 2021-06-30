@@ -69,3 +69,21 @@ export const editListing = listingData => {
 
     return fetch(`${DEV_URL}/listing/edit/`, request);
 }
+
+export const deleteListingImages = (listingId, deletedImages) => {
+    const request = {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        withCredentials: true,
+        body: JSON.stringify({
+            listingId,
+            deletedImages
+        })
+    }
+
+    return fetch(`${DEV_URL}/listing/images/delete/`, request);
+}

@@ -1,3 +1,11 @@
+/**
+ * @Author:     Rachelle Gelden
+ * @Created:    2021.06.29
+ *
+ * @Description: Container component with logic for editing listings
+ *
+ */
+
 import React, {useState, useEffect} from 'react';
 import PropTypes from "prop-types";
 import get from 'lodash/get';
@@ -21,6 +29,7 @@ import RentalsForm from "../../createListing/forms/classifieds/RentalsForm";
 import HouseServicesForm from "../../createListing/forms/classifieds/HouseServicesForm";
 import AgenciesForm from "../../createListing/forms/classifieds/AgenciesForm";
 import Loading from "../../common/loading/Loading";
+import EditImagesContainer from "../../common/forms/EditImages/EditImagesContainer";
 
 toast.configure();
 
@@ -28,12 +37,14 @@ const EditListingContainer = props => {
     const { history } = props;
     const [listing, setListing] = useState({});
     const [isLoading, setIsLoading] = useState(false);
+    const [images, setImages] = useState([]);
 
     useEffect(() => {
         if (!get(props, 'location.state.listing')) {
             history.push('/');
         } else {
             setListing(get(props, 'location.state.listing'));
+            setImages(get(props, 'location.state.listing.images'))
             setIsLoading(false);
         }
     }, []);
@@ -183,7 +194,10 @@ const EditListingContainer = props => {
         <div>
             {isLoading
                 ? <div><Loading isLoading={isLoading}/></div>
-                : <div>{returnCustomFieldComponent(listing.categoryName)}</div>
+                : <div>
+                    {returnCustomFieldComponent(listing.categoryName)}
+                    <EditImagesContainer listingImages={images} listingId={listing.id} />
+                </div>
             }
         </div>
     )

@@ -11,8 +11,6 @@ export const ImageGallery = props => {
         return ({ src: getImageURL(picture) });
     });
 
-    console.log('imagesInfo: ', imagesInfo);
-
     return (
         <div>
             <Lightbox images={imagesInfo}/>

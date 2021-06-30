@@ -5,6 +5,7 @@
  * @Description: helper functions used in routes
  *
  */
+const { validationResult } = require('express-validator/check');
 
 const businessAccounts = require('../controllers/businessAccountController');
 const memberAccounts = require('../controllers/memberAccountController');
@@ -60,11 +61,22 @@ function userIsActive (req, res, next) {
         });
 }
 
+function errorDuringValidation(req, res, next) {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        res.status(202).json({ errors: errors.array()});
+    } else {
+        next();
+    }
+}
+
 module.exports = {
     isLoggedIn,
     userIsBusiness,
     userIsMember,
     userIsAdmin,
     userIsInactive,
-    userIsActive
+    userIsActive,
+    errorDuringValidation
 }

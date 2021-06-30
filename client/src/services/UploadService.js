@@ -27,10 +27,10 @@ export const uploadLogo = image => {
 
 export const uploadPictures = (images, listingId) => {
     const fd = new FormData();
+    fd.set('listingId', listingId);
     images.forEach((image) => {
         fd.append('images', image);
     });
-    fd.set('listingId', listingId);
 
     const request = {
         method: 'POST',
@@ -42,3 +42,19 @@ export const uploadPictures = (images, listingId) => {
     return fetch(`${DEV_URL}/listing/pictures/upload/`, request);
 }
 
+export const editListingImages = (listingId, images) => {
+    console.log('listingId: ', listingId);
+    const fd = new FormData();
+    images.forEach(image => {
+        fd.append('images', image);
+    });
+
+    const request = {
+        method: 'POST',
+        credentials: 'include',
+        withCredentials: true,
+        body: fd
+    }
+
+    return fetch(`${DEV_URL}/listing/images/edit?listingId=${listingId}`, request);
+}

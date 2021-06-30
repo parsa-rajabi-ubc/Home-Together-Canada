@@ -241,6 +241,7 @@ exports[`GovernmentServicesForm Snapshot test should render correctly regardless
   <label>
     <input
       className="btn btn-green form-btn w-1/2"
+      disabled={false}
       onClick={[Function]}
       type="submit"
     />

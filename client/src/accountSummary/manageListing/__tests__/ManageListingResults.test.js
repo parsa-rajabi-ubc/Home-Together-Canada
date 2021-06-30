@@ -8,7 +8,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer'
 import ManageListingResults from "../ManageListingResults";
-import ManageListingContainer from "../ManageListingContainer";
 import {BrowserRouter} from "react-router-dom";
 
 

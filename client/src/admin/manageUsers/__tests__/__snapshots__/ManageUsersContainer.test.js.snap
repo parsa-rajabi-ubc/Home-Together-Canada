@@ -33,6 +33,7 @@ exports[`ManageUsersContainer Container test should match snapshot test regardle
       <label>
         <input
           className="btn btn-red ml-10 w-2/3 py-2"
+          disabled={false}
           onClick={[Function]}
           type="submit"
           value="Ban User"

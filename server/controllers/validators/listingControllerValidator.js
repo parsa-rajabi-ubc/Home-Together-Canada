@@ -5,7 +5,7 @@
  * @Description: functions to validate input to controller functions to create listings
  *
  */
-const { body } = require('express-validator/check');
+const { body, query } = require('express-validator/check');
 const {PROVINCES_LIST} = require("../configConstants");
 const {
     isValidRadius,
@@ -19,7 +19,6 @@ const {isValidPhoneNumber} = require("./userControllerValidatorUtils");
 const {isValidCanadianPostalCode} = require("./userControllerValidatorUtils");
 const {removeAllWhiteSpace} = require("../utils/stringUtils");
 const { LISTING_TYPES } = require('../../constants/listingConstants');
-
 const {
     LISTING_VALIDATION_METHODS,
     isValidListingTypeForUser,
@@ -33,7 +32,9 @@ const {
     listingShouldBelongToUser,
     listingShouldBeLiveOrPending,
     listingShouldHaveSubcategories,
-    listingShouldNotBeDeletedOrExpired
+    listingShouldNotBeDeletedOrExpired,
+    imageShouldExist,
+    shouldBeAbleToUploadImagesToListing
 } = require('./listingControllerValidatorUtils');
 
 const { LISTING_FIELD_LENGTHS } = require('../../constants/fieldLengthsConstants');
@@ -386,6 +387,37 @@ exports.validate = method => {
                         subcategories,
                         req.body.listingId
                     ))
+            ]
+        }
+        case LISTING_VALIDATION_METHODS.EDIT_LISTING_IMAGES: {
+            return [
+                query('listingId')
+                    .exists()
+                    .isNumeric()
+                    .custom((listingId, { req }) => listingShouldBelongToUser(
+                        listingId,
+                        req.user.uid
+                    ))
+                    .custom(listingId => listingShouldNotBeDeletedOrExpired(listingId))
+                    .custom(listingId => shouldBeAbleToUploadImagesToListing(listingId))
+            ]
+        }
+        case LISTING_VALIDATION_METHODS.DELETE_LISTING_IMAGES: {
+            return [
+                body('listingId')
+                    .exists()
+                    .isNumeric()
+                    .custom((listingId, { req }) => listingShouldBelongToUser(
+                        listingId,
+                        req.user.uid
+                    ))
+                    .custom(listingId => listingShouldNotBeDeletedOrExpired(listingId)),
+                body('deletedImages')
+                    .exists()
+                    .isArray(),
+                body('deletedImages.*')
+                    .isString()
+                    .custom(deletedImage => imageShouldExist(deletedImage))
             ]
         }
     }
