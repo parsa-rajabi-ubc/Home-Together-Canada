@@ -86,7 +86,8 @@ describe('listingControllerUtils', () => {
                 subcategories: [
                     'Agencies serving Seniors',
                     'Agencies Addressing Low Income Housing'
-                ]
+                ],
+                images: []
             };
 
             // given

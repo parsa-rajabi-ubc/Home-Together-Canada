@@ -87,3 +87,21 @@ export const deleteListingImages = (listingId, deletedImages) => {
 
     return fetch(`${DEV_URL}/listing/images/delete/`, request);
 }
+
+export const editSubcategories = (listingId, subcategories) => {
+    const request = {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        withCredentials: true,
+        body: JSON.stringify({
+            listingId,
+            subcategories
+        })
+    }
+
+    return fetch(`${DEV_URL}/listing/subcategories/update/`, request);
+}
