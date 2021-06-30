@@ -7,7 +7,6 @@
  */
 import PropTypes from "prop-types";
 import React from 'react';
-import HTC_Logo from "../../../../images/HTC_Logo.jpg";
 import {AiOutlineCheckCircle as Check, AiOutlineCloseCircle as Ex} from "react-icons/ai";
 import {ImageGallery} from "../../../../common/listings/ImageGallery";
 

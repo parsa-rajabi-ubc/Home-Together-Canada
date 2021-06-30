@@ -10,6 +10,7 @@ import React, {useState, useEffect} from 'react';
 import {useLocation} from 'react-router-dom';
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
+
 import SubPages from "./SubPages";
 import {ALL_SUBPAGES, BUSINESS_SUBPAGES, MEMBER_SUBPAGES, USER_TYPES} from "../common/constants/users";
 import ChangePasswordContainer from "./ChangePasswordContainer";
@@ -22,13 +23,6 @@ import DeactivateAccountContainer from './accountDeactivateAndDelete/DeactivateA
 import DeleteAccountContainer from "./accountDeactivateAndDelete/DeleteAccountContainer";
 import MessagingContainer from "./member/messaging/MessagingContainer";
 import ManageListingContainer from "./manageListing/ManageListingContainer";
-import {
-    cohousingMock,
-    governmentAgencyMock, houseYardMock,
-    memberHomeShareMock, rentalMock,
-    sharedHomeServicesMock
-} from "./manageListings/mocks/serviceListingMocks";
-import EditListingContainer from "./manageListings/EditListingContainer";
 
 const AccountSummaryContainer = props => {
     const { active } = props;
@@ -65,30 +59,6 @@ const AccountSummaryContainer = props => {
     ];
 
     const options = accountType === USER_TYPES.MEMBER ? MEMBER_SIDEBAR : BUSINESS_SIDEBAR;
-
-    const memberHomeShareListing = {
-        ...memberHomeShareMock
-    };
-
-    const cohousingListing = {
-        ...cohousingMock
-    }
-
-    const sharedServiceListing = {
-        ...sharedHomeServicesMock
-    }
-
-    const governmentListing = {
-        ...governmentAgencyMock
-    }
-
-    const rentalListing = {
-        ...rentalMock
-    }
-
-    const houseYardListing = {
-        ...houseYardMock
-    }
 
     const subpageComponent = (subpage) => {
         switch (subpage) {
