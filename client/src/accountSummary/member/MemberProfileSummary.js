@@ -250,7 +250,7 @@ function MemberProfileSummary(props) {
 
     function resolveUpdateState (data) {
         if (data && data.errors && Array.isArray(data.errors)) {
-            setValidationErrors(data.errors);
+            setValidationErrors([...data.errors]);
             throw new Error(UPDATE_STATES.VALIDATION_ERROR);
         }
         else if (data && (!data.authenticated && !data.success)) {
@@ -345,8 +345,13 @@ function MemberProfileSummary(props) {
             })
             .then(res => res.json())
             .then(data => {
-                const updateState = resolveUpdateState(data);
-                dispatchActionOnUpdateState(updateState);
+                // required to synchronize data to be shown in the alert
+                if (data && data.errors) {
+                    alert(getConcatenatedErrorMessage(data.errors));
+                } else {
+                    const updateState = resolveUpdateState(data);
+                    dispatchActionOnUpdateState(updateState);
+                }
             })
             .catch(err => {
                 dispatchActionOnUpdateState(err.message);
