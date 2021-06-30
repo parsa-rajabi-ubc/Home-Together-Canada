@@ -75,3 +75,25 @@ export function getSubcategories(category) {
 export function isMemberListing(category) {
     return includes(Object.values(MEMBER_SERVICE_CATEGORIES), category);
 }
+
+export const BUSINESS_FIELDS = [
+    'businessCellPhoneNumber',
+    'businessName',
+    'businessPhoneNumber',
+    'email',
+    'incorporatedOwnersNames',
+    'isIncorporated',
+    'isNationWide',
+    'logo',
+    'mapAddressLine1',
+    'mapAddressLine2',
+    'mapCity',
+    'mapLatitude',
+    'mapLongitude',
+    'mapPostalCode',
+    'mapProvince',
+    'uid',
+    'updatedAt',
+    'username',
+    'website'
+];

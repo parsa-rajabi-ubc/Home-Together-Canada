@@ -33,7 +33,7 @@ const AgenciesCustomFields = (props) => {
 
 AgenciesCustomFields.propTypes = {
     rateAndFees: PropTypes.string.isRequired,
-    pictures: PropTypes.string
+    pictures: PropTypes.arrayOf(PropTypes.string),
 }
 
 export default AgenciesCustomFields;

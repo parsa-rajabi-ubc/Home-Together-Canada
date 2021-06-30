@@ -92,7 +92,7 @@ RentalsCustomFields.propTypes = {
     furnished: PropTypes.bool.isRequired,
     petFriendly: PropTypes.bool.isRequired,
     smokingFriendly: PropTypes.bool.isRequired,
-    pictures: PropTypes.string,
+    pictures: PropTypes.arrayOf(PropTypes.string),
 }
 
 export default RentalsCustomFields;

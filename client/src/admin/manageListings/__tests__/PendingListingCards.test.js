@@ -9,6 +9,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer'
 import PendingListingCards from "../PendingListingCards";
+import ListingResults from "../../../searchServicesClassifieds/listingResults/ListingResults";
+import {BrowserRouter as Router} from "react-router-dom";
 
 describe('PendingListingCards', () => {
     describe('Container test', () => {
@@ -21,14 +23,17 @@ describe('PendingListingCards', () => {
                 setListingStatus: jest.fn(),
                 listingStatus: true,
                 pendingListings: [{
-                    "id": 20,
-                    "title": "Forest Green Co-Living",
-                    "shortDescription": "Easy, family friendly, & communal living",
-                    "businessName": "Bob's Bricks",
-                    "createdAt": "2021-03-21T22:16:06.000Z"
-                }]            }
+                    id: 20,
+                    title: "Forest Green Co-Living",
+                    shortDescription: "Easy, family friendly, & communal living",
+                    createdAt: "2021-03-21T22:16:06.000Z",
+                    business: {
+                        businessName: "Bob's Bricks",
+                    }
+                }]
+            }
             //when
-            const component = renderer.create(<PendingListingCards {...props}/>);
+            const component = renderer.create(<Router><PendingListingCards {...props}/></Router>);
             const tree = component.toJSON();
             //then
             expect(tree).toMatchSnapshot();
@@ -42,15 +47,17 @@ describe('PendingListingCards', () => {
                 setListingStatus: jest.fn(),
                 listingStatus: false,
                 pendingListings: [{
-                    "id": 30,
-                    "title": "Forest Green Co-Living",
-                    "shortDescription": "Easy, family friendly, & communal living",
-                    "businessName": "Bob's Bricks",
-                    "createdAt": "2021-03-21T22:16:06.000Z"
+                    id: 20,
+                    title: "Forest Green Co-Living",
+                    shortDescription: "Easy, family friendly, & communal living",
+                    createdAt: "2021-03-21T22:16:06.000Z",
+                    business: {
+                        businessName: "Bob's Bricks",
+                    }
                 }]
             }
             //when
-            const component = renderer.create(<PendingListingCards {...props}/>);
+            const component = renderer.create(<Router><PendingListingCards {...props}/></Router>);
             const tree = component.toJSON();
             //then
             expect(tree).toMatchSnapshot();

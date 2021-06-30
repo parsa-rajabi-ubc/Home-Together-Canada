@@ -36,7 +36,7 @@ function BusinessListingCard(props) {
 }
 
 BusinessListingCard.propTypes = {
-    logo: PropTypes.string.isRequired,
+    logo: PropTypes.string,
     title: PropTypes.string.isRequired,
     businessName: PropTypes.string.isRequired,
     shortDescription: PropTypes.string.isRequired,

@@ -15,6 +15,7 @@ import {AiFillCloseCircle} from "react-icons/ai";
 import Modal from 'react-modal';
 import Paginate from "../../common/forms/Paginate";
 import {getImageURL} from "../../common/utils/imageUtils";
+import {Link} from "react-router-dom";
 
 
 const ADMIN_TEXT = {
@@ -74,12 +75,22 @@ function PendingListingCards(props) {
         (listing) =>
             <div className={"flex"} key={listing.id}>
                 <section className={"w-full"}>
-                    <BusinessListingCard
-                        logo={listing.logo && getImageURL(listing.logo)}
-                        title={listing.title}
-                        businessName={listing.businessName}
-                        shortDescription={listing.shortDescription}
-                        datePosted={listing.createdAt}/>
+                    <Link
+                        to={{
+                            pathname: `/listing/pending/${listing.id}`,
+                            state: {
+                                listing: listing
+                            }
+                        }}
+                        key={listing.id}
+                    >
+                        <BusinessListingCard
+                            logo={listing.business.logo && getImageURL(listing.logo)}
+                            title={listing.title}
+                            businessName={listing.business.businessName}
+                            shortDescription={listing.shortDescription}
+                            datePosted={listing.createdAt}/>
+                    </Link>
                 </section>
                 <section className={"my-8"}>
                     <button
