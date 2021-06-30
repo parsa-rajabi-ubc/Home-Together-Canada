@@ -169,7 +169,7 @@ const formatBusinessListing = (listing) => {
         ...listingFields,
         ...abstractUser,
         ...businessAccount,
-        category,
+        categoryName: category,
         subcategories
     }
 }

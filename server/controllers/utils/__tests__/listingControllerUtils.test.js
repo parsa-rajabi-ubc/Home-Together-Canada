@@ -82,7 +82,7 @@ describe('listingControllerUtils', () => {
                 mapProvince: 'BC',
                 mapPostalCode: 'V1V2W7',
                 website: 'www.google.com',
-                category: 'Government & Human Service Agencies Offering Shared Living & Support Services',
+                categoryName: 'Government & Human Service Agencies Offering Shared Living & Support Services',
                 subcategories: [
                     'Agencies serving Seniors',
                     'Agencies Addressing Low Income Housing'
