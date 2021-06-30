@@ -1,3 +1,11 @@
+/**
+ * @Author:     Rachelle Gelden
+ * @Created:    2021.06.29
+ *
+ * @Description: Container component with logic for editing listings' images
+ *
+ */
+
 import React, { useState, useEffect } from "react";
 import PropTypes from 'prop-types';
 import {toast} from "react-toastify";
@@ -11,6 +19,11 @@ import SubmitButton from "../SubmitButton";
 import {getConcatenatedErrorMessage} from "../../../registration/registrationUtils";
 
 toast.configure();
+
+const EDIT_IMAGES_ERROR_TEXT = {
+    DELETE_IMAGES: 'There was an error that occurred while deleting listing image. Please try again and contact Home Together Canada if the issue persists.',
+    UPLOAD_IMAGES: 'There was error uploading your image(s). Please try again and contact Home Together Canada if the issue persists.'
+}
 
 const EditImagesContainer = props => {
     const { listingImages, listingId } = props;
@@ -46,11 +59,11 @@ const EditImagesContainer = props => {
                 } else if (data && data.errors) {
                     toast.error(getConcatenatedErrorMessage(data.errors));
                 } else {
-                    toast.error('There was an error that occurred while deleting listing image. Please try again and contact Home Together Canada if the issue persists.');
+                    toast.error(EDIT_IMAGES_ERROR_TEXT.DELETE_IMAGES);
                 }
             })
             .catch(() => {
-                toast.error('There was an error that occurred while deleting listing image. Please try again and contact Home Together Canada if the issue persists.');
+                toast.error(EDIT_IMAGES_ERROR_TEXT.DELETE_IMAGES);
             });
     }
 
@@ -66,11 +79,11 @@ const EditImagesContainer = props => {
                 } else if (data && data.errors) {
                     toast.error(getConcatenatedErrorMessage(data.errors));
                 } else {
-                    toast.error('There was error uploading your image(s). Please try again and contact Home Together Canada if the issue persists.')
+                    toast.error(EDIT_IMAGES_ERROR_TEXT.UPLOAD_IMAGES);
                 }
             })
             .catch(() => {
-                toast.error('There was error uploading your image(s). Please try again and contact Home Together Canada if the issue persists.')
+                toast.error(EDIT_IMAGES_ERROR_TEXT.UPLOAD_IMAGES);
             });
     }
 

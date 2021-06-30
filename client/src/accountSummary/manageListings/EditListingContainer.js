@@ -1,3 +1,11 @@
+/**
+ * @Author:     Rachelle Gelden
+ * @Created:    2021.06.29
+ *
+ * @Description: Container component with logic for editing listings
+ *
+ */
+
 import React, {useState, useEffect} from 'react';
 import PropTypes from "prop-types";
 import get from 'lodash/get';
