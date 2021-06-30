@@ -159,11 +159,11 @@ const AgenciesForm = (props) => {
                         }
                     </div>
                 </div>
+                <SubmitButton
+                    className={"btn btn-green form-btn w-1/2"}
+                    onClick={onCreateListing}
+                />
             </div>
-            <SubmitButton
-                className={"btn btn-green form-btn w-1/2"}
-                onClick={onCreateListing}
-            />
         </div>
     );
 }
