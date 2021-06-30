@@ -135,7 +135,6 @@ const formatBusinessListing = (listing) => {
             'postalCode'
         ]
     );
-    console.log('listing.dataValues.AbstractUser.dataValues.BusinessAccount: ', listing.dataValues.AbstractUser.dataValues.BusinessAccount);
     const businessAccount = pick(
         listing.dataValues.AbstractUser.dataValues.BusinessAccount.dataValues,
         [
@@ -170,7 +169,8 @@ const formatBusinessListing = (listing) => {
         ...abstractUser,
         ...businessAccount,
         categoryName: category,
-        subcategories
+        subcategories,
+        images: getListingImages(listing.dataValues.id)
     }
 }
 

@@ -9,7 +9,9 @@
 import React, {useState, useEffect} from 'react';
 import PropTypes from "prop-types";
 import get from 'lodash/get';
+import includes from 'lodash/includes';
 import {toast} from "react-toastify";
+
 import MemberHomeShareForm from "../../createListing/forms/services/MemberHomeShareForm";
 import {
     BUSINESS_SERVICE_CATEGORIES,
@@ -30,6 +32,8 @@ import HouseServicesForm from "../../createListing/forms/classifieds/HouseServic
 import AgenciesForm from "../../createListing/forms/classifieds/AgenciesForm";
 import Loading from "../../common/loading/Loading";
 import EditImagesContainer from "../../common/forms/EditImages/EditImagesContainer";
+import {LISTING_CATEGORIES_WITH_IMAGES} from "../../common/constants/listingsConstants";
+import EditListingSubcategories from "./EditListingSubcategories";
 
 toast.configure();
 
@@ -196,7 +200,16 @@ const EditListingContainer = props => {
                 ? <div><Loading isLoading={isLoading}/></div>
                 : <div>
                     {returnCustomFieldComponent(listing.categoryName)}
-                    <EditImagesContainer listingImages={images} listingId={listing.id} />
+                    {includes(LISTING_CATEGORIES_WITH_IMAGES, listing.categoryName) &&
+                        <EditImagesContainer listingImages={images} listingId={listing.id}/>
+                    }
+                    {(includes(Object.values(BUSINESS_SERVICE_CATEGORIES), listing.categoryName) || includes(Object.values(BUSINESS_CLASSIFIEDS_CATEGORIES), listing.categoryName)) &&
+                        <EditListingSubcategories
+                            categoryName={listing.categoryName}
+                            listingId={listing.id}
+                            savedSubcategories={listing.subcategories}
+                        />
+                    }
                 </div>
             }
         </div>
