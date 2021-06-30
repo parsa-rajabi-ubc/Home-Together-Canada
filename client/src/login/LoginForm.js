@@ -27,6 +27,7 @@ import {setActive, setMemberSearchFilters} from "../redux/slices/memberPrivilege
 import {USER_TYPES} from "../common/constants/users";
 import {resolveBooleanToYesNo} from "../common/utils/generalUtils";
 import {toast} from "react-toastify";
+import {HOME_TOGETHER_EMAIL} from "../common/constants/homeTogetherContstants";
 
 const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated, setActive, setMemberSearchFilters};
 
@@ -67,9 +68,9 @@ function LoginForm(props) {
     }
 
     const forgetPasswordAlert = () => {
-        toast.info('Password recovery is still under construction! Please contact info@hometogether.ca to ' +
-            'reset your password. Please include your username and use the email you registered with to confirm  ' +
-            'your identity. Your password will be reset and you will be notified via email.',
+        toast.info(`Password recovery is still under construction! Please contact ${HOME_TOGETHER_EMAIL} to ` +
+            `reset your password. Please include your username and use the email you registered with to confirm  ` +
+            `your identity. Your password will be reset and you will be notified via email.`,
             {
                 autoClose: false
             });
