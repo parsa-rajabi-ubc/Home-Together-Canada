@@ -50,7 +50,6 @@ function PendingListingContainer(props) {
                         const businessFields = pick(listing, BUSINESS_FIELDS);
                         const formattedListing = {
                             ...listing,
-                            categoryName: listing.category,
                             business: {
                                 ...businessFields
                             }
