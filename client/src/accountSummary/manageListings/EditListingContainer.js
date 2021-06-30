@@ -34,11 +34,12 @@ import Loading from "../../common/loading/Loading";
 import EditImagesContainer from "../../common/forms/EditImages/EditImagesContainer";
 import {LISTING_CATEGORIES_WITH_IMAGES} from "../../common/constants/listingsConstants";
 import EditListingSubcategories from "./EditListingSubcategories";
+import Asterisk from "../../common/forms/Asterisk";
 
 toast.configure();
 
 const EditListingContainer = props => {
-    const { history } = props;
+    const {history} = props;
     const [listing, setListing] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const [images, setImages] = useState([]);
@@ -199,16 +200,44 @@ const EditListingContainer = props => {
             {isLoading
                 ? <div><Loading isLoading={isLoading}/></div>
                 : <div>
-                    {returnCustomFieldComponent(listing.categoryName)}
+                    <div className="page-layout">
+                        <div className="text-outer-shell">
+                            <div className="text-inner-shell">
+                                <h3 className="info-header">Edit Listing Details</h3>
+                                <p className="info-text">
+                                    Please edit and save each section of your listing separately.
+                                </p>
+                                <p className="info-text mr-10">
+                                    <Asterisk/> = Required Field
+                                </p>
+                            </div>
+                        </div>
+                        <div className="content-outer-shell space-y-1">
+                            <div className="content-grid">
+                                <div className="content-grid-span">
+                                    {returnCustomFieldComponent(listing.categoryName)}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/*Divider*/}
+                    <div className="border-divider"/>
+
                     {includes(LISTING_CATEGORIES_WITH_IMAGES, listing.categoryName) &&
+                    <section>
                         <EditImagesContainer listingImages={images} listingId={listing.id}/>
+                        {/*Divider (does not display divider if listing does not contain images)*/}
+                        <div className="border-divider"/>
+                    </section>
                     }
+
                     {(includes(Object.values(BUSINESS_SERVICE_CATEGORIES), listing.categoryName) || includes(Object.values(BUSINESS_CLASSIFIEDS_CATEGORIES), listing.categoryName)) &&
-                        <EditListingSubcategories
-                            categoryName={listing.categoryName}
-                            listingId={listing.id}
-                            savedSubcategories={listing.subcategories}
-                        />
+                    <EditListingSubcategories
+                        categoryName={listing.categoryName}
+                        listingId={listing.id}
+                        savedSubcategories={listing.subcategories}
+                    />
                     }
                 </div>
             }
