@@ -6,7 +6,7 @@
  *
  */
 
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import PropTypes from 'prop-types';
 import {toast} from "react-toastify";
 
@@ -26,7 +26,7 @@ const EDIT_IMAGES_ERROR_TEXT = {
 }
 
 const EditImagesContainer = props => {
-    const { listingImages, listingId } = props;
+    const {listingImages, listingId} = props;
 
     const [editableImages, setEditableImages] = useState([]);
     const [uploadedImages, setUploadedImages] = useState([]);
@@ -89,28 +89,48 @@ const EditImagesContainer = props => {
 
     return (
         <div>
-            <EditImages images={editableImages} onDeleteImage={handleDeleteImage}/>
-            {numImagesCanUploaded === 1 &&
-                <p>{`A listing can have ${DEFAULT_MAX_NUM_IMAGES} images, you can upload ${(DEFAULT_MAX_NUM_IMAGES - editableImages.length)} more image`}</p>
-            }
-            {numImagesCanUploaded > 1 &&
-                <p>{`A listing can have ${DEFAULT_MAX_NUM_IMAGES} images, you can upload ${(DEFAULT_MAX_NUM_IMAGES - editableImages.length)} more images`}</p>
-            }
-            {numImagesCanUploaded !== 0 &&
-                <MultiImageUpload
-                    handleImageUpload={handleUploadImage}
-                    maxNumImages={(DEFAULT_MAX_NUM_IMAGES - editableImages.length)}
-                    imageUploadKey={imageUploadKey}
-                />
-            }
-            {!!numImagesCanUploaded &&
-                <SubmitButton
-                    className={"btn btn-green form-btn w-1/2"}
-                    onClick={handleSubmit}
-                    disabled={!uploadedImages.length}
-                    inputValue={'Save New Images'}
-                />
-            }
+            <div className="page-layout">
+                <div className="text-outer-shell">
+                    <div className="text-inner-shell">
+                        <h3 className="info-header">Edit Images</h3>
+                        <p className="info-text">
+                            Delete unwanted images using the garbage can icon and upload new images using the file uploader.
+                        </p>
+                        {numImagesCanUploaded === 1 &&
+                        <p className={"label"}>{`Reminder: A listing can have ${DEFAULT_MAX_NUM_IMAGES} images, you can upload ${(DEFAULT_MAX_NUM_IMAGES - editableImages.length)} more image`}</p>
+                        }
+                        {numImagesCanUploaded > 1 &&
+                        <p className={"label"}>{`Reminder: A listing can have ${DEFAULT_MAX_NUM_IMAGES} images, you can upload ${(DEFAULT_MAX_NUM_IMAGES - editableImages.length)} more images`}</p>
+                        }
+                    </div>
+                </div>
+                <div className="content-outer-shell space-y-1">
+                    <div className="content-grid">
+                        <div className="content-grid-span">
+                            <div className="content-inner-shell">
+
+                            <EditImages images={editableImages} onDeleteImage={handleDeleteImage}/>
+
+                            {numImagesCanUploaded !== 0 &&
+                            <MultiImageUpload
+                                handleImageUpload={handleUploadImage}
+                                maxNumImages={(DEFAULT_MAX_NUM_IMAGES - editableImages.length)}
+                                imageUploadKey={imageUploadKey}
+                            />
+                            }
+                            {!!numImagesCanUploaded &&
+                            <SubmitButton
+                                className={"btn btn-green form-btn w-1/2"}
+                                onClick={handleSubmit}
+                                disabled={!uploadedImages.length}
+                                inputValue={'Save New Images'}
+                            />
+                            }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

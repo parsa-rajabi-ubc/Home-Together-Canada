@@ -16,10 +16,15 @@ const EditImages = props => {
     const imagesWithControls = images.map(image => {
         return (
             <div key={image}>
-                <img src={getImageURL(image)} height={'150'} width={'150'}/>
+                <img
+                    src={getImageURL(image)}
+                    alt={'uploaded image'}
+                    className={"w-40 h-40 mt-10"}
+                />
                 <MdDeleteForever
                     color="#DB4437"
                     size="40"
+                    className={"mx-auto w-1/2 mt-3 mb-5 "}
                     onClick={() => onDeleteImage(image)}
                 />
             </div>
@@ -27,7 +32,7 @@ const EditImages = props => {
     });
 
     return (
-        <div>
+        <div className={"flex flex-wrap justify-around"}>
             {imagesWithControls}
         </div>
     );

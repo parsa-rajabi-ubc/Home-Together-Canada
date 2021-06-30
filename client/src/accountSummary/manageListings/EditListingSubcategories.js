@@ -6,7 +6,7 @@
  *
  */
 
-import React, { useState } from "react";
+import React, {useState} from "react";
 import PropTypes from 'prop-types';
 import {toast} from "react-toastify";
 
@@ -16,11 +16,12 @@ import {isValueInArray} from "../../common/utils/generalUtils";
 import SubmitButton from "../../common/forms/SubmitButton";
 import * as ListingService from '../../services/ListingService';
 import {getConcatenatedErrorMessage} from "../../registration/registrationUtils";
+import {CREATE_LISTING_CONTROLS_TEXT} from "../../createListing/CreateListingControls";
 
 toast.configure();
 
 const EditListingSubcategories = props => {
-    const { categoryName, listingId, savedSubcategories } = props;
+    const {categoryName, listingId, savedSubcategories} = props;
 
     const [selectedSubcategories, setSelectedSubcategories] = useState(savedSubcategories);
 
@@ -47,8 +48,7 @@ const EditListingSubcategories = props => {
                     toast.success('Successfully updated subcategories for listing!')
                 } else if (data.errors) {
                     toast.error(getConcatenatedErrorMessage(data.errors));
-                }
-                else {
+                } else {
                     toast.error('There was error updating the subcategories for your listing. Please try again and contact Home Together if the issue persists.')
                 }
             })
@@ -56,8 +56,36 @@ const EditListingSubcategories = props => {
 
     return (
         <div>
-            <CheckboxesList values={getSubcategories(categoryName)} selectedValues={selectedSubcategories} onChange={handleSubcategoriesChange} />
-            <SubmitButton className={"btn btn-green form-btn w-1/2"} onClick={submitSubcategoriesChanges} />
+            <div className="page-layout">
+                <div className="text-outer-shell">
+                    <div className="text-inner-shell">
+                        <h3 className="info-header">Edit Subcategories</h3>
+                        <p className="info-text">
+                            Please select all the appropriate subcategories for your listing. Note: you can not change
+                            the category of the listing.
+                        </p>
+                    </div>
+                </div>
+                <div className="content-outer-shell space-y-1">
+                    <div className="content-grid">
+                        <div className="content-grid-span">
+                            <div className="content-inner-shell">
+                                <p className={"label text-lg my-5"}>{CREATE_LISTING_CONTROLS_TEXT.SELECT_SUBCATEGORIES}</p>
+                                <CheckboxesList
+                                    values={getSubcategories(categoryName)}
+                                    selectedValues={selectedSubcategories}
+                                    onChange={handleSubcategoriesChange}
+                                />
+                                <SubmitButton
+                                    className={"btn btn-green form-btn w-1/2"}
+                                    onClick={submitSubcategoriesChanges}
+                                    inputValue={'Save New Subcategories'}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
