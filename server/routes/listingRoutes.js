@@ -350,6 +350,16 @@ if (process.env.NODE_ENV === DEVELOPMENT || !process.env.NODE_ENV) {
     router.post('/listingSubcategoriesById/', function (req, res, next) {
         listingController.findListingSubcategories(req, res);
     });
+
+    router.post('/delete/hard/', function(req, res, next) {
+        listingController.hardDeleteListing(req.body.listingId)
+            .then(data => {
+                res.status(200).json({ data });
+            })
+            .catch(err => {
+                res.status(500).json({ err });
+            })
+    });
 }
 
 module.exports = router;

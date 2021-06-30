@@ -43,6 +43,13 @@ export function isStringSame(str1, str2) {
 }
 
 export const translatePhoneNumberIntToThreeStrings = phoneNum => {
+    if (!phoneNum) {
+        return {
+            first: '',
+            middle: '',
+            last: ''
+        }
+    }
     return {
         first: phoneNum.toString().substring(0,3),
         middle: phoneNum.toString().substring(3,6),

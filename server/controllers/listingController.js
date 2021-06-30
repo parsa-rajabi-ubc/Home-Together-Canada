@@ -574,6 +574,14 @@ const findListingSubcategories = async (req, res) => {
     res.status(200).json({ subcategories: subcategoryNames });
 }
 
+const hardDeleteListing = (listingId) => {
+    return Listing.destroy({
+        where: {
+            id: listingId
+        }
+    });
+}
+
 module.exports = {
     createListing,
     findAllListings,
@@ -596,6 +604,7 @@ module.exports = {
     findDeletedListing,
     editListing,
     updateListingSubcategories,
-    findListingSubcategories
+    findListingSubcategories,
+    hardDeleteListing
 }
 

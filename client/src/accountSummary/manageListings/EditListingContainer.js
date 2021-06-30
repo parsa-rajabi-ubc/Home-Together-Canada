@@ -66,15 +66,21 @@ const EditListingContainer = props => {
                 },
                 ...(listing.categoryName === BUSINESS_SERVICE_CATEGORIES.GOVERNMENT_SERVICES
                     || listing.categoryName === BUSINESS_CLASSIFIEDS_CATEGORIES.CLASSES_CLUBS) && {
-                    contactPhoneNumber: getPhoneNumberFromStrings(listing.contactPhoneNumber.first, listing.contactPhoneNumber.middle, listing.contactPhoneNumber.last),
+                    contactPhoneNumber: getPhoneNumberFromStrings(editedListing.contactPhoneNumber.first, editedListing.contactPhoneNumber.middle, editedListing.contactPhoneNumber.last),
                 },
             }
 
             ListingService.editListing(requestBody)
                 .then(res => res.json())
                 .then(data => {
-                    setIsLoading(false);
                     if (data.updated) {
+
+                        // update input fields with saved values
+                        const updatedListing = {
+                            ...listing,
+                            ...requestBody
+                        };
+                        setListing(updatedListing);
                         toast.success('Listing successfully updated!');
                     } else if (data && data.errors && data.errors.length) {
                         const errorMessage = getConcatenatedErrorMessage(data.errors);
@@ -85,6 +91,7 @@ const EditListingContainer = props => {
                         toast.error('There was an error creating your listing. Please contact Home Together ' +
                             'if the issue persists.');
                     }
+                    setIsLoading(false);
                 })
         }
     }
@@ -122,14 +129,13 @@ const EditListingContainer = props => {
                         existingContactName={listing.contactName}
                         existingUnitsForSale={listing.unitsForSale}
                         existingUnitsForRent={listing.unitsForRent}
-                        existingSelectedSubcategories={listing.subcategories}
                     />
                 );
             case BUSINESS_SERVICE_CATEGORIES.SHARED_HOME_SERVICES || BUSINESS_SERVICE_CATEGORIES.SHARED_BUSINESS_SERVICES:
                 return (
                     <HomeServiceBusinessForm
                         onSubmit={editListing}
-                        category={listing.category}
+                        category={listing.categoryName}
                         listingExists={!!listing}
                         existingTitle={listing.title}
                         existingShortDescription={listing.shortDescription}

@@ -18,7 +18,7 @@ import {
     checkIfErrorsExistInMapping,
     validateInput,
 } from "../../../registration/registrationUtils";
-import {isValueInArray, validatePositiveNumber} from "../../../common/utils/generalUtils";
+import {validatePositiveNumber} from "../../../common/utils/generalUtils";
 import {LISTING_FIELD_LENGTHS} from "../../../common/constants/fieldLengths";
 
 const CohousingForm = (props) => {
@@ -30,8 +30,7 @@ const CohousingForm = (props) => {
         existingFullDescription,
         existingContactName,
         existingUnitsForSale,
-        existingUnitsForRent,
-        existingSelectedSubcategories
+        existingUnitsForRent
     } = props;
 
     const [title, setTitle] = useState(existingTitle || undefined);
@@ -40,7 +39,6 @@ const CohousingForm = (props) => {
     const [contactName, setContactName] = useState(existingContactName || undefined);
     const [unitsForSale, setUnitsForSale] = useState(existingUnitsForSale || undefined);
     const [unitsForRent, setUnitsForRent] = useState(existingUnitsForRent || undefined);
-    const [selectedSubcategories, setSelectedSubcategories] = useState(existingSelectedSubcategories || []);
 
     const [titleError, setTitleError] = useState(undefined);
     const [contactNameError, setContactNameError] = useState(undefined);
@@ -67,20 +65,6 @@ const CohousingForm = (props) => {
     useEffect(() => {
         unitsForRent !== undefined && validatePositiveNumber(unitsForRent, setUnitsForRentError);
     }, [unitsForRent]);
-
-    function handleSelectedSubcategoryChange(e) {
-        const list = [...selectedSubcategories];
-        const value = e.target.id;
-        // check if the value select already exists in the list
-        if (!isValueInArray(list, value)) {
-            // if not, add the value
-            list.push(value);
-        } else {
-            // if it does, remove it from the array
-            list.splice(list.indexOf(value), 1);
-        }
-        setSelectedSubcategories(list);
-    }
 
     const isFormValid = () => {
 
