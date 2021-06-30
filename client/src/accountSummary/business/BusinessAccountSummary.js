@@ -29,11 +29,12 @@ import Tooltip from "../../common/forms/Tooltip";
 import UploadImage from "../../common/forms/UploadImage";
 import ChangeImage from "../../common/forms/ChangeImage";
 import BusinessService from '../../services/BusinessService';
-import UploadService from '../../services/UploadService';
+import * as UploadService from '../../services/UploadService';
 import has from "lodash/has";
 import { useHistory } from "react-router-dom";
 import {bindActionCreators} from "redux";
 import {reset} from "../../redux/actionCreators";
+import {BUSINESS_FIELD_LENGTHS, USER_FIELD_LENGTHS} from "../../common/constants/fieldLengths";
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({ reset }, dispatch);
@@ -485,9 +486,9 @@ const BusinessAccountSummary = (props) => {
                                 autoComplete={"organization"}
                                 labelClassName={"label"}
                                 required={true}
-                                onChange={(e) => {
-                                    setBName(e.target.value)
-                                }}/>
+                                onChange={(e) => setBName(e.target.value)}
+                                charLimit={BUSINESS_FIELD_LENGTHS.BUSINESS_NAME}
+                            />
                             <div className={"my-2"}>
                                 <Checkbox
                                     label={"Incorporated business"}
@@ -496,12 +497,14 @@ const BusinessAccountSummary = (props) => {
                                     toolTipID="incorporated"
                                     onChange={handleIsIncorporatedBusinessChange}/>
                                 {isIncorporatedBusiness &&
-                                <TextArea
-                                    className="input"
-                                    placeholder={"Names of Inc. Owners (separated by comma)"}
-                                    labelClassName={"label"}
-                                    value={incorporatedOwners || ''}
-                                    onChange={(e) => setIncorporatedOwners(e.target.value)}/>
+                                    <TextArea
+                                        className="input"
+                                        placeholder={"Names of Inc. Owners (separated by comma)"}
+                                        labelClassName={"label"}
+                                        value={incorporatedOwners || ''}
+                                        onChange={(e) => setIncorporatedOwners(e.target.value)}
+                                        charLimit={BUSINESS_FIELD_LENGTHS.INCORPORATED_OWNERS_NAMES}
+                                    />
                                 }
                             </div>
                             <TextArea
@@ -512,9 +515,9 @@ const BusinessAccountSummary = (props) => {
                                 value={bEmail}
                                 labelClassName={"label"}
                                 required={true}
-                                onChange={(e) => {
-                                    setBEmail(e.target.value)
-                                }}/>
+                                onChange={(e) => setBEmail(e.target.value)}
+                                charLimit={USER_FIELD_LENGTHS.EMAIL}
+                            />
                             <TextArea
                                 className="input"
                                 placeholder="http://www.your-website.com"
@@ -523,21 +526,25 @@ const BusinessAccountSummary = (props) => {
                                 autoComplete={"url"}
                                 label="Business Website"
                                 labelClassName={"label"}
-                                onChange={e => setBusinessWebsite(e.target.value)}/>
+                                onChange={e => setBusinessWebsite(e.target.value)}
+                                charLimit={BUSINESS_FIELD_LENGTHS.WEBSITE}
+                            />
                             <PhoneNumInput
                                 className={`${bPhoneNumberError && "border-red-500"} phone`}
                                 required={true}
                                 value={bPhoneNumber}
                                 labelClassName={"label "}
                                 label="Business Phone Number"
-                                onChange={handleBPhoneChange}/>
+                                onChange={handleBPhoneChange}
+                            />
                             <PhoneNumInput
                                 className={`${bCellNumberError && "border-red-500"} phone`}
                                 required={true}
                                 value={bCellNumber}
                                 label="Business Cell Number"
                                 labelClassName={"label"}
-                                onChange={handleCellPhoneChange}/>
+                                onChange={handleCellPhoneChange}
+                            />
                             <Address
                                 label="Business Address"
                                 cityClassName="city-postal"
@@ -563,7 +570,8 @@ const BusinessAccountSummary = (props) => {
                                     cityAddressError={cityMailingAddressError}
                                     provinceAddressError={provinceMailingAddressError}
                                     postalCodeError={postalCodeMailingError}
-                                    onChange={handleBMailingAddress}/>
+                                    onChange={handleBMailingAddress}
+                                />
                             }
                             <div>
                                 <Checkbox
@@ -583,7 +591,8 @@ const BusinessAccountSummary = (props) => {
                                         cityAddressError={cityMapAddressError}
                                         provinceAddressError={provinceMapAddressError}
                                         postalCodeError={postalCodeMapError}
-                                        onChange={handleBMapAddress}/>
+                                        onChange={handleBMapAddress}
+                                    />
                                 }
                             </div>
                         </div>
@@ -592,10 +601,10 @@ const BusinessAccountSummary = (props) => {
                     <label className="label"> Business Logo </label>
                     <Tooltip text={BUSINESS_INFO_TEXT.BUSINESS_LOGO} toolTipID="businessLogo"/>
                     {logo
-                        ? <ChangeImage
-                            imageAddress={businessLogo}
-                            handleImageUpload={handleImageUpload}
-                        />
+                        ?   <ChangeImage
+                                imageAddress={businessLogo}
+                                handleImageUpload={handleImageUpload}
+                            />
                         : <UploadImage handleImageUpload={handleImageUpload}/>
                     }
                 </div>
@@ -616,9 +625,9 @@ const BusinessAccountSummary = (props) => {
                                 value={contactFName}
                                 autoComplete={"given-name"}
                                 required={true}
-                                onChange={(e) => {
-                                    setContactFName(e.target.value)
-                                }}/>
+                                onChange={(e) => setContactFName(e.target.value)}
+                                charLimit={USER_FIELD_LENGTHS.FIRST_NAME}
+                            />
                         </div>
 
                         <div className="column-span-6-layout">
@@ -629,9 +638,9 @@ const BusinessAccountSummary = (props) => {
                                 value={contactLName}
                                 required={true}
                                 autoComplete={"family-name"}
-                                onChange={(e) => {
-                                    setContactLName(e.target.value)
-                                }}/>
+                                onChange={(e) => setContactLName(e.target.value)}
+                                charLimit={USER_FIELD_LENGTHS.LAST_NAME}
+                            />
                         </div>
                         <div className="column-span-6-layout">
                             <PhoneNumInput
@@ -639,7 +648,9 @@ const BusinessAccountSummary = (props) => {
                                 required={true}
                                 value={contactPhoneNumber}
                                 labelClassName={"label"}
-                                label="Personal Phone Number" onChange={handleContactPhoneChange}/>
+                                label="Personal Phone Number"
+                                onChange={handleContactPhoneChange}
+                            />
                         </div>
                     </div>
                 </div>

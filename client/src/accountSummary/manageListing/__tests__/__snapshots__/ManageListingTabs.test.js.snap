@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ManageListingTabs Snapshot test should render correctly regardless of properties (Business) 1`] = `
+<div>
+  <h3
+    className="account-summary-info-header"
+  >
+     
+    Manage Listings
+     
+  </h3>
+  <p
+    className="account-summary-info-text"
+  >
+     
+    Use the tabs below to view your listings based on their status.
+     
+  </p>
+  <div
+    className="text-center mx-auto my-10"
+  >
+    <button
+      className="w-1/5 sub-page-items selected manage-listing-tabs"
+      onClick={[Function]}
+      type="button"
+    >
+      Live Listings
+    </button>
+    <button
+      className="w-1/5 sub-page-items unselected-tab manage-listing-tabs"
+      onClick={[Function]}
+      type="button"
+    >
+      Inactive Listings
+    </button>
+    <button
+      className="w-1/5 sub-page-items unselected-tab manage-listing-tabs"
+      onClick={[Function]}
+      type="button"
+    >
+      Rejected Listings
+    </button>
+    <button
+      className="w-1/5 sub-page-items unselected-tab manage-listing-tabs"
+      onClick={[Function]}
+      type="button"
+    >
+      Pending Listings
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ManageListingTabs Snapshot test should render correctly regardless of properties (Member) 1`] = `
+<div>
+  <h3
+    className="account-summary-info-header"
+  >
+     
+    Manage Listings
+     
+  </h3>
+  <p
+    className="account-summary-info-text"
+  >
+     
+    Use the tabs below to view your listings based on their status.
+     
+  </p>
+  <div
+    className="text-center mx-auto my-10"
+  >
+    <button
+      className="false sub-page-items selected manage-listing-tabs"
+      onClick={[Function]}
+      type="button"
+    >
+      Live Listings
+    </button>
+    <button
+      className="false sub-page-items unselected-tab manage-listing-tabs"
+      onClick={[Function]}
+      type="button"
+    >
+      Inactive Listings
+    </button>
+  </div>
+</div>
+`;

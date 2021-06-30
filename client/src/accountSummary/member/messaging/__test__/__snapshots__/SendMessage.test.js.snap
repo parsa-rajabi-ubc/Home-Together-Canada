@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SendMessage Snapshot test should match snapshot test of SendMessage 1`] = `
+<div>
+  <br />
+  <p>
+    To 
+    member2
+    : 
+  </p>
+  <div>
+    <label
+      className="label"
+    >
+      What would you like to contact this member about? 
+    </label>
+    
+    <textarea
+      className="undefined undefined undefined input"
+      cols="50"
+      maxLength={2000}
+      onChange={[Function]}
+    />
+  </div>
+  <label>
+    <input
+      className="btn btn-green mb-6 w-1/2 text-base py-2"
+      disabled={false}
+      onClick={[Function]}
+      type="submit"
+    />
+  </label>
+</div>
+`;

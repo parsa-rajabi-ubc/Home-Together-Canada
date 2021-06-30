@@ -11,13 +11,14 @@ exports[`SearchListingFiltersContainer Container test should match snapshot test
       className="col-span-3 sm:col-span-2"
     >
       <label
-        className="text-2xl font-medium"
+        className="page-title"
       >
-        Search Filtering
+        Search Filter
       </label>
       <label>
         <input
           className="btn btn-green w-1/4 float-right py-2"
+          disabled={false}
           onClick={[Function]}
           type="submit"
           value="Search"

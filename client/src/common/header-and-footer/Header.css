@@ -3,7 +3,7 @@
 }
 
 .nav-icon:hover {
-    @apply bg-white text-black opacity-50;
+    @apply bg-green-200;
 }
 
 .nav-btn {

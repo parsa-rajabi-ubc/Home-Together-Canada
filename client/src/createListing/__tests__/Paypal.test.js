@@ -10,6 +10,11 @@ import React from 'react';
 import renderer from 'react-test-renderer'
 import Paypal from "../Paypal";
 
+jest.mock("react-tooltip/node_modules/uuid", () => ({
+            v4: () => "00000000-0000-0000-0000-000000000000"}
+    )
+);
+
 describe('Paypal', () => {
     describe('Snapshot test', () => {
         it('should match snapshot test regardless of properties', () => {

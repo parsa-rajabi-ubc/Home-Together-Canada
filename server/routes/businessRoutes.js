@@ -11,12 +11,14 @@ const router = express.Router();
 const passport = require('passport');
 const { validationResult } = require('express-validator/check');
 const multer = require('multer');
-const path = require('path');
 
 const businessAccounts = require('../controllers/businessAccountController');
 const abstractUsers = require('../controllers/abstractUserController');
+const listings = require('../controllers/listingController');
 const usersValidator = require('../controllers/validators/userControllerValidator');
 const { isLoggedIn, userIsBusiness } = require('./routeUtils');
+const { DEVELOPMENT } = require('../constants/environmentConstants');
+const { formatBusinessListing } = require('../controllers/utils/listingControllerUtils');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -35,10 +37,12 @@ const uploads = multer({
     }
 }).single('image');
 
-// Get all business users
-router.get('/all/', function(req, res, next) {
-    businessAccounts.findAllBusinessAccounts(req, res);
-});
+if (process.env.NODE_ENV === DEVELOPMENT || !process.env.NODE_ENV) {
+    // Get all business users
+    router.get('/all/', function(req, res, next) {
+        businessAccounts.findAllBusinessAccounts(req, res);
+    });
+}
 
 // Create a business user
 router.post('/create/', usersValidator.validate('createBusinessUser'),
@@ -176,6 +180,70 @@ router.get('/logo/',
             .catch(err => {
                 res.json({ err: err.message });
             })
+    }
+);
+
+router.get(
+    '/listings/pending/',
+    isLoggedIn,
+    userIsBusiness,
+    function (req, res, next) {
+        listings.getBusinessPendingListings(req.user.uid)
+            .then(listings => {
+                const formattedPendingListings = listings.map(listing => formatBusinessListing(listing));
+                res.status(200).json({ pendingListings: formattedPendingListings });
+            })
+            .catch(err => {
+                res.status(500).json({ err: err.message });
+            });
+    }
+);
+
+router.get(
+    '/listings/live/',
+    isLoggedIn,
+    userIsBusiness,
+    function (req, res, next) {
+        listings.getBusinessLiveListings(req.user.uid)
+            .then(listings => {
+                const formattedLiveListings = listings.map(listing => formatBusinessListing(listing));
+                res.status(200).json({ liveListings: formattedLiveListings });
+            })
+            .catch(err => {
+                res.status(500).json({ err: err.message });
+            });
+    }
+);
+
+router.get(
+    '/listings/inactive/',
+    isLoggedIn,
+    userIsBusiness,
+    function (req, res, next) {
+        listings.getBusinessInactiveListings(req.user.uid)
+            .then(listings => {
+                const formattedInactiveListings = listings.map(listing => formatBusinessListing(listing));
+                res.status(200).json({ inactiveListings: formattedInactiveListings });
+            })
+            .catch(err => {
+                res.status(500).json({ err: err.message });
+            });
+    }
+);
+
+router.get(
+    '/listings/rejected/',
+    isLoggedIn,
+    userIsBusiness,
+    function (req, res, next) {
+        listings.getBusinessRejectedListings(req.user.uid)
+            .then(listings => {
+                const formattedRejectedListings = listings.map(listing => formatBusinessListing(listing));
+                res.status(200).json({ rejectedListings: formattedRejectedListings });
+            })
+            .catch(err => {
+                res.status(500).json({ err: err.message });
+            });
     }
 );
 

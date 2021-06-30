@@ -1335,7 +1335,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                   }
                 }
               />
-              Preferred living location(s) across Canada
+              Preferred living location(s) across Canada (maximum of 5)
             </div>
           </span>
           <div>
@@ -2295,6 +2295,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                   <input
                     className="false input"
                     disabled={false}
+                    maxLength={100}
                     onChange={[Function]}
                     placeholder="Elaborate (optional)"
                     type="text"
@@ -2494,6 +2495,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                   <input
                     className="false input"
                     disabled={false}
+                    maxLength={100}
                     onChange={[Function]}
                     placeholder="Elaborate (optional)"
                     type="text"
@@ -2764,6 +2766,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                   <input
                     className="false input"
                     disabled={false}
+                    maxLength={100}
                     onChange={[Function]}
                     placeholder="Elaborate (optional)"
                     type="text"
@@ -2963,6 +2966,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                   <input
                     className="false input"
                     disabled={false}
+                    maxLength={100}
                     onChange={[Function]}
                     placeholder="Elaborate (optional)"
                     type="text"
@@ -3544,8 +3548,9 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                 </div>
               </span>
               <textarea
-                className="undefined input"
+                className="undefined undefined input"
                 cols="50"
+                maxLength={2000}
                 name="aboutSelf"
                 onChange={[Function]}
                 placeholder="Let others know more about your lifestyle, values and why you want to home share"
@@ -3561,6 +3566,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
   <label>
     <input
       className="btn btn-green form-btn w-1/2"
+      disabled={false}
       onClick={[Function]}
       type="submit"
       value="Save"

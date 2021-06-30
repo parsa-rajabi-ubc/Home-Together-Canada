@@ -6,14 +6,19 @@
  *
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from "prop-types";
 import {AiOutlineCheckCircle as Check} from "react-icons/ai";
-import {AiOutlineCloseCircle as Ex} from "react-icons/ai";
+import {AiOutlineCloseCircle as Ex} from "react-icons/ai"
+import SendMessage from "../../accountSummary/member/messaging/SendMessage";
+import {toast} from "react-toastify";
+import {IN_DEVELOPMENT} from "../../common/constants/ToastText";
 
 
 function ProfilePage(props) {
     const {
+        uid,
+
         username,
         age,
 
@@ -63,6 +68,11 @@ function ProfilePage(props) {
 
     } = props;
 
+    const [sendingMessage, setSendingMessage] = useState(false);
+
+    const handleMessageClick = () => {
+        setSendingMessage(true);
+    }
 
     return (
         <div className="selected-component-grid-outer">
@@ -103,7 +113,7 @@ function ProfilePage(props) {
                             <span className={"label mr-3"}> {prefLocationText} </span>
                             <div className={"whitespace-pre mt-1"}>{preferredLocations}</div>
                         </section>
-                        <button className={"btn btn-green mb-6 w-1/2 text-base py-2"}>Send Message
+                        <button className={"btn btn-green mb-6 w-1/2 text-base py-2"} onClick={handleMessageClick}>Send Message
                         </button>
                     </div>
                     <div className={"col-start-2"}>
@@ -195,11 +205,13 @@ function ProfilePage(props) {
                             </tbody>
                         </table>
 
-                        <button className={"btn btn-red mx-auto my-6 w-1/2 text-base py-2"}>Report User
+                        <button className={"btn btn-red mx-auto my-6 w-1/2 text-base py-2"} onClick={() => toast.error(IN_DEVELOPMENT.MSG)}>
+                            Report User
                         </button>
                     </div>
 
                 </div>
+                {sendingMessage && <SendMessage receiverUsername={username} receiverId={uid}/>}
             </div>
         </div>
     );
@@ -208,6 +220,7 @@ function ProfilePage(props) {
 
 ProfilePage.propTypes =
     {
+        uid: PropTypes.number.isRequired,
         username: PropTypes.string.isRequired,
         age: PropTypes.number.isRequired,
 

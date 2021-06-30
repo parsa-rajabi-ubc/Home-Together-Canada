@@ -469,7 +469,10 @@ const getMemberProfilesMatchingSearchFilters = async (uid, searchFilters, filter
         include: [
             {
                 model: AbstractUser,
-                attributes: ['username']
+                attributes: ['username'],
+                where: {
+                    isBanned: false
+                }
             },
             {
                 model: AreaOfInterest
@@ -503,6 +506,41 @@ const getMemberProfilesMatchingSearchFilters = async (uid, searchFilters, filter
     return profilesFilteredByLocation;
 }
 
+const giveAdminPrivileges = uid => {
+    return MemberAccount.update({
+        isAdmin: true
+    }, {
+        where: {
+            uid: uid
+        }
+    });
+}
+
+const getAllAdminUsernames = () => {
+    return MemberAccount.findAll({
+        attributes: [],
+        include: [
+            {
+                model: AbstractUser,
+                attributes: ['username']
+            }
+        ],
+        where: {
+            isAdmin: true
+        }
+    });
+}
+
+const getAllMemberData = () => {
+    return MemberAccount.findAll({
+        include: [
+            {
+                model: AbstractUser
+            }
+        ]
+    });
+}
+
 module.exports = {
     createMemberAccount,
     findAllMemberAccounts,
@@ -517,5 +555,8 @@ module.exports = {
     updateMemberSearchFilters,
     getMemberProfilesMatchingSearchFilters,
     activateAccount,
-    deactivateAccount
+    deactivateAccount,
+    giveAdminPrivileges,
+    getAllAdminUsernames,
+    getAllMemberData
 }

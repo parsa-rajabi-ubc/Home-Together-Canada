@@ -15,6 +15,7 @@ describe('ProfilePage', () => {
         it("should render correctly regardless of properties", () => {
             // given
             const props = {
+                uid: 2,
                 username: "Babar",
                 age: 40,
 

@@ -26,28 +26,28 @@ exports[`Header Header structure should match snapshot test 1`] = `
           className="items-center justify-end flex-1 mr-16 list-reset lg:flex"
         >
           <a
-            className="nav-icon"
+            className="false nav-icon"
             href="/members"
             onClick={[Function]}
           >
             Search Member Profiles
           </a>
           <a
-            className="nav-icon"
+            className="false nav-icon"
             href="/services"
             onClick={[Function]}
           >
             Home Sharing Services
           </a>
           <a
-            className="nav-icon"
+            className="false nav-icon"
             href="/classifieds"
             onClick={[Function]}
           >
             Local Classifieds
           </a>
           <a
-            className="nav-icon"
+            className="false nav-icon"
             href="/faq"
             onClick={[Function]}
           >

@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FullConversation Snapshot test should match snapshot test if listing is NOT empty for userName 1`] = `
+<div>
+  <div>
+    <div>
+      <h1
+        style={
+          Object {
+            "float": "left",
+            "fontWeight": "bold",
+          }
+        }
+      >
+        
+      </h1>
+      <h1
+        style={
+          Object {
+            "alignSelf": "stretch",
+            "float": "right",
+            "fontWeight": "bold",
+            "textAlign": "right",
+          }
+        }
+      >
+        
+      </h1>
+       
+      <br />
+       
+      <br />
+      <MessageBox
+        leftOrRight="right"
+      />
+      <MessageBox
+        leftOrRight="right"
+      />
+      <MessageBox
+        leftOrRight="right"
+      />
+      <MessageBox
+        leftOrRight="right"
+      />
+      <MessageBox
+        leftOrRight="left"
+      />
+      <MessageBox
+        leftOrRight="right"
+      />
+      <MessageBox
+        leftOrRight="left"
+      />
+      <MessageBox
+        leftOrRight="left"
+      />
+      <MessageBox
+        leftOrRight="right"
+      />
+      <MessageBox
+        leftOrRight="left"
+      />
+      <SendMessage
+        receiverId={2}
+        receiverUsername=""
+      />
+    </div>
+  </div>
+</div>
+`;

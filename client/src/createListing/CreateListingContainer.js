@@ -29,6 +29,7 @@ import Paypal, {PAYMENT_STATUS} from "./Paypal";
 import {animateScroll as scroll} from 'react-scroll'
 import Confirmation from "../common/listings/Confirmation";
 import * as ListingService from "../services/ListingService";
+import * as UploadService from '../services/UploadService';
 import {reset} from "../redux/actionCreators";
 import {SESSION_ERR} from "../common/constants/errors";
 import {
@@ -45,6 +46,9 @@ const CONFIRMATION_TEXT = {
     SESSION_ERR: SESSION_ERR,
     GENERIC_ERROR: 'There was an error creating you listing. Please try again.'
 }
+
+const IMAGE_UPLOAD_ERROR = 'An error occurred when uploading the pictures for your listing. Remember files have a ' +
+    'maximum size of 2MB';
 
 const mapDispatchToProps = {
     reset,
@@ -63,17 +67,17 @@ const CreateListingContainer = (props) => {
     const [selectedSubcategories, setSelectedSubcategories] = useState();
     const [listingOrderID, setListingOrderID] = useState();
     const [isSelectedSubcategoryEmpty, setIsSelectedSubcategoryEmpty] = useState(true);
-    const [submitted, setSubmitted] = useState();
+    const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
 
     const isUserMember = (accountType === USER_TYPES.MEMBER);
 
     useEffect(() => {
-        if (paymentStatus === PAYMENT_STATUS.APPROVED && !isSelectedSubcategoryEmpty) {
-            submitListing(classifiedListing)
-        }
+        // if (paymentStatus === PAYMENT_STATUS.APPROVED && !isSelectedSubcategoryEmpty) {
+        //     submitListing(classifiedListing)
+        // }
         if (isListingValid) {
-            setShowConfirmation(true)
+            setShowConfirmation(true);
             setConfirmationMsg(isUserMember ? CONFIRMATION_TEXT.MEMBER_LISTINGS : CONFIRMATION_TEXT.BUSINESS_LISTINGS);
         }
     }, [paymentStatus, isListingValid]);
@@ -87,13 +91,14 @@ const CreateListingContainer = (props) => {
     const onSubmitClassifieds = (listing) => {
         setSubmitted(true);
         if (!isSelectedSubcategoryEmpty) {
-            setDisplayPayment(true);
-            scroll.scrollToBottom({
-                    // set smoothness = https://www.npmjs.com/package/react-scroll
-                    smooth: 'easeInOutQuad',
-                }
-            );
-            setClassifiedListing(listing);
+            // setDisplayPayment(true);
+            // scroll.scrollToBottom({
+            //         // set smoothness = https://www.npmjs.com/package/react-scroll
+            //         smooth: 'easeInOutQuad',
+            //     }
+            // );
+            // setClassifiedListing(listing);
+            submitListing(listing); // Remove after implementing PayPal
         }
     };
 
@@ -126,6 +131,18 @@ const CreateListingContainer = (props) => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.success) {
+                        if (listing.pictures) {
+                            UploadService.uploadPictures(listing.pictures, data.listing.id)
+                                .then(res => res.json())
+                                .then(data => {
+                                    if (!data.success) {
+                                        alert(IMAGE_UPLOAD_ERROR);
+                                    }
+                                })
+                                .catch(() => {
+                                    alert(IMAGE_UPLOAD_ERROR);
+                                });
+                        }
                         setIsListingValid(true);
                         setLoading(false);
                     } else if (data.authenticated === false) {
@@ -220,8 +237,8 @@ const CreateListingContainer = (props) => {
 
                 // Display confirmation if payment went through or services positing is submitted
                 !showConfirmation ?
-                    <div className={"sideBar-container grid-cols-8"}>
-                        <div className={"sideBar col-end-3"}>
+                    <div className={"flex"}>
+                        <div className={"flex-none w-1/4 m-6 rounded-xl shadow-xl"}>
                             <CreateListingControls
                                 isUserMember={isUserMember}
                                 chosenCategory={handleSelectedCategory}
@@ -231,7 +248,7 @@ const CreateListingContainer = (props) => {
                             />
                         </div>
 
-                        <div className={"sideBar-selected-component col-start-3 col-end-10"}>
+                        <div className={"flex-1"}>
                             {showAppropriateResultsPanel()}
                             {displayPayment &&
                             <Paypal

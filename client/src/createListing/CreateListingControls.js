@@ -11,29 +11,21 @@ import RadioButton from "../common/forms/RadioButton";
 import Dropdown from "../common/forms/Dropdown";
 import {
     BUSINESS_SERVICE_CATEGORIES_DROPDOWN,
-    GOVERNMENT_SERVICES_SUBCATEGORIES_LIST,
-    CO_HOUSING_SUBCATEGORIES_LIST,
-    SHARED_HOME_SERVICES_SUBCATEGORIES_LIST,
-    SHARED_BUSINESS_SERVICES_SUBCATEGORIES_LIST,
     MEMBER_SERVICE_CATEGORIES_DROPDOWN,
     MEMBER_SERVICE_CATEGORIES_DROPDOWN_OBJECT,
 } from "./constants/serviceListingConstants";
-import {BUSINESS_SERVICE_CATEGORIES, MEMBER_SERVICE_CATEGORIES} from "./constants/serviceListingCategoriesText"
-import {BUSINESS_CLASSIFIEDS_CATEGORIES} from "./constants/classifiedListingCategoriesText"
+import {MEMBER_SERVICE_CATEGORIES} from "./constants/serviceListingCategoriesText"
 
 import {dropdownDefaultCSS} from "../css/dropdownCSSUtil";
 import {
-    BUSINESS_CLASSIFIEDS_CATEGORIES_DROPDOWN,
-    CLASSES_CLUBS_EVENTS_SUBCATEGORIES_LIST,
-    HOUSE_YARD_SERVICES_SUBCATEGORIES_LIST,
-    LEGAL_SALES_AGENCIES_SUBCATEGORIES_LIST,
-    RENTALS_SUBCATEGORIES_LIST
+    BUSINESS_CLASSIFIEDS_CATEGORIES_DROPDOWN
 } from "./constants/classifiedListingConstants";
-import Checkbox from "../common/forms/Checkbox";
 import {SERVICES_TEXT, CLASSIFIEDS_TEXT, CREATE_LISTINGS_TEXT} from "../common/constants/listingsConstants";
 import {isValueInArray} from "../common/utils/generalUtils";
 import PropTypes from "prop-types";
 import {validateInput} from "../registration/registrationUtils";
+import {getSubcategories} from "../common/utils/listingsUtils";
+import CheckboxesList from "../common/forms/CheckboxesList";
 
 export const CREATE_LISTING_CONTROLS_TEXT = {
     CREATE_LISTING: CREATE_LISTINGS_TEXT,
@@ -75,7 +67,7 @@ const CreateListingControls = (props) => {
     useEffect(() => {
         chosenCategory(selectedCategory);
 
-        returnSubcategory(selectedCategory);
+        setSubcategories(getSubcategories(selectedCategory));
         setSelectedSubcategories([]);
     }, [selectedCategory]);
 
@@ -98,53 +90,6 @@ const CreateListingControls = (props) => {
         setSelectedSubcategories(list);
         chosenSubcategories(list);
         isSubcategoryEmpty(!list.length);
-    }
-
-    const returnSubcategory = (selectedCategory) => {
-        if (selectedListingType === SERVICES_TEXT) {
-            switch (selectedCategory) {
-                case BUSINESS_SERVICE_CATEGORIES.CO_HOUSING:
-                    setSubcategories(CO_HOUSING_SUBCATEGORIES_LIST);
-                    break;
-                case BUSINESS_SERVICE_CATEGORIES.SHARED_HOME_SERVICES:
-                    setSubcategories(SHARED_HOME_SERVICES_SUBCATEGORIES_LIST);
-                    break;
-                case BUSINESS_SERVICE_CATEGORIES.SHARED_BUSINESS_SERVICES:
-                    setSubcategories(SHARED_BUSINESS_SERVICES_SUBCATEGORIES_LIST);
-                    break;
-                case BUSINESS_SERVICE_CATEGORIES.GOVERNMENT_SERVICES:
-                    setSubcategories(GOVERNMENT_SERVICES_SUBCATEGORIES_LIST);
-
-            }
-        } else {
-            switch (selectedCategory) {
-                case BUSINESS_CLASSIFIEDS_CATEGORIES.RENTALS:
-                    setSubcategories(RENTALS_SUBCATEGORIES_LIST);
-                    break;
-                case BUSINESS_CLASSIFIEDS_CATEGORIES.HOUSE_YARD:
-                    setSubcategories(HOUSE_YARD_SERVICES_SUBCATEGORIES_LIST);
-                    break;
-                case BUSINESS_CLASSIFIEDS_CATEGORIES.LEGAL_SALES:
-                    setSubcategories(LEGAL_SALES_AGENCIES_SUBCATEGORIES_LIST);
-                    break;
-                case BUSINESS_CLASSIFIEDS_CATEGORIES.CLASSES_CLUBS:
-                    setSubcategories(CLASSES_CLUBS_EVENTS_SUBCATEGORIES_LIST);
-            }
-        }
-    }
-
-    const subcategoryCheckboxes = [];
-
-    for (let i = 0; i < subcategories.length; i++) {
-        subcategoryCheckboxes.push(
-            <Checkbox
-                key={subcategories[i]}
-                label={subcategories[i]}
-                id={subcategories[i]}
-                fontNormal={true}
-                onChange={handleSubcategoriesChange}
-            />
-        );
     }
 
     return (
@@ -188,10 +133,14 @@ const CreateListingControls = (props) => {
             </section>
             }
 
-            {(selectedCategory && !isUserMember) &&
+            {(selectedCategory && subcategories && !isUserMember) &&
             <section className={`${selectedSubcategoriesError && "pl-1 pb-2 border rounded-lg border-red-500"} m-4`}>
                 <p className={"label text-lg mb-1"}>{CREATE_LISTING_CONTROLS_TEXT.SELECT_SUBCATEGORIES}</p>
-                {subcategoryCheckboxes}
+                <CheckboxesList
+                    values={subcategories}
+                    selectedValues={selectedSubcategories}
+                    onChange={handleSubcategoriesChange}
+                />
             </section>
             }
 

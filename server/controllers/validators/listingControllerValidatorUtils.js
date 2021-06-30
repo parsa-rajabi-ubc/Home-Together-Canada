@@ -6,14 +6,19 @@
  *
  */
 const includes = require('lodash/includes');
+const fs = require('fs');
 
 const {
+    LISTING_TYPES,
     BUSINESS_SERVICES_CATEGORIES,
     MEMBER_SERVICE_CATEGORIES,
     BUSINESS_CLASSIFIEDS_CATEGORIES,
+    BUSINESS_LISTING_CATEGORIES,
+    MAX_LISTING_IMAGES
 } = require('../../constants/listingConstants');
-const {resolveCategoryToSubcategory} = require ("../utils/listingControllerUtils");
+const {resolveCategoryToSubcategory, getListingImages} = require ("../utils/listingControllerUtils");
 const memberAccounts = require('../memberAccountController');
+const listings = require('../listingController');
 
 const LISTING_VALIDATION_METHODS = {
     BASIC_LISTING_INFO: 'basicListingInfo',
@@ -26,12 +31,13 @@ const LISTING_VALIDATION_METHODS = {
     HOUSE_YARD_FORM: 'houseAndYardServicesForm',
     LEGAL_SALES_FORM: 'legalAndSalesForm',
     CLASSES_EVENTS_CLUBS_FORM: 'classesClubsEventsForm',
-    SEARCH_LISTINGS: 'searchListings'
-}
-
-const LISTING_TYPES = {
-    SERVICE: 'service',
-    CLASSIFIED: 'classified'
+    SEARCH_LISTINGS: 'searchListings',
+    ADMIN_APPROVE_LISTING: 'adminApproveListing',
+    LISTING_RELATIONSHIPS: 'listingRelationships',
+    DELETE_LISTING: 'deleteListing',
+    UPDATE_LISTING_SUBCATEGORIES: 'updateListingSubcategories',
+    EDIT_LISTING_IMAGES: 'editListingImages',
+    DELETE_LISTING_IMAGES: 'deleteListingImages'
 }
 
 const CATEGORY_FORM_VALIDATION_DICT = new Map([
@@ -138,6 +144,67 @@ const shouldOrderIdBeDefined = (orderId, type) => {
     return true;
 }
 
+const imageShouldExist = imageFilepath => {
+    const fullFilepath = 'server/public/' + imageFilepath;
+    if (!fs.existsSync(fullFilepath)) {
+        throw new Error('Cannot delete an image that does not exist');
+    }
+    return true;
+}
+
+const shouldBeAbleToUploadImagesToListing = listingId => {
+    if (getListingImages(listingId).length === MAX_LISTING_IMAGES) {
+        throw new Error('Cannot upload anymore images to this listing');
+    }
+    return true;
+}
+
+const listingShouldExist = listingId => {
+    return listings.findListing(listingId)
+        .then(listing => {
+            if (!listing) {
+                return Promise.reject(`Listing does not exist`);
+            }
+        })
+}
+
+const listingShouldBelongToUser = (listingId, uid) => {
+    return listings.findListing(listingId)
+        .then(listing => {
+            if (!listing || listing.uid !== uid) {
+                return Promise.reject('Listing does not belong to this user.');
+            }
+        });
+}
+
+const listingShouldBeLiveOrPending = listingId => {
+    return listings.findPendingOrLiveListing(listingId)
+        .then(listing => {
+            if (!listing) {
+                return Promise.reject('Listings that are not live or pending cannot be edited');
+            }
+        });
+}
+
+const listingShouldHaveSubcategories = (subcategories, listingId) => {
+    return listings.findListingWithCategory(listingId)
+        .then(listing => {
+            const category = listing.ListingCategory.name;
+
+            if ((includes(BUSINESS_LISTING_CATEGORIES, category)) && (!subcategories || (Array.isArray(subcategories) && !subcategories.length))) {
+                return Promise.reject('Edited listing must have subcategories');
+            }
+        });
+}
+
+const listingShouldNotBeDeletedOrExpired = listingId => {
+    return listings.findDeletedListing(listingId)
+        .then(listing => {
+            if (listing) {
+                return Promise.reject('Cannot make changes to a listing that has already been deleted');
+            }
+        })
+}
 
 module.exports = {
     LISTING_VALIDATION_METHODS,
@@ -153,4 +220,11 @@ module.exports = {
     isValidSubcategoryForSelectedCategory,
     listingShouldHaveCategories,
     shouldOrderIdBeDefined,
+    listingShouldExist,
+    listingShouldBelongToUser,
+    listingShouldBeLiveOrPending,
+    listingShouldHaveSubcategories,
+    listingShouldNotBeDeletedOrExpired,
+    imageShouldExist,
+    shouldBeAbleToUploadImagesToListing
 }

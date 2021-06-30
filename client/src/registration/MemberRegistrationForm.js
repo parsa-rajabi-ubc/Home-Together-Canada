@@ -53,10 +53,16 @@ import {Link} from "react-router-dom";
 import indexOf from 'lodash/indexOf';
 import {TERMS_OF_SERVICE_TEXT} from "../common/constants/termsOfServiceText";
 import {PRIVACY_POLICY_TEXT} from "../common/constants/privacyPolicyText";
+import {toast, Flip} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'
+import {REGISTRATION_TOAST} from "../common/constants/ToastText";
+import {MAX_AREAS_OF_INTEREST} from "../common/constants/memberConstants";
+import {MEMBER_FIELD_LENGTHS, USER_FIELD_LENGTHS} from "../common/constants/fieldLengths";
+
+toast.configure()
 
 const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated, setActive, setMemberSearchFilters};
 
-//Returns a Form with fields
 function MemberRegistrationForm(props) {
     const {history, setIsAdmin, setAccountType, setAuthenticated, setActive, setMemberSearchFilters} = props;
     const [firstName, setFirstName] = useState(undefined);
@@ -530,6 +536,17 @@ function MemberRegistrationForm(props) {
 
         if (!isFormValid()) {
             // form is invalid
+            toast.error(REGISTRATION_TOAST.ERROR, {
+                toastId: "errorToast",
+                position: "bottom-center",
+                autoClose: 10000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: false,
+                transition: Flip
+            });
             event.preventDefault();
             return;
         }
@@ -642,6 +659,18 @@ function MemberRegistrationForm(props) {
                         }
                     });
 
+                    toast.success(REGISTRATION_TOAST.SUCCESS, {
+                        toastId: "successToast",
+                        position: "bottom-center",
+                        autoClose: 10000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: false,
+                        transition: Flip
+                    });
+
                     // user is authenticated, redirect to home screen
                     return history.push('/');
                 } else if (data && data.errors && data.errors.length) {
@@ -684,9 +713,8 @@ function MemberRegistrationForm(props) {
                                 label="First Name"
                                 autoComplete={"given-name"}
                                 required={true}
-                                onChange={(e) => {
-                                    setFirstName(e.target.value)
-                                }}
+                                onChange={(e) => setFirstName(e.target.value)}
+                                charLimit={USER_FIELD_LENGTHS.FIRST_NAME}
                             />
                             <TextArea
                                 className={`${lastNameError && "border-red-500"} input`}
@@ -695,6 +723,7 @@ function MemberRegistrationForm(props) {
                                 autoComplete={"family-name"}
                                 required={true}
                                 onChange={(e) => setLastName(e.target.value)}
+                                charLimit={USER_FIELD_LENGTHS.LAST_NAME}
                             />
                             <TextArea
                                 className={`${emailError && "border-red-500"} input`}
@@ -704,6 +733,7 @@ function MemberRegistrationForm(props) {
                                 labelClassName={"label"}
                                 required={true}
                                 onChange={(e) => setEmail(e.target.value)}
+                                charLimit={USER_FIELD_LENGTHS.EMAIL}
                             />
                             <PhoneNumInput
                                 className={`${phoneNumberError && "border-red-500"} phone`}
@@ -794,22 +824,30 @@ function MemberRegistrationForm(props) {
                                             placeholder="What gender do you identify as? (optional)"
                                             value={genderDescription}
                                             onChange={(e) => setGenderDescription(e.target.value)}
+                                            charLimit={MEMBER_FIELD_LENGTHS.GENDER_DESCRIPTION}
                                         />}
                                         <LabelAsterisk label={"Year of Birth"}/>
                                         <Tooltip text={MEMBER_PROFILE_INFO_TEXT.YEAR_OF_BIRTH} toolTipID="yearOfBirth"/>
-                                        <BirthYear label={"Year of Birth"} onChange={handleYearChange}
-                                                   dropdownCSS={yearOfBirthError ? dropdownErrorCSS : dropdownDefaultCSS}/>
+                                        <BirthYear
+                                            label={"Year of Birth"}
+                                            onChange={handleYearChange}
+                                            dropdownCSS={yearOfBirthError ? dropdownErrorCSS : dropdownDefaultCSS}
+                                        />
                                         <LabelAsterisk label={"Family Status"}/>
-                                        <Tooltip text={MEMBER_PROFILE_INFO_TEXT.FAMILY_STATUS}
-                                                 toolTipID="familyStatus"/>
+                                        <Tooltip
+                                            text={MEMBER_PROFILE_INFO_TEXT.FAMILY_STATUS}
+                                            toolTipID="familyStatus"
+                                        />
                                         <Status
                                             onChange={handleFamilyStatusChange}
                                             dropdownCSS={familyStatusError ? dropdownErrorCSS : dropdownDefaultCSS}
                                         />
                                         {checkStatus(selectedFamilyStatus)}
                                         <LabelAsterisk label={"Work Status"}/>
-                                        <WorkStatus onChange={handleWorkStatusChange}
-                                                    dropdownCSS={workStatusError ? dropdownErrorCSS : dropdownDefaultCSS}/>
+                                        <WorkStatus
+                                            onChange={handleWorkStatusChange}
+                                            dropdownCSS={workStatusError ? dropdownErrorCSS : dropdownDefaultCSS}
+                                        />
                                         <LabelAsterisk label={"Open to Sharing With"}/>
                                         <Tooltip text={MEMBER_PROFILE_INFO_TEXT.NUM_PEOPLE_SHARE}
                                                  toolTipID="numPeopleToShare"/>
@@ -840,14 +878,17 @@ function MemberRegistrationForm(props) {
                                                     placeholder="Max $ CAD"
                                                     onChange={(e) => setMaxRent(e.target.value)}
                                                 />
-
                                             </div>
                                         </div>
                                         <LabelAsterisk label={"Preferred Living Location(s)"}/>
-                                        <Tooltip text={MEMBER_PROFILE_INFO_TEXT.INTERESTED_AREA}
-                                                 toolTipID="interestedArea"/>
-                                        <InterestedArea onChange={setAreasOfInterest}
-                                                        areasOfInterestError={areasOfInterestError}
+                                        <Tooltip
+                                            text={MEMBER_PROFILE_INFO_TEXT.INTERESTED_AREA}
+                                             toolTipID="interestedArea"
+                                        />
+                                        <InterestedArea
+                                            onChange={setAreasOfInterest}
+                                            areasOfInterestError={areasOfInterestError}
+                                            max={MAX_AREAS_OF_INTEREST}
                                         />
                                         <div className="grid grid-cols-6 gap-x-6 mt-5">
                                             <div className="column-span-6-layout">
@@ -863,12 +904,14 @@ function MemberRegistrationForm(props) {
                                                         onChange={(e) => setPetFriendly(e.target.value)}
                                                     />
                                                     {(petFriendly === "yes") &&
-                                                    <TextArea
-                                                        className={"input"}
-                                                        placeholder="Elaborate (optional)"
-                                                        onChange={e => setPetDescription(e.target.value)}
-                                                        value={petDescription}
-                                                    />}
+                                                        <TextArea
+                                                            className={"input"}
+                                                            placeholder="Elaborate (optional)"
+                                                            onChange={e => setPetDescription(e.target.value)}
+                                                            value={petDescription}
+                                                            charLimit={MEMBER_FIELD_LENGTHS.PETS_DESCRIPTION}
+                                                        />
+                                                    }
                                                 </section>
                                             </div>
                                             <div className="column-span-6-layout">
@@ -884,12 +927,14 @@ function MemberRegistrationForm(props) {
                                                         onChange={(e) => setSmoking(e.target.value)}
                                                     />
                                                     {(smoking === "yes") &&
-                                                    <TextArea
-                                                        className={"input"}
-                                                        placeholder="Elaborate (optional)"
-                                                        onChange={e => setSmokingDescription(e.target.value)}
-                                                        value={smokingDescription}
-                                                    />}
+                                                        <TextArea
+                                                            className={"input"}
+                                                            placeholder="Elaborate (optional)"
+                                                            onChange={e => setSmokingDescription(e.target.value)}
+                                                            value={smokingDescription}
+                                                            charLimit={MEMBER_FIELD_LENGTHS.SMOKING_DESCRIPTION}
+                                                        />
+                                                    }
                                                 </section>
                                             </div>
                                             <div className="column-span-6-layout">
@@ -905,12 +950,14 @@ function MemberRegistrationForm(props) {
                                                         onChange={(e) => setMobilityIssues(e.target.value)}
                                                     />
                                                     {(mobilityIssues === "yes") &&
-                                                    <TextArea
-                                                        className={"input"}
-                                                        placeholder="Elaborate (optional)"
-                                                        onChange={e => setMobilityIssuesDescription(e.target.value)}
-                                                        value={mobilityIssuesDescription}
-                                                    />}
+                                                        <TextArea
+                                                            className={"input"}
+                                                            placeholder="Elaborate (optional)"
+                                                            onChange={e => setMobilityIssuesDescription(e.target.value)}
+                                                            value={mobilityIssuesDescription}
+                                                            charLimit={MEMBER_FIELD_LENGTHS.HEALTH_MOBILITY_DESCRIPTION}
+                                                        />
+                                                    }
                                                 </section>
                                             </div>
                                             <div className="column-span-6-layout">
@@ -924,12 +971,14 @@ function MemberRegistrationForm(props) {
                                                         onChange={(e) => setHasAllergies(e.target.value)}
                                                     />
                                                     {(hasAllergies === "yes") &&
-                                                    <TextArea
-                                                        className={"input"}
-                                                        placeholder="Elaborate (optional)"
-                                                        onChange={e => setAllergiesDescription(e.target.value)}
-                                                        value={allergiesDescription}
-                                                    />}
+                                                        <TextArea
+                                                            className={"input"}
+                                                            placeholder="Elaborate (optional)"
+                                                            onChange={e => setAllergiesDescription(e.target.value)}
+                                                            value={allergiesDescription}
+                                                            charLimit={MEMBER_FIELD_LENGTHS.ALLERGIES_DESCRIPTION}
+                                                        />
+                                                    }
                                                 </section>
                                             </div>
                                             <div className="column-span-6-layout">
@@ -945,12 +994,14 @@ function MemberRegistrationForm(props) {
                                                         onChange={(e) => setReligious(e.target.value)}
                                                     />
                                                     {(religious === "yes") &&
-                                                    <TextArea
-                                                        className={"input"}
-                                                        placeholder="Elaborate (optional)"
-                                                        onChange={e => setReligionDescription(e.target.value)}
-                                                        value={religionDescription}
-                                                    />}
+                                                        <TextArea
+                                                            className={"input"}
+                                                            placeholder="Elaborate (optional)"
+                                                            onChange={e => setReligionDescription(e.target.value)}
+                                                            value={religionDescription}
+                                                            charLimit={MEMBER_FIELD_LENGTHS.RELIGION_DESCRIPTION}
+                                                        />
+                                                    }
                                                 </section>
                                             </div>
                                             <div className="column-span-6-layout">
@@ -966,12 +1017,14 @@ function MemberRegistrationForm(props) {
                                                         onChange={(e) => setHasDiet(e.target.value)}
                                                     />
                                                     {(hasDiet === "yes") &&
-                                                    <TextArea
-                                                        className={"input"}
-                                                        placeholder="Elaborate (optional)"
-                                                        onChange={e => setDietDescription(e.target.value)}
-                                                        value={dietDescription}
-                                                    />}
+                                                        <TextArea
+                                                            className={"input"}
+                                                            placeholder="Elaborate (optional)"
+                                                            onChange={e => setDietDescription(e.target.value)}
+                                                            value={dietDescription}
+                                                            charLimit={MEMBER_FIELD_LENGTHS.DIET_DESCRIPTION}
+                                                        />
+                                                    }
                                                 </section>
                                             </div>
                                             <div className="column-span-6-layout">
@@ -986,13 +1039,15 @@ function MemberRegistrationForm(props) {
                                                         value={hasHome}
                                                         onChange={(e) => setHasHome(e.target.value)}
                                                     />
-                                                    {(hasHome === "yes")
-                                                    && <TextArea
-                                                        className={"input inline w-11/12 "}
-                                                        placeholder="Elaborate (optional)"
-                                                        onChange={e => setHomeDescription(e.target.value)}
-                                                        value={homeDescription}
-                                                    />}
+                                                    {(hasHome === "yes") &&
+                                                        <TextArea
+                                                            className={"input inline w-11/12 "}
+                                                            placeholder="Elaborate (optional)"
+                                                            onChange={e => setHomeDescription(e.target.value)}
+                                                            value={homeDescription}
+                                                            charLimit={MEMBER_FIELD_LENGTHS.HAS_HOME_TO_SHARE_DESCRIPTION}
+                                                        />
+                                                    }
                                                 </section>
                                             </div>
                                             <div className="column-span-6-layout">
@@ -1006,12 +1061,14 @@ function MemberRegistrationForm(props) {
                                                         onChange={(e) => setInterestInBuyingHome(e.target.value)}
                                                     />
                                                     {(interestInBuyingHome === "yes") &&
-                                                    <TextArea
-                                                        className={"input"}
-                                                        placeholder="Elaborate (optional)"
-                                                        onChange={e => setInterestDescription(e.target.value)}
-                                                        value={interestDescription}
-                                                    />}
+                                                        <TextArea
+                                                            className={"input"}
+                                                            placeholder="Elaborate (optional)"
+                                                            onChange={e => setInterestDescription(e.target.value)}
+                                                            value={interestDescription}
+                                                            charLimit={MEMBER_FIELD_LENGTHS.INTERESTED_IN_BUYING_HOME_DESCRIPTION}
+                                                        />
+                                                    }
                                                 </section>
                                             </div>
                                         </div>
@@ -1025,6 +1082,7 @@ function MemberRegistrationForm(props) {
                                                 name="aboutSelf"
                                                 placeholder="Let others know more about your lifestyle, values and why you want to home share"
                                                 onChange={(e) => setAboutSelf(e.target.value)}
+                                                charLimit={MEMBER_FIELD_LENGTHS.BIO}
                                             />
                                         </div>
                                     </div>
@@ -1117,8 +1175,10 @@ function MemberRegistrationForm(props) {
                                 </div>
                                 <LabelAsterisk
                                     label={"I'm looking for member(s) who are looking to live with the following number of people"}/>
-                                <Tooltip text={MEMBER_PROFILE_INFO_TEXT.NUM_PEOPLE_SHARE}
-                                         toolTipID="numPeopleToSharePref"/>
+                                <Tooltip
+                                    text={MEMBER_PROFILE_INFO_TEXT.NUM_PEOPLE_SHARE}
+                                    toolTipID="numPeopleToSharePref"
+                                />
                                 <div className="col-span-3 sm:col-span-2">
                                     <div className="column-span-6-layout">
                                         <ShareLimit
@@ -1309,6 +1369,7 @@ function MemberRegistrationForm(props) {
                                                 name={"termsOfService"}
                                                 value={TERMS_OF_SERVICE_TEXT}
                                                 disabled={true}
+                                                customDisabled={true}
                                             />
                                             <Checkbox
                                                 label={"I have read and agreed to the Terms of Service"}
@@ -1328,6 +1389,7 @@ function MemberRegistrationForm(props) {
                                                 name={"privacyPolicy"}
                                                 value={PRIVACY_POLICY_TEXT}
                                                 disabled={true}
+                                                customDisabled={true}
                                             />
                                             <Checkbox
                                                 label={"I have read and agreed to the Privacy Policy"}

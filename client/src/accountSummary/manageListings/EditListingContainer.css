@@ -1,0 +1,47 @@
+.page-layout {
+    @apply m-10;
+}
+
+.text-inner-shell {
+    @apply px-3;
+}
+
+.content-outer-shell{
+    @apply mt-5 px-4 py-5 bg-white;
+}
+
+.content-grid {
+    @apply grid grid-cols-2 gap-6;
+}
+
+.content-grid-span {
+    @apply col-span-3;
+}
+
+.content-inner-shell {
+    @apply col-start-1 col-end-7 py-5 px-5 m-6 bg-white shadow-lg rounded-xl;
+}
+
+@screen md {
+    .page-layout{
+        @apply grid grid-cols-4 gap-0;
+    }
+    .text-outer-shell {
+        @apply col-span-1;
+    }
+    .content-outer-shell {
+    @apply mt-0 col-span-2;
+    }
+}
+
+@screen sm {
+    .text-inner-shell {
+        @apply px-0;
+    }
+    .content-outer-shell {
+        @apply rounded-md overflow-hidden p-6;
+    }
+    .content-grid-span {
+        @apply col-span-2;
+    }
+}

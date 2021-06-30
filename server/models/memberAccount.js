@@ -6,6 +6,8 @@
  *
  */
 
+const { MEMBER_FIELD_LENGTHS } = require('../constants/fieldLengthsConstants');
+
 module.exports = (DataTypes, sequelize) => {
     return sequelize.define('MemberAccount', {
         uid: {
@@ -25,21 +27,21 @@ module.exports = (DataTypes, sequelize) => {
           defaultValue: true
         },
         deactivationReason: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING(MEMBER_FIELD_LENGTHS.DEACTIVATION_REASON)
         },
         gender: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(MEMBER_FIELD_LENGTHS.GENDER),
             allowNull: false
         },
         genderDescription: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(MEMBER_FIELD_LENGTHS.GENDER_DESCRIPTION),
         },
         birthYear: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
         status: {
-          type: DataTypes.STRING,
+          type: DataTypes.STRING(MEMBER_FIELD_LENGTHS.STATUS),
           allowNull: false
         },
         minMonthlyBudget: {
@@ -55,67 +57,67 @@ module.exports = (DataTypes, sequelize) => {
             allowNull: false
         },
         homeToShareDescription: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING(MEMBER_FIELD_LENGTHS.HAS_HOME_TO_SHARE_DESCRIPTION)
         },
         isInterestedInBuyingHome: {
           type: DataTypes.BOOLEAN,
           allowNull: false
         },
         interestInBuyingHomeDescription: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING(MEMBER_FIELD_LENGTHS.INTERESTED_IN_BUYING_HOME_DESCRIPTION)
         },
         isReligionImportant: {
             type: DataTypes.BOOLEAN,
             allowNull: false
         },
         religionDescription: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING(MEMBER_FIELD_LENGTHS.RELIGION_DESCRIPTION)
         },
         isDietImportant: {
             type: DataTypes.BOOLEAN,
             allowNull: false
         },
         dietDescription: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING(MEMBER_FIELD_LENGTHS.DIET_DESCRIPTION)
         },
         hasHealthMobilityIssues: {
             type: DataTypes.BOOLEAN,
             allowNull: false
         },
         healthMobilityIssuesDescription: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING(MEMBER_FIELD_LENGTHS.HEALTH_MOBILITY_DESCRIPTION)
         },
         hasAllergies: {
             type: DataTypes.BOOLEAN,
             allowNull: false
         },
         allergiesDescription: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING(MEMBER_FIELD_LENGTHS.ALLERGIES_DESCRIPTION)
         },
         hasPets: {
             type: DataTypes.BOOLEAN,
             allowNull: false
         },
         petsDescription: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING(MEMBER_FIELD_LENGTHS.PETS_DESCRIPTION)
         },
         isSmoker: {
             type: DataTypes.BOOLEAN,
             allowNull: false
         },
         smokingDescription: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING(MEMBER_FIELD_LENGTHS.SMOKING_DESCRIPTION)
         },
         numRoommates: {                  // -1 means any number
             type: DataTypes.INTEGER,
             allowNull: false
         },
         workStatus: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(MEMBER_FIELD_LENGTHS.WORK_STATUS),
             allowNull: false
         },
         bio: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING(MEMBER_FIELD_LENGTHS.BIO)
         },
 
         // PREFERENCES
@@ -128,11 +130,11 @@ module.exports = (DataTypes, sequelize) => {
             allowNull: false
         },
         statusPreference: {
-            type: DataTypes.STRING, // stringified array
+            type: DataTypes.STRING(1000), // stringified array
             allowNull: false
         },
         numRoommatesPreference: {
-            type: DataTypes.STRING, // stringified array, -1 means any number
+            type: DataTypes.STRING(50), // stringified array, -1 means any number
             allowNull: false
         },
         minBudgetPreference: {
@@ -156,7 +158,7 @@ module.exports = (DataTypes, sequelize) => {
             allowNull: false
         },
         genderPreference: {
-            type: DataTypes.STRING,     // stringified array
+            type: DataTypes.STRING(400),     // stringified array
             allowNull: false
         },
         religionPreference: {

@@ -11,7 +11,21 @@ import Asterisk from "./Asterisk";
 import Tooltip from "./Tooltip";
 
 function LargeTextArea(props) {
-    const {label, name, placeholder, required, disabled, value, onChange, toolTipID, toolTipText, rows, className ="input"} = props;
+    const {
+        label,
+        name,
+        placeholder,
+        required,
+        disabled,
+        customDisabled,
+        value,
+        onChange,
+        toolTipID,
+        toolTipText,
+        rows,
+        className = "input",
+        charLimit
+    } = props;
     return (
         <div>
             <label className={"label"}>
@@ -25,7 +39,7 @@ function LargeTextArea(props) {
             />
             }
             <textarea
-                className={`${disabled && "disabled-field"} ${className}`}
+                className={`${disabled && "disabled-field"} ${customDisabled && "opacity-100 my-4 p-4 bg-gray-200 text-gray-800 text-sm"} ${className}`}
                 name={name}
                 rows={rows}
                 cols="50"
@@ -33,6 +47,7 @@ function LargeTextArea(props) {
                 onChange={onChange}
                 disabled={disabled}
                 value={value}
+                maxLength={charLimit}
             />
         </div>
     );
@@ -46,10 +61,12 @@ LargeTextArea.propTypes = {
     rows: PropTypes.string,
     required: PropTypes.bool,
     disabled: PropTypes.bool,
+    customDisabled: PropTypes.bool,
     value: PropTypes.string,
     placeholder: PropTypes.string,
     className: PropTypes.string,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    charLimit: PropTypes.number
 };
 
 export default LargeTextArea;

@@ -13,3 +13,5 @@ export const STATUSES = {
     SINGLE_PARENT: 'Single Parent',
     EXISTING_GROUP: 'Existing Group'
 }
+
+export const MAX_AREAS_OF_INTEREST = 5;

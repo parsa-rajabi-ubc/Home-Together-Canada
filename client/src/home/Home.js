@@ -13,6 +13,13 @@ import {Link} from "react-router-dom";
 import houseSearch from '../images/house_search.jpg'
 import texting from '../images/computer.jpg'
 import business from '../images/shop.jpg'
+import {animateScroll as scroll} from 'react-scroll'
+
+
+function scrollDown(){
+    // scrolls down to first header on home page
+    scroll.scrollTo(550);
+}
 
 const Home = () => {
     return (
@@ -44,10 +51,11 @@ const Home = () => {
 
                                     <div className="mt-5 ml-auto sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                                         <div>
-                                            <Link to={'/about'}
-                                                  className=" rounded-md shadow flex btn btn-green">
+                                            <button
+                                                onClick={scrollDown}
+                                                className=" rounded-md shadow flex btn btn-green">
                                                 Learn More
-                                            </Link>
+                                            </button>
                                         </div>
                                         <div className="mt-3 sm:mt-0 sm:ml-3">
                                             <Link to={'/faq'}

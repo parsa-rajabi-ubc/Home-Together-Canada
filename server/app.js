@@ -12,9 +12,12 @@ const businessRoutes = require('./routes/businessRoutes');
 const memberRoutes = require('./routes/memberRoutes');
 const userRoutes = require('./routes/userRoutes');
 const listingRoutes = require('./routes/listingRoutes');
+const adminRoutes = require('./routes/adminRoutes');
+const messageRoutes = require('./routes/messageRoutes');
 const db = require("./models");
 const listingCategories = require('./controllers/listingCategoryController');
 const listingSubcategories = require('./controllers/listingSubcategoryController');
+const { DEVELOPMENT } = require('./constants/environmentConstants');
 
 const app = express();
 
@@ -23,13 +26,15 @@ app.use(express.static(path.join(__dirname, '../client/build')));
 // Serve static files that are in the public folder
 app.use(express.static(__dirname + '/public'));
 
-if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
+if (process.env.NODE_ENV === DEVELOPMENT || !process.env.NODE_ENV) {
     const corsOptions = {
         origin: 'http://localhost:3002',
         credentials: true
     }
     app.use(cors(corsOptions));
 }
+
+console.log('NODE_ENV: ', process.env.NODE_ENV);
 
 app.use(expressValidator());
 
@@ -46,7 +51,9 @@ app.use(passport.session()); // persistent login sessions
 app.use('/user', userRoutes);
 app.use('/business', businessRoutes);
 app.use('/member', memberRoutes);
-app.use('/listing', listingRoutes)
+app.use('/listing', listingRoutes);
+app.use('/admin', adminRoutes);
+app.use('/message', messageRoutes);
 app.use('/', routes);
 
 //load passport strategies
@@ -78,7 +85,8 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
+  console.log('88: ', app.get('env'));
+    // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 

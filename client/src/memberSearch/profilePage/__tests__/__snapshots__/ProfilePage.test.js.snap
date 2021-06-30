@@ -108,6 +108,7 @@ exports[`ProfilePage Snapshot test should render correctly regardless of propert
         </section>
         <button
           className="btn btn-green mb-6 w-1/2 text-base py-2"
+          onClick={[Function]}
         >
           Send Message
         </button>
@@ -432,6 +433,7 @@ exports[`ProfilePage Snapshot test should render correctly regardless of propert
         </table>
         <button
           className="btn btn-red mx-auto my-6 w-1/2 text-base py-2"
+          onClick={[Function]}
         >
           Report User
         </button>

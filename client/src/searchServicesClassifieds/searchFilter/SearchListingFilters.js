@@ -8,6 +8,8 @@
 
 import React, {useContext} from 'react';
 import PropTypes from "prop-types";
+import includes from 'lodash/includes';
+
 import SubmitButton from "../../common/forms/SubmitButton";
 import Dropdown from "../../common/forms/Dropdown";
 import {dropdownDefaultCSS, dropdownErrorCSS} from "../../css/dropdownCSSUtil";
@@ -30,6 +32,7 @@ function SearchListingFilters(props) {
         categoryOptions,
         selectedCategory,
         subcategories,
+        selectedSubcategories,
 
         handleSubcategoriesChange,
         handleCategoryChange,
@@ -54,6 +57,7 @@ function SearchListingFilters(props) {
                 id={subcategory.toString()}
                 fontNormal={true}
                 onChange={handleSubcategoriesChange}
+                checked={includes(selectedSubcategories, subcategory)}
             />
     );
 
@@ -61,7 +65,7 @@ function SearchListingFilters(props) {
         <div className="col-start-1 col-end-7 py-5 px-5 my-6 ml-6 bg-white shadow-lg rounded-xl">
             <div className="grid grid-cols-2 gap-6">
                 <div className="col-span-3 sm:col-span-2">
-                    <label className="text-2xl font-medium">Search Filtering</label>
+                    <label className="page-title">Search Filter</label>
                     <SubmitButton
                         inputValue={"Search"}
                         className="btn btn-green w-1/4 float-right py-2"
@@ -85,6 +89,7 @@ function SearchListingFilters(props) {
                             options={categoryOptions}
                             onChange={handleCategoryChange}
                             dropdownCSS={selectedCategoryError ? dropdownErrorCSS : dropdownDefaultCSS}
+                            initialSelection={(selectedCategory && {label: selectedCategory, value: selectedCategory}) || undefined}
                         />
                     </section>
 
@@ -113,6 +118,7 @@ SearchListingFilters.propTypes = {
     categoryOptions: PropTypes.array.isRequired,
     selectedCategory: PropTypes.string,
     subcategories: PropTypes.array.isRequired,
+    selectedSubcategories: PropTypes.array,
 
     handleSubcategoriesChange: PropTypes.func.isRequired,
     handleCategoryChange: PropTypes.func.isRequired,

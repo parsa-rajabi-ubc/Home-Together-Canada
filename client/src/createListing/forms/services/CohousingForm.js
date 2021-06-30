@@ -2,7 +2,7 @@
  * @Author:     Jeff Hatton
  * @Created:    2021.02.10
  *
- * @Description: Cohousing listing form
+ * @Description: Form to create a listing in Cohousing listing category
  *
  */
 
@@ -19,16 +19,26 @@ import {
     validateInput,
 } from "../../../registration/registrationUtils";
 import {validatePositiveNumber} from "../../../common/utils/generalUtils";
+import {LISTING_FIELD_LENGTHS} from "../../../common/constants/fieldLengths";
 
 const CohousingForm = (props) => {
-    const { onSubmit } = props;
+    const {
+        onSubmit,
+        listingExists = false,
+        existingTitle,
+        existingShortDescription,
+        existingFullDescription,
+        existingContactName,
+        existingUnitsForSale,
+        existingUnitsForRent
+    } = props;
 
-    const [title, setTitle] = useState(undefined);
-    const [contactName, setContactName] = useState(undefined);
-    const [shortDescription, setShortDescription] = useState(undefined);
-    const [fullDescription, setFullDescription] = useState(undefined);
-    const [unitsForSale, setUnitsForSale] = useState(undefined);
-    const [unitsForRent, setUnitsForRent] = useState(undefined);
+    const [title, setTitle] = useState(existingTitle || undefined);
+    const [shortDescription, setShortDescription] = useState(existingShortDescription || undefined);
+    const [fullDescription, setFullDescription] = useState(existingFullDescription || undefined);
+    const [contactName, setContactName] = useState(existingContactName || undefined);
+    const [unitsForSale, setUnitsForSale] = useState(existingUnitsForSale || undefined);
+    const [unitsForRent, setUnitsForRent] = useState(existingUnitsForRent || undefined);
 
     const [titleError, setTitleError] = useState(undefined);
     const [contactNameError, setContactNameError] = useState(undefined);
@@ -96,32 +106,29 @@ const CohousingForm = (props) => {
             <div className="col-start-1 col-end-7 py-5 px-5 m-6 bg-white shadow-lg rounded-xl">
                 <div className="grid grid-cols-2 gap-6">
                     <div className="col-span-3 sm:col-span-2">
-
                         <h1 className={"page-title mb-5"}> {TEXT.form_title} </h1>
-
                         <TextArea
                             className={`${titleError && "border-red-500"} input`}
                             label={TEXT.title}
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setTitle(e.target.value)}
+                            value={title || ''}
+                            charLimit={LISTING_FIELD_LENGTHS.TITLE}
                         />
-
                         <div className={"grid grid-cols-9 gap-x-6"}>
-
                             <section className={"col-start-1 col-end-5"}>
-
                                 <TextArea
                                     className={`${shortDescriptionError && "border-red-500"} input`}
                                     label={TEXT.short_des + " (" + SHORT_DESC_CHAR_COUNT + " Characters)"}
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setShortDescription(e.target.value)}
+                                    value={shortDescription || ''}
                                     charLimit={SHORT_DESC_CHAR_COUNT}
                                 />
                             </section>
                             <section className={"col-start-6 col-end-9"}>
-
                                 <LabelAsterisk
                                     label={TEXT.units_for_sale}
                                     className={"label"}
@@ -132,8 +139,8 @@ const CohousingForm = (props) => {
                                     min="0"
                                     step="1"
                                     onChange={(e) => setUnitsForSale(e.target.value)}
+                                    value={unitsForSale}
                                 />
-
                             </section>
                             <section className={"col-start-1 col-end-5"}>
                                 <TextArea
@@ -142,10 +149,10 @@ const CohousingForm = (props) => {
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setContactName(e.target.value)}
+                                    value={contactName || ''}
+                                    charLimit={LISTING_FIELD_LENGTHS.CONTACT_NAME}
                                 />
                             </section>
-
-
                             <section className={"col-start-6 col-end-9"}>
                                 <LabelAsterisk
                                     label={TEXT.units_for_rent}
@@ -157,10 +164,10 @@ const CohousingForm = (props) => {
                                     min="0"
                                     step="1"
                                     onChange={(e) => setUnitsForRent(e.target.value)}
+                                    value={unitsForRent}
                                 />
                             </section>
                         </div>
-
                         <LargeTextArea
                             className={`${fullDescriptionError && "border-red-500"} input`}
                             rows={"6"}
@@ -168,18 +175,29 @@ const CohousingForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setFullDescription(e.target.value)}
+                            value={fullDescription || ''}
+                            charLimit={LISTING_FIELD_LENGTHS.FULL_DESCRIPTION}
                         />
                     </div>
                 </div>
+                <SubmitButton
+                    className={"btn btn-green form-btn w-1/2"}
+                    onClick={onCreateListing}
+                />
             </div>
-            <SubmitButton className={"btn btn-green form-btn w-1/2"} onClick={onCreateListing}
-                          onSubmit={onCreateListing}/>
         </div>
-    )
-
+    );
 }
 CohousingForm.propTypes = {
-    onSubmit: PropTypes.func.isRequired
+    onSubmit: PropTypes.func.isRequired,
+    listingExists: PropTypes.bool,
+    existingTitle: PropTypes.string,
+    existingShortDescription: PropTypes.string,
+    existingFullDescription: PropTypes.string,
+    existingContactName: PropTypes.string,
+    existingUnitsForSale: PropTypes.number,
+    existingUnitsForRent: PropTypes.number,
+    existingSelectedSubcategories: PropTypes.arrayOf(PropTypes.string)
 }
 
 export default CohousingForm;

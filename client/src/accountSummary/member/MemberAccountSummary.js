@@ -28,6 +28,7 @@ import { useHistory } from "react-router-dom";
 import {SESSION_ERR} from "../../common/constants/errors";
 import {bindActionCreators} from "redux";
 import {reset} from "../../redux/actionCreators";
+import {USER_FIELD_LENGTHS} from "../../common/constants/fieldLengths";
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({ reset }, dispatch);
@@ -258,6 +259,7 @@ function MemberAccountSummary(props) {
                                 value={firstName}
                                 required={true}
                                 onChange={(e) => setFirstName(e.target.value)}
+                                charLimit={USER_FIELD_LENGTHS.FIRST_NAME}
                             />
                             <TextArea
                                 className={`${lastNameError && "border-red-500"} input`}
@@ -266,6 +268,7 @@ function MemberAccountSummary(props) {
                                 value={lastName}
                                 required={true}
                                 onChange={(e) => setLastName(e.target.value)}
+                                charLimit={USER_FIELD_LENGTHS.LAST_NAME}
                             />
                             <TextArea
                                 className={`${emailError && "border-red-500"} input`}
@@ -275,6 +278,7 @@ function MemberAccountSummary(props) {
                                 labelClassName={"label"}
                                 required={true}
                                 onChange={(e) => setEmail(e.target.value)}
+                                charLimit={USER_FIELD_LENGTHS.EMAIL}
                             />
                             <PhoneNumInput
                                 className={`${phoneNumberError && "border-red-500"} phone`}
@@ -282,7 +286,8 @@ function MemberAccountSummary(props) {
                                 label="Phone Number"
                                 value={phoneNumber}
                                 required={true}
-                                onChange={handlePhoneChange}/>
+                                onChange={handlePhoneChange}
+                            />
                             <Address
                                 label="Address"
                                 cityClassName="city-postal"
@@ -304,16 +309,17 @@ function MemberAccountSummary(props) {
                             />
 
                             {useDifferentMailingAddress &&
-                            <Address
-                                label="Mailing Address"
-                                streetClassName={`${streetMailingAddressError && "border-red-500"} input`}
-                                cityClassName={`${cityMailingAddressError && "border-red-500"} input`}
-                                provinceClassName={provinceMailingAddressError ? dropdownErrorCSS : dropdownDefaultCSS}
-                                postalCodeClassName={`${postalCodeMailingError && "border-red-500"} input`}
-                                value={mailingAddress}
-                                required={true}
-                                onChange={setMailingAddress}
-                            />}
+                                <Address
+                                    label="Mailing Address"
+                                    streetClassName={`${streetMailingAddressError && "border-red-500"} input`}
+                                    cityClassName={`${cityMailingAddressError && "border-red-500"} input`}
+                                    provinceClassName={provinceMailingAddressError ? dropdownErrorCSS : dropdownDefaultCSS}
+                                    postalCodeClassName={`${postalCodeMailingError && "border-red-500"} input`}
+                                    value={mailingAddress}
+                                    required={true}
+                                    onChange={setMailingAddress}
+                                />
+                            }
                         </div>
                     </div>
                 </div>

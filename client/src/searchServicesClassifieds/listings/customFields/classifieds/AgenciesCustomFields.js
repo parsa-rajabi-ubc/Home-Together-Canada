@@ -7,6 +7,7 @@
  */
 import PropTypes from "prop-types";
 import React from 'react';
+import {ImageGallery} from "../../../../common/listings/ImageGallery";
 
 const AGENCIES_CUSTOM_FIELDS_TEXT = {
     RATE_AND_FEES: "Rates and fees (CAD)",
@@ -20,17 +21,19 @@ const AgenciesCustomFields = (props) => {
         <div>
             <label className={"label-result"}>{AGENCIES_CUSTOM_FIELDS_TEXT.RATE_AND_FEES}</label>
             <p> {rateAndFees}</p>
-
-            {/*TODO: replace HTC_Logo with picture string from DB*/}
-            {/*<label className={"label-result"}>{AGENCIES_CUSTOM_FIELDS_TEXT.PICTURES}</label>*/}
-
+            {!!pictures.length &&
+                <div>
+                    <label className={"label-result"}>{AGENCIES_CUSTOM_FIELDS_TEXT.PICTURES}</label>
+                    <ImageGallery pictures={pictures}/>
+                </div>
+            }
         </div>
     );
 }
 
 AgenciesCustomFields.propTypes = {
     rateAndFees: PropTypes.string.isRequired,
-    pictures: PropTypes.string
+    pictures: PropTypes.arrayOf(PropTypes.string),
 }
 
 export default AgenciesCustomFields;

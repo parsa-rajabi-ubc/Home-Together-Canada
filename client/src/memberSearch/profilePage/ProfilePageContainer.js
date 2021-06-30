@@ -117,6 +117,7 @@ const ProfilePageContainer = props => {
                     {error
                         ? <div>{ERROR}</div>
                         : <ProfilePage
+                            uid={profile.uid}
                             username={profile.username}
                             age={getMemberAge(profile.birthYear)}
                             gender={profile.gender}

@@ -88,6 +88,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 autoComplete="organization"
                 className="false undefined mb-0 input"
                 disabled={false}
+                maxLength={100}
                 onChange={[Function]}
                 type="text"
               />
@@ -256,6 +257,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 autoComplete="email"
                 className="false undefined input"
                 disabled={false}
+                maxLength={255}
                 onChange={[Function]}
                 placeholder="business@email.ca"
                 type="text"
@@ -272,6 +274,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 autoComplete="url"
                 className="false input"
                 disabled={false}
+                maxLength={255}
                 onChange={[Function]}
                 placeholder="http://www.your-website.com"
                 type="text"
@@ -433,6 +436,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 <input
                   autoComplete="address-line1"
                   className="undefined input"
+                  maxLength={100}
                   name="street"
                   onChange={[Function]}
                   placeholder="Address Line 1"
@@ -446,6 +450,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 <input
                   autoComplete="address-line2"
                   className="input"
+                  maxLength={100}
                   name="aptNum"
                   onChange={[Function]}
                   placeholder="Address Line 2: Apt, suite, etc. (optional)"
@@ -459,6 +464,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 <input
                   autoComplete="address-level2"
                   className="undefined input"
+                  maxLength={60}
                   name="city"
                   onChange={[Function]}
                   placeholder="City"
@@ -581,6 +587,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 <input
                   autoComplete="postal-code"
                   className="undefined input"
+                  maxLength={6}
                   name="postalCode"
                   onChange={[Function]}
                   placeholder="Postal Code"
@@ -1000,6 +1007,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                   <input
                     autoComplete="address-line1"
                     className="undefined input"
+                    maxLength={100}
                     name="street"
                     onChange={[Function]}
                     placeholder="Address Line 1"
@@ -1013,6 +1021,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                   <input
                     autoComplete="address-line2"
                     className="input"
+                    maxLength={100}
                     name="aptNum"
                     onChange={[Function]}
                     placeholder="Address Line 2: Apt, suite, etc. (optional)"
@@ -1026,6 +1035,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                   <input
                     autoComplete="address-level2"
                     className="undefined input"
+                    maxLength={60}
                     name="city"
                     onChange={[Function]}
                     placeholder="City"
@@ -1148,6 +1158,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                   <input
                     autoComplete="postal-code"
                     className="undefined input"
+                    maxLength={6}
                     name="postalCode"
                     onChange={[Function]}
                     placeholder="Postal Code"
@@ -1303,6 +1314,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
             <input
               accept="image/png, image/jpg, image/jpeg, image/JPG, image/JPEG"
               className="photo-upload-width photo-upload hover:text-indigo-500"
+              multiple={false}
               name="logo"
               onChange={[Function]}
               type="file"
@@ -1380,6 +1392,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
               autoComplete="given-name"
               className="false undefined input"
               disabled={false}
+              maxLength={100}
               onChange={[Function]}
               type="text"
             />
@@ -1418,6 +1431,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
               autoComplete="family-name"
               className="false undefined input"
               disabled={false}
+              maxLength={100}
               onChange={[Function]}
               type="text"
             />
@@ -1679,6 +1693,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                     </span>
                     <input
                       className="undefined input"
+                      maxLength={50}
                       onChange={[Function]}
                       type="text"
                     />
@@ -1828,6 +1843,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                     </span>
                     <input
                       className="undefined input"
+                      maxLength={255}
                       onChange={[Function]}
                       type="password"
                     />
@@ -1861,6 +1877,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                     </label>
                     <input
                       className="undefined input"
+                      maxLength={255}
                       onChange={[Function]}
                       type="password"
                     />
@@ -2070,7 +2087,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                       </div>
                     </span>
                     <textarea
-                      className="disabled-field input"
+                      className="disabled-field opacity-100 my-4 p-4 bg-gray-200 text-gray-800 text-sm input"
                       cols="50"
                       disabled={true}
                       name="termsOfService"
@@ -2184,7 +2201,10 @@ No waiver of any breach of any provision of these Terms will constitute a waiver
 27.   Jurisdiction
 The laws of the Provinces of Canada and the federal laws of Canada applicable therein govern these Terms and any dispute of any sort that might arise between you and us. Except as otherwise provided herein, you agree that any claim, whether at law or equity, arising out of or related to the provision of Services by us, regardless of the date or location of accrual of such dispute, will be within the exclusive jurisdiction of the courts of Canada.
  
-28.   Contact
+28.   Refund Policy
+Once an ad has been approved and posted the fees paid for that ad are not refundable. The rates to run an ad for extended lengths of time are offered at a bundled lower rate and  you are responsible for selecting the correct length of time your ad will run.  If due to unforeseen dire circumstances you need to cancel an ad that was intended to run for a longer term you can contact us by email and if the board deems the circumstances to be accurate and unavoidable they may refund a portion of the fee paid.  Note that if a refund is given it will be made through the original Paypal invoice.
+ 
+29.   Contact
 If you have any questions or concerns about our Terms, please contact us by e-mail. Our email can be found under contacts. 
 "
                     />
@@ -2351,7 +2371,7 @@ If you have any questions or concerns about our Terms, please contact us by e-ma
                       </div>
                     </span>
                     <textarea
-                      className="disabled-field input"
+                      className="disabled-field opacity-100 my-4 p-4 bg-gray-200 text-gray-800 text-sm input"
                       cols="50"
                       disabled={true}
                       name="privacyPolicy"
@@ -2440,6 +2460,7 @@ If you have any questions or concerns about our Privacy Policy, or how we have h
         <label>
           <input
             className="btn btn-green form-btn w-3/4"
+            disabled={false}
             onClick={[Function]}
             type="submit"
             value="Create Account"

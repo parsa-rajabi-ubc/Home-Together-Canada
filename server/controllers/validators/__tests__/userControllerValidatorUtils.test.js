@@ -77,6 +77,28 @@ describe('userControllerValidatorUtils', () => {
         })
     });
 
+    describe('isValidBirthYear', () => {
+        it('should throw an error if birth year is not 16 years less than current year', () => {
+            // given
+            const currentYear = new Date().getFullYear();
+            const invalidYear = currentYear - 15
+
+            // then
+            expect(() => userControllerValidatorUtils.isValidBirthYear(invalidYear)).toThrowError('BirthYear must be for a 16 years old or more');
+        });
+        it('should return true if birthyear is 16 or more', () => {
+            // given
+            const currentYear = new Date().getFullYear();
+            const validYear = currentYear - 16
+
+            // when
+            const result = userControllerValidatorUtils.isValidBirthYear(validYear);
+
+            // then
+            expect(result).toBe(true);
+        })
+    });
+
     describe('isValidCanadianPostalCode', () => {
         it('should throw an error if the postal code is invalid', () => {
             // given
@@ -786,6 +808,21 @@ describe('userControllerValidatorUtils', () => {
             // then
             expect(result).toBe(true);
         });
+        it('should throw an error if more than 5 areas of interest are provided', () => {
+            // given
+            const areasOfInterest = [
+                { province: 'AB', city: 'Calgary', radius: 50 },
+                { province: 'BC', city: 'Kelowna', radius: 100 },
+                { province: 'MB', city: 'Churchill', radius: 25 },
+                { province: 'AB', city: 'Edmonton', radius: 25 },
+                { province: 'BC', city: 'Vancouver', radius: 25 },
+                { province: 'BC', city: 'Kamloops', radius: 25 }
+            ];
+
+            // then
+            expect(() => userControllerValidatorUtils.isValidAreasOfInterestList(areasOfInterest))
+                .toThrowError('No more than 5 areas of interest can be provided');
+        });
         it('should throw an error if a province is undefined in an area of interest', () => {
             // given
             const areasOfInterest = [{ province: undefined, city: 'Calgary', radius: 50 }];
@@ -881,6 +918,104 @@ describe('userControllerValidatorUtils', () => {
             // then
             expect(() => userControllerValidatorUtils.isValidAreasOfInterestList(areasOfInterest))
                 .toThrowError('At least one area of interest must be provided');
+        });
+    });
+
+    describe('isValidStringLength', () => {
+        it('should true if string is less than max length', () => {
+            // given
+            const str = 'hello';
+            const maxLength = 10;
+            const fieldName = 'string';
+
+            // when
+            const isValid = userControllerValidatorUtils.isValidStringLength(str, maxLength, fieldName);
+
+            // then
+            expect(isValid).toBeTruthy();
+        });
+        it('should true if string is equal to max length', () => {
+            // given
+            const str = 'hello';
+            const maxLength = 5;
+            const fieldName = 'string';
+
+            // when
+            const isValid = userControllerValidatorUtils.isValidStringLength(str, maxLength, fieldName);
+
+            // then
+            expect(isValid).toBeTruthy();
+        });
+        it('show throw error if string is undefined', () => {
+            // given
+            const str = undefined;
+            const maxLength = 5;
+            const fieldName = 'string';
+
+            // then
+            expect(() => userControllerValidatorUtils.isValidStringLength(str, maxLength, fieldName))
+                .toThrowError(`string must be provided`);
+        });
+        it('show throw error if string is greater than max length', () => {
+            // given
+            const str = 'aStringThatIsMoreThanFiveCharacters';
+            const maxLength = 5;
+            const fieldName = 'string';
+
+            // then
+            expect(() => userControllerValidatorUtils.isValidStringLength(str, maxLength, fieldName))
+                .toThrowError(`string cannot be more than 5 characters`);
+        });
+    });
+
+    describe('isOptionalFieldAValidStringLength', () => {
+        it('should return true when fieldIsDefined is true and string is less than max length', () => {
+            // given
+            const fieldIsDefined = true;
+            const str = 'hello';
+            const maxLength = 10;
+            const fieldName = 'string';
+
+            // when
+            const isValid = userControllerValidatorUtils.isOptionalFieldAValidStringLength(fieldIsDefined, str, maxLength, fieldName);
+
+            // then
+            expect(isValid).toBeTruthy();
+        });
+        it('should return true when fieldIsDefined is false and string is undefined', () => {
+            // given
+            const fieldIsDefined = false;
+            const str = undefined;
+            const maxLength = 10;
+            const fieldName = 'string';
+
+            // when
+            const isValid = userControllerValidatorUtils.isOptionalFieldAValidStringLength(fieldIsDefined, str, maxLength, fieldName);
+
+            // then
+            expect(isValid).toBeTruthy();
+        });
+        it('should throw an error when fieldIsDefined is true and string is undefined', () => {
+            // given
+            const fieldIsDefined = true;
+            const str = undefined;
+            const maxLength = 10;
+            const fieldName = 'string';
+
+            // then
+            expect(() => userControllerValidatorUtils.isOptionalFieldAValidStringLength(fieldIsDefined, str, maxLength, fieldName))
+                .toThrowError(`string must be defined`);
+        });
+        it('should throw an error when fieldIsDefined is true and string is greater than max length', () => {
+            // given
+            const fieldIsDefined = true;
+            const str = 'aReallyBigWordGreaterThan10Characters';
+            const maxLength = 10;
+            const fieldName = 'string';
+
+            // then
+            expect(() => userControllerValidatorUtils.isOptionalFieldAValidStringLength(fieldIsDefined, str, maxLength, fieldName))
+                .toThrowError(`string cannot be more than 10 characters`);
         });
     });
 });
