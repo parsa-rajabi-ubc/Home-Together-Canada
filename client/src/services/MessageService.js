@@ -25,24 +25,8 @@ const sendMessage = (newMessage) => {
     return fetch(`${DEV_URL}/message/create/`, request);
 }
 
-const findAllMembers = () => {
-    return fetch(`${DEV_URL}/member/all/`, {
-        method: 'GET',
-        withCredentials: true,
-        credentials: 'include'
-    });
-}
-
 const getAllMessagesForOneUser = () => {
     return fetch(`${DEV_URL}/message/one/`, {
-        method: 'GET',
-        withCredentials: true,
-        credentials: 'include'
-    });
-}
-
-const getAllMessagesForAllUser = () => {
-    return fetch(`${DEV_URL}/message/all/`, {
         method: 'GET',
         withCredentials: true,
         credentials: 'include'
@@ -60,7 +44,5 @@ const getCurrentRegisteredUId = () => {
 module.exports = {
     getCurrentRegisteredUId,
     sendMessage,
-    getAllMessagesForOneUser,
-    getAllMessagesForAllUser,
-    findAllMembers
+    getAllMessagesForOneUser
 }

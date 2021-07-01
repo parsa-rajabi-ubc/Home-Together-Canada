@@ -53,8 +53,8 @@ function MessagingContainer(){
         <div>
             {(!loading && !newLoading ) &&
                 <div className={"m-6"}>
-                    {(!messageData.length) ?
-                        <Confirmation displayButton={false} errorColor={true} message={MESSAGE.NO_RESULTS}/>
+                    {(!messageData.length)
+                        ? <Confirmation displayButton={false} errorColor={true} message={MESSAGE.NO_RESULTS}/>
                         : <SelectConversation messageData={messageData} myUserId={myUserId}/>}
                 </div>
             }

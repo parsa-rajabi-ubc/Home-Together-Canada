@@ -8,7 +8,9 @@
 
 const db = require('../models');
 const {Op} = require("sequelize");
+
 const Message = db.message;
+const memberController = require('./memberAccountController');
 
 const createMessage = (req) => {
     const messageEntry = {
@@ -22,13 +24,19 @@ const createMessage = (req) => {
     return Message.create(messageEntry);
 }
 
-const findMessagesForUser = uid => {
-    return Message.findAll({
+const findMessagesForUser = async uid => {
+    const allMessages = await Message.findAll({
         where: {
             [Op.or]: [
                 {senderId: uid},
                 {receiverId: uid}
             ]
+        }
+    });
+
+    return allMessages.map(message => {
+        return {
+            ...message.dataValues
         }
     });
 }
