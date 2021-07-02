@@ -24,7 +24,7 @@ const ChangeImage = (props) => {
         <div
             className={"justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md"}
         >
-            {!newImageSelected && <img src={imageAddress} width={"150"} height={"150"}/>}
+            {!newImageSelected && <img src={imageAddress}/>}
             <br/>
             <div>
                 <label><b>Upload a new logo: </b></label>

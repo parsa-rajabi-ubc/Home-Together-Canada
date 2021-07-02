@@ -2,8 +2,7 @@
  * @Author:     Jeff Hatton
  * @Created:    2021.02.10
  *
- * @Description: Form to create a listing in Home Share Facilitation & Supporting Services
- * and Home Sharing Businesses, Groups and Organizations categories
+ * @Description: Cohousing listing form
  *
  */
 
@@ -21,27 +20,17 @@ import {
 import {validatePositiveNumber} from "../../../common/utils/generalUtils";
 import Tooltip from "../../../common/forms/Tooltip";
 import {CREATE_LISTING_MEMBER_SHARE_HOME as ToolTipText} from "../../../common/constants/TooltipText";
+import UploadImage from "../../../common/forms/UploadImage";
 import {BUSINESS_SERVICE_CATEGORIES} from "../../constants/serviceListingCategoriesText";
-import MultiImageUpload from "../../../common/forms/MultiImageUpload";
-import {DEFAULT_MAX_NUM_IMAGES} from "../../constants/createListingConfig";
-import {LISTING_FIELD_LENGTHS} from "../../../common/constants/fieldLengths";
 
 const HomeServiceBusinessForm = (props) => {
-    const {
-        onSubmit,
-        category,
-        listingExists = false,
-        existingTitle,
-        existingShortDescription,
-        existingFullDescription,
-        existingRateAndFees
-    } = props;
+    const { onSubmit, category } = props;
 
-    const [title, setTitle] = useState(existingTitle || undefined);
-    const [shortDescription, setShortDescription] = useState(existingShortDescription || undefined);
-    const [rateAndFees, setRateAndFees] = useState(existingRateAndFees || undefined);
-    const [fullDescription, setFullDescription] = useState(existingFullDescription || undefined);
-    const [pictures, setPictures] = useState([]);
+    const [title, setTitle] = useState(undefined);
+    const [shortDescription, setShortDescription] = useState(undefined);
+    const [rateAndFees, setRateAndFees] = useState(undefined);
+    const [fullDescription, setFullDescription] = useState(undefined);
+    const [pictures, setPictures] = useState(undefined);
 
     const [titleError, setTitleError] = useState(undefined);
     const [shortDescriptionError, setShortDescriptionError] = useState(undefined);
@@ -62,7 +51,7 @@ const HomeServiceBusinessForm = (props) => {
     }, [rateAndFees]);
 
     function handleImageUpload(e) {
-        setPictures([...e.target.files]);
+        setPictures(e.target.files[0]);
     }
 
     const isFormValid = () => {
@@ -90,7 +79,6 @@ const HomeServiceBusinessForm = (props) => {
                 shortDescription,
                 fullDescription,
                 rateAndFees,
-                pictures
             });
         }
     }
@@ -100,33 +88,31 @@ const HomeServiceBusinessForm = (props) => {
             <div className="col-start-1 col-end-7 py-5 px-5 m-6 bg-white shadow-lg rounded-xl">
                 <div className="grid grid-cols-2 gap-6">
                     <div className="col-span-3 sm:col-span-2">
-                        <h1 className={"page-title mb-5"}>
-                            {(category === BUSINESS_SERVICE_CATEGORIES.SHARED_HOME_SERVICES
-                                ? TEXT.home_form_title
-                                : TEXT.business_form_title)}
-                        </h1>
+
+                        <h1 className={"page-title mb-5"}> {(category === BUSINESS_SERVICE_CATEGORIES.SHARED_HOME_SERVICES ? TEXT.home_form_title : TEXT.business_form_title)} </h1>
+
                         <TextArea
                             className={`${titleError && "border-red-500"} input`}
                             label={TEXT.title}
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setTitle(e.target.value)}
-                            value={title || ''}
-                            charLimit={LISTING_FIELD_LENGTHS.TITLE}
                         />
 
                         <div className={"grid grid-cols-9"}>
+
                             <section className={"col-start-1 col-end-5"}>
+
                                 <TextArea
                                     className={`${shortDescriptionError && "border-red-500"} input`}
                                     label={TEXT.short_des + " (" + SHORT_DESC_CHAR_COUNT + " Characters)"}
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setShortDescription(e.target.value)}
-                                    value={shortDescription || ''}
                                     charLimit={SHORT_DESC_CHAR_COUNT}
                                 />
                             </section>
+
                             <section className={"col-start-6 col-end-10"}>
                                 <TextArea
                                     className={`${rateAndFeesError && "border-red-500"} input`}
@@ -134,10 +120,9 @@ const HomeServiceBusinessForm = (props) => {
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setRateAndFees(e.target.value)}
-                                    value={rateAndFees || ''}
-                                    charLimit={LISTING_FIELD_LENGTHS.RATES_AND_FEES}
                                 />
                             </section>
+
                         </div>
                         <LargeTextArea
                             className={`${fullDescriptionError && "border-red-500"} input`}
@@ -146,38 +131,25 @@ const HomeServiceBusinessForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setFullDescription(e.target.value)}
-                            value={fullDescription || ''}
-                            charLimit={LISTING_FIELD_LENGTHS.FULL_DESCRIPTION}
                         />
-
-                        {!listingExists &&
-                        <div>
-                            <label className="label"> Photos </label>
-                            <Tooltip
-                                text={ToolTipText.PHOTOS}
-                                toolTipID={"UploadPhotos"}
-                            />
-                            <MultiImageUpload handleImageUpload={handleImageUpload} maxNumImages={DEFAULT_MAX_NUM_IMAGES}/>
-                        </div>
-                        }
+                        <label className="label"> Photos </label>
+                        <Tooltip
+                            text={ToolTipText.PHOTOS}
+                            toolTipID={"UploadPhotos"}
+                        />
+                        <UploadImage handleImageUpload={handleImageUpload}/>
                     </div>
                 </div>
-                <SubmitButton
-                    className={"btn btn-green form-btn w-1/2"}
-                    onClick={onCreateListing}
-                />
             </div>
+            <SubmitButton className={"btn btn-green form-btn w-1/2"} onClick={onCreateListing}
+                          onSubmit={onCreateListing}/>
         </div>
-    );
+    )
+
 }
 HomeServiceBusinessForm.propTypes = {
     onSubmit: PropTypes.func.isRequired,
-    category: PropTypes.string.isRequired,
-    listingExists: PropTypes.bool,
-    existingTitle: PropTypes.string,
-    existingShortDescription: PropTypes.string,
-    existingFullDescription: PropTypes.string,
-    existingRateAndFees: PropTypes.string,
+    category: PropTypes.string.isRequired
 }
 
 export default HomeServiceBusinessForm;

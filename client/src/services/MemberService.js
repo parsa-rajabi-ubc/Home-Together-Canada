@@ -35,7 +35,7 @@ export const findMemberProfileByUsername = username => {
         },
         credentials: 'include',
         withCredentials: true,
-        body: JSON.stringify({username})
+        body: JSON.stringify({ username })
     }
 
     return fetch(`${DEV_URL}/member/search/username/`, request);
@@ -162,21 +162,7 @@ export const deactivateAccount = reason => {
         },
         credentials: 'include',
         withCredentials: true,
-        body: JSON.stringify({reason})
+        body: JSON.stringify({ reason })
     }
     return fetch(`${DEV_URL}/member/deactivate/`, request);
 }
-
-export const getLiveMemberListings = () =>
-    fetch(`${DEV_URL}/member/listings/live/`, {
-        method: 'GET',
-        withCredentials: true,
-        credentials: 'include'
-    });
-
-export const getInactiveMemberListings = () =>
-    fetch(`${DEV_URL}/member/listings/inactive/`, {
-        method: 'GET',
-        withCredentials: true,
-        credentials: 'include'
-    });

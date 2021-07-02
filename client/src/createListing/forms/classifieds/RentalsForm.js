@@ -2,7 +2,7 @@
  * @Author:     Alex Qin
  * @Created:    2021.02.12
  *
- * @Description: Form to create a listing in Rentals category
+ * @Description: Rentals Form
  *
  */
 
@@ -17,53 +17,29 @@ import {
     checkIfErrorsExistInMapping,
     validateInput
 } from "../../../registration/registrationUtils";
-import {resolveBooleanToYesNo, validatePositiveNumber} from "../../../common/utils/generalUtils";
+import {validatePositiveNumber} from "../../../common/utils/generalUtils";
 import {RENTALS_TEXT as TEXT} from "./constants/ClassifiedsListingText";
 import Tooltip from "../../../common/forms/Tooltip";
 import {CREATE_LISTING_MEMBER_SHARE_HOME as ToolTipText} from "../../../common/constants/TooltipText";
+import UploadImage from "../../../common/forms/UploadImage";
 import YNButton from "../../../common/forms/YNButtons";
 import Dropdown from "../../../common/forms/Dropdown";
 import {options} from "../services/constants/BedroomBathroomDropdownOptions";
 import {dropdownDefaultCSS, dropdownErrorCSS} from "../../../css/dropdownCSSUtil";
-import MultiImageUpload from "../../../common/forms/MultiImageUpload";
-import {DEFAULT_MAX_NUM_IMAGES} from "../../constants/createListingConfig";
-import {LISTING_FIELD_LENGTHS} from "../../../common/constants/fieldLengths";
 
-const RentalsForm = (props) => {
-    const {
-        onSubmit,
-        listingExists = false,
-        existingTitle,
-        existingShortDescription,
-        existingFullDescription,
-        existingMonthlyCost,
-        existingNumBed,
-        existingNumBath,
-        existingPetFriendly,
-        existingSmokeFriendly,
-        existingFurnished,
-    } = props;
+const HouseServicesForm = (props) => {
+    const {onSubmit} = props;
 
-    const [title, setTitle] = useState(existingTitle || undefined);
-    const [shortDescription, setShortDescription] = useState(existingShortDescription || undefined);
-    const [fullDescription, setFullDescription] = useState(existingFullDescription || undefined);
-    const [price, setPrice] = useState(existingMonthlyCost || undefined);
-    const [furnished, setFurnished] = useState(listingExists
-        ? resolveBooleanToYesNo(existingFurnished)
-        : undefined
-    );
-    const [numBed, setNumBed] = useState(existingNumBed || undefined);
-    const [numBath, setNumBath] = useState(existingNumBath || undefined);
-    const [petFriendly, setPetFriendly] = useState(listingExists
-        ? resolveBooleanToYesNo(existingPetFriendly)
-        : undefined
-    );
-    const [smokeFriendly, setSmokeFriendly] = useState(
-        listingExists
-            ? resolveBooleanToYesNo(existingSmokeFriendly)
-            : undefined
-    );
-    const [pictures, setPictures] = useState(undefined);
+    const [title, setTitle] = useState(undefined);
+    const [shortDescription, setShortDescription] = useState(undefined);
+    const [fullDescription, setFullDescription] = useState(undefined);
+    const [price, setPrice] = useState(undefined);
+    const [furnished, setFurnished] = useState(undefined);
+    const [numBed, setNumBed] = useState(undefined);
+    const [numBath, setNumBath] = useState(undefined);
+    const [petFriendly, setPetFriendly] = useState(undefined);
+    const [smokeFriendly, setSmokeFriendly] = useState(undefined);
+    const [picture, setPicture] = useState(undefined);
 
     const [submitted, setSubmitted] = useState(false);
 
@@ -115,7 +91,7 @@ const RentalsForm = (props) => {
     }
 
     function handleImageUpload(e) {
-        setPictures([...e.target.files]);
+        setPicture(e.target.files[0]);
     }
 
     const isFormValid = () => {
@@ -159,7 +135,6 @@ const RentalsForm = (props) => {
                 numBath,
                 petFriendly,
                 smokeFriendly,
-                pictures
             });
         }
     }
@@ -169,30 +144,33 @@ const RentalsForm = (props) => {
             <div className="col-start-1 col-end-7 py-5 px-5 m-6 bg-white shadow-lg rounded-xl">
                 <div className="grid grid-cols-2 gap-6">
                     <div className="col-span-3 sm:col-span-2">
+
                         <h1 className={"page-title mb-5"}> {TEXT.form_title} </h1>
+
                         <TextArea
                             className={`${titleError && "border-red-500"} input`}
                             label={TEXT.title}
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setTitle(e.target.value)}
-                            value={title || ''}
                             disabled={submitted}
-                            charLimit={LISTING_FIELD_LENGTHS.TITLE}
                         />
+
                         <div className={"grid grid-cols-9 gap-x-6"}>
+
                             <section className={"col-start-1 col-end-5"}>
+
                                 <TextArea
                                     className={`${shortDescriptionError && "border-red-500"} input`}
                                     label={TEXT.short_des + " (" + SHORT_DESC_CHAR_COUNT + " Characters)"}
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setShortDescription(e.target.value)}
-                                    value={shortDescription || ''}
                                     charLimit={SHORT_DESC_CHAR_COUNT}
                                     disabled={submitted}
                                 />
                             </section>
+
                             <section className={"col-start-1 col-end-5"}>
                                 <LabelAsterisk label={TEXT.price} className={"label"}/>
                                 <input
@@ -201,10 +179,11 @@ const RentalsForm = (props) => {
                                     min="0"
                                     step="1"
                                     onChange={(e) => setPrice(e.target.value)}
-                                    value={price}
                                     disabled={submitted}
                                 />
                             </section>
+
+
                             <section
                                 className={`${furnishedError && "pl-1 border rounded-lg border-red-500"} my-2 col-start-6 col-end-9`}>
                                 <YNButton
@@ -221,14 +200,17 @@ const RentalsForm = (props) => {
                                     label={TEXT.num_bed}
                                     className={"label"}
                                 />
+
                                 <Dropdown
                                     options={options}
                                     onChange={handleNumBedChange}
-                                    initialSelection={(numBed && {label: numBed, value: numBed}) || undefined}
                                     dropdownCSS={numBedError ? dropdownErrorCSS : dropdownDefaultCSS}
                                     isDisabled={submitted}
                                 />
+
+
                             </section>
+
                             <section
                                 className={`${petFriendlyError && "pl-1 border rounded-lg border-red-500"} my-2 col-start-6 col-end-9`}>
                                 <YNButton
@@ -248,11 +230,13 @@ const RentalsForm = (props) => {
                                 <Dropdown
                                     options={options}
                                     onChange={handleNumBathChange}
-                                    initialSelection={(numBath && {label: numBath, value: numBath}) || undefined}
                                     dropdownCSS={numBathError ? dropdownErrorCSS : dropdownDefaultCSS}
                                     isDisabled={submitted}
                                 />
+
                             </section>
+
+
                             <section
                                 className={`${smokeFriendlyError && "pl-1 border rounded-lg border-red-500"} my-2 col-start-6 col-end-9`}>
                                 <YNButton
@@ -264,7 +248,9 @@ const RentalsForm = (props) => {
                                     disabled={submitted}
                                 />
                             </section>
+
                         </div>
+
                         <LargeTextArea
                             className={`${fullDescriptionError && "border-red-500"} input`}
                             rows={"6"}
@@ -272,44 +258,27 @@ const RentalsForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setFullDescription(e.target.value)}
-                            value={fullDescription || ''}
                             disabled={submitted}
-                            charLimit={LISTING_FIELD_LENGTHS.FULL_DESCRIPTION}
                         />
-                        {!listingExists &&
-                            <div>
-                                <label className="label"> {TEXT.pictures} </label>
-                                <Tooltip
-                                    text={ToolTipText.PHOTOS}
-                                    toolTipID={"UploadPhotos"}
-                                />
-                                <MultiImageUpload handleImageUpload={handleImageUpload} maxNumImages={DEFAULT_MAX_NUM_IMAGES}/>
-                            </div>
-                        }
+
+                        <label className="label"> {TEXT.pictures} </label>
+                        <Tooltip
+                            text={ToolTipText.PHOTOS}
+                            toolTipID={"UploadPhotos"}
+                        />
+                        <UploadImage handleImageUpload={handleImageUpload}/>
+
                     </div>
                 </div>
-                <SubmitButton
-                    className={"btn btn-green form-btn w-1/2"}
-                    onClick={onCreateListing}
-                />
             </div>
+            <SubmitButton className={"btn btn-green form-btn w-1/2"} onClick={onCreateListing}
+                          onSubmit={onCreateListing}/>
         </div>
     )
 
 }
-RentalsForm.propTypes = {
-    onSubmit: PropTypes.func.isRequired,
-    listingExists: PropTypes.bool,
-    existingTitle: PropTypes.string,
-    existingShortDescription: PropTypes.string,
-    existingFullDescription: PropTypes.string,
-    existingMonthlyCost: PropTypes.number,
-    existingUtilsIncluded: PropTypes.bool,
-    existingNumBed: PropTypes.number,
-    existingNumBath: PropTypes.number,
-    existingPetFriendly: PropTypes.bool,
-    existingSmokeFriendly: PropTypes.bool,
-    existingFurnished: PropTypes.bool,
+HouseServicesForm.propTypes = {
+    onSubmit: PropTypes.func.isRequired
 }
 
-export default RentalsForm;
+export default HouseServicesForm;

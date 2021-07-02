@@ -2,7 +2,7 @@
  * @Author:     Rachelle Gelden
  * @Created:    2021.02.22
  *
- * @Description: controller functions for the member listing location model
+ * @Description: controller functions for the listing subcategory model
  *
  */
 const db = require('../models');
@@ -10,15 +10,6 @@ const MemberListingLocation = db.memberListingLocation;
 
 const addMemberListingLocation = (latitude, longitude, id) => {
     return MemberListingLocation.create({ latitude, longitude, ListingId: id });
-}
-
-const updateMemberListingLocation = (latitude, longitude, id) => {
-    const memberListingLocation = { latitude, longitude };
-    return MemberListingLocation.update(memberListingLocation, {
-        where: {
-            ListingId: id
-        }
-    });
 }
 
 const findAllMemberListingLocationEntries = (req, res) => {
@@ -33,6 +24,5 @@ const findAllMemberListingLocationEntries = (req, res) => {
 
 module.exports = {
     addMemberListingLocation,
-    findAllMemberListingLocationEntries,
-    updateMemberListingLocation
+    findAllMemberListingLocationEntries
 }

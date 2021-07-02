@@ -9,7 +9,6 @@ const db = require("../models");
 const { formatPhoneNumber } = require('./utils/accountControllerUtils');
 const { getGeographicalCoordinatesFromAddress } = require('./utils/locationUtils');
 const BusinessAccount = db.businessAccount;
-const AbstractUser = db.abstractUser;
 
 const createBusinessAccount = async (req, uid) => {
     const fullSearchableAddress = `${req.body.mapAddressLine1} ${req.body.mapCity} ${req.body.mapProvince}`;
@@ -101,16 +100,6 @@ const updateBusiness = req => {
     })
 }
 
-const getAllBusinessData = () => {
-    return BusinessAccount.findAll({
-        include: [
-            {
-                model: AbstractUser
-            }
-        ]
-    });
-}
-
 module.exports = {
     createBusinessAccount,
     findAllBusinessAccounts,
@@ -118,6 +107,5 @@ module.exports = {
     updateLogo,
     removeLogo,
     updateBusiness,
-    getLogo,
-    getAllBusinessData
+    getLogo
 }

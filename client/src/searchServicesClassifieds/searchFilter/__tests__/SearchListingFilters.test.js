@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import ShallowRenderer from 'react-test-renderer/shallow';
+import renderer from  'react-test-renderer'
 import SearchListingFilters from "../SearchListingFilters";
 import {BUSINESS_CLASSIFIEDS_CATEGORIES} from "../../../createListing/constants/classifiedListingCategoriesText";
 import {
@@ -46,10 +46,8 @@ describe('SearchListingFilters', () => {
             }
 
             //when
-            const renderer = new ShallowRenderer();
-            renderer.render(<SearchListingFilters {...props}/>);
-            const tree = renderer.getRenderOutput();
-
+            const component = renderer.create(<SearchListingFilters {...props}/>);
+            const tree = component.toJSON();
             //then
             expect(tree).toMatchSnapshot();
         });
@@ -75,10 +73,8 @@ describe('SearchListingFilters', () => {
             }
 
             //when
-            const renderer = new ShallowRenderer();
-            renderer.render(<SearchListingFilters {...props}/>);
-            const tree = renderer.getRenderOutput();
-
+            const component = renderer.create(<SearchListingFilters {...props}/>);
+            const tree = component.toJSON();
             //then
             expect(tree).toMatchSnapshot();
         });
@@ -104,10 +100,8 @@ describe('SearchListingFilters', () => {
             }
 
             //when
-            const renderer = new ShallowRenderer();
-            renderer.render(<SearchListingFilters {...props}/>);
-            const tree = renderer.getRenderOutput();
-
+            const component = renderer.create(<SearchListingFilters {...props}/>);
+            const tree = component.toJSON();
             //then
             expect(tree).toMatchSnapshot();
         });
@@ -133,10 +127,8 @@ describe('SearchListingFilters', () => {
             }
 
             //when
-            const renderer = new ShallowRenderer();
-            renderer.render(<SearchListingFilters {...props}/>);
-            const tree = renderer.getRenderOutput();
-
+            const component = renderer.create(<SearchListingFilters {...props}/>);
+            const tree = component.toJSON();
             //then
             expect(tree).toMatchSnapshot();
         });

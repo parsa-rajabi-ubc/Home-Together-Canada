@@ -6,7 +6,7 @@
  *
  */
 
-const { AREA_OF_INTEREST_FIELD_LENGTHS } = require('../constants/fieldLengthsConstants');
+const booleanOverlap = require('@turf/boolean-overlap').default;
 
 module.exports = (DataTypes, sequelize) => {
     return sequelize.define('AreaOfInterest', {
@@ -15,11 +15,11 @@ module.exports = (DataTypes, sequelize) => {
             allowNull: false
         },
         province: {
-            type: DataTypes.STRING(AREA_OF_INTEREST_FIELD_LENGTHS.PROVINCE),
+            type: DataTypes.STRING,
             allowNull: false
         },
         city: {
-            type: DataTypes.STRING(AREA_OF_INTEREST_FIELD_LENGTHS.CITY),
+            type: DataTypes.STRING,
             allowNull: false
         },
         radius: {

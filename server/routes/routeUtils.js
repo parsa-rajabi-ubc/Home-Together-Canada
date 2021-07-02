@@ -5,7 +5,6 @@
  * @Description: helper functions used in routes
  *
  */
-const { validationResult } = require('express-validator/check');
 
 const businessAccounts = require('../controllers/businessAccountController');
 const memberAccounts = require('../controllers/memberAccountController');
@@ -33,14 +32,6 @@ async function userIsMember(req, res, next) {
     res.json({ err: 'User is not a member' });
 }
 
-async function userIsAdmin(req, res, next) {
-    const member = await memberAccounts.findMemberAccountByUid(req.user.uid);
-    if (member && member.isAdmin) {
-        return next();
-    }
-    res.json({ err: 'User is not an admin' });
-}
-
 function userIsInactive (req, res, next) {
     memberAccounts.findMemberAccountByUid(req.user.uid)
         .then(member => {
@@ -61,22 +52,10 @@ function userIsActive (req, res, next) {
         });
 }
 
-function errorDuringValidation(req, res, next) {
-    const errors = validationResult(req);
-
-    if (!errors.isEmpty()) {
-        res.status(202).json({ errors: errors.array()});
-    } else {
-        next();
-    }
-}
-
 module.exports = {
     isLoggedIn,
     userIsBusiness,
     userIsMember,
-    userIsAdmin,
     userIsInactive,
-    userIsActive,
-    errorDuringValidation
+    userIsActive
 }

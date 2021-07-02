@@ -17,20 +17,16 @@ const abstractUsers = require('../controllers/abstractUserController');
 const accountUtils = require('../controllers/utils/accountControllerUtils');
 const livesWith = require('../controllers/livesWithController');
 const areasOfInterest = require('../controllers/areaOfInterestController');
-const listings = require('../controllers/listingController');
 const { getRoommatesUsernames } = require('../controllers/utils/statusUtils');
 const { getCircularFeatureFromLocation } = require('../controllers/utils/locationUtils');
 const { getListOfAreaOfInterestObjects } = require('../controllers/utils/areaOfInterestUtils');
-const { formatMemberListing } = require('../controllers/utils/listingControllerUtils');
 const { isLoggedIn, userIsMember, userIsInactive, userIsActive } = require('./routeUtils');
-const { DEVELOPMENT } = require('../constants/environmentConstants');
 
-if (process.env.NODE_ENV === DEVELOPMENT || !process.env.NODE_ENV) {
-    // Get all member accounts
-    router.get('/all/', function (req, res, next) {
-        memberAccounts.findAllMemberAccounts(req, res);
-    });
-}
+
+// Get all member accounts
+router.get('/all/', function (req, res, next) {
+    memberAccounts.findAllMemberAccounts(req, res);
+});
 
 // add validation to isInterestedInBuyingHome fields
 router.post('/create/', usersValidator.validate('createMemberUser'),
@@ -332,38 +328,6 @@ router.post('/deactivate/',
                     res.status(500).json({success: false, err: err.message});
                 })
         }
-    }
-);
-
-router.get(
-    '/listings/live/',
-    isLoggedIn,
-    userIsMember,
-    function (req, res, next) {
-        listings.getMemberLiveListings(req.user.uid)
-            .then(listings => {
-                const formattedListings = listings.map(listing => formatMemberListing(listing));
-                res.status(200).json({ liveListings: formattedListings });
-            })
-            .catch(err => {
-                res.status(500).json({ err: err.message });
-            });
-    }
-);
-
-router.get(
-    '/listings/inactive/',
-    isLoggedIn,
-    userIsMember,
-    function (req, res, next) {
-        listings.getMemberInactiveListings(req.user.uid)
-            .then(listings => {
-                const formattedListings = listings.map(listing => formatMemberListing(listing));
-                res.status(200).json({ inactiveListing: formattedListings });
-            })
-            .catch(err => {
-                res.status(500).json({ err: err.message });
-            });
     }
 );
 

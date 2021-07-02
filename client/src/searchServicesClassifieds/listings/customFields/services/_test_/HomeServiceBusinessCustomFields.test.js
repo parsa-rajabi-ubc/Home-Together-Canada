@@ -11,7 +11,7 @@ import {BrowserRouter as Router} from "react-router-dom";
 import {homeServicesMockCustomFields} from "../../../../../mockData/MockServicesCustomFields";
 import HomeServiceBusinessCustomFields from "../HomeServiceBusinessCustomFields";
 
-describe('HomeServiceBusinessCustomFields', () => {
+describe('GovernmentServicesCustomFields', () => {
     it("should render correctly regardless of properties", () => {
         // given
         const props = {

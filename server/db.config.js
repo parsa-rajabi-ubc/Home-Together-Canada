@@ -10,7 +10,7 @@ const personalConfig = require('./personalConfig/personalDbConfig');
 module.exports = {
     development: personalConfig.development,
     test: personalConfig.test,
-    staging: {
+    production: {
         DB: "heroku_a2e066b08e4b1b7",
         USER: "b78602ef23aff8",
         PASSWORD: "32764ac4",
@@ -23,13 +23,5 @@ module.exports = {
         },
         DIALECT: "mysql",
         PORT: 3306
-    },
-    production: {
-        HOST: "hometogethercanadadatabase-do-user-9184613-0.b.db.ondigitalocean.com",
-        PORT: 25060,
-        USER: "doadmin",
-        PASSWORD: "juo9lp23ov55astq",
-        DB: "defaultdb",
-        DIALECT: "mysql",
-    },
+    }
 };

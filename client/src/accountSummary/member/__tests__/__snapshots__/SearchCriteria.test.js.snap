@@ -2133,7 +2133,6 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
   <label>
     <input
       className="btn btn-green form-btn w-1/2"
-      disabled={false}
       onClick={[MockFunction]}
       type="submit"
       value="Save"

@@ -74,7 +74,6 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
             <input
               className="false undefined input"
               disabled={false}
-              maxLength={100}
               onChange={[Function]}
               type="text"
               value="mockFN"
@@ -109,7 +108,6 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
             <input
               className="false undefined input"
               disabled={false}
-              maxLength={100}
               onChange={[Function]}
               type="text"
               value="mockLN"
@@ -144,7 +142,6 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
             <input
               className="false undefined input"
               disabled={false}
-              maxLength={255}
               onChange={[Function]}
               placeholder="personal@email.ca"
               type="text"
@@ -249,7 +246,6 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
               <input
                 autoComplete="address-line1"
                 className="undefined input"
-                maxLength={100}
                 name="street"
                 onChange={[Function]}
                 placeholder="Address Line 1"
@@ -263,7 +259,6 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
               <input
                 autoComplete="address-line2"
                 className="input"
-                maxLength={100}
                 name="aptNum"
                 onChange={[Function]}
                 placeholder="Address Line 2: Apt, suite, etc. (optional)"
@@ -277,7 +272,6 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
               <input
                 autoComplete="address-level2"
                 className="undefined input"
-                maxLength={60}
                 name="city"
                 onChange={[Function]}
                 placeholder="City"
@@ -400,7 +394,6 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
               <input
                 autoComplete="postal-code"
                 className="undefined input"
-                maxLength={6}
                 name="postalCode"
                 onChange={[Function]}
                 placeholder="Postal Code"
@@ -547,7 +540,6 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
   <label>
     <input
       className="btn btn-green form-btn w-1/2"
-      disabled={false}
       onClick={[Function]}
       type="submit"
       value="Save"

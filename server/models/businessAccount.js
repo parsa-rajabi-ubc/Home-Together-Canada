@@ -6,8 +6,6 @@
  *
  */
 
-const { BUSINESS_FIELD_LENGTHS } = require('../constants/fieldLengthsConstants');
-
 module.exports = (DataTypes, sequelize) => {
     return sequelize.define("BusinessAccount", {
         uid: {
@@ -17,7 +15,7 @@ module.exports = (DataTypes, sequelize) => {
             unique: true
         },
         businessName: {
-            type: DataTypes.STRING(BUSINESS_FIELD_LENGTHS.BUSINESS_NAME),
+            type: DataTypes.STRING,
             allowNull: false
         },
         logo: {
@@ -29,14 +27,14 @@ module.exports = (DataTypes, sequelize) => {
             defaultValue: false
         },
         incorporatedOwnersNames: {
-            type: DataTypes.STRING(BUSINESS_FIELD_LENGTHS.INCORPORATED_OWNERS_NAMES)
+            type: DataTypes.STRING
         },
         businessPhoneNumber: {
-            type: DataTypes.STRING(16),
+            type: DataTypes.STRING,
             allowNull: false
         },
         businessCellPhoneNumber: {
-            type: DataTypes.STRING(16),
+            type: DataTypes.STRING,
             allowNull: false
         },
         isNationWide: {
@@ -45,19 +43,19 @@ module.exports = (DataTypes, sequelize) => {
             defaultValue: false
         },
         mapAddressLine1: {
-            type: DataTypes.STRING(BUSINESS_FIELD_LENGTHS.MAP_ADDRESS_LINE_1)
+            type: DataTypes.STRING
         },
         mapAddressLine2: {
-            type: DataTypes.STRING(BUSINESS_FIELD_LENGTHS.MAP_ADDRESS_LINE_2)
+            type: DataTypes.STRING
         },
         mapCity: {
-            type: DataTypes.STRING(BUSINESS_FIELD_LENGTHS.MAP_CITY)
+            type: DataTypes.STRING
         },
         mapProvince: {
-            type: DataTypes.STRING(BUSINESS_FIELD_LENGTHS.MAP_PROVINCE)
+            type: DataTypes.STRING
         },
         mapPostalCode: {
-            type: DataTypes.STRING(BUSINESS_FIELD_LENGTHS.MAP_POSTAL_CODE)
+            type: DataTypes.STRING
         },
         mapLatitude: {
             type: DataTypes.DECIMAL(10,7)   // 10 total digits, 7 digit decimal accuracy
@@ -66,7 +64,7 @@ module.exports = (DataTypes, sequelize) => {
             type: DataTypes.DECIMAL(10,7)
         },
         website: {
-            type: DataTypes.STRING(BUSINESS_FIELD_LENGTHS.WEBSITE)
+            type: DataTypes.STRING
         }
     });
 }

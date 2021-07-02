@@ -139,6 +139,5 @@ module.exports = {
     getFilteredProfilesInformation,
     getMemberProfileInfo,
     getMemberAccountInfo,
-    getBasicProfile,
-    getUsernameFromAbstractUser
+    getBasicProfile
 }

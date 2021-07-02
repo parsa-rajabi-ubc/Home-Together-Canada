@@ -2,7 +2,7 @@
  * @Author:     Parsa Rajabi
  * @Created:    2021.2.3
  *
- * @Description: Form to create a listing in Member Home Share category
+ * @Description: Member Home Share Form;
  *
  */
 
@@ -20,67 +20,35 @@ import {options} from "./constants/BedroomBathroomDropdownOptions";
 import LabelAsterisk from "../../../common/forms/LabelAsterisk";
 import {dropdownDefaultCSS, dropdownErrorCSS} from "../../../css/dropdownCSSUtil";
 import YNButton from "../../../common/forms/YNButtons";
+import UploadImage from "../../../common/forms/UploadImage";
 import SubmitButton from "../../../common/forms/SubmitButton";
 import Tooltip from "../../../common/forms/Tooltip";
 import {CREATE_LISTING_MEMBER_SHARE_HOME as ToolTipText} from "../../../common/constants/TooltipText";
-import {resolveBooleanToYesNo, validatePositiveNumber} from "../../../common/utils/generalUtils";
+import {validatePositiveNumber} from "../../../common/utils/generalUtils";
 import {SHORT_DESC_CHAR_COUNT} from "../../../common/constants/listingsConstants";
 import Address from "../../../common/forms/Address";
-import MultiImageUpload from "../../../common/forms/MultiImageUpload";
-import {DEFAULT_MAX_NUM_IMAGES} from "../../constants/createListingConfig";
-import {LISTING_FIELD_LENGTHS} from "../../../common/constants/fieldLengths";
 
 
 const MemberHomeShareForm = (props) => {
-    const {
-        onSubmit,
-        listingExists = false,
-        existingTitle,
-        existingShortDescription,
-        existingFullDescription,
-        existingMonthlyCost,
-        existingUtilsIncluded,
-        existingNumBed,
-        existingNumBath,
-        existingPetFriendly,
-        existingSmokeFriendly,
-        existingAddressLine1,
-        existingAddressLine2,
-        existingCity,
-        existingProvince,
-        existingPostalCode,
-        existingPictures
-    } = props;
+    const {onSubmit} = props;
 
-    const [title, setTitle] = useState(existingTitle || undefined);
-    const [shortDescription, setShortDescription] = useState(existingShortDescription || undefined);
-    const [fullDescription, setFullDescription] = useState(existingFullDescription || undefined);
-    const [monthlyCost, setMonthlyCost] = useState(existingMonthlyCost || undefined);
-    const [utilIncluded, setUtilIncluded] = useState(
-        listingExists
-            ? resolveBooleanToYesNo(existingUtilsIncluded)
-            : undefined
-    );
-    const [numBed, setNumBed] = useState(existingNumBed || undefined);
-    const [numBath, setNumBath] = useState(existingNumBath || undefined);
-    const [petFriendly, setPetFriendly] = useState(
-        listingExists
-            ? resolveBooleanToYesNo(existingPetFriendly)
-            : undefined
-    );
-    const [smokeFriendly, setSmokeFriendly] = useState(
-        listingExists
-            ? resolveBooleanToYesNo(existingSmokeFriendly)
-            : undefined
-    );
-    const [pictures, setPictures] = useState(existingPictures || undefined);
+    const [title, setTitle] = useState(undefined);
+    const [shortDescription, setShortDescription] = useState(undefined);
+    const [fullDescription, setFullDescription] = useState(undefined);
+    const [monthlyCost, setMonthlyCost] = useState(undefined);
+    const [utilIncluded, setUtilIncluded] = useState(undefined);
+    const [numBed, setNumBed] = useState(undefined);
+    const [numBath, setNumBath] = useState(undefined);
+    const [petFriendly, setPetFriendly] = useState(undefined);
+    const [smokeFriendly, setSmokeFriendly] = useState(undefined);
+    const [photos, setPhotos] = useState(undefined);
 
     const [address, setAddress] = useState({
-        street: existingAddressLine1 || undefined,
-        aptNum: existingAddressLine2 || undefined,
-        city: existingCity || undefined,
-        province: existingProvince || undefined,
-        postalCode: existingPostalCode || undefined
+        street: undefined,
+        aptNum: undefined,
+        city: undefined,
+        province: undefined,
+        postalCode: undefined
     });
 
     const [titleError, setTitleError] = useState(undefined);
@@ -151,7 +119,7 @@ const MemberHomeShareForm = (props) => {
     }
 
     function handleImageUpload(e) {
-        setPictures([...e.target.files]);
+        setPhotos(e.target.files[0]);
     }
 
     const isFormValid = () => {
@@ -186,6 +154,7 @@ const MemberHomeShareForm = (props) => {
         errors.streetAddress = validateInput(address.street, setStreetAddressError);
         errors.cityAddress = validateInput(address.city, setCityAddressError);
         errors.provinceAddress = validateInput(address.province, setProvinceAddressError);
+        console.log(address.postalCode)
         errors.postalCodeAddress = validatePostalCode(address.postalCode, setPostalCodeError);
 
         return !(checkIfErrorsExistInMapping(errors));
@@ -210,7 +179,6 @@ const MemberHomeShareForm = (props) => {
                 city: address.city,
                 province: address.province,
                 postalCode: address.postalCode,
-                pictures
             });
         }
     }
@@ -229,8 +197,6 @@ const MemberHomeShareForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setTitle(e.target.value)}
-                            charLimit={LISTING_FIELD_LENGTHS.TITLE}
-                            value={title || ''}
                         />
 
                         <div className={"grid grid-cols-9"}>
@@ -244,7 +210,6 @@ const MemberHomeShareForm = (props) => {
                                     required={true}
                                     onChange={(e) => setShortDescription(e.target.value)}
                                     charLimit={SHORT_DESC_CHAR_COUNT}
-                                    value={shortDescription || ''}
                                 />
                             </section>
 
@@ -267,7 +232,6 @@ const MemberHomeShareForm = (props) => {
                                     min="0"
                                     step="1"
                                     onChange={(e) => setMonthlyCost(e.target.value)}
-                                    value={monthlyCost}
                                 />
                             </section>
                             <section
@@ -286,11 +250,11 @@ const MemberHomeShareForm = (props) => {
                                     label={TEXT.num_bed}
                                     className={"label"}
                                 />
+
                                 <Dropdown
                                     options={options}
                                     onChange={handleNumBedChange}
                                     dropdownCSS={numBedError ? dropdownErrorCSS : dropdownDefaultCSS}
-                                    initialSelection={(numBed && {label: numBed, value: numBed}) || undefined}
                                 />
                             </section>
 
@@ -315,7 +279,6 @@ const MemberHomeShareForm = (props) => {
                                     options={options}
                                     onChange={handleNumBathChange}
                                     dropdownCSS={numBathError ? dropdownErrorCSS : dropdownDefaultCSS}
-                                    initialSelection={(numBath && {label: numBath, value: numBath}) || undefined}
                                 />
                             </section>
 
@@ -325,7 +288,6 @@ const MemberHomeShareForm = (props) => {
                                     toolTipID={"memberHomeToShareAddress"}
                                     toolTipText={ToolTipText.ADDRESS}
                                     required={true}
-                                    value={address}
                                     onChange={setAddress}
                                     streetAddressError={streetAddressError}
                                     cityAddressError={cityAddressError}
@@ -344,48 +306,27 @@ const MemberHomeShareForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setFullDescription(e.target.value)}
-                            value={fullDescription}
-                            charLimit={LISTING_FIELD_LENGTHS.FULL_DESCRIPTION}
                         />
-                        {!listingExists &&
-                            <div>
-                                <label className="label"> Photos </label>
-                                <Tooltip
-                                    text={ToolTipText.PHOTOS}
-                                    toolTipID={"UploadPhotos"}
-                                />
-                                <MultiImageUpload handleImageUpload={handleImageUpload} maxNumImages={DEFAULT_MAX_NUM_IMAGES}/>
-                            </div>
-                        }
+
+
+                        <label className="label"> Photos </label>
+                        <Tooltip
+                            text={ToolTipText.PHOTOS}
+                            toolTipID={"UploadPhotos"}
+                        />
+                        <UploadImage handleImageUpload={handleImageUpload}/>
+
                     </div>
                 </div>
-                <SubmitButton
-                    className={"btn btn-green form-btn w-1/2"}
-                    onClick={onCreateListing}
-                />
             </div>
+            <SubmitButton className={"btn btn-green form-btn w-1/2"} onClick={onCreateListing}
+                          onSubmit={onCreateListing}/>
         </div>
-    );
+    )
 }
 
 MemberHomeShareForm.propTypes = {
     onSubmit: PropTypes.func.isRequired,
-    listingExists: PropTypes.bool.isRequired,
-    existingTitle: PropTypes.string,
-    existingShortDescription: PropTypes.string,
-    existingFullDescription: PropTypes.string,
-    existingMonthlyCost: PropTypes.number,
-    existingUtilsIncluded: PropTypes.bool,
-    existingNumBed: PropTypes.number,
-    existingNumBath: PropTypes.number,
-    existingPetFriendly: PropTypes.bool,
-    existingSmokeFriendly: PropTypes.bool,
-    existingAddressLine1: PropTypes.string,
-    existingAddressLine2: PropTypes.string,
-    existingCity: PropTypes.string,
-    existingProvince: PropTypes.string,
-    existingPostalCode: PropTypes.string,
-    existingPictures: PropTypes.arrayOf(PropTypes.string)
 }
 
 export default MemberHomeShareForm;

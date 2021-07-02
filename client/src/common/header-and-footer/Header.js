@@ -8,10 +8,10 @@
 
 import React from 'react';
 import '../../tailwind.output.css';
-import {Link, useHistory} from "react-router-dom";
+import {Link} from "react-router-dom";
 import LoginService from '../../services/LoginService';
 import {connect} from "react-redux";
-import {bindActionCreators} from 'redux';
+import { bindActionCreators } from 'redux';
 import {reset} from '../../redux/actionCreators';
 import PropTypes from "prop-types";
 import {BUSINESS_SUBPAGES, MEMBER_SUBPAGES, USER_TYPES} from "../constants/users";
@@ -23,7 +23,7 @@ import {dropdownAccountCSS, dropdownAccountTheme} from "../../css/dropdownCSSUti
 import {SERVICES_TEXT, CLASSIFIEDS_TEXT, CREATE_LISTINGS_TEXT} from "../constants/listingsConstants";
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({reset}, dispatch);
+    return bindActionCreators({ reset }, dispatch);
 }
 
 const Header = (props) => {
@@ -34,8 +34,6 @@ const Header = (props) => {
         accountType,
         authenticated
     } = props;
-
-    let URL_PATH = useHistory().location.pathname;
 
     const logout = () => {
         LoginService.logoutUser()
@@ -71,26 +69,26 @@ const Header = (props) => {
                         className="flex-no-wrap hidden w-full p-4 mt-2 tex-black lg:flex lg:items-center lg:w-auto lg:block lg:mt-0 lg:bg-transparent lg:p-0">
                         <div className="items-center justify-end flex-1 mr-16 list-reset lg:flex">
                             {accountType !== USER_TYPES.BUSINESS &&
-                            <Link to={'/members'} className={`${(URL_PATH === "/members") && "bg-green-200"} nav-icon`}>
+                            <Link to={'/members'} className="nav-icon">
                                 Search Member Profiles
                             </Link>
                             }
-                            <Link to={'/services'} className={`${(URL_PATH === "/services") && "bg-green-200"} nav-icon`}>
+                            <Link to={'/services'} className="nav-icon">
                                 {SERVICES_TEXT}
                             </Link>
-                            <Link to={'/classifieds'} className={`${(URL_PATH === "/classifieds") && "bg-green-200"} nav-icon`}>
+                            <Link to={'/classifieds'} className="nav-icon">
                                 {CLASSIFIEDS_TEXT}
                             </Link>
-                            <Link to={'/faq'} className={`${(URL_PATH === "/faq") && "bg-green-200"} nav-icon`}>
+                            <Link to={'/faq'} className="nav-icon">
                                 FAQ
                             </Link>
                             {(authenticated && accountType !== USER_TYPES.UNREGISTERED) &&
-                            < Link to={'/create-listing'} className={`${(URL_PATH === "/create-listing") && "bg-green-200"} nav-icon`}>
+                            < Link to={'/create-listing'} className="nav-icon">
                                 {CREATE_LISTINGS_TEXT}
                             </Link>
                             }
                             {(authenticated && isAdmin) &&
-                            <Link to={'/admin'} className={`${(URL_PATH === "/admin") && "bg-green-200"} nav-icon`}>
+                            <Link to={'/admin'} className="nav-icon">
                                 Admin
                             </Link>
                             }

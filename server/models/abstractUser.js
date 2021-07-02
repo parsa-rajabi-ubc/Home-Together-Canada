@@ -6,8 +6,6 @@
  *
  */
 
-const { ABSTRACT_USER_FIELD_LENGTHS } = require('../constants/fieldLengthsConstants');
-
 // the fields createdAt and updatedAt are added to every model by sequelize and are automatically managed
 module.exports = (DataTypes, sequelize) => {
     const AbstractUser = sequelize.define("AbstractUser", {
@@ -19,12 +17,12 @@ module.exports = (DataTypes, sequelize) => {
             unique: true
         },
         username: {
-            type: DataTypes.STRING(ABSTRACT_USER_FIELD_LENGTHS.USERNAME),
+            type: DataTypes.STRING,
             allowNull: false,
             unique: true,
         },
         password: {
-            type: DataTypes.STRING(ABSTRACT_USER_FIELD_LENGTHS.PASSWORD),
+            type: DataTypes.STRING,
             allowNull: false
         },
         salt: {
@@ -32,20 +30,20 @@ module.exports = (DataTypes, sequelize) => {
             allowNull: false
         },
         email: {
-            type: DataTypes.STRING(ABSTRACT_USER_FIELD_LENGTHS.EMAIL),
+            type: DataTypes.STRING,
             allowNull: false,
             unique: true
         },
         firstName: {
-            type: DataTypes.STRING(ABSTRACT_USER_FIELD_LENGTHS.FIRST_NAME),
+            type: DataTypes.STRING,
             allowNull: false
         },
         lastName: {
-            type: DataTypes.STRING(ABSTRACT_USER_FIELD_LENGTHS.LAST_NAME),
+            type: DataTypes.STRING,
             allowNull: false
         },
         phoneNumber: {
-            type: DataTypes.STRING(ABSTRACT_USER_FIELD_LENGTHS.PHONE_NUMBER),
+            type: DataTypes.STRING,
             allowNull: false
         },
         isBanned: {
@@ -57,22 +55,22 @@ module.exports = (DataTypes, sequelize) => {
             type: DataTypes.STRING,
         },
         addressLine1: {
-            type: DataTypes.STRING(ABSTRACT_USER_FIELD_LENGTHS.ADDRESS_LINE_1),
+            type: DataTypes.STRING,
             allowNull: false
         },
         addressLine2: {
-            type: DataTypes.STRING(ABSTRACT_USER_FIELD_LENGTHS.ADDRESS_LINE_2)
+            type: DataTypes.STRING
         },
         city: {
-            type: DataTypes.STRING(ABSTRACT_USER_FIELD_LENGTHS.CITY),
+            type: DataTypes.STRING,
             allowNull: false
         },
         province: {
-            type: DataTypes.STRING(ABSTRACT_USER_FIELD_LENGTHS.PROVINCE),
+            type: DataTypes.STRING,
             allowNull: false
         },
         postalCode: {
-            type: DataTypes.STRING(ABSTRACT_USER_FIELD_LENGTHS.POSTAL_CODE),
+            type: DataTypes.STRING,
             allowNull: false
         },
         hasDifferentMailingAddress: {
@@ -81,22 +79,22 @@ module.exports = (DataTypes, sequelize) => {
             defaultValue: false
         },
         mailingAddressLine1: {
-            type: DataTypes.STRING(ABSTRACT_USER_FIELD_LENGTHS.MAILING_ADDRESS_LINE_1),
+            type: DataTypes.STRING,
             allowNull: false
         },
         mailingAddressLine2: {
-            type: DataTypes.STRING(ABSTRACT_USER_FIELD_LENGTHS.MAILING_ADDRESS_LINE_2)
+            type: DataTypes.STRING
         },
         mailingCity: {
-            type: DataTypes.STRING(ABSTRACT_USER_FIELD_LENGTHS.MAILING_CITY),
+            type: DataTypes.STRING,
             allowNull: false
         },
         mailingProvince: {
-            type: DataTypes.STRING(ABSTRACT_USER_FIELD_LENGTHS.MAILING_PROVINCE),
+            type: DataTypes.STRING,
             allowNull: false
         },
         mailingPostalCode: {
-            type: DataTypes.STRING(ABSTRACT_USER_FIELD_LENGTHS.MAILING_POSTAL_CODE),
+            type: DataTypes.STRING,
             allowNull: false
         }
     });

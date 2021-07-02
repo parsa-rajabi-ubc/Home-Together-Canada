@@ -35,39 +35,7 @@ const updateBusinessAccountInfo = (businessAccountInfo) => {
     return fetch(`${DEV_URL}/business/update/`, request);
 }
 
-const getLiveBusinessListings = () =>
-    fetch(`${DEV_URL}/business/listings/live/`, {
-        method: 'GET',
-        withCredentials: true,
-        credentials: 'include'
-    });
-
-const getInactiveBusinessListings = () =>
-    fetch(`${DEV_URL}/business/listings/inactive/`, {
-        method: 'GET',
-        withCredentials: true,
-        credentials: 'include'
-    });
-
-const getRejectedBusinessListings = () =>
-    fetch(`${DEV_URL}/business/listings/rejected/`, {
-        method: 'GET',
-        withCredentials: true,
-        credentials: 'include'
-    });
-
-const getPendingBusinessListings = () =>
-    fetch(`${DEV_URL}/business/listings/pending/`, {
-        method: 'GET',
-        withCredentials: true,
-        credentials: 'include'
-    });
-
 module.exports = {
     getBusinessAccountInfo,
-    updateBusinessAccountInfo,
-    getLiveBusinessListings,
-    getInactiveBusinessListings,
-    getRejectedBusinessListings,
-    getPendingBusinessListings
+    updateBusinessAccountInfo
 }

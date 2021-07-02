@@ -156,13 +156,6 @@ function TermsOfService() {
             <p className={"text"}>{TERMS_OF_SERVICE.point27Text}</p>
             <br/>
 
-            <h2 className={"point-title"}>{TERMS_OF_SERVICE.point28Title}</h2>
-            <p className={"text"}>{TERMS_OF_SERVICE.point28Text}</p>
-            <br/>
-
-            <h2 className={"point-title"}>{TERMS_OF_SERVICE.point29Title}</h2>
-            <p className={"text"}>{TERMS_OF_SERVICE.point29Text}</p>
-            <br/>
         </div>
     );
 }

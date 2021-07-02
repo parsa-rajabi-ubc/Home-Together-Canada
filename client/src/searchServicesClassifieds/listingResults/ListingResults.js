@@ -15,7 +15,7 @@ import {listingContext} from "../SearchListingContainer";
 import BusinessListingCard from "../listingCards/BusinessListingCard";
 import MemberListingCard from "../listingCards/MemberListingCard";
 import {USER_TYPES as USER_TYPE} from "../../common/constants/users";
-import {getImageURL} from "../../common/utils/imageUtils";
+import HTC_Logo from "../../images/HTC_Logo.jpg"
 
 const NUM_RESULTS = 7;
 
@@ -62,7 +62,7 @@ function ListingResults(props) {
                         key={listing.id}
                     >
                         <BusinessListingCard
-                            logo={listing.business.logo && getImageURL(listing.business.logo)}
+                            logo={HTC_Logo}
                             title={listing.title}
                             businessName={listing.business.businessName}
                             shortDescription={listing.shortDescription}

@@ -6,11 +6,10 @@
  *
  */
 
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {useLocation} from 'react-router-dom';
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
-
 import SubPages from "./SubPages";
 import {ALL_SUBPAGES, BUSINESS_SUBPAGES, MEMBER_SUBPAGES, USER_TYPES} from "../common/constants/users";
 import ChangePasswordContainer from "./ChangePasswordContainer";
@@ -21,17 +20,10 @@ import Error404 from "../common/error/Error404";
 import SearchCriteriaContainer from "./member/SearchCriteriaContainer";
 import DeactivateAccountContainer from './accountDeactivateAndDelete/DeactivateAccountContainer'
 import DeleteAccountContainer from "./accountDeactivateAndDelete/DeleteAccountContainer";
-import MessagingContainer from "./member/messaging/MessagingContainer";
-import ManageListingContainer from "./manageListing/ManageListingContainer";
 
 const AccountSummaryContainer = props => {
     const { active } = props;
     const {accountType, selected} = useLocation().state;
-    const [selectedSubpage, setSelectedSubpage] = useState(selected);
-
-    useEffect(() => {
-        setSelectedSubpage(selected);
-    }, [selected])
 
     const MEMBER_SIDEBAR = [
         ...MEMBER_SUBPAGES,
@@ -60,6 +52,8 @@ const AccountSummaryContainer = props => {
 
     const options = accountType === USER_TYPES.MEMBER ? MEMBER_SIDEBAR : BUSINESS_SIDEBAR;
 
+    const [selectedSubpage, setSelectedSubpage] = useState(selected);
+
     const subpageComponent = (subpage) => {
         switch (subpage) {
             case ALL_SUBPAGES.PROFILE:
@@ -73,9 +67,9 @@ const AccountSummaryContainer = props => {
             case ALL_SUBPAGES.PASSWORD:
                 return <ChangePasswordContainer/>
             case ALL_SUBPAGES.MESSAGING:
-                return <MessagingContainer/>
+                return <div>Messaging Component</div>
             case ALL_SUBPAGES.MANAGE_LISTINGS:
-                return <ManageListingContainer/>
+                return <div>Manage Listings Component</div>
             case ALL_SUBPAGES.ACTIVATE:
                 return accountType === USER_TYPES.MEMBER ?
                     <DeactivateAccountContainer/>

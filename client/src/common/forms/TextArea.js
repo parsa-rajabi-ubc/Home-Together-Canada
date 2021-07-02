@@ -53,7 +53,7 @@ TextArea.propTypes = {
     onChange: PropTypes.func,
     disabled: PropTypes.bool,
     value: PropTypes.string,
-    charLimit: PropTypes.number
+    charLimit: PropTypes.string
 }
 
 export default TextArea;

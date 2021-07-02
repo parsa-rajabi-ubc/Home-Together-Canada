@@ -17,7 +17,7 @@ import {dropdownDefaultCSS} from "../../css/dropdownCSSUtil"
 
 
 function InterestedArea(props) {
-    const {onChange, givenAreasOfInterest, areasOfInterestError, max} = props;
+    const {onChange, givenAreasOfInterest, areasOfInterestError} = props;
     const [extraAreas, setExtraAreas] = useState(givenAreasOfInterest || [{province: "", city: "", radius: 0}]);
 
     const handleRemoveClick = index => {
@@ -26,11 +26,9 @@ function InterestedArea(props) {
         setExtraAreas(list);
     };
     const handleAddClick = () => {
-        if (extraAreas.length <= max) {
-            const list = [...extraAreas];
-            list.push({province: undefined, city: undefined, radius: undefined});
-            setExtraAreas(list);
-        }
+        const list = [...extraAreas];
+        list.push({province: undefined, city: undefined, radius: undefined});
+        setExtraAreas(list);
     };
     const handleAreaProvinceChange = (e, index) => {
         const {value} = e;
@@ -102,13 +100,11 @@ function InterestedArea(props) {
                                 <MdDeleteForever color="#DB4437" size="40" onClick={() => handleRemoveClick(index)}/>}
                             </div>
                             <div className="col-start-1 col-end-4">
-                                {(extraAreas.length - 1 === index && extraAreas.length < max) &&
-                                    <Button
-                                        className="btn btn-green text-sm py-2 "
-                                        value="Add Another Location"
-                                        onClick={() => handleAddClick()}
-                                    />
-                                }
+                                {extraAreas.length - 1 === index &&
+                                <Button className="btn btn-green text-sm py-2 " value="Add Another Location"
+                                        onClick={() => {
+                                            handleAddClick()
+                                        }}/>}
                             </div>
                         </div>
                     );
@@ -120,8 +116,7 @@ function InterestedArea(props) {
 }
 
 InterestedArea.propTypes = {
-    onChange: PropTypes.func.isRequired,
-    max: PropTypes.number.isRequired,
+    onChange: PropTypes.func,
     givenAreasOfInterest: PropTypes.array,
     areasOfInterestError: PropTypes.bool,
 }

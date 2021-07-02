@@ -12,7 +12,7 @@ const abstractUserController = require('../abstractUserController');
 const memberAccountController = require('../memberAccountController');
 const PasswordService = require('../../services/PasswordService');
 const {isCanadianPostalCode} = require('../utils/locationUtils');
-const {STATUS, MAX_AREAS_OF_INTEREST} = require('../../constants/memberConstants');
+const {STATUS} = require('../../constants/memberConstants');
 const { DEFAULT_COUNTRY, PROVINCE_MAP, PROVINCES_LIST } = require('../configConstants');
 
 const geoCoder = nodeGeocoder({
@@ -86,20 +86,10 @@ const isValidCanadianPostalCode = (postalCode) => {
     }
 };
 
-const shouldMailingAddressBeDefined = (addressPart, req, fieldName) => {
+const shouldMailingAddressBeDefined = (addressPart, req) => {
     if (req.body.hasDifferentMailingAddress && !addressPart) {
-        throw new Error(`${fieldName} for mailing address must be defined if use different mailing address is selected`);
+        throw new Error('Address must be defined');
     } else {
-        return true;
-    }
-};
-const isValidBirthYear = (birthyear) => {
-    const currentYear = new Date().getFullYear();
-    const minAge = 16;
-    if (currentYear - minAge < birthyear) {
-        throw new Error('BirthYear must be for a 16 years old or more')
-    }
-    else {
         return true;
     }
 };
@@ -157,9 +147,8 @@ const validMapAddress = (addressLine1, req) => {
         const address = `${addressLine1} ${req.body.mapCity} ${PROVINCE_MAP.get(req.body.mapProvince)} ${DEFAULT_COUNTRY}`;
         return geoCoder.geocode(address)
             .then(locations => {
-                console.log('locations: ', locations);
                 if (!locations.length) {
-                    return Promise.reject('Home Together does not currently support that location. Please try a nearby location that is more well known.');
+                    return Promise.reject('Invalid map address');
                 }
             });
     } else {
@@ -244,7 +233,7 @@ const isValidRadius = radius => {
 }
 
 const isValidAreasOfInterestList = (areasOfInterest) => {
-    if (!!areasOfInterest && areasOfInterest.length > 0 && areasOfInterest.length <= MAX_AREAS_OF_INTEREST) {
+    if (!!areasOfInterest && areasOfInterest.length > 0) {
         areasOfInterest.forEach(areaOfInterest => {
             if (!areaOfInterest || !areaOfInterest.province || !areaOfInterest.city || !isNumber(areaOfInterest.radius)) {
                 throw new Error('Area of interest must include province, city and radius properties');
@@ -256,13 +245,14 @@ const isValidAreasOfInterestList = (areasOfInterest) => {
         });
     } else if (!areasOfInterest || (!!areasOfInterest && !areasOfInterest.length)) {
         throw new Error('At least one area of interest must be provided');
-    } else if (areasOfInterest.length > MAX_AREAS_OF_INTEREST) {
-        throw new Error(`No more than ${MAX_AREAS_OF_INTEREST} areas of interest can be provided`);
     }
     return true;
 }
 
 const isValidLocation = area => {
+    if (!PROVINCES_LIST.includes(area.province)) {
+        throw new Error('Invalid location provided');
+    }
     return geoCoder.geocode({
         country: DEFAULT_COUNTRY,
         state: PROVINCE_MAP.get(area.province),
@@ -270,47 +260,18 @@ const isValidLocation = area => {
     })
         .then(results => {
             if (!results || !results.length) {
-                return Promise.reject('Home Together does not currently support that location. Please try a nearby location that is more well known.');
+                return Promise.reject('Invalid location provided');
             }
         });
 }
 
-/**
- *
- * @param maxLength maximum number of characters in string (inclusive)
- */
-const isValidStringLength = (str, maxLength, fieldName) => {
-    if (typeof str !== 'string' && !str) {
-        throw new Error(`${fieldName} must be provided`)
-    } else if (str.length > maxLength) {
-        throw new Error(`${fieldName} cannot be more than ${maxLength} characters`);
-    }
-    return true;
-}
-
-const isOptionalFieldAValidStringLength = (fieldIsDefined, str, maxLength, fieldName) => {
-    if (fieldIsDefined && !str) {
-        throw new Error(`${fieldName} must be defined`);
-    } else if (fieldIsDefined && (str.length > maxLength)) {
-        throw new Error(`${fieldName} cannot be more than ${maxLength} characters`);
-    } else {
-        return true;
-    }
-}
-
-const usernameShouldNotAlreadyExist = (username) => {
-    if (!username) {
-        return Promise.reject('Username must be provided');
-    } else {
-        return abstractUserController.findUserByUsername(username)
-            .then(user => {
-                if (user) {
-                    return Promise.reject('User already exists');
-                }
-            });
-    }
-}
-
+const usernameShouldNotAlreadyExist = (username) =>
+    abstractUserController.findUserByUsername(username)
+        .then(user => {
+            if (user) {
+                return Promise.reject('User already exists');
+            }
+        });
 
 const emailShouldNotAlreadyBeInUse = (email) =>
     abstractUserController.findUserByEmail(email)
@@ -409,7 +370,6 @@ module.exports = {
     SHARE_LIMITS,
     DEACTIVATION_REASONS,
     isValidPassword,
-    isValidBirthYear,
     isValidPhoneNumber,
     isValidCanadianPostalCode,
     shouldMailingAddressBeDefined,
@@ -430,8 +390,6 @@ module.exports = {
     isValidRadius,
     isValidAreasOfInterestList,
     isValidLocation,
-    isValidStringLength,
-    isOptionalFieldAValidStringLength,
     usernameShouldNotAlreadyExist,
     emailShouldNotAlreadyBeInUse,
     updatedEmailShouldNotAlreadyBeInUse,

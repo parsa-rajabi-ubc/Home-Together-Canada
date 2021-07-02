@@ -12,7 +12,7 @@ export const MEMBER_PROFILE_INFO_TEXT = {
     FAMILY_STATUS: "Select the status that most accurately reflects your living arrangement that you would like to maintain while home-sharing. Choose as many option as you wish, however you must select at least one",
     NUM_PEOPLE_SHARE: "This number of people does not include yourself",
     RENT: "This does NOT include utilities",
-    INTERESTED_AREA: "Preferred living location(s) across Canada (maximum of 5)",
+    INTERESTED_AREA: "Preferred living location(s) across Canada",
     PET: "You either have a pet or are open to living with pets",
     SMOKE: "You either smoke yourself or are open to living with people who smoke",
     HEALTH: "Health and mobility issues that are relevant to roommates",
@@ -44,10 +44,6 @@ export const BUSINESS_INFO_TEXT = {
 };
 
 export const CREATE_LISTING_MEMBER_SHARE_HOME = {
-    PHOTOS: "Maximum 6 pictures. Please use SHIFT or CONTROL to select pictures at once. You can NOT upload pictures one at a time.",
+    PHOTOS: "Maximum 6 pictures",
     ADDRESS: "Please enter the general location of the house"
-}
-
-export const PAYPAL_TEXT = {
-    PAYMENT: "By selecting an option, you're purchasing a certain amount of months that the listing will be live and visible to users on the site"
 }

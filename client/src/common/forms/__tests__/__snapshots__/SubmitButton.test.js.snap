@@ -5,7 +5,6 @@ exports[`SubmitButton Snapshot test should render correctly regardless of proper
   testLabelString1
   <input
     className="testClassNameString"
-    disabled={false}
     onClick={[MockFunction]}
     type="submit"
     value="Submit"

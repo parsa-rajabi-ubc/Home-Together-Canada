@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`MessagingContainer Snapshot test should match snapshot test if listing is NOT empty for userName 1`] = `<div />`;

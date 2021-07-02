@@ -74,7 +74,7 @@ const findAllAbstractUsers = (req, res) => {
         });
 }
 
-const changeOwnPassword = (req, res) => {
+const changePassword = (req, res) => {
     AbstractUser.update({ password: PasswordService.getHashedPassword(req.body.newPassword, req.user.salt) }, {
         where: {
             uid: req.user.uid
@@ -84,16 +84,6 @@ const changeOwnPassword = (req, res) => {
             res.status(200).send({ success: true });
         })
         .catch(err => res.status(500).send({ success: false, message: err.message }));
-}
-
-const changeUserPassword = async (username, password) => {
-    const user = await findUserByUsername(username);
-
-    return AbstractUser.update({ password: PasswordService.getHashedPassword(password, user.salt) }, {
-        where: {
-            uid: user.uid
-        }
-    });
 }
 
 const deleteAccount = uid =>
@@ -123,31 +113,6 @@ const updateAbstractUser = (req, res) => {
     });
 }
 
-const banUser = uid => {
-    return AbstractUser.update({
-        isBanned: true
-    }, {
-        where: {
-            uid: uid
-        }
-    });
-}
-
-const listBannedUsers = () => {
-    return AbstractUser.findAll({
-        attributes: ['username'],
-        where: {
-            isBanned: true
-        }
-    });
-}
-
-const exportAllUserData = () => {
-    return AbstractUser.findAll({
-        include: { all: true }
-    });
-}
-
 module.exports = {
     createAbstractUser,
     findAllAbstractUsers,
@@ -155,11 +120,7 @@ module.exports = {
     findUserByUsername,
     findUsersByUsernames,
     findUserByEmail,
-    changeOwnPassword,
-    changeUserPassword,
+    changePassword,
     updateAbstractUser,
-    deleteAccount,
-    banUser,
-    listBannedUsers,
-    exportAllUserData
+    deleteAccount
 }

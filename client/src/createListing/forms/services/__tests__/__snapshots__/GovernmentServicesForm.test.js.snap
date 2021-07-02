@@ -47,10 +47,8 @@ exports[`GovernmentServicesForm Snapshot test should render correctly regardless
           <input
             className="false undefined input"
             disabled={false}
-            maxLength={75}
             onChange={[Function]}
             type="text"
-            value=""
           />
         </section>
         <div
@@ -88,10 +86,9 @@ exports[`GovernmentServicesForm Snapshot test should render correctly regardless
               <input
                 className="false undefined input"
                 disabled={false}
-                maxLength={50}
+                maxLength="50"
                 onChange={[Function]}
                 type="text"
-                value=""
               />
             </section>
           </section>
@@ -127,10 +124,8 @@ exports[`GovernmentServicesForm Snapshot test should render correctly regardless
               <input
                 className="false undefined input"
                 disabled={false}
-                maxLength={200}
                 onChange={[Function]}
                 type="text"
-                value=""
               />
             </section>
           </section>
@@ -227,24 +222,21 @@ exports[`GovernmentServicesForm Snapshot test should render correctly regardless
             />
           </svg>
           <textarea
-            className="undefined undefined undefined input"
+            className="undefined undefined input"
             cols="50"
-            maxLength={2000}
             onChange={[Function]}
             rows="6"
-            value=""
           />
         </div>
       </div>
     </div>
-    <label>
-      <input
-        className="btn btn-green form-btn w-1/2"
-        disabled={false}
-        onClick={[Function]}
-        type="submit"
-      />
-    </label>
   </div>
+  <label>
+    <input
+      className="btn btn-green form-btn w-1/2"
+      onClick={[Function]}
+      type="submit"
+    />
+  </label>
 </div>
 `;

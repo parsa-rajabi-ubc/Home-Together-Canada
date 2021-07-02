@@ -10,13 +10,11 @@ import { combineReducers } from 'redux';
 
 import userPrivilegesReducer from '../slices/userPrivileges';
 import memberPrivilegesReducer from '../slices/memberPrivileges';
-import listingsReducer from '../slices/listing';
 import {USER_TYPES} from "../../common/constants/users";
 
 const allReducers = combineReducers({
     userPrivileges: userPrivilegesReducer,
-    memberPrivileges: memberPrivilegesReducer,
-    listings: listingsReducer
+    memberPrivileges: memberPrivilegesReducer
 });
 
 const rootReducer = (state, action) => {
@@ -31,12 +29,6 @@ const rootReducer = (state, action) => {
                 active: null,
                 memberSearchFilters: {},
                 memberSearchResults: undefined
-            },
-            listings: {
-                serviceListingsSearchFilters: {},
-                serviceListingsSearchResults: undefined,
-                classifiedListingsSearchFilters: {},
-                classifiedListingsSearchResults: undefined
             }
         }
     }

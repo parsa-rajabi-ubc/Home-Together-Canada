@@ -8,8 +8,6 @@
 
 import React from 'react';
 import PropTypes from "prop-types";
-import {toast} from "react-toastify";
-import {IN_DEVELOPMENT} from "../../common/constants/ToastText";
 
 const BUSINESS_INFO_TEXT = {
     TITLE: "Business Info",
@@ -54,7 +52,7 @@ function BusinessInfo(props) {
                        className={"link"}>{BUSINESS_INFO_TEXT.WEBSITE}</a>
                 </section>
 
-                <button className={"btn btn-red my-10 text-base px-0 py-2"} onClick={() => toast.error(IN_DEVELOPMENT.MSG)}>
+                <button className={"btn btn-red my-10 text-base px-0 py-2"}>
                     {BUSINESS_INFO_TEXT.REPORT}
                 </button>
             </div>

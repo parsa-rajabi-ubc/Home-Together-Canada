@@ -10,7 +10,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import Tooltip from "./Tooltip";
 import LabelAsterisk from "./LabelAsterisk";
-import {USER_FIELD_LENGTHS} from "../constants/fieldLengths";
 
 const INFO_TEXT = {
     USERNAME: "Your username should be unique and meaningful.",
@@ -51,7 +50,6 @@ function SignInInfo(props) {
                     className={`${usernameError && "border-red-500"} input`}
                     type="text"
                     onChange={onChangeUsername}
-                    maxLength={USER_FIELD_LENGTHS.USERNAME}
                 />
             </label>
             <label>
@@ -64,7 +62,6 @@ function SignInInfo(props) {
                     className={`${(passwordError) && "border-red-500"} input`}
                     type={"password"}
                     onChange={onChangePassword}
-                    maxLength={USER_FIELD_LENGTHS.PASSWORD}
                 />
                 {passwordError && <label className={'error-msg'}>{ERROR_TEXT.PASSWORD.INVALID}</label>}
             </label>
@@ -74,7 +71,6 @@ function SignInInfo(props) {
                     className={`${passwordConfirmError && "border-red-500 mb-0"} input`}
                     type={"password"}
                     onChange={onChangePasswordCheck}
-                    maxLength={USER_FIELD_LENGTHS.PASSWORD}
                 />
                 {passwordConfirmErrorMsg && <label className={"error-msg"}>{passwordErrorText}</label>}
             </label>

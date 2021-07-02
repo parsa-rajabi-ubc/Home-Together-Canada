@@ -20,8 +20,7 @@ function GenericInput(props) {
         onClick,
         classNameLabel,
         value,
-        onKeyDown,
-        charLimit
+        onKeyDown
     } = props;
     return (
         <label>
@@ -37,7 +36,6 @@ function GenericInput(props) {
                 onClick={onClick}
                 value={value}
                 onKeyDown={onKeyDown}
-                maxLength={charLimit}
             />
         </label>
     );
@@ -53,8 +51,7 @@ GenericInput.propTypes = {
     onChange: PropTypes.func,
     onClick: PropTypes.func,
     onKeyDown: PropTypes.func,
-    value: PropTypes.any,
-    charLimit: PropTypes.number
+    value: PropTypes.any
 };
 
 export default GenericInput;

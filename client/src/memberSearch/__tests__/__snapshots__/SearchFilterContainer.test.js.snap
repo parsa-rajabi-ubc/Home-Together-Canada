@@ -18,7 +18,6 @@ exports[`SearchFilterContainer should render correctly regardless of properties 
       <label>
         <input
           className="btn btn-green w-1/4 float-right py-2"
-          disabled={false}
           onClick={[Function]}
           type="submit"
           value="Search"

@@ -38,40 +38,5 @@ exports[`EventsCustomFields should render correctly regardless of properties 1`]
      
     2020/2/21 11:00 A.M.
   </p>
-  <div>
-    <label
-      className="label-result"
-    >
-      Pictures
-    </label>
-    <div>
-      <div
-        className="lightbox-container"
-      >
-        <img
-          className="lightbox-img-thumbnail"
-          onClick={[Function]}
-          src="/uploads/listings/1/testimage1.png"
-          style={
-            Object {
-              "height": "80px",
-              "width": "80px",
-            }
-          }
-        />
-        <img
-          className="lightbox-img-thumbnail"
-          onClick={[Function]}
-          src="/uploads/listings/1/testimage2.png"
-          style={
-            Object {
-              "height": "80px",
-              "width": "80px",
-            }
-          }
-        />
-      </div>
-    </div>
-  </div>
 </div>
 `;

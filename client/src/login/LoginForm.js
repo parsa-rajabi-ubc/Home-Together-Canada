@@ -26,8 +26,6 @@ import {setIsAdmin, setAccountType, setAuthenticated} from "../redux/slices/user
 import {setActive, setMemberSearchFilters} from "../redux/slices/memberPrivileges";
 import {USER_TYPES} from "../common/constants/users";
 import {resolveBooleanToYesNo} from "../common/utils/generalUtils";
-import {toast} from "react-toastify";
-import {HOME_TOGETHER_EMAIL} from "../common/constants/homeTogetherContstants";
 
 const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated, setActive, setMemberSearchFilters};
 
@@ -65,15 +63,6 @@ function LoginForm(props) {
         if (event.which === 13) {
             onSubmit(event);
         }
-    }
-
-    const forgetPasswordAlert = () => {
-        toast.info(`Password recovery is still under construction! Please contact ${HOME_TOGETHER_EMAIL} to ` +
-            `reset your password. Please include your username and use the email you registered with to confirm  ` +
-            `your identity. Your password will be reset and you will be notified via email.`,
-            {
-                autoClose: false
-            });
     }
 
     const onSubmit = (event) => {
@@ -190,7 +179,7 @@ function LoginForm(props) {
 
                             <hr className="my-8"/>
 
-                            <p onClick={forgetPasswordAlert} className="link"> Forgot your password? </p>
+                            <Link to={'/forgot-password'} className="link"> Forgot your password? </Link>
                             <Link to={'/registration'} className="link"> Create an account </Link>
                         </div>
                     </div>

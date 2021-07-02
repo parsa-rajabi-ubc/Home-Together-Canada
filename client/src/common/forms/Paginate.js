@@ -32,7 +32,7 @@ function Paginate(props) {
                 nextLabel={"Next"}
                 pageCount={pageCount}
                 onPageChange={handlePageClick}
-                containerClassName={"flex m-auto w-1/4"}
+                containerClassName={"flex m-auto w-2/3"}
                 pageLinkClassName={"page-numbers"}
                 previousLinkClassName={"next-prev-link"}
                 nextLinkClassName={"next-prev-link"}

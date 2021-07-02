@@ -13,17 +13,17 @@ export const rentalsMockCustomFields = {
     furnished: true,
     petFriendly: false,
     smokingFriendly: false,
-    pictures: ['uploads/listings/1/testimage1.png', 'uploads/listings/1/testimage2.png']
+    pictures: "pictures"
 }
 
 export const houseServicesMockCustomFields = {
     rateAndFees: "666 per day",
-    pictures: ['uploads/listings/1/testimage1.png', 'uploads/listings/1/testimage2.png']
+    pictures: "pictures"
 }
 
 export const agenciesMockCustomFields = {
     rateAndFees: "555 per day",
-    pictures: ['uploads/listings/1/testimage1.png', 'uploads/listings/1/testimage2.png']
+    pictures: "pictures"
 }
 
 export const eventsMockCustomFields = {
@@ -31,5 +31,5 @@ export const eventsMockCustomFields = {
     eventDateTime: "2020/2/21 11:00 A.M.",
     contactName: "Alex",
     contactNumber:"778-555-5555",
-    pictures: ['uploads/listings/1/testimage1.png', 'uploads/listings/1/testimage2.png']
+    pictures: "pictures"
 }

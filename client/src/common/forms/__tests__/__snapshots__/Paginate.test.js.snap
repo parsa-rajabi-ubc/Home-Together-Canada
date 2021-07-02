@@ -5,7 +5,7 @@ exports[`Paginate Snapshot test should render correctly regardless of properties
   h1
   h2
   <ul
-    className="flex m-auto w-1/4"
+    className="flex m-auto w-2/3"
   >
     <li
       className="next-prev-text disabled"

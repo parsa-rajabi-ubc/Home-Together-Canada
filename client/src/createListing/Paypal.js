@@ -10,8 +10,6 @@ import React, {useState, useEffect} from 'react';
 import {PayPalScriptProvider, PayPalButtons} from "@paypal/react-paypal-js";
 import RadioButton from "../common/forms/RadioButton";
 import PropTypes from "prop-types";
-import Tooltip from "../common/forms/Tooltip";
-import {PAYPAL_TEXT} from "../common/constants/TooltipText";
 
 
 const MESSAGE = {
@@ -121,8 +119,7 @@ const Paypal = (props) => {
     return (
         <div>
             <h1 className={"page-title mb-5"}> {PAGE_TEXT.TITLE} </h1>
-            <p className={"label inline mb-2"}>{PAGE_TEXT.LABEL}</p>
-            <Tooltip text={PAYPAL_TEXT.PAYMENT} toolTipID={"paypal"}/>
+            <p className={"label mb-2"}>{PAGE_TEXT.LABEL}</p>
 
             {purchaseOption}
 

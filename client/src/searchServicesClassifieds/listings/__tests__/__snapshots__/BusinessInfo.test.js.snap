@@ -59,7 +59,6 @@ exports[`BusinessInfo Container test should match snapshot test if business is n
     </section>
     <button
       className="btn btn-red my-10 text-base px-0 py-2"
-      onClick={[Function]}
     >
       Report Listing
     </button>
@@ -138,7 +137,6 @@ exports[`BusinessInfo Container test should match snapshot test if business is n
     </section>
     <button
       className="btn btn-red my-10 text-base px-0 py-2"
-      onClick={[Function]}
     >
       Report Listing
     </button>

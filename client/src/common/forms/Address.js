@@ -14,7 +14,6 @@ import Asterisk from "./Asterisk";
 import Tooltip from "./Tooltip";
 import get from 'lodash/get';
 import {dropdownErrorCSS, dropdownDefaultCSS} from "../../css/dropdownCSSUtil"
-import {USER_FIELD_LENGTHS} from "../constants/fieldLengths";
 
 function Address(props) {
     const {
@@ -83,9 +82,7 @@ function Address(props) {
                     name="street"
                     placeholder="Address Line 1"
                     autoComplete="address-line1"
-                    onChange={handleInputChange}
-                    maxLength={USER_FIELD_LENGTHS.ADDRESS_LINE_1}
-                />
+                    onChange={handleInputChange}/>
             </div>
             <div className="col-start-1 col-end-8">
                 <input
@@ -94,10 +91,7 @@ function Address(props) {
                     value={aptNum || ''}
                     name="aptNum"
                     placeholder="Address Line 2: Apt, suite, etc. (optional)"
-                    autoComplete="address-line2"
-                    onChange={handleInputChange}
-                    maxLength={USER_FIELD_LENGTHS.ADDRESS_LINE_2}
-                />
+                    autoComplete="address-line2" onChange={handleInputChange}/>
             </div>
             <div className="col-start-1 col-end-4">
                 <input
@@ -107,9 +101,7 @@ function Address(props) {
                     value={city || ''}
                     name="city"
                     placeholder="City"
-                    onChange={handleInputChange}
-                    maxLength={USER_FIELD_LENGTHS.CITY}
-                />
+                    onChange={handleInputChange}/>
             </div>
             <div className="col-start-4 col-end-8">
                 <Dropdown
@@ -128,9 +120,7 @@ function Address(props) {
                     name="postalCode"
                     placeholder="Postal Code"
                     value={postalCode || ''}
-                    onChange={handleInputChange}
-                    maxLength={USER_FIELD_LENGTHS.POSTAL_CODE}
-                />
+                    onChange={handleInputChange}/>
             </div>
         </div>
     );

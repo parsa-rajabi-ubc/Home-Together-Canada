@@ -13,7 +13,7 @@ import renderer from  'react-test-renderer'
 describe('GenericInput', () => {
     describe('Snapshot test', () => {
         it("should render correctly regardless of properties", () => {
-            // given
+            // then
             const label = 'testLabelString1';
             const type = 'testTypeString1';
             const className = 'testClassNameString';

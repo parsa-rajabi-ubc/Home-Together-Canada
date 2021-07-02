@@ -2,7 +2,7 @@
  * @Author:     Alex Qin
  * @Created:    2021.2.12
  *
- * @Description: Form to create a listing in Classes, Clubs & Events category
+ * @Description: Classes, Clubs & Events Form
  *
  */
 
@@ -19,36 +19,20 @@ import {
 import {Events_TEXT as TEXT} from "./constants/ClassifiedsListingText";
 import Tooltip from "../../../common/forms/Tooltip";
 import {CREATE_LISTING_MEMBER_SHARE_HOME as ToolTipText} from "../../../common/constants/TooltipText";
+import UploadImage from "../../../common/forms/UploadImage";
 import PhoneNumInput from "../../../common/forms/PhoneNumInput";
-import MultiImageUpload from "../../../common/forms/MultiImageUpload";
-import {DEFAULT_MAX_NUM_IMAGES} from "../../constants/createListingConfig";
-import {LISTING_FIELD_LENGTHS} from "../../../common/constants/fieldLengths";
-import {translatePhoneNumberIntToThreeStrings} from "../../../common/utils/stringUtils";
 
 const EventsForm = (props) => {
-    const {
-        onSubmit,
-        listingExists = false,
-        existingTitle,
-        existingShortDescription,
-        existingFullDescription,
-        existingRateAndFees,
-        existingContactName,
-        existingContactPhoneNumber,
-        existingEventDateTime
-    } = props;
+    const {onSubmit} = props;
 
-    const [title, setTitle] = useState(existingTitle || undefined);
-    const [shortDescription, setShortDescription] = useState(existingShortDescription || undefined);
-    const [fullDescription, setFullDescription] = useState(existingFullDescription || undefined);
-    const [rateAndFees, setRateAndFees] = useState(existingRateAndFees || undefined);
-    const [pictures, setPictures] = useState(undefined);
-    const [contactName, setContactName] = useState(existingContactName || undefined);
-    const [contactPhoneNumber, setContactPhoneNumber] = useState(listingExists
-        ? translatePhoneNumberIntToThreeStrings(existingContactPhoneNumber)
-        : undefined
-    );
-    const [eventDateTime, setEventDateTime] = useState(existingEventDateTime || undefined);
+    const [title, setTitle] = useState(undefined);
+    const [shortDescription, setShortDescription] = useState(undefined);
+    const [fullDescription, setFullDescription] = useState(undefined);
+    const [rateAndFees, setRateAndFees] = useState(undefined);
+    const [picture, setPicture] = useState(undefined);
+    const [contactName, setContactName] = useState(undefined);
+    const [contactPhoneNumber, setContactPhoneNumber] = useState(undefined);
+    const [eventDateTime, setEventDateTime] = useState(undefined);
 
     const [submitted, setSubmitted] = useState(false);
 
@@ -83,7 +67,7 @@ const EventsForm = (props) => {
     }, [eventDateTime]);
 
     function handleImageUpload(e) {
-        setPictures([...e.target.files]);
+        setPicture(e.target.files[0]);
     }
 
     const isFormValid = () => {
@@ -121,7 +105,6 @@ const EventsForm = (props) => {
                 contactName,
                 contactPhoneNumber,
                 eventDateTime,
-                pictures
             });
         }
     }
@@ -139,30 +122,33 @@ const EventsForm = (props) => {
             <div className="col-start-1 col-end-7 py-5 px-5 m-6 bg-white shadow-lg rounded-xl">
                 <div className="grid grid-cols-2 gap-6">
                     <div className="col-span-3 sm:col-span-2">
+
                         <h1 className={"page-title mb-5"}> {TEXT.form_title} </h1>
+
                         <TextArea
                             className={`${titleError && "border-red-500"} input`}
                             label={TEXT.title}
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setTitle(e.target.value)}
-                            value={title || ''}
                             disabled={submitted}
-                            charLimit={LISTING_FIELD_LENGTHS.TITLE}
                         />
+
                         <div className={"grid grid-cols-9"}>
+
                             <section className={"col-start-1 col-end-5"}>
+
                                 <TextArea
                                     className={`${shortDescriptionError && "border-red-500"} input`}
                                     label={TEXT.short_des + " (" + SHORT_DESC_CHAR_COUNT + " Characters)"}
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setShortDescription(e.target.value)}
-                                    value={shortDescription || ''}
                                     charLimit={SHORT_DESC_CHAR_COUNT}
                                     disabled={submitted}
                                 />
                             </section>
+
                             <section className={"col-start-6 col-end-10"}>
                                 <TextArea
                                     className={`${contactNameError && "border-red-500"} input`}
@@ -170,11 +156,10 @@ const EventsForm = (props) => {
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setContactName(e.target.value)}
-                                    value={contactName || ''}
                                     disabled={submitted}
-                                    charLimit={LISTING_FIELD_LENGTHS.CONTACT_NAME}
                                 />
                             </section>
+
                             <section className={"col-start-1 col-end-5"}>
                                 <TextArea
                                     className={`${rateAndFeeError && "border-red-500"} input`}
@@ -182,11 +167,10 @@ const EventsForm = (props) => {
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setRateAndFees(e.target.value)}
-                                    value={rateAndFees || ''}
                                     disabled={submitted}
-                                    charLimit={LISTING_FIELD_LENGTHS.RATES_AND_FEES}
                                 />
                             </section>
+
                             <section className={"col-start-6 col-end-10"}>
                                 <PhoneNumInput
                                     className={`${contactPhoneNumberError && "border-red-500"} phone`}
@@ -194,9 +178,11 @@ const EventsForm = (props) => {
                                     value={contactPhoneNumber || {}}
                                     labelClassName={"label"}
                                     label={TEXT.contactPhoneNumber}
-                                    onChange={handleContactPhoneChange}
-                                />
+                                    onChange={handleContactPhoneChange}/>
+
                             </section>
+
+
                             <section className={"col-start-1 col-end-5"}>
                                 <TextArea
                                     className={`${dateAndTimeError && "border-red-500"} input`}
@@ -204,12 +190,13 @@ const EventsForm = (props) => {
                                     labelClassName={"label"}
                                     required={true}
                                     onChange={(e) => setEventDateTime(e.target.value)}
-                                    value={eventDateTime || ''}
                                     disabled={submitted}
-                                    charLimit={LISTING_FIELD_LENGTHS.EVENT_DATE_TIME}
                                 />
                             </section>
+
+
                         </div>
+
                         <LargeTextArea
                             className={`${fullDescriptionError && "border-red-500"} input`}
                             rows={"6"}
@@ -217,41 +204,27 @@ const EventsForm = (props) => {
                             labelClassName={"label"}
                             required={true}
                             onChange={(e) => setFullDescription(e.target.value)}
-                            value={fullDescription || ''}
                             disabled={submitted}
-                            charLimit={LISTING_FIELD_LENGTHS.FULL_DESCRIPTION}
                         />
-                        {!listingExists &&
-                        <div>
-                            <label className="label"> {TEXT.pictures} </label>
-                            <Tooltip
-                                text={ToolTipText.PHOTOS}
-                                toolTipID={"UploadPhotos"}
-                            />
-                            <MultiImageUpload handleImageUpload={handleImageUpload} maxNumImages={DEFAULT_MAX_NUM_IMAGES}/>
-                        </div>
-                        }
+
+                        <label className="label"> {TEXT.pictures} </label>
+                        <Tooltip
+                            text={ToolTipText.PHOTOS}
+                            toolTipID={"UploadPhotos"}
+                        />
+                        <UploadImage handleImageUpload={handleImageUpload}/>
+
                     </div>
                 </div>
             </div>
-            <SubmitButton
-                className={"btn btn-green form-btn w-1/2"}
-                onClick={onCreateListing}
-            />
+            <SubmitButton className={"btn btn-green form-btn w-1/2"} onClick={onCreateListing}
+                          onSubmit={onCreateListing}/>
         </div>
-    );
-}
+    )
 
+}
 EventsForm.propTypes = {
-    onSubmit: PropTypes.func.isRequired,
-    listingExists: PropTypes.bool,
-    existingTitle: PropTypes.string,
-    existingShortDescription: PropTypes.string,
-    existingFullDescription: PropTypes.string,
-    existingRateAndFees: PropTypes.string,
-    existingContactName: PropTypes.string,
-    existingContactPhoneNumber: PropTypes.number,
-    existingEventDateTime: PropTypes.string
+    onSubmit: PropTypes.func.isRequired
 }
 
 export default EventsForm;

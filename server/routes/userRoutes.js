@@ -16,17 +16,17 @@ const abstractUsers = require('../controllers/abstractUserController');
 const businessAccounts = require('../controllers/businessAccountController');
 const memberAccounts = require('../controllers/memberAccountController');
 const { isLoggedIn } = require('./routeUtils');
-const { DEVELOPMENT } = require('../constants/environmentConstants');
 
-// TODO: Take out after confirming output on production
-console.log('NODE_ENV: ', process.env.NODE_ENV);
+// Create abstract user
+router.post('/create/', function (req, res, next) {
+    abstractUsers.createAbstractUser(req, res);
+});
 
-if (process.env.NODE_ENV === DEVELOPMENT || !process.env.NODE_ENV) {
-    // get all abstract users
-    router.get('/all/', function (req, res, next) {
-        abstractUsers.findAllAbstractUsers(req, res);
-    });
-}
+// get all abstract users
+router.get('/all/', function (req, res, next) {
+    console.log('req.user: ', req.user);
+    abstractUsers.findAllAbstractUsers(req, res);
+});
 
 // check if user is authenticated
 router.get('/checkAuth/',isLoggedIn, function(req, res, next) {
@@ -91,7 +91,7 @@ router.post('/changePassword/', isLoggedIn, usersValidator.validate('changePassw
         if (!errors.isEmpty()) {
             res.status(400).json({ errors: errors.array()});
         } else {
-            abstractUsers.changeOwnPassword(req, res);
+            abstractUsers.changePassword(req, res);
         }
     });
 
@@ -116,6 +116,12 @@ router.get('/delete/',
             .catch(err => {
                 res.status(500).json({ err: err.message });
             });
+});
+
+// Get a specific abstract user
+// This route MUST BE LAST
+router.get('/:id', function (req, res, next) {
+    abstractUsers.findAbstractUser(req, res);
 });
 
 module.exports = router;

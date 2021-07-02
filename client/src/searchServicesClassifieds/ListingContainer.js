@@ -27,7 +27,6 @@ import HouseServicesCustomFields from "./listings/customFields/classifieds/House
 import Confirmation from "../common/listings/Confirmation";
 import {useHistory} from "react-router-dom";
 import {PAGE_NAMES} from "./SearchListingContainer";
-import {getImageURL} from "../common/utils/imageUtils";
 
 const MESSAGE = {
     INVALID_PAGE: "Please click on listing cards on search page to view listings",
@@ -51,7 +50,8 @@ function ListingContainer(props) {
     const [contactPhoneNumber, setContactPhoneNumber] = useState();
     const [unitForSale, setUnitForSale] = useState();
     const [unitForRent, setUnitForRent] = useState();
-    const [pictures, setPictures] = useState([]);
+    // TODO: Add Pictures from DB and set Pictures
+    // const [pictures, setPictures] = useState();
     const [rateAndFees, setRateAndFees] = useState();
     const [price, setPrice] = useState();
     const [numBed, setNumBed] = useState();
@@ -83,6 +83,7 @@ function ListingContainer(props) {
     const [phone, setPhone] = useState();
     const [email, setEmail] = useState();
 
+
     // Get Data
     useEffect(() => {
         setLoading(true);
@@ -112,7 +113,8 @@ function ListingContainer(props) {
 
 
     const setBusinessInfo = (listing) => {
-        setLogo(listing.business.logo ? getImageURL(listing.business.logo) : HTC_Logo);
+        //TODO: replace logo with string of logo address in DB
+        setLogo(HTC_Logo);
         setBusinessName(listing.business.businessName);
         if (listing.business.mapAddressLine1) {
             setAddress({
@@ -151,7 +153,6 @@ function ListingContainer(props) {
                 setPetFriendly(listing.petFriendly);
                 setSmokeFriendly(listing.smokeFriendly);
                 setUtilIncluded(listing.utilIncluded);
-                setPictures(listing.images);
                 break;
             case BUSINESS_SERVICE_CATEGORIES.CO_HOUSING:
                 setContactName(listing.contactName);
@@ -160,11 +161,9 @@ function ListingContainer(props) {
                 break;
             case BUSINESS_SERVICE_CATEGORIES.SHARED_HOME_SERVICES:
                 setRateAndFees(listing.rateAndFees);
-                setPictures(listing.images);
                 break;
             case BUSINESS_SERVICE_CATEGORIES.SHARED_BUSINESS_SERVICES:
                 setRateAndFees(listing.rateAndFees);
-                setPictures(listing.images);
                 break;
             case BUSINESS_SERVICE_CATEGORIES.GOVERNMENT_SERVICES:
                 setContactName(listing.contactName);
@@ -178,22 +177,18 @@ function ListingContainer(props) {
                 setFurnished(listing.furnished);
                 setPetFriendly(listing.petFriendly);
                 setSmokeFriendly(listing.smokeFriendly);
-                setPictures(listing.images);
                 break;
             case BUSINESS_CLASSIFIEDS_CATEGORIES.HOUSE_YARD:
                 setRateAndFees(listing.rateAndFees);
-                setPictures(listing.images);
                 break;
             case BUSINESS_CLASSIFIEDS_CATEGORIES.LEGAL_SALES:
                 setRateAndFees(listing.rateAndFees);
-                setPictures(listing.images);
                 break;
             case BUSINESS_CLASSIFIEDS_CATEGORIES.CLASSES_CLUBS:
                 setContactName(listing.contactName);
                 setContactPhoneNumber(listing.contactPhoneNumber.toString());
                 setRateAndFees(listing.rateAndFees);
                 setEventDateTime(listing.eventDateTime);
-                setPictures(listing.images);
                 break;
         }
         setLoading(false);
@@ -202,62 +197,40 @@ function ListingContainer(props) {
     function returnCustomFieldComponent(selectedCategory) {
         switch (selectedCategory) {
             case MEMBER_SERVICE_CATEGORIES.MEMBER_HOME:
-                return (
-                    <MemberHomeToShareCustomFields
-                        homeShareMonthlyCost={homeShareMonthlyCost}
-                        numBed={numBed}
-                        numBath={numBath}
-                        utilIncluded={utilIncluded}
-                        petFriendly={petFriendly}
-                        smokeFriendly={smokeFriendly}
-                        pictures={pictures}
+                return <MemberHomeToShareCustomFields
+                    homeShareMonthlyCost={homeShareMonthlyCost}
+                    numBed={numBed}
+                    numBath={numBath}
+                    utilIncluded={utilIncluded}
+                    petFriendly={petFriendly}
+                    smokeFriendly={smokeFriendly}
 
-                        streetLine1={memberAddressLine1}
-                        streetLine2={memberAddressLine2}
-                        city={memberAddressCity}
-                        province={memberAddressProvince}
-                        postalCode={memberAddressPostalCode}
-                    />
-                );
+                    streetLine1={memberAddressLine1}
+                    streetLine2={memberAddressLine2}
+                    city={memberAddressCity}
+                    province={memberAddressProvince}
+                    postalCode={memberAddressPostalCode}
+                />
             case BUSINESS_SERVICE_CATEGORIES.CO_HOUSING:
-                return (
-                    <CohousingCustomFields
-                        contactName={contactName}
-                        unitsForSale={unitForSale}
-                        unitsForRent={unitForRent}
-                    />
-                );
+                return <CohousingCustomFields contactName={contactName} unitsForSale={unitForSale}
+                                              unitsForRent={unitForRent}/>
             case BUSINESS_SERVICE_CATEGORIES.SHARED_HOME_SERVICES:
-                return <HomeServiceBusinessCustomFields rateAndFees={rateAndFees} pictures={pictures}/>
+                return <HomeServiceBusinessCustomFields rateAndFees={rateAndFees}/>
             case BUSINESS_SERVICE_CATEGORIES.SHARED_BUSINESS_SERVICES:
-                return <HomeServiceBusinessCustomFields rateAndFees={rateAndFees} pictures={pictures}/>
+                return <HomeServiceBusinessCustomFields rateAndFees={rateAndFees}/>
             case BUSINESS_SERVICE_CATEGORIES.GOVERNMENT_SERVICES:
                 return <GovernmentServicesCustomFields contactPerson={contactName} phoneNumber={contactPhoneNumber}/>
             case BUSINESS_CLASSIFIEDS_CATEGORIES.RENTALS:
-                return (
-                    <RentalsCustomFields
-                        petFriendly={petFriendly}
-                        numBed={numBed}
-                        numBath={numBath}
-                        furnished={furnished}
-                        price={price}
-                        smokingFriendly={smokeFriendly}
-                        pictures={pictures}
-                    />)
+                return <RentalsCustomFields petFriendly={petFriendly} numBed={numBed}
+                                            numBath={numBath} furnished={furnished} price={price}
+                                            smokingFriendly={smokeFriendly}/>
             case BUSINESS_CLASSIFIEDS_CATEGORIES.HOUSE_YARD:
-                return <HouseServicesCustomFields rateAndFees={rateAndFees} pictures={pictures}/>
+                return <HouseServicesCustomFields rateAndFees={rateAndFees}/>
             case BUSINESS_CLASSIFIEDS_CATEGORIES.LEGAL_SALES:
-                return <AgenciesCustomFields rateAndFees={rateAndFees} pictures={pictures}/>
+                return <AgenciesCustomFields rateAndFees={rateAndFees}/>
             case BUSINESS_CLASSIFIEDS_CATEGORIES.CLASSES_CLUBS:
-                return (
-                    <EventsCustomFields
-                        rateAndFees={rateAndFees}
-                        contactName={contactName}
-                        contactNumber={contactPhoneNumber}
-                        eventDateTime={eventDateTime}
-                        pictures={pictures}
-                    />
-               );
+                return <EventsCustomFields rateAndFees={rateAndFees} contactName={contactName}
+                                           contactNumber={contactPhoneNumber} eventDateTime={eventDateTime}/>
         }
     }
 

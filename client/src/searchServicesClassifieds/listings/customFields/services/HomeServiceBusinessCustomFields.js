@@ -7,7 +7,6 @@
  */
 import PropTypes from "prop-types";
 import React from 'react';
-import {ImageGallery} from "../../../../common/listings/ImageGallery";
 
 const HOME_SERVICE_BUSINESS_CUSTOM_FIELDS_TEXT = {
     RATE_AND_FEES: "Rates and fees (CAD)",
@@ -17,18 +16,14 @@ const HOME_SERVICE_BUSINESS_CUSTOM_FIELDS_TEXT = {
 
 const HomeServiceBusinessCustomFields = (props) =>{
     const { rateAndFees, pictures } = props;
-    console.log('HomeServiceBusinessCustomFields props: ', props);
 
     return(
         <div>
             <label className={"label-result"}>{HOME_SERVICE_BUSINESS_CUSTOM_FIELDS_TEXT.RATE_AND_FEES}</label>
             <p> {rateAndFees}</p>
-            {!!pictures.length &&
-                <div>
-                    <label className={"label-result"}>{HOME_SERVICE_BUSINESS_CUSTOM_FIELDS_TEXT.PICTURES}</label>
-                    <ImageGallery pictures={pictures}/>
-                </div>
-            }
+
+            {/*TODO: replace HTC_Logo with picture string from DB*/}
+            {/*<label className={"label-result"}>{HOME_SERVICE_BUSINESS_CUSTOM_FIELDS_TEXT.PICTURES}</label>*/}
         </div>
     );
 }

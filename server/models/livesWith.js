@@ -10,7 +10,7 @@
 module.exports = (DataTypes, sequelize) => {
     return sequelize.define("LivesWith", {
         relationship: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.STRING,
             allowNull: false
         }
     })

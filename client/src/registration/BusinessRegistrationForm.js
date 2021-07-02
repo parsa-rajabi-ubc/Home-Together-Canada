@@ -15,7 +15,7 @@ import Address from "../common/forms/Address";
 import SignInInfo from "../common/forms/SignInInfo";
 import PhoneNumInput from "../common/forms/PhoneNumInput";
 import RegistrationService from '../services/RegistrationService';
-import * as UploadService from '../services/UploadService';
+import UploadService from '../services/UploadService';
 import {
     checkIfErrorsExistInMapping,
     getConcatenatedErrorMessage,
@@ -39,12 +39,6 @@ import LargeTextArea from "../common/forms/LargeTextArea";
 import {TERMS_OF_SERVICE_TEXT} from "../common/constants/termsOfServiceText";
 import {PRIVACY_POLICY_TEXT} from "../common/constants/privacyPolicyText";
 import UploadImage from "../common/forms/UploadImage";
-import {toast, Flip} from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css'
-import {REGISTRATION_TOAST} from "../common/constants/ToastText";
-import {BUSINESS_FIELD_LENGTHS, USER_FIELD_LENGTHS} from "../common/constants/fieldLengths";
-
-toast.configure()
 
 const mapDispatch = {setAccountType, setAuthenticated};
 
@@ -354,17 +348,6 @@ const BusinessRegistrationForm = (props) => {
     function onSubmit(event) {
         if (!isFormValid()) {
             event.preventDefault();
-            toast.error(REGISTRATION_TOAST.ERROR, {
-                toastId: "errorToast",
-                position: "bottom-center",
-                autoClose: 10000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: false,
-                transition: Flip
-            });
             return;
         }
 
@@ -426,18 +409,6 @@ const BusinessRegistrationForm = (props) => {
                                     'Account Info page. Remember files have a maximum size of 2 MB');
                             });
                     }
-
-                    toast.success(REGISTRATION_TOAST.SUCCESS, {
-                        toastId: "successToast",
-                        position: "bottom-center",
-                        autoClose: 10000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: false,
-                        transition: Flip
-                    });
 
                     // user is authenticated, redirect to home screen
                     return history.push('/');
@@ -522,107 +493,84 @@ const BusinessRegistrationForm = (props) => {
                                     autoComplete={"organization"}
                                     labelClassName={"label"}
                                     required={true}
-                                    onChange={(e) => setBName(e.target.value)}
-                                    charLimit={BUSINESS_FIELD_LENGTHS.BUSINESS_NAME}
-                                />
+                                    onChange={(e) => {
+                                        setBName(e.target.value)
+                                    }}/>
                                 <div className={"my-2"}>
-                                    <Checkbox
-                                        label={"Incorporated business"}
-                                        toolTipText={BUSINESS_INFO_TEXT.INC_COMPANY}
-                                        toolTipID="incorporated"
-                                        onChange={() => setIsIncorporated(!isIncorporated)}
-                                    />
-                                    {isIncorporated &&
-                                        <TextArea
-                                            className="input"
-                                            placeholder={"Names of Inc. Owners (separated by comma)"}
-                                            labelClassName={"label"}
-                                            onChange={(e) => setIncorporatedOwnersNames(e.target.value)}
-                                            charLimit={BUSINESS_FIELD_LENGTHS.INCORPORATED_OWNERS_NAMES}
-                                        />
-                                    }
+                                    <Checkbox label={"Incorporated business"}
+                                              toolTipText={BUSINESS_INFO_TEXT.INC_COMPANY}
+                                              toolTipID="incorporated"
+                                              onChange={() => setIsIncorporated(!isIncorporated)}/>
+                                    {isIncorporated && <TextArea className="input"
+                                                                 placeholder={"Names of Inc. Owners (separated by comma)"}
+                                                                 labelClassName={"label"}
+                                                                 onChange={(e) => setIncorporatedOwnersNames(e.target.value)}/>}
                                 </div>
-                                <TextArea
-                                    className={`${bEmailError && "border-red-500"} input`}
-                                    placeholder="business@email.ca"
-                                    autoComplete={"email"}
-                                    label="Business Email"
-                                    labelClassName={"label"}
-                                    required={true}
-                                    onChange={(e) => setBEmail(e.target.value)}
-                                    charLimit={USER_FIELD_LENGTHS.EMAIL}
-                                />
-                                <TextArea
-                                    className="input"
-                                    placeholder="http://www.your-website.com"
-                                    optional={true}
-                                    autoComplete={"url"}
-                                    label="Business Website"
-                                    labelClassName={"label"}
-                                    onChange={e => setWebsite(e.target.value)}
-                                    charLimit={BUSINESS_FIELD_LENGTHS.WEBSITE}
-                                />
+                                <TextArea className={`${bEmailError && "border-red-500"} input`}
+                                          placeholder="business@email.ca"
+                                          autoComplete={"email"}
+                                          label="Business Email"
+                                          labelClassName={"label"}
+                                          required={true}
+                                          onChange={(e) => {
+                                              setBEmail(e.target.value)
+                                          }}/>
+                                <TextArea className="input"
+                                          placeholder="http://www.your-website.com"
+                                          optional={true}
+                                          autoComplete={"url"}
+                                          label="Business Website"
+                                          labelClassName={"label"}
+                                          onChange={e => setWebsite(e.target.value)}/>
                                 <PhoneNumInput
                                     className={`${bPhoneNumberError && "border-red-500"} phone`}
                                     required={true}
                                     labelClassName={"label "}
                                     label="Business Phone Number"
-                                    onChange={handleBPhoneChange}
-                                />
+                                    onChange={handleBPhoneChange}/>
                                 <PhoneNumInput
                                     className={`${bCellNumberError && "border-red-500"} phone`}
                                     required={true}
                                     label="Business Cell Number"
                                     labelClassName={"label"}
-                                    onChange={handleCellPhoneChange}
-                                />
-                                <Address
-                                    label="Business Address"
-                                    cityClassName="city-postal"
-                                    required={true}
-                                    streetAddressError={streetAddressError}
-                                    cityAddressError={cityAddressError}
-                                    provinceAddressError={provinceAddressError}
-                                    postalCodeError={postalCodeError}
-                                    onChange={handleBAddressChange}
-                                />
-                                <Checkbox
-                                    label={"Different Mailing Address"}
-                                    toolTipText={BUSINESS_INFO_TEXT.DIFF_MAILING_ADDRESS}
-                                    toolTipID="differentMailingAddress"
-                                    onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}
-                                />
+                                    onChange={handleCellPhoneChange}/>
+                                <Address label="Business Address"
+                                         cityClassName="city-postal"
+                                         required={true}
+                                         streetAddressError={streetAddressError}
+                                         cityAddressError={cityAddressError}
+                                         provinceAddressError={provinceAddressError}
+                                         postalCodeError={postalCodeError}
+                                         onChange={handleBAddressChange}/>
+                                <Checkbox label={"Different Mailing Address"}
+                                          toolTipText={BUSINESS_INFO_TEXT.DIFF_MAILING_ADDRESS}
+                                          toolTipID="differentMailingAddress"
+                                          onChange={() => setUseDifferentMailingAddress(!useDifferentMailingAddress)}/>
                                 {useDifferentMailingAddress &&
-                                    <Address
-                                        label="Business Mailing Address"
-                                        required={true}
-                                        streetAddressError={streetMailingAddressError}
-                                        cityAddressError={cityMailingAddressError}
-                                        provinceAddressError={provinceMailingAddressError}
-                                        postalCodeError={postalCodeMailingError}
-                                        onChange={handleBMailingAddress}
-                                    />
-                                }
+                                <Address label="Business Mailing Address"
+                                         required={true}
+                                         streetAddressError={streetMailingAddressError}
+                                         cityAddressError={cityMailingAddressError}
+                                         provinceAddressError={provinceMailingAddressError}
+                                         postalCodeError={postalCodeMailingError}
+                                         onChange={handleBMailingAddress}/>}
                                 <div>
-                                    <Checkbox
-                                        label={"Canada-wide business"}
-                                        toolTipText={BUSINESS_INFO_TEXT.NATION_WIDE}
-                                        toolTipID="nationWide"
-                                        onChange={() => setIfNationWide(isNationWide => !isNationWide)}
-                                    />
+                                    <Checkbox label={"Canada-wide business"}
+                                              toolTipText={BUSINESS_INFO_TEXT.NATION_WIDE}
+                                              toolTipID="nationWide"
+                                              onChange={() => {
+                                                  setIfNationWide(isNationWide => !isNationWide)
+                                              }}/>
                                     {!isNationWide &&
-                                        <Address
-                                            label="Searchable Address"
-                                            toolTipText={BUSINESS_INFO_TEXT.MAP_ADDRESS}
-                                            toolTipID={"mapAddress"}
-                                            required={true}
-                                            streetAddressError={streetMapAddressError}
-                                            cityAddressError={cityMapAddressError}
-                                            provinceAddressError={provinceMapAddressError}
-                                            postalCodeError={postalCodeMapError}
-                                            onChange={handleBMapAddress}
-                                        />
-                                    }
+                                    <Address label="Searchable Address"
+                                             toolTipText={BUSINESS_INFO_TEXT.MAP_ADDRESS}
+                                             toolTipID={"mapAddress"}
+                                             required={true}
+                                             streetAddressError={streetMapAddressError}
+                                             cityAddressError={cityMapAddressError}
+                                             provinceAddressError={provinceMapAddressError}
+                                             postalCodeError={postalCodeMapError}
+                                             onChange={handleBMapAddress}/>}
                                 </div>
                             </div>
                         </div>
@@ -654,27 +602,25 @@ const BusinessRegistrationForm = (props) => {
                     className="mt-5 md:mt-0 md:col-span-2 shadow sm:rounded-md sm:overflow-hidden px-4 py-5 space-y-1 bg-white sm:p-6">
                     <div className="grid grid-cols-6 gap-x-6">
                         <div className="column-span-6-layout">
-                            <TextArea
-                                className={`${contactFirstNameError && "border-red-500"} input`}
-                                labelClassName={"label"}
-                                label="First Name"
-                                autoComplete={"given-name"}
-                                required={true}
-                                onChange={(e) => setContactFName(e.target.value)}
-                                charLimit={USER_FIELD_LENGTHS.FIRST_NAME}
-                            />
+                            <TextArea className={`${contactFirstNameError && "border-red-500"} input`}
+                                      labelClassName={"label"}
+                                      label="First Name"
+                                      autoComplete={"given-name"}
+                                      required={true}
+                                      onChange={(e) => {
+                                          setContactFName(e.target.value)
+                                      }}/>
                         </div>
 
                         <div className="column-span-6-layout">
-                            <TextArea
-                                className={`${contactLastNameError && "border-red-500"} input`}
-                                labelClassName={"label"}
-                                label="Last Name"
-                                required={true}
-                                autoComplete={"family-name"}
-                                onChange={(e) => setContactLName(e.target.value)}
-                                charLimit={USER_FIELD_LENGTHS.LAST_NAME}
-                            />
+                            <TextArea className={`${contactLastNameError && "border-red-500"} input`}
+                                      labelClassName={"label"}
+                                      label="Last Name"
+                                      required={true}
+                                      autoComplete={"family-name"}
+                                      onChange={(e) => {
+                                          setContactLName(e.target.value)
+                                      }}/>
                         </div>
 
                         <div className="column-span-6-layout">
@@ -682,8 +628,7 @@ const BusinessRegistrationForm = (props) => {
                                 className={`${contactPhoneNumberError && "border-red-500"} phone`}
                                 required={true}
                                 labelClassName={"label"}
-                                label="Personal Phone Number" onChange={handleContactPhoneChange}
-                            />
+                                label="Personal Phone Number" onChange={handleContactPhoneChange}/>
                         </div>
                     </div>
                 </div>
@@ -760,7 +705,6 @@ const BusinessRegistrationForm = (props) => {
                                                 name={"termsOfService"}
                                                 value={TERMS_OF_SERVICE_TEXT}
                                                 disabled={true}
-                                                customDisabled={true}
                                             />
                                             <Checkbox
                                                 label={"I have read and agreed to the Terms of Service"}
@@ -780,7 +724,6 @@ const BusinessRegistrationForm = (props) => {
                                                 name={"privacyPolicy"}
                                                 value={PRIVACY_POLICY_TEXT}
                                                 disabled={true}
-                                                customDisabled={true}
                                             />
                                             <Checkbox
                                                 label={"I have read and agreed to the Privacy Policy"}

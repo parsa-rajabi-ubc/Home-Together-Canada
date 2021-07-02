@@ -7,8 +7,7 @@
  */
 
 const { DataTypes, Sequelize } = require('sequelize');
-const { DEVELOPMENT } = require('../constants/environmentConstants');
-const env = process.env.NODE_ENV || DEVELOPMENT;
+const env = process.env.NODE_ENV || 'development';
 const dbConfig = require(__dirname + '/../db.config.js')[env];
 
 const sequelize = new Sequelize({
@@ -36,10 +35,6 @@ db.listingCategory = require('./listingCategory')(DataTypes, sequelize);
 db.listingSubcategory = require('./listingSubcategory')(DataTypes, sequelize);
 db.listingAssignedSubcategory = require('./listingAssignedSubcategory')(DataTypes, sequelize);
 db.memberListingLocation = require('./memberListingLocation')(DataTypes, sequelize);
-db.message = require('./message')(DataTypes, sequelize);
-db.listingBookmark = require('./listingBookmark')(DataTypes, sequelize);
-db.profileBookmark = require('./profileBookmark')(DataTypes, sequelize);
-db.review = require('./review')(DataTypes, sequelize);
 
 db.businessAccount.belongsTo(db.abstractUser, {
     foreignKey: {
@@ -64,14 +59,6 @@ db.memberAccount.belongsTo(db.abstractUser, {
     onDelete: 'CASCADE'
 });
 
-db.abstractUser.hasOne(db.memberAccount, {
-    foreignKey: {
-        name: 'uid',
-        allowNull: false
-    },
-    onDelete: 'CASCADE'
-});
-
 db.memberAccount.belongsToMany(db.memberAccount, { as: "Roommates", through: db.livesWith });
 
 db.memberAccount.hasMany(db.areaOfInterest, {
@@ -80,20 +67,6 @@ db.memberAccount.hasMany(db.areaOfInterest, {
     },
     onDelete: 'CASCADE'
 });
-
-//relationship for messages to members
-db.memberAccount.hasMany(db.message, {
-    foreignKey: {
-        name: 'receiverId'
-    },
-    onDelete: 'CASCADE'
-});
-db.message.belongsTo(db.memberAccount, {
-    foreignKey: {
-        name: 'receiverId'
-    },
-    onDelete: 'CASCADE'
-})
 
 // relationship between listings and abstract users
 db.listing.belongsTo(db.abstractUser, {
@@ -104,10 +77,6 @@ db.listing.belongsTo(db.abstractUser, {
     onDelete: 'CASCADE'
 });
 db.abstractUser.hasMany(db.listing, {
-    foreignKey: {
-        name: 'uid',
-        allowNull: false
-    },
     onDelete: 'CASCADE'
 });
 
@@ -123,9 +92,9 @@ db.listingCategory.hasMany(db.listing, {
 db.listingSubcategory.belongsTo(db.listingCategory, {
     onDelete: 'CASCADE'
 });
-db.listingCategory.hasMany(db.listingSubcategory, {
+db.listingCategory.hasMany(db.listingSubcategory), {
     onDelete: 'CASCADE'
-});
+};
 
 // Through table for listings and subcategories
 db.listingSubcategory.belongsToMany(db.listing, {
@@ -141,29 +110,6 @@ db.listing.hasOne(db.memberListingLocation, {
 });
 db.memberListingLocation.belongsTo(db.listing, {
     onDelete: 'CASCADE'
-});
-
-// Through table containing listings bookmarked by members (bookmarks table)
-db.memberAccount.belongsToMany(db.listing, {
-    foreignKey: 'bookmarkerUid',
-    through: db.listingBookmark
-});
-db.listing.belongsToMany(db.memberAccount, {
-    foreignKey: 'bookmarkedListingId',
-    through: db.listingBookmark
-});
-
-// Through table containing the members that other members have bookmarked
-db.memberAccount.belongsToMany(db.memberAccount, { as: "BookmarkedProfiles", through: db.profileBookmark });
-
-// Through table containing reviews
-db.memberAccount.belongsToMany(db.abstractUser, {
-    foreignKey: 'reviewerUid',
-    through: db.review
-});
-db.abstractUser.belongsToMany(db.memberAccount, {
-    foreignKey: 'revieweeUid',
-    through: db.review
 });
 
 module.exports = db;
