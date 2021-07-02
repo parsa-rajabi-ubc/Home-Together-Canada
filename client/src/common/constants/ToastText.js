@@ -5,6 +5,7 @@
  * @Description: constants used for Toast Message
  *
  */
+import {HOME_TOGETHER_EMAIL} from "./homeTogetherContstants";
 
 export const REGISTRATION_TOAST = {
     ERROR: "There was an error creating your account. Please scroll up.",
@@ -28,5 +29,5 @@ export const MANAGE_LISTING_TOAST = {
 }
 
 export const IN_DEVELOPMENT = {
-    MSG: "This feature is currently under development. In the meantime, please contact hometogether.ca@gmail.com"
+    MSG: `This feature is currently under development. In the meantime, please contact ${HOME_TOGETHER_EMAIL}`
 }

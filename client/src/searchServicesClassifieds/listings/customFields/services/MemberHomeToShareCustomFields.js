@@ -9,6 +9,8 @@ import PropTypes from "prop-types";
 import React from 'react';
 import {AiOutlineCheckCircle as Check, AiOutlineCloseCircle as Ex} from "react-icons/ai";
 import {ImageGallery} from "../../../../common/listings/ImageGallery";
+import {toast} from "react-toastify";
+import {IN_DEVELOPMENT} from "../../../../common/constants/ToastText";
 
 const MEMBER_HOME_TO_SHARE_CUSTOM_FIELDS_TEXT = {
     GENERAL_LOCATION: "General Location",
@@ -99,8 +101,7 @@ const MemberHomeToShareCustomFields = (props) => {
                     </tbody>
                 </table>
 
-                <button className={"btn btn-red my-10 text-base py-2"}>Report User
-                </button>
+                <button className={"btn btn-red my-10 text-base py-2"} onClick={() => toast.error(IN_DEVELOPMENT.MSG)}>Report Listing</button>
             </div>
 
 
@@ -120,7 +121,7 @@ MemberHomeToShareCustomFields.propTypes = {
     utilIncluded: PropTypes.bool.isRequired,
     petFriendly: PropTypes.bool.isRequired,
     smokeFriendly: PropTypes.bool.isRequired,
-    pictures: PropTypes.string,
+    pictures: PropTypes.arrayOf(PropTypes.string),
 }
 
 export default MemberHomeToShareCustomFields;
