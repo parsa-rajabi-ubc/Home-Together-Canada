@@ -21,7 +21,7 @@ const MESSAGE = {
 }
 
 function SelectConversation(props) {
-    const {messageData, myUserId} = props;
+    const {messageData, myUserId, newMessageAddedCallback} = props;
     const recentMessages = mostRecentMessages(messageData);
     sortMessageByTimeDecreasing(recentMessages);
     const cardData = [];
@@ -70,6 +70,7 @@ function SelectConversation(props) {
                         myUserId={myUserId}
                         otherId={senderId}
                         isDeletedUser={!senderId}
+                        newMessageAddedCallback={newMessageAddedCallback}
                     />
                 }
             </div>
@@ -80,6 +81,7 @@ function SelectConversation(props) {
 SelectConversation.propTypes = {
     myUserId: PropTypes.number.isRequired,
     messageData: PropTypes.array.isRequired,
+    newMessageAddedCallback: PropTypes.func
 };
 
 export default SelectConversation;

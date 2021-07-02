@@ -18,8 +18,8 @@ const MESSAGE = {
 function MessagingContainer(){
     const [messageData,setMessageData] = useState([]);
     const [myUserId,setMyUserId] = useState(-1);
-    const [loading, setLoading] = useState(true);
-    const [newLoading, setNewLoading] = useState(true);
+    const [loadingMessageData, setLoadingMessageData] = useState(true);
+    const [loadingUid, seUidLoading] = useState(true);
 
     // TODO: Save the user's uid in the redux store.
 
@@ -28,11 +28,11 @@ function MessagingContainer(){
             .then(res => res.json())
             .then(data => {
                 setMyUserId(data.uid);
-                setNewLoading(false);
+                seUidLoading(false);
             })
             .catch(err => {
                 alert('error getting message: ' + err.message);
-                setNewLoading(false);
+                seUidLoading(false);
             });
     }, [])
 
@@ -41,21 +41,38 @@ function MessagingContainer(){
             .then(res => res.json())
             .then(data => {
                 setMessageData(data.message);
-                setLoading(false);
+                setLoadingMessageData(false);
             })
             .catch(err => {
                 alert('error getting message: ' + err.message);
-                setLoading(false);
+                setLoadingMessageData(false);
             });
     }, [])
 
+    // TODO: refactor to use this function in the useEffect above
+    const getAllMessagesForUser = () => {
+            MessageService.getAllMessagesForOneUser()
+                .then(res => res.json())
+                .then(data => {
+                    setMessageData(data.message);
+                })
+                .catch(err => {
+                    alert('error getting message: ' + err.message);
+                });
+        };
+
     return (
         <div>
-            {(!loading && !newLoading ) &&
+            {(!loadingMessageData && !loadingUid ) &&
                 <div className={"m-6"}>
                     {(!messageData.length)
                         ? <Confirmation displayButton={false} errorColor={true} message={MESSAGE.NO_RESULTS}/>
-                        : <SelectConversation messageData={messageData} myUserId={myUserId}/>}
+                        : <SelectConversation
+                            messageData={messageData}
+                            myUserId={myUserId}
+                            newMessageAddedCallback={getAllMessagesForUser}
+                        />
+                    }
                 </div>
             }
         </div>
