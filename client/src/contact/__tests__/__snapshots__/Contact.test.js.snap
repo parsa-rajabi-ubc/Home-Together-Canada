@@ -20,9 +20,9 @@ exports[`Contact Snapshot Test should render correctly regardless of properties 
     In the meantime, please direct all your questions, comments and concerns to Home Together Canada at: 
     <a
       className="link"
-      href="mailto:hometogether.ca@gmail.com"
+      href="mailto:info@hometogether.ca"
     >
-      hometogether.ca@gmail.com
+      info@hometogether.ca
     </a>
   </p>
 </div>
