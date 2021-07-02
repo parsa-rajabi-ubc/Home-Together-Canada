@@ -35,6 +35,8 @@ import EditImagesContainer from "../../common/forms/EditImages/EditImagesContain
 import {LISTING_CATEGORIES_WITH_IMAGES} from "../../common/constants/listingsConstants";
 import EditListingSubcategories from "./EditListingSubcategories";
 import Asterisk from "../../common/forms/Asterisk";
+import {CREATE_LISTING_MEMBER_SHARE_HOME as ToolTipText} from "../../common/constants/TooltipText";
+import Tooltip from "../../common/forms/Tooltip";
 
 toast.configure();
 
@@ -231,19 +233,19 @@ const EditListingContainer = props => {
                     <div className="border-divider"/>
 
                     {includes(LISTING_CATEGORIES_WITH_IMAGES, listing.categoryName) &&
-                    <section>
-                        <EditImagesContainer listingImages={images} listingId={listing.id}/>
-                        {/*Divider (does not display divider if listing does not contain images)*/}
-                        <div className="border-divider"/>
-                    </section>
+                        <section>
+                            <EditImagesContainer listingImages={images} listingId={listing.id}/>
+                            {/*Divider (does not display divider if listing does not contain images)*/}
+                            <div className="border-divider"/>
+                        </section>
                     }
 
                     {(includes(Object.values(BUSINESS_SERVICE_CATEGORIES), listing.categoryName) || includes(Object.values(BUSINESS_CLASSIFIEDS_CATEGORIES), listing.categoryName)) &&
-                    <EditListingSubcategories
-                        categoryName={listing.categoryName}
-                        listingId={listing.id}
-                        savedSubcategories={listing.subcategories}
-                    />
+                        <EditListingSubcategories
+                            categoryName={listing.categoryName}
+                            listingId={listing.id}
+                            savedSubcategories={listing.subcategories}
+                        />
                     }
                 </div>
             }

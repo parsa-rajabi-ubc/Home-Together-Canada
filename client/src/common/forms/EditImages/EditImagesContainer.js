@@ -17,6 +17,8 @@ import * as UploadService from '../../../services/UploadService';
 import * as ListingService from '../../../services/ListingService';
 import SubmitButton from "../SubmitButton";
 import {getConcatenatedErrorMessage} from "../../../registration/registrationUtils";
+import {CREATE_LISTING_MEMBER_SHARE_HOME as ToolTipText} from "../../constants/TooltipText";
+import Tooltip from "../Tooltip";
 
 toast.configure();
 
@@ -112,19 +114,25 @@ const EditImagesContainer = props => {
                             <EditImages images={editableImages} onDeleteImage={handleDeleteImage}/>
 
                             {numImagesCanUploaded !== 0 &&
-                            <MultiImageUpload
-                                handleImageUpload={handleUploadImage}
-                                maxNumImages={(DEFAULT_MAX_NUM_IMAGES - editableImages.length)}
-                                imageUploadKey={imageUploadKey}
-                            />
+                                <div>
+                                    <Tooltip
+                                        text={ToolTipText.PHOTOS}
+                                        toolTipID={"UploadPhotos"}
+                                    />
+                                    <MultiImageUpload
+                                        handleImageUpload={handleUploadImage}
+                                        maxNumImages={(DEFAULT_MAX_NUM_IMAGES - editableImages.length)}
+                                        imageUploadKey={imageUploadKey}
+                                    />
+                                </div>
                             }
                             {!!numImagesCanUploaded &&
-                            <SubmitButton
-                                className={"btn btn-green form-btn w-1/2"}
-                                onClick={handleSubmit}
-                                disabled={!uploadedImages.length}
-                                inputValue={'Save New Images'}
-                            />
+                                <SubmitButton
+                                    className={"btn btn-green form-btn w-1/2"}
+                                    onClick={handleSubmit}
+                                    disabled={!uploadedImages.length}
+                                    inputValue={'Save New Images'}
+                                />
                             }
                             </div>
                         </div>
