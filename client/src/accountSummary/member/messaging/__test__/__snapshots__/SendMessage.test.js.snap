@@ -20,6 +20,7 @@ exports[`SendMessage Snapshot test should match snapshot test of SendMessage 1`]
       cols="50"
       maxLength={2000}
       onChange={[Function]}
+      value=""
     />
   </div>
   <label>

@@ -12,7 +12,6 @@ module.exports = (DataTypes, sequelize) => {
     return sequelize.define("Message", {
         senderId: {
             type: DataTypes.INTEGER,
-            allowNull: false,
         },
         senderUsername: {
             type: DataTypes.STRING(MESSAGE_FIELD_LENGTHS.SENDER_USERNAME),
@@ -20,7 +19,6 @@ module.exports = (DataTypes, sequelize) => {
         },
         receiverId: {
             type: DataTypes.INTEGER,
-            allowNull: false,
         },
         receiverUsername: {
             type: DataTypes.STRING(MESSAGE_FIELD_LENGTHS.RECEIVER_USERNAME),

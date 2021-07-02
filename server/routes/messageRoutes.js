@@ -44,6 +44,8 @@ router.post('/create/',
     }
 );
 
+// TODO: move to userRoutes & refactor to get rid of call to controller
+// Gets the uid of the
 router.get('/uid/',
     isLoggedIn,
     userIsMember,

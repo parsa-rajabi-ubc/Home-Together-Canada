@@ -17,7 +17,7 @@ import {MESSAGE_FIELD_LENGTHS} from "../../../common/constants/fieldLengths";
 
 function SendMessage(props) {
     //username currently unused, but intended as component which will handle post request to add message to database
-    const {receiverUsername, receiverId} = props;
+    const {receiverUsername, receiverId, newMessageAddedCallback} = props;
     const [content, setContent] = useState(undefined);
     const [contentError, setContentError] = useState(undefined);
 
@@ -47,6 +47,8 @@ function SendMessage(props) {
                 .then(data => {
                     if (data.sent) {
                         alert("Message sent successfully");
+                        setContent(undefined);
+                        newMessageAddedCallback();
                     } else {
                         alert("Sorry, the person you are trying to reach has deleted their account.")
                     }
@@ -64,6 +66,7 @@ function SendMessage(props) {
                 className={`${contentError && "border-red-500"} input`}
                 label={"What would you like to contact this member about? "}
                 onChange={(e) => setContent(e.target.value)}
+                value={content || ''}
                 charLimit={MESSAGE_FIELD_LENGTHS.CONTENT}
             />
             <SubmitButton
@@ -77,7 +80,8 @@ function SendMessage(props) {
 
 SendMessage.propTypes = {
     receiverUsername: PropTypes.string.isRequired,
-    receiverId: PropTypes.number.isRequired
+    receiverId: PropTypes.number.isRequired,
+    newMessageAddedCallback: PropTypes.func
 };
 
 export default SendMessage;

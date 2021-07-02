@@ -14,7 +14,7 @@ import {sortMessageByTimeIncreasing} from "./messageUtils";
 import SendMessage from "./SendMessage";
 
 function FullConversation(props) {
-    const{otherId,isDeletedUser,myUserId,messageData} = props;
+    const{otherId,isDeletedUser,myUserId,messageData, newMessageAddedCallback} = props;
     const [otherUsername,setOtherUsername] = useState("");
     const [myUsername,setMyUsername] = useState("")
     const conversationData = [];
@@ -29,18 +29,24 @@ function FullConversation(props) {
     // By using "leftOrRight" to define messages to display either on left-side or right-side
     for(let i = 0; i < myMessage.length; i++){
         if (myMessage[i].senderId !== myUserId) {
-            conversationData.push(<MessageBox key={i}
-                                              messageContent={myMessage[i].content}
-                                              datePosted={myMessage[i].createdAt}
-                                              leftOrRight={"left"}
-            />);
+            conversationData.push(
+                <MessageBox
+                    key={i}
+                    messageContent={myMessage[i].content}
+                    datePosted={myMessage[i].createdAt}
+                    leftOrRight={"left"}
+                />
+            );
         }
         else{
-            conversationData.push(<MessageBox key={i}
-                                              messageContent={myMessage[i].content}
-                                              datePosted={myMessage[i].createdAt}
-                                              leftOrRight={"right"}
-            />);
+            conversationData.push(
+                <MessageBox
+                    key={i}
+                    messageContent={myMessage[i].content}
+                    datePosted={myMessage[i].createdAt}
+                    leftOrRight={"right"}
+                />
+            );
         }
     }
 
@@ -68,7 +74,11 @@ function FullConversation(props) {
                             <h1 style={{fontWeight:"bold",float:"left"}}>{otherUsername}</h1>
                             <h1 style={{fontWeight:"bold", float:"right",textAlign: 'right', alignSelf: 'stretch'}}>{myUsername}</h1> <br/> <br/>
                             {conversationData}
-                            <SendMessage receiverId={otherId} receiverUsername={otherUsername}/>
+                            <SendMessage
+                                receiverId={otherId}
+                                receiverUsername={otherUsername}
+                                newMessageAddedCallback={newMessageAddedCallback}
+                            />
                         </div>)
                     }
                 </div>
@@ -80,7 +90,8 @@ FullConversation.propTypes = {
     isDeletedUser:PropTypes.bool.isRequired,
     otherId:PropTypes.number.isRequired,
     myUserId:PropTypes.number.isRequired,
-    messageData: PropTypes.array.isRequired
+    messageData: PropTypes.array.isRequired,
+    newMessageAddedCallback: PropTypes.func
 }
 
 export default FullConversation
