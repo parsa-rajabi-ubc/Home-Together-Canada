@@ -279,10 +279,7 @@ const RentalsForm = (props) => {
                         {!listingExists &&
                             <div>
                                 <label className="label"> {TEXT.pictures} </label>
-                                <Tooltip
-                                    text={ToolTipText.PHOTOS}
-                                    toolTipID={"UploadPhotos"}
-                                />
+                                <p>{ToolTipText.PHOTOS}</p>
                                 <MultiImageUpload handleImageUpload={handleImageUpload} maxNumImages={DEFAULT_MAX_NUM_IMAGES}/>
                             </div>
                         }

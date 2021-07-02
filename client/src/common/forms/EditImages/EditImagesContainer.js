@@ -114,17 +114,11 @@ const EditImagesContainer = props => {
                             <EditImages images={editableImages} onDeleteImage={handleDeleteImage}/>
 
                             {numImagesCanUploaded !== 0 &&
-                                <div>
-                                    <Tooltip
-                                        text={ToolTipText.PHOTOS}
-                                        toolTipID={"UploadPhotos"}
-                                    />
-                                    <MultiImageUpload
-                                        handleImageUpload={handleUploadImage}
-                                        maxNumImages={(DEFAULT_MAX_NUM_IMAGES - editableImages.length)}
-                                        imageUploadKey={imageUploadKey}
-                                    />
-                                </div>
+                                <MultiImageUpload
+                                    handleImageUpload={handleUploadImage}
+                                    maxNumImages={(DEFAULT_MAX_NUM_IMAGES - editableImages.length)}
+                                    imageUploadKey={imageUploadKey}
+                                />
                             }
                             {!!numImagesCanUploaded &&
                                 <SubmitButton
