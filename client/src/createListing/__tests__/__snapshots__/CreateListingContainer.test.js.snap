@@ -79,9 +79,9 @@ exports[`CreateListingContainer Container test should match snapshot test if the
                 name="listingType"
                 onChange={[Function]}
                 type="radio"
-                value="Home Sharing Services"
+                value="Home Sharing Listings"
               />
-              Home Sharing Services
+              Home Sharing Listings
             </label>
           </span>
           <span
@@ -168,9 +168,9 @@ exports[`CreateListingContainer Container test should match snapshot test if the
                 name="listingType"
                 onChange={[Function]}
                 type="radio"
-                value="Home Sharing Services"
+                value="Home Sharing Listings"
               />
-              Home Sharing Services
+              Home Sharing Listings
             </label>
           </span>
           <span
@@ -371,9 +371,9 @@ exports[`CreateListingContainer Container test should match snapshot test if the
                 name="listingType"
                 onChange={[Function]}
                 type="radio"
-                value="Home Sharing Services"
+                value="Home Sharing Listings"
               />
-              Home Sharing Services
+              Home Sharing Listings
             </label>
           </span>
           <span
