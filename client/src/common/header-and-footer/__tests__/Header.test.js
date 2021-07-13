@@ -98,7 +98,7 @@ describe('Header', () => {
             // when
             const testInstance = renderer.create(<BrowserRouter><Header {...props}/></BrowserRouter>).root;
             const servicesButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'Home Sharing Services');
+                .find(element => element.props.children === 'Home Sharing Listings');
 
             // then
             expect(servicesButton).toBeDefined();
@@ -115,7 +115,7 @@ describe('Header', () => {
             // when
             const testInstance = renderer.create(<BrowserRouter><Header {...props}/></BrowserRouter>).root;
             const servicesButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'Home Sharing Services');
+                .find(element => element.props.children === 'Home Sharing Listings');
 
             // then
             expect(servicesButton).toBeDefined();
@@ -132,7 +132,7 @@ describe('Header', () => {
             // when
             const testInstance = renderer.create(<BrowserRouter><Header {...props}/></BrowserRouter>).root;
             const servicesButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'Home Sharing Services');
+                .find(element => element.props.children === 'Home Sharing Listings');
 
             expect(servicesButton).toBeDefined();
         });
