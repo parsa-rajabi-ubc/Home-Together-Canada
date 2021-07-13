@@ -37,7 +37,7 @@ exports[`Header Header structure should match snapshot test 1`] = `
             href="/services"
             onClick={[Function]}
           >
-            Home Sharing Services
+            Home Sharing Listings
           </a>
           <a
             className="false nav-icon"
