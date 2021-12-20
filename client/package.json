@@ -34,7 +34,7 @@
     "react-tooltip": "^4.2.21",
     "redux": "^4.0.5",
     "tailwindcss": "^1.9.6",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^2.1.2"
   },
   "scripts": {
     "build:postcss": "postcss src/tailwind.css -o src/tailwind.output.css",
