@@ -670,6 +670,7 @@ exports[`MemberHomeShareForm Snapshot test should render correctly regardless of
                     id="memberHomeToShareAddress"
                   >
                     <style
+                      aria-hidden="true"
                       dangerouslySetInnerHTML={
                         Object {
                           "__html": "

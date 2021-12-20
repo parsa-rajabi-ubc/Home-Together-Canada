@@ -189,6 +189,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
               id="yearOfBirth"
             >
               <style
+                aria-hidden="true"
                 dangerouslySetInnerHTML={
                   Object {
                     "__html": "
@@ -438,6 +439,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
               id="familyStatus"
             >
               <style
+                aria-hidden="true"
                 dangerouslySetInnerHTML={
                   Object {
                     "__html": "
@@ -834,6 +836,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
               id="numPeopleToShare"
             >
               <style
+                aria-hidden="true"
                 dangerouslySetInnerHTML={
                   Object {
                     "__html": "
@@ -1083,6 +1086,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
               id="rent"
             >
               <style
+                aria-hidden="true"
                 dangerouslySetInnerHTML={
                   Object {
                     "__html": "
@@ -1255,6 +1259,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
               id="interestedArea"
             >
               <style
+                aria-hidden="true"
                 dangerouslySetInnerHTML={
                   Object {
                     "__html": "
@@ -2170,6 +2175,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                         id="pet"
                       >
                         <style
+                          aria-hidden="true"
                           dangerouslySetInnerHTML={
                             Object {
                               "__html": "
@@ -2370,6 +2376,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                         id="smoke"
                       >
                         <style
+                          aria-hidden="true"
                           dangerouslySetInnerHTML={
                             Object {
                               "__html": "
@@ -2570,6 +2577,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                         id="health"
                       >
                         <style
+                          aria-hidden="true"
                           dangerouslySetInnerHTML={
                             Object {
                               "__html": "
@@ -2841,6 +2849,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                         id="religion"
                       >
                         <style
+                          aria-hidden="true"
                           dangerouslySetInnerHTML={
                             Object {
                               "__html": "
@@ -3041,6 +3050,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                         id="diet"
                       >
                         <style
+                          aria-hidden="true"
                           dangerouslySetInnerHTML={
                             Object {
                               "__html": "
@@ -3228,6 +3238,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                         id="homeToShare"
                       >
                         <style
+                          aria-hidden="true"
                           dangerouslySetInnerHTML={
                             Object {
                               "__html": "
@@ -3464,6 +3475,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                   id="about"
                 >
                   <style
+                    aria-hidden="true"
                     dangerouslySetInnerHTML={
                       Object {
                         "__html": "

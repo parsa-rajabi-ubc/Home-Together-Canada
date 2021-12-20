@@ -131,6 +131,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
                   id="incorporated"
                 >
                   <style
+                    aria-hidden="true"
                     dangerouslySetInnerHTML={
                       Object {
                         "__html": "
@@ -655,6 +656,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
                 id="differentMailingAddress"
               >
                 <style
+                  aria-hidden="true"
                   dangerouslySetInnerHTML={
                     Object {
                       "__html": "
@@ -981,6 +983,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
                   id="nationWide"
                 >
                   <style
+                    aria-hidden="true"
                     dangerouslySetInnerHTML={
                       Object {
                         "__html": "
@@ -1129,6 +1132,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
                     id="mapAddress"
                   >
                     <style
+                      aria-hidden="true"
                       dangerouslySetInnerHTML={
                         Object {
                           "__html": "
@@ -1416,6 +1420,7 @@ exports[`BusinessAccountSummary should render correctly regardless of properties
           id="businessLogo"
         >
           <style
+            aria-hidden="true"
             dangerouslySetInnerHTML={
               Object {
                 "__html": "

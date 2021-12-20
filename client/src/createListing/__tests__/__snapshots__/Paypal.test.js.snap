@@ -47,6 +47,7 @@ exports[`Paypal Snapshot test should match snapshot test regardless of propertie
       id="paypal"
     >
       <style
+        aria-hidden="true"
         dangerouslySetInnerHTML={
           Object {
             "__html": "

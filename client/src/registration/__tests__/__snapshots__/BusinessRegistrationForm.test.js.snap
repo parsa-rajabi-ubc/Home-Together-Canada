@@ -142,6 +142,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                     id="incorporated"
                   >
                     <style
+                      aria-hidden="true"
                       dangerouslySetInnerHTML={
                         Object {
                           "__html": "
@@ -642,6 +643,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                   id="differentMailingAddress"
                 >
                   <style
+                    aria-hidden="true"
                     dangerouslySetInnerHTML={
                       Object {
                         "__html": "
@@ -773,6 +775,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                     id="nationWide"
                   >
                     <style
+                      aria-hidden="true"
                       dangerouslySetInnerHTML={
                         Object {
                           "__html": "
@@ -921,6 +924,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                       id="mapAddress"
                     >
                       <style
+                        aria-hidden="true"
                         dangerouslySetInnerHTML={
                           Object {
                             "__html": "
@@ -1208,6 +1212,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
             id="businessLogo"
           >
             <style
+              aria-hidden="true"
               dangerouslySetInnerHTML={
                 Object {
                   "__html": "
@@ -1608,6 +1613,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                         id="username"
                       >
                         <style
+                          aria-hidden="true"
                           dangerouslySetInnerHTML={
                             Object {
                               "__html": "
@@ -1758,6 +1764,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                         id="password"
                       >
                         <style
+                          aria-hidden="true"
                           dangerouslySetInnerHTML={
                             Object {
                               "__html": "
@@ -2003,6 +2010,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                         id="termsOfService"
                       >
                         <style
+                          aria-hidden="true"
                           dangerouslySetInnerHTML={
                             Object {
                               "__html": "
@@ -2287,6 +2295,7 @@ If you have any questions or concerns about our Terms, please contact us by e-ma
                         id="privacyPolicy"
                       >
                         <style
+                          aria-hidden="true"
                           dangerouslySetInnerHTML={
                             Object {
                               "__html": "

@@ -62,6 +62,7 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
         id="username"
       >
         <style
+          aria-hidden="true"
           dangerouslySetInnerHTML={
             Object {
               "__html": "
@@ -212,6 +213,7 @@ exports[`SignInInfo Snapshot test should match stored snapshot 1`] = `
         id="password"
       >
         <style
+          aria-hidden="true"
           dangerouslySetInnerHTML={
             Object {
               "__html": "

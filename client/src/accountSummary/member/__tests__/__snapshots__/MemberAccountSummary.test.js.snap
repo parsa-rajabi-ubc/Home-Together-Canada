@@ -456,6 +456,7 @@ exports[`MemberAccountSummary should render correctly regardless of properties 1
                 id="accountSummaryDifferentMailingAddress"
               >
                 <style
+                  aria-hidden="true"
                   dangerouslySetInnerHTML={
                     Object {
                       "__html": "
