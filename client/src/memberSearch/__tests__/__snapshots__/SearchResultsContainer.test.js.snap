@@ -2211,12 +2211,12 @@ exports[`SearchResultsContainer Container test should match snapshot test for da
           <a
             aria-disabled="true"
             aria-label="Previous page"
-            className="next-prev-link"
+            className="next-prev-link "
             onClick={[Function]}
             onKeyPress={[Function]}
             rel="prev"
             role="button"
-            tabIndex="0"
+            tabIndex="-1"
           >
             Previous
           </a>
@@ -2230,8 +2230,9 @@ exports[`SearchResultsContainer Container test should match snapshot test for da
             className="page-numbers current-page"
             onClick={[Function]}
             onKeyPress={[Function]}
+            rel="canonical"
             role="button"
-            tabIndex="0"
+            tabIndex="-1"
           >
             1
           </a>
@@ -2243,6 +2244,7 @@ exports[`SearchResultsContainer Container test should match snapshot test for da
             className="page-numbers"
             onClick={[Function]}
             onKeyPress={[Function]}
+            rel="next"
             role="button"
             tabIndex="0"
           >
@@ -3503,12 +3505,12 @@ exports[`SearchResultsContainer Container test should match snapshot test for ex
           <a
             aria-disabled="true"
             aria-label="Previous page"
-            className="next-prev-link"
+            className="next-prev-link "
             onClick={[Function]}
             onKeyPress={[Function]}
             rel="prev"
             role="button"
-            tabIndex="0"
+            tabIndex="-1"
           >
             Previous
           </a>
@@ -3522,8 +3524,9 @@ exports[`SearchResultsContainer Container test should match snapshot test for ex
             className="page-numbers current-page"
             onClick={[Function]}
             onKeyPress={[Function]}
+            rel="canonical"
             role="button"
-            tabIndex="0"
+            tabIndex="-1"
           >
             1
           </a>
@@ -3534,12 +3537,12 @@ exports[`SearchResultsContainer Container test should match snapshot test for ex
           <a
             aria-disabled="true"
             aria-label="Next page"
-            className="next-prev-link"
+            className="next-prev-link "
             onClick={[Function]}
             onKeyPress={[Function]}
             rel="next"
             role="button"
-            tabIndex="0"
+            tabIndex="-1"
           >
             Next
           </a>
