@@ -58,8 +58,8 @@ const Header = (props) => {
         <div>
             <nav className="top-0 flex w-full bg-green-400 tex-black">
                 <div
-                    className="container flex items-center justify-between w-full py-2 mx-auto mt-0 whitespace-no-wrap">
-                    <div className="flex flex-no-wrap items-center ml-4">
+                    className="container flex items-center justify-between w-full py-2 mx-auto mt-0 whitespace-nowrap">
+                    <div className="flex flex-nowrap items-center ml-4">
                         <Link to={'/'}
                               className="text-lg font-bold lg:text-xl">
                             Home Together Canada
@@ -68,7 +68,7 @@ const Header = (props) => {
 
                     {/* Middle of Nav */}
                     <div
-                        className="flex-no-wrap hidden w-full p-4 mt-2 tex-black lg:flex lg:items-center lg:w-auto lg:block lg:mt-0 lg:bg-transparent lg:p-0">
+                        className="flex-nowrap hidden w-full p-4 mt-2 tex-black lg:flex lg:items-center lg:w-auto lg:block lg:mt-0 lg:bg-transparent lg:p-0">
                         <div className="items-center justify-end flex-1 mr-16 list-reset lg:flex">
                             {accountType !== USER_TYPES.BUSINESS &&
                             <Link to={'/members'} className={`${(URL_PATH === "/members") && "bg-green-200"} nav-icon`}>
