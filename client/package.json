@@ -41,7 +41,7 @@
     "prebuild": "npm run build:postcss",
     "build": "react-scripts build",
     "prestart": "npm run build:postcss",
-    "start": "set PORT=3002 && react-scripts start",
+    "start": "PORT=3002 react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
