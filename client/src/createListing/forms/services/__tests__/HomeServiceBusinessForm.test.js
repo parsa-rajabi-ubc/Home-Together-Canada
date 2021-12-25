@@ -11,7 +11,7 @@ import renderer from  'react-test-renderer'
 import HomeServiceBusinessForm from "../HomeServiceBusinessForm";
 import {BUSINESS_SERVICE_CATEGORIES} from "../../../constants/serviceListingCategoriesText";
 
-jest.mock("react-tooltip/node_modules/uuid", () => ({
+jest.mock("uuid", () => ({
             v4: () => "00000000-0000-0000-0000-000000000000"}
     )
 );
