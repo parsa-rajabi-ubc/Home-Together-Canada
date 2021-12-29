@@ -7,7 +7,7 @@
  */
 
 import React, {useState} from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import DeleteAccount from "./DeleteAccount";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
@@ -27,7 +27,7 @@ const MESSAGES = {
 
 const DeleteAccountContainer = props =>{
     const {reset} = props;
-    const history = useHistory();
+    const navigate = useNavigate();
     const [confirm, setConfirm] = useState(false)
 
     const deleteAccount = () => {
@@ -42,7 +42,7 @@ const DeleteAccountContainer = props =>{
                 reset();
 
                 // redirect to home page
-                history.push('/');
+                navigate('/');
             })
         .catch(err => {
             alert('Error: ' + err.message);

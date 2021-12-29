@@ -34,7 +34,7 @@ import Tooltip from "../common/forms/Tooltip";
 import {USER_TYPES} from "../common/constants/users";
 import {BUSINESS_INFO_TEXT} from "../common/constants/TooltipText.js";
 import has from 'lodash/has';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import LargeTextArea from "../common/forms/LargeTextArea";
 import {TERMS_OF_SERVICE_TEXT} from "../common/constants/termsOfServiceText";
 import {PRIVACY_POLICY_TEXT} from "../common/constants/privacyPolicyText";
@@ -51,7 +51,7 @@ const mapDispatch = {setAccountType, setAuthenticated};
 
 const BusinessRegistrationForm = (props) => {
     const {history, setAccountType, setAuthenticated} = props;
-
+    let navigate = useNavigate()
     const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(false);
     const [isNationWide, setIfNationWide] = useState(false);
     const [isIncorporated, setIsIncorporated] = useState(false);
@@ -440,7 +440,7 @@ const BusinessRegistrationForm = (props) => {
                     });
 
                     // user is authenticated, redirect to home screen
-                    return history.push('/');
+                    return navigate('/');
                 } else if (data && data.errors && data.errors.length) {
                     const errorMessage = getConcatenatedErrorMessage(data.errors);
                     // show list of all errors

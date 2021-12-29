@@ -25,7 +25,7 @@ import AgenciesCustomFields from "./listings/customFields/classifieds/AgenciesCu
 import EventsCustomFields from "./listings/customFields/classifieds/EventsCustomFields";
 import HouseServicesCustomFields from "./listings/customFields/classifieds/HouseServicesCustomFields";
 import Confirmation from "../common/listings/Confirmation";
-import {useHistory} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 import {PAGE_NAMES} from "./SearchListingContainer";
 import {getImageURL} from "../common/utils/imageUtils";
 
@@ -38,7 +38,7 @@ function ListingContainer(props) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
-    const listingPage = useHistory().location.pathname;
+    const listingPage = useLocation().pathname;
     const [redirectTo, setRedirectTo] = useState('/');
 
     // Common Fields

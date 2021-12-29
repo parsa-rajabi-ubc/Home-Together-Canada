@@ -11,6 +11,7 @@ import PropTypes from "prop-types";
 import get from 'lodash/get';
 import includes from 'lodash/includes';
 import {toast} from "react-toastify";
+import {useNavigate} from "react-router-dom";
 
 import MemberHomeShareForm from "../../createListing/forms/services/MemberHomeShareForm";
 import {
@@ -45,10 +46,11 @@ const EditListingContainer = props => {
     const [listing, setListing] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const [images, setImages] = useState([]);
+    let navigate = useNavigate()
 
     useEffect(() => {
         if (!get(props, 'location.state.listing')) {
-            history.push('/');
+            navigate('/');
         } else {
             setListing(get(props, 'location.state.listing'));
             setImages(get(props, 'location.state.listing.images'))

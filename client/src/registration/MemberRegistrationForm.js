@@ -49,7 +49,7 @@ import Tooltip from "../common/forms/Tooltip";
 import {USER_TYPES} from "../common/constants/users";
 import {MEMBER_PROFILE_INFO_TEXT} from "../common/constants/TooltipText";
 import {dropdownDefaultCSS, dropdownErrorCSS} from "../css/dropdownCSSUtil"
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import indexOf from 'lodash/indexOf';
 import {TERMS_OF_SERVICE_TEXT} from "../common/constants/termsOfServiceText";
 import {PRIVACY_POLICY_TEXT} from "../common/constants/privacyPolicyText";
@@ -65,6 +65,7 @@ const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated, setActive, se
 
 function MemberRegistrationForm(props) {
     const {history, setIsAdmin, setAccountType, setAuthenticated, setActive, setMemberSearchFilters} = props;
+    let navigate = useNavigate()
     const [firstName, setFirstName] = useState(undefined);
     const [lastName, setLastName] = useState(undefined);
     const [yearOfBirth, setYearOfBirth] = useState(undefined);
@@ -672,7 +673,7 @@ function MemberRegistrationForm(props) {
                     });
 
                     // user is authenticated, redirect to home screen
-                    return history.push('/');
+                    return navigate('/');
                 } else if (data && data.errors && data.errors.length) {
                     const errorMessage = getConcatenatedErrorMessage(data.errors);
                     // show list of all errors
