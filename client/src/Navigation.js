@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from "./home/Home";
 import Login from "./login/LoginForm";
 import BusinessRegistration from "./registration/BusinessRegistrationForm";
@@ -43,39 +43,79 @@ const Navigation = (props) => {
                 <Header/>
                 {/* Matches the URL to the path and does not go through the rest of the routes*/}
                 <ScrollToTop/>
-                <Switch>
+                <Routes>
                     {/* Renders the correct component based on the URL*/}
-                    <Route path={"/"} exact component={Home}/>
-                    <Route path={"/login"} component={Login}/>
-                    <Route path={"/registration/business"} component={BusinessRegistration}/>
-                    <Route path={"/registration/member"} component={MemberRegistrationForm}/>
-                    <Route path={"/registration"} component={MainLandingPage}/>
+                    <Route path={"/"} exact>
+                        <Home/>
+                    </Route>
+                    <Route path={"/login"}>
+                        <Login/>
+                    </Route>
+                    <Route path={"/registration/business"}>
+                        <BusinessRegistration/>
+                    </Route>
+                    <Route path={"/registration/member"}>
+                        <MemberRegistrationForm/>
+                    </Route>
+                    <Route path={"/registration"}>
+                        <MainLandingPage/>
+                    </Route>
                     {(authenticated && accountType === USER_TYPES.MEMBER) &&
-                    <Route path={"/members/:username"} component={ProfilePageContainer}/>
+                        <Route path={"/members/:username"}>
+                            <ProfilePageContainer/>
+                        </Route>
                     }
-                    <Route path={"/members"} component={MemberSearchContainer}/>
-                    <Route path={"/create-listing"} component={CreateListingContainer}/>
+                    <Route path={"/members"}>
+                        <MemberSearchContainer/>
+                    </Route>
+                    <Route path={"/create-listing"}>
+                        <CreateListingContainer/>
+                    </Route>
                     {authenticated &&
-                        <Route path={"/listing/edit/:id"} exact component={EditListingContainer}/>
+                        <Route path={"/listing/edit/:id"} exact>
+                            <EditListingContainer/>
+                        </Route>
                     }
                     {(authenticated && isAdmin) &&
-                        <Route path={'/listing/pending/:id'} exact component={ListingContainer} />
+                        <Route path={'/listing/pending/:id'} exact>
+                            <ListingContainer/>
+                        </Route>
                     }
-                    <Route path={"/:servicesClassifieds/:id"} exact component={ListingContainer}/>
-                    <Route path={"/services"} component={SearchServiceListings}/>
-                    {/*<Route path={"/classifieds"} component={SearchClassifiedListings}/>*/}
+                    <Route path={"/:servicesClassifieds/:id"} exact>
+                        <ListingContainer/>
+                    </Route>
+                    <Route path={"/services"}>
+                        <SearchServiceListings/>
+                    </Route>
+                    {/*<Route path={"/classifieds"}>*/}
+                    {/*    <SearchClassifiedListings/>*/}
+                    {/*</Route>*/}
                     {(authenticated && accountType !== USER_TYPES.UNREGISTERED) &&
-                        <Route path={"/account"} component={AccountSummaryContainer}/>
+                        <Route path={"/account"}>
+                            <AccountSummaryContainer/>
+                        </Route>
                     }
                     {(authenticated && isAdmin) &&
-                        <Route path={"/admin"} component={AdminContainer}/>
+                        <Route path={"/admin"}>
+                            <AdminContainer/>
+                        </Route>
                     }
-                    <Route path={"/tos"} component={TermsOfService}/>
-                    <Route path={"/privacy"} component={PrivacyPolicy}/>
-                    <Route path={"/contact"} component={Contact}/>
-                    <Route path={"/faq"} component={FAQ}/>
-                    <Route component={Error404}/>
-                </Switch>
+                    <Route path={"/tos"}>
+                        <TermsOfService/>
+                    </Route>
+                    <Route path={"/privacy"}>
+                        <PrivacyPolicy/>
+                    </Route>
+                    <Route path={"/contact"}>
+                        <Contact/>
+                    </Route>
+                    <Route path={"/faq"}>
+                        <FAQ/>
+                    </Route>
+                    <Route>
+                        <Error404/>
+                    </Route>
+                </Routes>
                 <Footer/>
             </div>
         </Router>
@@ -94,4 +134,4 @@ const mapStateToProps = (state) => ({
     authenticated: state.userPrivileges.authenticated
 });
 
-export default connect(mapStateToProps, null) (Navigation);
+export default connect(mapStateToProps, null)(Navigation);
