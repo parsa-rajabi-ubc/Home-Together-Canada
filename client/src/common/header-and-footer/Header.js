@@ -8,7 +8,7 @@
 
 import React from 'react';
 import '../../tailwind.output.css';
-import {Link, useHistory} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import LoginService from '../../services/LoginService';
 import {connect} from "react-redux";
 import {bindActionCreators} from 'redux';
@@ -17,7 +17,6 @@ import PropTypes from "prop-types";
 import {BUSINESS_SUBPAGES, MEMBER_SUBPAGES, USER_TYPES} from "../constants/users";
 import Dropdown from "../forms/Dropdown";
 import {pushToRoute} from "../utils/navigationUtils";
-import {withRouter} from "react-router-dom";
 import {compose} from "redux";
 import {dropdownAccountCSS, dropdownAccountTheme} from "../../css/dropdownCSSUtil"
 import {SERVICES_TEXT, CLASSIFIEDS_TEXT, CREATE_LISTINGS_TEXT} from "../constants/listingsConstants";
@@ -35,7 +34,8 @@ const Header = (props) => {
         authenticated
     } = props;
 
-    let URL_PATH = useHistory().location.pathname;
+    let navigate = useNavigate()
+    let URL_PATH = useLocation().pathname;
 
     const logout = () => {
         LoginService.logoutUser()
@@ -44,7 +44,7 @@ const Header = (props) => {
                 reset();
 
                 // redirect to home page
-                history.push('/');
+                navigate('/');
             })
     }
 
@@ -119,7 +119,7 @@ const Header = (props) => {
                             selected.label === 'Logout'
                                 ? logout()
                                 : pushToRoute(
-                                history,
+                                navigate,
                                 '/account',
                                 {accountType: accountType, selected: selected.label})}
                         placeholder={'Account'}
@@ -144,7 +144,7 @@ const mapStateToProps = (state) => ({
 Header.propTypes = {
     history: PropTypes.shape({
         push: PropTypes.func
-    }).isRequired,
+    }),
     reset: PropTypes.func.isRequired,
     isAdmin: PropTypes.bool.isRequired,
     authenticated: PropTypes.bool.isRequired,
@@ -152,6 +152,5 @@ Header.propTypes = {
 }
 
 export default compose(
-    withRouter,
     connect(mapStateToProps, mapDispatchToProps)
 )(Header);
