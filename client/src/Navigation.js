@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
 import Home from "./home/Home";
 import Login from "./login/LoginForm";
 import BusinessRegistration from "./registration/BusinessRegistrationForm";
@@ -33,92 +33,51 @@ import SearchClassifiedListings from "./searchServicesClassifieds/SearchClassifi
 import AdminContainer from "./admin/AdminContainer";
 import Contact from "./contact/Contact";
 import EditListingContainer from "./accountSummary/manageListings/EditListingContainer";
+import Log from "tailwindcss/lib/util/log";
 
 const Navigation = (props) => {
     const {authenticated, accountType, isAdmin} = props;
 
     return (
-        <Router>
             <div>
                 <Header/>
                 {/* Matches the URL to the path and does not go through the rest of the routes*/}
                 <ScrollToTop/>
                 <Routes>
                     {/* Renders the correct component based on the URL*/}
-                    <Route path={"/"} exact>
-                        <Home/>
-                    </Route>
-                    <Route path={"/login"}>
-                        <Login/>
-                    </Route>
-                    <Route path={"/registration/business"}>
-                        <BusinessRegistration/>
-                    </Route>
-                    <Route path={"/registration/member"}>
-                        <MemberRegistrationForm/>
-                    </Route>
-                    <Route path={"/registration"}>
-                        <MainLandingPage/>
-                    </Route>
+                    <Route path={"/"} exact element={<Home/>}/>
+                    <Route path={"/login"} element={<Login/>}/>
+                    <Route path={"/registration/business"} element={<BusinessRegistration/>}/>
+                    <Route path={"/registration/member"} element={<MemberRegistrationForm/>}/>
+                    <Route path={"/registration"} element={<MainLandingPage/>}/>
                     {(authenticated && accountType === USER_TYPES.MEMBER) &&
-                        <Route path={"/members/:username"}>
-                            <ProfilePageContainer/>
-                        </Route>
+                        <Route path={"/members/:username"} element={<ProfilePageContainer/>}/>
                     }
-                    <Route path={"/members"}>
-                        <MemberSearchContainer/>
-                    </Route>
-                    <Route path={"/create-listing"}>
-                        <CreateListingContainer/>
-                    </Route>
+                    <Route path={"/members"} element={<MemberSearchContainer/>}/>
+                    <Route path={"/create-listing"} element={<CreateListingContainer/>}/>
                     {authenticated &&
-                        <Route path={"/listing/edit/:id"} exact>
-                            <EditListingContainer/>
-                        </Route>
+                        <Route path={"/listing/edit/:id"} exact element={<EditListingContainer/>}/>
                     }
                     {(authenticated && isAdmin) &&
-                        <Route path={'/listing/pending/:id'} exact>
-                            <ListingContainer/>
-                        </Route>
+                        <Route path={'/listing/pending/:id'} exact element={<ListingContainer/>}/>
                     }
-                    <Route path={"/:servicesClassifieds/:id"} exact>
-                        <ListingContainer/>
-                    </Route>
-                    <Route path={"/services"}>
-                        <SearchServiceListings/>
-                    </Route>
-                    {/*<Route path={"/classifieds"}>*/}
-                    {/*    <SearchClassifiedListings/>*/}
-                    {/*</Route>*/}
+                    <Route path={"/:servicesClassifieds/:id"} exact element={<ListingContainer/>}/>
+                    <Route path={"/services"} element={<SearchServiceListings/>}/>
+                    {/*<Route path={"/classifieds"} element={<SearchClassifiedListings/>}/>*/}
                     {(authenticated && accountType !== USER_TYPES.UNREGISTERED) &&
-                        <Route path={"/account"}>
-                            <AccountSummaryContainer/>
-                        </Route>
+                        <Route path={"/account"} element={<AccountSummaryContainer/>}/>
                     }
                     {(authenticated && isAdmin) &&
-                        <Route path={"/admin"}>
-                            <AdminContainer/>
-                        </Route>
+                        <Route path={"/admin"} element={<AdminContainer/>}/>
                     }
-                    <Route path={"/tos"}>
-                        <TermsOfService/>
-                    </Route>
-                    <Route path={"/privacy"}>
-                        <PrivacyPolicy/>
-                    </Route>
-                    <Route path={"/contact"}>
-                        <Contact/>
-                    </Route>
-                    <Route path={"/faq"}>
-                        <FAQ/>
-                    </Route>
-                    <Route>
-                        <Error404/>
-                    </Route>
+                    <Route path={"/tos"} element={<TermsOfService/>}/>
+                    <Route path={"/privacy"} element={<PrivacyPolicy/>}/>
+                    <Route path={"/contact"} element={<Contact/>}/>
+                    <Route path={"/faq"} element={<FAQ/>}/>
+                    <Route path={"*"} element={<Error404/>}/>
                 </Routes>
                 <Footer/>
             </div>
-        </Router>
     );
 }
 
