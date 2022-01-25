@@ -33,7 +33,7 @@ exports[`SearchResultsContainer Container test should match snapshot test for da
               className="px-1"
             >
                
-              36
+              37
                
             </label>
             <section
@@ -80,7 +80,7 @@ exports[`SearchResultsContainer Container test should match snapshot test for da
               className="px-1"
             >
                
-              31
+              32
                
             </label>
             <section
@@ -707,7 +707,7 @@ exports[`SearchResultsContainer Container test should match snapshot test for da
               className="px-1"
             >
                
-              26
+              27
                
             </label>
             <section
@@ -1219,7 +1219,7 @@ exports[`SearchResultsContainer Container test should match snapshot test for da
               className="px-1"
             >
                
-              51
+              52
                
             </label>
             <section
@@ -1616,7 +1616,7 @@ exports[`SearchResultsContainer Container test should match snapshot test for da
               className="px-1"
             >
                
-              71
+              72
                
             </label>
             <section
@@ -1780,7 +1780,7 @@ exports[`SearchResultsContainer Container test should match snapshot test for da
               className="px-1"
             >
                
-              41
+              42
                
             </label>
             <section
@@ -2061,7 +2061,7 @@ exports[`SearchResultsContainer Container test should match snapshot test for da
               className="px-1"
             >
                
-              61
+              62
                
             </label>
             <section
@@ -2332,7 +2332,7 @@ exports[`SearchResultsContainer Container test should match snapshot test for ex
               className="px-1"
             >
                
-              36
+              37
                
             </label>
             <section
@@ -2379,7 +2379,7 @@ exports[`SearchResultsContainer Container test should match snapshot test for ex
               className="px-1"
             >
                
-              31
+              32
                
             </label>
             <section
@@ -3006,7 +3006,7 @@ exports[`SearchResultsContainer Container test should match snapshot test for ex
               className="px-1"
             >
                
-              26
+              27
                
             </label>
             <section
