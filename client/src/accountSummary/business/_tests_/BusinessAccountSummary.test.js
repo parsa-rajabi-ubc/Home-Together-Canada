@@ -11,7 +11,7 @@ import {BrowserRouter as Router} from "react-router-dom";
 import {businessUser} from "../MockB";
 import BusinessAccountSummary from "../BusinessAccountSummary";
 
-jest.mock("react-tooltip/node_modules/uuid", () => ({
+jest.mock("uuid", () => ({
             v4: () => "00000000-0000-0000-0000-000000000000"}
     )
 );
