@@ -12,20 +12,19 @@ import member from "../images/member.jpg";
 import business from "../images/business.jpg";
 
 const memberAccountTitle = "Home Share Member Account";
-const businessAccountTitle = "Local Business & Home Sharing Services Account";
+const businessAccountTitle = "Home Sharing Services Account";
 
 const memberAccountText = [
     "Free account registration and profile creation",
     "Search and message other members",
     "Find Home Sharing Businesses and Services",
-    "Member only: Business & Service rating system you can trust"
+    "Coming soon: Business & Service rating system you can trust"
 ];
 
 const businessAccountText = [
     "Free account registration",
     "Create free home sharing service listings",
-    "Create paid local classified listings",
-    " Benefit from: Member only rating system you can trust"
+    "Coming soon: Member only rating system you can trust"
 ];
 
 const memberAccountBullets = memberAccountText.map(
