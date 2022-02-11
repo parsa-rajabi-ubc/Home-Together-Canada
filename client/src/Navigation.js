@@ -63,7 +63,7 @@ const Navigation = (props) => {
                     }
                     <Route path={"/:servicesClassifieds/:id"} exact component={ListingContainer}/>
                     <Route path={"/services"} component={SearchServiceListings}/>
-                    <Route path={"/classifieds"} component={SearchClassifiedListings}/>
+                    {/*<Route path={"/classifieds"} component={SearchClassifiedListings}/>*/}
                     {(authenticated && accountType !== USER_TYPES.UNREGISTERED) &&
                         <Route path={"/account"} component={AccountSummaryContainer}/>
                     }

@@ -78,9 +78,9 @@ const Header = (props) => {
                             <Link to={'/services'} className={`${(URL_PATH === "/services") && "bg-green-200"} nav-icon`}>
                                 {SERVICES_TEXT}
                             </Link>
-                            <Link to={'/classifieds'} className={`${(URL_PATH === "/classifieds") && "bg-green-200"} nav-icon`}>
-                                {CLASSIFIEDS_TEXT}
-                            </Link>
+                            {/*<Link to={'/classifieds'} className={`${(URL_PATH === "/classifieds") && "bg-green-200"} nav-icon`}>*/}
+                            {/*    {CLASSIFIEDS_TEXT}*/}
+                            {/*</Link>*/}
                             <Link to={'/faq'} className={`${(URL_PATH === "/faq") && "bg-green-200"} nav-icon`}>
                                 FAQ
                             </Link>
