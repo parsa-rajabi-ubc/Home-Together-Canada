@@ -82,14 +82,15 @@ function ListingContainer(props) {
     const [website, setWebsite] = useState();
     const [phone, setPhone] = useState();
     const [email, setEmail] = useState();
+    const location = useLocation();
 
     // Get Data
     useEffect(() => {
         setLoading(true);
 
         // set listing if props.location.state exists
-        if (props.location.state) {
-            const {listing} = props.location.state;
+        if (location && location.state && location.state.listing) {
+            const {listing} = location.state;
             setCommonListingData(listing);
             setCustomFieldData(listing);
 
