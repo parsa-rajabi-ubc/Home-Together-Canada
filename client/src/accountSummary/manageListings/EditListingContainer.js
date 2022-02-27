@@ -2,7 +2,7 @@
  * @Author:     Rachelle Gelden
  * @Created:    2021.06.29
  *
- * @Description: Container component with logic for editing listings
+ * @Description: Container component with logic for editing listings (both member and business listings).
  *
  */
 
@@ -36,26 +36,24 @@ import EditImagesContainer from "../../common/forms/EditImages/EditImagesContain
 import {LISTING_CATEGORIES_WITH_IMAGES} from "../../common/constants/listingsConstants";
 import EditListingSubcategories from "./EditListingSubcategories";
 import Asterisk from "../../common/forms/Asterisk";
-import {CREATE_LISTING_MEMBER_SHARE_HOME as ToolTipText} from "../../common/constants/TooltipText";
-import Tooltip from "../../common/forms/Tooltip";
+import { useLocation } from "react-router-dom"
 
 toast.configure();
 
 const EditListingContainer = props => {
-    const {history} = props;
     const [listing, setListing] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const [images, setImages] = useState([]);
     let navigate = useNavigate()
+    const location = useLocation()
 
     useEffect(() => {
-        if (!get(props, 'location.state.listing')) {
+        if (!get(location, 'state.listing')) {
             navigate('/');
-        } else {
-            setListing(get(props, 'location.state.listing'));
-            setImages(get(props, 'location.state.listing.images'))
-            setIsLoading(false);
         }
+        setListing(get(location, 'state.listing'));
+        setImages(get(location, 'state.listing.images'))
+        setIsLoading(false);
     }, []);
 
     function editListing(editedListing) {

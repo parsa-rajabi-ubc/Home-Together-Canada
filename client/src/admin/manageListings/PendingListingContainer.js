@@ -29,8 +29,7 @@ toast.configure()
 
 const NO_LISTINGS = "No pending listings available";
 
-function PendingListingContainer(props) {
-    const { history } = props;
+function PendingListingContainer() {
     let navigate = useNavigate()
     const [listingID, setListingID] = useState();
     const [listingStatus, setListingStatus] = useState();

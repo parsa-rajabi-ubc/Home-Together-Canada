@@ -81,10 +81,8 @@ function ManageListingResults(props) {
                                 <Link
                                     to={{
                                         pathname: `/listing/edit/${listing.id}`,
-                                        state: {
-                                            listing: listing
-                                        }
                                     }}
+                                    state={{ listing: listing }}
                                     key={listing.id}
                                 >
                                     <MemberListingCard
@@ -119,10 +117,8 @@ function ManageListingResults(props) {
                                 <Link
                                     to={{
                                         pathname: `/listing/edit/${listing.id}`,
-                                        state: {
-                                            listing: listing
-                                        }
                                     }}
+                                    state={{ listing: listing }}
                                     key={listing.id}
                                 >
                                     <BusinessListingCard

@@ -50,7 +50,7 @@ const mapDispatch = {setAccountType, setAuthenticated};
 
 
 const BusinessRegistrationForm = (props) => {
-    const {history, setAccountType, setAuthenticated} = props;
+    const {setAccountType, setAuthenticated} = props;
     let navigate = useNavigate()
     const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(false);
     const [isNationWide, setIfNationWide] = useState(false);

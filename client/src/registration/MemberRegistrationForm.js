@@ -64,7 +64,7 @@ toast.configure()
 const mapDispatch = {setIsAdmin, setAccountType, setAuthenticated, setActive, setMemberSearchFilters};
 
 function MemberRegistrationForm(props) {
-    const {history, setIsAdmin, setAccountType, setAuthenticated, setActive, setMemberSearchFilters} = props;
+    const {setIsAdmin, setAccountType, setAuthenticated, setActive, setMemberSearchFilters} = props;
     let navigate = useNavigate()
     const [firstName, setFirstName] = useState(undefined);
     const [lastName, setLastName] = useState(undefined);

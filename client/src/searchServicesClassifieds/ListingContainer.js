@@ -34,7 +34,7 @@ const MESSAGE = {
     INVALID_PAGE_BUTTON_TEXT: "Back to Search Page"
 }
 
-function ListingContainer(props) {
+function ListingContainer() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
