@@ -12,9 +12,6 @@ const circle = require('@turf/circle').default;
 const point = require('@turf/helpers').point;
 const booleanOverlap = require('@turf/boolean-overlap').default;
 const booleanWithin = require('@turf/boolean-within').default;
-const fs = require('fs');
-const neatCsv = require('neat-csv');
-const find = require('lodash/find');
 
 const { DEFAULT_COUNTRY, DEFAULT_RADIUS, DEFAULT_STEP_ACCURACY, PROVINCE_MAP } = require('../configConstants');
 
