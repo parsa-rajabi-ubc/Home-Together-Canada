@@ -33,10 +33,8 @@ function ListingResults(props) {
                     <Link
                         to={{
                             pathname: `/${listingPage}/${listing.id}`,
-                            state: {
-                                listing: listing
-                            }
                         }}
+                        state={{listing: listing}}
                         key={listing.id}
                     >
                         <MemberListingCard
@@ -55,10 +53,8 @@ function ListingResults(props) {
                     <Link
                         to={{
                             pathname: `/${listingPage}/${listing.id}`,
-                            state: {
-                                listing: listing
-                            }
                         }}
+                        state={{listing: listing}}
                         key={listing.id}
                     >
                         <BusinessListingCard
@@ -85,6 +81,5 @@ ListingResults.propTypes = {
     listingData: PropTypes.array.isRequired,
     listingUser: PropTypes.string.isRequired,
 };
-
 
 export default ListingResults;

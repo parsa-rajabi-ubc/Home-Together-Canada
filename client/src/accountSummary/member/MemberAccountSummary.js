@@ -24,7 +24,7 @@ import {MEMBER_PROFILE_INFO_TEXT} from "../../common/constants/TooltipText";
 import Asterisk from "../../common/forms/Asterisk";
 import * as MemberService from '../../services/MemberService';
 import {connect} from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {SESSION_ERR} from "../../common/constants/errors";
 import {bindActionCreators} from "redux";
 import {reset} from "../../redux/actionCreators";
@@ -40,7 +40,7 @@ const SUCCESS_MESSAGE = 'Account info successfully updated!';
 function MemberAccountSummary(props) {
     const { member, reset } = props;
 
-    const history = useHistory();
+    const navigate = useNavigate();
 
     //Account variables
     const [firstName, setFirstName] = useState(member.firstName);
@@ -232,7 +232,7 @@ function MemberAccountSummary(props) {
                     alert(SESSION_ERR);
 
                     // redirect to home page
-                    history.push('/');
+                    navigate('/');
                 } else {
                     alert('There was an error when updating your profile. Please try again and contact Home Together ' +
                         'if the issue persists');

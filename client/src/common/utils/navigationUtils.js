@@ -7,9 +7,8 @@
  */
 
 // takes route and pushes as parameter
-export const pushToRoute = (history, route, state) => {
-    history.push({
-        pathname: route,
-        state: {...state}
-    });
+export const pushToRoute = (navigate, route, state) => {
+    navigate(route,
+        {state}
+    );
 }

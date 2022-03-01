@@ -7,7 +7,6 @@
  *
  */
 
-// returns all member search results
 import React from 'react';
 import ProfileCard from "./ProfileCard";
 import PropTypes from "prop-types";
@@ -25,10 +24,8 @@ function MemberSearchResults(props) {
             <Link
                 to={{
                     pathname: `/members/${profileData[i].username}`,
-                    state: {
-                        profile: profileData[i]
-                    }
                 }}
+                state={{ profile: profileData[i] }}
                 key={i}
             >
                 <ProfileCard key={i}

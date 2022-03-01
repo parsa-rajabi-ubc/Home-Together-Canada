@@ -9,6 +9,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer'
 import PendingListingContainer from "../PendingListingContainer";
+import { BrowserRouter as Router } from 'react-router-dom';
 
 describe('PendingListingContainer', () => {
     describe('Container test', () => {
@@ -17,7 +18,7 @@ describe('PendingListingContainer', () => {
             const props = {
             }
             //when
-            const component = renderer.create(<PendingListingContainer {...props}/>);
+            const component = renderer.create(<Router><PendingListingContainer {...props}/></Router>);
             const tree = component.toJSON();
             //then
             expect(tree).toMatchSnapshot();

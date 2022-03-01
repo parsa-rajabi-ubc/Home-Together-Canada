@@ -6,7 +6,7 @@
  *
  */
 import React, {useEffect, useState} from 'react';
-import {Link, useParams} from "react-router-dom";
+import {Link, useLocation, useParams} from "react-router-dom";
 import ProfilePage from "./ProfilePage";
 import {getMemberAge} from "../../common/utils/generalUtils";
 import get from "lodash/get";
@@ -28,6 +28,8 @@ const ERROR = 'There was an error loading profile';
 const ProfilePageContainer = props => {
     const { reset } = props;
     const {username} = useParams();
+    const location = useLocation()
+
     const [profile, setProfile] = useState({});
     const [areasOfInterest, setAreasOfInterest] = useState([]);
     const [roommates, setRoommates] = useState([]);
@@ -45,8 +47,8 @@ const ProfilePageContainer = props => {
     useEffect(() => {
         setLoading(true);
         // profile page was navigated to via search results page
-        if (props.location && props.location.state) {
-            const { profile } = props.location.state;
+        if (location && location.state && location.state.profile) {
+            const { profile } = location.state;
             setProfile(profile);
             setAreasOfInterest(profile.areasOfInterest);
             setRoommates(profile.roommates || []);

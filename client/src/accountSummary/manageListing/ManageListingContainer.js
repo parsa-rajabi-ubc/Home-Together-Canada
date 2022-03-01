@@ -15,7 +15,6 @@ import ManageListingResults from "./ManageListingResults";
 import ManageListingTabs, {BUSINESS_TAB_LABELS, MEMBER_TAB_LABELS} from "./ManageListingTabs";
 import {MANAGE_LISTING_TOAST} from "../../common/constants/ToastText";
 import {toast} from "react-toastify";
-import {withRouter} from "react-router-dom";
 import {USER_TYPES} from "../../common/constants/users";
 import {compose} from "redux";
 import {connect} from "react-redux";
@@ -196,4 +195,6 @@ ManageListingContainer.propTypes = {
     accountType: PropTypes.string.isRequired,
 }
 
-export default compose(withRouter, connect(mapStateToProps, null))(ManageListingContainer);
+export default compose(
+    connect(mapStateToProps, null)
+)(ManageListingContainer);

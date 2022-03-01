@@ -13,7 +13,7 @@ import TextArea from '../common/forms/TextArea';
 import SubmitButton from '../common/forms/SubmitButton';
 import TypingPicture from '../images/typing.jpg';
 import GenericInput from '../common/forms/GenericInput';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import LoginService from '../services/LoginService';
 import {
     checkIfErrorsExistInMapping,
@@ -39,6 +39,8 @@ function LoginForm(props) {
 
     const [usernameError, setUsernameError] = useState(undefined);
     const [passwordError, setPasswordError] = useState(undefined);
+
+    let navigate = useNavigate()
 
     // Account Details
     useEffect(() => {
@@ -135,7 +137,7 @@ function LoginForm(props) {
                     }
 
                     // user is authenticated, redirect to home screen
-                    return history.push('/');
+                    return navigate('/');
                 } else if (data && data.errors && data.errors.length) {
                     const errorMessage = getConcatenatedErrorMessage(data.errors);
                     // show list of all errors

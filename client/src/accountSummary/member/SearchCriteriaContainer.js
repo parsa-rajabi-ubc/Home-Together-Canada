@@ -22,7 +22,7 @@ import {
 } from "../../registration/registrationUtils";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {setMemberSearchFilters} from "../../redux/slices/memberPrivileges";
 import {SESSION_ERR} from "../../common/constants/errors";
 import {reset} from "../../redux/actionCreators";
@@ -35,7 +35,7 @@ const mapDispatchToProps = {
 
 const SearchCriteriaContainer = (props) => {
     const {memberSearchFilters, setMemberSearchFilters, reset} = props;
-    const history = useHistory();
+    const navigate = useNavigate();
     // Gender and Family Status
     const [genderPreference, setGenderPreference] = useState([]);
     const [familyStatusPreference, setFamilyStatusPreference] = useState([]);
@@ -244,7 +244,7 @@ const SearchCriteriaContainer = (props) => {
                     alert(SESSION_ERR);
 
                     // redirect to home page
-                    history.push('/');
+                    navigate('/');
                 } else {
                     alert('There was an error when updating your profile. Please try again and contact Home Together ' +
                         'if the issue persists');

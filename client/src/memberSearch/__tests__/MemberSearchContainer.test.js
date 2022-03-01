@@ -93,7 +93,7 @@ describe('MemberSearchContainer', () => {
 
             // when
             const renderer = new ShallowRenderer();
-            renderer.render(<MemberSearchContainer {...props}/>);
+            renderer.render(<BrowserRouter><MemberSearchContainer {...props}/></BrowserRouter>);
             const result = renderer.getRenderOutput();
 
             // then

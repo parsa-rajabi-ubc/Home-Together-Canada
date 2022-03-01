@@ -19,7 +19,6 @@ import {USER_TYPES} from "../../common/constants/users";
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import {compose} from "redux";
-import {withRouter} from "react-router-dom";
 import BusinessListingCard from "../../searchServicesClassifieds/listingCards/BusinessListingCard";
 import {getImageURL} from "../../common/utils/imageUtils";
 import Confirmation from "../../common/listings/Confirmation";
@@ -82,10 +81,8 @@ function ManageListingResults(props) {
                                 <Link
                                     to={{
                                         pathname: `/listing/edit/${listing.id}`,
-                                        state: {
-                                            listing: listing
-                                        }
                                     }}
+                                    state={{ listing: listing }}
                                     key={listing.id}
                                 >
                                     <MemberListingCard
@@ -120,10 +117,8 @@ function ManageListingResults(props) {
                                 <Link
                                     to={{
                                         pathname: `/listing/edit/${listing.id}`,
-                                        state: {
-                                            listing: listing
-                                        }
                                     }}
+                                    state={{ listing: listing }}
                                     key={listing.id}
                                 >
                                     <BusinessListingCard
@@ -203,4 +198,4 @@ ManageListingResults.propTypes = {
     setViewableListingTitle: PropTypes.func,
 };
 
-export default compose(withRouter, connect(mapStateToProps, null))(ManageListingResults);
+export default compose(connect(mapStateToProps, null))(ManageListingResults);

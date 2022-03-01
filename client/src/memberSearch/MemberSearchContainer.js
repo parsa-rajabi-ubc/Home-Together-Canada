@@ -11,7 +11,6 @@ import {USER_TYPES} from "../common/constants/users";
 import InvalidUser from "../common/error/InvalidUser";
 import PropTypes from "prop-types";
 import {compose} from "redux";
-import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import SearchResultsContainer from "./SearchResultsContainer";
 import SearchFilterContainer from "./SearchFilterContainer";
@@ -127,6 +126,5 @@ MemberSearchContainer.propTypes = {
 }
 
 export default compose(
-    withRouter,
     connect(mapStateToProps, mapDispatchToProps)
 )(MemberSearchContainer);

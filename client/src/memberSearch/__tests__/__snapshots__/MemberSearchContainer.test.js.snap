@@ -45,7 +45,43 @@ exports[`MemberSearchContainer Container test should match snapshot test 1`] = `
 `;
 
 exports[`MemberSearchContainer Member Search Container component should render when the user is a member and authenticated 1`] = `
-<Context.Consumer>
-  [Function]
-</Context.Consumer>
+<Router
+  location={
+    Object {
+      "hash": "",
+      "key": "default",
+      "pathname": "/",
+      "search": "",
+      "state": null,
+    }
+  }
+  navigationType="POP"
+  navigator={
+    Object {
+      "action": "POP",
+      "back": [Function],
+      "block": [Function],
+      "createHref": [Function],
+      "forward": [Function],
+      "go": [Function],
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "key": "default",
+        "pathname": "/",
+        "search": "",
+        "state": null,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <MemberSearchContainer
+    accountType="member"
+    authenticated={true}
+    reset={[MockFunction]}
+    setMemberSearchResults={[MockFunction]}
+  />
+</Router>
 `;
