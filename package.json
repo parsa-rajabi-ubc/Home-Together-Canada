@@ -15,7 +15,7 @@
     "@turf/circle": "^6.3.0",
     "@turf/helpers": "^6.3.0",
     "body-parser": "^1.19.0",
-    "cookie-parser": "~1.4.4",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
     "express": "~4.16.1",
