@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@turf/boolean-overlap": "^6.5.0",
-    "@turf/boolean-point-in-polygon": "^6.3.0",
+    "@turf/boolean-point-in-polygon": "^6.5.0",
     "@turf/boolean-within": "^6.3.0",
     "@turf/circle": "^6.3.0",
     "@turf/helpers": "^6.3.0",
