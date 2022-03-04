@@ -8,7 +8,7 @@
 
 const express = require('express');
 const router = express.Router();
-const { validationResult } = require('express-validator/check');
+const { validationResult } = require('express-validator');
 const includes = require('lodash/includes');
 
 const listingValidator = require('../controllers/validators/listingControllerValidator');

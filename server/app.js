@@ -3,7 +3,6 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const expressValidator = require('express-validator');
 const passport = require('passport');
 const session = require('express-session');
 
@@ -34,9 +33,7 @@ if (process.env.NODE_ENV === DEVELOPMENT || !process.env.NODE_ENV) {
     app.use(cors(corsOptions));
 }
 
-console.log('NODE_ENV: ', process.env.NODE_ENV);
-
-app.use(expressValidator());
+app.use(express.json());
 
 // Sets up the Express app to handle data parsing
 // parse requests of content-type - application/json

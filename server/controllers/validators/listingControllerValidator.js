@@ -5,7 +5,7 @@
  * @Description: functions to validate input to controller functions to create listings
  *
  */
-const { body, query } = require('express-validator/check');
+const { body, query } = require('express-validator');
 const {PROVINCES_LIST} = require("../configConstants");
 const {
     isValidRadius,

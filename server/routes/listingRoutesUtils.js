@@ -10,7 +10,7 @@ const multer = require("multer");
 
 const listingController = require('../controllers/listingController');
 const { getListingImages } = require('../controllers/utils/listingControllerUtils');
-const { validationResult } = require('express-validator/check');
+const { validationResult } = require('express-validator');
 const {LISTING_IMAGE_UPLOADS_PATH, MAX_LISTING_IMAGES} = require("../constants/listingConstants");
 
 function updateListing(req, res, next) {

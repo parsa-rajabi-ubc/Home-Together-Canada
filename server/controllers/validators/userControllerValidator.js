@@ -6,7 +6,7 @@
  *
  */
 
-const { body } = require('express-validator/check');
+const { body } = require('express-validator');
 
 const {
     PROVINCES_LIST,
