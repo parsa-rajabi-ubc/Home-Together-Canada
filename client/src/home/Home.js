@@ -51,11 +51,12 @@ const Home = () => {
 
                                     <div className="mt-5 ml-auto sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                                         <div>
-                                            <button
-                                                onClick={scrollDown}
+                                            <a
+                                                href={'https://justthinkingabout.ca/'}
+                                                target="_blank" rel="noopener noreferrer"
                                                 className=" rounded-md shadow flex btn btn-green">
                                                 Learn More
-                                            </button>
+                                            </a>
                                         </div>
                                         <div className="mt-3 sm:mt-0 sm:ml-3">
                                             <Link to={'/faq'}
