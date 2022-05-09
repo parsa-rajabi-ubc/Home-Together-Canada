@@ -211,7 +211,7 @@ function ProfilePage(props) {
                     </div>
 
                 </div>
-                {sendingMessage && <SendMessage receiverUsername={username} receiverId={uid}/>}
+                {sendingMessage && <SendMessage receiverUsername={username} receiverId={uid} newMessageAddedCallback={() => null}/>}
             </div>
         </div>
     );
