@@ -138,59 +138,59 @@ describe('Header', () => {
         });
     });
 
-    describe('Local Classifieds button', () => {
-        it('should show Local Classifieds button when the user is unregistered', () => {
-            // given
-            const props = {
-                reset,
-                isAdmin: false,
-                accountType: null,
-                authenticated: false
-            };
-
-            // when
-            const testInstance = renderer.create(<BrowserRouter><Header {...props}/></BrowserRouter>).root;
-            const classifiedsButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'Local Classifieds');
-
-            // then
-            expect(classifiedsButton).toBeDefined();
-        });
-        it('should show Local Classifieds button when the user is a member', () => {
-            // given
-            const props = {
-                reset,
-                isAdmin: false,
-                accountType: 'member',
-                authenticated: true
-            };
-
-            // when
-            const testInstance = renderer.create(<BrowserRouter><Header {...props}/></BrowserRouter>).root;
-            const classifiedsButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'Local Classifieds');
-
-            // then
-            expect(classifiedsButton).toBeDefined();
-        });
-        it('should show Local Classifieds button when the user is a business', () => {
-            // given
-            const props = {
-                reset,
-                isAdmin: false,
-                accountType: 'business',
-                authenticated: true
-            };
-
-            // when
-            const testInstance = renderer.create(<BrowserRouter><Header {...props}/></BrowserRouter>).root;
-            const classifiedsButton = testInstance.findAllByType(Link)
-                .find(element => element.props.children === 'Local Classifieds');
-
-            // then
-            expect(classifiedsButton).toBeDefined();
-        });
-    });
+    // describe('Local Classifieds button', () => {
+    //     it('should show Local Classifieds button when the user is unregistered', () => {
+    //         // given
+    //         const props = {
+    //             reset,
+    //             isAdmin: false,
+    //             accountType: null,
+    //             authenticated: false
+    //         };
+    //
+    //         // when
+    //         const testInstance = renderer.create(<BrowserRouter><Header {...props}/></BrowserRouter>).root;
+    //         const classifiedsButton = testInstance.findAllByType(Link)
+    //             .find(element => element.props.children === 'Local Classifieds');
+    //
+    //         // then
+    //         expect(classifiedsButton).toBeDefined();
+    //     });
+    //     it('should show Local Classifieds button when the user is a member', () => {
+    //         // given
+    //         const props = {
+    //             reset,
+    //             isAdmin: false,
+    //             accountType: 'member',
+    //             authenticated: true
+    //         };
+    //
+    //         // when
+    //         const testInstance = renderer.create(<BrowserRouter><Header {...props}/></BrowserRouter>).root;
+    //         const classifiedsButton = testInstance.findAllByType(Link)
+    //             .find(element => element.props.children === 'Local Classifieds');
+    //
+    //         // then
+    //         expect(classifiedsButton).toBeDefined();
+    //     });
+    //     it('should show Local Classifieds button when the user is a business', () => {
+    //         // given
+    //         const props = {
+    //             reset,
+    //             isAdmin: false,
+    //             accountType: 'business',
+    //             authenticated: true
+    //         };
+    //
+    //         // when
+    //         const testInstance = renderer.create(<BrowserRouter><Header {...props}/></BrowserRouter>).root;
+    //         const classifiedsButton = testInstance.findAllByType(Link)
+    //             .find(element => element.props.children === 'Local Classifieds');
+    //
+    //         // then
+    //         expect(classifiedsButton).toBeDefined();
+    //     });
+    // });
 
     describe('FAQ button', () => {
         it('should show FAQ button when the user is unregistered', () => {

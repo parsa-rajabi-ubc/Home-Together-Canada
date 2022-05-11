@@ -6,10 +6,10 @@ exports[`Header Header structure should match snapshot test 1`] = `
     className="top-0 flex w-full bg-green-400 tex-black"
   >
     <div
-      className="container flex items-center justify-between w-full py-2 mx-auto mt-0 whitespace-no-wrap"
+      className="container flex items-center justify-between w-full py-2 mx-auto mt-0 whitespace-nowrap"
     >
       <div
-        className="flex flex-no-wrap items-center ml-4"
+        className="flex flex-nowrap items-center ml-4"
       >
         <a
           className="text-lg font-bold lg:text-xl"
@@ -20,7 +20,7 @@ exports[`Header Header structure should match snapshot test 1`] = `
         </a>
       </div>
       <div
-        className="flex-no-wrap hidden w-full p-4 mt-2 tex-black lg:flex lg:items-center lg:w-auto lg:block lg:mt-0 lg:bg-transparent lg:p-0"
+        className="flex-nowrap hidden w-full p-4 mt-2 tex-black lg:flex lg:items-center lg:w-auto lg:block lg:mt-0 lg:bg-transparent lg:p-0"
       >
         <div
           className="items-center justify-end flex-1 mr-16 list-reset lg:flex"
@@ -38,13 +38,6 @@ exports[`Header Header structure should match snapshot test 1`] = `
             onClick={[Function]}
           >
             Home Sharing Listings
-          </a>
-          <a
-            className="false nav-icon"
-            href="/classifieds"
-            onClick={[Function]}
-          >
-            Local Classifieds
           </a>
           <a
             className="false nav-icon"

@@ -9,7 +9,6 @@
 import React, {useState, useEffect} from 'react';
 import CreateListingControls from "./CreateListingControls";
 import MemberHomeShareForm from "./forms/services/MemberHomeShareForm";
-import {withRouter} from "react-router-dom";
 import PropTypes from "prop-types";
 import {compose} from "redux";
 import {connect} from "react-redux";
@@ -274,6 +273,5 @@ CreateListingContainer.propTypes = {
 }
 
 export default compose(
-    withRouter,
     connect(mapStateToProps, mapDispatchToProps)
 )(CreateListingContainer);

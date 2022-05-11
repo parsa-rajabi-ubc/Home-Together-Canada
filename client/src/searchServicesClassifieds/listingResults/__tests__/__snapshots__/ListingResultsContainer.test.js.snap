@@ -64,12 +64,12 @@ exports[`ListingResultsContainer Snapshot test should match snapshot test if lis
           <a
             aria-disabled="true"
             aria-label="Previous page"
-            className="next-prev-link"
+            className="next-prev-link "
             onClick={[Function]}
             onKeyPress={[Function]}
             rel="prev"
             role="button"
-            tabIndex="0"
+            tabIndex="-1"
           >
             Previous
           </a>
@@ -83,8 +83,9 @@ exports[`ListingResultsContainer Snapshot test should match snapshot test if lis
             className="page-numbers current-page"
             onClick={[Function]}
             onKeyPress={[Function]}
+            rel="canonical"
             role="button"
-            tabIndex="0"
+            tabIndex="-1"
           >
             1
           </a>
@@ -95,12 +96,12 @@ exports[`ListingResultsContainer Snapshot test should match snapshot test if lis
           <a
             aria-disabled="true"
             aria-label="Next page"
-            className="next-prev-link"
+            className="next-prev-link "
             onClick={[Function]}
             onKeyPress={[Function]}
             rel="next"
             role="button"
-            tabIndex="0"
+            tabIndex="-1"
           >
             Next
           </a>

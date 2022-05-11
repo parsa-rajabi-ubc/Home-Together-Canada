@@ -9,7 +9,7 @@ import React from "react";
 import SignInInfo from "../SignInInfo";
 import renderer from 'react-test-renderer';
 
-jest.mock("react-tooltip/node_modules/uuid", () => ({
+jest.mock("uuid", () => ({
                 v4: () => "00000000-0000-0000-0000-000000000000"}
     )
 );

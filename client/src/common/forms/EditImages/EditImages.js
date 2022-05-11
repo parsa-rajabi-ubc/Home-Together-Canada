@@ -7,7 +7,7 @@
 
 import React from "react";
 import PropTypes from 'prop-types';
-import {MdDeleteForever} from "react-icons/all";
+import {MdDeleteForever} from "react-icons/md";
 import {getImageURL} from "../../utils/imageUtils";
 
 const EditImages = props => {

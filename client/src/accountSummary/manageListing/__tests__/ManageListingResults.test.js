@@ -11,7 +11,7 @@ import ManageListingResults from "../ManageListingResults";
 import {BrowserRouter} from "react-router-dom";
 
 
-jest.mock("react-tooltip/node_modules/uuid", () => ({
+jest.mock("uuid", () => ({
             v4: () => "00000000-0000-0000-0000-000000000000"
         }
     )

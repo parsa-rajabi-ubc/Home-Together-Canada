@@ -33,23 +33,6 @@ exports[`CreateListingControls Container test should match snapshot test if user
         Home Sharing Listings
       </label>
     </span>
-    <span
-      className="block"
-    >
-      <label
-        className="text-base text-gray-700 pr-8"
-      >
-        <input
-          className="form-radio mt-2 ml-2 mr-1 pb-4"
-          disabled={false}
-          name="listingType"
-          onChange={[Function]}
-          type="radio"
-          value="Local Classifieds"
-        />
-        Local Classifieds
-      </label>
-    </span>
   </section>
 </div>
 `;
@@ -85,23 +68,6 @@ exports[`CreateListingControls Container test should match snapshot test if user
           value="Home Sharing Listings"
         />
         Home Sharing Listings
-      </label>
-    </span>
-    <span
-      className="block"
-    >
-      <label
-        className="text-base text-gray-700 pr-8"
-      >
-        <input
-          className="form-radio mt-2 ml-2 mr-1 pb-4"
-          disabled={true}
-          name="listingType"
-          onChange={[Function]}
-          type="radio"
-          value="Local Classifieds"
-        />
-        Local Classifieds
       </label>
     </span>
   </section>

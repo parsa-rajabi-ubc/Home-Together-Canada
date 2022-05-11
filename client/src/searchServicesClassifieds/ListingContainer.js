@@ -25,7 +25,7 @@ import AgenciesCustomFields from "./listings/customFields/classifieds/AgenciesCu
 import EventsCustomFields from "./listings/customFields/classifieds/EventsCustomFields";
 import HouseServicesCustomFields from "./listings/customFields/classifieds/HouseServicesCustomFields";
 import Confirmation from "../common/listings/Confirmation";
-import {useHistory} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 import {PAGE_NAMES} from "./SearchListingContainer";
 import {getImageURL} from "../common/utils/imageUtils";
 
@@ -34,11 +34,11 @@ const MESSAGE = {
     INVALID_PAGE_BUTTON_TEXT: "Back to Search Page"
 }
 
-function ListingContainer(props) {
+function ListingContainer() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
-    const listingPage = useHistory().location.pathname;
+    const listingPage = useLocation().pathname;
     const [redirectTo, setRedirectTo] = useState('/');
 
     // Common Fields
@@ -82,14 +82,15 @@ function ListingContainer(props) {
     const [website, setWebsite] = useState();
     const [phone, setPhone] = useState();
     const [email, setEmail] = useState();
+    const location = useLocation();
 
     // Get Data
     useEffect(() => {
         setLoading(true);
 
         // set listing if props.location.state exists
-        if (props.location.state) {
-            const {listing} = props.location.state;
+        if (location && location.state && location.state.listing) {
+            const {listing} = location.state;
             setCommonListingData(listing);
             setCustomFieldData(listing);
 

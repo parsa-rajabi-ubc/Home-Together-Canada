@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
 import Home from "./home/Home";
 import Login from "./login/LoginForm";
 import BusinessRegistration from "./registration/BusinessRegistrationForm";
@@ -33,52 +33,51 @@ import SearchClassifiedListings from "./searchServicesClassifieds/SearchClassifi
 import AdminContainer from "./admin/AdminContainer";
 import Contact from "./contact/Contact";
 import EditListingContainer from "./accountSummary/manageListings/EditListingContainer";
+import Log from "tailwindcss/lib/util/log";
 
 const Navigation = (props) => {
     const {authenticated, accountType, isAdmin} = props;
 
     return (
-        <Router>
             <div>
                 <Header/>
                 {/* Matches the URL to the path and does not go through the rest of the routes*/}
                 <ScrollToTop/>
-                <Switch>
+                <Routes>
                     {/* Renders the correct component based on the URL*/}
-                    <Route path={"/"} exact component={Home}/>
-                    <Route path={"/login"} component={Login}/>
-                    <Route path={"/registration/business"} component={BusinessRegistration}/>
-                    <Route path={"/registration/member"} component={MemberRegistrationForm}/>
-                    <Route path={"/registration"} component={MainLandingPage}/>
+                    <Route path={"/"} exact element={<Home/>}/>
+                    <Route path={"/login"} element={<Login/>}/>
+                    <Route path={"/registration/business"} element={<BusinessRegistration/>}/>
+                    <Route path={"/registration/member"} element={<MemberRegistrationForm/>}/>
+                    <Route path={"/registration"} element={<MainLandingPage/>}/>
                     {(authenticated && accountType === USER_TYPES.MEMBER) &&
-                    <Route path={"/members/:username"} component={ProfilePageContainer}/>
+                        <Route path={"/members/:username"} element={<ProfilePageContainer/>}/>
                     }
-                    <Route path={"/members"} component={MemberSearchContainer}/>
-                    <Route path={"/create-listing"} component={CreateListingContainer}/>
+                    <Route path={"/members"} element={<MemberSearchContainer/>}/>
+                    <Route path={"/create-listing"} element={<CreateListingContainer/>}/>
                     {authenticated &&
-                        <Route path={"/listing/edit/:id"} exact component={EditListingContainer}/>
+                        <Route path={"/listing/edit/:id"} exact element={<EditListingContainer/>}/>
                     }
                     {(authenticated && isAdmin) &&
-                        <Route path={'/listing/pending/:id'} exact component={ListingContainer} />
+                        <Route path={'/listing/pending/:id'} exact element={<ListingContainer/>}/>
                     }
-                    <Route path={"/:servicesClassifieds/:id"} exact component={ListingContainer}/>
-                    <Route path={"/services"} component={SearchServiceListings}/>
-                    <Route path={"/classifieds"} component={SearchClassifiedListings}/>
+                    <Route path={"/:servicesClassifieds/:id"} exact element={<ListingContainer/>}/>
+                    <Route path={"/services"} element={<SearchServiceListings/>}/>
+                    {/*<Route path={"/classifieds"} element={<SearchClassifiedListings/>}/>*/}
                     {(authenticated && accountType !== USER_TYPES.UNREGISTERED) &&
-                        <Route path={"/account"} component={AccountSummaryContainer}/>
+                        <Route path={"/account"} element={<AccountSummaryContainer/>}/>
                     }
                     {(authenticated && isAdmin) &&
-                        <Route path={"/admin"} component={AdminContainer}/>
+                        <Route path={"/admin"} element={<AdminContainer/>}/>
                     }
-                    <Route path={"/tos"} component={TermsOfService}/>
-                    <Route path={"/privacy"} component={PrivacyPolicy}/>
-                    <Route path={"/contact"} component={Contact}/>
-                    <Route path={"/faq"} component={FAQ}/>
-                    <Route component={Error404}/>
-                </Switch>
+                    <Route path={"/tos"} element={<TermsOfService/>}/>
+                    <Route path={"/privacy"} element={<PrivacyPolicy/>}/>
+                    <Route path={"/contact"} element={<Contact/>}/>
+                    <Route path={"/faq"} element={<FAQ/>}/>
+                    <Route path={"*"} element={<Error404/>}/>
+                </Routes>
                 <Footer/>
             </div>
-        </Router>
     );
 }
 
@@ -94,4 +93,4 @@ const mapStateToProps = (state) => ({
     authenticated: state.userPrivileges.authenticated
 });
 
-export default connect(mapStateToProps, null) (Navigation);
+export default connect(mapStateToProps, null)(Navigation);

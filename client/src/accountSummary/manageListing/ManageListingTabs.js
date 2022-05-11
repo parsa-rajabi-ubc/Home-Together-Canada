@@ -10,7 +10,6 @@
 import React, {useState, useEffect} from "react";
 import PropTypes from "prop-types";
 import {compose} from "redux";
-import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {USER_TYPES} from "../../common/constants/users";
 
@@ -79,4 +78,4 @@ ManageListingTabs.propTypes = {
     accountType: PropTypes.string.isRequired,
 };
 
-export default compose(withRouter, connect(mapStateToProps, null))(ManageListingTabs);
+export default compose(connect(mapStateToProps, null))(ManageListingTabs);

@@ -78,10 +78,8 @@ function PendingListingCards(props) {
                     <Link
                         to={{
                             pathname: `/listing/pending/${listing.id}`,
-                            state: {
-                                listing: listing
-                            }
                         }}
+                        state={{ listing: listing }}
                         key={listing.id}
                     >
                         <BusinessListingCard
