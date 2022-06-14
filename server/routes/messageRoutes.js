@@ -8,7 +8,7 @@
 
 const express = require('express');
 const router = express.Router();
-const { validationResult } = require('express-validator/check');
+const { validationResult } = require('express-validator');
 const { isLoggedIn, userIsMember } = require('./routeUtils');
 const abstractUsers = require('../controllers/abstractUserController');
 const message = require('../controllers/messagesController');

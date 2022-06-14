@@ -9,7 +9,7 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-const { validationResult } = require('express-validator/check');
+const { validationResult } = require('express-validator');
 
 const usersValidator = require('../controllers/validators/userControllerValidator');
 const memberAccounts = require('../controllers/memberAccountController');
