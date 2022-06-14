@@ -6,7 +6,7 @@
  *
  */
 
-const { body } = require('express-validator/check');
+const { body } = require('express-validator');
 const {uidShouldExistAndBeForAMember} = require('./messageControllerValidatorUtils');
 const {usernameShouldExistAndBeAMember, isValidStringLength} = require('./userControllerValidatorUtils');
 const { MESSAGE_FIELD_LENGTHS } = require('../../constants/fieldLengthsConstants');

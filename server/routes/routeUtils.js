@@ -5,7 +5,7 @@
  * @Description: helper functions used in routes
  *
  */
-const { validationResult } = require('express-validator/check');
+const { validationResult } = require('express-validator');
 
 const businessAccounts = require('../controllers/businessAccountController');
 const memberAccounts = require('../controllers/memberAccountController');
