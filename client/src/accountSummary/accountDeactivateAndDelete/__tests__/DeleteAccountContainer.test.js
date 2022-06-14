@@ -8,6 +8,7 @@
 
 import React from 'react';
 import renderer from "react-test-renderer";
+import { BrowserRouter as Router } from 'react-router-dom';
 import DeleteAccountContainer from "../DeleteAccountContainer";
 
 jest.mock('react-redux', () => ({
@@ -28,7 +29,7 @@ describe('DeleteAccountContainer', () => {
         };
 
         //when
-        const component = renderer.create(<DeleteAccountContainer {...props}/>);
+        const component = renderer.create(<Router><DeleteAccountContainer {...props}/></Router>);
         const tree = component.toJSON();
 
         //then

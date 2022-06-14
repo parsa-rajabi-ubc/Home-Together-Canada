@@ -31,7 +31,7 @@ import Asterisk from "../../common/forms/Asterisk";
 import {memberHasCoupleStatus, memberHasExistingGroupStatus} from "./memberAccountSummaryUtils";
 import {MAX_AREAS_OF_INTEREST, STATUSES} from "../../common/constants/memberConstants";
 import * as MemberService from '../../services/MemberService';
-import { useHistory } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {connect} from "react-redux";
 import {SESSION_ERR} from "../../common/constants/errors";
 import {bindActionCreators} from "redux";
@@ -60,7 +60,7 @@ function MemberProfileSummary(props) {
         reset
     } = props;
 
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const [gender, setGender] = useState(profile.gender);
     const [genderDescription, setGenderDescription] = useState(get(profile, 'genderDescription', ""));
@@ -279,7 +279,7 @@ function MemberProfileSummary(props) {
                 alert(SESSION_ERR);
 
                 // redirect to home page
-                history.push('/');
+                navigate('/');
                 break;
             default:
                 alert('There was an error when updating your profile. Please try again and contact Home Together ' +

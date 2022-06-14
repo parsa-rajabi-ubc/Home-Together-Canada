@@ -31,7 +31,7 @@ import ChangeImage from "../../common/forms/ChangeImage";
 import BusinessService from '../../services/BusinessService';
 import * as UploadService from '../../services/UploadService';
 import has from "lodash/has";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {bindActionCreators} from "redux";
 import {reset} from "../../redux/actionCreators";
 import {BUSINESS_FIELD_LENGTHS, USER_FIELD_LENGTHS} from "../../common/constants/fieldLengths";
@@ -73,7 +73,7 @@ const BusinessAccountSummary = (props) => {
         reset
     } = props;
 
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const [useDifferentMailingAddress, setUseDifferentMailingAddress] = useState(hasDifferentMailingAddress);
     const [isNationWideBusiness, setIsNationWideBusiness] = useState(isNationWide);
@@ -364,7 +364,7 @@ const BusinessAccountSummary = (props) => {
                     reset();
 
                     // redirect to home page
-                    history.push('/');
+                    navigate('/');
                 } else if (data || data.success) {
                     if (businessLogo !== logo) {
                         UploadService.uploadLogo(businessLogo)

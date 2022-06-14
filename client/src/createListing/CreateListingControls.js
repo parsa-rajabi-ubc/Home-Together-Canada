@@ -109,14 +109,15 @@ const CreateListingControls = (props) => {
                     onChange={(e) => setSelectedListingType(e.target.value)}
                 />
 
-                <RadioButton
-                    label={CLASSIFIEDS_TEXT}
-                    name={"listingType"}
-                    value={CLASSIFIEDS_TEXT}
-                    disabled={isUserMember}
-                    blockElement={true}
-                    onChange={(e) => setSelectedListingType(e.target.value)}
-                />
+                {/*local classifieds option is commented out below until classified feature is resumed.*/}
+                {/*<RadioButton*/}
+                {/*    label={CLASSIFIEDS_TEXT}*/}
+                {/*    name={"listingType"}*/}
+                {/*    value={CLASSIFIEDS_TEXT}*/}
+                {/*    disabled={isUserMember}*/}
+                {/*    blockElement={true}*/}
+                {/*    onChange={(e) => setSelectedListingType(e.target.value)}*/}
+                {/*/>*/}
             </section>
 
             {selectedListingType &&

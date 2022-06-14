@@ -23,13 +23,14 @@ import {
 import {ADMIN_TOAST} from "../../common/constants/ToastText";
 import Confirmation from "../../common/listings/Confirmation";
 import {BUSINESS_FIELDS} from "../../common/utils/listingsUtils";
+import {useNavigate} from "react-router-dom";
 
 toast.configure()
 
 const NO_LISTINGS = "No pending listings available";
 
-function PendingListingContainer(props) {
-    const { history } = props;
+function PendingListingContainer() {
+    let navigate = useNavigate()
     const [listingID, setListingID] = useState();
     const [listingStatus, setListingStatus] = useState();
     const [pendingListings, setPendingListings] = useState([]);
@@ -60,7 +61,7 @@ function PendingListingContainer(props) {
                     setPendingListings(formattedPendingListingData);
                 } else {
                     toast.error('There was an error fetching listings');
-                    history.push('/admin');
+                    navigate('/admin');
                 }
 
             })
