@@ -9,7 +9,7 @@ import {
     BUSINESS_SERVICE_CATEGORIES, MEMBER_SERVICE_CATEGORIES
 } from "../createListing/constants/serviceListingCategoriesText";
 import {BUSINESS_CLASSIFIEDS_CATEGORIES} from "../createListing/constants/classifiedListingCategoriesText";
-import * as faker from 'faker'
+import { faker } from '@faker-js/faker';
 
 export const mockServiceListings = [
     //CO-HOUSING 0
@@ -18,8 +18,8 @@ export const mockServiceListings = [
         category: BUSINESS_SERVICE_CATEGORIES.CO_HOUSING,
         fullDescription: faker.lorem.paragraph(),
         contactName: faker.name.findName(),
-        unitsForSale: faker.random.number(),
-        unitsForRent: faker.random.number(),
+        unitsForSale: faker.random.numeric(1),
+        unitsForRent: faker.random.numeric(1),
     },
     // SHARED HOME 1
     {
@@ -27,7 +27,7 @@ export const mockServiceListings = [
         category: BUSINESS_SERVICE_CATEGORIES.SHARED_HOME_SERVICES,
         fullDescription: faker.lorem.paragraph(),
         pictures: faker.image.cats(),
-        ratesAndFees: faker.random.number() + " " + faker.random.words(),
+        ratesAndFees: faker.random.numeric(3) + " " + faker.random.words(),
     },
     // SHARED BUSINESS 2
     {
@@ -35,7 +35,7 @@ export const mockServiceListings = [
         category: BUSINESS_SERVICE_CATEGORIES.SHARED_BUSINESS_SERVICES,
         fullDescription: faker.lorem.paragraph(),
         pictures: faker.image.cats(),
-        ratesAndFees: faker.random.number() + " " + faker.random.words(),
+        ratesAndFees: faker.random.numeric(3) + " " + faker.random.words(),
     },
     // GOVERNMENT 3
     {
@@ -43,7 +43,7 @@ export const mockServiceListings = [
         category: BUSINESS_SERVICE_CATEGORIES.GOVERNMENT_SERVICES,
         fullDescription: faker.lorem.paragraph(),
         contactName: faker.name.findName(),
-        contactPhoneNumber: faker.phone.phoneNumber(),
+        contactPhoneNumber: faker.phone.number(),
     },
     // MEMBER HOME TO SHARE 4
     {
@@ -52,13 +52,13 @@ export const mockServiceListings = [
         fullDescription: faker.lorem.paragraph(),
 
         generalLocation: faker.address.zipCode(),
-        monthlyCost: faker.random.number(),
+        monthlyCost: faker.random.numeric(4),
         pictures: faker.image.cats(),
-        numBed: faker.random.number(),
-        numBath: faker.random.number(),
-        petFriendly: faker.random.boolean(),
-        smokeFriendly: faker.random.boolean(),
-        utilIncluded: faker.random.boolean(),
+        numBed: faker.random.numeric(1),
+        numBath: faker.random.numeric(1),
+        petFriendly: faker.datatype.boolean(),
+        smokeFriendly: faker.datatype.boolean(),
+        utilIncluded: faker.datatype.boolean(),
     }
 ]
 
@@ -69,14 +69,14 @@ export const mockClassifiedsListings = [
         category: BUSINESS_CLASSIFIEDS_CATEGORIES.RENTALS,
         fullDescription: faker.lorem.paragraph(),
 
-        price: faker.random.number(),
+        price: faker.random.numeric(4),
         pictures: faker.image.cats(),
-        ratesAndFees: faker.random.number() + " " + faker.random.words(),
-        numBed: faker.random.number(),
-        numBath: faker.random.number(),
-        furnished: faker.random.boolean(),
-        petFriendly: faker.random.boolean(),
-        smokeFriendly: faker.random.boolean(),
+        ratesAndFees: faker.random.numeric(3) + " " + faker.random.words(),
+        numBed: faker.random.numeric(1),
+        numBath: faker.random.numeric(1),
+        furnished: faker.datatype.boolean(),
+        petFriendly: faker.datatype.boolean(),
+        smokeFriendly: faker.datatype.boolean(),
     },
     // HOUSE_YARD 1
     {
@@ -85,7 +85,7 @@ export const mockClassifiedsListings = [
         fullDescription: faker.lorem.paragraph(),
 
         pictures: faker.image.cats(),
-        ratesAndFees: faker.random.number() + " " + faker.random.words(),
+        ratesAndFees: faker.random.numeric(3) + " " + faker.random.words(),
     },
     // LEGAL_SALES 2
     {
@@ -94,7 +94,7 @@ export const mockClassifiedsListings = [
         fullDescription: faker.lorem.paragraph(),
 
         pictures: faker.image.cats(),
-        ratesAndFees: faker.random.number() + " " + faker.random.words(),
+        ratesAndFees: faker.random.numeric(3) + " " + faker.random.words(),
     },
     // CLASSES_CLUBS 3
     {
@@ -103,10 +103,10 @@ export const mockClassifiedsListings = [
         fullDescription: faker.lorem.paragraph(),
 
         contactName: faker.name.findName(),
-        contactPhoneNumber: faker.phone.phoneNumber(),
+        contactPhoneNumber: faker.phone.number(),
         pictures: faker.image.cats(),
-        ratesAndFees: faker.random.number() + " " + faker.random.words(),
-        eventDateTime: faker.date.soon() + " " + faker.time.recent()
+        ratesAndFees: faker.random.numeric(3) + " " + faker.random.words(),
+        eventDateTime: faker.date.soon()
     }
 ]
 
