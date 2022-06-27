@@ -21,7 +21,8 @@ function TextArea(props) {
         required,
         disabled = false,
         value,
-        charLimit
+        charLimit,
+        id
     } = props;
     return (
         <section>
@@ -38,6 +39,7 @@ function TextArea(props) {
                 disabled={disabled}
                 value={value}
                 maxLength={charLimit}
+                id={id}
             />
         </section>
     );
@@ -53,7 +55,8 @@ TextArea.propTypes = {
     onChange: PropTypes.func,
     disabled: PropTypes.bool,
     value: PropTypes.string,
-    charLimit: PropTypes.number
+    charLimit: PropTypes.number,
+    id: PropTypes.string,
 }
 
 export default TextArea;
