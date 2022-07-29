@@ -27,6 +27,7 @@ function PhoneNumInput(props){
                     type="text"
                     autoComplete="tel-area-code"
                     name="first"
+                    id={"areaCode"}
                     placeholder="222"
                     value={get(value, 'first', undefined)}
                     onChange={onChange}
@@ -39,6 +40,7 @@ function PhoneNumInput(props){
                     type="text"
                     autoComplete="tel-local-prefix"
                     name="middle"
+                    id={"prefix"}
                     placeholder="333"
                     value={get(value, 'middle', undefined)}
                     onChange={onChange}
@@ -51,6 +53,7 @@ function PhoneNumInput(props){
                     type="text"
                     autoComplete="tel-local-suffix"
                     name="last"
+                    id={"suffix"}
                     placeholder="4444"
                     value={get(value, 'last', undefined)}
                     onChange={onChange}
