@@ -712,6 +712,7 @@ function MemberRegistrationForm(props) {
                                 className={`${firstNameError && "border-red-500"} input`}
                                 labelClassName={"label"}
                                 label="First Name"
+                                id={"firstName"}
                                 autoComplete={"given-name"}
                                 required={true}
                                 onChange={(e) => setFirstName(e.target.value)}
@@ -721,6 +722,7 @@ function MemberRegistrationForm(props) {
                                 className={`${lastNameError && "border-red-500"} input`}
                                 labelClassName={"label"}
                                 label="Last Name"
+                                id={"lastName"}
                                 autoComplete={"family-name"}
                                 required={true}
                                 onChange={(e) => setLastName(e.target.value)}
@@ -730,6 +732,7 @@ function MemberRegistrationForm(props) {
                                 className={`${emailError && "border-red-500"} input`}
                                 placeholder="personal@email.ca"
                                 label="Email"
+                                id={"email"}
                                 autoComplete={"email"}
                                 labelClassName={"label"}
                                 required={true}
