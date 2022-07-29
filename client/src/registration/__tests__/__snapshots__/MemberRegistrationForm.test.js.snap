@@ -95,6 +95,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
               autoComplete="given-name"
               className="false undefined input"
               disabled={false}
+              id="firstName"
               maxLength={100}
               onChange={[Function]}
               type="text"
@@ -130,6 +131,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
               autoComplete="family-name"
               className="false undefined input"
               disabled={false}
+              id="lastName"
               maxLength={100}
               onChange={[Function]}
               type="text"
@@ -165,6 +167,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
               autoComplete="email"
               className="false undefined input"
               disabled={false}
+              id="email"
               maxLength={255}
               onChange={[Function]}
               placeholder="personal@email.ca"
