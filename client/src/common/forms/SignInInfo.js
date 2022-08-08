@@ -45,11 +45,12 @@ function SignInInfo(props) {
                 <LabelAsterisk label={"Username"}/>
                 <Tooltip
                     text={INFO_TEXT.USERNAME}
-                    toolTipID="username"
+                    toolTipID="usernameTooltip"
                 />
                 <input
                     className={`${usernameError && "border-red-500"} input`}
                     type="text"
+                    id={"username"}
                     onChange={onChangeUsername}
                     maxLength={USER_FIELD_LENGTHS.USERNAME}
                 />
@@ -58,11 +59,12 @@ function SignInInfo(props) {
                 <LabelAsterisk label={"Password"}/>
                 <Tooltip
                     text={INFO_TEXT.PASSWORD}
-                    toolTipID="password"
+                    toolTipID="passwordTooltip"
                 />
                 <input
                     className={`${(passwordError) && "border-red-500"} input`}
                     type={"password"}
+                    id={"password"}
                     onChange={onChangePassword}
                     maxLength={USER_FIELD_LENGTHS.PASSWORD}
                 />
@@ -73,6 +75,7 @@ function SignInInfo(props) {
                 <input
                     className={`${passwordConfirmError && "border-red-500 mb-0"} input`}
                     type={"password"}
+                    id={"passwordConfirmation"}
                     onChange={onChangePasswordCheck}
                     maxLength={USER_FIELD_LENGTHS.PASSWORD}
                 />
