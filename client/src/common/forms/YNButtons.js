@@ -21,8 +21,8 @@ function YNButton(props) {
                 {(required ? <Asterisk/> : '')}
                 {toolTipID && <Tooltip text={toolTipText} toolTipID={toolTipID}/>}
             </div>
-            <RadioButton label="No" name={name} value="no" onChange={onChange} checked={value==="no"} disabled={disabled}/>
-            <RadioButton label="Yes" name={name} value="yes" onChange={onChange} checked={value==="yes"} disabled={disabled}/>
+            <RadioButton label="No" name={name} value="no" onChange={onChange} checked={value==="no"} disabled={disabled} id={name+"_false"}/>
+            <RadioButton label="Yes" name={name} value="yes" onChange={onChange} checked={value==="yes"} disabled={disabled} id={name+"_true"}/>
         </div>
     );
 }
@@ -35,7 +35,7 @@ YNButton.propTypes = {
     required: PropTypes.bool,
     disabled: PropTypes.bool,
     onChange: PropTypes.func,
-    value: PropTypes.string
+    value: PropTypes.string,
 };
 
 export default YNButton;
