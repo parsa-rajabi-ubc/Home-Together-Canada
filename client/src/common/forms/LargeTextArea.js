@@ -24,7 +24,8 @@ function LargeTextArea(props) {
         toolTipText,
         rows,
         className = "input",
-        charLimit
+        charLimit,
+        id
     } = props;
     return (
         <div>
@@ -48,6 +49,7 @@ function LargeTextArea(props) {
                 disabled={disabled}
                 value={value}
                 maxLength={charLimit}
+                id={id}
             />
         </div>
     );
@@ -65,6 +67,7 @@ LargeTextArea.propTypes = {
     value: PropTypes.string,
     placeholder: PropTypes.string,
     className: PropTypes.string,
+    id: PropTypes.string,
     onChange: PropTypes.func,
     charLimit: PropTypes.number
 };
