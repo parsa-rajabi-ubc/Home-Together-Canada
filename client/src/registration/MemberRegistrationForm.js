@@ -801,19 +801,22 @@ function MemberRegistrationForm(props) {
                                             <div className={"my-2"}>
                                                 <RadioButton
                                                     label="Male"
+                                                    id="maleGender"
                                                     name="gender" value="Male"
                                                     checked={gender === "Male"}
                                                     onChange={(e) => setGender(e.target.value)}
                                                 />
                                                 <RadioButton
                                                     label="Female"
+                                                    id="femaleGender"
                                                     name="gender"
                                                     value="Female"
                                                     checked={gender === "Female"}
                                                     onChange={(e) => setGender(e.target.value)}
                                                 />
                                                 <RadioButton
-                                                    label="Other "
+                                                    label="Other"
+                                                    id="otherGender"
                                                     name="gender"
                                                     value="Other"
                                                     checked={gender === "Other"}
@@ -867,6 +870,7 @@ function MemberRegistrationForm(props) {
                                                 <input
                                                     className={`${minRentError && "border-red-500"} input`}
                                                     type="number"
+                                                    id="minRent"
                                                     min="0"
                                                     step="1"
                                                     placeholder="Min $ CAD"
@@ -877,6 +881,7 @@ function MemberRegistrationForm(props) {
                                                 <input
                                                     className={`${maxRentError && "border-red-500"} input`}
                                                     type="number"
+                                                    id="maxRent"
                                                     min={minRent}
                                                     step="1"
                                                     placeholder="Max $ CAD"
@@ -1081,6 +1086,7 @@ function MemberRegistrationForm(props) {
                                                 label={"Tell others about yourself"}
                                                 toolTipText={MEMBER_PROFILE_INFO_TEXT.ABOUT}
                                                 toolTipID="about"
+                                                id="aboutSelf"
                                                 rows={"5"}
                                                 required={false}
                                                 name="aboutSelf"
@@ -1122,21 +1128,21 @@ function MemberRegistrationForm(props) {
                                     <div className={"my-2"}>
                                         <Checkbox
                                             label="Male"
-                                            id="Male"
+                                            id={"sharingWithMale"}
                                             className={"align-middle mt-0 mr-1 mb-0 h-4 w-4 border-gray-300 rounded-lg"}
                                             fontNormal={true}
                                             onChange={handleGenderPrefChange}
                                         />
                                         <Checkbox
                                             label="Female"
-                                            id={"Female"}
+                                            id={"sharingWithFemale"}
                                             className={"align-middle mt-0 mr-1 mb-0 text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"}
                                             fontNormal={true}
                                             onChange={handleGenderPrefChange}
                                         />
                                         <Checkbox
                                             label="Other"
-                                            id={"Other"}
+                                            id={"sharingWithOther"}
                                             className={"align-middle mt-0 mr-1 mb-0 text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"}
                                             fontNormal={true}
                                             onChange={handleGenderPrefChange}
@@ -1160,6 +1166,7 @@ function MemberRegistrationForm(props) {
                                         <input
                                             className={`${minAgePreferenceError && "border-red-500"} input`}
                                             type="number"
+                                            id="minAge"
                                             min="16"
                                             step="1"
                                             placeholder="Min Age"
@@ -1170,6 +1177,7 @@ function MemberRegistrationForm(props) {
                                         <input
                                             className={`${maxAgePreferenceError && "border-red-500"} input`}
                                             type="number"
+                                            id="maxAge"
                                             min={minAgePreference}
                                             step="1"
                                             placeholder="Max Age"
@@ -1201,6 +1209,7 @@ function MemberRegistrationForm(props) {
                                         <input
                                             className={`${minBudgetPreferenceError && "border-red-500"} input`}
                                             type="number"
+                                            id="minOverlapBudget"
                                             min="0"
                                             step="1"
                                             placeholder="Min $ CAD"
@@ -1211,6 +1220,7 @@ function MemberRegistrationForm(props) {
                                         <input
                                             className={`${maxBudgetPreferenceError && "border-red-500"} input`}
                                             type="number"
+                                            id="maxOverlapBudget"
                                             min={minBudgetPreference}
                                             step="1"
                                             placeholder=" Max $ CAD"
@@ -1378,6 +1388,7 @@ function MemberRegistrationForm(props) {
                                             <Checkbox
                                                 label={"I have read and agreed to the Terms of Service"}
                                                 checked={termsOfServiceAgreed}
+                                                id={"tosCheckbox"}
                                                 onChange={() => setTermsOfServiceAgreed(!termsOfServiceAgreed)}
                                             />
                                         </div>
@@ -1398,6 +1409,7 @@ function MemberRegistrationForm(props) {
                                             <Checkbox
                                                 label={"I have read and agreed to the Privacy Policy"}
                                                 checked={privacyPolicyAgreed}
+                                                id={"privacyPolicyCheckbox"}
                                                 onChange={() => setPrivacyPolicyAgreed(!privacyPolicyAgreed)}
                                             />
                                         </div>
