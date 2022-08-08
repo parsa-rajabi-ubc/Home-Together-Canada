@@ -10,11 +10,11 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 function Button(props){
-    const { label, className, onClick, value } = props;
+    const { label, className, onClick, value, id} = props;
     return(
         <label>
             {label}
-            <input className={className} type="button" value={value} onClick={onClick}/>
+            <input className={className} type="button" value={value} onClick={onClick} id={id}/>
         </label>
     );
 }
@@ -22,6 +22,7 @@ Button.propTypes = {
     value: PropTypes.string.isRequired,
     className:  PropTypes.string,
     label: PropTypes.string,
+    id: PropTypes.string,
     onClick: PropTypes.func
 }
 
