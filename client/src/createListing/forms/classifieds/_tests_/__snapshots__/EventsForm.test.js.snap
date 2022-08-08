@@ -207,6 +207,7 @@ exports[`EventsForm Snapshot test should render correctly regardless of properti
                 <input
                   autoComplete="tel-area-code"
                   className="undefined phone"
+                  id="areaCode"
                   maxLength="3"
                   name="first"
                   onChange={[Function]}
@@ -218,6 +219,7 @@ exports[`EventsForm Snapshot test should render correctly regardless of properti
                 <input
                   autoComplete="tel-local-prefix"
                   className="undefined phone"
+                  id="prefix"
                   maxLength="3"
                   name="middle"
                   onChange={[Function]}
@@ -229,6 +231,7 @@ exports[`EventsForm Snapshot test should render correctly regardless of properti
                 <input
                   autoComplete="tel-local-suffix"
                   className="undefined phone"
+                  id="suffix"
                   maxLength="4"
                   name="last"
                   onChange={[Function]}

@@ -135,6 +135,7 @@ exports[`MemberHomeShareForm Snapshot test should render correctly regardless of
                   <input
                     checked={false}
                     className="form-radio mt-2 ml-2 mr-1 pb-4"
+                    id="utilIncluded_false"
                     name="utilIncluded"
                     onChange={[Function]}
                     type="radio"
@@ -152,6 +153,7 @@ exports[`MemberHomeShareForm Snapshot test should render correctly regardless of
                   <input
                     checked={false}
                     className="form-radio mt-2 ml-2 mr-1 pb-4"
+                    id="utilIncluded_true"
                     name="utilIncluded"
                     onChange={[Function]}
                     type="radio"
@@ -239,6 +241,7 @@ exports[`MemberHomeShareForm Snapshot test should render correctly regardless of
                   <input
                     checked={false}
                     className="form-radio mt-2 ml-2 mr-1 pb-4"
+                    id="petFriendly_false"
                     name="petFriendly"
                     onChange={[Function]}
                     type="radio"
@@ -256,6 +259,7 @@ exports[`MemberHomeShareForm Snapshot test should render correctly regardless of
                   <input
                     checked={false}
                     className="form-radio mt-2 ml-2 mr-1 pb-4"
+                    id="petFriendly_true"
                     name="petFriendly"
                     onChange={[Function]}
                     type="radio"
@@ -441,6 +445,7 @@ exports[`MemberHomeShareForm Snapshot test should render correctly regardless of
                   <input
                     checked={false}
                     className="form-radio mt-2 ml-2 mr-1 pb-4"
+                    id="smokeFriendly_false"
                     name="smokeFriendly"
                     onChange={[Function]}
                     type="radio"
@@ -458,6 +463,7 @@ exports[`MemberHomeShareForm Snapshot test should render correctly regardless of
                   <input
                     checked={false}
                     className="form-radio mt-2 ml-2 mr-1 pb-4"
+                    id="smokeFriendly_true"
                     name="smokeFriendly"
                     onChange={[Function]}
                     type="radio"

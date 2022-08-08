@@ -771,6 +771,7 @@ exports[`InterestedArea component Snapshot test should render correctly regardle
         <label>
           <input
             className="btn btn-green text-sm py-2 "
+            id="addMoreLocations"
             onClick={[Function]}
             type="button"
             value="Add Another Location"

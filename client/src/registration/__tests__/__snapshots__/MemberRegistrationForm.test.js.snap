@@ -205,6 +205,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
               <input
                 autoComplete="tel-area-code"
                 className="undefined phone"
+                id="areaCode"
                 maxLength="3"
                 name="first"
                 onChange={[Function]}
@@ -216,6 +217,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
               <input
                 autoComplete="tel-local-prefix"
                 className="undefined phone"
+                id="prefix"
                 maxLength="3"
                 name="middle"
                 onChange={[Function]}
@@ -227,6 +229,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
               <input
                 autoComplete="tel-local-suffix"
                 className="undefined phone"
+                id="suffix"
                 maxLength="4"
                 name="last"
                 onChange={[Function]}
@@ -645,6 +648,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                         <input
                           checked={false}
                           className="form-radio mt-2 ml-2 mr-1 pb-4"
+                          id="maleGender"
                           name="gender"
                           onChange={[Function]}
                           type="radio"
@@ -662,6 +666,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                         <input
                           checked={false}
                           className="form-radio mt-2 ml-2 mr-1 pb-4"
+                          id="femaleGender"
                           name="gender"
                           onChange={[Function]}
                           type="radio"
@@ -679,12 +684,13 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                         <input
                           checked={false}
                           className="form-radio mt-2 ml-2 mr-1 pb-4"
+                          id="otherGender"
                           name="gender"
                           onChange={[Function]}
                           type="radio"
                           value="Other"
                         />
-                        Other 
+                        Other
                       </label>
                     </span>
                   </div>
@@ -1715,6 +1721,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                   >
                     <input
                       className="undefined input"
+                      id="minRent"
                       min="0"
                       onChange={[Function]}
                       placeholder="Min $ CAD"
@@ -1727,6 +1734,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                   >
                     <input
                       className="undefined input"
+                      id="maxRent"
                       onChange={[Function]}
                       placeholder="Max $ CAD"
                       step="1"
@@ -2016,6 +2024,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                         <label>
                           <input
                             className="btn btn-green text-sm py-2 "
+                            id="addMoreLocations"
                             onClick={[Function]}
                             type="button"
                             value="Add Another Location"
@@ -2186,6 +2195,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                             <input
                               checked={false}
                               className="form-radio mt-2 ml-2 mr-1 pb-4"
+                              id="petFriendly_false"
                               name="petFriendly"
                               onChange={[Function]}
                               type="radio"
@@ -2203,6 +2213,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                             <input
                               checked={false}
                               className="form-radio mt-2 ml-2 mr-1 pb-4"
+                              id="petFriendly_true"
                               name="petFriendly"
                               onChange={[Function]}
                               type="radio"
@@ -2372,6 +2383,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                             <input
                               checked={false}
                               className="form-radio mt-2 ml-2 mr-1 pb-4"
+                              id="smoking_false"
                               name="smoking"
                               onChange={[Function]}
                               type="radio"
@@ -2389,6 +2401,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                             <input
                               checked={false}
                               className="form-radio mt-2 ml-2 mr-1 pb-4"
+                              id="smoking_true"
                               name="smoking"
                               onChange={[Function]}
                               type="radio"
@@ -2558,6 +2571,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                             <input
                               checked={false}
                               className="form-radio mt-2 ml-2 mr-1 pb-4"
+                              id="mobile_false"
                               name="mobile"
                               onChange={[Function]}
                               type="radio"
@@ -2575,6 +2589,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                             <input
                               checked={false}
                               className="form-radio mt-2 ml-2 mr-1 pb-4"
+                              id="mobile_true"
                               name="mobile"
                               onChange={[Function]}
                               type="radio"
@@ -2629,6 +2644,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                             <input
                               checked={false}
                               className="form-radio mt-2 ml-2 mr-1 pb-4"
+                              id="allergies_false"
                               name="allergies"
                               onChange={[Function]}
                               type="radio"
@@ -2646,6 +2662,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                             <input
                               checked={false}
                               className="form-radio mt-2 ml-2 mr-1 pb-4"
+                              id="allergies_true"
                               name="allergies"
                               onChange={[Function]}
                               type="radio"
@@ -2815,6 +2832,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                             <input
                               checked={false}
                               className="form-radio mt-2 ml-2 mr-1 pb-4"
+                              id="religion_false"
                               name="religion"
                               onChange={[Function]}
                               type="radio"
@@ -2832,6 +2850,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                             <input
                               checked={false}
                               className="form-radio mt-2 ml-2 mr-1 pb-4"
+                              id="religion_true"
                               name="religion"
                               onChange={[Function]}
                               type="radio"
@@ -3001,6 +3020,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                             <input
                               checked={false}
                               className="form-radio mt-2 ml-2 mr-1 pb-4"
+                              id="diet_false"
                               name="diet"
                               onChange={[Function]}
                               type="radio"
@@ -3018,6 +3038,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                             <input
                               checked={false}
                               className="form-radio mt-2 ml-2 mr-1 pb-4"
+                              id="diet_true"
                               name="diet"
                               onChange={[Function]}
                               type="radio"
@@ -3187,6 +3208,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                             <input
                               checked={false}
                               className="form-radio mt-2 ml-2 mr-1 pb-4"
+                              id="hasHome_false"
                               name="hasHome"
                               onChange={[Function]}
                               type="radio"
@@ -3204,6 +3226,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                             <input
                               checked={false}
                               className="form-radio mt-2 ml-2 mr-1 pb-4"
+                              id="hasHome_true"
                               name="hasHome"
                               onChange={[Function]}
                               type="radio"
@@ -3258,6 +3281,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                             <input
                               checked={false}
                               className="form-radio mt-2 ml-2 mr-1 pb-4"
+                              id="interestInBuyingHome_false"
                               name="interestInBuyingHome"
                               onChange={[Function]}
                               type="radio"
@@ -3275,6 +3299,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                             <input
                               checked={false}
                               className="form-radio mt-2 ml-2 mr-1 pb-4"
+                              id="interestInBuyingHome_true"
                               name="interestInBuyingHome"
                               onChange={[Function]}
                               type="radio"
@@ -3415,6 +3440,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                     <textarea
                       className="undefined undefined input"
                       cols="50"
+                      id="aboutSelf"
                       maxLength={2000}
                       name="aboutSelf"
                       onChange={[Function]}
@@ -3622,7 +3648,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                 >
                   <input
                     className="align-middle mt-0 mr-1 mb-0 h-4 w-4 border-gray-300 rounded-lg"
-                    id="Male"
+                    id="sharingWithMale"
                     onChange={[Function]}
                     type="checkbox"
                   />
@@ -3637,7 +3663,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                 >
                   <input
                     className="align-middle mt-0 mr-1 mb-0 text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
-                    id="Female"
+                    id="sharingWithFemale"
                     onChange={[Function]}
                     type="checkbox"
                   />
@@ -3652,7 +3678,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                 >
                   <input
                     className="align-middle mt-0 mr-1 mb-0 text-gray-700 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-lg"
-                    id="Other"
+                    id="sharingWithOther"
                     onChange={[Function]}
                     type="checkbox"
                   />
@@ -4061,6 +4087,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
               >
                 <input
                   className="undefined input"
+                  id="minAge"
                   min="16"
                   onChange={[Function]}
                   placeholder="Min Age"
@@ -4073,6 +4100,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
               >
                 <input
                   className="undefined input"
+                  id="maxAge"
                   min=""
                   onChange={[Function]}
                   placeholder="Max Age"
@@ -4486,6 +4514,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
               >
                 <input
                   className="undefined input"
+                  id="minOverlapBudget"
                   min="0"
                   onChange={[Function]}
                   placeholder="Min $ CAD"
@@ -4498,6 +4527,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
               >
                 <input
                   className="undefined input"
+                  id="maxOverlapBudget"
                   min=""
                   onChange={[Function]}
                   placeholder=" Max $ CAD"
@@ -4672,6 +4702,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                         <input
                           checked={false}
                           className="form-radio mt-2 ml-2 mr-1 pb-4"
+                          id="petFriendlyPref_false"
                           name="petFriendlyPref"
                           onChange={[Function]}
                           type="radio"
@@ -4689,6 +4720,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                         <input
                           checked={false}
                           className="form-radio mt-2 ml-2 mr-1 pb-4"
+                          id="petFriendlyPref_true"
                           name="petFriendlyPref"
                           onChange={[Function]}
                           type="radio"
@@ -4858,6 +4890,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                         <input
                           checked={false}
                           className="form-radio mt-2 ml-2 mr-1 pb-4"
+                          id="smokingPref_false"
                           name="smokingPref"
                           onChange={[Function]}
                           type="radio"
@@ -4875,6 +4908,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                         <input
                           checked={false}
                           className="form-radio mt-2 ml-2 mr-1 pb-4"
+                          id="smokingPref_true"
                           name="smokingPref"
                           onChange={[Function]}
                           type="radio"
@@ -5044,6 +5078,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                         <input
                           checked={false}
                           className="form-radio mt-2 ml-2 mr-1 pb-4"
+                          id="religionPref_false"
                           name="religionPref"
                           onChange={[Function]}
                           type="radio"
@@ -5061,6 +5096,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                         <input
                           checked={false}
                           className="form-radio mt-2 ml-2 mr-1 pb-4"
+                          id="religionPref_true"
                           name="religionPref"
                           onChange={[Function]}
                           type="radio"
@@ -5230,6 +5266,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                         <input
                           checked={false}
                           className="form-radio mt-2 ml-2 mr-1 pb-4"
+                          id="dietPref_false"
                           name="dietPref"
                           onChange={[Function]}
                           type="radio"
@@ -5247,6 +5284,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                         <input
                           checked={false}
                           className="form-radio mt-2 ml-2 mr-1 pb-4"
+                          id="dietPref_true"
                           name="dietPref"
                           onChange={[Function]}
                           type="radio"
@@ -5416,6 +5454,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                         <input
                           checked={false}
                           className="form-radio mt-2 ml-2 mr-1 pb-4"
+                          id="homeToSharePref_false"
                           name="homeToSharePref"
                           onChange={[Function]}
                           type="radio"
@@ -5433,6 +5472,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                         <input
                           checked={false}
                           className="form-radio mt-2 ml-2 mr-1 pb-4"
+                          id="homeToSharePref_true"
                           name="homeToSharePref"
                           onChange={[Function]}
                           type="radio"
@@ -5536,7 +5576,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                     </label>
                     <span>
                       <span
-                        data-for="username"
+                        data-for="usernameTooltip"
                         data-tip={true}
                       >
                         <svg
@@ -5562,7 +5602,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                       <div
                         className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                         data-id="tooltip"
-                        id="username"
+                        id="usernameTooltip"
                       >
                         <style
                           aria-hidden="true"
@@ -5651,6 +5691,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                     </span>
                     <input
                       className="undefined input"
+                      id="username"
                       maxLength={50}
                       onChange={[Function]}
                       type="text"
@@ -5685,7 +5726,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                     </label>
                     <span>
                       <span
-                        data-for="password"
+                        data-for="passwordTooltip"
                         data-tip={true}
                       >
                         <svg
@@ -5711,7 +5752,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                       <div
                         className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                         data-id="tooltip"
-                        id="password"
+                        id="passwordTooltip"
                       >
                         <style
                           aria-hidden="true"
@@ -5800,6 +5841,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                     </span>
                     <input
                       className="undefined input"
+                      id="password"
                       maxLength={255}
                       onChange={[Function]}
                       type="password"
@@ -5834,6 +5876,7 @@ exports[`MemberRegistrationForm should render correctly regardless of properties
                     </label>
                     <input
                       className="null input"
+                      id="passwordConfirmation"
                       maxLength={255}
                       onChange={[Function]}
                       type="password"
@@ -6171,6 +6214,7 @@ If you have any questions or concerns about our Terms, please contact us by e-ma
                     <input
                       checked={false}
                       className="defaultCheckboxCSS"
+                      id="tosCheckbox"
                       onChange={[Function]}
                       type="checkbox"
                     />
@@ -6398,6 +6442,7 @@ If you have any questions or concerns about our Privacy Policy, or how we have h
                     <input
                       checked={false}
                       className="defaultCheckboxCSS"
+                      id="privacyPolicyCheckbox"
                       onChange={[Function]}
                       type="checkbox"
                     />

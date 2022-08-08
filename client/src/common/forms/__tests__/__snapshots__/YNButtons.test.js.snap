@@ -19,6 +19,7 @@ exports[`YNButtons Snapshot test should render correctly regardless of propertie
       <input
         checked={false}
         className="form-radio mt-2 ml-2 mr-1 pb-4"
+        id="testName_false"
         name="testName"
         type="radio"
         value="no"
@@ -35,6 +36,7 @@ exports[`YNButtons Snapshot test should render correctly regardless of propertie
       <input
         checked={false}
         className="form-radio mt-2 ml-2 mr-1 pb-4"
+        id="testName_true"
         name="testName"
         type="radio"
         value="yes"

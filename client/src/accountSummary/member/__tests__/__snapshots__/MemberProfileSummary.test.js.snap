@@ -2103,6 +2103,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                   <label>
                     <input
                       className="btn btn-green text-sm py-2 "
+                      id="addMoreLocations"
                       onClick={[Function]}
                       type="button"
                       value="Add Another Location"
@@ -2273,6 +2274,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       <input
                         checked={false}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="petFriendly_false"
                         name="petFriendly"
                         onChange={[Function]}
                         type="radio"
@@ -2290,6 +2292,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       <input
                         checked={true}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="petFriendly_true"
                         name="petFriendly"
                         onChange={[Function]}
                         type="radio"
@@ -2472,6 +2475,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       <input
                         checked={false}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="smoking_false"
                         name="smoking"
                         onChange={[Function]}
                         type="radio"
@@ -2489,6 +2493,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       <input
                         checked={true}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="smoking_true"
                         name="smoking"
                         onChange={[Function]}
                         type="radio"
@@ -2671,6 +2676,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       <input
                         checked={true}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="mobile_false"
                         name="mobile"
                         onChange={[Function]}
                         type="radio"
@@ -2688,6 +2694,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       <input
                         checked={false}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="mobile_true"
                         name="mobile"
                         onChange={[Function]}
                         type="radio"
@@ -2742,6 +2749,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       <input
                         checked={false}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="allergies_false"
                         name="allergies"
                         onChange={[Function]}
                         type="radio"
@@ -2759,6 +2767,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       <input
                         checked={true}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="allergies_true"
                         name="allergies"
                         onChange={[Function]}
                         type="radio"
@@ -2941,6 +2950,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       <input
                         checked={false}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="religion_false"
                         name="religion"
                         onChange={[Function]}
                         type="radio"
@@ -2958,6 +2968,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       <input
                         checked={true}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="religion_true"
                         name="religion"
                         onChange={[Function]}
                         type="radio"
@@ -3140,6 +3151,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       <input
                         checked={true}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="diet_false"
                         name="diet"
                         onChange={[Function]}
                         type="radio"
@@ -3157,6 +3169,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       <input
                         checked={false}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="diet_true"
                         name="diet"
                         onChange={[Function]}
                         type="radio"
@@ -3326,6 +3339,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       <input
                         checked={true}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="hasHome_false"
                         name="hasHome"
                         onChange={[Function]}
                         type="radio"
@@ -3343,6 +3357,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       <input
                         checked={false}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="hasHome_true"
                         name="hasHome"
                         onChange={[Function]}
                         type="radio"
@@ -3397,6 +3412,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       <input
                         checked={true}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="interestInBuyingHome_false"
                         name="interestInBuyingHome"
                         onChange={[Function]}
                         type="radio"
@@ -3414,6 +3430,7 @@ exports[`MemberProfileSummary should render correctly regardless of properties 1
                       <input
                         checked={false}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="interestInBuyingHome_true"
                         name="interestInBuyingHome"
                         onChange={[Function]}
                         type="radio"

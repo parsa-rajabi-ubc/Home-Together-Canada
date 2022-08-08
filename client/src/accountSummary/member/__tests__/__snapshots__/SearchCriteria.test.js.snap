@@ -1343,6 +1343,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                       <input
                         checked={false}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="petFriendlyPref_false"
                         name="petFriendlyPref"
                         onChange={[Function]}
                         type="radio"
@@ -1360,6 +1361,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                       <input
                         checked={true}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="petFriendlyPref_true"
                         name="petFriendlyPref"
                         onChange={[Function]}
                         type="radio"
@@ -1529,6 +1531,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                       <input
                         checked={true}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="smokingPref_false"
                         name="smokingPref"
                         onChange={[Function]}
                         type="radio"
@@ -1546,6 +1549,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                       <input
                         checked={false}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="smokingPref_true"
                         name="smokingPref"
                         onChange={[Function]}
                         type="radio"
@@ -1715,6 +1719,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                       <input
                         checked={false}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="religionPref_false"
                         name="religionPref"
                         onChange={[Function]}
                         type="radio"
@@ -1732,6 +1737,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                       <input
                         checked={true}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="religionPref_true"
                         name="religionPref"
                         onChange={[Function]}
                         type="radio"
@@ -1901,6 +1907,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                       <input
                         checked={true}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="dietPref_false"
                         name="dietPref"
                         onChange={[Function]}
                         type="radio"
@@ -1918,6 +1925,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                       <input
                         checked={false}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="dietPref_true"
                         name="dietPref"
                         onChange={[Function]}
                         type="radio"
@@ -2087,6 +2095,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                       <input
                         checked={false}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="homeToSharePref_false"
                         name="homeToSharePref"
                         onChange={[Function]}
                         type="radio"
@@ -2104,6 +2113,7 @@ exports[`SearchCriteria Snapshot test should render correctly regardless of prop
                       <input
                         checked={true}
                         className="form-radio mt-2 ml-2 mr-1 pb-4"
+                        id="homeToSharePref_true"
                         name="homeToSharePref"
                         onChange={[Function]}
                         type="radio"

@@ -310,6 +310,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 <input
                   autoComplete="tel-area-code"
                   className="undefined phone"
+                  id="areaCode"
                   maxLength="3"
                   name="first"
                   onChange={[Function]}
@@ -321,6 +322,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 <input
                   autoComplete="tel-local-prefix"
                   className="undefined phone"
+                  id="prefix"
                   maxLength="3"
                   name="middle"
                   onChange={[Function]}
@@ -332,6 +334,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 <input
                   autoComplete="tel-local-suffix"
                   className="undefined phone"
+                  id="suffix"
                   maxLength="4"
                   name="last"
                   onChange={[Function]}
@@ -371,6 +374,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 <input
                   autoComplete="tel-area-code"
                   className="undefined phone"
+                  id="areaCode"
                   maxLength="3"
                   name="first"
                   onChange={[Function]}
@@ -382,6 +386,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 <input
                   autoComplete="tel-local-prefix"
                   className="undefined phone"
+                  id="prefix"
                   maxLength="3"
                   name="middle"
                   onChange={[Function]}
@@ -393,6 +398,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                 <input
                   autoComplete="tel-local-suffix"
                   className="undefined phone"
+                  id="suffix"
                   maxLength="4"
                   name="last"
                   onChange={[Function]}
@@ -1466,6 +1472,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
               <input
                 autoComplete="tel-area-code"
                 className="undefined phone"
+                id="areaCode"
                 maxLength="3"
                 name="first"
                 onChange={[Function]}
@@ -1477,6 +1484,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
               <input
                 autoComplete="tel-local-prefix"
                 className="undefined phone"
+                id="prefix"
                 maxLength="3"
                 name="middle"
                 onChange={[Function]}
@@ -1488,6 +1496,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
               <input
                 autoComplete="tel-local-suffix"
                 className="undefined phone"
+                id="suffix"
                 maxLength="4"
                 name="last"
                 onChange={[Function]}
@@ -1572,7 +1581,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                     </label>
                     <span>
                       <span
-                        data-for="username"
+                        data-for="usernameTooltip"
                         data-tip={true}
                       >
                         <svg
@@ -1598,7 +1607,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                       <div
                         className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                         data-id="tooltip"
-                        id="username"
+                        id="usernameTooltip"
                       >
                         <style
                           aria-hidden="true"
@@ -1687,6 +1696,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                     </span>
                     <input
                       className="undefined input"
+                      id="username"
                       maxLength={50}
                       onChange={[Function]}
                       type="text"
@@ -1721,7 +1731,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                     </label>
                     <span>
                       <span
-                        data-for="password"
+                        data-for="passwordTooltip"
                         data-tip={true}
                       >
                         <svg
@@ -1747,7 +1757,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                       <div
                         className="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-top type-dark"
                         data-id="tooltip"
-                        id="password"
+                        id="passwordTooltip"
                       >
                         <style
                           aria-hidden="true"
@@ -1836,6 +1846,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                     </span>
                     <input
                       className="undefined input"
+                      id="password"
                       maxLength={255}
                       onChange={[Function]}
                       type="password"
@@ -1870,6 +1881,7 @@ exports[`BusinessRegistrationForm should render correctly regardless of properti
                     </label>
                     <input
                       className="undefined input"
+                      id="passwordConfirmation"
                       maxLength={255}
                       onChange={[Function]}
                       type="password"
