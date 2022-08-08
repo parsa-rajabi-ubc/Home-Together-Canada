@@ -9,7 +9,7 @@ import React from 'react'
 import PropTypes from 'prop-types';
 
 function RadioButton(props) {
-    const {label, name, value, checked, onChange, blockElement = false, disabled} = props;
+    const {label, name, value, checked, onChange, blockElement = false, disabled, id} = props;
     return (
         <span className={`${blockElement && "block"}`}>
         <label className={"text-base text-gray-700 pr-8"}>
@@ -22,6 +22,7 @@ function RadioButton(props) {
                 checked={checked}
                 onChange={onChange}
                 disabled={disabled}
+                id={id}
             />
             {label}
         </label>
@@ -36,7 +37,8 @@ RadioButton.propTypes = {
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
     blockElement: PropTypes.bool,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    id: PropTypes.string
 }
 
 export default RadioButton;
