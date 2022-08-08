@@ -106,6 +106,7 @@ function InterestedArea(props) {
                                     <Button
                                         className="btn btn-green text-sm py-2 "
                                         value="Add Another Location"
+                                        id={"addMoreLocations"}
                                         onClick={() => handleAddClick()}
                                     />
                                 }
