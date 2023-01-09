@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node server/bin/www",
     "test": "jest",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm run build && cd .. && npm start"
   },
   "dependencies": {
     "@turf/boolean-overlap": "^6.5.0",
