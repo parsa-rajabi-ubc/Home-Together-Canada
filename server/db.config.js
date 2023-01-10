@@ -10,19 +10,14 @@ const personalConfig = require('./personalConfig/personalDbConfig');
 module.exports = {
     development: personalConfig.development,
     test: personalConfig.test,
+    // replace heroku db connection with digitalocean db in Jan 2023, switched from heroku to railway.app for hosting staging env
     staging: {
-        DB: "heroku_a2e066b08e4b1b7",
-        USER: "b78602ef23aff8",
-        PASSWORD: "32764ac4",
-        HOST: "us-cdbr-east-02.cleardb.com",
-        POOL: {
-            max: 5,
-            min: 0,
-            acquire: 30000,
-            idle: 10000
-        },
+        HOST: "hometogethercanadadatabase-do-user-9184613-0.b.db.ondigitalocean.com",
+        PORT: 25060,
+        USER: "dev",
+        PASSWORD: "AVNS_W8FXyq8eBs98G9xZBYk",
+        DB: "dev",
         DIALECT: "mysql",
-        PORT: 3306
     },
     production: {
         HOST: "hometogethercanadadatabase-do-user-9184613-0.b.db.ondigitalocean.com",
