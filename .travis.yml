@@ -1,20 +1,10 @@
 language: node_js
 node_js:
-- 17
+  - 17
 install:
-- npm install
-- cd client
-- npm install
-- cd ..
+  - npm install
+  - cd client
+  - npm install
+  - cd ..
 script: npm test
 before_deploy: "npm cache clean --force"
-#deploy:
-#  provider: netlify
-#  on:
-#    repo: parsa-rajabi/Home-Together-Canada
-#    branch: dev
-#  api_key:
-#    secure: xbNjPFnU4pEoO9q01TL7Dw
-#  app: home-together-canada
-##notifications:
-#  slack: cosc-499-2020:OxD2XZKUV8nVB5gWyUy5Z6gY
